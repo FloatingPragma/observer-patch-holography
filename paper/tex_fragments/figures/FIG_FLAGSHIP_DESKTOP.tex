@@ -1,0 +1,38 @@
+% Figure: the desktop picture of the flagship introduction. Hardware, agreed records and the effective description observers fit to them.
+\begin{tikzpicture}[
+  col/.style={oph box=#1, text width=4.2cm, align=flush left, inner sep=5pt, minimum height=40mm, anchor=north}]
+\node[col=ophgrey] (hw) at (-5.85,0) {%
+  {\footnotesize\bfseries The hardware}\\[4pt]
+  {\scriptsize
+  cells with twelve ports each\\
+  seams with a private memory\\
+  integer loads on the ports\\
+  one local law, one coupling\\[4pt]
+  no positions, no common clock\\
+  and no particles}};
+\node[col=ophnative] (rec) at (0,0) {%
+  {\footnotesize\bfseries\color{ophnative} Agreed records}\\[4pt]
+  {\scriptsize
+  readings copied from both ends\\
+  of a seam, kept when equal\\
+  public records independent\\
+  of the order of repairs\\
+  Born weights, Tsirelson bound\\
+  each observer's own count}};
+\node[col=ophchecked] (desk) at (5.85,0) {%
+  {\footnotesize\bfseries\color{ophchecked} The observers' desktop}\\[4pt]
+  {\scriptsize
+  three spatial directions\\
+  flat $3{+}1$D wave equation (\S\ref{sec:three-directions})\\
+  calibrated moving clocks lag\\
+  stable particles (\S\ref{sec:observer-runs})\\
+  Standard Model gauge structure\\ (\S\ref{sec:gauge})\\
+  Einstein's equation (\S\ref{sec:einstein})}};
+\draw[oph arrow=ophnative] ($(hw.east)+(0,-0.2)$)--($(rec.west)+(0,-0.2)$)
+  node[midway, above, font=\scriptsize, text=ophnative, align=center] {read,\\compare,\\repair};
+\draw[oph arrow=ophchecked] ($(rec.east)+(0,-0.2)$)--($(desk.west)+(0,-0.2)$)
+  node[midway, above, font=\scriptsize, text=ophchecked, align=center] {fit a\\model};
+\draw[oph arrow=ophgrey, dash pattern=on 2pt off 1.6pt, rounded corners=6pt]
+  (desk.south) -- ++(0,-0.45) -| (hw.south)
+  node[pos=0.25, below, font=\scriptsize, text=ophgrey] {closure: observers recover the specification of their hardware and build it (\S\ref{sec:strange-loop})};
+\end{tikzpicture}

@@ -109,43 +109,157 @@ emergent spacetime; gauge structure; particle physics; Einstein dynamics.
 \section{Introduction}
 \label{sec:intro}
 
-Imagine receiving the reports of eight stations with their coordinates
-erased. Each station can launch a pulse, count local clock events and
-report where the pulse was detected. Which stations are neighbours?
-How many directions can a pulse travel? On the finite computer studied
-here, the first round of detector counts answers both questions. The
-eight stations have twelve links and three independent binary
-coordinates. With the walk rule and a separately calibrated material
-clock, these coordinates predict all twenty-four distributions measured
-at three later clock readings. The largest absolute error in a recorded
-probability is $0.001022$. Merging the stations along any one recovered
-direction forces an error of at least $0.11377$ in the corresponding
-population predictions \cite{ophmodel}.
+A person at a computer works on a desktop. Windows stay where they were
+put, files persist and the pointer glides across the screen. None of
+these objects exists in the circuitry, which holds voltages in
+registers. The desktop is the stable description that the interface
+gives of those registers, and a user can learn reliable laws of the
+desktop without ever seeing a transistor.
 
-The hardware underneath this experiment is a spherical network of
-icosahedral cells. Each cell has twelve ports, and each connecting seam
-carries a finite memory. The wiring specifies which ports can interact.
-The positions just reconstructed describe the propagation of a scalar
-excitation under a particular routing of those interactions. For a given
-preparation and schedule, the computation deterministically evolves the
-state between measurements and calculates the probabilities of the
-possible detector records. An observer inside the experiment learns a
-propagation law from those records. On bounded times and momentum bands,
-refining the routing gives the free Klein--Gordon equation in flat
-$3{+}1$-dimensional spacetime. The routing is part of the apparatus
-\cite{ophmodel}.
+Observer Patch Holography (OPH) proposes that physics is a desktop of
+this kind, seen by observers who are themselves part of the
+computation. The hardware studied here is a sphere of small cells. Each
+cell has twelve ports, neighbouring ports are joined by seams, and each
+seam keeps a small private memory. One fixed local law acts on the
+ports and seams. Nothing in this hardware is a position, a common clock
+or a particle. Observers read their boundaries, write records, compare
+records where they overlap and repair disagreements. What survives every
+comparison is their public record, and space, time, fields and
+particles are the descriptions observers fit to it. The thesis of this
+paper is that these descriptions are the familiar ones: observers inside
+the computation can describe their agreed records by a
+three-dimensional space with relativistic time, stable particles, the
+gauge structure of the Standard Model and gravity
+(Figure~\ref{fig:desktop}).
 
-There is a second question an observer could ask of its records. Can
-it recover the machinery that made them? In a finite carrier experiment,
-event logs and a specified set of probes determine the twelve ports,
-their thirty internal seams and the local repair rule. Running the
-recovered description reproduces the measured invariants through two
-iterations. The closure hypothesis extends this kind of test to an
-entire history. Its observers must recover a specification and build a
-realization whose records and responses agree with the history
+\begin{figure}[!htb]
+\centering
+\input{../paper/tex_fragments/figures/FIG_FLAGSHIP_DESKTOP.tex}
+\caption{The desktop picture. The hardware is a finite computation on
+registers. Observers inside it read, compare and repair records, and
+what survives every comparison is public. The descriptions they fit to
+their public records form their desktop; each entry names the section
+that establishes it and states its premises there. The dashed arrow is
+the closure hypothesis of Section~\ref{sec:strange-loop}.}
+\label{fig:desktop}
+\end{figure}
+
+\paragraph{Space.} Imagine receiving the reports of eight stations with
+their coordinates erased. Each station can launch a pulse, count local
+clock events and report where the pulse was detected. Which stations are
+neighbours? How many directions can a pulse travel? On the finite
+computer studied here, the first round of detector counts answers both
+questions. The eight stations have twelve links and three independent
+binary coordinates. With the walk rule and a separately calibrated
+material clock, these coordinates predict all twenty-four distributions
+measured at three later clock readings. The largest absolute error in a
+recorded probability is $0.001022$. Merging the stations along any one
+recovered direction forces an error of at least $0.11377$ in the
+corresponding population predictions. The positions just reconstructed
+describe a scalar excitation carried by a programmed routing of the seam
+interactions, and the routing is part of the apparatus. On bounded times
+and momentum bands, refining the routing gives the Klein--Gordon
+equation in flat $3{+}1$-dimensional spacetime
+(Section~\ref{sec:three-directions}) \cite{ophmodel}.
+
+\paragraph{Particles.} A desktop needs objects that keep their identity.
+On the same hardware a local emitter writes two loads onto the two ends
+of one seam, and then the law runs alone. A theorem bounds the
+probability that the observers find no pair at a later first reading by
+$40/(2\kappa-6)^2$ for every number of cells, where $\kappa>3$ is the one
+coupling of the law. Observers read the pair on other seams than the one
+it was written on, and nothing holds it together except the law.
+The same law with its agreement energy removed loses the pair
+(Section~\ref{sec:observer-runs}).
+
+\paragraph{Gravity.} Gravity relates two independent measurements.
+Matter changes the geometry that observers measure with clocks and
+rulers, and the size of the change is fixed by the energy of that matter
+measured with material probes. At fixed proper volume, positive
+curvature shrinks the boundary area of a small ball. If entropy is
+stationary, the area deficit balances the matter entropy inside. Ten
+observers moving through one event, each measuring both sides on its own
+shrinking balls, determine every component of Einstein's equation. A
+modification of the executable model supplies all three measured inputs
+on a material of clock pairs whose spherical pull and pair rule are part
+of its declared law, and an independent light beam measures the focusing they predict
+(Section~\ref{sec:einstein}).
+
+\paragraph{Records and the machine itself.} Beneath these descriptions
+lie the rules of records. Local repair that terminates and commutes on
+overlaps leaves one public record whatever the order of repairs, and
+completed records, represented on a finite quantum algebra, obey the Born
+rule and the Tsirelson bound
+(Section~\ref{sec:consensus}). An observer can also ask whether its
+records reveal the machinery that made them. In a finite carrier
+experiment, event logs and a specified set of probes determine the
+twelve ports, their thirty internal seams and the local repair rule.
+Running the recovered description reproduces the measured invariants
+through two iterations. The closure hypothesis extends this kind of test
+to an entire history. Its observers must recover a specification and
+build a realization whose records and responses agree with the history
 containing those observers, their discovery and their construction.
 This is the physical meaning of self-creation proposed here
 (Section~\ref{sec:strange-loop}) \cite{ophsim}.
+
+\subsection{A short dictionary}
+\label{sec:dictionary}
+
+OPH uses a small number of terms in a precise sense. Their formal
+definitions appear where they are first used, and their intuitive
+meanings are collected here.
+
+\begin{description}[leftmargin=1.2em,itemsep=1pt,parsep=0pt]
+\item[Observer, or observer patch.] A finite bookkeeper inside the
+computation. It holds some local state, reads the boundary it shares
+with its neighbours, keeps records and uses them to choose its next
+operation. It can be simple; the definition asks for no awareness. In
+the executable model a cell, or a group of cells, is an observer and its
+ports are its interfaces.
+\item[Record.] The written outcome of a reading, which later events do
+not erase. A record is \emph{public} when every authorized comparison
+with neighbouring observers preserves it. No single observer owns it.
+\item[Agreement.] Observers who share a boundary end with the same
+record, whatever order their repairs took. Agreement concerns joint
+probabilities and responses to interventions.
+\item[Repair.] A local move that removes a disagreement between
+neighbouring records while protecting what is recorded.
+\item[Cell, port and seam.] The hardware. A cell, or carrier, has the
+incidence of the icosahedron: twelve ports, thirty seams joining
+neighbouring ports and twenty triangular faces. A port holds an integer
+\emph{load}; a seam is the interface of two ports.
+\item[Federation, or screen.] Cells joined port to port into a sphere.
+It is the memory of the computation and no physical space.
+\item[Seam memory and the echo.] Each seam keeps a private register. A
+seam event writes the difference of its two loads, the \emph{contrast},
+into it, gives the written label a phase and undoes the write. This is
+the contrast-memory law. Its one coupling $\kappa$, the agreement
+energy, lowers the energy of a seam whose two ports both hold a load.
+\item[Interval Echo.] The main candidate law of the executable model:
+the contrast-memory seam together with a clock that each observer patch
+carries and verifies at every handoff.
+\item[Own clock.] Each observer counts its own events. No common clock
+exists, and observers relate their counts by comparing shared records.
+\item[Emitter and reader.] Local instruments. An emitter writes a
+prepared object onto a seam. A reader copies a yes-or-no answer from
+both ends of a seam and admits it only when the two copies agree.
+\item[Unrecovered seam, or collar.] A seam whose memory keeps a nonzero
+contrast label while its ports show no contrast. It carries agreement
+energy and no load.
+\item[Desktop.] The effective description that observers give of their
+agreed records: fields on a $3{+}1$-dimensional spacetime, particles and
+forces. It is fixed by what observers can predict about their records
+and says nothing about how the hardware stores them.
+\item[Realization map.] The dictionary from finite records to laboratory
+quantities such as positions, durations, currents and units
+(Definition~\ref{def:physical-realization}).
+\item[Candidate law.] A fully specified law on the fixed hardware. It is
+tested through the records its observers produce. Changing the law, the
+memory or the preparation defines a new candidate.
+\item[Closure.] The hypothesis that a complete history contains the
+discovery and the construction of its own specification,
+$R(D(\mathfrak U))\cong\mathfrak U$ (Section~\ref{sec:strange-loop}).
+\end{description}
 
 \subsection{Mission}
 \label{sec:mission}
@@ -186,84 +300,19 @@ results and physical obligations in Section~\ref{sec:scoreboard}.
 Correctness is decided by the frozen predictions and tests of
 Section~\ref{sec:empirical}.
 
-\subsection{Consistency through local repair}
-\label{sec:observers-first}
-
-Local repair is the engine of the proposal. A finite observer has no
-global view. It holds a patch of local state,
-reads the boundary shared with neighbors, retains records and repairs
-disagreements while protecting what has been recorded. A fact becomes
-public when every authorized comparison preserves it. The finite
-consensus theorem gives such records a canonical normal form independent
-of the repair schedule. Observer Patch Holography (OPH) asks whether the
-world we measure can be reconstructed from this kind of compatible local
-access. Quantum probability, Lorentzian kinematics, gravitational dynamics
-and gauge structure enter standard physics through distinct mathematical
-inputs \cite{hardy2001,chiribella2011,masanes2011,jacobson95,dr90}; OPH
-tests whether one observer architecture can carry their public readouts. The Doplicher--Roberts reconstruction concerns the compact group of suitable localized superselection sectors. Recovering Standard Model gauge fields with confinement, screening and Gauss-law charges needs further physical identifications.
-Space, time, matter and classical objects are effective descriptions of
-what observers can measure and jointly interpret. In this interpretation,
-spacetime geometries and quantum field theories describe relations among
-compatible records; the proposal assumes no prior observer-independent
-continuum.
-
-The twelve-port carrier makes this idea concrete. Optimal readout of a
-three-dimensional response selects its incidence, and its normalized repair
-response has a three-dimensional slow quotient, a
-candidate carrier for spatial position. Under the further premise that a
-faithful complete reversible current implements the carrier's rechartings
-internally, its Lie algebra has type
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Three
-directions and the Standard Model gauge type thus arise as different
-constraints on the same cell response. On the finite matter module, six
-protected flux classes correspond to centre characters of Standard Model
-representations. Identifying them with laboratory excitations requires
-charge and transport measurements on the same states.
-
-At continuum scale, an increase in matter entropy can be balanced by a
-decrease in boundary area at fixed proper volume. If independent measurements
-of that response and the action stress agree on the same shrinking regions,
-ten observers in relative motion determine the Einstein equation. A
-finite network realizes the entropy--area balance on one four-station
-survey. Its extension to proper balls for the moving observers is open. OPH's unifying hypothesis is that the full
-dynamics of nature are the conditions under which one self-reading process
-keeps its records coherent through local repair.
-
-On the same spherical hardware an observer can ask whether two loads
-form a pair. One instrument writes just the answer to that question.
-Another writes which seam holds the pair. Both give identical
-probabilities for finding a pair. Their effect on the pair can be
-measured by reading the emitting seam after further evolution. The joint
-probabilities are $0.0182640$ and $0.1029264$ for an initial yes and a
-final pair on that seam. The observer can distinguish these instruments
-from successive records alone. This is a circuit realization of
-projective conditioning (Theorem~\ref{thm:born} and
-Figure~\ref{fig:model-run}).
-
-A prepared pair also acts as a probe of the cell currents. Applying
-opposite pulses of a rotation-selected current changes the probabilities
-of the terminal seam records. The twelve generators close under
-commutators on the two accessible triplets
-(Section~\ref{sec:port-response}). On ordinary blank seams a different
-preparation carries a coherent two-state orbital through two cell
-boundaries. A guided reunion compares two material clocks by reading
-their counts on one shared seam (Section~\ref{sec:travelling-clock}).
-Here an excitation, a current and an elapsed time each have a local
-preparation or readout by which another observer can check the claim.
-
-Gravity poses a further experimental question. Does changing what the
-matter carries change the geometry measured with an independent
-instrument? On a homogeneous spacetime with Einstein evolution supplied,
-two entangled preparations with identical individual field states give
-different radar and fixed-volume area readings. On the repair network
-a flying probe detects a correlation between seam memories, and local
-exchange can account for its response. A gravitational interpretation
-requires a curvature measurement sourced by the same calibrated stress
-(Section~\ref{sec:einstein}). Table~\ref{tab:joins} gives the preparations
-and hypotheses for these observer experiments.
-
-\subsection{Scope and order of the argument}
+\subsection{Plan of the paper}
 \label{sec:place}
+
+Section~\ref{sec:strange-loop} states the closure hypothesis and how it
+becomes a testable specification. Section~\ref{sec:architecture} gives
+the hardware and its local law, and Section~\ref{sec:consensus} the
+rules of public records, quantum probability and entropy. The four
+sections after them carry the main results:
+three-dimensional relativistic space (Section~\ref{sec:three-directions}),
+stable particles (Section~\ref{sec:observer-runs}), forces and the
+particle classes (Section~\ref{sec:gauge}) and gravity
+(Section~\ref{sec:einstein}). Cosmology, the ledger of realized results,
+the tests and the verification follow.
 
 The program has four logically different levels. Closure proposes that an
 inhabited history contains a recoverable account of its own operations. A
@@ -288,10 +337,12 @@ and realization map satisfying the closure condition\\
 Records and carrier & Canonical public records, conditional quantum
 identities, finite entropy laws of repair and an exact rank-three slow
 response & A common physical position, clock, energy and preparation map\\
-Executable model & Interval Echo: the contrast-memory seam with its exact
-memory realization and a binding theorem on every federation, bound objects
-that persist in the agreed records, observer clocks whose closing rule is calibrated to the proper-time forecast, agreement of overlapping observers and twelve
-closed port currents; the scalar channel with a prepared cage clock & An
+Executable model & Interval Echo: three directions recovered from
+anonymous detector counts and a flat $3{+}1$D wave limit of the programmed
+scalar; the contrast-memory seam with its exact memory realization and a
+binding theorem on every federation; bound objects that persist in the
+agreed records; observer clocks whose closing rule is calibrated to the
+proper-time forecast; twelve closed port currents & An
 authenticated causal order with count and volume limits, one limiting speed
 for bound objects, a complete current menu and one common measurement of
 current and stress on a bound excitation\\
@@ -300,8 +351,10 @@ Lie type; protected defects carry exactly the particle centre classes; port
 phases give the global group & An interacting chiral field
 with the observed species, quark flavours and mixing\\
 Gravity and cosmology & Fixed-volume entropy balance and a calibrated
-regional stress imply the Einstein equation on shrinking proper balls.
-Finite capacity gives conditional cosmological relations & The same source must supply conserved stress, responsive
+regional stress imply the Einstein equation on shrinking proper balls,
+realized on a clock-pair material with a declared pull. Finite capacity
+gives conditional
+cosmological relations & The same source must supply conserved stress, responsive
 geometry, vacuum, scales and prospective observational matches\\
 \bottomrule
 \end{tabular}
@@ -312,13 +365,6 @@ composition into the observed universe is a separate mathematical and
 empirical claim. The specialist papers give the longer proofs, source
 executions and failed attachments
 \cite{ophparticles,ophGauge,ophEinstein,ophspine}.
-
-\begin{figure}[!htb]
-\centering
-\input{../paper/tex_fragments/figures/FIG_FLAGSHIP_CONTRAST_MEMORY_STRUCTURE.tex}
-\caption{The proposed chain from protected records to physical laws. The finite theorems and the runs of the executable model constrain one specification; physical conclusions require compatible realization maps. The dashed arrow is the closure proposal: observers recover the specification from their records.}
-\label{fig:structure}
-\end{figure}
 
 Finite theorems, complete source executions and physical interpretations
 answer different questions. We state each result's domain and supplied
@@ -353,7 +399,7 @@ contracts and longer proofs
 \cite{ophspine,ophrepo,ophnormalforms,opheventalgebra,ophconsensus,ophobservers,ophGauge,ophEinstein,ophMicrophysics,ophdesitter,ophyangmills,ophsim}.
 
 %=====================================================================
-\section{Closure and the source-specification hypothesis}
+\section{Closure: a universe that reads itself into existence}
 \label{sec:strange-loop}
 
 This section states the interpretation and acceptance criterion: closure, the internal-realization policy, the additional
@@ -469,13 +515,9 @@ and an acceptance criterion: it requires interpretation maps fixed independently
 of validation outcomes and preserving the declared joint and conditional
 statistics, including quantum correlations. It does not require a
 noncontextual table of outcomes for incompatible unperformed measurements.
-Agreement here is compatibility under specified comparisons and
-interventions, not a vote among observers or assent to a convenient
-interpretation. Its content includes the joint probabilities and the
-response to changed preparations. Calling space, time and matter
-operational descriptions does not make these constraints optional: once
-established by compatible records, they are public physical facts. The
-equations describe those relations and do not by themselves assert an
+Its content includes the joint probabilities and the response to changed
+preparations. Once established by compatible records, these constraints
+are public physical facts, and the equations that describe them assert no
 additional material substrate beyond the specified process.
 The theorem library calls the interpretation clause of this condition A2.
 The basis reference distinguishes the closure hypothesis, agreement,
@@ -504,13 +546,10 @@ well-founded order on the admitted updates for proving termination and
 comparing schedules; it is neither an observer's
 experienced time nor a universe-level clock.
 
-What is reconstructed and what is constructed are two roles within this
-proposal. The observer who infers a law and the hardware that realizes it
-both belong to the candidate history. Finding that specification in a
-laboratory or checking it by computation occurs in the investigator's
-record order; neither supplies a temporal origin outside the history.
-If several specified closures satisfy the same tests, the results warrant
-that observational class without a uniqueness claim.
+The observer who infers a law and the hardware that realizes it both
+belong to the candidate history. If several specified closures satisfy
+the same tests, the results warrant that observational class without a
+uniqueness claim.
 
 \subsection{From closure to a testable specification}
 \label{sec:closure-to-model}
@@ -536,12 +575,19 @@ Changing the law, memory, state or decoder defines a new candidate.
 The main candidate law of the executable model is Interval Echo. It runs
 the contrast-memory law of Section~\ref{sec:contrast-memory}, the law of the
 reference candidate A-contrast-memory-spherical-v1, and adds a clock that
-each observer patch carries. The shared seam interaction reproduces
-particle stability: bound objects persist in free evolution, read on the
-agreed records of the observers, and the same law with the agreement energy
-removed loses them (Section~\ref{sec:particle-stability}). The clock of
-Interval Echo implements the calibrated reunion rate on a supplied relay (Section~\ref{sec:travelling-clock}). Under a
-further candidate law on the same carrier an object on four seams is kept
+each observer patch carries. On its programmed scalar instrument,
+observers recover three directions from anonymous detector counts, and
+the refinement has a flat $3{+}1$-dimensional wave limit
+(Sections~\ref{sec:blind-chart} and~\ref{sec:scalar-limit}). The shared
+seam interaction reproduces particle stability: bound objects persist in
+free evolution, read on the agreed records of the observers, and the same
+law with the agreement energy removed loses them
+(Section~\ref{sec:particle-stability}). The clock of Interval Echo
+implements the calibrated reunion rate on a supplied relay
+(Section~\ref{sec:travelling-clock}), and a modification with published
+clock records realizes the Einstein premises on pressureless matter
+whose spherical pull and pair rule are declared
+(Section~\ref{sec:einstein-dust}). Under a further candidate law on the same carrier an object on four seams is kept
 for every interval and carries a prepared clock, read from counts in units
 of the observer's own reference \cite{ophmodel}. The construction supplies
 no selection of its couplings, and its calibrations are declared. The
@@ -591,7 +637,7 @@ below is defined by access and record interfaces, without an additional
 claim about consciousness.
 
 %=====================================================================
-\section{Finite observer services}
+\section{The hardware: cells, seams and the local law}
 \label{sec:architecture}
 
 The observer-service theorems use an operational observer and a twelve-port
@@ -852,7 +898,7 @@ is the memory realization, the constants on this carrier and the tests on
 records.
 
 %=====================================================================
-\section{Public records and completed-record identities}
+\section{Public records and the quantum rules}
 \label{sec:consensus}
 
 The repair mathematics establishes when local agreement reaches global
@@ -1097,17 +1143,11 @@ closed-history counts determine their moments, and the unique positive density
 is $\rho_L=P^L/\operatorname{Tr}P^L$. Its canonical complex-linear extension is
 additive and positive, so the Born theorem applies on this reconstructed algebra.
 A current-only return census implements the required configuration comparison,
-with at most $11398$ attempts per experiment at the stated settings and systematic
-error at most $3.76596\times10^{-6}$ per reconstructed effect statistic. Finite
-polynomials reconstruct ordered modular correlations with the common generator
-$-\log P$, with bias below $4.302\times10^{-10}$ in the displayed three-time
-example. The entries of this functional are classical endpoint probabilities
-divided by the return probability, every connected positive-definite symmetric
-stochastic matrix gives the same result, and unread committed repair converges to
-$I/66$ without preparing it. Direct native acceptance effects are diagonal. Complex
-tomography uses supplied coherent services, and the operational bridge requires
-equal-effect probability independence and disjoint common implementations of
-coexistent pairs \cite{opheventalgebra,ophobservers}.
+with systematic error at most $3.76596\times10^{-6}$ per reconstructed effect
+statistic. The entries of this functional are classical endpoint probabilities
+divided by the return probability, and direct native acceptance effects are
+diagonal. Complex tomography uses supplied coherent services
+\cite{opheventalgebra,ophobservers}.
 
 \subsection{Entropy and thermodynamic laws from repair}
 \label{sec:thermodynamics}
@@ -1134,28 +1174,33 @@ $(1/2,1/4,1/4)$ that ignore the hidden configuration. The stored-prefix cost
 $E=n\log2$ gives weights $e^{-E}$, and overwriting the memory with a fresh prefix
 is exactly its global heat bath in at most two native attempts. Agreement of $b$
 independent prefixes gives the Gibbs family of the same cost at integer multiplier
-$b$. Keeping the old memory after disagreement gives a lazy reversible kernel with
-that stationary reference, bounded retries keep every rejection outcome with an
-explicit geometric error, and almost-sure retry gives the exact heat bath at finite
-expected cost. A Lean instance constructs the repair and calibration data from these
-counts and applies the finite four-law core, with gap $\log2$ and a unique ground
-label. That core holds for every full-support law with $E=-\log(\mathrm{ref})$ and
-formalizes no contact relation, the fair coin is a declared input, and record cost
-is distinct from laboratory heat, temperature and total implementation work
-\cite{ophobservers}.
-
-Pressure needs a strain law. The family $H_\alpha(V)=Q(V/V_0)^{-\alpha}$ has the same
-fixed-volume energy histories and $p/\rho=\alpha$, so consensus about identical
-fixed-volume records cannot select the strain derivative. Three geometrically spaced
-energy readings identify it within the held-state family $C+A(V/V_0)^{-\alpha}$, with
-exact intervals propagating meter error, and a complete two-attempt native E census
-reads independently calibrated charge-diagonal forces. An additive energy offset
-changes $p/\rho$ while leaving pressure unchanged. Volume and energy calibration are
-supplied \cite{ophobservers}.
+$b$. A Lean instance constructs the repair and calibration data from these counts
+and applies the finite four-law core, with gap $\log2$ and a unique ground label.
+The fair coin is a declared input, and record cost is distinct from laboratory
+heat, temperature and total implementation work. Pressure needs a strain law in
+addition: the family $H_\alpha(V)=Q(V/V_0)^{-\alpha}$ has the same fixed-volume
+energy histories for every $\alpha$ and $p/\rho=\alpha$, so consensus about
+fixed-volume records cannot select the strain derivative \cite{ophobservers}.
 
 %=====================================================================
-\section{Three spatial directions}
+\section{Three-dimensional relativistic space}
 \label{sec:three-directions}
+
+This section collects what the observers of the computation can say
+about space and time. One cell singles out three directions. On the
+federation, observers who are told nothing about the wiring recover
+three directions from detector counts, and the programmed scalar
+instrument obeys a relativistic wave equation in its
+$3{+}1$-dimensional limit. A calibrated clock carried by a travelling
+observer lags the resting one at reunion. The order of who read whose
+record has a causal placement in four dimensions, and a smooth
+Lorentzian field theory reproduces every finite menu of admissible
+readouts. The cells are
+registers of the computation throughout; the three dimensions belong to
+the observers' description of their records.
+
+\subsection{Three directions in one cell}
+\label{sec:rank-three}
 
 The carrier incidence fixes the dimension of the carrier's own position
 readback: the slow band is the three-dimensional irreducible representation
@@ -1186,50 +1231,434 @@ number $(5-\sqrt5)/60$ reappears as the quantum spectral gap of the native
 repair channel (Section~\ref{sec:native-repair}).
 
 The completion is taken after slow-response normalization and the
-infinite-step limit; at finite step count the kernel has rank eleven on the
-centered space and rank six on the signed antipodal sector, so the order of
-limits matters. The metric is the response-selected Gram pullback, distinct
-from the usual six-dimensional lattice metric on $D_6$. Thirteen finite
+infinite-step limit, so the order of limits matters, and its metric is the
+response-selected Gram pullback. Thirteen finite
 covariance and isometry table identities are discharged in Lean with
 \texttt{native\_decide}, so those subreceipts trust the native compiler in
 addition to the kernel and are not kernel-only proofs. Displacement is a
 record difference and cumulative records translate the completion, so
 position is the carrier's own readback of its accumulated records. In the
 contrast-memory law of the candidates the same band is the slow level of one
-load (Section~\ref{sec:contrast-memory}). Reading the completion as physical position consumes the realization map (M1) of Section~\ref{sec:standing-maps}
+load (Section~\ref{sec:contrast-memory}). Reading the completion as physical
+position consumes the realization map (M1) of Section~\ref{sec:standing-maps}
 \cite{ophrepo,ophMicrophysics}. The rank-three readout belongs to one
-carrier's response. When carriers join into the refining spherical screen of
-Section~\ref{sec:continuum}, the continuum form of their repair history has
-spectral dimension two, the dimension of the screen, and bounded-energy
-families lose every within-carrier component, this band included, at the
-present full-port energy scaling; a three-dimensional bulk reading of the
-screen requires observation maps that the native energy does not supply.
-The screen is hardware of the computation. Physical space is the effective
-description of Proposition~\ref{prop:effective-lorentzian}, and no test
-asks the carrier to be a three-dimensional lattice.
+carrier's response, and the federation needs its own observation map.
+The next two subsections supply one, measured by observers on a programmed
+instrument.
+
+\subsection{Three directions from anonymous detector counts}
+\label{sec:blind-chart}
+
+The rank-three band belongs to one cell. A separate experiment asks
+whether observers who know nothing of the wiring can recover a spatial
+chart from what their detectors report. Interval Echo runs a programmed
+scalar instrument on the $20$-cell federation. Eight stations carry
+anonymous labels. Each prepares the protected equal-slot scalar
+excitation at its own site, and after one routed period the detector
+reports which station holds it. The decoder receives only these count
+rows, which condition on successful preparation of the protected code.
+
+The counts determine twelve links, the station pairs connected in one
+period. Each link splits the eight stations according to which of its
+endpoints is nearer in link count. Exactly three distinct splits occur.
+Their binary labels take all eight values, and the Hamming distance of
+two labels equals the measured link distance of the two stations. The
+stations are the corners of a cube, and the three splits are three
+independent directions. One link sets the unit of length.
+
+The chart predicts later records. The amplitude compressed to the
+stations is a matrix $D$, and the reversible reflection-and-shift walk
+of the instrument gives $T_n(D)$ after $n$ periods, with $T_n$ the
+Chebyshev polynomial. The decoder calibrates the diagonal of $D$ from
+one-period counts, distributes the remaining weight over the measured
+neighbours and averages the squared forecast amplitudes over the
+stopping law of a material clock calibrated separately. Fresh runs at
+clock readings $1$, $2$ and $3$ give $24$ complete distributions, with
+unmatched and timeout outcomes retained. The largest absolute
+discrepancy between forecast and counts is $0.001022$, inside the
+registered tolerance of $0.01$. Two controls fail. Identifying the
+stations along any one recovered direction, which leaves a chart with
+two directions, forces an error of at least $0.11377$ in the predicted
+populations. A shift-only walk with the same one-period calibration
+misses the held counts by up to $0.48203$ \cite{ophmodel}.
+
+\subsection{A relativistic wave equation in the \texorpdfstring{$3{+}1$}{3+1}-dimensional limit}
+\label{sec:scalar-limit}
+
+The instrument is compiled from native seam pulses. On the blank collar
+at $\kappa=8$ a binary seam pulse of angle $\pi$ exchanges its two
+ports, and quarter-angle pulses implement the reflection $2ee^{*}-I$
+about the equal coin $e$ of eight slots. Routed full exchanges implement
+the flip-flop shift $S$, so the protected code evolves by
+$U=S(2ee^{*}-I)$. The slots carry three spatial indices and one periodic
+private index. Refine the three spatial indices to $N$ sites each, with
+mesh and period duration $h=1/N$, and keep the private circumference
+$L=Ph$ fixed.
+
+\begin{theorem}[Flat $3{+}1$-dimensional limit of the programmed scalar]
+\label{thm:scalar-limit}
+At Fourier angle $\theta$ put $a=\sum_{j=1}^4\cos(\theta_j)/4$. On the
+cyclic plane of $e$ the walk is a rotation through
+\[
+ E(\theta)=\arccos a=2\arcsin\bigl(\|\sin(\theta/2)\|_2/2\bigr),
+ \qquad e^{*}U^ne=\cos(nE).
+\]
+At fixed $K=(2\pi k,2\pi s/L)$ the transfer converges to the cosine
+propagator of the Klein--Gordon equation
+\[
+ \Bigl(\partial_t^2-\tfrac14\Delta_{\mathbf x}+\frac{\pi^2s^2}{L^2}\Bigr)\phi_s=0
+\]
+on the flat periodic three-dimensional chart, with wave speed $1/2$ and
+metric $ds^2=-dt^2/4+d\mathbf x^2$. For preparations on a band
+$\omega\le B$ with $hB\le1$, the one-period operator-norm distance from
+the continuum phases is at most $\epsilon=(hB)^3/4$, and at most
+$n\epsilon$ after $n$ periods. Read with a fair material clock that
+stops at its $r$-th positive bit, every event probability at physical
+time $t=2rh$ differs from the continuum value by at most
+\[
+ \frac{t\epsilon}{h}+B^2th+\Pr(N_r>C),
+\]
+where $N_r$ is the stopping period and $C$ the read cap.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The shift obeys $S=S^{*}=S^{-1}$ and $\langle e,Se\rangle=a$, so in the
+orthonormal basis $(e,(Se-ae)/\sqrt{1-a^2})$ the walk is a rotation
+through $\arccos a$, and on the orthogonal complement $U=-S$. For
+$x=h\omega$ the sine vector differs from $hK/2$ by at most $x^3/6$, and
+$0\le\arcsin y-y\le y^3/3$ on $[0,1/2]$ gives $|E(hK)-x|\le x^3/4$.
+Unitarity adds the one-period errors. The stopping period $N_r$ has mean
+and variance $2r$. A Taylor expansion about $t$ cancels the mean first
+derivative, and the trace norm of the second derivative is at most
+$4B^2$ \cite{ophmodel}.
+\end{proof}
+
+The private order $s=0$ gives the massless wave equation. Nonzero orders
+carry the rest frequencies $\pi|s|/L$, whose ratios the compact period
+fixes. Canonical quantization of the positive-frequency branch at $s=0$
+gives a Gaussian vacuum. In the infinite-volume and zero-mesh limit its
+two-point function at Euclidean time separation $\tau$ is that of a free
+massless scalar in $3{+}1$ dimensions,
+\[
+ G(\tau,\mathbf x)=\frac{1}{4\pi^2c\,(|\mathbf x|^2+c^2\tau^2)},\qquad c=\tfrac12 .
+\]
+At mesh $1/8$, doubling the box from $24$ to $48$ lowers the largest
+error of six two-point evaluations from $11.57\%$ to $3.31\%$, and that
+of the four-point function from $8.97\%$ to $2.39\%$ \cite{ophmodel}.
+The routing, the order of contacts, the compact private register and the
+clock cadence are apparatus of this instrument, and the oscillator
+vacuum is an added input of the field comparison. A common metric for
+the freely evolving federation and an interacting four-dimensional field
+theory require their own instruments.
+
+\subsection{A clock that travels with its observer}
+\label{sec:travelling-clock}
+
+Interval Echo equips a finite patch with a material clock. The travelling
+patch owns twelve consecutive cells at a checkpoint and carries a
+five-position hand, a nine-bit elapsed count and its interval memory, the
+number of its own repair opportunities since the last verified handoff. A
+departure and an arrival probe verify each handoff, and a handoff closes an
+interval: a positive closing mark passes a bounded first-return walk of
+fair signed steps that suppresses or releases it. Only the confirmed
+movement, the patch registers and local fair draws enter this decision;
+the clock reads no speed and no target table. At a reunion both owners
+read the same digits on one common seam.
+
+The speeds come from the observers' own optics. A home patch times a
+reciprocal pulse to a mirror and back, and half the round trip is the
+one-way light time $d$. On a separate trip the arrival of the traveller at
+the far end triggers a pulse; the home patch subtracts $d$ from its receipt
+to obtain the outward duration $T_1$, and the return duration $T_2$ is the
+rest of the trip. Special relativity predicts the ratio of the traveller's
+elapsed count to the home count,
+\begin{equation}
+ \frac{\sqrt{T_1^2-d^2}+\sqrt{T_2^2-d^2}}{T_1+T_2},
+\label{eq:reunion-forecast}
+\end{equation}
+from quantities that the home observer has recorded
+(Table~\ref{tab:reunion}).
+
+\begin{table}[htbp]
+\centering\small
+\caption{Reunion of a travelling and a resting clock of Interval Echo. Leg
+speeds in units of the relay signal speed, measured by the home observer.
+The residual is the measured ratio of the elapsed counts minus the forecast
+\eqref{eq:reunion-forecast}, with one paired block standard error, over
+$524{,}288$ paired journeys per row.}
+\label{tab:reunion}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Service intervals} & \textbf{Outward speed} & \textbf{Return speed} & \textbf{Residual}\\
+\midrule
+$2,\ 6$ & $0.5010$ & $0.1665$ & $-0.00105\pm0.00068$\\
+$6,\ 2$ & $0.1667$ & $0.5000$ & $+0.00019\pm0.00052$\\
+$4,\ 4$ & $0.2501$ & $0.2505$ & $+0.00087\pm0.00064$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On the fast journeys the traveller's clock lags the resting one by about
+$4.4$ percent, and the measured lag agrees with the forecast
+within about one part in a thousand. A uniform run of $131{,}072$ pairs
+reads $-0.00369\pm0.00120$, and a run four times larger reads the value
+in the table. Embeddings of each trip in
+federations of $1{,}280$ and $5{,}120$ cells give the same sequence of
+handoffs, receipts and reunions. The capacity of the clock behaves as
+that of a physical clock: its three-bit interval register overflows on
+handoffs of eight services, and one extra bit for three of its fields
+extends the working range to fifteen services and restores the forecast,
+$0.99005\pm0.00193$ against $0.99216$. The closing
+filter is calibrated on the reunion ratio of the supplied reciprocal relay,
+and the guide, the custody transfers, the cadence and the read windows are
+supplied services (Section~\ref{sec:supplied}). A moving clock of Interval
+Echo records the rate built into its closing filter for this routed journey.
+
+\subsection{The native screen and a smooth spacetime description}
+\label{sec:continuum}
+
+The programmed instrument gives one route to a continuum. The native
+repair history of the whole screen gives another for its covariance and
+relaxation, while its wave sector uses a chosen coherent service and its
+bulk reading a supplied radial map.
+
+On the geodesic screen of level $l$, with $V_l=240\cdot4^l$ ports, prepare
+the uniform canonical state with total load $V_l/3$. Independent uniform
+seam selection and fair native repair define one complete occupation
+history.
+
+\begin{proposition}[Native continuum operator]
+\label{prop:native-continuum}
+Along a common refinement subsequence, the native cell Green operators
+converge in norm to a compact positive injective operator $G$ on the
+mean-zero observation space. After restoring the constant mode, its inverse $A$ generates a regular
+strongly local conservative form, with domain $H^1$, and
+\[
+ n/49920\leq\lambda_n(A)\leq3n/2.
+\]
+The complete density readouts, centred and normalized by their
+variance, converge jointly at finite sets of times to a stationary
+reflection-positive Gaussian field with covariance
+$\langle f,e^{-|\tau-u|A}g\rangle$, where $\tau$ counts global repair
+attempts in the scaling of the level. The admitted coherent continuation
+converges strongly to $\cos(t\sqrt A)$, and its propagator vanishes
+between regions $E,F$ for $|t|<\sqrt2\,d(E,F)$.
+\end{proposition}
+\begin{proof}[Proof sketch]
+The native cell Poincar\'e bound
+$\|(I-P_k)u\|^2\leq624\,4^{-k}\langle u,B_lu\rangle$
+gives uniform compactness of the Green operators and norm convergence.
+Mosco convergence passes their local Markov forms to the limit; min--max
+estimates give the displayed spectrum. A Gaussian heat bound gives finite
+propagation of the admitted cosine family
+\cite{mosco1994,fukushima2011,coulhon2006,ophcontinuum,ophtimefields}.
+\end{proof}
+
+Thus one source operator controls static covariance, relaxation and a
+chosen coherent wave service. Its spectral dimension is two, the
+dimension of the screen, so a bulk reading needs an additional radial
+observation map, and its attempt count and wave parameter require clock
+calibration. The native stationary reference supplies no physical quantum
+vacuum or universal area-entropy coefficient \cite{ophentropy}.
+
+A specified radial interval and field service give the product covariance
+$(-\partial_r^2+A\oplus0)^{-1}$. If its hyperbolic coefficient density is
+$C=\mu\,\operatorname{diag}(-1,a)$, the effective metric is
+\[
+ g=\sqrt{-\det C}\,C^{-1}
+  =\mu\sqrt{\det a}\,\operatorname{diag}(-1,a^{-1}).
+\]
+The spatial coefficients are read from the source; the radial architecture,
+hyperbolic service and preparation are explicit design inputs.
+\begin{proposition}[Smooth effective field descriptions]
+\label{prop:effective-lorentzian}
+Smoothing the native angular coefficients while retaining the radial
+Dirichlet interval gives norm-resolvent convergence, with gap $(\pi/L)^2$.
+For every fixed finite admissible menu of observer readouts on bounded wave
+times and every $\varepsilon>0$, a smooth static $(1+3)$-dimensional
+Lorentzian metric carries a free scalar field whose complete predictions
+agree within $\varepsilon$, in addition to the stated source and clock errors.
+\end{proposition}
+The proof transports the changing measures into one Hilbert space through
+the unitaries $U_\varepsilon f=\sqrt{\rho_\varepsilon/\rho}\,f$ and
+combines compact Mosco convergence with continuity of the covariance,
+response and finite-history operators; the complete proof is Appendix~A of
+the spacetime paper \cite{ophEinstein}. It proves a common
+finite-menu approximation, without selecting a radial architecture,
+providing a smoothing rate, or producing a responsive metric. In this
+sense observers who inhabit the simulation can describe their experiences
+as relativistic $3{+}1$D continuum spacetimes: the description is fixed by
+the predictions for their admissible readouts, and the screen is hardware
+of the computation, no physical space.
+
+\subsection{A causal precursor from who read whose record}
+\label{sec:spacetime}
+
+The oriented conformal spherical support carries the classical isomorphisms
+\begin{equation}
+\mathrm{Conf}^{+}(S^{2})\;\cong\;\mathrm{PSL}(2,\mathbb C)\;\cong\;
+\mathrm{SO}^{+}(3,1),
+\qquad
+H^{3}\;\cong\;\mathrm{SO}^{+}(3,1)/\mathrm{SO}(3),
+\label{eq:lorentz}
+\end{equation}
+which identify the three-dimensional space of future unit timelike
+directions \cite{ratcliffe2019}. Authenticated records separately supply
+events and their order. Every quotient-visible register version carries the
+identifier of its last semantic writer, each commit certifies the versions
+its acceptance depends on, and the informational order is the transitive
+closure of authenticated read-from parenthood, an authenticated analogue of
+happened-before \cite{lamport1978}. As an abstract finite poset it satisfies
+the order-theoretic causal-set axioms, and every finite causal set is the
+generated order of some authenticated log \cite{ophrepo}.
+Twelve declared null-direction tests certify the conformal Lorentz class of a supplied
+invertible chart map; identifying physical events and matching their
+clock and cone to the field are separate source obligations \cite{ophobservers,ophEinstein}.
+
+\begin{theorem}[Source-derived finite (1+3) causal precursor]
+\label{thm:source-causal-precursor}
+Let $\mathcal L$ be an authenticated finite semantic-event log with generated strict
+order $\prec_{\mathcal L}$ and canonical source height $h_{\mathcal L}$, zero on roots and one
+plus the maximum parent height otherwise. Then $h_{\mathcal L}$ strictly increases along
+$\prec_{\mathcal L}$ and equals the maximum length of an authenticated parent chain
+ending at each event. Let $V_{\mathrm{src}}$ be the rank-three source Gram
+quotient with positive form $g_{\mathrm{src}}$, and put
+$W_{\mathrm{src}}=\mathbb R\oplus V_{\mathrm{src}}$ with
+$Q(t,x)=t^2-g_{\mathrm{src}}(x,x)$.
+\begin{enumerate}[label=(F\arabic*),leftmargin=2.4em]
+\item $W_{\mathrm{src}}$ has dimension $1+3=4$ and $Q$ has one positive and
+three negative directions;
+\item source-unit directions, $S^2$ and future-null rays are exactly
+equivalent;
+\item a placement $F(e)=(\tau h_{\mathcal L}(e),x(e))$ sends every generated precedence
+into the future cone whenever each parent edge obeys
+$g_{\mathrm{src}}(x(f)-x(e),x(f)-x(e))\leq\tau^2(h_{\mathcal L}(f)-h_{\mathcal L}(e))^2$;
+\item every finite log admits an injective placement of this form that sends
+generated ancestry into the future cone and makes distinct same-height events
+spacelike; and
+\item for a placement obeying the edge condition of (F3), if the spatial
+readback separates each equal-height layer and every unrelated pair with
+$h_{\mathcal L}(e)<h_{\mathcal L}(f)$ is spacelike, then $e\preceq_{\mathcal L} f$ holds
+exactly when $F(f)-F(e)$ is future causal, so $F$ is an exact order
+embedding preserving every causal interval.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Dimension is additive and positivity of $g_{\mathrm{src}}$ gives the
+inertia; induction over parents bounds every ending chain by the height and
+constructs an attaining chain; the edge inequality and transitivity of cone
+and ancestry give (F3); an enumeration along one axis with $\tau=n+1$, $n$ the number of events, gives (F4); and the two geometric checks exclude every unsupported cone comparison
+in (F5). The finite statements are formalized \cite{ophrepo,ophEinstein}.
+\end{proof}
+
+Read informally, the theorem combines two things observers have. Who read
+whose write is a partial order, and the longest chain of reads ending at an
+event gives it a height. The rank-three carrier gives three spatial
+directions and, with a real axis, a light cone. An event placement that
+respects both turns the provenance order into a causal order in a
+four-dimensional Lorentzian carrier.
+
+Source height enters only through placements, and the scaled height is
+no operational clock. A physical manifold requires a source-causal
+continuum certificate: one refinement family supplying
+physical event identification, source-selected order and cone embeddings,
+refinement maps, a calibrated count density, agreement across independent
+dimension and manifoldlikeness tests against Poisson-sprinkled controls, and
+convergence to a distinguishing time-oriented Lorentzian geometry
+\cite{bombelli1987,surya2019,majorrideoutsurya2007}.
+
+\begin{proposition}[Composition of the continuum certificate]
+\label{thm:source-causal-continuum}
+For a source-causal continuum certificate, causal order fixes the conformal
+Lorentzian geometry of the admitted distinguishing limit and the calibrated
+count measure fixes its conformal scale
+\cite{hawkingkingmccarthy1976,malament1977}; the local model is $(1+3)$, so a
+limit satisfying the dimension and topology clauses of the certificate is an effective four-dimensional time-oriented Lorentzian event manifold.
+A convergent causal-set d'Alembertian or scalar-curvature estimator supplies
+an independent geometric diagnostic \cite{benincasadowker2010,dowkerglaser2013}.
+If this same family supplies the regional entropy, proper area, action
+stress and convergence hypotheses of Section~\ref{sec:einstein}, its
+limiting metric satisfies $G_{ab}+\Lambda g_{ab}=8\pi G_N T_{ab}$.
+\end{proposition}
+
+A source-record population realizes the flat case.
+
+\begin{theorem}[A source-record causal and count limit]
+\label{thm:source-record-causal-count}
+In the rank-three conservative repair carrier, let
+$\varphi=(1+\sqrt5)/2$, $L=2/\sqrt{\varphi+2}$ and $q=F_n$ the $n$-th Fibonacci number, $n\geq4$. The
+population
+$S_q=L\{b\varphi-\lfloor b\varphi\rfloor:0\leq b<q\}^{3}\subset[0,L]^3$
+consists of $q^3$ distinct conservative source-record images. Retain it at
+each layer and let every next-layer event read all preceding-layer sites
+within $a_q=L/\sqrt q$, with model duration $\Delta_q=a_q/c$ for a declared speed $c$. As
+$q\to\infty$ the order converges away from null separation to the speed-$c$
+causal order, and with $\rho_q=q^3/(L^3\Delta_q)$, for fixed interior
+timelike diamonds,
+\[
+ \frac{|I_q|}{\rho_q}\longrightarrow\operatorname{Vol}(I),
+ \qquad
+ \frac{2C_q}{|I_q|(|I_q|-1)}\longrightarrow\frac1{10},
+\]
+where $C_q$ counts strict causally ordered pairs; for vertical duration $T$,
+$\operatorname{Vol}(I)=\pi c^3T^4/24$.
+\end{theorem}
+
+\begin{corollary}[Proper-time ratios from record counts]
+\label{cor:count-clock}
+If $I_q,J_q$ approach interior timelike diamonds of proper durations
+$\tau_I,\tau_J>0$, the observer readout
+$R_q(I;J)=(|I_q|/|J_q|)^{1/4}\to\tau_I/\tau_J$. Within positive volume-only
+readouts additive on collinear inertial intervals, the fourth root is unique
+up to units.
+\end{corollary}
+
+At finite regulator the population is produced by the carriers themselves:
+each holds its record as port loads, reads its position through the
+rank-three response and decides its neighbors from that readback, and the
+precedence generated from their authenticated reads equals the layered order
+through $q=89$, that is $704{,}969$ carriers reading one another over ten
+rounds. On the largest interior diamond the inverted Myrheim--Meyer
+dimension reads $3.84$ and $3.92$ at $q=55$ and $89$
+\cite{myrheim1978,meyer1988}, the ordering fraction of the central diamond
+reads $0.093$ and $0.094$ against the proved flat value $1/10$, and the
+count clock reads $1.91$ and $2.05$ against the model-time ratio $2$.
+Covariance requirements
+select the cone: a closed convex pointed displacement cone preserved by the
+irreducible icosahedral rotations and by boosts along one axis is the future
+or past cone of $t^2-\|x\|^2$. The read law and model clock are declared, and
+the ordinal height of a history with self-waits is no proper-time instrument
+\cite{ophEinstein}.
+
+The native seam event has its own finite causal bound. For a fixed seam
+schedule and shared local coins, dependence crosses at most one seam per
+ordered repair event, and retained signal witnesses attain the bound
+\cite{ophcausality}. In the executable model the records depend on the
+local order of events alone (Section~\ref{sec:events}), and the travelling
+clocks of Interval Echo compare durations at reunion
+(Section~\ref{sec:travelling-clock}).
 
 %=====================================================================
-\section{The executable model in operation}
+\section{Stable particles}
 \label{sec:observer-runs}
 
-This section runs the candidate laws on the fixed federation and states what
-their observers read. The contrast-memory law \eqref{eq:contrast-law} is the
-seam interaction of the main candidate, Interval Echo, and of its reference
-candidate, so the binding, stability and reading results of the first
-subsections hold for both. Section~\ref{sec:travelling-clock} gives the
-clock of Interval Echo and Section~\ref{sec:cage} the scalar channel. Every
-claim is a statement on records: the
-observer, the record it holds and the probability the law gives for it.
-Levels, state vectors and the evolution parameter serve the proofs and the
-audits, and no reader uses them. The carrier is hardware of the
-computation. It is no physical space, and no test asks it to be a
-three-dimensional lattice. Observers who inhabit the simulation can
-describe their experiences as relativistic $3{+}1$D continuum spacetimes:
-this conclusion requires the supplied radial interval, hyperbolic service and admissible readouts of Proposition~\ref{prop:effective-lorentzian} with the
-rank-three spatial carrier and the causal and count limits, under their
-stated premises. A test of the model is therefore a comparison between
-distributions of admissible observer records and what observers in our
-world record.
+A desktop object has to persist. This section runs the contrast-memory
+law on the fixed federation and states what its observers read: a pair
+of loads that they keep reading as a pair on every federation, on seams
+other than the one it was written on; records that depend only on each
+observer's own order of events; two readings of one pair that leave
+different futures; bound objects of several loads; and a matter wave with
+a Klein--Gordon band. The contrast-memory law \eqref{eq:contrast-law} is
+the seam interaction of the main candidate, Interval Echo, and of its
+reference candidate, so the binding, stability and reading results hold
+for both. The overlapping observers, the address-pair readings and the
+matter wave are results of Interval Echo. Every claim is a
+statement on records: the observer, the record it holds and the
+probability the law gives for it. Levels, state vectors and the
+evolution parameter serve the proofs and the audits, and no reader uses
+them. A test of the model compares distributions of admissible observer
+records with what observers in our world record.
 
 \subsection{Carrier, emitter and agreed records}
 \label{sec:measurement-process}
@@ -1270,12 +1699,10 @@ copies an orthogonal classical outcome of a complete
 instrument. It does not copy an arbitrary private quantum state. On $20$
 cells the complete set of outcomes is one record for each of the $630$
 seams and one outcome ``no pair''; fuel left in the emitter counts as ``no
-pair''. The reversible reader block has eleven bits. The complete readout
-executed with the two-load sector of one cell and the fuel has dimension
-$161{,}792$ and a total-variation error of $2.09\times10^{-7}$. The seam
-memory stays private and unread, and the seam records are committed at the
-reading. Each reading uses a fresh run, so reading is never used to hold
-an object in place.
+pair''. The complete readout executed with the two-load sector of one cell
+and the fuel has a total-variation error of $2.09\times10^{-7}$. The seam
+memory stays private and unread. Each reading uses a fresh run, so reading
+is never used to hold an object in place.
 
 \subsection{The binding theorem}
 \label{sec:binding}
@@ -1402,30 +1829,14 @@ outcome probabilities at the positive coupling and at zero.\footnote{The
 \href{https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/openwave/xperiments/m10_oph/research/findings/m10_3_maintainer_review.md}{independent numerical review}
 specifies the board, release, propagator and complete receiver distribution.}
 The theorem places the adjacent band below two free unit loads at
-$\kappa=8$. A finite-window adjacency reading by itself accepts either sign.
-
-The same patch can resolve the signed interaction. Two half contacts
-split the pair coherently across three configurations. A third recombines
-two alternatives before the patch reads the launch seam. The initial
-slope of its click probability is $\kappa/2$ in exchange units. At
-exposure $1/16$ the click probabilities are $0.44007$ and $0.02407$
-at $+8$ and $-8$ respectively. Preparing the corresponding incoherent
-mixture reduces their difference from $0.4160$ to $0.00051$.
-A second cell can detect a launch-phase difference carried by the lower
-band after a heralded encounter.\footnote{The
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/6c3c142d3280b9a90f3b072fa5cc0be7581d226e/model/experiments/interval_echo_encounter/README.md}{finite-patch experiments}
-give the local pulse sequence, dephasing controls, quiet outcomes and
-spectral bounds for the neighbouring receiver.}
-A separate construction gives the magnitude a finite interpretation.
-All other seams sharing the two endpoints must return the same signed
-word. If the same qutrit source sets the exchange-parity acceptance, the
-logarithmic energy ratio equals the number of these seams, eight on a
-protected complete cell. An independent fair parity service gives
-approximately four. Applying the protected cell's standard throughout
-the federation is a design choice introduced after the original coupling
-scan.\footnote{The
-\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_consensus}{finite comparison experiment}
-gives the preparations, retained probabilities and local spectral checks.}
+$\kappa=8$, and the same patch can resolve the sign of the interaction,
+which an adjacency reading by itself accepts either way. Two half
+contacts split the pair coherently across three configurations, and a
+third recombines two alternatives before the patch reads the launch
+seam. At exposure $1/16$ the click probabilities are $0.44007$ and
+$0.02407$ at $\kappa=+8$ and $-8$, and the corresponding incoherent
+mixture reduces their difference from $0.4160$ to $0.00051$
+\cite{ophmodel}.
 
 \subsection{Events with each observer's own count}
 \label{sec:events}
@@ -1440,119 +1851,35 @@ acting once,
 with event angle $\tau$. Each port counts the events of its own seams, and
 these counts are the local clocks of its cell.
 
-\begin{table}[htbp]
-\centering\small
-\caption{Largest probability of ``no pair'' over all readings along a
-program of events, $\kappa=8$, by carrier and event angle $\tau$. The
-position in the sequence of events is audit.}
-\label{tab:event-programs}
-\begin{tabular}{@{}L{0.42\linewidth}ccc@{}}
-\toprule
-\textbf{Program} & one cell, $1/64$ & one cell, $1/256$ & $20$ cells, $1/64$\\
-\midrule
-Every seam once per round, in a fresh random order each round & $0.0217$ & $0.0137$ & $0.0188$\\
-Rounds in which half of the carrier acts twice & $0.0470$ & & $0.0268$\\
-Every event draws its seam at random & $0.5048$ & $0.1897$ & $0.1989$\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 The records depend on the local order of events alone. Two sequences in
 which every port sees its events in the same order give the same seam
 records exactly, and no order between events that share no port enters a
-record. Rounds keep the pair, with equal and with unequal rates
-(Table~\ref{tab:event-programs}); the counts of different ports differ by
-up to a factor $2.6$, and no common count exists. Seams that act independently at random lose the pair at these
-angles, and the loss falls with the angle: a second run on one cell gives
-$0.184$ at $\tau=1/256$ and $0.085$ at $\tau=1/1024$. Layers of disjoint
-seams run as pulses, in both orders of the layers, give $0.0061$ to
-$0.0064$ on one cell and $0.0076$ and $0.0075$ on $20$ cells, against
-$0.0064$ and $0.0076$ for the continuous parameter.
+record. At $\kappa=8$ and event angle $1/64$, rounds in which every seam
+acts once in a fresh random order keep the pair, with largest ``no pair''
+probability $0.0217$ on one cell and $0.0188$ on $20$ cells, and so do
+rounds in which half of the carrier acts twice, $0.0470$ and $0.0268$.
+The counts of
+different ports differ by up to a factor $2.6$, and no common count
+exists. Seams that act independently at random lose the pair at these
+angles, $0.5048$ on one cell and $0.1989$ on $20$ cells, and the loss
+falls with the angle, to $0.1897$ on one cell at $1/256$.
 
-Committing the label loses the pair. With the contrast of the acting seam
-committed to a public record at every event, the probability of ``no
-pair'' on one cell grows to $0.015$, $0.11$ and $0.32$ after $64$, $512$
-and $2048$ rounds; unread, its largest value is $0.018$. The
-binding rests on the regular phase between successive events of a seam. An
-observer that serves each of its seams once per round supplies that
-regularity with its own count.
+Committing the label also loses the pair. With the contrast of the acting
+seam committed to a public record at every event, the probability of ``no
+pair'' on one cell grows to $0.32$ after $2048$ rounds; unread, its
+largest value is $0.018$. The binding rests on the regular phase between
+successive events of a seam, and an observer that serves each of its
+seams once per round supplies that regularity with its own count.
 
-\subsection{A clock that travels with its observer}
-\label{sec:travelling-clock}
-
-Interval Echo equips a finite patch with a material clock. The travelling
-patch owns twelve consecutive cells at a checkpoint and thirteen during a
-transfer. It carries a five-position hand, a nine-bit elapsed count and its
-interval memory: the number of its own repair opportunities since the last
-verified handoff. Adjacent swaps move these registers. A departure and an
-arrival probe verify each handoff, and the patch publishes the result on a
-signed seam and reads it back before it uses a fresh repair outcome. A
-handoff closes an interval, and a positive closing mark passes a bounded
-first-return walk of fair signed steps that suppresses or releases it. Only
-the confirmed movement, the patch registers and local fair draws enter this
-decision; the clock reads no speed and no target table. At a reunion both
-owners read the same digits on one common seam.
-
-The speeds come from the observers' own optics. A home patch times a
-reciprocal pulse to a mirror and back, and half the round trip is the
-one-way light time $d$. On a separate trip the arrival of the traveller at
-the far end triggers a pulse; the home patch subtracts $d$ from its receipt
-to obtain the outward duration $T_1$, and the return duration $T_2$ is the
-rest of the trip. Special relativity predicts the ratio of the traveller's
-elapsed count to the home count,
-\begin{equation}
- \frac{\sqrt{T_1^2-d^2}+\sqrt{T_2^2-d^2}}{T_1+T_2},
-\label{eq:reunion-forecast}
-\end{equation}
-from quantities that the home observer has recorded
-(Table~\ref{tab:reunion}).
-
-\begin{table}[htbp]
-\centering\small
-\caption{Reunion of a travelling and a resting clock of Interval Echo. Leg
-speeds in units of the relay signal speed, measured by the home observer.
-The residual is the measured ratio of the elapsed counts minus the forecast
-\eqref{eq:reunion-forecast}, with one paired block standard error, over
-$524{,}288$ paired journeys per row.}
-\label{tab:reunion}
-\begin{tabular}{@{}cccc@{}}
-\toprule
-\textbf{Service intervals} & \textbf{Outward speed} & \textbf{Return speed} & \textbf{Residual}\\
-\midrule
-$2,\ 6$ & $0.5010$ & $0.1665$ & $-0.00105\pm0.00068$\\
-$6,\ 2$ & $0.1667$ & $0.5000$ & $+0.00019\pm0.00052$\\
-$4,\ 4$ & $0.2501$ & $0.2505$ & $+0.00087\pm0.00064$\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-On the fast journeys the traveller's clock lags the resting one by about
-$4.4$ percent, and the measured lag agrees with the forecast
-within about one part in a thousand. A first uniform run of $131{,}072$
-pairs read $-0.00369\pm0.00120$; its four times larger repeat reads the
-value in the table. Embeddings of each trip in federations of $1{,}280$ and
-$5{,}120$ cells give the same sequence of handoffs, receipts and reunions.
-The capacity of the clock behaves as that of a physical clock. Its
-three-bit interval register overflows on handoffs of eight services; one
-extra bit for three of its fields, at the cost of one more cell per
-checkpoint, extends the working range from seven to fifteen services and
-restores the forecast, $0.99005\pm0.00193$ against $0.99216$. On handoffs
-that alternate two and six services, starting with either, both widths read
-$0.95535\pm0.00190$ and $0.95650\pm0.00189$ against $0.95602$. The closing
-filter is calibrated on the reunion ratio of the supplied reciprocal relay,
-and the guide, the custody transfers, the cadence and the read windows are
-supplied services (Section~\ref{sec:supplied}). A moving clock of Interval
-Echo records the rate built into its closing filter for this routed journey.
-
-The same finite hands serve a stationary bulk. On the $320$-cell sphere,
-$320$ single-cell observers and $960$ overlapping three-cell observers read
-$23$ signed repair records and track $34$ conserved mobile doubles through
+Overlapping observers agree on what they share. On the $320$-cell
+sphere, $320$ single-cell observers and $960$ overlapping three-cell
+observers of Interval Echo track $34$ conserved mobile doubles through
 $2{,}399$ transfers, and every reading of a shared checkpoint agrees. Two
-repairs that compete for one doubled port leave distinguishable records; a
-prepared local priority makes both request orders end in one common
-terminal state for every sharp preparation and priority. On the $20$-cell
-sphere two overlapping two-cell observers realize the unique weighted
-information projection of the supplied preparation to a uniform reference in both orders. The controller sets the mismatch frequency, giving each owner the table $(3/8,1/8,1/8,3/8)$ \cite{ophmodel}.
+repairs that compete for one doubled port leave distinguishable records,
+and a prepared local priority makes both request orders end in one common
+terminal state. On the $20$-cell sphere two overlapping two-cell observers
+realize the unique weighted information projection of the supplied
+preparation to a uniform reference in both orders \cite{ophmodel}.
 
 \subsection{What a reading leaves}
 \label{sec:presence}
@@ -1590,63 +1917,80 @@ records keeps thirty records. The next reading distinguishes the two histories.}
 \end{figure}
 
 On Interval Echo, observers test the same distinction for six pairs of
-addresses. Four stations each read a bit twice. Comparing their first
-reports identifies the pair. Comparing their later reports tests the
-return after a reversible mixing operation. In four independently
-sampled preparations per pair, all $8{,}192$ launches per setting returned
-the prepared answer. With calibrated preparations, analyzers and exact
-first pair effects, these simulated records bound the difference in
-unconditional probability of any later public event on the enrolled code,
-even with a reference, relative to the ideal pair reading, to $0.0910$ at joint $99\%$ confidence. A reader that
-also records the address and forgets it publishes the same pair name. On
-each pair its error for a tested event exceeds $0.4813$ \cite{ophspine}.
+addresses with four stations that each read a bit twice. The simulated
+records bound the difference of any later public event on the enrolled
+code from the ideal pair reading by $0.0910$ at joint $99\%$ confidence,
+while a reader that also records the address and forgets it publishes the
+same pair name and errs by more than $0.4813$ on a tested event
+\cite{ophspine}.
 
-\subsection{A record that holds no load}
-\label{sec:collar-reading}
+\subsection{Bound objects of the contrast-memory law}
+\label{sec:bound-objects}
 
-Every seam carries a label that no event changes: its memory is blank, or it
-holds a record of contrast size $|d|=0$, $1$ or $2$. The local term maps the
-blank code and the sector of records into themselves, and on the records the
-squared contrast commutes with the write and with the generator, so every
-label is conserved. A seam whose memory holds a record of nonzero contrast
-while its ports hold no contrast is an unrecovered seam; in the language of
-Section~\ref{sec:dark-sector} its memory is an unrecovered collar. It holds
-no load. With no load anywhere the local term acts on the ten records of a
-seam with the levels $0$, $\kappa$, $\kappa+1$, $4\kappa$ and $4\kappa+1$,
-each twice, so the record lies at least $\kappa$ above the recovered seam at
-every reading. A load that reaches one of its ports binds to it. At
-$\kappa=8$ a load elsewhere on the cell starts at $56.38$, while two levels
-at $41.94$, on which the record is the one the loads can have written, and
-six levels between $49.81$ and $50.94$ hold the load on a port of the seam
-with probability above $0.97$.
-
-The observers of the seam read its level from their own records. A pulse
-converts a local fuel at level zero into a record of the seam. After $q$
-cycles of a protocol a second pulse with one of four phase settings reads
-whether the fuel is present, and the four probabilities give one complex
-number for each count $q$, whose phase advances at a fixed rate. The rates
-$r_s$ and $r_a$ of the symmetric and the antisymmetric record give the
-length of a cycle as $r_a-r_s$ in units of the exchange and the coupling as
-$r_s/(r_a-r_s)$ (Table~\ref{tab:collar}). The observers are not given the
-length of a cycle: the two records of one unrecovered seam are a clock that
-they read from their own records.
+Under the law \eqref{eq:contrast-law} an object is a set of loads. A load
+counts $6$ in $C$ and every agreed seam takes $2$ off, so an object of $N$
+loads with $m$ agreed seams costs $6N-2m$.
+Table~\ref{tab:bound-objects} lists the cheapest objects on one cell. The
+first three are a port, a seam and a face, the three kinds of centre of
+the cell: $12$ ports, $30$ seams and $20$ faces, $62$ axis points in all.
+Every object gains at least $2$ against every split into two parts.
 
 \begin{table}[htbp]
 \centering\small
-\caption{The level of an unrecovered seam as a reading of its observers, on
-one cell with a cycle of $1/16$ exchange units.}
-\label{tab:collar}
-\begin{tabular}{@{}L{0.42\linewidth}rrr@{}}
+\caption{The cheapest objects of $N$ loads on one cell under the
+contrast-memory law. The cost is the value of $C$; the last column is the
+least gain in $C$ against a split into two objects.}
+\label{tab:bound-objects}
+\begin{tabular}{@{}rlrrrr@{}}
 \toprule
-\textbf{Run} & \textbf{Rates per cycle} & \textbf{Cycle read} & \textbf{Coupling read}\\
+$N$ & \textbf{Shape} & \textbf{Number} & \textbf{Agreed seams} & \textbf{Cost} & \textbf{Gain}\\
 \midrule
-No load, probability law & $0.500000$, $0.562500$ & $0.062500$ & $8.00000$\\
-No load, $10^{6}$ sampled trials per setting & $0.499998$, $0.562485$ & $0.062486$ & $8.0017$\\
-No load, law without the agreement energy & $0.000000$, $0.062500$ & $0.062500$ & $0.00000$\\
-One load, started off the seam & $0.502209$, $0.564749$ & $0.062540$ & $8.030$\\
+$1$ & one port & $12$ & $0$ & $6$ & \\
+$2$ & one seam & $30$ & $1$ & $10$ & $2$\\
+$3$ & one face & $20$ & $3$ & $12$ & $4$\\
+$4$ & two faces on a seam & $30$ & $5$ & $14$ & $4$\\
+$5$ & three faces round a port & $60$ & $7$ & $16$ & $4$\\
+$6$ & a port and its five neighbours & $12$ & $10$ & $16$ & $6$\\
+$12$ & the whole cell & $1$ & $30$ & $12$ & $10$\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+At finite coupling the lowest level of $N$ loads on one cell lies below
+$N$ free loads. At $\kappa=8$ the binding is $14.236$, $43.728$,
+$75.212$, $107.678$ and $155.076$ exchange units for $N=2$ to $6$, and in
+the lowest level of two loads the pair is on a seam with probability
+$0.99$; these levels are audit on the spectrum. Inside a cell the exchange
+takes a pair from one seam to the seams of the adjoining faces at first
+order, and from the seams of one cell to those of the next the transfer
+passes through one separated state with amplitude $1/(8\kappa)$. These
+objects are read on ports, seams and faces by the observers of their
+cells, and what they need for a physical reading is listed in
+Section~\ref{sec:scoreboard}.
+
+\subsection{Matter waves with a rest frequency}
+\label{sec:matter-waves}
+
+Loaded port pairs can also carry a wave. Interval Echo has one in
+commissioned matter. On a strand of loaded port pairs, each holding one
+unit of load, a reversal of the alternating orientation of the
+pairs travels from cell to cell while the connecting seam memories stay
+coherent and unread. Observers measure its wave number from receiver
+profiles and its angular frequency against a local clock made of one
+pair. Separate exchange and conditional-phase instruments predict a rest
+frequency of $15.00051$ and a squared speed of $16.00156$ in these
+units. On three reserved boards of $20$, $80$ and $320$ cells, the two
+coupling measurements forecast $22$ frequencies within $0.000575$ of the
+lattice relation, and the $14$ lines with wave number at most $0.50$
+agree within $0.003165$ with the Klein--Gordon relation
+$\omega^2=\omega_0^2+c^2k^2$, against a tolerance of $0.0048$ that a
+tangent parabola also meets on that range. Each measured spatial profile passes its
+held test, while the wavelengths used to launch the waves fail the same
+test on every board \cite{ophspine,ophmodel}. The strand is
+one-dimensional collective matter. Its long-wave coefficient corresponds
+to a speed of four strand steps per clock unit while the fastest
+measured packet travels at $0.99$, so the band has the Klein--Gordon
+form at long wavelengths without fixing one limiting speed.
 
 \subsection{The scalar channel: an object with a clock}
 \label{sec:cage}
@@ -1680,408 +2024,20 @@ the cell symmetries and particle number, but the best single frequency
 then accounts for only $50.7\%$ of the variance. This comparison
 identifies a localized two-level clock in the scalar channel.
 
-\subsection{The model and the finite theorems}
-\label{sec:model-joins}
-
-The theory is a library of finite theorems, each proved under stated
-premises. A theorem applies to the model where an output of the model has
-the form of its premise, and its conclusion is then a statement about the
-model's observers (Table~\ref{tab:joins}). Every entry is a statement about
-records; the state of the computation contains no spacetime, and no entry
-compares that state with the world.
-
-{\small
-\begin{longtable}{@{}L{0.25\linewidth}L{0.33\linewidth}L{0.34\linewidth}@{}}
-\caption{Where the outputs of the model meet the finite theorems.}
-\label{tab:joins}\\
-\toprule
-\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
-\midrule
-\endfirsthead
-\multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
-\toprule
-\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
-\midrule
-\endhead
-Three-dimensional carrier completion (Theorem~\ref{thm:rank-three}) & The
-cell, and a law under which one load moves with $L/2$ & The slowest motion
-of a load has exactly three independent directions; the first four levels
-of the scalar channel are the same levels\\
-The native seam rule (Section~\ref{sec:native-repair}) & The write of the
-contrast-memory law, which is that rule with the coin in superposition &
-The event that every seam writes and unwrites is the one rule that four
-requirements leave\\
-Projective instruments & The presence reading, which leaves every state
-certain for its event unchanged & It is the projective instrument of ``a
-pair on some seam''; the reader with seam records is another instrument\\
-Public-record identities (Theorem~\ref{thm:born}) & Readers with complete
-outcome sets that copy orthogonal labels; records that the law never
-erases & The agreed records form a public algebra with Born weights,
-L\"uders conditioning and certain rereads\\
-Local operations & Events and readings that act on the registers of one
-seam & No event or reading changes the record law of an observer that
-shares no register with it\\
-The generator of a flow & One continuous flow for each law & Each law is
-fixed by its flow up to an energy offset\\
-Comparison of frequencies & The pair of a cage, with the frequencies $0$
-and $\pm2E$ & A record of the pair holds the one line $2E$, read at
-$4.8990$ of the observer's reference\\
-Clock readout & Observers that count their own events and share the
-records of their seams; the travelling clock of Interval Echo, read by both
-owners at reunion & Two shared records relate the counts of two observers,
-and a third checks the relation; no common clock enters, and the calibrated clock reproduces its design rate\\
-Rereads & The presence reading and the law & Frequent readings would hold a
-pair at any coupling, so every reading uses a fresh run and the binding
-theorem needs no reading\\
-Gauge Lie-type forcing (Theorem~\ref{thm:inner-action-closure}) & The
-response of one load on one cell under one declared port service; the
-rotation-selected port currents of Interval Echo on one load and on the
-bound pair & The response has the Standard Model gauge Lie type; the direct
-computation gives $\mathfrak u(3)\oplus\mathfrak{so}(3)$; the
-rotation-selected currents are twelve independent generators closed under
-commutators and covariant under the sixty rotations\\
-Least-informative assignment & Two overlapping two-cell observers of
-Interval Echo with a faithful reference, positive weights and their
-constraints & The unique weighted information projection, the same in both
-orders\\
-\bottomrule
-\end{longtable}
-}
-
-Other finite theorems consume outputs that the model does not produce in
-the required form. The settling theorems of Section~\ref{sec:consensus}
-consume accepted repairs that lower a well-founded measure; the laws are
-unitary and conserve their loads and objects, so those theorems apply to
-the classical seam rule. Proposition~\ref{prop:effective-lorentzian}
-consumes readouts that are polynomials in the Weyl operators of a free field
-on a radial cylinder over the screen, while the readouts of the model are
-instruments on finite registers. The causal and count limits consume an
-authenticated order of events with a refinement family, the Einstein
-implication consumes regional entropy, area and stress readouts in a common
-frame, Theorem~\ref{thm:maxwell-selection} consumes a gauge-invariant action
-on seam potentials, and the theorems on defect classes consume a protected
-code with a spin doublet. The unrecovered seam supplies the dark-sector analysis with a
-conserved label and nothing more. Each of these names an output that a
-member of the model has to produce before the theorem applies to it.
-
-\subsection{Supplied parts and resources}
-\label{sec:supplied}
-
-The construction supplies the coupling $\kappa$, the private seam
-generator, the degree references and the preparation and timing of the
-emitter and reader. The federation uses a supplied tangent-frame route.
-The presence circuit supplies its reversible tree and schedule. The
-unrecovered-seam reader supplies its fuel and converter. Interval Echo
-specifies the clock's guide, hand, custody transfers, gate cadence, read
-windows, widths and walk budget. Its closing filter is calibrated on a
-reciprocal relay, and its port service specifies a gain and pulse.
-The scalar comparison supplies $m,c$, the reference ramps, register
-penalties, profile operators, pulses, fuel dial and reference step bound.
-Continuous-time runs specify their evolution parameter. Local rounds
-specify a visit to each seam or a small-angle limit.
-
-On $20$ cells the literal allocation includes $240$ three-state load
-registers and $630$ eleven-bit reader blocks. The two-load sector on $V$
-ports has $V(V+1)/2$ basis elements, including $28{,}920$ on $240$
-ports \cite{ophspine,ophmodel}.
-
 %=====================================================================
-\section{Fields, clocks and causal order}
-\label{sec:fields}
-
-For the separate seam-field construction, write $D$ and $C$ for the seam-by-port
-gradient and face-by-seam curvature, so that $CD=0$.
-
-\begin{theorem}[Local Maxwell selection]
-\label{thm:maxwell-selection}
-A real quadratic seam action $S(A)=\mathrm{const}+\ell^{\mathsf T}A+\tfrac12A^{\mathsf T}HA$
-that is gauge invariant, has off-diagonal Hessian entries only between seams of one face,
-and is covariant under the sixty carrier rotations is exactly
-$S=\mathrm{const}+\tfrac\kappa2\|CA\|^2$. For positive weights $\epsilon,\beta$, a real linear
-autonomous evolution with $\dot B=-CE$, conserved $(\epsilon\|E\|^2+\beta\|B\|^2)/2$ and
-reversal with $E$ even and $B$ odd is exactly $\dot E=(\beta/\epsilon)C^{\mathsf T}B$ on closed
-flux.
-\end{theorem}
-
-\begin{proof}
-Gauge invariance is $HD=0$ and $D^{\mathsf T}\ell=0$. At an edge of a face and its opposite
-vertex, locality permits exactly the other two edges in that entry of $HD$, and the signs of
-$CD=0$ propagate one weight $w_f$ over the face. Subtracting $\sum_fw_fC_f^{\mathsf T}C_f$ leaves
-a diagonal matrix annihilating $D$, hence zero. Transitivity on faces equalizes the weights,
-and the sum of the sixty signed seam actions vanishes, which removes $\ell$. For evolution,
-conservation makes the electric block skew and fixes the cross block on closed flux, and
-reversal removes the skew block \cite{ophMicrophysics}.
-\end{proof}
-
-Exact rank computations and countercontrols verify the classification. The same form is the
-leading response of a smooth conservative field law, with a uniform finite-time bound
-$\|x(t)-e^{tG}x_0\|\leq(L/2)J_0r^2|t|$ and no linear ansatz; exact nonlinear Gauss conservation
-needs an additional condition. On a supplied Euclidean domain, the complete equal-weight seam symbol
-$\Lambda_a$ obeys $0\leq r^2-\Lambda_a(k)\leq a^2r^4/20$ at $r=|k|$, and its reversible curl-pair group
-converges to the local Maxwell group with $\|U_a(t,k)-U_0(t,k)\|\leq\min\{2,|t|a^2r^3/20\}$. The premises,
-field identification, coefficients and clock are inputs, and native repair does not select them.
-
-The action principle itself has a source form.
-
-\begin{theorem}[Derived action of a source chain]
-\label{thm:derived-action}
-Let $P$ be a strictly positive row-stochastic kernel on a finite state set $\Omega$ and $\pi$ a strictly
-positive initial law. On paths with $n$ transitions put
-$S_{\log}(\gamma)=-\sum_i\log P(\gamma_i,\gamma_{i+1})$ and $R(\gamma)=\pi(\gamma_0)|\Omega|^{-n}$. The Markov
-path law is the exponential tilt of $R$ by $S_{\log}$ at multiplier one, with partition constant
-$|\Omega|^{-n}$, and a pair $(S',\lambda')$ reproduces it exactly when $\lambda'S'=S_{\log}+c$ for a constant $c$.
-\end{theorem}
-
-Exponentiating the negated action recovers the transition product, and row normalization telescopes the
-partition sum; the uniqueness clause follows by comparing logarithms at a common path, and the statements
-are checked in Lean \cite{ophobservers}. The committed source chain instantiates the theorem exactly. Its
-bare repair count reproduces the path law at no multiplier, which makes the log-transition action the derived
-object. Physical field actions are a further attachment.
-
-\subsection{The native screen operator and a conditional spacetime field}
-\label{sec:continuum}
-
-On the geodesic screen of level $l$, let $V_l=240\cdot4^l$ and prepare the
-uniform canonical state with total load $V_l/3$. Independent uniform seam
-selection and fair native repair define one complete occupation history.
-Write $\chi_l=q_l(V_l-q_l)/[V_l(V_l-1)]$ for $q_l=V_l/3$.
-
-\begin{proposition}[Native continuum operator]
-\label{prop:native-continuum}
-Along a common refinement subsequence, the native cell Green operators
-converge in norm to a compact positive injective operator $G$ on the
-mean-zero observation space. After restoring the constant mode, its inverse $A$ generates a regular
-strongly local conservative form, with domain $H^1$, and
-\[
- n/49920\leq\lambda_n(A)\leq3n/2.
-\]
-Here time indexes global repair attempts. Its conversion to a local observer clock requires a separate rate measurement. The complete density readouts
-\[
- Y_l(\tau;f)=\frac{\sum_p f_l(p)[n_{\lfloor1260\,16^l\tau\rfloor}(p)-1/3]}
- {\sqrt{V_l\chi_l}}
-\]
-converge jointly at finite sets of times to a stationary reflection-positive
-Gaussian field with covariance
-$\langle f,e^{-|\tau-u|A}g\rangle$. The admitted coherent continuation
-converges strongly to $\cos(t\sqrt A)$. With the constant mode restored,
-\[
- \|\mathbf1_F e^{-\tau(A\oplus0)}\mathbf1_E\|
- \leq e^{-d(E,F)^2/(2\tau)},
-\]
-and the cosine propagator vanishes for $|t|<\sqrt2\,d(E,F)$.
-\end{proposition}
-\begin{proof}[Proof sketch]
-The native cell Poincar\'e bound
-$\|(I-P_k)u\|^2\leq624\,4^{-k}\langle u,B_lu\rangle$
-gives uniform compactness of the Green operators and norm convergence.
-Mosco convergence passes their local Markov forms to the limit; min--max
-estimates give the displayed spectrum. Conditional finite-population
-limits apply to the actual identity-or-swap repairs. The Gaussian heat
-bound gives finite propagation of the admitted cosine family
-\cite{mosco1994,fukushima2011,coulhon2006,ophcontinuum,ophtimefields}.
-\end{proof}
-
-Thus one source operator controls static covariance, relaxation and a
-chosen coherent wave service. Its spectral dimension is two. The
-$\lambda_n\asymp n$ count excludes identifying it, up to scale and bounded
-mass shift, with a three-dimensional elliptic bulk operator or a
-first-order boundary operator. A physical bulk interpretation needs an
-additional radial observation map. Passive repair supplies no wave sector;
-its attempt count and the coherent wave parameter require clock calibration.
-The native stationary reference supplies no physical quantum vacuum or
-universal area-entropy coefficient \cite{ophentropy}. On the binary
-repair sector its complete instrument has unique stationary state $I_{66}/66$.
-
-A specified radial interval and field service give the product covariance
-$(-\partial_r^2+A\oplus0)^{-1}$. If its hyperbolic coefficient density is
-$C=\mu\,\operatorname{diag}(-1,a)$, the effective metric is
-\[
- g=\sqrt{-\det C}\,C^{-1}
-  =\mu\sqrt{\det a}\,\operatorname{diag}(-1,a^{-1}).
-\]
-The spatial coefficients are read from the source; the radial architecture,
-hyperbolic service and preparation are explicit design inputs.
-\begin{proposition}[Smooth effective field descriptions]
-\label{prop:effective-lorentzian}
-Smoothing the native angular coefficients while retaining the radial
-Dirichlet interval gives norm-resolvent convergence, with gap $(\pi/L)^2$.
-For every fixed finite admissible menu of observer readouts on bounded wave
-times and every $\varepsilon>0$, a smooth static $(1+3)$-dimensional
-Lorentzian metric carries a free scalar field whose complete predictions
-agree within $\varepsilon$, in addition to the stated source and clock errors.
-\end{proposition}
-The proof transports the changing measures into one Hilbert space through
-the unitaries $U_\varepsilon f=\sqrt{\rho_\varepsilon/\rho}\,f$ and
-combines compact Mosco convergence with continuity of the covariance,
-response and finite-history operators; the complete proof is Appendix~A of
-the spacetime paper \cite{ophEinstein}. It proves a common
-finite-menu approximation, without selecting a radial architecture,
-providing a smoothing rate, or producing a responsive metric. In this
-sense observers who inhabit the simulation can describe their experiences
-as relativistic $3{+}1$D continuum spacetimes: the description is fixed by
-the predictions for their admissible readouts, and the screen is hardware
-of the computation, no physical space.
-
-\subsection{A causal precursor from records}
-\label{sec:spacetime}
-
-The oriented conformal spherical support carries the classical isomorphisms
-\begin{equation}
-\mathrm{Conf}^{+}(S^{2})\;\cong\;\mathrm{PSL}(2,\mathbb C)\;\cong\;
-\mathrm{SO}^{+}(3,1),
-\qquad
-H^{3}\;\cong\;\mathrm{SO}^{+}(3,1)/\mathrm{SO}(3),
-\label{eq:lorentz}
-\end{equation}
-which identify the three-dimensional space of future unit timelike
-directions \cite{ratcliffe2019}. Authenticated records separately supply
-events and their order. Every quotient-visible register version carries the
-identifier of its last semantic writer, each commit certifies the versions
-its acceptance depends on, and the informational order is the transitive
-closure of authenticated read-from parenthood, an authenticated analogue of
-happened-before \cite{lamport1978}. As an abstract finite poset it satisfies
-the order-theoretic causal-set axioms, and every finite causal set is the
-generated order of some authenticated log \cite{ophrepo}.
-Twelve declared null-direction tests certify the conformal Lorentz class of a supplied
-invertible chart map; identifying physical events and matching their
-clock and cone to the field are separate source obligations \cite{ophobservers,ophEinstein}.
-
-\begin{theorem}[Source-derived finite (1+3) causal precursor]
-\label{thm:source-causal-precursor}
-Let $\mathcal L$ be an authenticated finite semantic-event log with generated strict
-order $\prec_{\mathcal L}$ and canonical source height $h_{\mathcal L}$, zero on roots and one
-plus the maximum parent height otherwise. Then $h_{\mathcal L}$ strictly increases along
-$\prec_{\mathcal L}$ and equals the maximum length of an authenticated parent chain
-ending at each event. Let $V_{\mathrm{src}}$ be the rank-three source Gram
-quotient with positive form $g_{\mathrm{src}}$, and put
-$W_{\mathrm{src}}=\mathbb R\oplus V_{\mathrm{src}}$ with
-$Q(t,x)=t^2-g_{\mathrm{src}}(x,x)$.
-\begin{enumerate}[label=(F\arabic*),leftmargin=2.4em]
-\item $W_{\mathrm{src}}$ has dimension $1+3=4$ and $Q$ has one positive and
-three negative directions;
-\item source-unit directions, $S^2$ and future-null rays are exactly
-equivalent;
-\item a placement $F(e)=(\tau h_{\mathcal L}(e),x(e))$ sends every generated precedence
-into the future cone whenever each parent edge obeys
-$g_{\mathrm{src}}(x(f)-x(e),x(f)-x(e))\leq\tau^2(h_{\mathcal L}(f)-h_{\mathcal L}(e))^2$;
-\item every finite log admits an injective placement of this form that sends
-generated ancestry into the future cone and makes distinct same-height events
-spacelike; and
-\item for a placement obeying the edge condition of (F3), if the spatial
-readback separates each equal-height layer and every unrelated pair with
-$h_{\mathcal L}(e)<h_{\mathcal L}(f)$ is spacelike, then $e\preceq_{\mathcal L} f$ holds
-exactly when $F(f)-F(e)$ is future causal, so $F$ is an exact order
-embedding preserving every causal interval.
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-Dimension is additive and positivity of $g_{\mathrm{src}}$ gives the
-inertia; induction over parents bounds every ending chain by the height and
-constructs an attaining chain; the edge inequality and transitivity of cone
-and ancestry give (F3); an enumeration along one axis with $\tau=n+1$, $n$ the number of events, gives (F4); and the two geometric checks exclude every unsupported cone comparison
-in (F5). The finite statements are formalized \cite{ophrepo,ophEinstein}.
-\end{proof}
-
-Read informally, the theorem combines two things observers have. Who read
-whose write is a partial order, and the longest chain of reads ending at an
-event gives it a height. The rank-three carrier gives three spatial
-directions and, with a real axis, a light cone. An event placement that
-respects both turns the provenance order into a causal order in a
-four-dimensional Lorentzian carrier.
-
-The first two clauses construct the carrier and signature from an
-independent real axis and the rank-three source carrier, without assuming a
-rank-four chart; source height enters only through placements, and the
-scaled height is no operational clock. A physical manifold requires a
-source-causal continuum certificate: one refinement family supplying
-physical event identification, source-selected order and cone embeddings,
-refinement maps, a calibrated count density, agreement across independent
-dimension and manifoldlikeness tests against Poisson-sprinkled controls, and
-convergence to a distinguishing time-oriented Lorentzian geometry
-\cite{bombelli1987,surya2019,majorrideoutsurya2007}.
-
-\begin{proposition}[Composition of the continuum certificate]
-\label{thm:source-causal-continuum}
-For a source-causal continuum certificate, causal order fixes the conformal
-Lorentzian geometry of the admitted distinguishing limit and the calibrated
-count measure fixes its conformal scale
-\cite{hawkingkingmccarthy1976,malament1977}; the local model is $(1+3)$, so a
-limit satisfying the dimension and topology clauses of the certificate is an effective four-dimensional time-oriented Lorentzian event manifold.
-A convergent causal-set d'Alembertian or scalar-curvature estimator supplies
-an independent geometric diagnostic \cite{benincasadowker2010,dowkerglaser2013}.
-If this same family supplies the regional entropy, proper area, action
-stress and convergence hypotheses of Section~\ref{sec:einstein}, its
-limiting metric satisfies $G_{ab}+\Lambda g_{ab}=8\pi G_N T_{ab}$.
-\end{proposition}
-
-A source-record population realizes the flat case.
-
-\begin{theorem}[A source-record causal and count limit]
-\label{thm:source-record-causal-count}
-In the rank-three conservative repair carrier, let
-$\varphi=(1+\sqrt5)/2$, $L=2/\sqrt{\varphi+2}$ and $q=F_n$ the $n$-th Fibonacci number, $n\geq4$. The
-population
-$S_q=L\{b\varphi-\lfloor b\varphi\rfloor:0\leq b<q\}^{3}\subset[0,L]^3$
-consists of $q^3$ distinct conservative source-record images. Retain it at
-each layer and let every next-layer event read all preceding-layer sites
-within $a_q=L/\sqrt q$, with model duration $\Delta_q=a_q/c$ for a declared speed $c$. As
-$q\to\infty$ the order converges away from null separation to the speed-$c$
-causal order, and with $\rho_q=q^3/(L^3\Delta_q)$, for fixed interior
-timelike diamonds,
-\[
- \frac{|I_q|}{\rho_q}\longrightarrow\operatorname{Vol}(I),
- \qquad
- \frac{2C_q}{|I_q|(|I_q|-1)}\longrightarrow\frac1{10},
-\]
-where $C_q$ counts strict causally ordered pairs; for vertical duration $T$,
-$\operatorname{Vol}(I)=\pi c^3T^4/24$.
-\end{theorem}
-
-\begin{corollary}[Proper-time ratios from record counts]
-\label{cor:count-clock}
-If $I_q,J_q$ approach interior timelike diamonds of proper durations
-$\tau_I,\tau_J>0$, the observer readout
-$R_q(I;J)=(|I_q|/|J_q|)^{1/4}\to\tau_I/\tau_J$. Within positive volume-only
-readouts additive on collinear inertial intervals, the fourth root is unique
-up to units.
-\end{corollary}
-
-At finite regulator the population is produced by the carriers themselves:
-each holds its record as port loads, reads its position through the
-rank-three response and decides its neighbors from that readback, and the
-precedence generated from their authenticated reads equals the layered order
-through $q=89$, that is $704{,}969$ carriers reading one another over ten
-rounds. On the largest interior diamond the inverted Myrheim--Meyer dimension reads $2.83$, $4.38$, $3.55$, $3.84$ and $3.92$ at $q=13,21,34,55,89$ \cite{myrheim1978,meyer1988}; the readings at $q=5$ and $q=8$ lie below the regime of the theorem. The ordering fraction of the central diamond reads $0.088$, $0.138$, $0.092$, $0.093$ and $0.094$ against the proved flat value $1/10$, and the count clock reads $1.71$, $2.09$, $1.91$ and $2.05$ at $q=13,34,55,89$ against the model-time ratio $2$. Covariance requirements
-select the cone: a closed convex pointed displacement cone preserved by the
-irreducible icosahedral rotations and by boosts along one axis is the future
-or past cone of $t^2-\|x\|^2$. The read law and model clock are declared, and
-the ordinal height of a history with self-waits is no proper-time instrument
-\cite{ophEinstein}.
-
-The native seam event has its own finite causal bound. For a fixed seam
-schedule and shared local coins, dependence crosses at most one seam per
-ordered repair event, and retained signal witnesses attain the bound; this is
-a speed in seams per native event. Remote repairs can carry a difference to a
-receiver before its first local tick, so the bound is not one seam per
-receiver tick \cite{ophcausality}. Complete endpoint records give a
-forward-cone placement in the registered response geometry, and a four-event
-native execution has a Lean instance proving that implication and the
-failure of its converse \cite{ophrepo}. In the executable model the
-records depend on the local order of events alone
-(Section~\ref{sec:events}), and the travelling clocks of Interval Echo
-compare durations at reunion (Section~\ref{sec:travelling-clock}).
-
-%=====================================================================
-\section{Gauge structure, centre classes and bound objects}
+\section{Forces and the particle classes}
 \label{sec:gauge}
 
-The finite theorem fixes a current algebra under explicit response premises.
-A chosen carrier and memory law then realize its currents. These are
-different steps of one construction: the Lie type
-constrains admissible interactions, while the executable specification
-fixes what its port services generate. Recovering or choosing that specification is allowed;
-its agreement with physical particle records is an additional requirement.
+A desktop with particles also needs forces between them and labels that
+tell the particles apart. On the twelve-port cell, the forces come from
+the currents that observers can drive at the ports, and the labels from
+the defects that repair leaves behind. A finite theorem fixes
+the Lie type of a complete current algebra under explicit response
+premises, and the chosen memory law then realizes its currents. These
+are different steps of one construction: the Lie type constrains
+admissible interactions, while the executable specification fixes what
+its port services generate. The protected defects carry exactly the
+centre classes of the Standard Model particles.
 
 \subsection{The finite gauge theorem and matter representation}
 
@@ -2215,14 +2171,12 @@ of this subsection are audit, and no observer reads them.
 
 The plain services of the law are the load of each port, the exchange of
 each seam and the twist of each port, its circulation round the five
-neighbours. The loads generate seventeen dimensions, two copies of
-$\mathfrak{su}(3)$ and one common number, for one load and for the bound
-pair at $\kappa=8$. So do the exchanges of the seams, and so does load and
-twist taken as one service per port; all plain services together generate
-eighteen. The count follows from a lock between the two triplets: every
-operator at a port with rational entries acts on the fast triplet as the
-conjugate under $\sqrt5\mapsto-\sqrt5$ of its action on the slow triplet,
-so the closure holds $\mathfrak{su}(3)$ twice.
+neighbours. The loads alone generate seventeen dimensions, two copies of
+$\mathfrak{su}(3)$ and one common number, and all plain services together
+generate eighteen. The count follows from a lock between the two triplets:
+every operator at a port with rational entries acts on the fast triplet as
+the conjugate under $\sqrt5\mapsto-\sqrt5$ of its action on the slow
+triplet.
 
 One declared service gives twelve. Let $H_1=L/2$ be the law of one load
 without its constant, $E_{\rm top}=(5+\sqrt5)/2$ its top level and $J_v$
@@ -2233,17 +2187,11 @@ the twist of port $v$, and put
 \end{equation}
 The twelve $F_v$ are independent and close under commutators into
 $\mathfrak u(3)$ on the slow triplet and $\mathfrak{so}(3)$ on the fast
-one, the form \eqref{eq:liealgebra}. Their trace form is positive, with
-eigenvalues between $0.5$ and $7.24$. The $66$ brackets lie inside the span
-with residual $9\times10^{-15}$, the $720$ covariance identities of the
-$60$ rotations hold with residual $2\times10^{-15}$, and the generators of
-the rotations lie inside the span. The weighting, whose coefficient is
-tied to a level of the law, and the twist are supplied; the law's own
-events provide neither. On the bound pair the same construction gives
-twelve when the load is weighted from the pair's own $\mathbf 3'$ level,
-which uses knowledge of the target level, and seventeen when it is
-weighted from the top of the bound levels. No service of the law's own
-events that gives twelve on the composite is exhibited.
+one, the form \eqref{eq:liealgebra}. Their trace form is positive, the
+$66$ brackets lie inside the span with residual $9\times10^{-15}$, and the
+$720$ covariance identities of the $60$ rotations hold with residual
+$2\times10^{-15}$. The weighting, whose coefficient is tied to a level of
+the law, and the twist are supplied.
 
 Interval Echo selects its port service from the rotations of the cell. The
 twelve rotations by a fifth of a turn sum to a class operator, and its
@@ -2260,14 +2208,6 @@ Admitting the bare load of a port as a further service enlarges the visible
 closure to $17$ directions, and the completeness of the physically
 accessible menu is the premise on which the inference to the gauge algebra
 rests \cite{ophmodel}.
-
-Two exact couplings appear in this audit. Count energies from $12\kappa$,
-the energy of two free loads in the uniform mode. At $\kappa=1$ the
-triplet levels of the pair are $2-\sqrt5$, $(7-\sqrt5)/2$, $2+\sqrt5$ and
-$(7+\sqrt5)/2$, and on the second and the fourth the load of every port is
-exactly $1/6$ with vanishing twist. At $\kappa=(\sqrt5-1)/2$ a pair on a
-seam costs exactly what two free loads in the slow level cost,
-$5-\sqrt5$. No selection of the coupling is claimed.
 
 \subsection{Protected centre classes}
 \label{sec:defect-families}
@@ -2333,72 +2273,48 @@ for this lattice theory is $5.6925(2)$ \cite{ophGauge,boyd1996thermodynamics}.
 The equality holds for the bare couplings of this action, and the study holds
 the links alone at one lattice spacing.
 
-\subsection{Bound objects of the contrast-memory law}
-\label{sec:bound-objects}
+\subsection{The field law of a seam connection}
+\label{sec:fields}
 
-Under the law \eqref{eq:contrast-law} an object is a set of loads. A load
-counts $6$ in $C$ and every agreed seam takes $2$ off, so an object of $N$
-loads with $m$ agreed seams costs $6N-2m$.
-Table~\ref{tab:bound-objects} lists the cheapest objects on one cell. The
-first three are a port, a seam and a face, the three kinds of centre of
-the cell: $12$ ports, $30$ seams and $20$ faces, $62$ axis points in all.
-Every object gains at least $2$ against every split into two parts.
+For the separate seam-field construction, write $D$ and $C$ for the seam-by-port
+gradient and face-by-seam curvature, so that $CD=0$.
 
-\begin{table}[htbp]
-\centering\small
-\caption{The cheapest objects of $N$ loads on one cell under the
-contrast-memory law. The cost is the value of $C$; the last column is the
-least gain in $C$ against a split into two objects.}
-\label{tab:bound-objects}
-\begin{tabular}{@{}rlrrrr@{}}
-\toprule
-$N$ & \textbf{Shape} & \textbf{Number} & \textbf{Agreed seams} & \textbf{Cost} & \textbf{Gain}\\
-\midrule
-$1$ & one port & $12$ & $0$ & $6$ & \\
-$2$ & one seam & $30$ & $1$ & $10$ & $2$\\
-$3$ & one face & $20$ & $3$ & $12$ & $4$\\
-$4$ & two faces on a seam & $30$ & $5$ & $14$ & $4$\\
-$5$ & three faces round a port & $60$ & $7$ & $16$ & $4$\\
-$6$ & a port and its five neighbours & $12$ & $10$ & $16$ & $6$\\
-$12$ & the whole cell & $1$ & $30$ & $12$ & $10$\\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{theorem}[Local Maxwell selection]
+\label{thm:maxwell-selection}
+A real quadratic seam action $S(A)=\mathrm{const}+\ell^{\mathsf T}A+\tfrac12A^{\mathsf T}HA$
+that is gauge invariant, has off-diagonal Hessian entries only between seams of one face,
+and is covariant under the sixty carrier rotations is exactly
+$S=\mathrm{const}+\tfrac\kappa2\|CA\|^2$. For positive weights $\epsilon,\beta$, a real linear
+autonomous evolution with $\dot B=-CE$, conserved $(\epsilon\|E\|^2+\beta\|B\|^2)/2$ and
+reversal with $E$ even and $B$ odd is exactly $\dot E=(\beta/\epsilon)C^{\mathsf T}B$ on closed
+flux.
+\end{theorem}
 
-At finite coupling the lowest level of $N$ loads on one cell lies below
-$N$ free loads by the binding $B_N$ of Table~\ref{tab:bound-binding}, in
-units of the exchange. These levels are audit on the spectrum. In the
-lowest level of two loads the pair is on a seam with probability $0.60$,
-$0.86$, $0.99$ and $1.00$ at $\kappa=0.5$, $2$, $8$ and $128$. Inside a
-cell the exchange takes a pair from one seam to the seams of the adjoining
-faces at first order. From the seams of one cell to those of the next the
-transfer passes through one separated state and has amplitude
-$1/(8\kappa)$.
+\begin{proof}
+Gauge invariance is $HD=0$ and $D^{\mathsf T}\ell=0$. At an edge of a face and its opposite
+vertex, locality permits exactly the other two edges in that entry of $HD$, and the signs of
+$CD=0$ propagate one weight $w_f$ over the face. Subtracting $\sum_fw_fC_f^{\mathsf T}C_f$ leaves
+a diagonal matrix annihilating $D$, hence zero. Transitivity on faces equalizes the weights,
+and the sum of the sixty signed seam actions vanishes, which removes $\ell$. For evolution,
+conservation makes the electric block skew and fixes the cross block on closed flux, and
+reversal removes the skew block \cite{ophMicrophysics}.
+\end{proof}
 
-\begin{table}[htbp]
-\centering\small
-\caption{Binding $B_N$ of the lowest level of $N$ loads on one cell
-against $N$ free loads, in units of the exchange.}
-\label{tab:bound-binding}
-\begin{tabular}{@{}rrrrrr@{}}
-\toprule
-$\kappa$ & $B_2$ & $B_3$ & $B_4$ & $B_5$ & $B_6$\\
-\midrule
-$0.5$ & $0.526$ & $1.556$ & $3.049$ & $4.965$ & $7.277$\\
-$1$ & $1.185$ & $3.546$ & $6.864$ & $10.905$ & $15.816$\\
-$2$ & $2.779$ & $8.554$ & $15.927$ & $24.206$ & $35.305$\\
-$8$ & $14.236$ & $43.728$ & $75.212$ & $107.678$ & $155.076$\\
-$128$ & $254.016$ & $763.513$ & $1275.013$ & $1787.511$ & $2555.005$\\
-\bottomrule
-\end{tabular}
-\end{table}
+Exact rank computations and countercontrols verify the classification. On a supplied
+Euclidean domain, the complete equal-weight seam symbol $\Lambda_a$ obeys
+$0\leq r^2-\Lambda_a(k)\leq a^2r^4/20$ at $r=|k|$, and its reversible curl-pair group converges
+to the local Maxwell group with $\|U_a(t,k)-U_0(t,k)\|\leq\min\{2,|t|a^2r^3/20\}$. The premises,
+field identification, coefficients and clock are inputs, and native repair does not select them
+\cite{ophMicrophysics}. The action principle itself has a source form. For a strictly positive
+row-stochastic kernel $P$, the Markov path law is the exponential tilt of the uniform path
+reference by $S_{\log}(\gamma)=-\sum_i\log P(\gamma_i,\gamma_{i+1})$ at multiplier one, and a pair
+$(S',\lambda')$ reproduces it exactly when $\lambda'S'=S_{\log}+c$ for a constant $c$; the
+statements are checked in Lean, and the committed source chain instantiates them
+\cite{ophobservers}.
 
-These objects are read on ports, seams and faces by the observers of their
-cells.
-What they need for a physical reading is listed in
-Section~\ref{sec:scoreboard}.
+\subsection{A charge with a field}
+\label{sec:charge}
 
-\paragraph{The electron's charge and field response.}
 A written-field extension of Interval Echo provides a candidate for this
 part of the electron. One load more or less than the filled reference
 changes the signed boundary flux by a whole unit in individual transfer
@@ -2416,12 +2332,12 @@ region of zero net charge by a local pulse drawing on a material donor.
 Recording the vacancy address during conversion destroys most of the
 recovered coherence. Interchanging two aligned doublets gives positive
 exchange phase. These experiments connect angular response and charge
-conversion on the same preparation. Electron identification also requires
-fermionic exchange, intrinsic spin and a free rest energy on the same
-traveling excitation \cite{ophparticles}.
+conversion on the same preparation. Identifying the electron requires
+fermionic exchange and intrinsic spin on the same travelling excitation,
+followed by an independent rest-energy measurement \cite{ophparticles}.
 
 %=====================================================================
-\section{The Einstein equation from entropy stationarity at fixed volume}
+\section{Gravity: the Einstein equation from entropy balance}
 \label{sec:einstein}
 
 What would an observer see when matter enters a small region? At the same
@@ -2432,7 +2348,30 @@ Entropy stationarity predicts the size of this deficit from the matter
 inside. Measurements by observers moving in different directions can then
 determine the entire curvature--stress relation \cite{jacobson16,ophEinstein}.
 
-\paragraph{One source and two independent measurements.}
+Three numbers enter for each observer: the entropy response of the
+matter in its ball, the deficit of the boundary area and the stress of
+the same matter weighed with independent probes. The theorem below turns
+ten such triples into a bound on every component of the Einstein
+equation. A material of clock pairs then supplies all three numbers on
+shrinking balls, and two quantum fields show that the geometry responds
+to a correlation that neither field's own state shows.
+
+\begin{figure}[!htb]
+\centering
+\input{../paper/tex_fragments/figures/FIG_FLAGSHIP_EINSTEIN_BALL.tex}
+\caption{Gravity as a balance of three measurements on one small ball of
+fixed proper volume. With matter inside, the observer must go farther out
+to enclose the same volume and finds less boundary area. Entropy
+stationarity balances the area deficit against the entropy of the
+matter, which the same observer also weighs with material probes. Ten
+observers in relative motion turn these balances into every component of
+the Einstein equation (Theorem~\ref{thm:einstein}).}
+\label{fig:einstein-ball}
+\end{figure}
+
+\subsection{One source and two independent measurements}
+\label{sec:einstein-inputs}
+
 Use signature $(-,+,+,+)$ and units $\hbar=c=k_{\rm B}=1$. On each refinement
 the observers identify the same event and preparation and calibrate their
 clocks and rulers in a common tetrad. They may register relative motion
@@ -2475,6 +2414,9 @@ edge and centre contribution to be $\eta a_u$ and the total first
 variation at fixed proper volume to vanish. A bound on the number of
 boundary records supplies a ceiling on entropy. The area and bulk
 measurements determine whether their signed variations cancel.
+
+\subsection{Ten observers determine the Einstein tensor}
+\label{sec:einstein-theorem}
 
 \begin{theorem}[Ten timelike measurements determine the Einstein residual]
 \label{thm:einstein}
@@ -2540,7 +2482,106 @@ the odd part of $X((1,n),(1,n))$ on the unit sphere fixes the three mixed
 time--space components and the even part fixes the traceless spatial
 quadratic and the combination $X_{00}+\sum_i X_{ii}/3$ \cite{ophEinstein}.
 
-\paragraph{What the finite model measures.}
+\subsection{Einstein's equation on a material of clock pairs}
+\label{sec:einstein-dust}
+
+In a modification of Interval Echo, two observers publish the bits of
+their clocks. Their individual and joint counts prepare a spherical body
+of pressureless matter. Each shell responds to the mass inside it with
+an inverse-square pull, and signals and clocks obey the local Lorentz
+rule of the falling material. These are inputs to the law. Each
+individual clock emits a fair bit. The joint probability of two bits
+depends on the separation of the clocks, the difference of their
+emission times and the independently counted mass, according to a
+specified material rule. Four beacons and a local clock locate points on
+each moving observer's ball, counts on tagged shells measure the source
+density, and observers measure regional sign entropy against a common
+blank register. A volume-filling population of clock pairs gives the
+entropy $2\pi C_\ell T_{uu}+O(\ell^5)$ on shrinking balls throughout the
+regular interior, for displaced centres and moving observers. The
+independent area deficit is $-C_\ell G_{uu}+O(\ell^6)$. At one ordinary
+coupling the two changes cancel through fourth order, giving
+$G_{ab}=2\pi(T^{\rm ord}_{ab}+T^{\rm joint}_{ab})$, with a uniform
+$O(\ell^5)$ error on any small ball in a compact interior window and for
+bounded boosts. At the same small proper radius these observers enclose
+less volume than in the flat reference. The exposure of each pair is
+proportional to the counted mass density, a declared part of the
+material rule \cite{ophEinstein}.
+
+For a displaced observer with four-velocity $(2,1,1,1)$, sampling the
+enrolled pair addresses gives $\Delta S/\ell^4=3.0514$. Independent
+weighing predicts $3.0453$, and the equal-volume area with the ordinary
+calibration gives $3.0465$. Freezing the time difference of the two
+clocks gives $1.8486$, and omitting the coincidence mass from the readout
+gives $1.7666$.
+
+A simpler survey on the same material places one line of parked
+memories across the enrolled balls of the ten observers. On those balls
+the three errors are $O(\ell^6)$, and each fourfold reduction of $\ell$
+lowers the residual by a factor of sixteen
+(Table~\ref{tab:dust-balance}). With $150$ simulated outcome banks and
+simultaneous $99\%$ intervals, the finest scale bounds the held mismatch
+by $1.56\times10^{-4}$ and resolves a discrepancy above $1.3707$ if the
+joint stock gravitates at half strength. A single line misses whole
+balls away from the enrolled ones, which is why the pairs fill the
+volume.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Entropy and area balance on the survey with one line of parked
+material memories: the largest held residual
+$|\Delta S+\eta_\ell\Delta A|/\ell^4$ over the ten timelike observers of
+Theorem~\ref{thm:einstein} on their enrolled balls, at flat reference
+radius $\ell$.}
+\label{tab:dust-balance}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+$\ell$ & $1/512$ & $1/2048$ & $1/8192$\\
+\midrule
+Largest residual & $3.81\times10^{-5}$ & $2.38\times10^{-6}$ & $1.49\times10^{-7}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ordinary free fall fixes the coupling. Increasing the joint count while
+holding both individual clock frequencies fixed changes the exterior
+frequency ratio from $0.978019$ to $0.960442$, and a released probe
+falls inward faster. An independent interior light beam measures a
+focusing deficit of $0.00332121029$, against $0.00332120912$ from the
+counted matter. Giving the joint stock half the radial coupling
+separates these measurements. The radius unit, the response to counted
+mass and the common clock law are construction inputs, and identifying
+this material with freely formed native excitations requires separate
+measurements \cite{ophEinstein}.
+
+\subsection{Two quantum fields and one geometry}
+\label{sec:einstein-fields}
+
+A regulated semiclassical comparison tests the same relation with
+quantum matter. A quantum scalar in a periodic homogeneous box sources
+geometry through one Hamiltonian containing the expectation of the
+matter energy, so the metric dynamics, the oscillator action and the
+proper clock are inputs. Observers read energy and pressure from
+calibrated field quadratures on one copy and reconstruct curvature from
+the return times of light signals on another. With the coupling of a
+first field fixed, nine held radar estimates for a second field give
+coupling ratios between $0.999864$ and $1.000109$. Halving its
+gravitational weight gives $0.499882$ to $0.500079$, and independent rim
+areas at fixed proper volume give $1.001151$ and $0.500464$.
+
+A bilinear interaction energy between the two fields allows opposite
+cross correlations whose single-field density matrices are identical at
+preparation. With the interaction strength measured by a frequency
+splitting and gravity calibrated on one field, the correlation predicts a change $\Delta G_{00}=0.00296540$ of the temporal
+Einstein component. Radar measures $0.00296837$, and rim areas at equal
+volume give $0.00296947$. Removing the interaction gives identical radar
+and rim records for the opposite correlations. Through the interaction energy,
+the geometry responds to a correlation that neither field's own state
+shows at preparation \cite{ophEinstein}.
+
+\subsection{What the native contacts measure}
+\label{sec:einstein-native}
+
 On 80 Interval Echo cells, four material stations measure twelve directed
 return times. Calibrating the clocks and pairing opposite directions gives
 a tetrahedral area and volume. A volume-matched change in ordinary exchange
@@ -2557,37 +2598,12 @@ their joint correlation. Six stations share fifteen distances, yet two
 smooth interiors agree on those distances and all centered rest-ball
 volumes and yield different area responses for a moving observer.
 
-In a modification of Interval Echo, two observers publish clock bits.
-Their individual and joint counts prepare a spherical body of
-pressureless matter. Each shell responds to the mass inside it with
-an inverse-square pull. Signals and clocks obey the local Lorentz
-rule of the falling material. These are inputs to the law. Four
-beacons and a local clock locate points on each moving observer's
-ball. Counts on tagged shells measure the source density. Pairs of
-clocks throughout the body emit locally timed bits. Each individual
-bit is fair. The joint probability depends on the separation and the
-difference in emission times according to a specified material rule.
-Observers measure regional sign entropy against a common blank
-register. On shrinking balls throughout the regular interior this
-gives $2\pi C_\ell T_{uu}+O(\ell^5)$. The independent area deficit
-is $-C_\ell G_{uu}+O(\ell^6)$. At one ordinary coupling the changes
-cancel through fourth order, giving
-$G_{ab}=2\pi(T^{\rm ord}_{ab}+T^{\rm joint}_{ab})$. At the same
-small proper radius these observers enclose less volume than in the
-flat reference. A single line of memories misses whole balls, which
-is why pairs cover the volume.
-
-Ordinary free fall fixes the coupling. Increasing the joint count
-while holding both individual clock frequencies fixed changes the
-exterior frequency ratio from $0.978019$ to $0.960442$. A released
-probe falls inward faster. An independent interior light beam measures
-a focusing deficit of $0.00332121029$, against $0.00332120912$ from
-the counted matter. Giving the joint stock half the radial coupling
-separates these measurements. On the original Interval Echo contacts,
+On the original Interval Echo contacts,
 independent energy readings select a cold state on a 246-station guide.
 Its measured interval entropy responds to energy of either sign.
 Identifying a three-dimensional proper ball for that native matter
 requires additional clock and area records \cite{ophEinstein}.
+
 
 If the stress read by these same regional instruments contains a conserved
 total $T=T^{\rm ordinary}+T^{\rm collar}$, an overlap correlation can
@@ -2596,6 +2612,24 @@ apparent extra gravity at the ordinary coupling. Identifying the collar's
 measured modular response with that contribution to the action stress,
 and predicting its spatial distribution in galaxies, are distinct physical
 tests (Section~\ref{sec:dark-sector}).
+
+\subsection{Horizons and records}
+\label{sec:expansion-records}
+
+Expansion adds no causal data to the layered read law. A physical read
+$\|\sigma_{j+1}t-\sigma_{j+1}s\|\leq\sigma_{j+1}a$ holds exactly when $\|t-s\|\leq a$, so every
+scale-factor profile generates one order, as conformal invariance of causal structure requires
+\cite{hawkingkingmccarthy1976,malament1977}. The profile enters only the count measure: a constant
+physical event density gives the four-volume weight $\sigma^4\,d\eta\,d^3x$, and the source law does
+not select $\sigma$ \cite{ophinflation}. On a finite screen of fixed capacity, maximizing generalized
+entropy over sector probabilities gives $S_{\rm gen}^{\max}=\log M$, and uniform transfer of a fraction
+$f$ of the horizon capacity to an observer changes that maximum by $\log(1-f)<0$, the sign of the
+de Sitter time advance \cite{ophdesitter}. Public records keep an exact information ledger: pinching
+is an average of independent sign unitaries whose entropy gain equals the relative entropy to the
+pinched state, and on a supplied three-dimensional layered population crossing reads obey an area
+law with coefficient $(\pi/4)n^2a^4$. A declared nat per crossing calibrates that area; horizon
+entropy, Hawking flux and evaporation need the native channel and a physical geometry
+\cite{ophblackhole}.
 
 %=====================================================================
 \section{Cosmology and the closure coordinates}
@@ -2652,23 +2686,40 @@ of orbital mass and projected shear across a common annulus obey a
 parameter-free equality even with unknown compact inner mass
 \cite{ophdarkmatter}.
 
-\subsection{Expansion, horizons and records}
-\label{sec:expansion-records}
+\subsection{A record that holds no load}
+\label{sec:collar-reading}
 
-Expansion adds no causal data to the layered read law. A physical read
-$\|\sigma_{j+1}t-\sigma_{j+1}s\|\leq\sigma_{j+1}a$ holds exactly when $\|t-s\|\leq a$, so every
-scale-factor profile generates one order, as conformal invariance of causal structure requires
-\cite{hawkingkingmccarthy1976,malament1977}. The profile enters only the count measure: a constant
-physical event density gives the four-volume weight $\sigma^4\,d\eta\,d^3x$, and the source law does
-not select $\sigma$ \cite{ophinflation}. On a finite screen of fixed capacity, maximizing generalized
-entropy over sector probabilities gives $S_{\rm gen}^{\max}=\log M$, and uniform transfer of a fraction
-$f$ of the horizon capacity to an observer changes that maximum by $\log(1-f)<0$, the sign of the
-de Sitter time advance \cite{ophdesitter}. Public records keep an exact information ledger: pinching
-is an average of independent sign unitaries whose entropy gain equals the relative entropy to the
-pinched state, and on a supplied three-dimensional layered population crossing reads obey an area
-law with coefficient $(\pi/4)n^2a^4$. A declared nat per crossing calibrates that area; horizon
-entropy, Hawking flux and evaporation need the native channel and a physical geometry
-\cite{ophblackhole}.
+The executable model has a finite candidate for such a carrier. Under the
+contrast-memory law every seam carries a label that no event changes: its memory is blank, or it
+holds a record of contrast size $|d|=0$, $1$ or $2$. The local term maps the
+blank code and the sector of records into themselves, and on the records the
+squared contrast commutes with the write and with the generator, so every
+label is conserved. A seam whose memory holds a record of nonzero contrast
+while its ports hold no contrast is an unrecovered seam, and its memory is
+an unrecovered collar of the kind proposed above as a carrier of
+non-luminous modular energy. It holds no load. With no load anywhere the local term acts on the ten records of a
+seam with the levels $0$, $\kappa$, $\kappa+1$, $4\kappa$ and $4\kappa+1$,
+each twice, so the record lies at least $\kappa$ above the recovered seam at
+every reading. A load that reaches one of its ports binds to it. At
+$\kappa=8$ a load elsewhere on the cell starts at $56.38$, while two levels
+at $41.94$, on which the record is the one the loads can have written, and
+six levels between $49.81$ and $50.94$ hold the load on a port of the seam
+with probability above $0.97$.
+
+The observers of the seam read its level from their own records. A pulse
+converts a local fuel at level zero into a record of the seam. After $q$
+cycles of a protocol a second pulse with one of four phase settings reads
+whether the fuel is present, and the four probabilities give one complex
+number for each count $q$, whose phase advances at a fixed rate. The rates
+$r_s$ and $r_a$ of the symmetric and the antisymmetric record give the
+length of a cycle as $r_a-r_s$ in units of the exchange and the coupling as
+$r_s/(r_a-r_s)$. On one cell with a cycle of $1/16$ exchange units the
+probability law gives the rates $0.500000$ and $0.562500$, hence the cycle
+$0.062500$ and the coupling $8.00000$. With $10^6$ sampled trials per
+setting the observers read $8.0017$, the law without the agreement energy
+reads $0$, and with one load started off the seam they read $8.030$. The
+observers are not given the length of a cycle: the two records of one
+unrecovered seam are a clock that they read from their own records.
 
 \subsection{Pixel closure and the record capacity}
 \label{sec:closure-principle}
@@ -2724,7 +2775,7 @@ independent physical tests \cite{ophalpha,ophvacuum}.
 \input{../paper/tex_fragments/DISCRETE_SPHERICAL_CAPACITY.tex}
 
 %=====================================================================
-\section{Realized results and physical obligations}
+\section{What is realized and what is required}
 \label{sec:scoreboard}
 
 The physical target is one realization whose limiting observable laws agree
@@ -2734,26 +2785,17 @@ Table~\ref{tab:acceptance} collects the constructed results, their
 requirements and the negative controls that delimit them, for the theory
 and for the candidates of the executable model. The criterion for refinement and for
 physical extension is agreement of the distributions of admissible
-observer records with what observers in our world record. Observers who
-inhabit the simulation can describe their experiences as relativistic
-$3{+}1$D continuum spacetimes: this conclusion requires the supplied radial interval, hyperbolic service and admissible readouts of Proposition~\ref{prop:effective-lorentzian} with the rank-three spatial
-carrier and the causal and count limits, under their stated premises. The
-obligation of the model is to supply those premises with its own local
-clocks and records; it does not have to rebuild three dimensions inside
-its state. The outputs that meet premises of finite theorems as they stand
-are the carrier with its rank-three band, the seam rule, complete
-instruments with projective readings, record algebras with certain
-rereads, count clocks compared through shared records, travelling clocks
-whose closing rule is calibrated to the proper-time forecast, the twelve-dimensional
-response under one declared service and the rotation-selected currents of
-Interval Echo, and the information projection of two overlapping observers
-(Table~\ref{tab:joins}).
-A difference between microscopic state encodings is no failure
-of the model, and a resemblance between them is no success. Existence and phenomenal
-experience are interpretive questions: an implemented record interface does
-not derive why anything exists or the phenomenal character of a record.
-The executable-model paper lists the supplied parts and the limits of the
-construction \cite{ophspine}.
+observer records with what observers in our world record. The obligation
+of the model is to supply the premises of
+Proposition~\ref{prop:effective-lorentzian}, Theorem~\ref{thm:scalar-limit}
+and the causal and count limits with its own local clocks and records; it
+does not have to rebuild three dimensions inside its state.
+Table~\ref{tab:joins} lists the outputs that meet premises of finite
+theorems as they stand. A difference between microscopic state encodings
+is no failure of the model, and a resemblance between them is no success.
+Existence and phenomenal experience are interpretive questions: an
+implemented record interface does not derive why anything exists or the
+phenomenal character of a record \cite{ophspine}.
 
 {\small
 \begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
@@ -2797,72 +2839,159 @@ alternatives are not independent confirmations.\\
 \midrule
 \multicolumn{3}{@{}l}{\textbf{Interval Echo and its contrast-memory seam}}\\
 \midrule
+Programmed scalar & Three directions recovered from anonymous detector
+counts; a flat $3{+}1$D Klein--Gordon limit with explicit band and clock
+errors (Sections~\ref{sec:blind-chart} and~\ref{sec:scalar-limit}) &
+The same chart and wave limit on the freely evolving federation, and an
+interacting four-dimensional field theory.\\
 Travelling clock & A patch carries its hand, elapsed count and interval
 memory through verified handoffs; at reunion the ratio of the two counts
 reproduces its calibration on the supplied reciprocal light relay
-within about one part in a thousand, and a wider clock extends the range
-(Section~\ref{sec:travelling-clock}) &
+within about one part in a thousand (Section~\ref{sec:travelling-clock}) &
 Held clock constructions and directions, and transport of the three
 directions by the full records of a moving observer.\\
 Overlapping observers & Single-cell and overlapping three-cell observers of
-the $320$-cell sphere agree on every shared checkpoint; a local priority
-joins a repair fork; two overlapping observers realize the unique
-information projection &
+the $320$-cell sphere agree on every shared checkpoint; two overlapping
+observers realize the unique information projection &
 An authenticated causal order with count and volume limits, and confluence
 of every accepted repair on the federation.\\
+Binding & Uniform first-read bound for a pair left to evolve freely on any
+federation of complete cells (Theorem~\ref{thm:binding}); the pair and the
+face object are read on other seams and faces, and the exchange law alone
+loses the pair &
+One limiting speed for all objects: the bound pair is a Galilean
+composite, with branch $E(K)=\Delta-\cos^2(K/2)/\Delta$,
+$\Delta=1+2\kappa$, on a chain. An identified antiparticle and
+annihilation channel, and a refinement map that preserves seams.\\
 Port currents & Twelve rotation-selected currents, independent and closed
 under commutators on one load and on the bound pair, with all sixty
 rechartings by overlap transport (Section~\ref{sec:port-response}) &
 Completeness of the physically accessible menu, and one common measurement
 of current and stress on a bound excitation.\\
-Memory realization & The echo on the private seam memory is given on all
-$99$ local states and reduces exactly to the law on loads on blank memory,
-for every coupling (Proposition~\ref{prop:echo-reduction}) &
-A selection of the coupling $\kappa$, which is supplied.\\
-Binding & Uniform first-read bound for a pair prepared on a seam and left
-to evolve freely on any federation of complete cells (Theorem~\ref{thm:binding}); the exchange law alone
-loses it &
-An identified antiparticle and annihilation channel, and the class of an
-object as a record.\\
-Bound objects read on other seams & The pair and the face object are read
-on other seams and faces; the cheapest objects of one cell are listed in
-Table~\ref{tab:bound-objects} &
-One limiting speed for all objects: the bound pair is a Galilean
-composite, with branch $E(K)=\Delta-\cos^2(K/2)/\Delta$,
-$\Delta=1+2\kappa$, on a chain, and free clusters of two, three and four
-loads have kinetic ratios that differ from their rest-energy ratios. A
-refinement map that preserves seams;
-the test of a refinement is agreement of the distributions of admissible
-observer records between levels.\\
-Agreed records & A complete instrument of seam records from the two ends
-of every seam, with the outcome ``no pair'' &
-A record of currents that later events read, and a seam connection with its
-own energy.\\
-Events with no common clock & Records depend on the local order of events
-alone; rounds keep the pair with unequal counts &
-Normalization of every clock of the model to proper time, which the
-travelling clock meets on the tested journeys.\\
-The unrecovered collar & The recovery state of every seam is conserved;
-an unrecovered collar holds no load and lies one agreement energy above
-the recovered seam; a load on one of its ports binds to it; its observers
-read its level and the coupling from their own records
+The unrecovered collar & An unrecovered collar holds no load, lies one
+agreement energy above the recovered seam and binds a load that reaches it;
+its observers read its level and the coupling from their own records
 (Section~\ref{sec:collar-reading}) &
 Its reading as the recovery defect of the dark sector, and the regional
 response that the Einstein theorem consumes.\\
-What a reading leaves & Reading that a pair is present and reading where it
-is have the same first statistics and different later records
-(Section~\ref{sec:presence}) &
-The tree of the presence reading is supplied apparatus.\\
-Scalar channel & The scalar channel holds an object on four seams.
-Its excitation is kept for every interval, and after a pulse its seam
-record swings at one line, read from counts at $4.8990$ of the observer's
-own reference and equal to the level difference read separately
-(Section~\ref{sec:cage}) &
+Scalar channel & An object on four seams keeps its excitation for every
+interval, and its seam record swings at one line, read at $4.8990$ of the
+observer's own reference (Section~\ref{sec:cage}) &
 A clock that starts with no supplied phase, and motion of the object: the
 level of a cage is flat.\\*
 \bottomrule
 \end{longtable}
 }
+
+\subsection{The model and the finite theorems}
+\label{sec:model-joins}
+
+The theory is a library of finite theorems, each proved under stated
+premises. A theorem applies to the model where an output of the model has
+the form of its premise, and its conclusion is then a statement about the
+model's observers (Table~\ref{tab:joins}). Every entry is a statement about
+records; the state of the computation contains no spacetime, and no entry
+compares that state with the world.
+
+{\small
+\begin{longtable}{@{}L{0.25\linewidth}L{0.33\linewidth}L{0.34\linewidth}@{}}
+\caption{Where the outputs of the model meet the finite theorems.}
+\label{tab:joins}\\
+\toprule
+\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
+\toprule
+\textbf{Theorem} & \textbf{The model supplies} & \textbf{It follows}\\
+\midrule
+\endhead
+Three-dimensional carrier completion (Theorem~\ref{thm:rank-three}) & The
+cell, and a law under which one load moves with $L/2$ & The slowest motion
+of a load has exactly three independent directions; the first four levels
+of the scalar channel are the same levels\\
+Flat $3{+}1$D limit (Theorem~\ref{thm:scalar-limit}) & The programmed
+equal-slot walk on native seam pulses and a fair material clock & A
+Klein--Gordon field on a flat periodic three-dimensional chart, with
+explicit band and clock errors\\
+Einstein residual (Theorem~\ref{thm:einstein}) & Regional entropy, area
+and stress of the clock-pair material in ten frames, with its spherical
+pull and clock law supplied & The Einstein equation through fourth order
+on shrinking balls, with independent light focusing\\
+The native seam rule (Section~\ref{sec:native-repair}) & The write of the
+contrast-memory law, which is that rule with the coin in superposition &
+The event that every seam writes and unwrites is the one rule that four
+requirements leave\\
+Projective instruments & The presence reading, which leaves every state
+certain for its event unchanged & It is the projective instrument of ``a
+pair on some seam''; the reader with seam records is another instrument\\
+Public-record identities (Theorem~\ref{thm:born}) & Readers with complete
+outcome sets that copy orthogonal labels; records that the law never
+erases & The agreed records form a public algebra with Born weights,
+L\"uders conditioning and certain rereads\\
+Local operations & Events and readings that act on the registers of one
+seam & No event or reading changes the record law of an observer that
+shares no register with it\\
+The generator of a flow & One continuous flow for each law & Each law is
+fixed by its flow up to an energy offset\\
+Comparison of frequencies & The pair of a cage, with the frequencies $0$
+and $\pm2E$ & A record of the pair holds the one line $2E$, read at
+$4.8990$ of the observer's reference\\
+Clock readout & Observers that count their own events and share the
+records of their seams; the travelling clock of Interval Echo, read by both
+owners at reunion & Two shared records relate the counts of two observers,
+and a third checks the relation; no common clock enters, and the calibrated clock reproduces its design rate\\
+Rereads & The presence reading and the law & Frequent readings would hold a
+pair at any coupling, so every reading uses a fresh run and the binding
+theorem needs no reading\\
+Gauge Lie-type forcing (Theorem~\ref{thm:inner-action-closure}) & The
+response of one load on one cell under one declared port service; the
+rotation-selected port currents of Interval Echo on one load and on the
+bound pair & The response has the Standard Model gauge Lie type; the direct
+computation gives $\mathfrak u(3)\oplus\mathfrak{so}(3)$; the
+rotation-selected currents are twelve independent generators closed under
+commutators and covariant under the sixty rotations\\
+Least-informative assignment & Two overlapping two-cell observers of
+Interval Echo with a faithful reference, positive weights and their
+constraints & The unique weighted information projection, the same in both
+orders\\
+\bottomrule
+\end{longtable}
+}
+
+Other finite theorems consume outputs that the model does not produce in
+the required form. The settling theorems of Section~\ref{sec:consensus}
+consume accepted repairs that lower a well-founded measure; the laws are
+unitary and conserve their loads and objects, so those theorems apply to
+the classical seam rule. Proposition~\ref{prop:effective-lorentzian}
+consumes readouts that are polynomials in the Weyl operators of a free field
+on a radial cylinder over the screen, while the readouts of the model are
+instruments on finite registers. The causal and count limits consume an
+authenticated order of events with a refinement family, the Einstein
+implication on native matter consumes regional entropy, area and stress
+readouts in a common frame, Theorem~\ref{thm:maxwell-selection} consumes a gauge-invariant action
+on seam potentials, and the theorems on defect classes consume a protected
+code with a spin doublet. The unrecovered seam supplies the dark-sector analysis with a
+conserved label and nothing more. Each of these names an output that a
+member of the model has to produce before the theorem applies to it.
+
+\subsection{Supplied parts and resources}
+\label{sec:supplied}
+
+The construction supplies the coupling $\kappa$, the private seam
+generator, the degree references and the preparation and timing of the
+emitter and reader. The federation uses a supplied tangent-frame route.
+The presence circuit supplies its reversible tree and schedule. The
+unrecovered-seam reader supplies its fuel and converter. Interval Echo
+specifies the clock's guide, hand, custody transfers, gate cadence, read
+windows, widths and walk budget. Its closing filter is calibrated on a
+reciprocal relay, and its port service specifies a gain and pulse. The
+programmed scalar instrument supplies its routing, order of contacts,
+private register and clock cadence. The scalar channel supplies $m,c$,
+the reference ramps, register penalties, profile operators, pulses, fuel
+dial and reference step bound. Continuous-time runs specify their
+evolution parameter, and local rounds specify a visit to each seam or a
+small-angle limit \cite{ophspine,ophmodel}.
 
 \subsection{The realization maps}
 \label{sec:standing-maps}
@@ -3025,57 +3154,30 @@ $\sum_i(u_i\!\cdot\!n)^6=12/7+(64/175)\,\mathcal I_6(n)$ substituted into the
 cosine series give the expansion; eliminating $a$ gives the ratios.
 \end{proof}
 
-A second frozen ray follows from the source seams.
-
-\begin{proposition}[Source-seam edge ray and conditional propagation branch]
-\label{prop:seam-edge-prediction}
-The boundary current of the complete thirty-seam source packet maps through
-the antipodal-odd load readout onto the even-sum module $D_6$ of
-Theorem~\ref{thm:rank-three}, with Smith invariants $(1,1,1,1,1,2)$, and every
-directed seam defines one translation of the internal record carrier whose
-complete normalized direction multiset is the thirty-direction edge orbit. If
-the feasible move laws and their objective are natural under the proper
-carrier action and A3 supplies a unique normalized minimizer, transitivity
-forces weight $1/60$ on every directed seam, and the selected internal
-operator is the source-counting homogeneous convolution.
-
-Suppose these record translations are physical displacements under one
-homogeneous position action, that the complete edge orbit is the sole direct
-support through the displayed order, that proper-carrier covariance fixes one
-common weight, that the same operator acts on one scalar or
-polarization-independent physical sector with quadratic term normalized to
-$k^2$, and that the action carries the stated gluing, scale, frame, readout,
-nuisance, and exclusivity data. Its spatial kinetic symbol is then
+A second frozen ray follows from the source seams. The boundary current of
+the complete thirty-seam source packet maps onto the even-sum module $D_6$
+of Theorem~\ref{thm:rank-three}, with Smith invariants $(1,1,1,1,1,2)$, and
+every directed seam defines one translation of the internal record carrier
+along the thirty-direction edge orbit. If the feasible move laws are natural
+under the carrier rotations and A3 supplies a unique minimizer, every
+directed seam carries weight $1/60$. Suppose further that these
+translations are physical displacements under one homogeneous position
+action, that the complete edge orbit is the sole direct support through
+the displayed order, that carrier covariance fixes one common weight,
+that the operator acts on one scalar or polarization-independent physical
+sector with quadratic term normalized to $k^2$, and that the action
+carries the stated gluing, scale, frame, readout, nuisance and
+exclusivity data. The spatial kinetic symbol is then
 \begin{equation}
 \Lambda_a(k,\widehat k)=\frac{1}{5a^2}\sum_{j=1}^{30}
  \left[1-\cos\!\left(ak\,w_j\!\cdot\!\widehat k\right)\right],
 \label{eq:seam-edge-symbol}
 \end{equation}
-with $C_4=-a^2/20$, $B_0=a^4/840$ and $B_6=-a^4/12600$, hence
-$B_0/C_4^2=10/21$, $B_6/C_4^2=-2/63$ and $B_6/B_0=-1/15$.
-The intrinsic anisotropic coefficients at angular ranks one through five
-vanish, and the rank-six vector lies on the rotated $\mathcal I_6$ orbit.
-\end{proposition}
-
-\begin{proof}
-Exact integer incidence gives the displayed image and Smith invariants, and
-the response-selected Gram pullback gives the completion of
-Theorem~\ref{thm:rank-three}. The sixty directed labels map two-to-one onto
-the thirty signed edge directions, whose unit-normalized moments are
-$\sum_j(w_j\!\cdot n)^2=10$, $\sum_j(w_j\!\cdot n)^4=6$ and
-$\sum_j(w_j\!\cdot n)^6=30/7-(2/7)\,\mathcal I_6(n)$; substitution in
-\eqref{eq:seam-edge-symbol} gives the coefficients and ratios. The
-incidence, quotient, orbit binding and moment identities are machine-checked
-in exact arithmetic \cite{ophrepo}.
-\end{proof}
-
-The proposition contains an exact finite source theorem and a conditional
-physical branch. The naturality and minimizer clause supplies a homogeneous
-internal action whose generator satisfies the positive maximum principle and
-an exact Dirichlet identity, and whose plane-wave spectrum is the symbol
-above. The edge branch and the primitive-port branch have
-opposite rank-six signs, and their coefficient rays, custody packages,
-exposure exclusions and comparison budgets are separate.
+with $B_0/C_4^2=10/21$, $B_6/C_4^2=-2/63$ and $B_6/B_0=-1/15$. Ranks one
+through five vanish, and the edge branch has the opposite rank-six sign to
+the primitive-port branch; the incidence, quotient and moment identities
+are machine-checked in exact arithmetic \cite{ophrepo}. The two branches
+are bounded by one theorem.
 
 \begin{theorem}[Carrier-class dispersion band]
 \label{thm:carrier-class-band}
@@ -3121,30 +3223,22 @@ branch forced and exclusive \cite{ophregister}.
 \subsection{An instrument test of the executable model}
 \label{sec:instrument-test}
 
-The executable model has two instrument tests: the particle-stability test
-of its seam interaction (Section~\ref{sec:particle-stability}) and the
-reunion test of the travelling clock of Interval Echo
-(Section~\ref{sec:travelling-clock}). In the first, the instrument is the
-two-ended reader of every seam with its agreed record, the preparation is
-the local emitter, and the prediction is a probability law on the complete
-set of outcomes: one record for each seam and the outcome ``no pair''.
-Three outcomes count against the claim: ``no pair'' above the bound at a
-reading; in the audit of the spectrum, no level of two loads below the
-energy of two free loads; or a changed law with the same alphabet, routing
-and symmetry that gives the same answer on the whole property. None
-occurs in the runs. The exchange law alone loses the pair, and the law
-with the reversed sign keeps the pair and has no level below two free
-loads. The test compares distributions of observer records. It makes no
-statement about the encoding of the state, and the carrier on which it
-runs is hardware of the computation, no physical space. A comparison with
-what observers in our world record uses the effective description of
-Proposition~\ref{prop:effective-lorentzian} and the physical reading of
-the bound objects, whose requirements are listed in
-Section~\ref{sec:scoreboard}. In the second, the instrument is the shared
-seam on which both owners read their elapsed counts, the speeds come from
-the optics of the home observer, and the prediction is the forecast
-\eqref{eq:reunion-forecast}; a residual beyond its standard errors on a held
-journey counts against the clock.
+The executable model has three instrument tests. In the particle-stability
+test (Section~\ref{sec:particle-stability}) the instrument is the two-ended
+reader of every seam, the preparation is the local emitter, and the
+prediction is a probability law on the complete set of outcomes. Three
+outcomes count against it: ``no pair'' above the bound at a reading, no
+level of two loads below the energy of two free loads in the audit of the
+spectrum, or a changed law with the same alphabet, routing and symmetry
+that gives the same answer on the whole property. None occurs in the
+runs: the exchange law alone loses the pair, and the law with the reversed
+sign keeps it with no level below two free loads. In the chart test
+(Section~\ref{sec:blind-chart}) a held distribution farther than the
+registered tolerance from the forecast of the recovered chart counts
+against it. In the reunion test (Section~\ref{sec:travelling-clock}) a
+residual beyond its standard errors on a held journey counts against the
+clock. Each test compares distributions of observer records and makes no
+statement about the encoding of the state.
 
 \subsection{Predictions of the model on records}
 \label{sec:model-predictions}
@@ -3172,6 +3266,10 @@ against each.}
 \textbf{Experiment} & \textbf{Prediction} & \textbf{Counts against it}\\
 \midrule
 \endhead
+Eight anonymous stations of the programmed scalar, clock readings $1$ to
+$3$ & Every held distribution within $0.01$ of the forecast of the
+recovered three-direction chart & A larger discrepancy, or a two-direction
+chart that fits\\
 A pair written on one seam, read later, $\kappa>3$ & ``No pair'' with
 probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$
 at $\kappa=8$ on $1$ to $320$ cells at the readings of
@@ -3220,8 +3318,7 @@ $S=2$ therefore need uncommitted coherence from declared preparation
 services, and every admissible record law attenuates it \cite{ophrecordlaws}.
 The replay leaves the completed record
 surface untouched, on which a declared entangled state reaches the
-Tsirelson bound of Theorem~\ref{thm:born}, and it does not distinguish C
-from E.
+Tsirelson bound of Theorem~\ref{thm:born}.
 
 \subsection{Diagnostics and what fails together}
 
@@ -3318,11 +3415,11 @@ The gravitational branch belongs to the thermodynamic and
 entanglement-based routes to geometry \cite{jacobson95,jacobson16,vanraamsdonk2010},
 with Bisognano--Wichmann modular flow and half-sided modular inclusions as
 established analytic ingredients \cite{bw75,bw76,wiesbrock93}. The route from
-a null-projected balance and the Bianchi identity to the full equation, with
+a projected balance and the Bianchi identity to the full equation, with
 $\Lambda$ as an integration constant, is familiar from trace-free and
 unimodular formulations \cite{vdbij1982,ellis2011}; what is added is the
-finite nine-direction design with exact constants and the premise contract
-(G1)--(G6) stated as one implication. The gauge section uses
+finite design of ten timelike observers with exact constants, stated as one
+implication, and a material on which all of its inputs are measured. The gauge section uses
 Doplicher--Roberts reconstruction for the sector group \cite{dr89,dr90} and
 contributes the forcing of the local Lie type from complete response and
 rechartings inner on that response, a stronger premise than mere internal
@@ -3341,6 +3438,13 @@ self-representation fails \cite{lawvere1969}; the closure condition is
 restricted to the observable and interventional structure that observers can
 recover.
 
+The desktop picture of the introduction resembles the interface theory of
+perception, in which perceived objects are icons of an interface shaped
+for use \cite{hoffman2015}. In OPH the interface is shared: its objects are
+fixed by agreement of overlapping records and by their responses to
+intervention, and the claim is tested by running the computation and
+comparing what its observers record.
+
 The characteristic test of this proposal is an intervention whose
 record can be predicted in two descriptions. A pulse routed through
 finite port memories can also be described as a wave travelling between
@@ -3348,25 +3452,31 @@ stations. The chart recovered from the first measurements predicts
 where subsequent pulses arrive. A source of gravity would have to pass a
 stronger test. The stress assigned to a matter preparation would have
 to predict curvature measured by an independent observer, with the
-same coupling for different sources. The semiclassical comparison in
-Section~\ref{sec:einstein} gives an example in which this test succeeds
-and detects a deliberate change of coupling.
+same coupling for different sources. The two-field comparison of
+Section~\ref{sec:einstein-fields} gives an example in which this test
+succeeds and detects a deliberate change of coupling.
 
 %=====================================================================
 \section{Conclusion}
 
-A field in spacetime can describe measurements made inside a computation
-specified by finite registers and local operations. In the scalar experiment, the wiring and the clocked pulse
-sequence are explicit. An observer with access to station records
-recovers three coordinates, predicts the held arrivals and can describe
-the prescribed refinement by a relativistic free field. On the same
-hardware the pair instruments distinguish two quantum state updates,
-the current pulses have detectable effects and a signed defect
-transports a coherent orbital state. The rotation and exchange tests
-in Section~\ref{sec:bound-objects} identify the orbital character
-of that state. The written-field extension supplies a candidate charge
-and field response. Identifying an electron requires the charge, spin
-and rest energy of one freely travelling excitation.
+Observers inside a finite computation can describe what they agree on
+as a relativistic world. The hardware of the executable model is a
+sphere of twelve-port cells whose seams keep small private memories, and
+nothing in it is a position, a common clock or a particle. On its desktop
+the observers find three-dimensional relativistic space: they recover
+three directions from anonymous detector counts, the programmed scalar
+obeys a flat $3{+}1$-dimensional Klein--Gordon equation in its refinement
+limit, and a calibrated clock carried by a travelling patch lags the
+resting one at reunion by the ratio its home observer forecasts. They
+find stable particles: a theorem bounds the probability of losing a pair
+of loads uniformly in the number of cells, and the observers read the
+pair on seams other than the one it was written on. They find gravity as
+a balance of records: on a material of clock pairs, entropy and
+fixed-volume area measured by ten moving observers balance through fourth
+order, and an independent light beam measures the focusing they predict.
+The routing of the scalar instrument, the calibration of the clock's
+closing filter, and the spherical pull and pair rule of the clock-pair
+material are declared parts of these constructions.
 
 The finite theorems constrain what observers can recover. Under their
 respective hypotheses, repair fixes a public normal form and additive
@@ -3374,9 +3484,10 @@ probabilities on effects fix a density matrix. A complete compact response
 that implements cell rotations internally fixes the gauge Lie type.
 For gravity, observers who measure the same properly normalized entropy
 and area response in ten timelike frames can reconstruct every component
-of the Einstein equation at the ordinary-matter coupling. The independent
-test on freely evolving material is to predict proper area from its
-measured stress across a sequence of shrinking regions.
+of the Einstein equation at the ordinary-matter coupling. The test on
+freely evolving native material is to predict proper area from its
+measured stress across a sequence of shrinking regions, with one observer
+calibration shared by all these constructions.
 
 The closure question turns this reconstruction back on the observers.
 If a history contains the discovery of its own specification and the
@@ -3988,6 +4099,9 @@ Tegmark, M. (2008). ``The mathematical universe.'' \emph{Foundations of Physics}
 \bibitem{nozick1981}
 Nozick, R. (1981). \emph{Philosophical Explanations}. Harvard University
 Press.
+
+\bibitem{hoffman2015}
+Hoffman, D.\,D., Singh, M., and Prakash, C. (2015). ``The interface theory of perception.'' \emph{Psychonomic Bulletin \& Review} \textbf{22}, 1480--1506. \url{https://doi.org/10.3758/s13423-015-0890-8}
 
 \bibitem{lawvere1969}
 Lawvere, F.\,W. (1969). ``Diagonal arguments and cartesian closed categories.'' \emph{Lecture Notes in Mathematics} \textbf{92}, 134--145. \url{https://doi.org/10.1007/BFb0080769}

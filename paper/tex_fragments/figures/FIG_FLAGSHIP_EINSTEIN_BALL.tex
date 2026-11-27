@@ -1,0 +1,26 @@
+% Figure: the three measured inputs of the Einstein theorem on one small ball of fixed proper volume.
+\begin{tikzpicture}[
+  meas/.style={oph box=#1, text width=4.9cm, align=flush left, inner sep=3pt, font=\scriptsize}]
+% the ball: flat reference (dashed) and the ball with matter at the same volume (solid, larger radius, smaller area)
+\draw[ophgrey, dash pattern=on 2pt off 1.6pt, line width=0.6pt] (0,0) circle (1.05);
+\draw[ophnative, line width=0.8pt] (0,0) circle (1.22);
+\foreach \p in {(-0.35,0.25),(0.3,0.4),(0.1,-0.3),(-0.45,-0.35),(0.55,-0.1),(-0.05,0.7),(0.62,0.62),(-0.7,0.1)}
+  \fill[ophdeclared] \p circle (0.06);
+\node[font=\scriptsize, text=ophgrey, align=center] at (0,-1.62) {flat reference (dashed) and\\the ball with matter, same volume};
+% three measurements
+\node[meas=ophnative, anchor=west] (area) at (2.1,1.0) {\textbf{Area deficit} $a_u$: rulers and clocks find\\less boundary area at the same volume};
+\node[meas=ophchecked, anchor=west] (ent) at (2.1,0) {\textbf{Entropy response} $s_u$: records of\\the matter inside the ball};
+\node[meas=ophdeclared, anchor=west] (str) at (2.1,-1.0) {\textbf{Stress} $T_{uu}$: the same matter\\weighed with material probes};
+\draw[oph arrow=ophnative] (1.25,0.55)--(area.west);
+\draw[oph arrow=ophchecked] (1.25,0)--(ent.west);
+\draw[oph arrow=ophdeclared] (1.25,-0.55)--(str.west);
+% result
+\node[oph box=ophgrey, text width=4.4cm, align=flush left, font=\scriptsize, anchor=west] (res) at (7.95,0) {%
+  \textbf{Ten moving observers}\\[2pt]
+  balance $s_u+\eta\,a_u=0$ and weigh\\
+  $s_u=2\pi C_\ell T_{uu}$ on shrinking balls\\[3pt]
+  $\Rightarrow\ G_{ab}+\Lambda g_{ab}=8\pi G_N T_{ab}$};
+\draw[oph arrow] (area.east)--(res.west);
+\draw[oph arrow] (ent.east)--(res.west);
+\draw[oph arrow] (str.east)--(res.west);
+\end{tikzpicture}
