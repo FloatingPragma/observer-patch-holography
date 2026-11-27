@@ -1,6 +1,6 @@
 # A spectrometer's excitation stays on two ports in free flight
 
-An OPH observer can start with one sharply placed load and blank sample memories, prepare either of two previously specified wavelength analyzers, and release it on a connected board. At **every free exposure and every real contrast strength**, the probability of finding the load on port 9 or 11 is at least **0.999997291223**, counting every unsuccessful preparation. Both ports have an exit. Changing the relative sign gives returns of 0.461707 and 0.398056 at exposure 37 on the 20-cell board. [Original spectroscopy task](../row_30_selective/PROTOCOL.md) · [Complete calculated probabilities](results.json) · [Preparation and tests](DESIGN.md)
+An OPH observer can start with one sharply placed load and blank sample memories, prepare either of two previously specified wavelength analyzers, and release it on a connected board. With a matched fuel reference and a retry cap of 96, the probability of finding the load on port 9 or 11 is at least **0.999997291223** at every free exposure and every real contrast strength. This bound counts every unsuccessful preparation. Both ports have an exit. Changing the relative sign gives returns of 0.461707 and 0.398056 at exposure 37 on the 20-cell board. [Original spectroscopy task](../row_30_selective/PROTOCOL.md) · [Complete calculated probabilities](results.json) · [Preparation and tests](DESIGN.md)
 
 ## Why these memories and these states?
 

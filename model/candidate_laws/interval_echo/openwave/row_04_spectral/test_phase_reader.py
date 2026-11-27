@@ -6,6 +6,18 @@ import pytest
 from . import raw_verify as raw
 
 
+def test_replay_rejects_impossible_click_and_altered_refusal():
+    from .experiment import compare
+
+    receipt = raw.read_json(raw.HERE / "phase.json")
+    row = next(row for row in receipt["boards"][0]["records"] if row["outcomes"][-1] == 0)
+    outcomes = [*row["outcomes"][:-1], -1e-12]
+    with pytest.raises(ValueError, match="Out-of-range probability"):
+        compare(row, {**row, "outcomes": outcomes})
+    with pytest.raises(ValueError, match="Numerical replay differs"):
+        compare(row, {**row, "source_refused": row["source_refused"] + 1e-12})
+
+
 def test_every_phase_acceptance_and_original_denominator():
     receipt=raw.read_json(raw.HERE/"phase.json")
     assert len(receipt["record_order"])==8 and receipt["record_order"][-1]=="signed_ray_click"
