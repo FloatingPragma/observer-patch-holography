@@ -7,12 +7,33 @@ import json
 import math
 
 import numpy as np
+import pytest
 
 from . import measure as m
 
 
 def archived():
     return json.loads((m.HERE / "results.json").read_text())
+
+
+@pytest.mark.parametrize("field", ["area", "entropy_slope_over_ell4", "swapped_balance_over_ell4",
+                                   "worldlines", "gain"])
+def test_replay_rejects_changed_survey_readings(tmp_path, field):
+    original = archived()
+    changed = archived()
+    row = changed["rows"][0]
+    if field == "area":
+        row["plus"]["area"] = "100000"
+    elif field == "worldlines":
+        row[field][0][0] += 1e-8
+    elif field == "gain":
+        changed[field] = 2
+    else:
+        row[field] = 987.0
+    path = tmp_path / "results.json"
+    path.write_text(json.dumps(changed))
+    with pytest.raises(ValueError, match="Different"):
+        m.verify_saved(original, path)
 
 
 def test_shared_worldlines_and_nested_restrictions():
