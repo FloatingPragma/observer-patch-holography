@@ -48,3 +48,23 @@ def test_native_gates_preserve_a_slowest_repair_mode():
     deviation = np.diag(after[:, 0, :, 0]) - 1/5
     np.testing.assert_allclose(deviation, (3+np.sqrt(5))/8 * (weights-1/5),
                                atol=1e-16, rtol=0)
+
+
+def test_complete_choi_matrices_and_selective_remote_states():
+    # An unnormalized maximally entangled input tests the channel on every
+    # matrix unit at once. The remote identity is its initial marginal.
+    for size, volume in ((5, False), (2, True)):
+        eye = np.eye(size)
+        entangled = np.einsum("ia,jb->iajb", eye, eye)
+        if volume:
+            probabilities = np.array([[3, 1], [2, 2]])/4
+        else:
+            probabilities = (2*eye + np.roll(eye, 1, axis=1) + np.roll(eye, -1, axis=1))/4
+        serviced = candidate.repair_record(entangled, volume=volume)
+        joint = np.diag(probabilities.T.ravel()).reshape(entangled.shape)
+        np.testing.assert_array_equal(serviced, joint)
+        np.testing.assert_array_equal(np.trace(serviced, axis1=0, axis2=2), eye)
+        selected = serviced[0, :, 0, :]
+        assert not np.allclose(selected/np.trace(selected), eye/size)
+        reset = candidate.prepare_reference_payload(entangled)
+        np.testing.assert_array_equal(reset, np.eye(size**2).reshape(entangled.shape)/size)

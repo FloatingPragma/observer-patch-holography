@@ -32,7 +32,10 @@ PARAMETERS = {
     "selection": {"value": "local mixing", "provenance": "designed",
                   "quantity": "positive visitation of each repair, native reservoir and contrast gate"},
 }
-PREMISES = {"PR-26": {"status": "partial",
+PREMISES = {"PR-44": {"status": "fulfilled",
+    "note": "Each addressed record repair and reservoir acts on a declared local factor by a complete Kraus family. Their complete channels and the native contrast unitary preserve an arbitrary untouched reference marginal.",
+    "evidence": ["candidate.py", "SPEC.md", "test_candidate.py"]},
+    "PR-26": {"status": "partial",
     "note": "Exact first-order stationarity for all overlapping endpoint regions at fixed recorded volume. A separate cubical experiment has independently surveyed boundaries. Area-dependent partner counts also enforce the fourth-order accuracy requirement on a supplied moving-ball survey. Native proper geometry and independent regional stress remain open.",
     "evidence": ["SPEC.md", "REGIONAL.md", "surveyed_cells/README.md", "proper_balls/README.md"]}}
 JOINT = {}

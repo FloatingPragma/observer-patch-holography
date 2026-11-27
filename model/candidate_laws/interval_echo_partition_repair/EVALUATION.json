@@ -103,9 +103,9 @@
    "fails": 0
   },
   "designer": {
-   "fulfilled": 0,
+   "fulfilled": 1,
    "partial": 0,
-   "open": 31,
+   "open": 30,
    "fails": 0
   },
   "import": {
@@ -517,9 +517,13 @@
    "statement": "The finite locality results are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation, a row-normalized classical kernel or a Kraus-complete quantum family; adaptive variants take a supplied scheduler and consultation region. The data give algebraic no-signalling and dependency-cone identities, not spacelike regions.",
    "type": "representation_choice",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "candidate.py",
+    "SPEC.md",
+    "test_candidate.py"
+   ],
+   "note": "Each addressed record repair and reservoir acts on a declared local factor by a complete Kraus family. Their complete channels and the native contrast unitary preserve an arbitrary untouched reference marginal."
   },
   {
    "id": "PR-45",
@@ -2024,9 +2028,18 @@
      "premises": [
       "PR-44"
      ],
-     "status": "open",
-     "note": "Awaiting candidate-specific assessment.",
-     "evidence": []
+     "status": "demonstrated",
+     "note": "The bond and volume repairs and the tracial reservoir each have a complete Kraus family on the addressed factor. The native contrast gate is unitary there. Summing outcomes preserves the marginal of every disjoint reference, including entangled inputs. Selecting one outcome can change its conditional state.",
+     "evidence": [
+      "model/candidate_laws/interval_echo_partition_repair/SPEC.md",
+      "model/candidate_laws/interval_echo_partition_repair/candidate.py",
+      "model/candidate_laws/interval_echo_partition_repair/test_candidate.py"
+     ],
+     "full_credit": {
+      "kind": "construction",
+      "source": "model/candidate_laws/interval_echo_partition_repair/test_candidate.py",
+      "scope": "Finite local bond, volume and payload channels on the declared tensor split, checked on their complete channel matrices and native gate."
+     }
     },
     {
      "id": "FT-FLOW",

@@ -397,6 +397,20 @@
                 "model/candidate_laws/scalar_channel/instruments.py",
                 "model/candidate_laws/scalar_channel/compiler.py"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "demonstrated",
+              "note": "The bond and volume repairs and the tracial reservoir each have a complete Kraus family on the addressed factor. The native contrast gate is unitary there. Summing outcomes preserves the marginal of every disjoint reference, including entangled inputs. Selecting one outcome can change its conditional state.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/SPEC.md",
+                "model/candidate_laws/interval_echo_partition_repair/candidate.py",
+                "model/candidate_laws/interval_echo_partition_repair/test_candidate.py"
+              ],
+              "full_credit": {
+                "kind": "construction",
+                "source": "model/candidate_laws/interval_echo_partition_repair/test_candidate.py",
+                "scope": "Finite local bond, volume and payload channels on the declared tensor split, checked on their complete channel matrices and native gate."
+              }
             }
           }
         },

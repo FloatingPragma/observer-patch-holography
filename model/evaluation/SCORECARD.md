@@ -55,7 +55,7 @@ Sources · [executable_observer_construction.tex](../../paper/executable_observe
 | [FT-SEAM](EVIDENCE.md#ft-seam) Exact directed seam write | Demonstrated · Construction identity | Demonstrated · Construction identity | Open | Open | Open | Open | Open |
 | [FT-BAND](EVIDENCE.md#ft-band) Native repair selects and the candidate carries the rank-three Gram band | Demonstrated | Demonstrated · Construction identity | Partial | Partial | Partial | Partial | Partial |
 | [FT-RECORD](EVIDENCE.md#ft-record) Orthogonal local pointer records | Demonstrated | Demonstrated | Open | Open | Open | Open | Demonstrated |
-| [FT-LOCAL](EVIDENCE.md#ft-local) Disjoint finite operations preserve a remote marginal | Demonstrated | Demonstrated | Open | Open | Open | Open | Demonstrated |
+| [FT-LOCAL](EVIDENCE.md#ft-local) Disjoint finite operations preserve a remote marginal | Demonstrated | Demonstrated | Demonstrated · Construction identity | Open | Open | Open | Demonstrated |
 | [FT-FLOW](EVIDENCE.md#ft-flow) Finite continuous free evolution | Demonstrated · Construction identity | Demonstrated · Construction identity | Open | Open | Open | Open | Demonstrated · Construction identity |
 | [FT-PROJECTION](EVIDENCE.md#ft-projection) Two-overlapping-patch information projection | Demonstrated | Open | Open | Open | Open | Open | Open |
 | [FT-CONFLUENCE](EVIDENCE.md#ft-confluence) Consensus on the declared observation quotient | **Demonstrated**. Construction identity · [Overlapping protected-bit repairs join on the two-triangle boundary record](../experiments/interval_echo_consensus/transaction_component/confluence/README.md) | Partial | Open | Open | Open | Open | Open |
