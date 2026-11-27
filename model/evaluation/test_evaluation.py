@@ -122,6 +122,22 @@ def test_an_isolated_owner_fails_the_live_carrier_command_and_candidate_evaluati
         require_three_gateways(carrier.cell())
 
 
+def test_swapping_gateway_partners_preserves_counts_but_changes_the_labelled_federation(monkeypatch, capsys):
+    from model.__main__ import main
+
+    original = carrier.federation(0)
+    (a, b), (c, d) = [seam for seam in original.external if seam[0] // 12 == 3][:2]
+    changed = carrier.Carrier('crossed gateways', original.n,
+                              [s for s in original.seams if s not in {(a, b), (c, d)}] + [(a, d), (c, b)])
+    assert np.array_equal(original.degree, changed.degree)
+    assert carrier.federation_checks(original) == carrier.federation_checks(changed)
+    monkeypatch.setattr(carrier, 'federation', lambda level: changed)
+    assert main(['carrier']) == 1
+    assert 'labelled seams differ from registered level 0' in capsys.readouterr().out
+    check = ev.carrier_checks(toy(laplacian()))['federation']
+    assert check['status'] == 'fail' and 'labelled seams' in check['detail']
+
+
 def test_federation_rejects_a_link_between_unjoined_cells():
     cand = toy(laplacian())
     cand.basis = lambda car: [('port', p) for p in range(car.n)]
