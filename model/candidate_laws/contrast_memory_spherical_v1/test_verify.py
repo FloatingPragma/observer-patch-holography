@@ -93,3 +93,22 @@ def test_doubled_complement_excludes_negative_coupling_from_block_bound():
             assert energy < 12 * kappa
         else:
             assert energy >= 12 * kappa - 1e-12
+
+
+def test_nested_scientific_mode_is_compared():
+    assert failures({"mode": "full", "band": {"mode": 1}},
+                    {"mode": "default", "band": {"mode": 2}})
+    assert failures({"band": {"mode": 1}}, {"band": {}})
+
+
+def test_failed_or_repeated_output_preserves_receipts(tmp_path, monkeypatch):
+    path = tmp_path / "trial.json"
+    monkeypatch.setattr(verify, "compute", lambda full: {"mode": "default"})
+    monkeypatch.setattr(verify, "checks", lambda result: ["bad measurement"])
+    with pytest.raises(SystemExit):
+        verify.main(["--output", str(path)])
+    assert not path.exists()
+    path.write_text("saved acquisition")
+    with pytest.raises(SystemExit):
+        verify.main(["--output", str(path)])
+    assert path.read_text() == "saved acquisition"

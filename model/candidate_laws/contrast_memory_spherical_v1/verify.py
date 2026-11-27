@@ -22,6 +22,8 @@ import sys
 import time
 from pathlib import Path
 
+from tools.strict_json import load
+
 os.environ.setdefault('OPENBLAS_NUM_THREADS', '1')
 os.environ.setdefault('OMP_NUM_THREADS', '1')
 
@@ -95,7 +97,7 @@ def checks(result) -> list[str]:
 
 
 def compare(expected, actual, path, failures, full):
-    if path in SKIP or path.split('.')[-1] in SKIP:
+    if path in SKIP:
         return
     if isinstance(actual, dict):
         if not isinstance(expected, dict):
@@ -105,7 +107,7 @@ def compare(expected, actual, path, failures, full):
         if missing:
             failures.extend(f'{path}.{k}: absent in the stored result' for k in missing)
         if full:
-            failures.extend(f'{path}.{k}: absent in this run' for k in expected if k not in actual and k not in SKIP)
+            failures.extend(f'{path}.{k}: absent in this run' for k in expected if k not in actual and (path or k not in SKIP))
         for k in actual:
             if k in expected:
                 compare(expected[k], actual[k], f'{path}.{k}' if path else k, failures, full)
@@ -151,22 +153,26 @@ def main(argv=None):
     group.add_argument('--output', type=Path, help='write a fresh result file')
     group.add_argument('--verify', type=Path, help='compare with this result file')
     args = ap.parse_args(argv)
+    if args.output and args.output.exists():
+        ap.error("output must be a fresh result path")
     t0 = time.monotonic()
     result = compute(args.full)
     failures = checks(result)
     reference = None if args.output else (args.verify or RESULTS)
     if reference is not None:
-        stored = json.loads(Path(reference).read_text())
+        stored = load(Path(reference))
         if stored.get('schema') != SCHEMA:
             failures.append('schema')
         compare(stored, result, '', failures, args.full)
-    if args.output:
-        args.output.write_text(json.dumps(result, indent=1) + '\n')
+    if args.output and not failures:
+        payload = json.dumps(result, indent=1, allow_nan=False) + '\n'
+        with args.output.open('x', encoding='utf-8') as stream:
+            stream.write(payload)
     for f in failures:
         print('MISMATCH ' + f, file=sys.stderr)
     print(json.dumps({'verified': not failures and reference is not None, 'mode': result['mode'],
                       'compared_with': str(reference.name) if reference is not None else None,
-                      'written': str(args.output) if args.output else None, 'failures': len(failures),
+                      'written': str(args.output) if args.output and not failures else None, 'failures': len(failures),
                       'seconds': round(time.monotonic() - t0, 1)}))
     if failures:
         raise SystemExit(1)
