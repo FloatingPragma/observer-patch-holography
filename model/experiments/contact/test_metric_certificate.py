@@ -106,3 +106,23 @@ def test_fixed_thresholds_and_exact_anchored_matrix():
     with pytest.raises(ValueError, match="symmetric"):
         simplex[0, 1] = 2
         certify(simplex, thresholds=(0,))
+
+
+def test_collinear_corner_is_a_fit_even_with_an_indefinite_midpoint():
+    # Four fixed positions determine the fifth. Only the lower endpoint for
+    # the first pair gives its collinear Euclidean distance.
+    squares = [(j - i) ** 2 for i in range(5) for j in range(i + 1, 5)]
+    upper = squares.copy()
+    upper[0] += 1
+    result = five_point_box(squares, upper)
+    assert result["nonpositive_definite_corners"] == 1024
+    assert result["subset_fit_witness"]["kind"] == "positive_semidefinite_inner_corner"
+    assert result["subset_fit_witness"]["corner"] == 0
+
+
+def test_segment_from_definite_corner_to_indefinite_midpoint_contains_a_fit():
+    lower = [1] * 10
+    upper = [100, *lower[1:]]
+    witness = five_point_box(lower, upper)["subset_fit_witness"]
+    assert witness["kind"] == "positive_definite_corner_to_negative_direction_midpoint"
+    assert witness["corner"] == 0 and int(witness["negative_principal_minor"]) < 0
