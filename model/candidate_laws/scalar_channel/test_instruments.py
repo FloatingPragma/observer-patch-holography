@@ -9,6 +9,7 @@ from scipy.linalg import expm
 
 from . import compiler as c
 from . import instruments as i
+from .one_body import read_one_body
 
 
 def fermions(n):
@@ -214,6 +215,48 @@ class InstrumentTests(unittest.TestCase):
             gate[fuel + 2 * i.pointer_permutation(fuel, word), fuel + 2 * word] = 1
         joint = np.kron(np.eye(2), gate)
         np.testing.assert_allclose(joint.conj().T @ joint @ vector, vector, atol=1e-15, rtol=0)
+
+    def test_two_modes_identify_only_the_trace(self):
+        graph = c.encode_graph(2, [(0, 1)])
+        annihilators = fermions(2)
+        for matrix in (np.diag([3., -1.]), np.array([[0, 1j], [-1j, 2]])):
+            fock = second_quantize(matrix, annihilators)[np.ix_([0, 3], [0, 3])]
+            np.testing.assert_array_equal(fock, np.diag([0, 2]))
+            words = i.compile_matrix(graph, matrix)
+            self.assertEqual(words, {(0, 0, 0): 1., (0, 0, 1): -1.})
+            read = read_one_body(graph, words)
+            self.assertIsNone(read.matrix)
+            self.assertEqual((read.trace, read.pauli_residual), (2., 0.))
+        # An encoded X changes vacuum into double occupancy and cannot be
+        # produced by a number-conserving one-body Hamiltonian.
+        outside = read_one_body(graph, {(0, 1, 0): .25})
+        self.assertEqual((outside.trace, outside.pauli_residual), (0., .25))
+        for malformed in ({(1, 1, 0): 1.}, {(0, 0, 0): np.nan}):
+            with self.assertRaises(ValueError):
+                read_one_body(graph, malformed)
+
+    def test_one_body_identification_on_all_connected_three_and_four_mode_graphs(self):
+        rng = np.random.default_rng(1252)
+        for size, expected_count in ((3, 4), (4, 38)):
+            edges = list(combinations(range(size), 2))
+            checked = 0
+            for count in range(size-1, len(edges)+1):
+                for links in combinations(edges, count):
+                    try:
+                        graph = c.encode_graph(size, links)
+                    except ValueError as error:
+                        self.assertIn("connected", str(error))
+                        continue
+                    matrix = np.diag(rng.normal(size=size)).astype(complex)
+                    for a, b in links:
+                        matrix[a, b] = rng.normal() + 1j*rng.normal()
+                        matrix[b, a] = matrix[a, b].conjugate()
+                    read = read_one_body(graph, i.compile_matrix(graph, matrix))
+                    np.testing.assert_array_equal(read.matrix, matrix)
+                    self.assertEqual(read.trace, np.trace(matrix).real)
+                    self.assertEqual(read.pauli_residual, 0.)
+                    checked += 1
+            self.assertEqual(checked, expected_count)
 
     def test_compile_decode_detects_unsupported_and_malformed_laws(self):
         graph = c.build()

@@ -12,6 +12,14 @@ including interrupted routes and quantum references. The
 [construction register](OBLIGATIONS.json) distinguishes this finite
 implementation from autonomous control and interacting matter.
 
+To decode a one-body operator on a connected test graph, call
+`model.candidate_laws.scalar_channel.one_body.read_one_body(graph, terms)`.
+It returns the one-body matrix on three or more modes. On a two-mode edge
+it returns the identifiable trace and sets `matrix` to `None`. Both results
+include the maximum residual in the Pauli coefficients. The archived
+`instruments.decode_paulis` assumes three or more modes and runs on 174
+in the registered instrument. [Even-sector identification proof](PROOF.md)
+
 ## Reproduce the construction
 
 The registered cell operator couples seam and wedge variables. Squaring its two-block form gives the identity ω²=m²+λ for its incidence Gram eigenvalues. The observed finite cage line uses its prepared clock and reference. The cell evaluation does not test a larger screened federation or an emergent light cone. The existing cage experiment already constructs signed seam–wedge incidence on the 20-, 80- and 320-cell boards with the same block rule. Its federation operator uses the [cage constructor](../../experiments/cage/construction.py); the registered cell-only compiler and instrument still need a federation implementation for a full end-to-end comparison. The registered current vanishes on its projected accessible code; enlarging the code would change that test.
