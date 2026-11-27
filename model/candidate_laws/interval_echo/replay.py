@@ -4,10 +4,12 @@ import json
 from pathlib import Path
 import tempfile
 import sys
+from zipfile import BadZipFile
 
 import numpy as np
 
 from model.executable_model import carrier
+from tools.strict_json import load
 from ..contrast_memory_spherical_v1.verify import compare
 from . import candidate, clock, cohorts
 
@@ -59,22 +61,39 @@ def generate(directory, full, seed):
         write_json(directory / "projection.json", projection.run())
 
 
+def artifacts(full):
+    names = ("reunions.npz",)
+    if full:
+        names += ("observations.json", "patch_records.npz", "consensus.json", "currents.json", "projection.json")
+    return (*names, "RESULTS.json")
+
+
 def verify(generated, reference, full):
     failures = []
-    for path in sorted(generated.iterdir()):
-        target = reference / path.name
-        if not target.is_file():
-            failures.append(f"missing {path.name}")
-        elif path.suffix == ".json":
-            compare(json.loads(target.read_text()), json.loads(path.read_text()), "", failures, full)
-        elif path.suffix == ".npz":
-            with np.load(target, allow_pickle=False) as saved, np.load(path, allow_pickle=False) as replay:
-                if set(saved.files) != set(replay.files):
-                    failures.append(f"{path.name}: archive keys")
-                    continue
-                for key in replay.files:
-                    if saved[key].dtype != replay[key].dtype or not np.array_equal(saved[key], replay[key]):
-                        failures.append(f"{path.name}: {key}")
+    for name in artifacts(full):
+        path, target = generated / name, reference / name
+        if not path.is_file() or not target.is_file():
+            failures.append(f"missing {name} in {'replay' if not path.is_file() else 'reference'}")
+            continue
+        try:
+            if path.suffix == ".json":
+                expected, actual = load(target), load(path)
+                if not full and name == "RESULTS.json" and isinstance(expected, dict):
+                    # Only the 80- and 320-cell material trips are absent in the quick measurement.
+                    if isinstance(expected.get("material"), dict):
+                        expected["material"] = {k: v for k, v in expected["material"].items() if k not in ("1", "2")}
+                compare(expected, actual, name, failures, True)
+            else:
+                with np.load(target, allow_pickle=False) as saved, np.load(path, allow_pickle=False) as replay:
+                    keys = set(saved.files)
+                    if keys != set(replay.files) or len(keys) != len(saved.files) or len(keys) != len(replay.files):
+                        failures.append(f"{name}: archive keys")
+                        continue
+                    for key in replay.files:
+                        if saved[key].dtype != replay[key].dtype or not np.array_equal(saved[key], replay[key]):
+                            failures.append(f"{name}: {key}")
+        except (ValueError, OSError, EOFError, TypeError, BadZipFile) as exc:
+            failures.append(f"{name}: {exc}")
     return failures
 
 
@@ -104,8 +123,12 @@ def main(argv=None):
         with tempfile.TemporaryDirectory(dir=args.output) as scratch:
             stage = Path(scratch)
             generate(stage, args.full, args.seed)
-            for artifact in sorted(stage.iterdir(), key=lambda f: f.name == "RESULTS.json"):
-                artifact.replace(args.output / artifact.name)
+            names = artifacts(args.full)
+            missing = [name for name in names if not (stage / name).is_file()]
+            if missing:
+                parser.error("incomplete replay: missing " + ", ".join(missing))
+            for name in names:
+                (stage / name).replace(args.output / name)
         print(json.dumps({"candidate": candidate.NAME, "written": str(args.output), "full": args.full}))
         return 0
     with tempfile.TemporaryDirectory() as scratch:
