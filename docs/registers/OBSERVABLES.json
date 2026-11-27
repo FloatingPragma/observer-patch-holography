@@ -8118,7 +8118,9 @@
     "model/experiments/interval_echo_consensus/local_interface/README.md",
     "model/experiments/interval_echo_consensus/local_interface/results.json",
     "model/experiments/interval_echo_consensus/local_interface/test_local_interface.py",
-    "model/candidate_laws/interval_echo/clock.py"
+    "model/candidate_laws/interval_echo/clock.py",
+    "model/candidate_laws/interval_echo_partition_repair/candidate.py",
+    "model/candidate_laws/interval_echo_partition_repair/test_candidate.py"
    ],
    "papers": [],
    "statement": "The finite locality results are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation, a row-normalized classical kernel or a Kraus-complete quantum family; adaptive variants take a supplied scheduler and consultation region. The data give algebraic no-signalling and dependency-cone identities, not spacelike regions.",
