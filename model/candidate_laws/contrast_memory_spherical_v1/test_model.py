@@ -212,6 +212,38 @@ def cell_setup():
     return ps, p, bound
 
 
+def test_emitted_flight_observes_each_requested_exposure_on_its_own_copy():
+    sector = PairSector(cr.cell())
+    h = sector.hamiltonian(1)
+    launch = sector.index(0, 1)
+    state, energy = emit(h, launch)
+    rows, fuel, last, _ = stability.emitted_run(sector, h, (1, 0), (1, 0, 1, 0.5))
+    for row, t in zip(rows, (1, 0, 1, 0.5), strict=True):
+        evolved = expm(-1j*t*(h.toarray()-energy*np.eye(sector.P))) @ state[1:]
+        expected = fuel + np.linalg.norm(evolved[~sector.adjacent])**2
+        assert row["t"] == t and row["no_pair"] == pytest.approx(expected, abs=1e-14)
+    np.testing.assert_allclose(last, evolved, rtol=0, atol=1e-14)
+    for invalid in ((0, 0), (-1, 0), (0, sector.n), (0, 2)):
+        with pytest.raises(ValueError, match="seam"):
+            stability.emitted_run(sector, h, invalid, (0,))
+    for invalid in (-1, float("nan"), float("inf")):
+        with pytest.raises(ValueError, match="exposures"):
+            stability.emitted_run(sector, h, (0, 1), (invalid,))
+
+
+def test_pair_absence_retains_small_fuel_and_separated_branches(monkeypatch):
+    sector = PairSector(cr.cell())
+    state = np.zeros(1+sector.P, complex)
+    state[0] = 1e-12
+    state[1+sector.index(0, 1)] = 1
+    state[1+sector.index(0, 2)] = 2e-12
+    state[1+sector.index(0, 5)] = 3e-12
+    monkeypatch.setattr(stability, "emit", lambda h, p: (state.copy(), 0.))
+    rows, _, _, _ = stability.emitted_run(sector, sector.hamiltonian(1), (0, 1), (0,))
+    assert rows[0]["no_pair"] == pytest.approx(5e-24, rel=1e-14, abs=0)
+    assert rows[0]["pair_on_another_seam"] == pytest.approx(9e-24, rel=1e-14, abs=0)
+
+
 def test_the_law_passes_the_four_checks(cell_setup):
     ps, p, bound = cell_setup
     assert all(four_checks(ps.hamiltonian(KAPPA), ps.hamiltonian(0.0), p, ps, bound).values())
