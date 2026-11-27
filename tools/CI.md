@@ -21,6 +21,8 @@ Three workflows run the repository checks, and none runs longer than thirty minu
 
 The exhaustive certificate suites run on demand: `python tools/run_mandatory_suite.py --certificates-only`.
 
+The ledger job logs each register and candidate grade change with its ID and old and new status. It uses the pull request's base SHA or the previous commit on a push to `main`. After regenerating candidate assessments with `python -m model evaluate --write`, run `python tools/report_grade_changes.py --base HEAD` to compare your working tree with the local commit. A different commit, tag or branch can be supplied. Register rows, full criterion grades, candidate premises and joint requirements are tracked separately. Added and removed grades appear with `[absent]` on the corresponding side. Editing evidence or wording alone leaves the grade report empty. The existing target validator independently checks upgrades against the earlier statement.
+
 ## Adding a check
 
 Add a lane to `tools/ci_lanes.py` with its commands, environment, install profile and measured minutes.

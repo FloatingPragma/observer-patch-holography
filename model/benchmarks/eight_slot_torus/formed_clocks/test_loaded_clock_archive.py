@@ -16,7 +16,8 @@ def _archive(**columns):
 
 
 def test_published_source_and_signed_counts_replay():
-    result = clock.experiment(seed_replay=True)
+    result = clock.experiment(compare_seed=True)
+    assert set(result["same_seed_replay"]) == {"differing_rows", "max_bin_difference"}
     assert result["archive_sha256"] == clock.PUBLISHED_SHA256
     assert result["count_source"] == "published simulated acquisition"
     assert result["launches"] == 1_188 * (1 << 24)
@@ -35,7 +36,11 @@ def test_one_transferred_count_and_alternate_reencoding(tmp_path):
     local.write_bytes(_archive(**dict(reversed(cols.items()))))
     with pytest.raises(ValueError, match="SHA-256"):
         clock.experiment(local)
-    assert clock.experiment(local, seed_replay=True)["count_source"] == "local simulated acquisition"
+    with pytest.raises(ValueError, match="SHA-256"):
+        clock.experiment(local, compare_seed=True)
+    local_result = clock.experiment(local, seed_replay=True)
+    assert local_result["count_source"] == "local simulated acquisition"
+    assert local_result["same_seed_replay"] == {"differing_rows": 0, "max_bin_difference": 0}
     cols["counts"][0, 0] -= 1
     cols["counts"][0, 1] += 1
     local.write_bytes(_archive(**cols))

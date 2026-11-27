@@ -9,6 +9,7 @@ import numpy as np
 from model.executable_model import federation
 from model.experiments.interval_echo_gauge.exterior_register import material
 from .. import measure as scalar
+from .sampling import multinomial
 
 
 @cache
@@ -144,7 +145,7 @@ def acquire(rng, probability):
     weights[np.argmax(weights)] += GRID - weights.sum()
     assert min(weights) >= 0
     assert np.abs(weights / GRID - p.ravel()).sum() / 2 <= 81 / GRID
-    counts = rng.multinomial(SHOTS, weights / GRID).reshape(p.shape)
+    counts = multinomial(rng, SHOTS, weights).reshape(p.shape)
     raw = [
         [*(int(i) for i in indices), int(counts[indices])]
         for indices in zip(*np.nonzero(counts))

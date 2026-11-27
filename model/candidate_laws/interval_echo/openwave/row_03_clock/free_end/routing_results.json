@@ -1,0 +1,78 @@
+{
+  "ground": {
+    "herald_reversals": 0,
+    "received": 8249494,
+    "starts": 268435456,
+    "lines": [
+      31.801504324502574,
+      32.515241633719896,
+      33.21471132879486
+    ],
+    "weights": [
+      0.2707574852703832,
+      0.49832476308744933,
+      0.23086516974137136
+    ],
+    "held_complex_rmse": 0.01562858314346597
+  },
+  "ground_energy": {
+    "ordered": 7951,
+    "one": 7941,
+    "one_counts": [
+      2051,
+      4010,
+      1880
+    ],
+    "miss": 254193
+  },
+  "sham": {
+    "herald_reversals": 0,
+    "received": 268298920,
+    "starts": 268435456,
+    "max_distance_from_expected": 0.006434967138157142,
+    "mean_real": 0.999997018263544,
+    "mean_imag": 5.4522507103122776e-05
+  },
+  "sham_energy": {
+    "ordered": 262024,
+    "one": 0,
+    "one_counts": [
+      0,
+      0,
+      0
+    ],
+    "miss": 120
+  },
+  "excited_reference": {
+    "herald_reversals": 0,
+    "received": 8247969,
+    "starts": 268435456,
+    "lines": [
+      -0.7149429241273006,
+      -0.00018796576842037917,
+      0.6989054985113029
+    ],
+    "weights": [
+      0.2695647181812083,
+      0.5003735306940792,
+      0.22943656909024482
+    ],
+    "held_complex_rmse": 0.014689317832081824
+  },
+  "matched_flight": {
+    "herald_reversals": 0,
+    "received": 8252935,
+    "starts": 268435456,
+    "max_distance_from_expected": 0.0362873364601333,
+    "mean_real": 1.0,
+    "mean_imag": 0.0001300710856104837
+  },
+  "dephased": {
+    "herald_reversals": 0,
+    "received": 8246036,
+    "starts": 268435456,
+    "max_distance_from_expected": 0.04083624689927591,
+    "mean_real": 0.0006699478486734684,
+    "mean_imag": 0.00025532935886592216
+  }
+}

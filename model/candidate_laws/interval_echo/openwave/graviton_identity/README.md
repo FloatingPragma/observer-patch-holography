@@ -2,6 +2,8 @@
 
 The pure Einstein branch has two classical, transverse, traceless polarizations around flat spacetime. An exact replay shows that the ten observers used to reconstruct the Einstein tensor give **identical source readings** in flat spacetime and in either vacuum polarization. The curvature differs and oriented tidal readings resolve both polarizations. On the registered Interval Echo board, a separate test finds two readable angular patterns of stored energy whose orientations make **exactly zero difference** to a remote material tracer. A quantum graviton identification remains open. [Test design](DESIGN.md) · [Complete outcome probabilities and simulated counts](results.json)
 
+A five-component spatial quadrupole on the cell supplies a tidal detector basis. Its multiplicity alone gives no two-polarization propagating quantum and no universal coupling. A discriminating test would compare transverse tidal correlations and speeds on independent arms with clock-calibrated matter signals, and compare their coupling across different source compositions.
+
 The paper’s “Inevitability of photon and graviton” section explicitly inferred a spin-two quantum from a dynamical semiclassical metric. The mass-summary executable entered a structural zero in GeV. Revision #536 separated that argument from the required positive quantum pole. The native one-load law does produce a five-dimensional traceless orbital pattern. Terminal material-port records recover its transition frequency near three native units, and certain orientations can cross a cell boundary. [Original claim, revision, executable mass entry and native measurements](repair_origin/README.md)
 
 ## Which result follows from the construction?

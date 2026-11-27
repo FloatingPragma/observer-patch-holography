@@ -185,8 +185,7 @@ repair step is the relative entropy from its input to its output. The last
 section states the closure equations that the same observers read. The
 executable model supplies several of these premises. Its main candidate law,
 Interval Echo, uses the seam interaction of the contrast-memory law and lets
-an observer patch carry its own clock, which runs slow by the relativistic
-factor when it travels and returns. Its readers have complete outcome sets
+an observer patch carry its own clock, whose closing filter is calibrated to the relativistic reunion factor on the supplied relay. Its readers have complete outcome sets
 and copy orthogonal labels, so rereads of agreed records are certain; the
 free flow of each candidate law fixes its generator up to an energy offset;
 a reading of a pair obeys the reread bound; and observers count their own
@@ -233,8 +232,7 @@ reproduces particle stability, by a theorem that holds for every number of
 cells, and Interval Echo inherits that theorem. Interval Echo adds a clock
 that a finite observer patch carries with it. When a patch travels and
 returns, the ratio of its elapsed count to the count of a patch that stayed
-at home matches the relativistic proper-time forecast computed from the
-observers' own light-pulse timings, within about one part in a thousand.
+at home reproduces the target of the closing filter calibrated to the reciprocal relay timings, within about one part in a thousand.
 Under the second candidate law on the same carrier, the scalar channel, an
 object on four seams is kept for every interval and carries a prepared clock
 that an observer reads in units of its own reference. The repair, memory and
@@ -242,13 +240,16 @@ closure examples in this paper are independent services under the displayed
 hypotheses. The state of the
 simulation is no spacetime, and its carrier is hardware of the computation:
 a test of the model compares distributions of admissible observer records
-with what observers in our world record. Observers who inhabit the
-simulation can describe their experiences as relativistic $3{+}1$D
-continuum spacetimes. For every finite admissible menu of readouts a smooth
-$(1+3)$-dimensional Lorentzian field description reproduces the complete
-predictions~\cite{ophsynthesis,ophEinstein}, with the rank-three spatial
-carrier and the causal and count limits of the spacetime
-paper~\cite{ophEinstein}, under their stated premises. Several finite
+with what observers in our world record. The field approximation assumes
+a radial interval, a hyperbolic evolution and a ground or thermal free-field
+preparation. Fix a finite menu of admissible readouts at bounded wave times
+and a tolerance $\varepsilon>0$. A free scalar field on one smooth static
+$(1+3)$-dimensional Lorentzian metric then approximates every outcome
+probability on that menu within $\varepsilon$, in addition to the source
+and clock errors~\cite{ophsynthesis,ophEinstein}. Identifying such a menu
+in Interval Echo remains open. The spacetime paper separately derives the
+rank-three spatial carrier and states the hypotheses for its causal and
+count limits~\cite{ophEinstein}. Several finite
 theorems of this paper apply to the records of the model~\cite{ophmodel}.
 Its readers have complete outcome sets and copy orthogonal labels, so its
 agreed records form a commutative public algebra in which an immediate
@@ -974,6 +975,26 @@ sequence of durations \(\pi/2,\pi/12,3\pi/2\), transfer probabilities are
 \(3/4,0\). Of 65,536 vacancy and 196,608 excess simulated starts, 49,299
 and zero transferred. The tagged weight predicts \(3/16\) combined; the
 uncalibrated alternative gives \(3/40\).
+
+\paragraph{A shared material reference lets two stations read a phase.}
+Verstraete and Cirac introduced this hidden-sign test for local
+particle-number superselection~\cite{verstraeteCirac2003}. Here a native
+source splits one unit between the stations and writes one of two
+opposite relative phases. Each additional reference is an independently
+split unit. The first station mixes its rails and publishes its sharp
+word. The second uses that word to choose a local analyzer. With no
+reference, one unit, and two units, the observers correctly identified
+the sign on $50.16\%$, $75.13\%$, and $85.30\%$ of 262,144 simulated
+starts per setting. Reading the signal path early gave $49.90\%$ with
+two references. For a reference of total load $L$, write $r_n^2$ for
+the probability that the first station has $n$ reference units. Local
+load conservation makes only adjacent sectors interfere. The accessible
+trace distance is bounded by $\sum_n r_n r_{n+1}\leq\cos(\pi/(L+2))$,
+the largest eigenvalue of the path with off-diagonal entries $1/2$.
+The native instruments attain the resulting success bound for
+$L=0,1,2$. This tests a phase-sensitive read across local inventories
+using the supplied quantum record probabilities
+(\path{inventory_effects/shared_reference/}).
 
 \paragraph{Which fine observer reproduces the coarse material algebra?}
 A parent has four actual child cells. For local address \(a\) and sign \(s\)
@@ -2792,9 +2813,9 @@ The same package carries the entropy-balance shape used by the
 gravitational branch. For any state and faithful reference the exact
 identity
 \(S(p)-S(\tau)=\langle K\rangle_p-\langle K\rangle_\tau-D(p\Vert\tau)\)
-holds, so the entanglement first law
-\(\delta S=\delta\langle K\rangle\) is this identity with the
-quadratic-order deficit dropped; through the central split
+holds. At the faithful reference the relative entropy has zero
+first variation along each simplex tangent, giving the first law
+\(\delta S=\delta\langle K\rangle\). Through the central split
 \(K=2\pi B+Z\) it reads
 \[
 \Delta S
@@ -2806,17 +2827,16 @@ reference-preserving repair step, data processing gives \(\Delta D\le0\), and
 one repair step with a central charge measurable through the repaired
 visible datum obeys the cap Clausius inequality
 \(2\pi\Delta\langle B\rangle\le\Delta S\), since the kernel also conserves
-every fibre-measurable charge and hence \(\Delta\langle Z\rangle=0\). The finite
-first-law premise package of the Einstein branch is discharged on this
-model: on the tangent space of the probability simplex the entropy
-differential at the reference equals the modular pairing as a theorem,
-the modular pairing distributes through the central split, and the
-central pairing is the edge differential, so the branch's finite
-bulk-edge-central first law applies with no assumed premise beyond the
-split of the reference. Repair displacements are mass preserving with
-vanishing central pairing, so the first-order entropy change of one
-repair step is purely bulk-modular. The physical attachment of the
-split stays with the energy-clock receipt.
+every fibre-measurable charge and hence \(\Delta\langle Z\rangle=0\).
+On the simplex tangent space the supplied split gives the finite
+bulk--edge first law when the edge differential is defined as the
+pairing with \(Z\). Evaluated at the faithful reference along a repair
+displacement, the entropy differential therefore equals the bulk pairing
+\(2\pi\,\delta\langle B\rangle\) whenever \(Z\) is constant on the
+repair fibres. Applying this identity to gravity requires independently
+identifying \(B\) with the regional stress response in proper clock units
+and the edge differential with the geometric boundary response on the
+same regions~\cite{ophEinstein}.
 
 The Lean development carries the exact finite statements: relative
 entropy nonnegativity, the log-sum inequality, data processing, the
@@ -2825,15 +2845,14 @@ Pythagorean identity and minimizer, the first-law split, the
 low-temperature bound, the fluctuation identities with reciprocity,
 the finite Green--Kubo matrix and exact cutoff remainder, the repair-projector
 memory obstruction, the typed Fick and Fourier updates,
-the exact-remainder cap first law, the discharged Einstein-branch
-first-law premises, and the Kraus completeness of
-partition pinching; the modules are \texttt{FiniteConditionalRepair},
+the exact-remainder cap first law, its bulk--edge differential on the
+finite probability simplex, and the Kraus completeness of
+partition pinching. The Lean thermodynamics and event-algebra libraries
+hold them in the modules \texttt{FiniteConditionalRepair},
 \texttt{FirstLawIdentity}, \texttt{FluctuationTheorems},
 \texttt{GreenKubo}, \texttt{GraphDiffusion}, \texttt{CapFirstLaw},
-\texttt{EinsteinPremiseLink}, \texttt{StationaryRealization}, and
-\texttt{PartitionPinchingCP} in the
-Lean thermodynamics and event-algebra libraries, and the exact-rational
-certificate replays the kernel algebra and fluctuation identities and
+\texttt{EinsteinPremiseLink}, \texttt{StationaryRealization} and
+\texttt{PartitionPinchingCP}. The exact-rational certificate replays the kernel algebra and fluctuation identities and
 records the entropy checks
 \cite{ophrepo}. The source-realization interface needs less than
 reversibility: every stochastic kernel that preserves a faithful
@@ -3064,6 +3083,15 @@ SI $c$ fixes a length/time ratio.
 
 \input{tex_fragments/OBSERVERS_N_CLOSURE_PRO5.tex}
 
+An eight-cell Interval Echo checkpoint illustrates the operational distinction.
+With two accessible boundary parities the receivers distinguish 256 raw
+words. If a later observer must recover a message after one undisclosed
+internal exchange or idle, exactly 32 messages can be protected. Allowing
+all finite sequences of internal exchanges leaves two messages, the two
+boundary parities. Knowledge of the exchange word restores all 256. These
+finite counts are determined by the receiving instruments and the admitted
+continuations\cite{ophmicrophysics}.
+
 \subsection{What closure establishes}
 The capacity theory specifies which public records are simultaneously
 reachable and correctable. Its finite counterfamilies show that the base
@@ -3286,6 +3314,12 @@ B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, B.~de La Fourni\`ere, and D.~A.~Friedm
 \emph{Twelve-Port Icosahedral Carriers and Native Seam Repair: The Carrier Layer of Observer Patch Holography},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2073/paper/screen_microphysics_and_observer_synchronization.pdf}.
+
+\bibitem{verstraeteCirac2003}
+F.~Verstraete and J.~I.~Cirac,
+Quantum nonlocality in the presence of superselection rules and data
+hiding protocols, \emph{Phys. Rev. Lett.} \textbf{91}, 010404 (2003).
+\href{https://doi.org/10.1103/PhysRevLett.91.010404}{doi:10.1103/PhysRevLett.91.010404}.
 
 \bibitem{csiszar1975}
 I.~Csisz\'ar,

@@ -62,6 +62,8 @@ Two successive receiving loads even distinguish the ideal binary inputs with dis
 
 ### Reproduction
 
+The number of service rounds includes waits for offers. With every eligible repair offered immediately, rank-zero exterior repairs settle on the first round. Each cell then evolves on its twelve initial bits with at most three exterior ports removed. Exhausting all 4,096 words and all 299 such port sets gives the counts 2, 83,632, 708,978, 396,380, 35,388 and 324 at depths zero through five. Five immediate rounds suffice at every sphere size. A stochastic offer schedule can have arbitrarily long waits, and its logged round number is distinct from the depth of this immediate schedule. The subsequent tag experiment parks the loads and keeps the remaining contacts fixed. Free quantum exchange on blank contacts between different settled loads is a different evolution. [Exact finite census](immediate_depth.py)
+
 From the repository root run each command with the installed scientific Python environment. The modules compare their reports with the integer clock, repair, propagation and cut records. The independent tests reconstruct the sharp controller, apply the full local transfer and its inverse, sum over paths in the time-dependent event graph, and count the exhibited component from scratch.
 
 ```sh

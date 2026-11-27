@@ -133,3 +133,5 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python -m pytest -q model/experiments/interval_
 The explicit first-generation option `--write` uses exclusive creation.
 Replays compare source bindings and discrete data exactly and floating fields
 within 1e-11. The JSON is simulation evidence, with no external custody claim.
+
+The six source hashes are bound to this acquisition by its original manifest. The shared source archive contains more than one genuine revision of the Interval Echo specification. A replay must use the one enrolled in this experiment. It also checks all active physical inputs, the reviewed post-acquisition verifier change and every branch, reference and control output. [Original source bytes](../../archived_record_sources.zip)

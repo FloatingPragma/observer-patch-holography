@@ -7,6 +7,21 @@ import pytest
 
 from . import apparatus as a
 from . import measure as m
+from .sampling import multinomial
+
+
+def test_eight_equal_bins_at_the_single_rounding_boundary():
+    rng = np.random.default_rng(a.SEED)
+    # Two gain calibrations and both zero-doublet shells precede this bank.
+    for weights in ([1, 1, 0], [3, 1, 0], [1, 1, 0], [1, 1, 0]):
+        multinomial(rng, a.SHOTS, np.array(weights))
+    # The first two bins leave 196799 trials. In the third bin (n+1)/6
+    # has BTPE mode 32800; two separately rounded operations give 32799.
+    weights = np.array([1] * 8 + [0])
+    np.testing.assert_array_equal(
+        multinomial(rng, a.SHOTS, weights),
+        [32641, 32704, 32611, 33008, 32546, 32755, 32901, 32978, 0],
+    )
 
 
 @pytest.fixture(scope="module")

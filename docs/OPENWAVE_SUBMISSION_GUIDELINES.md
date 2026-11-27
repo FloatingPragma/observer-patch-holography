@@ -263,10 +263,11 @@ nature is the readout of observers from their records.
    the same physics, and a difference that no record shows is a convention.
 6. **Agreement is an outcome of a test.** A claim that observers agree names the overlap, the records compared and
    the outcome that would show disagreement.
-7. **A statement at every simulator time is a statement at every reading.** A bound that holds for every value of
-   the evolution parameter holds whenever an observer reads, and it is written in that form. A result that depends
-   on the simulator's parameter, on a global order of events or on a count of the events of the whole carrier says
-   so and is labelled as audit.
+7. **State which measurement history a bound covers.** A bound uniform in free-evolution time applies to
+   the first reading after any duration chosen independently on a fresh preparation. Repeated readings,
+   feedback and state-dependent stopping require a bound for the actual measurement instrument and the
+   intervening records. Identify any use of simulator time, global event order or carrier-wide event counts
+   as part of the audit.
 
 When a row uses an effective quantity, give the inference an observer would actually make. For OW-28,
 identify the emitter and receiver, the clock or spectral standard, the distance measurement and the records

@@ -36,6 +36,8 @@ As a challenge to the detector, release a doubled load on an isolated seam at ex
 
 The written-field extension previously measured a correlated boundary-head flux for a transported load. It introduces a different material hop and a different free field generator. On the compact preparation of the registered law, the interior contact correlations and the absence of any single-time boundary signature coexist. Recovering an electric topological unit requires a preparation whose enclosing records carry a conserved class with a separately measurable electrical response. [Written-field charge](../electron_field/README.md) · [Independent winding and flux comparison](../quark_winding/README.md)
 
+An exterior probe now distinguishes the enclosed vacancy, excess and host in a two-owner aperture when exchange through the gateway is open. Parking that exchange makes every exterior read preserving the compact source encoding independent of the enclosed sign. [Open and parked charge experiment](compact_boundary/README.md)
+
 ## Replay
 
 From the repository root, use the project NumPy, SciPy, SymPy and NetworkX environment.

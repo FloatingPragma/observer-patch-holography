@@ -74,7 +74,7 @@ family must provide:
 
 Einstein promotion then additionally needs either same-family tensor-curvature
 reconstruction converging to the Einstein tensor or an independently premised
-continuum small-ball/null-balance identification, as well as physical stress,
+matched timelike small-ball identification, as well as physical stress,
 conservation, coupling, and controlled remainders. Scalar-curvature convergence
 alone is only a diagnostic. A supplied `EventGermAtlas` is a valid
 multi-chart adapter for a continuum obtained this way; it is not the

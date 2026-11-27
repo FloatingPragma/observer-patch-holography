@@ -65,6 +65,8 @@ The comparison with a cut bridge gives four copies of the positive guide level w
 
 ## One electron anchor and three unlabeled lines
 
+The following table converts a programmed Koide–Brannen circulant at 2/9 radians using an electron-mass anchor. Its columns are numerical comparisons conditional on the supplied matrix and phase. The acquisition measures the operation of that register.
+
 A sharp cyclic address and one vacancy at port 106 supply every trial. The three family characters receive identical source and detector pulses. A bridge measurement after each of 32 rounds selects a parked mode. A supplied balanced interferometer compares that mode with the uniform guide reference on the same charged patch. Its two quadratures measure the magnitude of the frequency difference between the levels at −m and +m. The paired output clicks account for 9.984% of original enrollments. A rank estimate from those clicks resolves three lines. Replacing the cyclic mass effect by its scalar mean leaves one. Two filters set from the measured line spacings select the lowest line on 3.333% of original enrollments. A fresh survey resolves one frequency. The apertures, coherent reference and exposure clock are supplied. A common offset of all charged energies cancels in every fringe, even if it changes the energy required to create the vacancy from a neutral state. [Experiment](anchor_spectrum.py) · [Original counts](anchor_spectrum.json)
 
 | Mass-energy comparison (MeV) | Electron anchor | Middle | Heavy |

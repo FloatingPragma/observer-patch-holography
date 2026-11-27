@@ -77,7 +77,7 @@ Every input is a synthetic witness at the demo tier and is named here.
   contraction `1`, and the geometry contraction, bulk entropy variation, and
   area variation solved from the three small-ball identities.
 * Scaling family (PR-27): `ℓ_r = 1/(r+1)` with error channels `ℓ_r^5`.
-* Chart (PR-24, PR-25, PR-28): the four-direction binary torus
+* Chart (PR-24, PR-28): the four-direction binary torus
   `Fin 4 → ZMod 2` with unit-vector steps, the diagonal stress field whose
   `(i, i)` entry reads coordinate `i + 1`, geometry `κ · stress + Λ · η` with
   `κ = 8π`, Newton constant `1`, and `Λ = 1`.

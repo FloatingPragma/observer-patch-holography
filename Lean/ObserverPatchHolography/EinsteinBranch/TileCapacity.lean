@@ -1,4 +1,5 @@
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
 import Mathlib.Algebra.Order.Floor.Ring
 import Mathlib.Data.Nat.Choose.Basic
 import Mathlib.Tactic.Linarith
@@ -201,5 +202,208 @@ theorem two_radii_shape_ratio (a v : ℝ) (hv : v ≠ 0) :
     (a/2)^3/(v/4)^2 = 2*(a^3/v^2) := by
   field_simp
   ring
+
+namespace PartitionRepair
+
+open scoped BigOperators
+
+/-- A fixed graph region chooses the visible endpoints of each bond and includes
+or excludes each cell's volume bit. Slots on distinct bonds or cells are independent
+only in the reference, not in the varied preparation. -/
+inductive Slot where
+  | hiddenBond | bothEnds | leftEnd | rightEnd | hiddenCell | volumeBit
+  deriving DecidableEq
+
+abbrev tickets : Slot → ℕ
+  | .hiddenCell | .volumeBit => 3
+  | _ => 5
+
+abbrev letters : Slot → ℕ
+  | .hiddenBond | .hiddenCell => 1
+  | .bothEnds => 5
+  | .leftEnd | .rightEnd => 3
+  | .volumeBit => 2
+
+/-- The five ordered legal bond words, in the repair cycle's own order. -/
+def endpoints : Fin 5 → Fin 3 × Fin 3
+  | 0 => (0, 0)
+  | 1 => (1, 1)
+  | 2 => (1, 2)
+  | 3 => (2, 2)
+  | _ => (2, 1)
+
+/-- One of three equiprobable cell tickets is occupied, giving the repair's
+two-to-one stationary odds. The bond ticket is exactly the legal word. -/
+def observe : (s : Slot) → Fin (tickets s) → Fin (letters s)
+  | .hiddenBond, _ | .hiddenCell, _ => 0
+  | .bothEnds, t => t
+  | .leftEnd, t => (endpoints t).1
+  | .rightEnd, t => (endpoints t).2
+  | .volumeBit, t => if t = 2 then 1 else 0
+
+def aperture : (s : Slot) → Fin (letters s) → ℕ
+  | .leftEnd, x | .rightEnd, x => if x = 0 then 0 else 1
+  | _, _ => 0
+
+def occupancy : (s : Slot) → Fin (letters s) → ℕ
+  | .volumeBit, x => x.val
+  | _, _ => 0
+
+def baseMultiplicity : Slot → ℕ
+  | .hiddenBond => 5
+  | .hiddenCell => 3
+  | .volumeBit => 2
+  | _ => 1
+
+def count (s : Slot) (a : Fin (letters s)) : ℕ :=
+  ∑ t : Fin (tickets s), if observe s t = a then 1 else 0
+
+/-- The fibers of the two actual endpoint projections have sizes 1,2,2.
+Multiplication by two per occupied volume bit clears its reciprocal weight. -/
+theorem fiber_identity (s : Slot) (a : Fin (letters s)) :
+    0 < count s a ∧
+    count s a * 2 ^ occupancy s a = baseMultiplicity s * 2 ^ aperture s a := by
+  cases s <;> revert a <;> decide
+
+noncomputable def weight (s : Slot) (a : Fin (letters s)) : ℝ :=
+  count s a / (tickets s : ℝ)
+
+/-- The microscopic commands use the same two fair bits as the executable
+repair. The two middle commands hold the cyclic bond word. -/
+def advanceBond (i : Fin 5) (command : Fin 4) : Fin 5 :=
+  if command = 0 then ⟨(i.val + 4) % 5, Nat.mod_lt _ (by decide)⟩
+  else if command = 3 then ⟨(i.val + 1) % 5, Nat.mod_lt _ (by decide)⟩ else i
+
+def advanceVolume (v : Fin 2) (command : Fin 4) : Fin 2 :=
+  if v = 0 then (if command = 3 then 1 else 0)
+  else if 2 ≤ command.val then 1 else 0
+
+/-- Uniform legal bond words and the counted volume marginal are invariant
+under the actual four commands. Every bond communicates with every other
+in two steps and every volume bit with every other in one. -/
+theorem repair_selects_weights :
+    (∀ j : Fin 5, (∑ i : Fin 5, ∑ c : Fin 4, if advanceBond i c = j then 1 else 0) = 4) ∧
+    (∀ b : Fin 2, (∑ v : Fin 2, count .volumeBit v *
+      (∑ c : Fin 4, if advanceVolume v c = b then 1 else 0)) = 4 * count .volumeBit b) ∧
+    (∀ i j : Fin 5, ∃ a b : Fin 4, advanceBond (advanceBond i a) b = j) ∧
+    (∀ i j : Fin 2, ∃ c : Fin 4, advanceVolume i c = j) := by decide
+
+noncomputable def baseLog (s : Slot) : ℝ :=
+  Real.log (baseMultiplicity s) - Real.log (tickets s)
+
+private theorem weight_pos (s : Slot) (a : Fin (letters s)) : 0 < weight s a := by
+  have ht : 0 < tickets s := by cases s <;> decide
+  exact div_pos (by exact_mod_cast (fiber_identity s a).1) (by exact_mod_cast ht)
+
+private theorem log_weight (s : Slot) (a : Fin (letters s)) :
+    Real.log (weight s a) = baseLog s + Real.log 2 *
+      ((aperture s a : ℝ) - (occupancy s a : ℝ)) := by
+  obtain ⟨hc, he⟩ := fiber_identity s a
+  have ht : 0 < tickets s := by cases s <;> decide
+  have hb : 0 < baseMultiplicity s := by cases s <;> decide
+  have h : (count s a : ℝ) * (2 : ℝ) ^ occupancy s a =
+      (baseMultiplicity s : ℝ) * (2 : ℝ) ^ aperture s a := by exact_mod_cast he
+  have hl := congrArg Real.log h
+  rw [Real.log_mul (by positivity) (by positivity),
+      Real.log_mul (by positivity) (by positivity), Real.log_pow, Real.log_pow] at hl
+  unfold weight baseLog
+  rw [Real.log_div (by positivity) (by positivity)]
+  linarith
+
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+abbrev RegionalWord (slots : ι → Slot) := (i : ι) → Fin (letters (slots i))
+
+noncomputable def reference (slots : ι → Slot) (w : RegionalWord slots) : ℝ :=
+  ∏ i, weight (slots i) (w i)
+
+/-- The regional product counts the mass of every whole global ticket word
+whose restriction is the requested regional record. In particular a different
+cut uses the same microscopic word distribution. -/
+theorem reference_from_tickets (slots : ι → Slot) (w : RegionalWord slots) :
+    reference slots w = ∑ t : (i : ι) → Fin (tickets (slots i)),
+      ∏ i, (if observe (slots i) (t i) = w i then 1 else 0 : ℝ) / tickets (slots i) := by
+  rw [← Fintype.prod_sum (fun i (t : Fin (tickets (slots i))) =>
+    (if observe (slots i) t = w i then 1 else 0 : ℝ) / tickets (slots i))]
+  apply Finset.prod_congr rfl
+  intro i _
+  simp only [weight, count, div_eq_mul_inv, ← Finset.sum_mul]
+  congr 1
+  push_cast
+  rfl
+
+theorem reference_normalized (slots : ι → Slot) : ∑ w, reference slots w = 1 := by
+  unfold reference
+  rw [← Fintype.prod_sum]
+  have h (s : Slot) : ∑ a, weight s a = 1 := by
+    have hn : ∑ a, count s a = tickets s := by cases s <;> decide
+    have ht : tickets s ≠ 0 := by cases s <;> decide
+    simp [weight, div_eq_mul_inv, ← Finset.sum_mul, ← Nat.cast_sum, hn, ht]
+  simp [h]
+
+noncomputable def totalArea (slots : ι → Slot) (w : RegionalWord slots) : ℝ :=
+  ∑ i, (aperture (slots i) (w i) : ℝ)
+
+noncomputable def totalVolume (slots : ι → Slot) (w : RegionalWord slots) : ℝ :=
+  ∑ i, (occupancy (slots i) (w i) : ℝ)
+
+omit [DecidableEq ι] in
+theorem regional_log_law (slots : ι → Slot) (w : RegionalWord slots) :
+    Real.log (reference slots w) = (∑ i, baseLog (slots i)) +
+      Real.log 2 * (totalArea slots w - totalVolume slots w) := by
+  unfold reference totalArea totalVolume
+  rw [Real.log_prod (fun i _ => (weight_pos _ (w i)).ne')]
+  simp_rw [log_weight]
+  rw [Finset.sum_add_distrib, ← Finset.mul_sum, Finset.sum_sub_distrib]
+
+/-- Differentiate the actual regional Shannon entropy. The words along the
+path can be arbitrarily correlated. Normalization of the tangent and its
+point of departure are the only restrictions. This gives the zero derivative
+of entropy plus the calibrated area at fixed mean volume. -/
+theorem shannon_first_variation (slots : ι → Slot)
+    (p : RegionalWord slots → ℝ → ℝ) (v : RegionalWord slots → ℝ)
+    (at_reference : ∀ w, p w 0 = reference slots w)
+    (along : ∀ w, HasDerivAt (p w) (v w) 0) (normalized : ∑ w, v w = 0) :
+    HasDerivAt (fun t => ∑ w, Real.negMulLog (p w t))
+      (Real.log 2 * ((∑ w, v w * totalVolume slots w) -
+        (∑ w, v w * totalArea slots w))) 0 := by
+  have pos (w : RegionalWord slots) : 0 < p w 0 := by
+    rw [at_reference]
+    exact Finset.prod_pos fun i _ => weight_pos _ (w i)
+  have hs := HasDerivAt.fun_sum (u := Finset.univ) (fun w _ =>
+    (Real.hasDerivAt_negMulLog (pos w).ne').comp 0 (along w))
+  have term (w : RegionalWord slots) :
+      (-Real.log (p w 0) - 1) * v w =
+        v w * (-(∑ i, baseLog (slots i)) - 1) +
+        Real.log 2 * (v w * totalVolume slots w - v w * totalArea slots w) := by
+    rw [at_reference, regional_log_law]
+    ring
+  simpa only [Function.comp_def, term, Finset.sum_add_distrib, ← Finset.sum_mul,
+    ← Finset.mul_sum, normalized, zero_mul, zero_add, Finset.sum_sub_distrib] using hs
+
+/-- At fixed first variation of the region's independently counted volume, the
+differentiable sum of the Shannon entropy and the mean calibrated aperture
+has exactly zero derivative. -/
+theorem fixed_volume_stationarity (slots : ι → Slot)
+    (p : RegionalWord slots → ℝ → ℝ) (v : RegionalWord slots → ℝ)
+    (at_reference : ∀ w, p w 0 = reference slots w)
+    (along : ∀ w, HasDerivAt (p w) (v w) 0) (normalized : ∑ w, v w = 0)
+    (fixed_volume : ∑ w, v w * totalVolume slots w = 0) :
+    HasDerivAt (fun t => (∑ w, Real.negMulLog (p w t)) +
+      Real.log 2 * ∑ w, p w t * totalArea slots w) 0 0 := by
+  have hS := shannon_first_variation slots p v at_reference along normalized
+  have hA := HasDerivAt.fun_sum (u := Finset.univ) (fun w _ =>
+    (along w).mul_const (totalArea slots w))
+  simpa only [fixed_volume, zero_sub, mul_neg, neg_add_cancel] using
+    hS.add (hA.const_mul (Real.log 2))
+
+assert_no_sorry repair_selects_weights
+assert_no_sorry fixed_volume_stationarity
+#print axioms fixed_volume_stationarity
+assert_no_sorry reference_from_tickets
+assert_no_sorry shannon_first_variation
+#print axioms shannon_first_variation
+
+end PartitionRepair
 
 end OPH.EinsteinBranch.TileCapacity

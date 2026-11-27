@@ -1,0 +1,38 @@
+# Two radar probes on one freely evolving neutral source
+
+Two observers can time the return of either a vacancy or an excess on the same interacting Interval Echo material. For a charge-blind local matter reading the complete return histories agree by charge conjugation. Changing the location of material changes these common readings differently along different routes. Resolving the sign of the local material breaks agreement between the probes. All thirty blank cell contacts and all twelve degree references run during flight. The registered free holds exclude additional repair writes, which can change the inventory. [Protocol](PROTOCOL.md) · [Data and controls](results.json) · [Native-word replay](measure.py)
+
+## Selecting and reading the material
+
+Eight stations hold one vacancy, one excess and six unit loads. Stations 0, 1 and 3 are unit-filled instrument stations. Station 5 supplies the independent donor. Read the material loads and keep every result. At each mixing step draw one of the 28 distinct pairs of stock stations uniformly and exchange their contents. At native strength \(\kappa=8\) a duration-\(\pi\) blank contact is exactly SWAP on all nine ternary words. Swaps along a connecting path followed by its retraced interior implement the chosen transposition and restore every transit station. The protocol specifies the inventory and the swap offers independently of the energy or subsequent radar data.
+
+In the 56 ordered vacancy/excess words let \(K\) sum the 28 permutation matrices. It is symmetric with all row sums 28. The verifier checks the integer identity
+\[
+(K-20I)(K-14I)(K-12I)=32\,{\bf1}{\bf1}^{T}.
+\]
+Thus the unique stationary inventory law is uniform. On the zero-sum subspace the norm of \(K/28\) is at most \(5/7\). From any sharp starting word the total variation error after \(m\) offers is at most \(\sqrt{55}(5/7)^m/2\), by Cauchy–Schwarz. Convexity gives the same limit from any distribution of the initial load read. The 64-offer bound is \(1.6481\times10^{-9}\). The calculation uses the actual finite distribution started with the two labels at opposite ends of the enumerated stock.
+
+A material observer publishes whether station 2 has a nonunit load. In the stationary source the near outcome has probability \(1/4\) and the quiet outcome \(3/4\). On fresh copies choose one of its five incident seams uniformly. A contrast read and exchange-parity read resolve the native eigenvalues \(0,8,9,32,33\). Multiplying the mean by five gives the incident seam energy. The near and quiet population means are 56.21429 and 9.71429. A separate synthetic bank of \(2^{20}\) original launches gives 56.27373 and 9.72187. The preparation is dynamical under the complete cell hold. Without issuing radar probes, the near cohort's probability for nonunit material at the marked site falls from 1 to 0.56664 at exposure 1 and 0.30470 at exposure 2.
+
+## An exact common signal and a charge-sensitive control
+
+On each new material copy, swap the unit-filled sender with the independently prepared donor. The donor is left at one on every arm. A vacancy, excess or sham launch thus leaves exactly the same marginal on every other station. At each half-unit appointment the receiver checks for its enrolled charge. After its first detection the sender checks for that charge. The word ends at the first return or the twelve-tick cap. There can be another identical charge on the board. Separate sham-arm clocks and completion probabilities measure the contribution on the same material without injecting the enrolled charge.
+
+Write \(\mathcal C:n\mapsto 2-n\) at every port. The exchange and squared-difference terms commute with \(\mathcal C\). All degree deficits equal one on this cell, so the degree reference shifts by \(4\kappa\sum_i(1-n_i)\), a scalar on each fixed inventory. The 132-word sham generators and the paired 660-word probe generators satisfy this identity entry by entry. Each arrival, survival and timeout projector for a vacancy maps to the corresponding excess projector. All complete monitored probabilities therefore agree on a \(\mathcal C\)-invariant material marginal, for every arrangement of registered appointments and paths. This applies independently to each of the near and quiet outcomes of the stationary source. After 64 offers the two conditional history distributions differ in total variation by at most \(2(1.6481\times10^{-9})/P(\mathrm{herald})\): conditioning any law within \(\epsilon\) of the stationary law costs at most \(\epsilon/P(\mathrm{herald})\), and the complete read is a stochastic channel on the prepared material words.
+
+If the material reading specifically identifies a vacancy at station 2, the two probes still receive independent donors on copies of the *same* material. On \(0\to1\) their capped mean return times are 5.93929 for the vacancy and 5.81275 for the excess. Their return probabilities after subtracting the matched sham are 0.02046 and 0.05145. The 99 percent simultaneous count intervals separate the two mean times by more than 0.10. The equality on the charge-blind source is sensitive to the physical preparation.
+
+## A held comparison using the same owner's clock
+
+| Directed route | Quiet-material mean | Near-material mean | Near minus quiet |
+| --- | ---: | ---: | ---: |
+| \(0\to1\) | 5.85436 | 5.87602 | +0.02166 |
+| \(1\to0\) | 5.85436 | 5.86371 | +0.00935 |
+| \(1\to3\) | 5.86861 | 5.84182 | −0.02679 |
+| \(3\to0\) | 5.87018 | 5.93738 | +0.06720 |
+
+These are original capped-clock means for the vacancy probe, matching the excess at the displayed precision. The frozen count banks contain \(2^{20}\) original launches per charge, arm and directed route, with all heralds and timeouts retained. Owner 1's near/quiet time ratio for an excess lies in \([1.00013,1.00445]\) toward 0 and \([0.99288,0.99730]\) toward 3 at simultaneous 99 percent confidence. One change in owner 1's clock scale cannot account for both measured route responses. The two vacancy ratios are also disjoint. With exchange preserved and the squared contrast removed throughout the flight, the near \(0\to1\) mean is 5.75001 instead of the native 5.87602. [All rates, terminal counts and energy outcomes](counts.npz)
+
+For the interval calculation, conditional on a given herald count \(n\), the enrolled times are independent draws from their conditional law. Write \(D=6-t_{\rm capped}\in[0,5]\). Hoeffding bounds its population mean above by \(\bar D+5\sqrt{\ell/(2n)}\); hence its variance is at most five times this upper bound. Applying Bernstein's two-sided inequality with this variance bound gives the archived intervals. The union bound uses \(\ell=\log(4\cdot72/0.01)\) for all 72 route, charge, arm and herald combinations. The clockwise/counterclockwise product of the six capped means is 0.999299 for near material and 0.998387 for quiet material. Each ratio would equal one if station scale factors symmetrized all three directed ranges. Its simultaneous count interval includes one in both cases. The raw cohort check and the independent word-basis test cover the terminal return and timeout bins. [Tests](test_cell.py)
+
+The owners time one finite interacting source with two independently introduced charge-conjugate probes. The construction measures a clock response and distinguishes a direction-dependent change from one local clock rescaling. A three-dimensional proper metric, an independent family of moving clocks and the Einstein fixed-volume response require additional observables. The finite apparatus uses a registered action-time appointment and target-blind material stirring before release.

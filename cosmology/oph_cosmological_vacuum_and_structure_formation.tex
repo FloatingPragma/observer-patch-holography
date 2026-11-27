@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -54,17 +55,31 @@ has vacuum covariance \((2\sqrt B)^{-1}\) under its declared preparation;
 its flat massless spectrum grows as \(k^2\) per logarithmic interval and
 therefore is not a scale-invariant primordial curvature spectrum.
 Structure formation requires an expanding background, a curvature readout,
-and transfer dynamics on the same state. The capacity relation
-\(\Lambda\ell_P^2=3\pi/N\) is a conditional horizon-entropy dictionary,
-not an independent selection of the cosmological constant.
+and transfer dynamics on the same observer history. Identifying the screen
+capacity with horizon entropy gives \(\Lambda\ell_P^2=3\pi/N\).
+A galaxy clock calibrates the matter contribution in the flat cosmology
+with constant vacuum density. Two other redshift bins test that conditional
+expansion curve. In a level-202 repair history, observer zero's material
+beacons give pulse shifts of zero and one quarter.
 
 \end{abstract}
 
 \input{../paper/tex_fragments/THEORY_CONTRAST_MEMORY_HYPOTHESIS.tex}
 
 \section{Ensemble, vacuum and background}
-A probability law on a finite physical quotient is distinct from a
-Hamiltonian vacuum and from cosmological initial data.
+Observers can establish a reference by disabling the excitation source,
+repeating a calibrated probe at specified clock intervals, and comparing
+outcomes and their correlations. The same observers can agree just as
+precisely on the arrival of an excitation. To identify a stationary field
+vacuum, the reference also needs evidence that it occupies the lowest
+accessible energy for the chosen clock evolution. On an evolving background
+the preparation and detector trajectory enter the comparison.
+The guarded two-rail apparatus below provides a finite example.
+Its ground reference assigns equal probabilities to the two rail labels.
+With both initial labels equally represented, the next sharp read changed
+label in 40,939 of 163,840 trials on 320 cells, against the probe's
+transition probability of $1/4$. These counts include the specified
+intervention between reads.
 
 If the capacity \(N\) is identified with de Sitter horizon entropy in
 nats, then
@@ -89,6 +104,246 @@ the common-stress and tensor-curvature or small-ball identification
 premises~\cite{ophEinstein}.
 
 \input{../paper/tex_fragments/DISCRETE_SPHERICAL_CAPACITY.tex}
+
+\paragraph{Galaxy clocks and a repeat-spectrum test.}
+The level-202 horizon assignment sets the vacuum contribution
+$H_\Lambda=c\sqrt{\Lambda/3}=1.7911\times10^{-18}\ {\rm s}^{-1}$.
+Expressing one megaparsec as $3.08568\times10^{19}$ km gives
+$55.2674\ {\rm km\,s^{-1}\,Mpc^{-1}}$. The physical Planck area enters
+through the cell-area assignment. This conversion requires no duration
+for the simulator tick.
+In a flat expanding Friedmann cosmology with conserved pressureless
+matter, constant vacuum density and negligible radiation,
+$H(z)^2=H_\Lambda^2+B(1+z)^3$. A single astronomical clock calibration
+$H_a=H(z_a)$ eliminates the matter coefficient $B$ and gives
+\[
+ H(z)^2=H_\Lambda^2+
+ (H_a^2-H_\Lambda^2)\left(\frac{1+z}{1+z_a}\right)^3 .
+\]
+Differential stellar ages and spectroscopic redshifts supply such a clock.
+Treating the lowest-redshift DESI DR1 chronometer bin as a point gives
+$H_a=88.48$ at $z_a=0.46$. The point forecasts at $z=0.67,0.83$ are
+$100.99,111.61$ in the same units. The corresponding measurements are
+$119.45,108.28$. Propagating the published three-bin covariance through
+the anchor gives observed-minus-predicted differences of $18.46\pm6.48$
+and $-3.33\pm10.95$ to first order. A separate fit of one matter
+coefficient to all three measurements at fixed $H_\Lambda$ gives
+$\chi^2=8.20$ for two degrees of freedom under a Gaussian likelihood
+with that covariance. The middle bin drives the tension. The physical
+screen was selected with a Planck horizon benchmark, and this comparison
+also assumes the Friedmann background.%
+\footnote{S.~I.~Loubser, \emph{Measuring the expansion history of the
+Universe with DESI cosmic chronometers}, equations 4--6 and their
+correlations, \href{https://arxiv.org/abs/2511.02730}{arXiv:2511.02730}.}
+
+The measured clocks fit slopes of a stellar-age indicator across finite
+redshift intervals. In Figure 5 of Loubser, 53 of 70 bin medians survive
+clipping. A continuous piecewise linear fit to the retained plotted
+medians recovers slopes $-0.462,-0.299,-0.301$ to their displayed
+precision. Passing the Friedmann ages through the same fixed bins and
+breakpoints accounts for the estimator's response to background
+evolution. The first bin sets $B$ by matching its reported reading
+of $88.48$. The assigned background gives $106.52$ and $125.96$ for
+the other two fitted slopes in rate units. Its instantaneous rates at the two median redshifts
+are $105.99$ and $117.55$. The observed-minus-predicted differences for
+the fitted slopes are $12.93\pm6.51$ and $-17.68\pm12.43$. These
+uncertainties propagate the first-bin calibration and its correlations
+with each comparison bin to first order.
+The three-bin Gaussian fit with one matter parameter gives $\chi^2=6.46$
+for two degrees of freedom. The reconstruction holds the published
+selection, common stellar calibration, clipping mask and covariance fixed.
+
+The readout assumptions can be varied explicitly. In a smooth background
+let $z$ denote the redshift at emission time $t$. Suppose a comoving
+population yields a measured spectral redshift $f(z)$ and an independent
+age indicator $g(t)$ in time units. Where these maps are differentiable
+and $g'(t)\ne0$, the differential-age estimator gives
+\[
+ H_{\rm read}(f(z))
+ =-\frac{1}{1+f(z)}\frac{df(z)}{dg(t)}
+ =H(z)\frac{1+z}{1+f(z)}\frac{f'(z)}{g'(t)} .
+\]
+The window calculation takes $f(z)=z$ and $g(t)=t-t_{\rm form}$ with a
+common formation offset. A different calibrated response requires fitting
+the measured ages against the measured redshifts in their own bins.
+
+The level-202 pulse survey supplies a different measurement~\cite{ophcmb}.
+One beacon emitted at local ticks 2 and 6 and observer zero recorded its
+arrivals at 6 and 11, giving $z_{\rm pulse}=5/4-1$. Among 274 enrolled
+beacons, 97 returned both pulses at the initial query, five with this
+shift and 92 with zero shift. At query 96 all 96 received pairs had zero
+shift, and 95 of them also returned a radar echo. The four recorded
+epochs contain no pulse shift in the galaxy fit range $0.30<z<1$.
+The survey assigns equal tick units to the two clocks. A common conversion
+to seconds cancels in the period ratio. Independently measured proper
+durations per tick $s_0,s_e$ at reception and emission would give the
+proper-period ratio $(s_0/s_e)(1+z_{\rm pulse})$.
+Evaluating the astronomical estimator on a repair history requires
+spectral redshifts and an independently calibrated age indicator for the
+same comoving source population.
+
+At the same source ticks 2 and 6, three fixed beacons give three
+different periods at observer zero. The received pairs are $(7,11)$,
+$(6,11)$ and $(8,14)$, giving $z_{\rm pulse}=0,1/4,1/2$.
+For the middle beacon, periods of four, six and eight ticks centered
+on source tick 6 give received periods of five, seven and nine ticks.
+Each pair crosses the same one-tick increase in flight time.
+A census with tagged emissions at every integer tick from 2 to 96
+contains 7,893 four-tick pairs whose second crest reaches observer zero
+by tick 96. Of these overlapping readings, 7,844 give zero shift,
+48 give $1/4$ and one gives $1/2$. After the final local closure,
+every successful flight between fixed endpoints has constant duration.
+The received period then equals the emitted period at any cadence.
+
+The middle beacon also tests the proposed horizon value directly under
+additional physical assumptions. At late times observer zero times its
+round trip at ten ticks. Suppose the beacon and receiver are freely
+comoving in a pure expanding de Sitter universe, the material pulses
+follow null rays, and one clock tick lasts one Planck time. For this
+five-light-tick range the assigned $\Lambda$ gives a short-period
+shift of $4.83\times10^{-61}$, below the four-tick instrument's
+resolution of $1/4$. Over one scale-factor doubling the same calculation
+gives a round trip of approximately twenty ticks. Translating the
+two exchanges through the stationary relay gives ten ticks at each
+appointment, assuming the clocks and sources persist. The interval
+between widely separated one-way pulses also gains zero ticks, against
+the expected five. This excludes that comoving interpretation of the
+fixed beacon under the specified clock and propagation assumptions.
+
+Two beacons can also report their separation. At each crest, each
+includes the names of the partners that returned its two-tick echo.
+Observer zero accepts a unit ruler when both certificates name the
+other endpoint at both crests and the two later crests arrive at the
+same reference tick. Among 274 enrolled beacons this gives 227 distinct
+pairs. Their endpoints always enter through the same angular bin.
+Even the twelve arrival times relative to the first local detection
+are identical across the ends of each accepted ruler. On the
+all-transmitting control five of 671 distinct certified pairs appear
+in two separate bins. A common bin leaves the angular separation
+within that bin undetermined. These measurements use the same repair
+history for the source echoes, the pulse periods and the local array.
+The clock words are in
+\nolinkurl{code/cosmology/screen_coherence/level202_ruler.json}.
+
+The late radial records admit two different gravitating vacuum densities.
+At query 16, 95 beacons supplied both a period and an echo. Use their
+round trips to set the individual ranges $D$, from 2 to 19 light-ticks.
+In Minkowski vacuum, synchronized clocks at rest a distance $D$ apart
+give a one-way flight of $D/c$. In the Einstein static dust universe
+with curvature radius $b$, comoving clocks at angular distance $D/b$
+give the same flight and the same received period. The static Friedmann
+and acceleration equations give $\Lambda=1/b^2$ and
+$4\pi G\rho_{\rm dust}=\Lambda c^2$, with $\rho_{\rm dust}$ a mass density.%
+\footnote{J.~D.~Barrow, G.~F.~R.~Ellis, R.~Maartens and C.~G.~Tsagas,
+\emph{On the stability of the Einstein static universe},
+\href{https://arxiv.org/abs/gr-qc/0302094}{arXiv:gr-qc/0302094}.}
+Choosing $b=100$ light-ticks places all calibrated beacons inside one
+hemisphere. Both geometries reproduce all reflection, echo, emission
+and arrival stamps of these same 95 beacons at query 96. Applied at
+queries 0 and 4, the same placements reproduce 60 and 62 complete
+transcripts, respectively. These comparisons concern radial timing of
+responding beacons. Matter readings or transverse geometry can
+distinguish the two solutions. The timestamp comparison is in
+\nolinkurl{code/cosmology/screen_coherence/level202_vacuum_density.json}.
+
+\paragraph{Releasing material probes at observer zero.}
+At tick 96 the settled material relay connects 180 ports belonging to
+15 observers. Adding one load at each of the 25 reachable empty ports,
+or removing one at each of the 28 double ports, was tested on separate
+copies. Each intervention leaves a unit at the launch port. Every
+available strict repair requires a zero and a double, so the original
+service gives no motion of any of these 53 perturbations.
+
+A free-flight preparation keeps the written contacts, empties the mobile
+interior, and releases a single or double load under the ordinary Interval
+Echo Hamiltonian. Two independently launched probes are read at their
+terminal ports. Timed challenges between those ports give their separation.
+At the nearest written boundary contact a unit resident on the far side
+lets the near observer read the energy of the stored source. A split
+unit interferes with a reference on the near side. Its return probability
+after exposure $u$ is $(1+\cos(Eu))/2$ because the arm touching the
+resident has zero contact energy. The short exposure $\pi/128$ gives
+$E=32.0014,32.9946$ in exchange units for the two source preparations.
+Each preparation has probability $1/2$ on the recorded signed write.
+
+With all exterior endpoints retaining their settled loads and the other
+16 boundary parity readings held fixed, the source energy increase changes
+the centered separation acceleration at $u=1$ by
+$0.01051\pm0.00061$ for a unit-load probe pair and
+$0.00068\pm0.00113$ for a double-load pair. Units are material radar
+range per squared exchange time. The three independent terminal-count
+banks use half-width $1/16$, with one counting standard error reported.
+The exact finite-window contrasts are $0.00995$ and zero. Only the unit
+load gives equal endpoint loads at the occupied contact. Removing the
+resident eliminates the source contrast for both probe types in the
+evacuated exterior reference.
+
+Switching off the vacant contacts at chamber radii 2, 3 and 4 costs the
+same work on both source preparations. Switching off one loaded control
+contact gives mean work $-8.5$ in native units. All ten triples of
+neighbour directions at the source give an indefinite Euclidean Gram
+matrix from their mutual echo ranges. These finite chambers supply
+wall work and material ranges. Physical pressure requires a calibrated
+proper-volume change. Three terminals one light-tick from observer zero
+are each two light-ticks from both others. In either static comparison
+geometry two of those paths would pass straight through the home station
+and place two of the terminals at the same point. Their mutual echo
+instead gives a separation of two. The two released probe types and this wall meter
+therefore leave a common gravitational coupling and vacuum density
+undetermined on the repair history.
+
+On a controlled Einstein--scalar geometry the proper radar arms $a_i$
+and an independent scalar meter permit the complementary test
+$\Lambda=\sum_i \ddot a_i/a_i+(\kappa/2)(\rho+3p)$ in units $c=1$.
+The scalar mass and $\kappa=8\pi G$ are calibrated at one appointment.
+On six held readings per source, the finest clock spacing gives
+$0.00012$--$0.00026$ for input zero, and $0.12011$--$0.12028$ for
+input $0.12$. Each largest error falls with both refinements.
+The clock records, energy readings and complete separation histograms
+are in \nolinkurl{code/cosmology/screen_coherence/level202_gravimeter.json}.
+
+An additional comparison uses the public DESI DR2 BAO and CMB chains for
+flat cosmology with constant vacuum density. Evaluating
+$3\Omega_\Lambda H_0^2\ell_P^2/c^2$ on each weighted sample gives
+$(2.968\pm0.040)\times10^{-122}$ (posterior mean and standard deviation).
+The central level-202 assignment gives $2.7973\times10^{-122}$, or 4.28
+posterior standard deviations below that mean. This comparison shares CMB
+data with the level-selection benchmark. It tests the assigned screen area
+and its identification with one de Sitter horizon. Inferring the gravitating
+vacuum contribution from repair histories requires independent observer
+measurements of geometry and matter stress. The conversion
+$\varepsilon_\Lambda=c^4\Lambda/(8\pi G)$ gives
+$5.16\times 10^{-10}\ {\rm J\,m^{-3}}$ for the assigned screen value.%
+\footnote{\href{https://arxiv.org/abs/2503.14738}{DESI DR2 results II} and
+the \href{https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/README.html}{public parameter chains}.}
+
+The retained-bin calibration gives $H_0=69.36\ {\rm km\,s^{-1}\,Mpc^{-1}}$
+and a transition to acceleration at $z=0.515$.
+An observer can also repeat a spectrum of the same comoving absorber
+after a proper-time interval $\Delta t_o$. For consecutive light flights,
+$dt_e/dt_o=1/(1+z)$, so $\dot z=(1+z)H_0-H(z)$. The resulting
+velocity-equivalent change $c\,\Delta z/(1+z)$ over ten Julian years
+is $+1.22\ {\rm cm/s}$ at $z=1$ and $-7.67\ {\rm cm/s}$ at $z=4$.
+Varying the clock anchor by its quoted total standard error gives ranges
+$[-0.61,+3.31]$ and $[-12.03,-2.66]\ {\rm cm/s}$, respectively.
+These forecasts assume cosmological propagation of identifiable spectral
+lines and a persistent comoving source. The material echo service supplies
+its own timing records.%
+\footnote{A.~Loeb, \emph{Direct Measurement of Cosmological Parameters
+from the Cosmic Deceleration of Extragalactic Objects},
+\href{https://arxiv.org/abs/astro-ph/9802122}{arXiv:astro-ph/9802122}.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{../code/capacity_readback/runtime/level202_chronometer_windows.png}
+\caption{The amber galaxy clock fixes the matter contribution in the assumed
+flat Friedmann background. The two dark points are astronomical comparison
+bins. Diamonds give the rates from the background age curve passed through
+the fitted windows. The line gives its instantaneous expansion rate. Error bars show marginal uncertainties and the
+calculation uses their correlations. The shaded bands vary the galaxy-clock
+anchor by one total standard error at fixed screen assignment. The spectra
+in the right panel are forecasts.}
+\end{figure}
 
 \paragraph{Measuring acceleration with two independent records.}
 On two finite layered populations, observers at 39 and 105 enrolled

@@ -1,5 +1,6 @@
 """Exact rational timelike tomography and finite-radius error propagation."""
 from fractions import Fraction as F
+from numbers import Rational
 
 PAIRS = ((0, 0), (0, 1), (0, 2), (0, 3), (1, 1),
          (1, 2), (1, 3), (2, 2), (2, 3), (3, 3))
@@ -23,6 +24,8 @@ def design(frame=FRAME):
 def decode(q):
     if len(q) != 10:
         raise ValueError('ten matched timelike charges required')
+    # Exact readouts decode exactly; floating readouts keep their arithmetic.
+    q = tuple(F(x) if isinstance(x, Rational) else x for x in q)
     return (q[0], F(9, 80)*(q[1]-q[2]), F(9, 80)*(q[3]-q[4]),
             F(9, 80)*(q[5]-q[6]),
             F(9, 32)*(q[1]+q[2])-F(25, 16)*q[0],
@@ -49,6 +52,8 @@ def decoder_matrix():
 def inverse(matrix):
     """Independent exact Gauss-Jordan inversion; no numerical rank threshold."""
     n = len(matrix)
+    if n == 0 or any(len(row) != n for row in matrix):
+        raise ValueError('tomography matrix must be nonempty and square')
     rows = [list(map(F, row))+list(basis(n, i)) for i, row in enumerate(matrix)]
     for j in range(n):
         pivot = next((i for i in range(j, n) if rows[i][j]), None)

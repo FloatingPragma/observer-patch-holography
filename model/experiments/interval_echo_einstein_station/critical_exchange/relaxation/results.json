@@ -1,0 +1,109 @@
+{
+  "stations": 246,
+  "disturbance_and_receiver_ports": [
+    2532,
+    2533
+  ],
+  "one_station_phase_flip_port": 2532,
+  "half_filling": 123,
+  "stationary_uniform_filling_energy": 0,
+  "measurements": [
+    {
+      "time": 0,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": 0.318318538585,
+      "phase_flip_change": 0.636637077171,
+      "maximum_change_over_one_station_channels": 0.636637077171
+    },
+    {
+      "time": 8,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.221934863239,
+      "phase_flip_change": 0.096383675347,
+      "maximum_change_over_one_station_channels": 0.096383675347
+    },
+    {
+      "time": 16,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.274494423687,
+      "phase_flip_change": 0.043824114898,
+      "maximum_change_over_one_station_channels": 0.043824114898
+    },
+    {
+      "time": 32,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.299050708642,
+      "phase_flip_change": 0.019267829943,
+      "maximum_change_over_one_station_channels": 0.019267829943
+    },
+    {
+      "time": 64,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.307962517798,
+      "phase_flip_change": 0.010356020788,
+      "maximum_change_over_one_station_channels": 0.010356020788
+    },
+    {
+      "time": 80,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.310889842082,
+      "phase_flip_change": 0.007428696504,
+      "maximum_change_over_one_station_channels": 0.007428696504
+    },
+    {
+      "time": 96,
+      "reference_energy": -0.318318538585,
+      "phase_flip_energy": -0.311108374374,
+      "phase_flip_change": 0.007210164211,
+      "maximum_change_over_one_station_channels": 0.007210164211
+    }
+  ],
+  "certified_windows": [
+    {
+      "start": 16,
+      "end": 96,
+      "universal_bond_error_upper": 0.393757974,
+      "propagator_winding_error_upper": 5.78148989644813e-69
+    },
+    {
+      "start": 32,
+      "end": 96,
+      "universal_bond_error_upper": 0.281231502,
+      "propagator_winding_error_upper": 5.78148989644813e-69
+    },
+    {
+      "start": 64,
+      "end": 96,
+      "universal_bond_error_upper": 0.200011116,
+      "propagator_winding_error_upper": 5.78148989644813e-69
+    }
+  ],
+  "synthetic_terminal_counts": {
+    "stationary_reference": [
+      38762,
+      175586,
+      8799,
+      38997
+    ],
+    "phase_flip_time_0": [
+      38969,
+      8493,
+      175692,
+      38990
+    ],
+    "phase_flip_time_96": [
+      40454,
+      172338,
+      9217,
+      40135
+    ]
+  },
+  "shots_per_setting": 262144,
+  "count_order": [
+    "empty",
+    "symmetric",
+    "antisymmetric",
+    "double"
+  ],
+  "seed": 253296
+}

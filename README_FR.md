@@ -155,9 +155,9 @@ réparation reproduit des valeurs et des structures observables réelles, dans
 les descriptions effectives des observateurs qui habitent le calcul :
 
 - **Des particules qui tiennent ensemble.** Une paire de charges écrite sur
-  une couture est lue comme une paire à chaque lecture ultérieure, avec une
-  probabilité qu’un théorème borne sur des supports de toute taille, et elle
-  se déplace de couture en couture. La même loi sans l’énergie d’accord perd
+  une couture peut être lue sur d’autres coutures. Pour toute durée
+  d’évolution libre choisie avant la mesure, un théorème borne la probabilité
+  de manquer la paire à la première lecture, quelle que soit la taille du support. La même loi sans l’énergie d’accord perd
   la paire.
 - **Une horloge dans un objet.** Un objet tenu sur quatre coutures oscille à
   une hauteur fixe après une impulsion. Un observateur lit cette hauteur dans
@@ -173,14 +173,14 @@ les descriptions effectives des observateurs qui habitent le calcul :
   ultérieurs différents.
 - **Douze courants de force.** Avec un service de port déclaré, la réponse
   des ports d’une cellule a douze générateurs dotés de l’algèbre des forces
-  du Modèle standard.
+  du Modèle standard. Les commandes ordinaires donnent dix-sept directions
+  visibles. La symétrie de jauge globale et les représentations de la matière
+  restent à établir.
 
 Ces sorties se branchent sur la bibliothèque de théorèmes. Un théorème
 s’applique au modèle partout où une sortie du modèle a la forme de sa
 prémisse : la cellule est le support du théorème des trois directions,
-l’écriture du modèle est la règle de réparation que quatre exigences
-désignent seule, ses lectures sont les instruments projectifs des théorèmes
-de la mesure, et ses observateurs comparent leurs horloges par des registres
+ses lectures sont les instruments projectifs des théorèmes de la mesure, et ses observateurs comparent leurs horloges par des registres
 partagés, comme l’exigent les théorèmes d’horloge. Le
 [registre des observables](docs/registers/OBSERVABLES.json) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
@@ -190,12 +190,11 @@ anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 Sous des prémisses énoncées, la bibliothèque de théorèmes et les constructions
 finies donnent :
 
-- **L’espace-temps et les champs comme descriptions effectives.** À grande
-  échelle, les registres partagés des observateurs sont décrits par des
-  théories des champs relativistes à trois dimensions d’espace et une de temps,
-  avec la gravitation. La réponse lente du support est exactement
-  tridimensionnelle, et une théorie des champs lorentzienne de dimension (1+3)
-  reproduit les lectures conjointes des observateurs.
+- **L’espace-temps et les champs comme descriptions effectives.** Avec un intervalle radial, une évolution hyperbolique et une préparation
+  spécifiés, un champ scalaire libre sur une métrique lorentzienne lisse de
+  dimension (1+3) approche les prédictions pour tout ensemble fini fixé de
+  lectures admissibles sur une durée bornée. Obtenir la géométrie et sa
+  réponse gravitationnelle à partir de la seule dynamique reste ouvert.
 - **Accord et registres stables.** Sous des conditions explicites de
   terminaison et de cohérence, les réparations locales atteignent un même
   résultat public quel que soit leur ordre.
@@ -242,8 +241,7 @@ observateurs.
 
 ## Des mathématiques vérifiables
 
-La [bibliothèque Lean](Lean/) contient plus de 13400 théorèmes et lemmes
-publics sans preuve admise, sur le consensus, les registres quantiques, la
+La [bibliothèque Lean](Lean/) contient les preuves formelles sur le consensus, les registres quantiques, la
 structure de jauge, la thermodynamique et l’identité de Koide. Chaque résultat
 de calcul est livré avec un reçu qui lie ses entrées et se rejoue.
 

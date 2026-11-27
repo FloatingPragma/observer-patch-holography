@@ -3,14 +3,14 @@
 The [executable model](../model/README.md) reproduces particle
 stability, an observable of nature. Bound objects persist in free
 evolution, read on the observers' agreed records. A pair of loads written on
-one seam by a local emitter is read as a pair on some seam at every reading,
-with probability at least one minus a proved bound
-([binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)); it is read on seams
-other than the first; nothing holds it but the contrast-memory law; and the
-same law without its agreement energy loses it. At coupling `kappa = 8` the
-largest probability of reading no pair is `0.0096` on one cell and on
-federations of 20, 80 and 320 cells, against `0.80` for the exchange law
-alone on 20 cells. Three loads on a face are read as an agreed face object in
+one seam by a local emitter can be read on a different seam. For any
+chosen duration of uninterrupted free evolution, the binding theorem bounds
+the probability of finding no pair on the first read, including the emitter's
+preparation error. Each sampled wait uses a fresh preparation. At coupling
+8, the largest sampled probability of finding no pair ranges from 0.009568 to
+0.009644 across one cell and the 20-, 80- and 320-cell federations. Removing
+the agreement energy gives about 0.80 on 20 cells.
+[Binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) Three loads on a face are read as an agreed face object in
 the same way. The coupling is supplied.
 
 Under a second candidate law on the same carrier, the
@@ -24,16 +24,17 @@ both ([cage](../model/experiments/cage/README.md)). The
 [observables register](registers/OBSERVABLES.json) records these as
 particle persistence and an internal clock on this construction.
 
-The written-field extension of Interval Echo supplies a strong candidate for the charge and field response of the electron. The change in boundary flux follows each signed material transfer. A separately prepared probe detects the source at a distance of 22 cells on a 320-cell board. The source stays confined during that field measurement. At a different junction, two orbital preparations both transfer with a charge and give different crossing probabilities. Eight addressed contacts exchange two material loads while leaving different orbital states at their original gateways. Identifying the common charge as an electron requires a spin-resolved branch with fermionic exchange, a physical rest energy, and the electron’s colour and weak responses on the same excitation. The laboratory reconstruction of 510.999 keV uses measured inputs independent of the simulation. [Experimental evidence and replay](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+In the written-field extension a material load carries one signed unit, and an added ring exchange transmits a disturbance from a confined source. A hard-core scalar load gives these charge records. The change in boundary flux follows each signed material transfer. A separately prepared probe detects the source at a distance of 22 cells on a 320-cell board. The source stays confined during that field measurement. At a different junction, two orbital preparations both transfer with a charge and give different crossing probabilities. Eight addressed contacts exchange two material loads while leaving different orbital states at their original gateways. Identifying the common charge as an electron requires a spin-resolved branch with fermionic exchange, a physical rest energy, and the electron’s colour and weak responses on the same excitation. The laboratory reconstruction of 510.999 keV uses measured inputs independent of the simulation. [Experimental evidence and replay](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
 
 The target is agreement between observers' measurement statistics and their
 effective interpretations. Every test of the model compares distributions of
 admissible observer records with what observers in our world record. The
 state of the simulation is no physical space, and a difference between
-microscopic state encodings is no failure of the model. The theory proves that
-observers who inhabit the simulation can describe their experiences as
-relativistic 3+1D continuum spacetimes (the flagship's proposition on smooth
-effective field descriptions). A comparison with a laboratory record requires
+microscopic state encodings is no failure of the model. The flagship's proposition on smooth effective field descriptions uses a
+specified radial interval, hyperbolic evolution and preparation. For a
+fixed finite set of admissible readouts over bounded wave times, it gives a
+smooth static 3+1D free-scalar description to any prescribed accuracy, up to
+source and clock errors. Recovering those inputs from the main law remains open. A comparison with a laboratory record requires
 identifying the same preparation, intervention and readout in the model and
 the experiment before comparing their probabilities.
 

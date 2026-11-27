@@ -145,5 +145,7 @@ cd Lean
 lake build EventAlgebra.NativePublicEventGrammar
 ```
 
-`--write` is exclusive first-record creation. Discrete records and source
-bindings compare exactly; floating replay has absolute tolerance 1e-11.
+`--write` is exclusive first-record creation. Discrete records compare exactly. The deposited observation source and its
+reviewed successor with optional attendance, scheduling and history recording
+are pinned separately. Default preparation and draw order agree. Other
+source bindings must match exactly. Floating replay uses absolute tolerance 1e-11.

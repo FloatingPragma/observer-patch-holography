@@ -505,6 +505,21 @@ writer labels. The calculation uses isolated read and commit appointments
 on sharp binary records
 (\path{model/experiments/interval_echo_consensus/transaction_component/}).
 
+A second triangle experiment allows each pair to repair separately.
+For a triangle starting at $000$ with protected bit one, the remote
+reader sees $110$ when positions zero and one are repaired first, and
+$011$ when positions one and two are repaired first. Completing the
+other pair gives $111$ in both orders. If $U$ denotes the unresolved
+positions and $S$ the offered pair or full triangle, the measured action
+is $U\mapsto U\setminus S$. Every accepted change strictly lowers
+$|U|$, and every pair of offers joins by removing their union.
+The full two-triangle graph has 256 states and 384 overlapping forks
+whose two branches each require a further write. The two boundary bits
+distinguish its four normal records. Reading only their disagreement
+returns zero for both $00$ and $11$, although the terminal data are all
+zero in the former case and all one in the latter
+(\path{model/experiments/interval_echo_consensus/transaction_component/confluence/}).
+
 \subsection{The quotient repair operator}
 
 The transactional layer above defines the physically accepted one-step relation.  The object used
@@ -3031,6 +3046,23 @@ same audit exposed its omission on all 32 accepted inputs. The least-support
 proof and both observers' raw readings are deposited with the dispatcher
 experiment. These certificates describe dependence for this observation menu.
 
+A finite truth table can also be compiled into native contacts before
+preparation. The mean of two extremal material rails is a double load
+exactly when both selected literals are true. A comparison with a zero
+standard then opens the target exchange. A ladder of these controlled
+exchanges tests a row of the table and reverses its temporary writes.
+In a three-input majority program two stations first read a cached copy,
+then reread a version sealed after a local intervention. Replacing that
+version by the cached copy in the final parity calculation gave the same
+answer on all eight unedited inputs and the wrong answer on all eight
+edited inputs. Two disjoint three-cell lanes ran on one contact calendar.
+Their words occupied 2,147 slots together and 4,234 in series on the
+twenty-cell carrier. On the eighty-cell carrier the corresponding counts
+were 2,447 and 4,614, with identical logical records. These apparatus
+slot counts include probes, inverse contacts and shutter decisions.
+Attaching a common physical duration to them across refinements requires
+an independent clock calibration.
+
 An overlap's mismatch score reads only the committed values on its
 support, so the score is writer-blind: two snapshots with identical
 values carry identical scores on every overlap, and a two-register
@@ -4228,6 +4260,45 @@ Petz-domain truncation, Fawzi--Renner recovery error, approximate
 central-record error, detector noise and coarse-graining defect. The
 theorem does not follow from the exact finite repair theorem alone, which
 supplies only the target \(\mathcal N\).
+
+In a finite simulated instrument, two triangles each have three data bits,
+a protected boundary bit, and a bank address independently reporting the
+number of disagreements. On each offer a material dimer crosses with
+probability \(1/4\). A second draw after a crossing distinguishes a hold
+from a wrong write. Reading a fresh fault word at each appointment gives
+correction, hold, and corruption probabilities \(12/16,3/16,1/16\).
+Every block visits the three pairs and the triple of each triangle once,
+in any of the \(8!\) orders selected before its first draw. Each position
+is touched three times. A touched mismatch probability \(p\) becomes
+\((1+3p)/16\), so the total mismatch count read at the receiving station satisfies
+\[
+\mathbb E[D'\mid\mathcal F_{\rm start}]
+  = \frac{27}{4096}D+\frac{939}{2048}.
+\]
+The expected count at a strictly intermediate appointment is at most
+\(D+465/1024\). Starting at zero, the reverse order attains that upper
+bound at its seventh offer. The block-end mean tends to \(6/13\).
+Sharing a fault across the positions in one offer correlates their
+outcomes, so different orders can give different probabilities of exact
+agreement at the same mean distance. Retaining one material fault word
+for all eight offers also preserves the isolated one-offer probabilities.
+Starting with six mismatches, it gives an expected terminal count of
+\(3/2\) compared with \(255/512\) for fresh draws.
+
+A second instrument chooses the order as it runs. Two receiving heads
+read a material mask of outstanding offers and the parity of the current
+mismatch word. Three control dimers record parity and steer a scan to the
+first remaining label from either end. Parking the parity swaps changes the
+first selected label from seven to zero on the same mismatch word. The last
+retirement starts a new block. From one initial word,
+6,561 noise branches visit twenty distinct permutations. For a site with
+error flag $b$ and $r$ remaining exposures, the conditional expectation of
+$(3/16)^r(b-1/13)$ stays fixed under each fresh draw. Consequently every
+nonanticipating choice of the remaining label has the same block-end mean
+as above, even when the current mismatches influence the order. Before a
+block ends at most sixteen site exposures have occurred, each increasing
+expected error by at most $1/16$. This gives a prefix allowance of one.
+The hardware requires continued service and fresh fault preparations.
 
 \section{Interfaces to the higher layers}
 \label{sec:interfaces}

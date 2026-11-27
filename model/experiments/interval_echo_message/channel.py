@@ -540,6 +540,222 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "fc97ff35b1ca1764c023a67d27d1defa4e23a6a78e264e4be6a769a51a1d6830",
     },
+    # Measured port frames, overlap repair forks, wall arrival clocks and free neutral-pair recoil.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b382c1b89c133a97807b4203fdf97fa37fa028b25b4ba82de5e82aad101130e2",
+    },
+    # Finite read/repair programs, randomized receiver calibration and material-path controls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b54e30055901036a84cc290bfc36f5419c48033db9a7b2ef8f698f850bda76bd",
+    },
+    # Shared-reference phase, intrinsic endpoint records, spatial wall beats and native orbital currents.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "2758ff61b991383ac4667cceb74c920910be002372a597ec25513dacd133d665",
+    },
+    # Exact current-operator algebra and current-base OW-30 admission-only package.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "6ceb938ed285d61c7012d563c152fa1c8401c00c449f18788b6167ce3e780c08",
+    },
+    # Combined native phase reads, wave and orbital measurements, finite programs and gravity sources.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "af2b297f289e0b8becc9e672113ae029978a56fe368ed280dcaa54819e7b6f7f",
+    },
+    # Signed ordinary and collar area on the persistent finite native survey.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "cae6b8902cc2160d4d8665149e3867a11d2c0a720f07e2dc9c88c68264df49ab",
+    },
+    # Noisy repair, recorded cone order, neutral decay and mobile string readouts.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d0677be2f9ae189fa693020ce2734e273f90862051ee91848d0798cc439f345c",
+    },
+    # Native screen counts, finite map compilation, split-load and wall spectroscopy reads.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "7a105fe06ee5732a55f3dd7c34779181bb7400eac78a1df7df222583dc3e1199",
+    },
+    # Finite carrier ruler, quorum timing, bound cap and moving-clock refinements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3bc3cf93d416a39aecacd10665778c8dfa392e1d97cf59005aed191740476f47",
+    },
+    # Same observer evidence with the strict level-202 distance and redshift comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "07104dc55e57a052c25a78cac16dd92717e030fce71842752c27d559be7a2612",
+    },
+    # Neutral polar-ring particle, dilute signed work and matter-wave comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "2c650facdabe24491ce98d1b6c5dd63834242b044efd0429cda3e97fab6bba1c",
+    },
+    # Same measurements with the level-202 distance and redshift comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "f7e13765011216b825269ac3f3175dff21f9e0b3b82a43768a26a467e989cc51",
+    },
+    # Internal polar clock, two-vacancy exchange, and light neutral emission.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "28d360256cb60892e9829f11dc2bbace8da195fec520b6683010524c88473d23",
+    },
+    # Same measurements with the level-202 distance and redshift comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "6d141af4fd0c7bda0739c5b0526feaf74635362a8f64907e19d70272ee318966",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b868980e17b9a107377f0a27b8f8c09c14465f79da729ba39fa1d74f1de0da71",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ad80a15884ccbeb88e307135dddaa9c71800b7ad5a080c02cf3d136f464c97b0",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "37257cbf6beb9ed74b1f5def0b63d82c42d87a7c5c4ead28ce26f65c253aa0c1",
+    },
+    # Registered wall-charge calibrations and exterior compact-source probes.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ff82f7a3283ac02982a7a2bf13f51f29773850dd7db8f7f0a411fe61edaac1c6",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9d4eda315f0715805cea018231817ebed3de59186ac178e6a7d446784d9a1130",
+    },
+    # Passive neutral calorimetry and registered joint winding observations.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9e951fdce88bb312742c8a04fc6252e27a09f6dbcdef3dac8e861dee7e51352a",
+    },
+    # Signed binding, charged relaxation, neutral poles and dense local records.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "76033f17112c3f7a4f7e8c7934ebb5231a1d8fa177bc4de23397463a7e94d09e",
+    },
+    # Same measurements with the level-202 distance and redshift comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "7057a90be4a5120cd1d88687dd41393d8fef76a3a4217dbed48e173b06cb44e1",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "41eb0a9357d20f43eac4906aadb3166868578ce61e310b9f49b0f332d0110242",
+    },
+    # Finite signed-stock binding, level clocks and charged-daughter observations.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ad1d4f2f9b400926b939238d325c589a2c019beadc3afead4337c9a138ddba3f",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d193094eb38ef55f790bcc4ef3bdd45ed7960ae14398b9d5e69f0be94a43d105",
+    },
+    # Finite signed-stock binding, level clocks and charged-daughter observations.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3ee27e933a338acf0d251f7f6535f993a1f8c7e7e594bc164ce6f73175f9a7c9",
+    },
+    # Gateway and census inputs, modal slots, publication, mass and weak current reads.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "df1ed65867c8bb6f07e9eb921d1f31dbc8fec98a12462447b8d9ee74d1238aa4",
+    },
+    # Six signed range responses, contact-current transfer and the matched SPARC rings.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "4e2631927bedb04dffa439a4e2158e536b19ca91f5b92aadb90fbcf3b2b3b5d6",
+    },
+    # Five-station formed geometry, regional energy, source binding and hydrogen comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "e5c31ad232fe9b287478e4dc5242f257452a26db417ed73f7b4d00fc2b0fdb13",
+    },
+    # Port phases, relative wing energies, two-ended seam flag counts and independent probe responses.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9f6205509a100efc15a514168632b7a96f50737e729d1be458cb116a6d8cf05d",
+    },
+    # Ten timelike observers, two-way material clocks and resolved regional field comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "0f0ebf24e4bd4d2071374728370140ee3bd11d211edaa0f02eae5232acf18945",
+    },
+    # Two-port phase transport, vacuum identification and proper areas of tilted balls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b4db621533e128c56b8cd6762a4a550f80c847f3a237f64724c4eab0e95a7904",
+    },
+    # Experimental partition-repair comparison in the gravity scorecard.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "8bdcf34b11974c53e70a796fb1fc17b192968f992595d38c07ad0e4525ead159",
+    },
+    # Native two-appointment geometry and three-register action controls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "712855337abb7646e1921828dda9e1812a6da3f5511a6832262455d509de9d22",
+    },
+    # Native matter selection and the four-station equilibrium comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "6925da341d38ab9fc871ea63c19a02d8d8e08e783449204a9c84ac2d65ef1461",
+    },
+    # Joint signal and matter-energy measurements on the cooled guide.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "955501de5ef40f14cc4d575d1364c63322990cc0b652345ede3be778d90c0971",
+    },
+    # Charge-conjugate probes and the pressureless-source comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "057389ca35503ff76e6982c8f0e162e91c4b310f01fceda4fbb8d99fba3d268a",
+    },
 )
 
 
@@ -549,8 +765,15 @@ def require(ok, message):
 
 
 def sources():
+    from model.experiments.record_provenance import DESCRIPTIONS, verify_deposit
+
     frozen = SPEC["sources"]
-    actual = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in frozen}
+    context = {name: digest for name, digest in frozen.items() if name in DESCRIPTIONS}
+    verify_deposit(context)
+    # The acquisition reads the executable inputs and boards. Historical specifications and
+    # scorecard are authenticated against the deposit, independently of today's editorial views.
+    actual = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+              for name in frozen if name not in context}
     reviewed = frozen | REPLAY_UPDATES
     radial = reviewed | REPLAY_70E58E24
     regional = radial | REPLAY_REGIONAL_CONSENSUS
@@ -559,11 +782,12 @@ def sources():
     nested = gravity | REPLAY_NESTED_CAP
     joint = nested | REPLAY_JOINT_READ
     directional = joint | REPLAY_DIRECTIONAL_CHARGE
-    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, joint, directional):
+    approved = (frozen, reviewed, radial, regional, standard, gravity, nested, joint, directional)
+    revisions = [*approved, *(directional | update for update in REPLAY_EVALUATIONS)]
+    if any(actual == {name: digest for name, digest in revision.items() if name not in context}
+           for revision in revisions):
         return
-    if any(actual == (directional | update) for update in REPLAY_EVALUATIONS):
-        return
-    mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
+    mismatches = [name for name in actual if actual[name] != reviewed[name]]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")
 
 

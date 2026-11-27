@@ -69,7 +69,13 @@ Two observers can also compare a phase that disappears when either measures the 
 
 Two simulated observers can send a charge carrying three coherent winding states. Changing how they name and phase their local arms reproduces all 90 measured count banks. A separate probe at the receiving port distinguishes like from unlike charges. Covering the two output ports with one meter gives zero net charge. Two smaller meters resolve its opposite charges. From measurements on one sign, a two-state quantum model predicts 48 fresh detector readings on both signs. A second apparatus using the charge itself as an interferometer recovers the same winding state. Its lowest propagating band approaches 16 in guide energy units, and a full turn of the detected winding gives positive phase. In a separate finite quantized Maxwell model, charged source and receiver circuits distinguish the two windings of a one-quantum packet through local measurements. On the Einstein branch, tidal arm readings distinguish two classical gravitational-wave polarizations that leave all ten Einstein readings unchanged. [Observer particle catalogue](docs/registers/PARTICLE_RECORDS.md) · [Three-state charge readout](model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md) · [Charged families in two gauge frames](model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md) · [Photon](model/candidate_laws/interval_echo/openwave/photon_identity/README.md) · [Graviton](model/candidate_laws/interval_echo/openwave/graviton_identity/README.md)
 
+**Can observers operate the Standard Model gauge group?** On a prepared five-level system they can. Changing the order of two port operations changed what the receivers saw. The measured frequencies follow the gauge calculation, and an exact proof shows that the twelve available currents generate the connected group in the limit of repeated code checks. The two magnetic fluxes and charge weights are settings of the apparatus. [Detector records and proof](model/experiments/interval_echo_gauge/port_phases/README.md)
+
+**What energy reached the detector?** In a simulated collision, a receiving patch flagged the arrival of one excitation. Comparing it with a separately prepared ground reference resolved three possible energies. Changing the reference shifted all three by the measured amount. All 8.25 million accepted arrivals kept their one-excitation reading. [Clock experiment and reference controls](model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING.md)
+
 **Can observers predict heat flow before heating either end?** We connected four small energy registers and watched energy move back and forth at equal temperatures. Those fluctuations predicted how much heat would flow after warming one end. Reversing the temperature difference gave the predicted response. Disconnecting one end kept the fluctuations and stopped the steady flow. [Measurements, error bounds and replay](model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/README.md)
+
+Two observers can tell which phase a source gave a split unit by comparing local records. With no shared reference they guess at chance. Sharing one more split unit raises their accuracy to 75%, and sharing two raises it to 85%. The simulation reaches the accuracy predicted from the number of reference units they have. [Phase experiment and exact bound](model/experiments/interval_echo_consensus/inventory_effects/shared_reference/README.md)
 
 **Can one quantum field tell us how another one gravitates?** In a simulation with Einstein gravity built in, we calibrated on one field and predicted what radar and a boundary-area meter would read for a second. With two coupled fields, changing their shared quantum state changed both readings, even though each field looked the same on its own. [Experiment, controls and replay](code/matched_einstein_limit/quantum_scalar_radar/README.md)
 
@@ -118,7 +124,7 @@ A history can be a common terminal record of local repairs. If a nonnegative dis
 The contrast-memory reference and the scalar channel supplied the following observer records. Interval Echo uses the same contrast-memory interaction and a clock filter calibrated to a guided reunion comparison.
 
 - **Particles that hold together.** A pair of loads written on one seam is
-  read as a pair at every later reading, with a probability that a theorem
+  read as a pair at any chosen first reading of a fresh run, with a probability that a theorem
   bounds on carriers of any size, and it moves from seam to seam. The same
   law without the agreement energy loses the pair.
 - **A clock inside an object.** An object held on four seams swings at one
@@ -131,9 +137,7 @@ The contrast-memory reference and the scalar channel supplied the following obse
   it. Its physical electric neutrality is a separate open question.
 - **Looking changes what comes later.** Asking "is a pair there?" and asking
   "where is it?" give the same first answer and different later records.
-- **Twelve force currents.** With one declared port service, the response of
-  a cell's ports has twelve generators with the algebra of the Standard
-  Model's forces.
+- **Twelve force currents.** A selected port service gives twelve generators of Standard Model Lie-algebra type. Plain accessible controls give seventeen visible directions. Global gauge symmetry and matter representations require further evidence.
 
 These outputs plug into the theorem library wherever an output has the form
 of a premise: the cell is the carrier of the three-direction theorem, the
@@ -147,11 +151,7 @@ shows what the program reproduces.
 
 Under stated premises, the theorem library and the finite constructions give:
 
-- **Spacetime and fields as effective descriptions.** Coarse-grained, the
-  observers' shared records are described by relativistic field theories in
-  three space dimensions and one time, together with gravity. The carrier's
-  slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
-  field theory reproduces the observers' joint readouts.
+- **Spacetime and fields as effective descriptions.** The field approximation assumes a radial interval, a hyperbolic evolution and an admissible readout menu. Identifying such a menu in Interval Echo is open.
 - **Agreement and stable records.** Under explicit termination and consistency
   conditions, local repairs reach one shared public result whatever their order.
   In an Interval Echo run with 240 ports, two opposite orders each made 74
@@ -200,8 +200,7 @@ what observers measure.
 
 ## Mathematics you can check
 
-The [Lean library](Lean/) holds more than 13400 public theorems and lemmas
-with no admitted proofs, covering consensus, quantum records, the gauge
+The [Lean library](Lean/) contains the formal proofs, covering consensus, quantum records, the gauge
 structure, thermodynamics and the Koide identity. Every computational result
 ships with a receipt that binds its inputs and replays.
 

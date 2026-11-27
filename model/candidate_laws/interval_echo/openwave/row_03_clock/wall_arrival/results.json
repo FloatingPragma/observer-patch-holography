@@ -1,0 +1,139 @@
+{
+  "provenance": "Seeded multinomial and binomial draws from reduced finite-law Born probabilities. Fit resolution describes the sampler.",
+  "word_order": "Lexicographic (trigger, first, seventh), sign order (-1,+1)",
+  "shots": 16777216,
+  "recoil_shots": 134217728,
+  "phase_shots": 1048576,
+  "material_coefficient_squared": {
+    "value": 16.0015591352,
+    "bootstrap95": [
+      15.9936139839,
+      16.0097725964
+    ]
+  },
+  "clock_step": 0.009999992201620343,
+  "recoil": [
+    {
+      "dimers": 29,
+      "nominal_gradient": 0.1,
+      "measured_gradient": 0.09976079346795094,
+      "velocity": 0.1037383428813854,
+      "finite_mass": 0.9616578662917105,
+      "mass_sampler_se": 0.005238387748795703,
+      "mass_times_material_c2": 15.388025215297061,
+      "finite_product_sampler_se": 0.08382237133546165
+    },
+    {
+      "dimers": 29,
+      "nominal_gradient": 0.2,
+      "measured_gradient": 0.20013789615552957,
+      "velocity": 0.2064828851909069,
+      "finite_mass": 0.9692711140223027,
+      "mass_sampler_se": 0.0026262854657476105,
+      "mass_times_material_c2": 15.509849049069059,
+      "finite_product_sampler_se": 0.042024662186076665
+    },
+    {
+      "dimers": 49,
+      "nominal_gradient": 0.1,
+      "measured_gradient": 0.1000892209028491,
+      "velocity": 0.10415003423199805,
+      "finite_mass": 0.9610099664479865,
+      "mass_sampler_se": 0.005314494279872651,
+      "mass_times_material_c2": 15.377657807634025,
+      "finite_product_sampler_se": 0.08504019449306438
+    },
+    {
+      "dimers": 49,
+      "nominal_gradient": 0.2,
+      "measured_gradient": 0.19918873389500957,
+      "velocity": 0.20644947087601756,
+      "finite_mass": 0.9648304403484357,
+      "mass_sampler_se": 0.0026714061265238624,
+      "mass_times_material_c2": 15.43879134667655,
+      "finite_product_sampler_se": 0.04274666310770716
+    }
+  ],
+  "arrival_and_clock": [
+    {
+      "dimers": 29,
+      "law": "native",
+      "near_probability": 0.003411591053009033,
+      "mirror_probability": 0.0007508993148803711,
+      "excess": 0.002660691738128662,
+      "excess_sampler_se": 1.5728204474873366e-05,
+      "minimum_count_per_trigger": [
+        16719133,
+        56483
+      ],
+      "first_amplitude": [
+        0.00015633343158434135,
+        0.00018681878667966957
+      ],
+      "seventh_amplitude": [
+        5.635663657946516e-05,
+        0.00010345613471289501
+      ]
+    },
+    {
+      "dimers": 49,
+      "law": "native",
+      "near_probability": 0.0034161806106567383,
+      "mirror_probability": 0.0007401704788208008,
+      "excess": 0.0026760101318359375,
+      "excess_sampler_se": 1.5716538175386146e-05,
+      "minimum_count_per_trigger": [
+        16719125,
+        56383
+      ],
+      "first_amplitude": [
+        0.00015453242694945867,
+        0.0001567071693841773
+      ],
+      "seventh_amplitude": [
+        4.796065877775238e-05,
+        0.00012207754009642072
+      ]
+    },
+    {
+      "dimers": 49,
+      "law": "half",
+      "near_probability": 0.005527853965759277,
+      "mirror_probability": 0.0026840567588806152,
+      "excess": 0.002843797206878662,
+      "excess_sampler_se": 2.2072998686165092e-05,
+      "minimum_count_per_trigger": [
+        16683213,
+        91852
+      ],
+      "first_amplitude": [
+        0.00013399305838737103,
+        0.0001111325189088319
+      ],
+      "seventh_amplitude": [
+        0.00012702334573339805,
+        0.0025693874765998622
+      ]
+    },
+    {
+      "dimers": 49,
+      "law": "planted",
+      "near_probability": 0.0034196972846984863,
+      "mirror_probability": 0.0007428526878356934,
+      "excess": 0.002676844596862793,
+      "excess_sampler_se": 1.5728235262667484e-05,
+      "minimum_count_per_trigger": [
+        16719048,
+        56371
+      ],
+      "first_amplitude": [
+        1.000016640799723,
+        1.000081239313819
+      ],
+      "seventh_amplitude": [
+        0.36834271025131254,
+        0.7026241556111287
+      ]
+    }
+  ]
+}

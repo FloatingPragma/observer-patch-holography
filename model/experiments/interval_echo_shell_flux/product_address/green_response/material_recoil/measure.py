@@ -38,13 +38,13 @@ def addresses(face):
         yield np.tensordot((4, 2, 1), POINTS == centre[:, None, None, None], axes=1)
 
 
-def visits(rng):
+def visits(rng, releases=N):
     body.pad_routes()
     steps, q = green.measured_steps(None)
     assert np.all(steps[-2:] == 0)
     np.testing.assert_array_equal(q, [1 / 8] * 3)
     live = np.zeros((10,) * 3, dtype=np.int64)
-    for corner, n in zip(green.CORNERS, rng.multinomial(N, [1 / 8] * 8), strict=True):
+    for corner, n in zip(green.CORNERS, rng.multinomial(releases, [1 / 8] * 8), strict=True):
         measured = body.rails.release_corner(corner)
         live[tuple(p - 1 for p in measured)] = n
     totals = live.copy()

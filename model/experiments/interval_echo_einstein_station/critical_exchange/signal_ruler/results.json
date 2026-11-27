@@ -1,0 +1,451 @@
+{
+  "ring_stations": 246,
+  "sender_port": 2532,
+  "reset_rail": 2499,
+  "cooling_from_inverted_filling": {
+    "initial_upper_count": 123,
+    "pair_proposals": 11828,
+    "final_upper_count": 0
+  },
+  "ages_inclusive": [
+    0,
+    80
+  ],
+  "shots_per_arm": 262144,
+  "seed": 246055,
+  "tested_arm_probabilities": 2916,
+  "simultaneous_single_rate_radius_99_percent": 0.005032147148121029,
+  "maximum_single_rate_count_discrepancy": 0.004182362169289022,
+  "maximum_absolute_signal_error": {
+    "cold": 1.17e-15,
+    "held_replacement": 1.05e-15,
+    "held_rotation_pi_over_four": 1.39e-15
+  },
+  "peaks": [
+    {
+      "separation": 1,
+      "receiver_port": 2533,
+      "peak_clock": 2,
+      "forecast": 0.33261150388220284,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.33369424805889863,
+            0.6663057519411003
+          ],
+          "occupied_counts": [
+            87834,
+            174589
+          ],
+          "count_peak": 2,
+          "compatible_peak_ages_99_percent": [
+            2
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.3336942480588985,
+            0.6663057519411003
+          ],
+          "occupied_counts": [
+            87475,
+            174637
+          ],
+          "count_peak": 2,
+          "compatible_peak_ages_99_percent": [
+            2
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.33393875551345414,
+            0.6665502593956556
+          ],
+          "occupied_counts": [
+            87538,
+            174862
+          ],
+          "count_peak": 2,
+          "compatible_peak_ages_99_percent": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "separation": 4,
+      "receiver_port": 2534,
+      "peak_clock": 5,
+      "forecast": 0.15306275987004558,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.42346862006497665,
+            0.5765313799350221
+          ],
+          "occupied_counts": [
+            111160,
+            150619
+          ],
+          "count_peak": 5,
+          "compatible_peak_ages_99_percent": [
+            5
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.42346862006497654,
+            0.5765313799350222
+          ],
+          "occupied_counts": [
+            111195,
+            151498
+          ],
+          "count_peak": 5,
+          "compatible_peak_ages_99_percent": [
+            5
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.4240232303350734,
+            0.5770859902051186
+          ],
+          "occupied_counts": [
+            111022,
+            151595
+          ],
+          "count_peak": 5,
+          "compatible_peak_ages_99_percent": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "separation": 8,
+      "receiver_port": 2512,
+      "peak_clock": 10,
+      "forecast": 0.10103124595167091,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.4494843770241639,
+            0.5505156229758347
+          ],
+          "occupied_counts": [
+            117758,
+            144187
+          ],
+          "count_peak": 10,
+          "compatible_peak_ages_99_percent": [
+            9,
+            10
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.4494843770241637,
+            0.5505156229758347
+          ],
+          "occupied_counts": [
+            118062,
+            144300
+          ],
+          "count_peak": 10,
+          "compatible_peak_ages_99_percent": [
+            9,
+            10
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.4500664498164825,
+            0.5510976957681535
+          ],
+          "occupied_counts": [
+            118355,
+            145030
+          ],
+          "count_peak": 10,
+          "compatible_peak_ages_99_percent": [
+            9,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "separation": 16,
+      "receiver_port": 2328,
+      "peak_clock": 18,
+      "forecast": 0.06816378138586478,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.46591810930706734,
+            0.534081890692932
+          ],
+          "occupied_counts": [
+            122198,
+            140190
+          ],
+          "count_peak": 18,
+          "compatible_peak_ages_99_percent": [
+            17,
+            18,
+            19
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.4659181093070671,
+            0.5340818906929319
+          ],
+          "occupied_counts": [
+            122583,
+            140407
+          ],
+          "count_peak": 18,
+          "compatible_peak_ages_99_percent": [
+            17,
+            18,
+            19
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.46662388880289946,
+            0.5347876701887643
+          ],
+          "occupied_counts": [
+            122359,
+            140509
+          ],
+          "count_peak": 18,
+          "compatible_peak_ages_99_percent": [
+            17,
+            18,
+            19
+          ]
+        }
+      }
+    },
+    {
+      "separation": 51,
+      "receiver_port": 2438,
+      "peak_clock": 54,
+      "forecast": 0.032353708024917514,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.48382314598754117,
+            0.5161768540124585
+          ],
+          "occupied_counts": [
+            126881,
+            135222
+          ],
+          "count_peak": 54,
+          "compatible_peak_ages_99_percent": [
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            60,
+            61,
+            62,
+            66,
+            67,
+            71,
+            76
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.48382314598754106,
+            0.5161768540124585
+          ],
+          "occupied_counts": [
+            126838,
+            135159
+          ],
+          "count_peak": 54,
+          "compatible_peak_ages_99_percent": [
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            60,
+            61,
+            62,
+            66,
+            67,
+            71
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.4845676718720666,
+            0.5169213798969842
+          ],
+          "occupied_counts": [
+            126999,
+            135677
+          ],
+          "count_peak": 54,
+          "compatible_peak_ages_99_percent": [
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            60,
+            61,
+            62,
+            66
+          ]
+        }
+      }
+    },
+    {
+      "separation": 55,
+      "receiver_port": 2436,
+      "peak_clock": 58,
+      "forecast": 0.03077390522065359,
+      "sources": {
+        "cold": {
+          "rates_empty_full": [
+            0.4846130473896734,
+            0.5153869526103272
+          ],
+          "occupied_counts": [
+            126976,
+            135076
+          ],
+          "count_peak": 58,
+          "compatible_peak_ages_99_percent": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            65,
+            66,
+            70,
+            71,
+            76,
+            80
+          ]
+        },
+        "held_replacement": {
+          "rates_empty_full": [
+            0.4846130473896733,
+            0.515386952610327
+          ],
+          "occupied_counts": [
+            127186,
+            135563
+          ],
+          "count_peak": 58,
+          "compatible_peak_ages_99_percent": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            65,
+            66,
+            71,
+            75
+          ]
+        },
+        "held_rotation_pi_over_four": {
+          "rates_empty_full": [
+            0.4853682527824098,
+            0.5161421580030634
+          ],
+          "occupied_counts": [
+            127217,
+            135745
+          ],
+          "count_peak": 58,
+          "compatible_peak_ages_99_percent": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            65,
+            66,
+            75,
+            76
+          ]
+        }
+      }
+    }
+  ],
+  "pre_reset_bond_energy_changes": {
+    "51": 0.0002651848382104749,
+    "55": 0.00024453905248167374
+  },
+  "maximum_single_arm_change_for_rotated_source": 0.004929285251007998,
+  "four_site_at_time_three": {
+    "open_quadratic": [
+      {
+        "sender_empty": 0.0,
+        "sender_full": 0.36752431862006735,
+        "excess": 0.36752431862006735
+      },
+      {
+        "sender_empty": 0.06405186050727167,
+        "sender_full": 0.4315761791273391,
+        "excess": 0.3675243186200674
+      }
+    ],
+    "open_density_interaction": [
+      {
+        "sender_empty": 0.0,
+        "sender_full": 0.36752431862006746,
+        "excess": 0.36752431862006746
+      },
+      {
+        "sender_empty": 0.06405186050727162,
+        "sender_full": 0.286899123169859,
+        "excess": 0.22284726266258736
+      }
+    ],
+    "open_native_blank_contacts": [
+      {
+        "sender_empty": 0.0,
+        "sender_full": 0.0031905429836842935,
+        "excess": 0.0031905429836842935
+      },
+      {
+        "sender_empty": 0.9878183142608428,
+        "sender_full": 0.000762032289800193,
+        "excess": -0.9870562819710426
+      }
+    ],
+    "literal_spin_ring_closure": [
+      {
+        "sender_empty": 0.0,
+        "sender_full": 0.9900175341315184,
+        "excess": 0.9900175341315184
+      },
+      {
+        "sender_empty": 0.004978714168704257,
+        "sender_full": 0.3631654643230881,
+        "excess": 0.35818675015438384
+      }
+    ]
+  }
+}

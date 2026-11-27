@@ -6,6 +6,14 @@ import numpy as np
 from model.experiments.interval_echo_quantum import experiment as ex
 
 
+def test_interference_archive_reacquired_from_fresh_native_port_evolution():
+    archive = json.loads((ex.HERE / 'results.json').read_text())
+    measured = ex.interference(ex.federation(0), np.random.default_rng(archive['seed']))
+    assert measured['screen_counts_then_absorbed'] == archive['interference']['screen_counts_then_absorbed']
+    for counts in measured['screen_counts_then_absorbed'].values():
+        assert sum(counts) == measured['shots_per_setting']
+
+
 def test_native_echo_and_routed_prediction():
     ex.verify_read()
     rho, route = ex.routed_source(ex.federation(0))

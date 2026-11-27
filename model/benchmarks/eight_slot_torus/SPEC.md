@@ -4,8 +4,7 @@ This document fixes the carrier, the state, the torus law with its parameters,
 the controls used in its experiments, the exact methods of evolution, the
 observers' readings and the supplied parts. The code in this folder
 implements every clause, and [test_simulator.py](test_simulator.py) checks
-each method against the literal update. The [law](../model/README.md) page
-states what is proven and measured.
+each method against the literal update. The [benchmark results](README.md) describe the measured clock and propagation records on these supplied axes. The long-wave dispersion follows from the Fourier coin-and-shift block of this specified architecture.
 
 ## 1. Carrier
 

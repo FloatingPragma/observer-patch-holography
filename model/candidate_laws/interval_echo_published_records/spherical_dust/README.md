@@ -1,0 +1,28 @@
+# Clocks and freely falling matter around a finite sphere
+
+Two observers publish their traveller and home bits. The spherical material reader assigns one unit of rest mass in the initial unit-radius ball per unit traveller frequency and a second, pressureless stock per unit same-service coincidence frequency. Its declared rule conserves each shell's enclosed mass and spreads its radial pull across the enclosing sphere. Its clocks and light signals obey local special relativity in the falling frame. A comparison between two stationary exterior clocks and an independently released probe tests the consequences of these choices. [Source counts](../../interval_echo_partition_repair/published_strings/ARCHIVE.md) · [Shell motion and exterior records](body.py)
+
+**The paired-clock mode supplies the quantitative Einstein premises throughout the regular pressureless core.** Each individual clock emits a fair sign. The law changes the joint probability of two signs according to their separation, their local clock readings, and the independently counted material mass. When an observer encloses both emitters the joint entropy changes. A volume-filling population of such pairs gives the same leading stress coefficient at displaced centers and for moving observers. Ordinary free fall fixes the coefficient of the independently measured boundary area. The entropy and area changes cancel through fourth order. The proof allows any sufficiently small ball in a compact interior survey window and bounded physical speeds covered by the instruments, including all ten tensor probes. [Local sign law](clock_pairs/README.md) · [Proof on shrinking proper balls](clock_pairs/REFINEMENT.md) · [Simulated regional measurements](clock_pairs/regions.json)
+
+For a displaced observer with four-velocity $(2,1,1,1)$, at dust time $1/32$ and reference radius $1/96$, finite sampling of the enrolled pair addresses gives $\Delta S/\ell^4=3.0514$. Independent weighing predicts $3.0453$, and the equal-volume area and ordinary calibration give $3.0465$. Freezing the two-clock time difference gives $1.8486$. Omitting the coincidence mass from the readout gives $1.7666$. The regional values estimate the specified populations by sampling finite labels. The proof bounds errors for the complete populations. A separate finite experiment counts sign words and reports simultaneous sampling intervals. [Regional protocol and altered laws](clock_pairs/regions.py) · [Counted sign words](clock_pairs/results.json)
+
+## A single line of material memories
+
+The fixed survey uses the blank, ordinary and held address lotteries. Ten observer velocities cross the same interior event. Each observer receives a local clock stamp and four beacon emissions to locate a rod endpoint. Separate dust weighings set the pulse on material memories shared across the balls. The three volume targets have flat reference radii 1/512, 1/2048 and 1/8192. Independently halve the coincidence response in the radial pull, then blind only the material pulse to coincidences. Both changes keep the published masses, clock format and routes. Either control should leave a nonzero fourth-order entropy–area residual. [Finite clock surveys](survey.py) · [Full common-source proof](PROOF.md) · [Observer records](results.json)
+
+The exterior sender and receiver hold their measured area radii at two and four initial body radii. Compare the arrival spacing of two pulses sent one unit of sender proper time apart. At radius two release probes initially at rest relative to the stationary frame. Read the area radius after 1/16 and 1/32 units of probe proper time. Fix the gain on the finer ordinary release and forecast both held observations. The radius unit, response to counted mass and common clock law are construction inputs. The comparisons use a supplied spherical material with no pressure and a freely falling exterior reference congruence. Identifying this material with freely formed native excitations or galaxy occupations requires separate measurements.
+
+At fixed ordinary stock, coincidence changes the exterior frequency ratio from $\sqrt{22/23}=0.978019$ to $\sqrt{226/245}=0.960442$. The released probe's signed area-radius acceleration changes from $-1/48$ to $-19/528$ at radius two. In the same held interior, an affine light beam gives an integrated focusing deficit of $0.00332121029$, against $0.00332120912$ from its independently weighed source. [Exterior readouts and blinded-light control](EXTERIOR_READER.md) · [Interior beam and signed controls](NULL_BEAM.md)
+
+| Reference radius $\ell$ | Largest held $\lvert\Delta S+\eta_\ell\Delta A\rvert/\ell^4$ over ten frames |
+| --- | ---: |
+| 1/512 | $3.81\times10^{-5}$ |
+| 1/2048 | $2.38\times10^{-6}$ |
+| 1/8192 | $1.49\times10^{-7}$ |
+
+These values use exact endpoint probabilities with numerically surveyed areas. A second experiment uses 150 simulated outcome banks and simultaneous 99% intervals. At the finest scale it bounds the held mismatch by $1.56\times10^{-4}$ while resolving a discrepancy above $1.3707$ if the joint stock gravitates at half strength, and above $2.7416$ if the material reader misses it. The banks use aggregated measurements with the resource counts given for each setting. The all-scales conclusion follows from the analytic $O(\ell^6)$ estimates. [Counted observations and budgets](endpoint_counts.json) · [Independent shell derivation in Lean](../../../../Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean)
+
+~~~sh
+python -m model run --law interval_echo_published_records --dust
+python -m pytest -q model/candidate_laws/interval_echo_published_records/spherical_dust
+~~~

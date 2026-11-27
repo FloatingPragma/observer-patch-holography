@@ -174,6 +174,8 @@ theorem cubical_current_from_local_visits
 /-- Positive cycle length and a nonempty positive-radius aperture give a
 strictly positive prediction. -/
 theorem cubical_coefficient_positive (T : ℚ) (hT : 0 < T) (n : ℕ) (hn : 0 < n) :
-    0 < (1/T) / (24*(n:ℚ)^2) := by positivity
+    0 < (1/T) / (24*(n:ℚ)^2) := by
+  have radius_pos : (0 : ℚ) < n := Nat.cast_pos.mpr hn
+  exact div_pos (div_pos zero_lt_one hT) (mul_pos (by decide) (pow_pos radius_pos 2))
 
 end OPH.StirredShellCurrent

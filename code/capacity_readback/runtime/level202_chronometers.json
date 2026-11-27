@@ -1,0 +1,135 @@
+{
+  "inputs": {
+    "chronometer_source": "https://arxiv.org/html/2511.02730v1#S3.SS3",
+    "redshift_drift_source": "https://arxiv.org/abs/astro-ph/9802122",
+    "screen_source": "discrete_spherical_refinement.py",
+    "redshifts": [
+      0.46,
+      0.67,
+      0.83
+    ],
+    "H_observed": [
+      88.48,
+      119.45,
+      108.28
+    ],
+    "stat_sigma": [
+      0.57,
+      6.39,
+      10.07
+    ],
+    "syst_sigma": [
+      12.32,
+      16.64,
+      15.08
+    ],
+    "correlations": [
+      [
+        1.0,
+        0.932,
+        0.83
+      ],
+      [
+        0.932,
+        1.0,
+        0.776
+      ],
+      [
+        0.83,
+        0.776,
+        1.0
+      ]
+    ],
+    "units_H": "km/s/Mpc"
+  },
+  "assumptions": "Observed horizon benchmark selects L=202. The proposed physical cell area and de Sitter entropy set the vacuum contribution. Spatially flat Friedmann evolution, conserved pressureless matter, constant vacuum density, negligible radiation, and comoving clocks and spectral tracers.",
+  "vacuum_H": 55.26744968982199,
+  "central_forecast_using_lowest_z": {
+    "anchor_H": 88.48,
+    "matter_coefficient": 1534.0651580724611,
+    "H0": 67.73888213787903,
+    "q0": -0.49851376767851685,
+    "redshift_at_zero_acceleration": 0.5850453029414695,
+    "H_at_other_redshifts": [
+      100.9917952535187,
+      111.60640381992886
+    ],
+    "drift_cm_s_per_ten_julian_years": {
+      "1": 1.7898550922260321,
+      "4": -6.296454119868414
+    }
+  },
+  "forecasts_at_minus_plus_one_anchor_sigma": [
+    {
+      "anchor_H": 76.14682117213896,
+      "matter_coefficient": 881.6604992213404,
+      "H0": 62.73875592039059,
+      "q0": -0.6640142660411705,
+      "redshift_at_zero_acceleration": 0.9064371267467055,
+      "H_at_other_redshifts": [
+        84.62146387827337,
+        91.96594969394107
+      ],
+      "drift_cm_s_per_ten_julian_years": {
+        "1": 3.8233318063075377,
+        "4": -1.401199144992368
+      }
+    },
+    {
+      "anchor_H": 100.81317882786105,
+      "matter_coefficient": 2284.2208792164893,
+      "H0": 73.06648940816504,
+      "q0": -0.3582101077166087,
+      "redshift_at_zero_acceleration": 0.38806642435971406,
+      "H_at_other_redshifts": [
+        117.01779874871715,
+        130.5883186147361
+      ],
+      "drift_cm_s_per_ten_julian_years": {
+        "1": 0.013951175698651971,
+        "4": -10.53886699910415
+      }
+    }
+  ],
+  "measured_minus_anchored_prediction": [
+    18.4582047464813,
+    -3.3264038199288564
+  ],
+  "linearized_residual_covariance": [
+    [
+      41.9364697605125,
+      -1.0698520136406078
+    ],
+    [
+      -1.0698520136406273,
+      119.9642279650833
+    ]
+  ],
+  "residual_sigma": [
+    6.475837379097201,
+    10.95281826586579
+  ],
+  "all_bin_profiles": {
+    "level201": {
+      "matter_coefficient": 631.9914789758105,
+      "chi_squared": 43.16531847708027,
+      "nominal_chi_squared_2_tail": 4.234188496319274e-10
+    },
+    "level202": {
+      "matter_coefficient": 1353.379927556576,
+      "chi_squared": 8.202963784450539,
+      "nominal_chi_squared_2_tail": 0.016548134670781648
+    },
+    "level203": {
+      "matter_coefficient": 1825.7943127442613,
+      "chi_squared": 5.219473085417709,
+      "nominal_chi_squared_2_tail": 0.07355391952699358
+    },
+    "zero_vacuum": {
+      "matter_coefficient": 2051.7855726549965,
+      "chi_squared": 5.008398065258439,
+      "nominal_chi_squared_2_tail": 0.08174104368070305
+    }
+  },
+  "inference": "Chronometer anchor and tests use different redshift bins with correlated uncertainties. The residual covariance propagates the anchor to first order. The separate profiles fit one nonnegative matter coefficient to all three H values with the published total covariance held fixed. Tail areas use an approximate Gaussian chi-squared reference with two degrees of freedom."
+}

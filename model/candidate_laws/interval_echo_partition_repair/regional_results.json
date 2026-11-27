@@ -1,0 +1,729 @@
+{
+  "finite_repair": {
+    "bond_kernel": [
+      [
+        "1/2",
+        "1/4",
+        "0",
+        "0",
+        "1/4"
+      ],
+      [
+        "1/4",
+        "1/2",
+        "1/4",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1/4",
+        "1/2",
+        "1/4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/4",
+        "1/2",
+        "1/4"
+      ],
+      [
+        "1/4",
+        "0",
+        "0",
+        "1/4",
+        "1/2"
+      ]
+    ],
+    "two_step_probability_floor": "1/16",
+    "bond_two_step_TV_contraction_upper": "11/16",
+    "volume_kernel": [
+      [
+        "3/4",
+        "1/4"
+      ],
+      [
+        "1/2",
+        "1/2"
+      ]
+    ],
+    "from_all_blank": [
+      {
+        "sweeps": 0,
+        "bond_open_probability": "0",
+        "volume_one_probability": "0",
+        "bond_TV": 0.8
+      },
+      {
+        "sweeps": 4,
+        "bond_open_probability": "93/128",
+        "volume_one_probability": "85/256",
+        "bond_TV": 0.11875
+      },
+      {
+        "sweeps": 16,
+        "bond_open_probability": "1717012749/2147483648",
+        "volume_one_probability": "1431655765/4294967296",
+        "bond_TV": 0.0007339935749769211
+      },
+      {
+        "sweeps": 64,
+        "bond_open_probability": "136112946768262808832124920648804539853/170141183460469231731687303715884105728",
+        "volume_one_probability": "113427455640312821154458202477256070485/340282366920938463463374607431768211456",
+        "bond_TV": 1.0705972872027038e-12
+      }
+    ]
+  },
+  "global_words": 10000,
+  "proper_nonempty_subsets": 14,
+  "readbacks": [
+    {
+      "cells": [],
+      "visible_words": 1,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        0
+      ],
+      "visible_words": 18,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202474,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618087,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        1
+      ],
+      "visible_words": 18,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202474,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202474,
+          "pinsker_lower_nats": "1/200"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        2
+      ],
+      "visible_words": 18,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-8/5",
+          "aperture_slope": "8/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.016954607219053612,
+          "pinsker_lower_nats": "8/625"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        3
+      ],
+      "visible_words": 18,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202474,
+          "pinsker_lower_nats": "1/200"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        1
+      ],
+      "visible_words": 180,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.00837861767620248,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.00837861767620248,
+          "pinsker_lower_nats": "1/200"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618052,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        2
+      ],
+      "visible_words": 324,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202479,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-8/5",
+          "aperture_slope": "8/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.027632819891543897,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618113,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        3
+      ],
+      "visible_words": 180,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.00837861767620248,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.04153199896210827,
+          "pinsker_lower_nats": "121/5000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.027632819891543897,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618052,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        1,
+        2
+      ],
+      "visible_words": 180,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.00837861767620248,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0510593898798422,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.027632819891543897,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        1,
+        3
+      ],
+      "visible_words": 324,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202479,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-8/5",
+          "aperture_slope": "8/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.027632819891543897,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        2,
+        3
+      ],
+      "visible_words": 180,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.01695460721905362,
+          "pinsker_lower_nats": "8/625"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        1,
+        2
+      ],
+      "visible_words": 1800,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202477,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.02763281989154389,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618065,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        1,
+        3
+      ],
+      "visible_words": 1800,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202477,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-8/5",
+          "aperture_slope": "8/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.02763281989154389,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618065,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        2,
+        3
+      ],
+      "visible_words": 1800,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202477,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.02763281989154389,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.0038320626601618065,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    },
+    {
+      "cells": [
+        1,
+        2,
+        3
+      ],
+      "visible_words": 1800,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "-4/5",
+          "aperture_slope": "4/5",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202477,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.05105938987984221,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.02763281989154389,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.0,
+          "pinsker_lower_nats": "0"
+        }
+      }
+    },
+    {
+      "cells": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "visible_words": 10000,
+      "arms": {
+        "one_face": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.008378617676202483,
+          "pinsker_lower_nats": "1/200"
+        },
+        "held_faces_and_pairing": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.051059389879842224,
+          "pinsker_lower_nats": "3969/125000"
+        },
+        "correlation_only": {
+          "entropy_slope_in_bits": "0",
+          "aperture_slope": "0",
+          "volume_slope": "0",
+          "finite_deficit_nats": 0.027632819891543904,
+          "pinsker_lower_nats": "8/625"
+        },
+        "volume_only": {
+          "entropy_slope_in_bits": "2/3",
+          "aperture_slope": "0",
+          "volume_slope": "2/3",
+          "finite_deficit_nats": 0.003832062660161814,
+          "pinsker_lower_nats": "1/288"
+        }
+      }
+    }
+  ],
+  "strict_restrictions_verified": 65,
+  "tilt_amplitude": "1/16",
+  "calibrated_gain_bits_per_area_unit": "1",
+  "unequal_area_control_bits_per_area": [
+    "1",
+    "1/2"
+  ],
+  "changed_law": {
+    "endpoint_frequency": [
+      "1/6",
+      "1/2",
+      "1/3"
+    ],
+    "aperture_slope": 0,
+    "volume_slope": 0,
+    "biased_pair_fixed_area_entropy_slope_nats": -0.40546510810816444
+  },
+  "finite_area_refinement": [
+    {
+      "ell": "1/4",
+      "face_area": "1/256",
+      "boundary_faces": 16,
+      "gain": 0.9980519464082747,
+      "area_contrast": "1/2048",
+      "deficit_over_ell4": 0.5000482575404952,
+      "lower_over_ell4": "1/2"
+    },
+    {
+      "ell": "1/8",
+      "face_area": "1/4096",
+      "boundary_faces": 64,
+      "gain": 0.9998779495520776,
+      "area_contrast": "1/32768",
+      "deficit_over_ell4": 2.0000064768984203,
+      "lower_over_ell4": "2"
+    },
+    {
+      "ell": "1/16",
+      "face_area": "1/65536",
+      "boundary_faces": 256,
+      "gain": 0.9999923706830781,
+      "area_contrast": "1/524288",
+      "deficit_over_ell4": 8.000001352901563,
+      "lower_over_ell4": "8"
+    },
+    {
+      "ell": "1/32",
+      "face_area": "1/1048576",
+      "boundary_faces": 1024,
+      "gain": 0.999999523163145,
+      "area_contrast": "1/8388608",
+      "deficit_over_ell4": 32.000000322877895,
+      "lower_over_ell4": "32"
+    }
+  ]
+}

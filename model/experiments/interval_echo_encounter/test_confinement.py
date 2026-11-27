@@ -16,6 +16,10 @@ from . import check_transport, confinement, conjugation, sign_read, transport
 def test_exact_spaces_and_cell_counts():
     actual = confinement.certificate()
     assert actual == json.loads(confinement.RECEIPT.read_text())
+    compact = [sum(profile["cells_by_level"].get(str(level), 0) *
+                   profile["windows"]["single"]["0"]["dimension"]
+                   for profile in actual["profiles"]) for level in range(3)]
+    assert compact == [40, 232, 952]
     assert actual["distinct_cell_product_dimensions"] == {"0": 760, "1": 26500, "2": 451420}
     assert actual["quiet_quadratic_coefficients"] == {"home": "1/4", "seams": "5/4"}
     for p in actual["profiles"]:

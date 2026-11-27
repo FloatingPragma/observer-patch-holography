@@ -36,11 +36,17 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
+      - name: Report grade changes
+        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.before != '0000000000000000000000000000000000000000')
+        env:
+          LEDGER_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: python tools/report_grade_changes.py --base "$LEDGER_BASE"
       - name: Claim registry, premise countermodels, observables register and claim views
         run: |
           python tools/check_claim_registry.py
           python -W error code/audit/test_basis_principle_boundaries.py
           python tools/check_observables.py
+          python -m pytest -q tools/test_observable_completion.py tools/test_report_grade_changes.py
           python tools/build_claim_views.py --check
       - name: QFT/WZ theorem oracle
         working-directory: code/particles/calibration/q1_q4_wz_theorem_oracle
@@ -59,8 +65,8 @@ jobs:
   model:
     name: Executable model and candidate laws
     runs-on: ubuntu-latest
-    # Measured 10 to 17 minutes on hosted runners of different speed.
-    timeout-minutes: 25
+    # The single-threaded model suite took 16 minutes before the final replays.
+    timeout-minutes: 40
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -80,6 +86,8 @@ jobs:
           python -B -O -m model carrier
           python -B -m model --full
           python -B -O -m model run --law contrast_memory_spherical_v1
+          python -B -W error -m model run --law interval_echo_partition_repair --full
+          python -B -W error -m model run --law interval_echo_published_records --check
           python -B -O -m model run --law scalar_channel
           python -B -O -m model run --law scalar_channel --extended
           python -B -O -m model evaluate --check

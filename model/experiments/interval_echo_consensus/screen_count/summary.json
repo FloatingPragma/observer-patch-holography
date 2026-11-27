@@ -1,0 +1,237 @@
+{
+  "checked_bins": 218616,
+  "maximum_fraction_of_allowance": 0.80662435,
+  "levels": [
+    {
+      "parked": {
+        "component_sizes": [
+          6
+        ],
+        "support": 32,
+        "observed": 32,
+        "entropy_bits": 5.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 8025
+      },
+      "third": {
+        "component_sizes": [
+          6
+        ],
+        "support": 64,
+        "observed": 64,
+        "entropy_bits": 5.81127812,
+        "odd_reports": 196306,
+        "external_occupied": 196306,
+        "minimum_nonempty_bin": 1977
+      },
+      "half": {
+        "component_sizes": [
+          6
+        ],
+        "support": 64,
+        "observed": 64,
+        "entropy_bits": 6.0,
+        "odd_reports": 130844,
+        "external_occupied": 130844,
+        "minimum_nonempty_bin": 3951
+      },
+      "full": {
+        "component_sizes": [
+          6
+        ],
+        "support": 32,
+        "observed": 32,
+        "entropy_bits": 5.0,
+        "odd_reports": 0,
+        "external_occupied": 0,
+        "minimum_nonempty_bin": 8062
+      },
+      "cut": {
+        "component_sizes": [
+          1,
+          5
+        ],
+        "support": 16,
+        "observed": 16,
+        "entropy_bits": 4.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 16158
+      },
+      "diagonal": {
+        "component_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "support": 1,
+        "observed": 1,
+        "entropy_bits": -0.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 262144
+      }
+    },
+    {
+      "parked": {
+        "component_sizes": [
+          9
+        ],
+        "support": 256,
+        "observed": 256,
+        "entropy_bits": 8.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 924
+      },
+      "third": {
+        "component_sizes": [
+          9
+        ],
+        "support": 512,
+        "observed": 512,
+        "entropy_bits": 8.81127812,
+        "odd_reports": 196354,
+        "external_occupied": 196354,
+        "minimum_nonempty_bin": 204
+      },
+      "half": {
+        "component_sizes": [
+          9
+        ],
+        "support": 512,
+        "observed": 512,
+        "entropy_bits": 9.0,
+        "odd_reports": 131197,
+        "external_occupied": 131197,
+        "minimum_nonempty_bin": 450
+      },
+      "full": {
+        "component_sizes": [
+          9
+        ],
+        "support": 256,
+        "observed": 256,
+        "entropy_bits": 8.0,
+        "odd_reports": 0,
+        "external_occupied": 0,
+        "minimum_nonempty_bin": 949
+      },
+      "cut": {
+        "component_sizes": [
+          3,
+          6
+        ],
+        "support": 128,
+        "observed": 128,
+        "entropy_bits": 7.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 1943
+      },
+      "diagonal": {
+        "component_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "support": 1,
+        "observed": 1,
+        "entropy_bits": -0.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 262144
+      }
+    },
+    {
+      "parked": {
+        "component_sizes": [
+          12
+        ],
+        "support": 2048,
+        "observed": 2048,
+        "entropy_bits": 11.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 93
+      },
+      "third": {
+        "component_sizes": [
+          12
+        ],
+        "support": 4096,
+        "observed": 4096,
+        "entropy_bits": 11.81127812,
+        "odd_reports": 196709,
+        "external_occupied": 196709,
+        "minimum_nonempty_bin": 13
+      },
+      "half": {
+        "component_sizes": [
+          12
+        ],
+        "support": 4096,
+        "observed": 4096,
+        "entropy_bits": 12.0,
+        "odd_reports": 130908,
+        "external_occupied": 130908,
+        "minimum_nonempty_bin": 40
+      },
+      "full": {
+        "component_sizes": [
+          12
+        ],
+        "support": 2048,
+        "observed": 2048,
+        "entropy_bits": 11.0,
+        "odd_reports": 0,
+        "external_occupied": 0,
+        "minimum_nonempty_bin": 92
+      },
+      "cut": {
+        "component_sizes": [
+          1,
+          11
+        ],
+        "support": 1024,
+        "observed": 1024,
+        "entropy_bits": 10.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 197
+      },
+      "diagonal": {
+        "component_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "support": 1,
+        "observed": 1,
+        "entropy_bits": -0.0,
+        "odd_reports": 262144,
+        "external_occupied": 262144,
+        "minimum_nonempty_bin": 262144
+      }
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Which modular flow advances the Interval Echo hand?
 
+For the ordinary unread history starting on a sharp rail, the Bloch vector after m services lies in the YZ plane. Its modular axis is perpendicular to the native X rotation. At m=32 the history Bloch vector is (0,0,−0.856877); the modular Hamiltonian is diagonal on the two rails and its flow leaves the first-rail projector fixed. Phase averaging yields I/2, whose modular flow is trivial. The separately supplied reference I/2+X/3 instead has eigenvalue ratio 5 and aligns its modular axis with the physical hand. These are distinct state choices on the same stationary apparatus.
+
 One stationary patch can distinguish two reference states for its coherent clock using a third vacant rail. For one reference the modular flow leaves every reading fixed. For the other it advances the clock by exactly one accepted tick at modular parameter increment π/(16 log 5). The reference preparation determines which comparison holds.
 
 ## A local clock and two ways to count
@@ -29,3 +31,5 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 python -B -W error -m model.experiments.interval_echo_clock.modular_reference.measure
 python -B -W error -m model.experiments.interval_echo_clock.modular_reference.reference_reader
 ```
+
+The Gibbs reference is prepared on the two-rail hand. Its modular generator is proportional to the chosen Hamiltonian on the support. A modular clock for a settled history needs a reduced patch state inferred independently from that history and a comparison against its elapsed records at held times.

@@ -90,9 +90,7 @@ The carrier is hardware of the computation and no physical space. Physical
 space, time, fields and particles are effective descriptions that the
 observers inside the computation use for the records they agree on, and every
 test compares distributions of admissible observer records with what
-observers in our world record. The theory proves that observers who inhabit
-the simulation can describe their experiences as relativistic 3+1D continuum
-spacetimes. The model supplies the carrier with its rank-three band, complete
+observers in our world record. The field approximation assumes a radial interval, a hyperbolic evolution and an admissible readout menu. Identifying such a menu in Interval Echo is open. The model supplies the carrier with its rank-three band, complete
 instruments and the count clocks of its observers; the readouts and the
 refinement family that the theorem consumes in addition are work in progress.
 Other finite constructions retain the hypotheses of their own theorems.

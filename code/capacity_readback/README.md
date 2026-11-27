@@ -28,6 +28,8 @@ It proves (M_0=60) on a complete bounded software packet and
 implementation-dependent. It is a no-go control for physical promotion, not a
 second physical packet or a cosmic selector.
 
+Two receivers on the twenty-owner Interval Echo board also test what a missing orientation reference costs. Under an unknown common rotation they distinguish 96 unmarked twelve-bit messages, 832 with one host marker and 4,096 with two ordered adjacent markers. The observed veto at the host has a unique interpretation for each host-marked message. The cosmological reserve and horizon attachment require separate evidence. [Measured messages, vetoes and frame proof](../../model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md)
+
 ## Canonical lane
 
 - [`CHECKPOINT_CHANNEL_AUDIT.md`](CHECKPOINT_CHANNEL_AUDIT.md) records the
@@ -147,6 +149,8 @@ python3 source_derived_public_checkpoint_packet.py --output-dir runtime
 
 This writes the complete terminal-fiber manifest, public checkpoint packet,
 and certificate as canonical JSON.
+
+In a finite Interval Echo screen experiment, two stations recover 2,048 or 4,096 whole words on twelve cells while all eleven-cell marginals agree. On an eight-cell tree the number of correctable messages ranges from 32 with two input parities and at most one unknown internal exchange to one with arbitrary internal and boundary exchanges. The joint kernels and their complete finite closure distinguish raw, Shannon and recoverable capacities. A physical horizon identification remains a separate premise. [Native screen readout](../../model/experiments/interval_echo_consensus/screen_count/README.md)
 
 ## Discrete spherical refinement
 
@@ -274,3 +278,13 @@ python3 -m pytest test_horizon_record_attachment_verdict.py -q
 python3 -m pytest test_operational_readback_contract.py -q
 python3 -m pytest test_public_record_capacity.py -q
 ```
+
+## Galaxy-clock test of the level-202 horizon assignment
+
+The assumed horizon entropy and physical cell area set the vacuum rate to 55.2674 km/s/Mpc. The screen level was selected with a Planck horizon benchmark. In the flat matter plus constant-vacuum comparison, the lowest-redshift galaxy clock fixes the matter contribution. Applying the model to the 53 small redshift bins retained in the published spectral fit gives predicted chronometer readings of 106.52 and 125.96 km/s/Mpc in the other two windows. Measured-minus-predicted differences are +12.93 ± 6.51 and −17.68 ± 12.43. A three-bin fit gives chi-squared 6.46 with two degrees of freedom. The point-at-median approximation instead gives 8.20. The two fits target different summaries of the expansion history. [Loubser, Figure 5 and measurement covariance](https://arxiv.org/html/2511.02730v1#S3.SS3) · [Window calculation](runtime/level202_chronometer_windows.json) · [Point approximation](runtime/level202_chronometers.json) · [Figure](runtime/level202_chronometer_windows.png)
+
+The retained-bin reconstruction assumes a common linear stellar-age response and holds the data selection, rejected sub-bins and covariance fixed. An unweighted continuous fit of the retained cyan points reproduces all three printed Figure 5 slopes. Figure 5 gives −0.462 for the first slope, whereas the sentence before equation 4 gives −0.426. The plotted value is consistent with the quoted first clock rate and the shared stellar-age conversion of the other two bins. Both calculations take the published rate 88.48 as the calibration. The additional BAO and CMB comparison uses the existing [weighted flat-cosmology chain summary](../cosmology/fixed_capacity_wlaw/runtime/official_desi_dr2_fz13_retrospective.json).
+
+The receipt also reads the two emission stamps and the two arrival stamps for every completed period in observer zero's survey. At the first query 97 of 274 beacons supply a period and five stretch from four ticks to five. At query 96 all 96 received periods are four ticks, including one without a radar echo. Every measured pulse shift lies below the astronomical fit range. The galaxy-clock calculation uses a Friedmann age curve and the first astronomical bin. Applying the same estimator inside the simulation requires spectroscopic redshifts and independently calibrated ages from the same comoving population. [Observer zero’s timestamp records](../cosmology/screen_coherence/level202_distance_redshift.json)
+
+Run `python level202_chronometer_windows.py` to reproduce the retained-bin result. The optional `--verify-figure /path/to/2511.02730v1.pdf` checks the source SHA-256, retained points and printed slopes using PyMuPDF. To regenerate the figure, run `python level202_chronometer_figure.py runtime/level202_chronometers.json /tmp/chronometers.png --windows runtime/level202_chronometer_windows.json`. The bands vary the calibration by one total standard error at fixed vacuum rate.

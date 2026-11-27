@@ -99,14 +99,15 @@ class Wire:
 class LockMemory:
     """A persistent local scratch dimer selects a certificate in the owner's tape."""
 
-    def __init__(self, i, loads):
+    def __init__(self, i, loads, machine=None):
         self.i = i
         self.loads = loads
+        self.machine = layout() if machine is None else machine
         self.tape = {}
         self.events = []
 
     def read(self, at):
-        m = layout()
+        m = self.machine
         pair = m.rows[self.i][1]
         _, _, standard, head = m.rows[at]
         raw = [read_rail(m, self.loads, port, standard[0], head) for port in pair]
@@ -121,7 +122,7 @@ class LockMemory:
         old, _ = self.read(self.i)
         value = cert[2]
         if value != old:
-            a, b = layout().rows[self.i][1]
+            a, b = self.machine.rows[self.i][1]
             self.loads[a], self.loads[b] = self.loads[b], self.loads[a]
         self.tape[value] = cert
         self.events.append(["write", self.i, value, identifier(cert)])

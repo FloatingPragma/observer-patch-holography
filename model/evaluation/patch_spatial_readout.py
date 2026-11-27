@@ -19,6 +19,25 @@ def transitions(generator, duration):
     return np.abs(expm(-1j * duration * generator)) ** 2
 
 
+def sign_control(generator, exposure):
+    """Compare sharp port records and a supplied coherent preparation under H and -H*."""
+    alternative = -generator.conj()
+    error = max(float(np.max(np.abs(transitions(generator, n * exposure) -
+                                    transitions(alternative, n * exposure)))) for n in (1, 2, 3))
+    probe = np.zeros(len(generator), dtype=complex)
+    probe[[0, 1]] = np.array([1, 1j]) / np.sqrt(2)
+    probabilities = [abs((expm(-2j * exposure * h) @ probe)[0]) ** 2 for h in (generator, alternative)]
+    if error > 1e-12 or abs(probabilities[0] - probabilities[1]) <= 1e-12:
+        raise ArithmeticError("The sign control disagrees with the sharp-port or coherent prediction")
+    return {
+        "alternative": "Negative complex conjugate of the registered generator in the port basis.",
+        "largest_sharp_port_error_below": 1e-12,
+        "coherent_probe": "Supplied (|0> + i|1>)/sqrt(2) in the original port labels, followed by a port read at twice the calibration exposure.",
+        "registered_probability_at_port_0": round(float(probabilities[0]), 12),
+        "alternative_probability_at_port_0": round(float(probabilities[1]), 12),
+    }
+
+
 def slow_projector(table):
     eigenvalues, modes = np.linalg.eigh(table)
     level = max(eigenvalues[eigenvalues < 1 - 1e-9])
@@ -85,6 +104,7 @@ def measure():
         "best_rank_two_relative_gram_error": round(float(
             np.linalg.norm(np.linalg.svd(gram, compute_uv=False)[2:]) / np.linalg.norm(gram)), 12),
         "calibration_records": calibration.round(12).tolist(), "held": held,
+        "generator_sign_control": sign_control(h, exposure),
     }
 
 

@@ -36,6 +36,12 @@ A complete scan of unordered port pairs normalizes with certainty if it runs uni
 
 For a coherent mixture across census sectors, individual conditional outcomes update the observer's information. The schedule-independent statement concerns the **complete** terminal measurement including the no-write outcome. Its effect for census \(z\) equals the sum of all initial census projectors whose normal value is \(z\). On each such projector the event is certain and on the others impossible. For a positive effect bounded by the identity this also forces the off-diagonal terms to vanish. Taking a partial trace gives the same joint terminal census and untouched reference for every normalizing schedule. The result concerns probabilities for the declared instrument. It permits different complete material states, full address logs, and relative phases between witnesses of equal census.
 
+## The protected bit on all two-load inputs
+
+At total load two a blank input either has one double or two units at distinct ports. On an uninterrupted installed priority sweep, every local guard is quiet on the binary sector. A double at port x writes the first incident winning seam. Within the same winning seam, its two possible endpoint origins write opposite signed differences. The complete native write has two equal coin amplitudes per accepted origin. Different origins have disjoint full output rows, including when they share the same address. The sum over all marked outputs therefore pulls back to the projector onto the doubled sector, including matrix elements between different possible origins. Pairing this equality with any effect on an untouched reference gives the joint law of the protected bit and the reference. Flight before publication preserves the input census projector. Flight afterward preserves the occupied address flag. An individual winning address can depend on the flight.
+
+An independent integer-column and priority-layer check on the stored screens assigns 240, 960 and 3,840 doubled sources to 480, 1,920 and 7,680 distinct signed coin rows. On the largest board this also covers the 7,370,880 distinct-site binary columns by the quiet identity. These identities verify the protected bit in PR-143 for its stated initial memory, route capacity and complete sweep. A conditional refusal can change the observer's relative probabilities for several possible input censuses while preserving each surviving census value. [Native column certificate](protected_bit.py) · [Priority sweep and untouched references](../FLIGHT_CONFLUENCE.md)
+
 ## Records and controls
 
 Each native sharp run on the three federations visits all 66 pairs of twelve enrolled source ports, with different eligible chords and opposite offer orders. Five load words include asymmetric, balanced and already-normal inputs. The twelve sites are embedded in an otherwise unit-filled screen. In the five-vacancy, five-double preparation every native run wrote five times and finished with all unit loads. The addressed exchange-disabled control wrote zero times for these same offers at each size. On the 320-owner board the forward order wrote at offers 5, 16, 26, 35 and 43; the reverse order wrote at offers 24, 32, 41, 51 and 62, counting from one. The receipt retains all refusals and the partially completed census after ten offers. The remaining, unenrolled board pairs are provably quiet on the native terminal words. Their number is reported separately from executed offers. [Sharp trajectories](measure.py)
@@ -53,6 +59,7 @@ Run from the RER root.
 ```sh
 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -B -W error -m model.experiments.interval_echo_consensus.routed_counts.measure
 .venv/bin/python -m model.experiments.interval_echo_consensus.routed_counts.dense
+.venv/bin/python -m model.experiments.interval_echo_consensus.routed_counts.protected_bit
 .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/routed_counts
 (cd Lean && lake env lean ../model/experiments/interval_echo_consensus/routed_counts/Census.lean)
 ```

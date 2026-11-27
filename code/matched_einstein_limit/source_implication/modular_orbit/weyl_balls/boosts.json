@@ -1,0 +1,170 @@
+{
+  "grid_side": 12,
+  "box_length": 6.0,
+  "momentum_cutoff": 2.5,
+  "source_dipole": [
+    0.6,
+    -0.3,
+    0.2
+  ],
+  "radius": 0.76,
+  "reference_floor": 0.0019,
+  "rest_hopping_energy_density": 0.03924695658300604,
+  "rest_momentum_density": [
+    0.005130878007675011,
+    -0.002565439003837506,
+    0.0017102926692250037
+  ],
+  "frames": [
+    {
+      "direction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rapidity": 0.0,
+      "sites": 19,
+      "entropy_change": 0.06549019788002042,
+      "modular_change": 0.06715144469350626,
+      "relative_entropy": 0.0016612468134858394,
+      "weighted_hopping_energy": 0.07045828933175058,
+      "relative_entropy_upper_bound": 0.07022056059228961,
+      "continuum_radiation_prediction": 0.06892215169843206
+    },
+    {
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.07425753556360348,
+      "modular_change": 0.07697329221475639,
+      "relative_entropy": 0.002715756651152909,
+      "weighted_hopping_energy": 0.0807890294060698,
+      "relative_entropy_upper_bound": 0.12462687270678323,
+      "continuum_radiation_prediction": 0.084826415364428
+    },
+    {
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.06890853331814206,
+      "modular_change": 0.07095205281274233,
+      "relative_entropy": 0.002043519494600271,
+      "weighted_hopping_energy": 0.07442990182273007,
+      "relative_entropy_upper_bound": 0.0895608304731291,
+      "continuum_radiation_prediction": 0.07557370381498242
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.07188314423395248,
+      "modular_change": 0.07429718581386129,
+      "relative_entropy": 0.002414041579908807,
+      "weighted_hopping_energy": 0.07796275048014098,
+      "relative_entropy_upper_bound": 0.10888545624928835,
+      "continuum_radiation_prediction": 0.08071409912022996
+    },
+    {
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.06712025992838022,
+      "modular_change": 0.06894497301207161,
+      "relative_entropy": 0.0018247130836913927,
+      "weighted_hopping_energy": 0.07231019262828349,
+      "relative_entropy_upper_bound": 0.07815386556514507,
+      "continuum_radiation_prediction": 0.07248946663183388
+    },
+    {
+      "direction": [
+        -0.0,
+        -1.0,
+        -0.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.07247718503931466,
+      "modular_change": 0.07496621241408484,
+      "relative_entropy": 0.002489027374770178,
+      "weighted_hopping_energy": 0.07866932021162316,
+      "relative_entropy_upper_bound": 0.1127973340439481,
+      "continuum_radiation_prediction": 0.08174217818127948
+    },
+    {
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.06950404137014132,
+      "modular_change": 0.07162107941296639,
+      "relative_entropy": 0.0021170380428250646,
+      "weighted_hopping_energy": 0.07513647155421227,
+      "relative_entropy_upper_bound": 0.0933944538687423,
+      "continuum_radiation_prediction": 0.07660178287603192
+    },
+    {
+      "direction": [
+        0.7071067811865475,
+        0.7071067811865475,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.07210086838038521,
+      "modular_change": 0.07453408188625052,
+      "relative_entropy": 0.0024332135058653115,
+      "weighted_hopping_energy": 0.07823503369667557,
+      "relative_entropy_upper_bound": 0.10966292392340667,
+      "continuum_radiation_prediction": 0.08083882602512296
+    },
+    {
+      "direction": [
+        0.0,
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.07036360558164212,
+      "modular_change": 0.0725822532896459,
+      "relative_entropy": 0.0022186477080037847,
+      "weighted_hopping_energy": 0.0761641426212242,
+      "relative_entropy_upper_bound": 0.09854508342314547,
+      "continuum_radiation_prediction": 0.07793097932246693
+    },
+    {
+      "direction": [
+        0.7071067811865475,
+        0.0,
+        0.7071067811865475
+      ],
+      "rapidity": 0.32,
+      "sites": 19,
+      "entropy_change": 0.0742633827006447,
+      "modular_change": 0.07697386763200623,
+      "relative_entropy": 0.0027104849313615287,
+      "weighted_hopping_energy": 0.08082364754098996,
+      "relative_entropy_upper_bound": 0.12400281180203543,
+      "continuum_radiation_prediction": 0.084473634403443
+    }
+  ]
+}

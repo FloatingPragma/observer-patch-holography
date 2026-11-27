@@ -1,0 +1,33 @@
+# Which quorum can hear its own decision?
+
+Four validators occupy five cells in a ring. The fourth owns two adjacent cells. Silence any one validator and the surviving three have a path inside their own cells. On each of the 20-, 80- and 320-cell Interval Echo boards, all three receivers accepted the same signed decision for each of the four silences. The successful run took between 4,864,608 and 7,788,160 serial communication appointments. A decision on a route with inter-owner exchange parked failed verification. [Enrollment](PROTOCOL.md) · [Signed packets, both pointer responses and clock records](records.json.gz)
+
+## Where the packets travel
+
+For four individual cells to work, their induced graph would have to stay connected when any vertex is removed. In these cubic cell graphs any connected four-set is a tree. A triangle or a four-cycle would be required to escape this obstruction. The exhaustive scans give 140, 560 and 2,240 connected four-sets respectively, with zero qualifying sets. Each board has twelve five-cycles. Joining the last two cells of the lexicographically first cycle gives four connected validator regions. Removal of any region leaves a path through the other three. Each [native route](routes.py) permutes sharp ternary loads by addressed contact exchanges, stages both receiver rails against its double standard, and reverses the route. Both input columns restore every spectator. Every route in the surviving triple uses only ports in its region union. Cutting its central validator disconnects the two outer validators. The finite graph theorem and the bounded-transcript obstruction are [checked in Lean](Routes.lean).
+
+The recipients decode both native pointer outputs in every bit slot. The validators’ signatures, nested locks and decisions retain the [ordinary protocol grammar](../certificates.py). A separate off-ring clock alternates the orientation of a balanced dimer once per appointment. Its two calibrated transitions give a lossless periodic representation of the entire read stream for each packet. The parked clock gives a constant stream. Since every packet contains a multiple of eight bit slots, consulting only the terminal clock orientation loses elapsed time. The mount supplies equal paced appointments, enough time for the clock exchange and its independent fourteen-appointment probe, separate classical processing and the silent participant. The results count communication service rather than elapsed time in physical seconds.
+
+## Sending without knowing the silent participant
+
+A sender queues two copies for every distinct receiver, one inside each three-member set containing the endpoints. The queue depends only on their addresses. With one silent region, a surviving recipient has at least one path which avoids it. All 72 directed surviving deliveries authenticated. In 48 cases both copies arrived and in 24 cases one arrived. All 36 silent-endpoint controls returned no acknowledgement. For opposite endpoints, cutting both intervening regions removed both copies. Authentication against the four enrolled public keys selects the first valid packet. [Frozen two-route trial](DUPLICATION.md) · [Contacts and receiver records](duplication.json.gz)
+
+Let S be the largest per-bit service cost on the two routes and B an upper bound for all local work in a phase. With six original transfers, two copies, and an 8,192-byte limit, the enrolled communication-plus-processing bound is 12 × 8 × 8,192 × S + B paced appointments. This calculation covers a bounded message grammar, isolated failures and a serial calendar with no competing traffic. If a leader remains silent, the supplied four-place rotation reaches a participating leader on the next view. A parked prefix of any even length gives the same terminal orientation as the short control. The full clock transcript distinguishes the durations. No finite collection of those trials bounds the duration of future silent prefixes.
+
+## What a receiver knows about the view
+
+The ordinary signed empty-lock change vote occupies 150 fixed bytes plus the decimal digits of its absolute view. On this positive-cost serial wire the extensible decimal grammar therefore has no common finite communication bound over arbitrary view labels. The executable refuses oversized frames; Python's configured integer conversion limit can also reject a tag before transmission. More generally, from one fixed initial receiver record a finite set of deadline-bounded transcripts cannot identify every natural-number view. Conditioning on a local view record changes that counting problem. [Timing and byte census](measure.py)
+
+Each receiver can also read ten local balanced dimers, infer its view, insert it in the transmitted blank view fields, and then authenticate the complete ordinary packet. On both larger boards the complete fresh-view exchange took 14,766 transmitted bytes at each of views 1, 10, 100 and 1000. The ordinary frames took 14,478, 14,574, 14,670 and 14,766 bytes. A different stored view invalidated every tested decision. Carrying a genuine older lock in a later view change exceeded the single-view codec. On the smallest board only view 10 fit its specified register layout. In the other three enrollments the clock occupied the sole available external neighbor of one remaining home, which had space for two of ten dimers. The epoch-reference patches are disjoint from each other. On the twenty-cell board one reference path traverses the second communication cell of another participating validator. The local epoch count therefore uses these enrolled reference patches. Every send and receive repeats the digit probes on the persistent stocks, and each data route returns its two calibration columns with those stocks in place. The enrollment supplies the matching view at each station. Earlier locks, acquisition of the current view and the unrestricted fault and timing assumptions require separate evidence. [Epoch protocol](LOCAL_VIEW.md) · [Readout implementation](local_view.py) · [Local bit, signature and transfer receipts](local_view.json.gz)
+
+Run from the repository root with one numerical thread.
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+pkg=model.experiments.interval_echo_consensus.prepared_quorum.timed_routes
+.venv/bin/python -m "$pkg.measure"
+.venv/bin/python -m "$pkg.duplicate"
+.venv/bin/python -m "$pkg.local_view"
+.venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/prepared_quorum
+(cd Lean && lake env lean -j1 -DwarningAsError=true ../model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/Routes.lean)
+~~~

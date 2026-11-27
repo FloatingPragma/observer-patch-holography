@@ -131,8 +131,7 @@ three-dimensional lattice; a difference between microscopic state encodings
 is no failure of the model, and a resemblance between them is no success.
 Physical space, time, fields and particles are effective descriptions that
 the observers inside the computation use for the records they agree on. In
-the theory, observers who inhabit such a computation can describe their
-experience as a relativistic continuum spacetime with one time and three
+the theory, the finite-menu theorem takes a radial interval, hyperbolic service and admissible readouts as inputs to its relativistic continuum spacetime with one time and three
 space dimensions. For every fixed finite admissible menu of observer
 readouts on bounded wave times, a smooth static $(1+3)$-dimensional
 Lorentzian metric carries a free scalar field whose complete predictions
@@ -156,9 +155,9 @@ predicate ``both ends hold one load'', and a record is admitted when both
 copies are valid and agree (Section~\ref{sec:instruments}). State vectors,
 levels of the law, the evolution parameter and positions in a sequence of
 events are tools of the calculation. A statement that uses them is labelled as audit, and no reader
-uses them. A bound that holds for every value of the evolution parameter
-holds at every reading in any observer's own history, and it is written in
-that form. No common clock is assumed: each port counts the events of its
+uses them. The free binding bound applies to the first complete seam
+reading after any duration of uninterrupted evolution. A previous reading
+changes the state supplied to the next one. Each port counts the events of its
 own seams, and that count is a local clock of its observer
 (Section~\ref{sec:events}). Under Interval Echo an observer patch carries
 its clock with it as it moves (Section~\ref{sec:echo}).
@@ -194,8 +193,7 @@ stability: bound objects persist in free evolution, read on agreed seam
 records, and the same law without the agreement energy loses them
 (Section~\ref{sec:stability}). Interval Echo inherits this in its free
 sector. Its observer patches carry clocks: a travelling clock, compared at
-reunion with the clock kept at home, runs slow by the relativistic factor
-computed from the observers' own records, and overlapping observers agree
+reunion with the clock kept at home, reproduces the Lorentz factor built into its closing filter on the supplied relay, and overlapping observers agree
 on every shared checkpoint reading (Section~\ref{sec:echo}). The scalar
 channel holds an object on a ring of four seams. Its excitation is kept for
 every interval, which is particle stability for a second object, and its
@@ -540,8 +538,7 @@ used for both coins. All four give the seam term of \eqref{eq:reduction}.
 A write that keeps the order of its inputs, $y'_c(a,b)=(a,b)$, violates the
 first identity of \eqref{eq:intertwine}, and for it \eqref{eq:reduction}
 fails. The equalization of the loads, the fair coin and the value of the
-output therefore play no role in the induced law: the write is undone
-exactly. The native seam event contributes its symmetry under exchange of
+output leave the induced load law on initially blank memories unchanged. On written memories different output isometries can act differently. The native seam event contributes its symmetry under exchange of
 the two ports, and the binding of Section~\ref{sec:theorem} comes from the
 supplied memory generator.
 
@@ -766,7 +763,8 @@ in the sector of two loads, and the complete seam reading of
 Section~\ref{sec:reader} has one outcome for each seam and the outcome ``no
 pair''. The left-hand side of \eqref{eq:binding} is the probability of ``no
 pair''. A pair that starts on a seam is therefore read as a pair on some
-seam with probability at least $1-40/(2\kappa-6)^2$ at every reading. The
+seam with probability at least $1-40/(2\kappa-6)^2$ at the first reading
+after any duration of free evolution. The
 value $t$ is audit. No translation invariance, preferred centre or global
 observer enters the proof.
 
@@ -787,10 +785,12 @@ law of strict descent of $C$ would exclude this mechanism.
 
 The largest level of $PKP$ and the norm of $QKP$ were computed on the
 carriers of Table~\ref{tab:carriers}; Table~\ref{tab:constants} compares
-them with the bounds of the proof. With the computed constants, part (c) of
-Lemma~\ref{lem:blocks} gives $17.3/(2\kappa-5.70)^{2}$ on the federations:
-$0.163$ at $\kappa=8$ and $0.00028$ at $\kappa=128$, against $0.4$ and
-$0.00064$ from \eqref{eq:binding}.
+them with the bounds of the proof. On these three federations an integer certificate gives
+$\lambda_{\max}(PKP)<5.701$ and $4\lVert QKP\rVert^2<17.35$.
+Part (c) of Lemma~\ref{lem:blocks} therefore bounds the leakage by
+$17.35/(2\kappa-5.701)^2$ for $2\kappa>5.701$. At $\kappa=8$ and
+$128$ this is less than $0.16358$ and $0.000277$, respectively, against
+$0.4$ and $0.00064$ from \eqref{eq:binding}.
 
 \begin{table}[!htb]
 \centering
@@ -807,7 +807,7 @@ $20$ cells & $5.7008$ & $2.0821$ \\
 $80$ cells & $5.7000$ & $2.0811$ \\
 $320$ cells & $5.7000$ & $2.0822$ \\
 \midrule
-every federation of the theorem & at most $6$ & at most $\sqrt{10}=3.1623$ \\
+every federation of the theorem & at most $6$ & at most $\sqrt{10}\approx3.1623$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -819,7 +819,7 @@ $PH_\kappa P$ is $10\kappa+5$, the lowest level of $QH_\kappa Q$ is
 $\min\bigl(12\kappa+4-\sqrt6,\ 24\kappa\bigr)$, and
 $\lVert QH_\kappa P\rVert=2$. For $\kappa>(1+\sqrt6)/2$ a state supported in
 $\ran P$ is read as ``no pair'' with probability at most
-$16/(2\kappa-1-\sqrt6)^{2}$ at every reading.
+$16/(2\kappa-1-\sqrt6)^{2}$ at the first reading after any duration of free evolution.
 \end{proposition}
 
 \begin{proof}
@@ -868,7 +868,7 @@ H_{\mathrm{emit}}=H_\kappa+E_F\proj{F}+g\bigl(\ket{F}\bra{e}+\ket{e}\bra{F}\bigr
 \end{equation}
 and the coupling $g$ acts for the duration $\pi/(2g)$ while the law acts
 throughout. No eigenvector of the law is installed, and fuel left in the
-emitter is an outcome of every later reading.
+emitter counts as a missed pair at the first read after the free interval.
 
 \begin{proposition}[Emitter]
 \label{prop:emitter}
@@ -971,6 +971,31 @@ reading is never used to hold the object in place: after an ideal complete
 reading the loads are in the mixture
 $\rho\mapsto\sum_eP_e\rho P_e+Q\rho Q$ with $P_e$ the projector on the pair
 on the seam $e$, which is a different state from the unread one.
+
+For example, on one cell let the emitter on seam $(0,1)$ act with
+$g=64$ and $\kappa=8$. Alternate free flights of duration $\pi/16$ with
+complete seam readings, retaining every outcome. Iterating the displayed
+map on the emitted state gives probabilities $0.012803$, $0.448794$ and
+$0.506936$ for ``no pair'' at the first, hundredth and two hundredth
+ideal readings. Fuel left in the emitter counts as ``no pair'' throughout.
+The free bound with emitter error is $0.431861$ rounded up. Thus even the
+unconditional probability in a monitored run can exceed the free bound.
+
+How quickly does a publication remove an interference fringe? On a
+protected one-load triangle, a signed collar read and inverse echo
+restore the material to its original ports. A fresh trigger at each
+appointment fires with independently measured probability $p=0.250041$.
+A separate dimer hand advances by $0.196920$ radians per appointment.
+After $n$ appointments, a matrix element connecting distinct outcomes
+retains the fraction $(1-p)^n$ of its initial amplitude.
+A second collar with firing probability $0.499701$ multiplies this
+factor on pairs distinguished by both readings. The independently
+calibrated one- and two-collar predictions agree with the held fringe
+probabilities within $0.00099$ and $0.00141$, respectively. A single flag
+left in free flight for six delay units gives a bright return on every
+launch, against $0.58950$ from the fresh-trigger calibration. The finite
+exponential law applies to records taken at the scheduled appointments.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_consensus/publication_rate}{Trigger and hand calibration, held fringes and continuous-time bound}.}
 
 \subsection{Interference and Bell correlations in the observer records}
 
@@ -1081,6 +1106,19 @@ settings are drawn. The blank-seam experiment does not derive this law
 from committed classical records. Local isolation implements
 the operational separation of the two wings. A spacelike
 interpretation requires a corresponding physical clock and range test.
+
+A separate $320$-owner material realizes two pairs of record
+alphabets with one common $13$-label slot and partners of sizes $14$
+and $13$. Every one of the $2{,}366$ joint triples decodes on the
+commissioned material. Each observer counts votes over $96$ packets.
+For owners $86$ and $88$, which share $25$ packets, changing $23$ and
+$20$ private packets takes both votes to a tie. One shared
+$\pi/3$ pulse then switches both decoded labels on $66{,}092$ of
+$262{,}144$ launches, with zero mismatches. On disjoint supports two
+independent pulses give the two mixed label outcomes on $49{,}201$ and
+$49{,}634$ launches. These interventions distinguish a shared physical
+vote from two independently writable slots.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote}{Joint labels, controlled packet edits and terminal readings}.}
 
 \subsection{Reading while the law acts}
 
@@ -1228,6 +1266,17 @@ without a common port give the same seam records on one cell, with largest
 difference $0$, and $19{,}722$ exchanges on $20$ cells give a largest
 difference of $1.1\times10^{-41}$.
 
+A routed write with a reserved blank spanning tree and enough spare
+write chords consumes one vacancy and one double and writes one collar.
+Free flight and refused writes preserve the surviving census sectors.
+For total load two, the effect of observing any mark after a complete
+uninterrupted sweep equals the initial double-occupation projector.
+This includes superpositions of all $3{,}840$ doubled starting ports on
+the $320$-cell board and preparations entangled with a reference.
+The address and sign of an individual mark depend on the route and
+the intervening flight.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_consensus/routed_counts}{Routed census, accepted writes and full-sweep detector}.}
+
 \subsection{Schedules}
 
 Table~\ref{tab:programs} reports four kinds of program at $\kappa=8$,
@@ -1325,17 +1374,20 @@ one record for each seam and the outcome ``no pair''; fuel left in the
 emitter counts as ``no pair''.
 
 \emph{Claim.} A pair of loads written on one seam by a local emitter is read
-as a pair on some seam with probability at least one minus the bound,
-whenever the observers read. It is read on other seams than the first.
+as a pair on some seam with probability at least one minus the emitter
+bound at the first ideal complete reading after free evolution.
+Proposition~\ref{prop:reader} gives the error of a finite reading.
+The pair is read on other seams than the first.
 Nothing holds it except the law. Under the same law without the agreement
 energy the record is lost.
 
-\emph{Clock.} The claim uses none. The bound holds at every value of the
-evolution parameter, hence at every reading in any observer's own history.
-The sampled values of the parameter below are audit.
+\emph{Clock.} The first reading may occur after any duration of free
+evolution. The sampled values of the evolution parameter below are audit.
+For a second reading the initial state is the output of the first instrument
+(Section~\ref{sec:reader}).
 
 \emph{What counts against the claim.} ``No pair'' above the bound at a
-reading; no level of two loads below the energy of two free loads, an
+first reading after free evolution; no level of two loads below the energy of two free loads, an
 audit on the spectrum; or a changed law with the same alphabet, routing and
 symmetry that gives the same answer on the whole property.
 
@@ -1359,7 +1411,7 @@ the largest level of $PKP$ and $\beta=\lVert QKP\rVert$.
 \begin{table}[!htb]
 \centering
 \caption{Particle stability on agreed seam records. The probabilities are
-the largest values over the readings of each run.}
+maxima over the sampled waits, each measured on a fresh preparation.}
 \label{tab:stability}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -1662,6 +1714,28 @@ distinguish a global constraint that sustains tension from the work
 of two local pins. Linking a conserved sector to physical colour and
 determining its tension in physical units remain open.
 
+An observer can measure a finite linear potential between two signed
+orientation walls on a different native stock. Each one-load dimer
+spans a degree-six gateway and a degree-five port. Occupying the latter
+costs eight units on its private reference. With only the two wall bonds
+pinned and every interior swap active, the relaxed work rises from
+$48.000$ to $71.987$ over separations two through five. The first two
+Ramsey readings forecast both held lines within $0.00027$ on each of
+three registered boards. At six dimer steps a screened state takes over
+and the work stays at $79.950$ through twelve. Removing the private
+reference gives exactly $32$ at every separation. On a separate
+fourteen-dimer release with every pin removed, the probabilities of
+retaining both original walls and creating another pair at time
+$\pi/20$ are $0.009162$ inside the costly phase and $0.00001144$ in
+the reversed preparation. The level-zero seeded receiver counted
+$153{,}617$ and $209$ such events in $2^{24}$ samples of each native
+word law. The measured slope uses distance along the prepared material.
+At the same ambient separation of six seam edges, different intervals
+on that board cost $63.992$ and $71.987$. A variational bound caps the
+relaxed work at $80$ for this strand family. Identifying these walls
+with colour sources and calibrating their tension in GeV/fm require
+additional evidence.
+
 \subsection{Unequal seams}
 
 With every seam term multiplied by a strength $1+\delta_e$,
@@ -1899,6 +1973,56 @@ $128$ & $254.016$ & $763.513$ & $1275.013$ & $1787.511$ & $2555.005$ \\
 \end{tabular}
 \end{table}
 
+The neutral stock has $23.06$ more units of formation energy than the
+positive stock. Opposite small impulses give a different ordering of
+the local recoil. The trace-averaged inverse inertias are
+$0.04518\pm0.00091$ for the neutral stock and $0.02679\pm0.00088$ for
+the positive stock, in exchange energy times squared cell radius.
+In a comparison at fixed total inventory, applying the impulse to the
+positive source alone gives $0.02681\pm0.00150$. Sharing it with the
+compensating vacancy gives $0.06237\pm0.00105$, above the neutral
+source and its filled store at $0.04515\pm0.00051$. The site at which
+the impulse is applied therefore matters for identifying a mass.
+About its unsigned defect centroid, the neutral source has nearest
+and farthest shell charges $-0.00401\pm0.00062$ and
+$+0.00407\pm0.00062$ in material-charge units. Both signs reverse
+with the probe analyser. These data give an intrinsic charge profile
+and a local recoil comparison for the specified preparations.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius}{Impulse, storage and body-centred charge records}.}
+
+Can one unit of energy put both stocks at the observed nucleon masses?
+At fixed total inventory the neutral-to-positive formation-energy ratio
+lies in $[0.93675,0.93755]$ at simultaneous 99\% coverage. The target
+ratio for $939.6$ and $938.3$ MeV is $1.00139$. For every common choice
+of units, at least one of the two formation energies misses its target
+by more than $3.29\%$. Sharing the impulse equally among the four
+defects gives a recoil mass ratio in $[1.38017,1.38163]$ and a minimum
+relative miss above $15.9\%$. An adjustable sharing fraction can match
+the native recoil ratio by assigning about $80.87\%$ of the impulse to
+the positive source. At half material contrast even the minimum ratio
+over all shares exceeds $1.18864$.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_15_common_unit}{Common-unit comparison and independent native energy and recoil reads}.}
+
+Which constituent charges can observers read on a joined cell? A trimer
+with charge $+1$ and a neutral tetramer cost at least $248$ exchange units
+on separate cells. The lowest energy of the joined inventory of four
+excesses and three vacancies lies in $[200,209]$. After one exchange
+time an observer partitions the occupied defect sites into connected
+groups of three and four using only their locations. On $0.05599\%$ of
+the bright sharp launches, two regional probes then read $(+1,0)$.
+On those launches the signed axial quadrupole about the defect centroid
+is $+0.06969\pm0.01372$ in native units. Reversing the probe gives
+$-0.06889\pm0.01372$. Restricting the input energy to values below
+$248$ changes the conditional mean by less than $0.00890$. A separate
+four-clock energy filter gives $-0.65560\pm0.08338$ when all its bright
+sharp launches are counted.
+A different separation, all excesses on one cell and all vacancies on
+another, costs at most $185.5$ in each threefold rotation sector.
+The positive reading thus belongs to a
+specified, regionally identified pair. Identifying a stable deuteron
+requires control of this cheaper channel and independent nucleon standards.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair}{Regional charges, energy bounds and quadrupole readouts}.}
+
 A distinguishable pair of freely moving loads supplies a relative radial
 coordinate. Use an amount-two port as the centre and measure the distance
 to the amount-one port. In an isolated cell the lowest radial standing
@@ -2009,6 +2133,29 @@ readouts. The source read captures its address before probing. Its
 spatial spread accounts for the static energy curve in this protocol,
 and a running gauge interaction remains open
 (\path{row_23_coupling/free_bath/}).
+
+The result changes when the mobile vacancy relaxes separately around each
+pair of static probes. At separation two, the measured signed work is
+$-0.468$ and $-0.453$ exchange units on the 20- and 80-cell boards.
+Holding the independently measured single-source cloud fixed predicts
+$-3.995$ and $-3.997$. At 32 links on the larger board the work rises
+to $+3.9144$. Closing the exchange paths between the two sides preserves
+this reading to within $0.00001$ exchange units. A single vacancy can
+lower its energy by occupying either side. Local address counts together
+with the energy clock recover the attractive contact coefficient $-17$
+at every resolved separation. Rearrangement of the material changes
+the interaction work even with fixed local coupling.
+
+Keeping a common chemical potential removes the distant competition for
+one vacancy. At inverse temperature $1/8$ in exchange units and three
+links of separation, the first coefficient of the signed work in fugacity
+is $-0.0037862\pm0.0000300$ on 20 cells and
+$-0.0037806\pm0.0001206$ on 80. The coefficient vanishes when the two
+neighbourhoods are disconnected. Independent measurements of neutral
+propagation and constant contact strengths predict all twelve held
+coefficients. At the measured core radius of about one link, the
+readings distinguish those strengths from changes of ten percent.
+This resolves a transmitted interaction in the dilute material.
 
 \subsection{Within a cell and between cells}
 
@@ -2183,6 +2330,19 @@ selected home triangle gave one remote click across six free waiting times
 and the sham gave zero, with $2^{30}$ trials per arm per time. The
 order-sensitive terminal mark is measurable, while these remote records
 leave a response unresolved.
+
+The isolated-cell triplet also has an independent detector. Three
+successive energy comparisons reject the three unwanted levels. The
+plus and minus superpositions of each pair of gateways give the signed
+overlap of their projected port amplitudes. On $1{,}260$ gateway pairs
+in $420$ cells the measured entries agree with the projector within
+$0.00113$. The diagonal is $1/4$, opposite ports give $-1/4$, and the
+remaining entries are $\pm1/(4\sqrt{5})$. For every one of the
+$25{,}200$ rooted triangles, composing the three calibrated vacancy
+exchanges and conditioning on its root gives the antisymmetric
+two-port excess read above. These are the two finite inputs to the
+gateway and loop bounds.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_gauge/singlet_flight/gateway_meter}{Isolated-cell energy filter, pair interferometers and rooted-loop certificates}.}
 
 For any state of this sector the loop-click projector obeys $0\le A_r\le
 P_r$, where $P_r$ locates the vacancy. Its variance is at most
@@ -2541,7 +2701,7 @@ probabilities at three accepted counts and two analysis phases.
 The correlated reference misses 22. This comparison uses protected
 hands, a published count and specified reference preparations.
 
-\paragraph{Moving clocks run slow.}
+\paragraph{Reunion of calibrated clocks.}
 The observers time the journeys themselves. A home patch takes half the
 round trip of a reciprocal light pulse as the one-way light time $d$. The
 receipt of a pulse that the traveller's arrival at the far end triggers,
@@ -2557,7 +2717,7 @@ traveller's proper time to the home time,
 For journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ the
 measured ratio minus the forecast is $-0.00105\pm0.00068$,
 $+0.00019\pm0.00052$ and $+0.00087\pm0.00064$, each from $524{,}288$
-paired journeys with one standard error. The time dilation itself is $3.2$
+paired journeys with one standard error. For the uniform journey the first run gave $-0.00369\pm0.00120$ and the independent repeat gave $+0.00087\pm0.00064$. Their inverse-variance mean is $-0.00014\pm0.00056$. The runs differ by 3.35 combined standard errors. The slowing built into the filter is $3.2$
 to $4.4$ percent, a ratio of about $0.956$ on the fast journeys, so it is
 resolved at dozens of standard errors, and the clock follows the forecast
 within about one part in a thousand. Embeddings in federations of
@@ -2580,6 +2740,44 @@ require a guide speed below $0.957$, and the fastest require one
 above $0.979$. The size change is a property of the selected bound
 mode in the periodically driven material. The guide and its common
 readout appointment supply a rest frame.
+
+\paragraph{A moving clock at a radar-dated event.}
+Two coherent matter-wave packets on this guide can travel together
+while their relative phase advances. Local rail reads recover that
+phase at successive stations. On the $320$-owner board an independent
+position measurement places two preparations, of winding $13$ and $21$,
+at the same read station $23$ guide cells away after $24$ periods. A
+sharp signal on a fresh copy reaches this station and triggers a return.
+A material reference hand reads $1$, $24$ and $47$ at emission, turn and
+reception. The flat-spacetime forecast for the fraction of elapsed
+rest-clock cycles is $\sqrt{1\cdot47}/24=0.28565$. The two measured
+phase fractions are $0.25790$ and $0.27101$, each with simultaneous
+$99\%$ uncertainty below $0.00068$. Reversing the windings gives the
+same rates within counting error. At winding $21$, independent rail
+current and spatial phase reads remove the integer-station rounding.
+They put the ideal comoving phase fraction in $[0.16865,0.21541]$,
+while the measured speed and the signal front give $[0.22448,0.22510]$
+for the Lorentz law. The next contact is selected by the supplied
+periodic schedule. The moving material clock runs slow, and its
+elapsed phase differs from the interval inferred by radar.
+
+On three closed routes of $27$, $54$ and $108$ guide cells, the
+appointment and cell spacing were then halved together twice, keeping
+the supplied physical circumference and radar velocity $4/5$ fixed.
+A pair of opposite single-winding arms gave clock fractions
+$0.54798$, $0.58761$ and $0.59694$ against the radar value $0.6$.
+The absolute error fell by factors of $0.238$ and $0.247$.
+Independent rail currents approached $4/5$ from $0.74396$ to $0.79687$.
+Reversing the travel direction reproduced the approach. Reducing the
+exchange by one fifth with the appointments held fixed moved the clock
+fraction from $0.64081$ to $0.83615$. For physical momentum $p$,
+rest parameter $m$ and common spacing $a$, the calibrated two-rail
+transfer has eigenphase $\cos E_a=\cos(am)\cos(ap)$. Its unitary
+evolution on bounded momentum support converges to the local
+$1+1$ dimensional Dirac equation, whose boost-invariant action has
+characteristic speed one in these units. This symmetry belongs to
+the local long-wave equation. The finite rings retain their spatial
+identification and addressed contact schedule.
 
 \paragraph{Capacity.}
 On handoffs of eight services the interval memory of three bits overflows
@@ -2666,9 +2864,7 @@ $1/4$, realize the unique weighted projection to a uniform reference in
 both orders: each owner reads $(3/8,1/8,1/8,3/8)$.
 
 \paragraph{Scope.}
-Of the premises of the finite theorems, Interval Echo supplies observer
-clocks, the three directions and the time dilation of moving clocks from
-records that the observers themselves make. A comparison of clocks on held
+Of the premises of the finite theorems, Interval Echo supplies clock records for a filter calibrated to a routed signal and three response components on a cell. A comparison of clocks on held
 clock constructions and directions, the transport of the three directions
 by a moving observer's full records, a jointly authenticated causal order
 with its count-volume limit, one common measurement of current response
@@ -2710,10 +2906,22 @@ radians. At six radians the distant detector recorded 568,489 versus
 versus 877,062 after two, from $2^{24}$ simulated starts per setting.
 The second read reverses the sign of the remote difference at that
 appointment. Both contrasts include every coin history. The clock
-and both local reading times are supplied. These arrivals measure the
-effect of recording on transport; a dispersion measurement under the
-repeated-read schedule requires a spatial scan
-(\path{row_30_collective/committed_heads/during_flight/}).
+and local reading schedule are supplied.
+
+Seven wall receivers on the same strand distinguish two density-beat
+components at angular frequencies $1.411$ and $1.104$ per exchange
+radian. At each frequency an independent seven-bond record excludes
+a single spatial wave number, even with an arbitrary reflected
+component. At frequency $0.35378$, bond 11 gives a signed-source
+Fourier amplitude $0.01063$ with simultaneous sampling error
+$0.000164$. For any two preparations the disconnected nine-dimer
+segment gives at most $0.00687$ in that window, over the specified
+contact-meter range and uniform clock-spacing interval. The observed
+signal therefore retains a contribution from the attached strand
+after both local readings. These density oscillations probe transport
+and mixing of modes. A single-particle energy and wavelength have no
+common assignment on either measured spatial profile
+(\path{row_30_collective/committed_heads/during_flight/array/}).
 
 The same ordered 194 cells can be connected through the same entry and
 exit gateway ports using a shortest route \emph{within} each cell.
@@ -2756,6 +2964,19 @@ tested spatial preparation does not emerge from this local band splitting.
 
 \subsection{A traveling domain wall in paired material}
 \label{sec:collective-wall}
+
+A local phase impulse distinguishes the earlier eleven-contact pair from a
+traveling wall. Its accepted words are $-13X+14Z$ up to normalization,
+and $(X-Z)/\sqrt{2}$ has one exact free energy. The patch exchanges
+one tip onto a private phase reference and back before release.
+For every terminal outcome outside $X,Z$, the probability at any wait is
+the same bright-component probability multiplied by
+$(365-364\cos\phi)/730$ on accepted preparations. Across 120 simulated
+banks the six time profiles obeyed this prediction. At eight exchange
+times a $\pi$ pulse gave $0.02466$ accepted changes of word per original
+start, against $0.000034$ without the pulse. The impulse varies the
+intensity of one spectrum. It cannot assign different frequencies to
+different incoming wavelengths on this pair.
 
 Two disjoint matchings of physical port contacts define a material with a
 different source of dispersion. A first matching pairs ports of equal
@@ -2830,6 +3051,24 @@ exchange-clock readings give \(k/v=0.948\) and \(0.954\) at the two
 smallest kicks, compared with the zero-momentum inverse band curvature
 \(15/16\).
 
+An initially quiet endpoint can announce the arrival of a wall under
+free evolution. On the 29- and 49-dimer strands its click probability
+was \(0.00341\) and \(0.00342\), against \(0.00075\) and \(0.00074\)
+for a reflected source. After either endpoint answer, the first and
+seventh dimer orientations gave Fourier amplitudes below \(0.00019\)
+at the bulk rest rate of 15 in seeded draws from the terminal word
+probabilities. A planted oscillator gave unit amplitude. Independent
+opposite momentum kicks on copies of the same incoming envelope
+gave \((k/v)c^2=15.38\)--\(15.51\) using the calibrated material
+coefficient. At any open-strand length, a fixed function of up to
+seven simultaneous wall bits has no frequency in \((14,18)\).
+An eighth dimer orientation can carry a many-body line near
+\(15.234\). On the registered 13-, 29- and 49-dimer strands an
+irreducible reflection polynomial also bounds every rational Bohr
+frequency by one in magnitude. This excludes an exact line at 15
+for every fixed terminal reader on these strands
+(\path{row_03_clock/wall_arrival/}).
+
 A signed impulse test on a commissioned 14-dimer strand uses only
 two-time products of allowed local readings. Three independently read
 bivectors give a rank-one displacement projector; the known initial read
@@ -2901,6 +3140,73 @@ agreed with the independently calibrated lattice relation within 0.000575
 in dimer-clock units. The ordinary-$k$ prediction agreed within 0.003165
 on the fourteen lines with $0<k\leq0.50$.
 
+Sharp repairs can also commission these strands. A local pointer resolves
+two connector energies. The first outcome fixes the material standard,
+and subsequent links are retried against it. On three board sizes the
+independently measured gaps are $15.00062$ and $15.49947$ in the two
+materials. Across both outcomes all 34 held frequencies agree with the
+corresponding lattice dispersion to within $0.000708$ exchange units.
+On a six-dimer control using all 32 untreated sharp histories, the
+same spatial decoder rejects a common wavelength assignment. Its
+held residual is $83{,}988$ against a limit of $121.01$. The two
+uniform materials give $79.30$ and $55.05$. Thus selecting the
+medium changes what wavelengths the receiver can identify.
+
+An independent comparison uses the freely traveling neutral island
+of the polar ring. The rest clock and first recoil on ten dimers
+calibrate a relativistic dispersion. Sharp spatial counts through
+$32{,}768$ exchange times resolve four wavelengths in both directions
+on ten and twelve dimers. The continuum forecast fails fourteen of
+fifteen further comparisons. The lattice square root and the
+nearest-neighbour hopping forecast each fail twelve. In 44 independent
+fringe settings, the speed between adjacent momentum modes first rises
+and then falls on every measured ray, in both directions, on both lengths
+and at two contrasts. This excludes either sign of a single continuum
+Klein--Gordon branch over each full ray for any mass, speed, energy offset
+or linear drift. On an independently calibrated material, a retrospective
+comparison of 28 packet velocities covers 27 measured intervals with the
+lattice forecast and nine with the continuum forecast.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed}{Adjacent-mode fringe clocks and curvature tests}.}
+
+What part of a local flip propagates in that band? A joint measurement
+of momentum and energy resolves an isolated line at each one-island
+frequency. Together these lines carry at least $99.0\%$ of the local
+flip's unit spectral weight on both native rings (simultaneous $99\%$
+confidence). Their weights and the independently timed frequencies
+predict 28 signed responses to opposite local kicks at distant
+dimers within $0.00023$ in probability. With exchange switched off,
+every remote response lies within $0.00024$ of zero. The positive line
+weights give a long-time mean-square bound. The magnitude of the connected
+local return must exceed $0.31$ and $0.28$ at arbitrarily late delays on
+ten and twelve dimers, respectively. Two flips at opposite ends put $98.49\%$ and $98.55\%$ of accepted launches within one exchange
+unit of twice the rest frequency on ten and twelve dimers. Independent
+single-flip records forecast the unordered pair of arrival sites within
+$0.021$ in total variation through time 32. At time 64 the errors reach
+$0.502$ and $0.272$. These measurements resolve a finite one-particle
+pole and delimit the observed interval of independent propagation.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point}{Spectral residues, remote responses and two-flip arrivals}.}
+
+An observer on the polar ring also reads the upper orientation of a
+random dimer and the exchange sign of its right neighbour. Independent
+return measurements place the rest frequency at $39.91317$ on ten and
+twelve dimers. The travelling island band spans only $0.09932$ in the
+same units. Halving the collar contrast moves these readings to
+$19.83014$ and $0.19481$. On both lengths the all-lower control gives a
+stronger local line at the rest frequency than either loaded launch.
+Across all four materials the host ground and lowest island are the
+unique two energies separated by the exact rest gap. Every gap between
+two excited levels misses it by at least $1.17\times10^{-6}$, allowing
+for numerical enclosure error. The measured line identifies coherence
+between the host and island. The light receiver produced by a heavy
+source gives a further test. On all 256 linked two-dimer histories
+every excited-to-excited line differs from its formation frequency by
+at least $0.19393$ exchange units. The 256 disconnected histories
+reproduce it on independent dimers. Across the joined five-dimer
+assembly the lowest gap is $1.263631$ and the minimum detuning for
+excited pairs exceeds $0.0064484$. A clock internal to a moving
+excitation remains open.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island}{Complete joint counts, level enclosures and finite-band proof} and \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material}{exact root enclosures for the emission experiment}.}
+
 Two of the twelve surveyed boards contain closed strands crossing several
 cells, with 17 and 20 dimers. In the dimer-flip sector $F=f$, where
 $F=\prod_j X_j$ and $f=-(-1)^n$ for $n$ dimers, the wall has periodic
@@ -2951,6 +3257,36 @@ composition with $D$ defect ports has ground energy below
 $8(6D+3.75)$ by the symmetric trial. Reaching the heavy ratio
 therefore requires at least 2319 defect ports. The bounds concern their lowest formation energies; an excited branch or
 a state carrying a different memory record calls for its own comparison.
+
+\paragraph{Exchanging two charged vacancies.}
+Two opposite empty ports each register signed load $-1$ relative to
+a unit port. On an isolated four-port square, the clockwise and
+counterclockwise routes bring the vacancies to the complementary corners.
+Their relative sign is $-1$ with the two occupied ports prepared on their
+odd exchange line, and $+1$ on the even line. In free flight at delay 64,
+the opposite-diagonal receiver counted $7{,}301{,}325$ even-source arrivals
+and zero odd-source arrivals in $2^{24}$ original launches, including both
+source outcomes. A matched exchange of the two occupied ports with both
+vacancies stationary reproduces the sign exactly. Interfering these
+two operations gives a bright outcome on either material. Thus the
+experiment resolves the material contribution to the exchange phase.
+Intrinsic exchange statistics of the charged excitation require a further
+comparison.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/VACANCIES.md}{Vacancy interferometer, winding control and arrival counts}.}
+
+With equal occupied ports a moving two-vacancy trap gives a separate
+exchange measurement. At each of three pinning appointments the two
+sharp vacancies occupy the designated pair of arms with probability
+at least $0.99326$. At central detuning $+16$, interfering a single
+exchange with the matched out-and-back path gives $99.68\%$ dark
+outcomes. Two exchanges give $0.029\%$ dark. Changing the detuning
+to $-16$ on the same route gives $0.36\%$ dark for a single exchange,
+with minimum pair occupation $0.99769$. The turn used $49{,}152$
+scheduled changes of the trap. At the same positive bias, six direct
+native swaps exchange the same two sharp vacancies with zero dark
+probability while the trap angle stays fixed. These measurements
+identify the geometric phase of the excited pair on the moving trap.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion}{Sharp vacancy preparations, matched bias and exchange controls}.}
 
 \paragraph{Locating the center of a neutral excitation.}
 On the guarded twelve-port cell with one load per background port,
@@ -3038,6 +3374,26 @@ two transverse launches and at $13.5$ for an independently emitted
 sharp load. This threshold measures packet arrival on the given path.
 A Maxwell interpretation requires two transverse fields at a common
 limiting speed.
+
+Two local measurements separate a mobile load from a private-memory
+signal. First fill every port with the same sharp load, allowing
+arbitrary working memories on the physical seams. The full native
+generator then preserves each port load and reduces to a sum of
+independent one-seam generators. An observer recovers the sign of its
+own write by an inverse echo. Every distant receiver has identical
+statistics for the two source signs, even with entangled initial
+memories. Next perturb the uniform one-load ground. The term linear in
+the perturbation in each oriented seam current is the difference of its
+imaginary amplitudes times the ground amplitude. It sums to zero around
+every closed path. Three owner steps away on the 20- and 80-cell
+boards, the largest edge-current changes odd under source reversal were
+$0.001121$ and $0.000885$, with simultaneous 99\% half-width below
+$0.000076$. The largest odd triangle readings were below
+$8\times10^{-7}$. Even triangle readings on the same receivers reached
+$0.000454$ and $0.001248$. Finite material circulation can therefore
+reach a receiver even when its weak response about the ground is
+entirely longitudinal in the graph sense.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response}{Private-memory isolation and signed current readouts}.}
 
 In a separate experiment a signed pulse acts around one triangular face
 of a correlated two-load state. A single bridge between two intact
@@ -3130,6 +3486,22 @@ receivers, recovery of the ordered ring exhausts the available
 vacancies and doubles, leaving zero joint probability of a restored
 ring and receiver excitation on that preparation.
 
+The two uninterrupted calorimeters distinguish energy transport through
+material from a signal that crosses a fixed material orientation.
+At 64 exchange radians the source walls gave 26,854 double clicks in
+\(2^{26}\) seeded draws from the native word probabilities, against
+zero on the ordered sham. Shuttering only the middle dimer's exchange
+leaves both adjacent contacts active. For each fixed orientation the
+far dimer and its meter form a separate Hamiltonian factor, so the
+source contrast of that meter vanishes exactly. A unilateral shutter
+also reduced source-ring recovery from \(6.04\%\) to \(0.253\%\).
+With both material orientations fixed, a separately supplied gapless
+neutral chain along each route delivered energy through the original
+far dimers, giving a double-click excess of \(0.00583\)--\(0.00585\).
+This comparison uses calibrated field couplings and two prepared field
+excitations. The native record identifies energy transfer mediated by
+the polarizable guides (\path{row_08_annihilation/material_separator/}).
+
 \paragraph{A soft line after the source is disconnected.}
 Read the first excited line of a six-port wing after the opposite-wall
 source has relaxed, and repeat with its ordered sham. With the source
@@ -3143,6 +3515,127 @@ and the twenty legal words give a lower bound of $31.5$.
 These measurements distinguish a soft line of the detached receiver
 from a light neutral excitation produced by the source. They measure
 material loads and gaps in exchange units.
+
+\paragraph{A light neutral excitation after a heavy source relaxes.}
+On a passive four-dimer material an observer reads a surviving lower
+source level together with the first excitation of a disjoint receiver
+on $1{,}236{,}356$ of $4{,}194{,}304$ launches ($29.48\%$). Separate
+return measurements price the parent at 33.6060 and the receiver
+excitation at 1.0486 in exchange units. The cold-source and disconnected
+controls each give zero joint events. Retaining all 512 outcomes of nine
+independent collar writes gives $634{,}703$ joint events in the same
+number of original launches ($15.13\%$).
+
+A second trial leaves the entire material connected. A local pulse on the
+source excites its joined ground and a probe at the far end resolves
+energy removed from the material. With initial delay 16 it counts
+$291{,}568$ positive-loss outcomes in $4{,}194{,}304$ starts, against
+349 in the idle control and 320 with the attachment cut. Deleting all
+transitions that lower the material energy by less than one tenth of
+the parent formation energy bounds this detection probability by
+$0.00031116$ for every input. The coherent timing aperture spans about
+804 exchange units after the initial delay. This records low-energy
+absorption at the far dimer over the aperture.
+
+A three-dimer receiver crosses from owner 0, which contains the whole
+source, to owner 6. Native gate sequences prepare the joined and cut
+cold materials and implement the local source pulse. Both rails of
+the last dimer are four physical seams from the source. At delay 16 its local exchange sign was negative on
+$1{,}181{,}301$ of $4{,}194{,}304$ launches with the pulse and on
+$545{,}792$ with the cold source. On fresh copies an energy probe with
+an aperture of about $3{,}217$ exchange units registered $535{,}299$
+positive losses in the light band, against 84 with the idle source and
+zero with the final receiver link cut. The cut leaves the source attached.
+Removing the light lowering transitions bounds the acceptance of any input
+by $0.00020093$. A fresh instrument reads the surviving core after the
+same absorption aperture. It records both a light loss at owner 6 and
+one of the two lower heavy levels at owner 0 on $498{,}456$ of
+$4{,}194{,}304$ launches ($11.88\%$), with zero joint events in both
+controls. Removing contrast reversal from the flight generator gives
+$547{,}113$ far losses with the native pulse and $548{,}214$ without it
+on equal banks. The receiver formation energy is $1.26372$ on a parent
+scale of $33.60603$. A four-receiver route folded back into one owner
+missed the one-percentage-point local-sign threshold. These comparisons
+demonstrate release and distant absorption of a light, charge-neutral
+material excitation in this finite system. Identifying a neutrino species
+requires independent weak-response and rest-dispersion measurements.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_09_neutral}{Native materials, source controls and calibrated receiver records}.}
+
+A source spanning the seam between owners 0 and 6 contains a single vacancy.
+Each owner holds a separate cold neutral dimer. Sixteen exchange units
+after a pulse on this source, both dimers read excited and the source
+reads its lower charged level on $1{,}538{,}304$ of $4{,}194{,}304$
+starts. Two successive terminal probes on fresh copies each measure
+a positive light-energy loss before the final lower-source reading.
+The joint counts in the two probe orders are $692{,}267$ and $772{,}148$
+per equal bank. The cold source gives one and three, and cutting either
+receiver gives zero. Each energy aperture lasts about $804$ exchange
+units. To identify the charged levels, disconnect both receivers. A
+local charge-density pulse on one source rail converts the lower level
+to the upper on $839{,}887$ starts, while a uniform pulse gives zero.
+An orbital forecast derived from the rail occupations and the gap agrees
+with all 30 held charge probes within $0.000498$ in probability. Upper
+survival rises from time 16 to 32 on free flight. The fork resolves
+charged orbital relaxation into two neutral receivers. A muon assignment
+requires independently identified flavors and an irreversible lifetime.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_24_decay/fork}{Charged source, ordered energy measurements and the flavor test}.}
+
+\paragraph{Reading the energy of a heralded collision daughter.}
+Can an observer distinguish an excitation carrying its own clock from
+a material that rings when measured? On the same guarded three-dimer
+fixture, the observer reads the ordered source ring at exposure 32 and
+holds its recorded phase fixed. A supplied wing spectrometer reports
+whether the left wing occupies the span of its three single-quantum
+levels, preserving coherence within that span. The opposite wing
+remains unread. The flag fires on $3.0745\%$ of launches in the
+native silent-wait experiment. Units below are radians per model
+exchange time, with $\hbar=1$.
+
+The signed load order on the outermost dimer, read after a quarter
+exchange rotation, measures its current quadrature $Y$. Comparing
+initial and final signs on heralded arrivals gives three frequencies,
+$31.80078$, $32.51538$ and $33.21468$, in agreement with the independent
+wing energy read. All three also appear on the ordered sham. Each delay
+uses $262{,}144$ fresh starts with every ring miss and rejected herald
+retained in the count archive. A silent wait gave a largest absolute
+mean terminal current of $0.0381$ across $2{,}048$ appointments, within
+the simultaneous 99\% sampling radius $0.0593$. Of $8{,}115$ heralded
+arrivals tested on fresh copies, only $4{,}037$ retained their
+single-quantum flag immediately after the initial current read.
+Indeed, $Y$ changes occupation parity, giving zero mean after a silent
+native wait and exactly one-half sector survival after the first read.
+The two-sign correlation has weights $(1/4,1/2,1/4)$ on the three
+frequencies for every input. Halving contrast only during waiting
+shifts them to $15.80876$, $16.53027$ and $17.22164$.
+
+A second observer can preserve that flag and measure an energy by
+comparing two histories. A supplied coherent switch exchanges the
+wing with a matching independently ground-prepared memory on one
+path. The active register evolves, the storage register waits idle,
+and the switch is undone. For target energy weights $p_j$ and memory
+energy $E_r$, the pointer quadratures give
+$\langle X\rangle+i\langle Y\rangle=\sum_j p_j e^{i(E_j-E_r)t}$.
+Across $268{,}435{,}456$ starts the observer recorded $8{,}249{,}494$
+single-quantum arrivals; all retained their terminal flag. The pointer
+resolved $31.80150$, $32.51524$ and $33.21471$ against the ground,
+then $-0.71494$, $-0.00019$ and $+0.69891$ after preparing the memory
+in its middle mode. The ordered sham gave mean $X=0.999997$ against
+the ground. With matched evolution in both registers every accepted
+$X$ read gave $+1$. Any common shift of the active energy origin
+cancels between paths.
+
+The recorded ring clamp separates the two native wing generators.
+Signed echoes, transport local to each side and classical feedback
+preserve separability across an initially independent storage register.
+Routing a sharp excited mode against a ground memory on a balanced
+switch instead produces two equal Schmidt weights across storage;
+every separable output has fidelity at most one half with that
+pre-dwell state. The coherent router is therefore a supplied
+measurement resource on this fixture. The spectra identify formation
+energies of three finite standing modes. An independent inertia
+measurement and a self-starting internal oscillation of the same freely
+propagating excitation remain open for OW-03
+(\path{row_03_clock/free_end/}).
 
 \paragraph{Ranging a screen during repair.}
 A homogeneous expansion can stretch the time between signal arrivals
@@ -3351,13 +3844,7 @@ The two output ports together receive $9.984\%$ of original enrollments.
 A rank estimate from the two quadratures gives three frequencies. The
 same apparatus gives one when the mass effect is replaced by its scalar
 mean. Two filters set by the recorded frequency differences isolate the
-lowest line on $3.333\%$ of enrollments. The first acquisition gives
-$105.659416$ and $1776.985000$ MeV for the heavier lines if the lowest
-sets the scale at the measured electron energy. The corresponding
-generator values are $105.6594145$ and $1776.984971$ MeV. The tau
-difference is $+0.0550$ MeV against a quoted uncertainty of $0.09$ MeV.
-The middle ratio exceeds the measured muon-to-electron ratio by
-$9.83$ parts per million, independently of the common energy scale
+lowest line on $3.333\%$ of enrollments. The frequencies read back the supplied cyclic mass operator and phase. Matching its lowest line to the measured electron energy sets the laboratory scale. The middle ratio differs from the measured muon-to-electron ratio independently of that scale
 \cite{pdgleptons2026,codata2022ratio}. These lines are frequency
 differences between states carrying the same charge.
 
@@ -3371,8 +3858,7 @@ $2+2\sqrt{2}\,\mathrm{Re}(wc_1)+\mathrm{Re}(w^2c_2)$, with $w^3=1$.
 Taking only the phase of $c_1$ at $N=302$ gives a middle ratio of
 $206.768279$. Retaining all clock outcomes at that same cadence gives
 $149.041053$. Fitting the complete response to the muon ratio gives
-about $1.196\times10^7$ rounds per tick and a conditional heavy energy
-of $1776.9673$ MeV. The fit uses the muon as a second input. The clock
+about $1.196\times10^7$ rounds per tick with the muon ratio as a second input. The resulting heavy line is a conditional interpolation. The clock
 visibility supplies an independent observable for its cadence.
 
 \paragraph{Formation energy and the clock.}
@@ -3480,6 +3966,25 @@ on all three boards in the high-precision replicate. The same spatial
 mode on an empty host also holds a doubled
 load indefinitely. These preparations distinguish conserved port
 amounts from a topological electric charge detectable at a boundary.
+
+A single added load can release two moving changes of material order
+with half-unit polarization. Prepare an alternating $0,1$ ring and fill
+one vacancy. Its two adjacent $11$ bonds mark phase slips in the
+alternating pattern. At time three, the probability of finding one
+slip in each of two separated receiving regions, with every other bond
+alternating, is $0.42649$ on fourteen ports and $0.42312$ on sixteen.
+Removing the contrast during flight gives $0.01589$ and $0.00920$.
+In independent preparations a native exchange moves one isolated slip
+two bond spacings while its partner stays put. A potential gradient
+calibrated on ordinary loads gives a phase response per spacing of
+$+0.4998$ to $+0.5004$ for an $11$ slip, and $-0.5004$ to $-0.4997$
+for a $00$ slip. On the emitted pair, two potential probes with
+half-weight endpoints each resolve a half-unit polarization. At a
+full turn both are dark on accepted pairs. Giving every site in each
+aperture full weight makes both probes bright. The experiment resolves
+fractional transport on a prepared medium. Identifying these
+two-valued order reversals with electric charge requires an independent
+electromagnetic field.
 
 A vacancy prepared at one port can also start a clock after release.
 Monitor the gateways during preparation and then open every contact.
@@ -3897,6 +4402,38 @@ ideal copying step applied after the label is recorded, a partial trace
 preserves arbitrary reference correlations within each label block
 (\path{model/experiments/interval_echo_consensus/publication_tree/}).
 
+Can each observer recover a whole neighbourhood of independently
+changing publications? On the 80- and 320-owner boards, 64 sources
+each edit one dimer while preserving the previous version on a separate
+dimer. Each receiver requests the sites within two grid spacings on
+a supplied $4\times4\times4$ cube. Restored contact routes and local
+projection reads deliver all $1{,}192$ requested bits in each of two
+successive surveys, including $192$ on the boundary. Propagating the
+source labels through the actual contacts establishes recovery for all
+$2^{64}$ settings per survey. Routing the stale copy or parking the
+transport loses all $1{,}128$ remote single-bit distinctions. To test
+the radius itself, observers time independent direct transfers for all
+$4{,}096$ ordered pairs. The best common arrival deadline misclassifies
+$1{,}079$ and $1{,}061$ pairs on the two boards. Even arbitrary common
+relabelling of the 64 sites leaves at least $130$ and $138$ errors,
+respectively. These finite record deliveries use the requested grid as
+input. Deriving its radius requires an independent transport geometry.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_consensus/record_lowering/dense_readout}{Native publication, receiver projections and direct transit clocks}.}
+
+A single native balancing write can itself produce two public readings.
+On 20, 80 and 320 cells, both gateway owners read half the incoming
+load sum whenever it was even. At odd sums both readers have the same
+single-site distribution, yet their adjacent readings differed on every
+launch. Tracing the coin, signed head and opposite endpoint removes
+every off-diagonal incoming matrix unit. Among all 511 nonempty sharp
+input supports, seven allow three exactly recoverable local answers,
+111 allow two and 393 allow one. After opening an additional neighboring
+contact, the inputs $(1,1)$ and $(0,2)$ that had both announced one
+gave respectively 65,536 and 32 disagreements in 65,536 starts at the
+half-turn appointment. The earlier number is public at the writing
+event; its later availability depends on the material continuation
+(\path{publication_tree/repair_outputs/}).
+
 A collective of twelve separately named readers implements the
 finite capacity packet's authorized set. On each of the three board
 sizes, each station reads one local bit. One exceptional high or low
@@ -4111,8 +4648,7 @@ the levels of the federation does not preserve seam adjacency
 of admissible observer records between levels; agreement of state encodings
 is no part of it.
 \item A comparison of clocks on held clock constructions and directions.
-The clocks of Section~\ref{sec:events} are counts of events, and the patch
-clock of Interval Echo follows the relativistic proper-time forecast on the
+The clocks of Section~\ref{sec:events} are counts of events, and the patch clock of Interval Echo reproduces its calibrated proper-time forecast on the
 journeys of Section~\ref{sec:echo}.
 \item The transport of the three directions by a moving observer's full
 records.
@@ -4123,14 +4659,12 @@ carrier of the theory (Section~\ref{sec:collar}).
 \end{itemize}
 
 These limits are measured against the test of Section~\ref{sec:intro}.
-Observers who inhabit the computation can describe their experience as a
-relativistic continuum spacetime with one time and three space dimensions,
+For a supplied radial interval, hyperbolic service and admissible readout class, the finite-menu field description takes the form of a relativistic continuum spacetime with one time and three space dimensions,
 by the proposition on smooth effective field descriptions of the flagship
 and the reconstruction of the spacetime paper, under their stated premises
 \cite{flagship,ophspacetime}. Of those premises the model supplies the
 carrier with its rank-three band, count clocks compared through shared
-readings (Section~\ref{sec:joins}) and, under Interval Echo, clocks carried
-by observer patches that run slow by the relativistic factor when they move
+readings (Section~\ref{sec:joins}) and, under Interval Echo, patch clocks calibrated to the relativistic factor on the supplied relay
 (Section~\ref{sec:echo}); the field readouts, a jointly authenticated order
 of events and the refinement family that the two results also consume are
 outputs it does not produce. The model is not required to contain three
@@ -4159,7 +4693,7 @@ against each.}
 \toprule
 Experiment & Prediction & Counts against it \\
 \midrule
-A pair written on one seam, read later, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a larger probability at some reading \\
+A pair prepared on one seam, first read after free evolution, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ for ideal preparation and reading on every federation; largest computed value with the local emitter below $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a first-read probability above its bound \\
 The same law without the agreement energy & no pair with probability up to $0.80$ on $20$ cells & a pair that is kept \\
 Rounds of seam events in any order, with unequal rates of the ports & the pair is kept & a loss of the pair under rounds \\
 Two readings of a pair, $\kappa=8$, one cell & equal first answers; later records that differ by more than $0.0817$ in total variation; one event at $0.0183$ against $0.1029$ & equal laws of the later records \\
@@ -4168,7 +4702,7 @@ The seam record of a cage after the coherent pulse & one line at $2\sqrt6=4.8990
 The fuel dial on the same cage & the level difference $4.8990$, equal to the line & a value away from the line \\
 The excitation of a cage after the sharp pulse & read above $0.99$ at waits of $0$ to $512$ steps, the same at every wait & a decrease with the wait \\
 The cage under seam hopping round every port & no single line; the excitation is lost & a single line, or a kept excitation \\
-Interval Echo: a travelling patch on journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ & a ratio of its elapsed count to the home count at reunion within about $0.001$ of the forecast \eqref{eq:echo-forecast} & a residual far outside its standard error \\
+Interval Echo: a travelling patch on journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ & a ratio of its elapsed count to the home count at reunion within about $0.001$ of the calibration target \eqref{eq:echo-forecast} & a residual far outside its standard error \\
 Interval Echo: overlapping single-cell and three-cell observers on $320$ cells & equal readings at every shared checkpoint & a shared checkpoint read differently \\
 \bottomrule
 \end{tabular}
@@ -4195,8 +4729,7 @@ single answer for the cell and one that keeps the seam, have the same first
 statistics and different later records. The main candidate law, Interval
 Echo, runs this seam at $\kappa=8$ and lets a finite observer patch carry
 its own clock. A travelling clock, compared at reunion with the clock kept
-at home, runs slow by the relativistic factor computed from the observers'
-own records, within about one part in a thousand. Overlapping observers
+at home, reproduces the Lorentz factor built into its closing filter on the supplied relay, within about one part in a thousand. Overlapping observers
 agree on every shared checkpoint reading, port currents selected by the
 rotations close on twelve directions, and two overlapping observers realize
 the unique information projection to a uniform reference. The second

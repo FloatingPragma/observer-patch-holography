@@ -24,6 +24,11 @@ def verify_freeze():
     for directory, pins in ((ROOT, freeze["simulator_files"]), (HERE, freeze["reviewed_fixtures_sha256"])):
         for name, expected in pins.items():
             path = directory / name
+            # The published document is an input to this historical experiment.
+            # Authenticate its archived bytes while checking active executable
+            # physics and all reviewed fixtures at their registered paths.
+            if directory == ROOT and name == "model/benchmarks/eight_slot_torus/SPEC.md":
+                path = HERE.parent / "six_station_source" / "SPEC.md"
             raw = path.read_bytes()
             if path.suffix != ".npz":
                 raw = raw.replace(b"\r\n", b"\n")

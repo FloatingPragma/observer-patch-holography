@@ -22,6 +22,8 @@ At the active stiffness eight the two rows of $2d$, including the vacant column,
 
 ## Why the probed link moves
 
+For an integer stiffness \(\kappa\), put \(r=\kappa\bmod3\). The two receiver rows of \(2d\) reduce to \((0,r+2,2r+1)\) and \((0,2r+1,r+2)\) mod 3. Both separate the three source symbols precisely for \(r=0,2\); at \(r=1\) all entries are zero. The matched displacement of the two probe loads on this appointment therefore follows from the trit filter, the registered stiffness and the source routing. A probe of an independently formed long-range gravitational field would require an independent source and force measurement.
+
 The release edge is chosen independently of source values. Its blank endpoints have six and five neighbors. These are circuit data used to derive the release generator. The observer measures the displacement by reading the occupied port. Retaining the degree-completing onsite term, the blank sector has diagonal $6\kappa Q^2+\deg/2$. Clamping exterior exchanges leaves the two-leg restriction, up to an irrelevant scalar,
 
 $$H=(D Z-X)/2,\qquad D=1/2.$$

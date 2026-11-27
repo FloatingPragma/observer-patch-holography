@@ -1,0 +1,827 @@
+{
+  "contact_controls": {
+    "native": {
+      "blank_leakage": 2.282206e-15,
+      "pulse_operator_error": 1.650012e-14,
+      "transfer_probability": 0.1307657
+    },
+    "exchange_removed": {
+      "blank_leakage": 2.144252e-15,
+      "pulse_operator_error": 0.3678931,
+      "transfer_probability": 0.0
+    },
+    "contrast_halved": {
+      "blank_leakage": 1.213564e-15,
+      "pulse_operator_error": 2.0,
+      "transfer_probability": 0.06538286
+    }
+  },
+  "route_stations": [
+    2532,
+    2533,
+    2537,
+    2536,
+    2534,
+    2509,
+    2508,
+    2513,
+    2512,
+    2510,
+    2511,
+    2514,
+    2515,
+    2518,
+    2336,
+    2329,
+    2328,
+    2333,
+    2332,
+    2330,
+    2473,
+    2472,
+    2477,
+    2476,
+    2474,
+    2475,
+    2412,
+    2413,
+    2417,
+    2416,
+    2414,
+    2415,
+    2578,
+    2568,
+    2569,
+    2573,
+    2572,
+    2570,
+    2571,
+    2580,
+    2581,
+    2585,
+    2584,
+    2582,
+    2545,
+    2544,
+    2403,
+    2402,
+    2404,
+    2405,
+    2400,
+    2438,
+    2439,
+    2440,
+    2441,
+    2436,
+    2427,
+    2426,
+    2428,
+    2429,
+    2424,
+    2425,
+    2462,
+    2463,
+    2464,
+    2465,
+    2460,
+    2367,
+    2366,
+    2368,
+    2369,
+    2364,
+    2365,
+    2371,
+    2370,
+    2374,
+    3344,
+    3337,
+    3336,
+    3341,
+    3340,
+    3338,
+    3409,
+    3408,
+    3413,
+    3412,
+    3410,
+    3411,
+    3276,
+    3277,
+    3281,
+    3280,
+    3278,
+    3301,
+    3300,
+    3305,
+    3304,
+    3302,
+    3296,
+    3289,
+    3288,
+    3293,
+    3292,
+    3290,
+    1645,
+    1644,
+    1649,
+    1648,
+    1646,
+    1647,
+    1650,
+    1651,
+    1654,
+    1712,
+    1705,
+    1704,
+    1563,
+    1562,
+    1564,
+    1565,
+    1560,
+    1561,
+    1567,
+    1566,
+    1570,
+    1575,
+    1574,
+    1556,
+    1549,
+    1548,
+    699,
+    698,
+    700,
+    701,
+    696,
+    697,
+    703,
+    702,
+    706,
+    740,
+    733,
+    732,
+    737,
+    736,
+    734,
+    637,
+    636,
+    641,
+    640,
+    638,
+    639,
+    1608,
+    1609,
+    1613,
+    1612,
+    1610,
+    1611,
+    1614,
+    1615,
+    1616,
+    1690,
+    1680,
+    1681,
+    1685,
+    1684,
+    1682,
+    1683,
+    1719,
+    1718,
+    1720,
+    1721,
+    1716,
+    1694,
+    1695,
+    1696,
+    1697,
+    1692,
+    1659,
+    1658,
+    1660,
+    1661,
+    1656,
+    3518,
+    3519,
+    3520,
+    3521,
+    3516,
+    3517,
+    3614,
+    3615,
+    3616,
+    3617,
+    3612,
+    3638,
+    3639,
+    3640,
+    3641,
+    3636,
+    3603,
+    3602,
+    3604,
+    3605,
+    3600,
+    3601,
+    3470,
+    3471,
+    3472,
+    3473,
+    3468,
+    2619,
+    2618,
+    2620,
+    2621,
+    2616,
+    2617,
+    2623,
+    2622,
+    2626,
+    2660,
+    2653,
+    2652,
+    2679,
+    2678,
+    2680,
+    2681,
+    2676,
+    2677,
+    2666,
+    2667,
+    2668,
+    2669,
+    2664,
+    2523,
+    2522,
+    2524,
+    2525,
+    2520,
+    2521,
+    2527,
+    2526,
+    2530,
+    2540,
+    2535,
+    2538,
+    2539,
+    2542
+  ],
+  "ring_size": 246,
+  "all_open": {
+    "incident_seams": 975,
+    "sea_energy_lower_bound": 3900.0,
+    "same_filling_comparator_port_range": [
+      0,
+      122
+    ],
+    "comparator_domain_walls": 32,
+    "comparator_degree_deficit": 92,
+    "same_filling_comparator_energy": 1008.0,
+    "outside_receiver": 710,
+    "unique_ring_neighbour": 697,
+    "outside_receiver_quadratic_coefficient": 0.125
+  },
+  "half_filling": 123,
+  "adjacent_source_rotations": 30135,
+  "source_orbital_maximum_error": 7.421251e-15,
+  "fermi_velocity": 1,
+  "intervals": [
+    {
+      "stations": [
+        46,
+        49
+      ],
+      "commutator_norm": 6.375914e-15,
+      "uniform_control_commutator_norm": 0.2778971,
+      "minimum_mode_probability": 0.01132769,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.00163431,
+          "weighted_energy": 0.001631165,
+          "relative_difference": 0.00192785,
+          "flat_weight_energy": 0.001631165
+        },
+        "coherent_pair": {
+          "entropy": 0.004411863,
+          "weighted_energy": 0.004403324,
+          "relative_difference": 0.00193919,
+          "flat_weight_energy": 0.004403299
+        },
+        "signed_rotation": {
+          "entropy": 0.0004125766,
+          "weighted_energy": 0.0004117849,
+          "relative_difference": 0.001922475,
+          "flat_weight_energy": 0.0004117491
+        }
+      },
+      "positive_modular_to_energy_ratios": [
+        0.9874107,
+        1.014914
+      ]
+    },
+    {
+      "stations": [
+        50,
+        53
+      ],
+      "commutator_norm": 5.856714e-15,
+      "uniform_control_commutator_norm": 0.2778971,
+      "minimum_mode_probability": 0.01132769,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.00163431,
+          "weighted_energy": 0.001631165,
+          "relative_difference": 0.00192785,
+          "flat_weight_energy": 0.001631165
+        },
+        "coherent_pair": {
+          "entropy": 0.00409371,
+          "weighted_energy": 0.004085785,
+          "relative_difference": 0.001939654,
+          "flat_weight_energy": 0.004085767
+        },
+        "signed_rotation": {
+          "entropy": 8.338309e-05,
+          "weighted_energy": 8.322309e-05,
+          "relative_difference": 0.001922475,
+          "flat_weight_energy": 8.321585e-05
+        }
+      },
+      "positive_modular_to_energy_ratios": [
+        0.9874107,
+        1.014914
+      ]
+    },
+    {
+      "stations": [
+        44,
+        51
+      ],
+      "commutator_norm": 1.990587e-14,
+      "uniform_control_commutator_norm": 0.6219585,
+      "minimum_mode_probability": 1.602235e-05,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.006864059,
+          "weighted_energy": 0.006854474,
+          "relative_difference": 0.001398314,
+          "flat_weight_energy": 0.006854474
+        },
+        "coherent_pair": {
+          "entropy": 0.01852632,
+          "weighted_energy": 0.01849987,
+          "relative_difference": 0.00142972,
+          "flat_weight_energy": 0.01849831
+        },
+        "signed_rotation": {
+          "entropy": 0.001727374,
+          "weighted_energy": 0.001724988,
+          "relative_difference": 0.001383434,
+          "flat_weight_energy": 0.001722732
+        }
+      }
+    },
+    {
+      "stations": [
+        48,
+        55
+      ],
+      "commutator_norm": 1.757486e-14,
+      "uniform_control_commutator_norm": 0.6219585,
+      "minimum_mode_probability": 1.602235e-05,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.006864059,
+          "weighted_energy": 0.006854474,
+          "relative_difference": 0.001398314,
+          "flat_weight_energy": 0.006854474
+        },
+        "coherent_pair": {
+          "entropy": 0.01719112,
+          "weighted_energy": 0.01716655,
+          "relative_difference": 0.001431003,
+          "flat_weight_energy": 0.01716542
+        },
+        "signed_rotation": {
+          "entropy": 0.0003491079,
+          "weighted_energy": 0.0003486256,
+          "relative_difference": 0.001383434,
+          "flat_weight_energy": 0.0003481697
+        }
+      }
+    },
+    {
+      "stations": [
+        40,
+        55
+      ],
+      "commutator_norm": 6.219305e-14,
+      "uniform_control_commutator_norm": 1.279753,
+      "minimum_mode_probability": 1.688321e-11,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.02781265,
+          "weighted_energy": 0.02780247,
+          "relative_difference": 0.0003662903,
+          "flat_weight_energy": 0.02780247
+        },
+        "coherent_pair": {
+          "entropy": 0.07500669,
+          "weighted_energy": 0.07497665,
+          "relative_difference": 0.0004006313,
+          "flat_weight_energy": 0.07493818
+        },
+        "signed_rotation": {
+          "entropy": 0.006911884,
+          "weighted_energy": 0.006909465,
+          "relative_difference": 0.0003500345,
+          "flat_weight_energy": 0.006854348
+        }
+      }
+    },
+    {
+      "stations": [
+        44,
+        59
+      ],
+      "commutator_norm": 7.353047e-14,
+      "uniform_control_commutator_norm": 1.279753,
+      "minimum_mode_probability": 1.688321e-11,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.02781265,
+          "weighted_energy": 0.02780247,
+          "relative_difference": 0.0003662903,
+          "flat_weight_energy": 0.02780247
+        },
+        "coherent_pair": {
+          "entropy": 0.06961346,
+          "weighted_energy": 0.06958548,
+          "relative_difference": 0.0004020281,
+          "flat_weight_energy": 0.06955771
+        },
+        "signed_rotation": {
+          "entropy": 0.001396914,
+          "weighted_energy": 0.001396426,
+          "relative_difference": 0.0003500345,
+          "flat_weight_energy": 0.001385286
+        }
+      }
+    },
+    {
+      "stations": [
+        36,
+        59
+      ],
+      "commutator_norm": 1.224014e-13,
+      "uniform_control_commutator_norm": 1.937355,
+      "minimum_mode_probability": 1.321646e-17,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.062922,
+          "weighted_energy": 0.06291219,
+          "relative_difference": 0.0001559205,
+          "flat_weight_energy": 0.06291219
+        },
+        "coherent_pair": {
+          "entropy": 0.1694634,
+          "weighted_energy": 0.1694311,
+          "relative_difference": 0.0001904632,
+          "flat_weight_energy": 0.1692105
+        },
+        "signed_rotation": {
+          "entropy": 0.01531239,
+          "weighted_energy": 0.01531025,
+          "relative_difference": 0.0001395901,
+          "flat_weight_energy": 0.01499759
+        }
+      }
+    },
+    {
+      "stations": [
+        40,
+        63
+      ],
+      "commutator_norm": 1.381157e-13,
+      "uniform_control_commutator_norm": 1.937355,
+      "minimum_mode_probability": 1.321646e-17,
+      "readings": {
+        "plane_wave": {
+          "entropy": 0.062922,
+          "weighted_energy": 0.06291219,
+          "relative_difference": 0.0001559205,
+          "flat_weight_energy": 0.06291219
+        },
+        "coherent_pair": {
+          "entropy": 0.1573255,
+          "weighted_energy": 0.1572953,
+          "relative_difference": 0.0001918581,
+          "flat_weight_energy": 0.1571361
+        },
+        "signed_rotation": {
+          "entropy": 0.003094684,
+          "weighted_energy": 0.003094252,
+          "relative_difference": 0.0001395901,
+          "flat_weight_energy": 0.003031063
+        }
+      }
+    }
+  ],
+  "local_stress": [
+    {
+      "left_endpoint": 47,
+      "right_bond": 51,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.000103665,
+      "entropy_relative_difference": 0.001531807
+    },
+    {
+      "left_endpoint": 43,
+      "right_bond": 51,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038096,
+      "entropy_relative_difference": 0.0001386358
+    },
+    {
+      "left_endpoint": 35,
+      "right_bond": 51,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038221,
+      "entropy_relative_difference": 1.873099e-05
+    },
+    {
+      "left_endpoint": 27,
+      "right_bond": 51,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038224,
+      "entropy_relative_difference": 1.599357e-05
+    },
+    {
+      "left_endpoint": 47,
+      "right_bond": 51,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002651848,
+      "energy_inversion": 0.0002651848,
+      "entropy_inversion": 0.0002647318,
+      "entropy_relative_difference": 0.001708511
+    },
+    {
+      "left_endpoint": 43,
+      "right_bond": 51,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002651848,
+      "energy_inversion": 0.0002651848,
+      "entropy_inversion": 0.000265143,
+      "entropy_relative_difference": 0.0001579329
+    },
+    {
+      "left_endpoint": 35,
+      "right_bond": 51,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002651848,
+      "energy_inversion": 0.0002651848,
+      "entropy_inversion": 0.0002651839,
+      "entropy_relative_difference": 3.651967e-06
+    },
+    {
+      "left_endpoint": 27,
+      "right_bond": 51,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002651848,
+      "energy_inversion": 0.0002651848,
+      "entropy_inversion": 0.0002651863,
+      "entropy_relative_difference": 5.548109e-06
+    },
+    {
+      "left_endpoint": 47,
+      "right_bond": 51,
+      "source": "signed_rotation",
+      "bond_energy": 1.05888e-05,
+      "energy_inversion": 1.05888e-05,
+      "entropy_inversion": 1.051002e-05,
+      "entropy_relative_difference": 0.007439943
+    },
+    {
+      "left_endpoint": 43,
+      "right_bond": 51,
+      "source": "signed_rotation",
+      "bond_energy": 1.05888e-05,
+      "energy_inversion": 1.05888e-05,
+      "entropy_inversion": 1.057216e-05,
+      "entropy_relative_difference": 0.001571924
+    },
+    {
+      "left_endpoint": 35,
+      "right_bond": 51,
+      "source": "signed_rotation",
+      "bond_energy": 1.05888e-05,
+      "energy_inversion": 1.05888e-05,
+      "entropy_inversion": 1.058279e-05,
+      "entropy_relative_difference": 0.0005680352
+    },
+    {
+      "left_endpoint": 27,
+      "right_bond": 51,
+      "source": "signed_rotation",
+      "bond_energy": 1.05888e-05,
+      "energy_inversion": 1.05888e-05,
+      "entropy_inversion": 1.058489e-05,
+      "entropy_relative_difference": 0.000369412
+    },
+    {
+      "left_endpoint": 51,
+      "right_bond": 55,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.000103665,
+      "entropy_relative_difference": 0.001531807
+    },
+    {
+      "left_endpoint": 47,
+      "right_bond": 55,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038096,
+      "entropy_relative_difference": 0.0001386358
+    },
+    {
+      "left_endpoint": 39,
+      "right_bond": 55,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038221,
+      "entropy_relative_difference": 1.873099e-05
+    },
+    {
+      "left_endpoint": 31,
+      "right_bond": 55,
+      "source": "plane_wave",
+      "bond_energy": 0.000103824,
+      "energy_inversion": 0.000103824,
+      "entropy_inversion": 0.0001038224,
+      "entropy_relative_difference": 1.599358e-05
+    },
+    {
+      "left_endpoint": 51,
+      "right_bond": 55,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002445391,
+      "energy_inversion": 0.0002445391,
+      "entropy_inversion": 0.0002441154,
+      "entropy_relative_difference": 0.001732251
+    },
+    {
+      "left_endpoint": 47,
+      "right_bond": 55,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002445391,
+      "energy_inversion": 0.0002445391,
+      "entropy_inversion": 0.0002444993,
+      "entropy_relative_difference": 0.0001626341
+    },
+    {
+      "left_endpoint": 39,
+      "right_bond": 55,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002445391,
+      "energy_inversion": 0.0002445391,
+      "entropy_inversion": 0.000244538,
+      "entropy_relative_difference": 4.436423e-06
+    },
+    {
+      "left_endpoint": 31,
+      "right_bond": 55,
+      "source": "coherent_pair",
+      "bond_energy": 0.0002445391,
+      "energy_inversion": 0.0002445391,
+      "entropy_inversion": 0.0002445404,
+      "entropy_relative_difference": 5.543505e-06
+    },
+    {
+      "left_endpoint": 51,
+      "right_bond": 55,
+      "source": "signed_rotation",
+      "bond_energy": -1.05888e-05,
+      "energy_inversion": -1.05888e-05,
+      "entropy_inversion": -1.063557e-05,
+      "entropy_relative_difference": 0.004416826
+    },
+    {
+      "left_endpoint": 47,
+      "right_bond": 55,
+      "source": "signed_rotation",
+      "bond_energy": -1.05888e-05,
+      "energy_inversion": -1.05888e-05,
+      "entropy_inversion": -1.060241e-05,
+      "entropy_relative_difference": 0.00128484
+    },
+    {
+      "left_endpoint": 39,
+      "right_bond": 55,
+      "source": "signed_rotation",
+      "bond_energy": -1.05888e-05,
+      "energy_inversion": -1.05888e-05,
+      "entropy_inversion": -1.059419e-05,
+      "entropy_relative_difference": 0.0005084697
+    },
+    {
+      "left_endpoint": 31,
+      "right_bond": 55,
+      "source": "signed_rotation",
+      "bond_energy": -1.05888e-05,
+      "energy_inversion": -1.05888e-05,
+      "entropy_inversion": -1.059213e-05,
+      "entropy_relative_difference": 0.0003145671
+    }
+  ],
+  "count_bank": {
+    "seed": 24649,
+    "shots_per_setting": 1073741824,
+    "settings": 18,
+    "reference_mode_calibration_occupied": [
+      1061583864,
+      833739889,
+      239998000,
+      12156571
+    ],
+    "reference_modes_occupied": [
+      1061585694,
+      833743405,
+      240007477,
+      12161936
+    ],
+    "replaced_modes_occupied": [
+      1061300368,
+      832905290,
+      240886482,
+      12452894
+    ],
+    "bond_order": [
+      "empty",
+      "symmetric",
+      "antisymmetric",
+      "double"
+    ],
+    "reference_bonds": [
+      [
+        159625439,
+        719018390,
+        35435957,
+        159662038
+      ],
+      [
+        159634694,
+        719040578,
+        35445857,
+        159620695
+      ],
+      [
+        159636917,
+        719030419,
+        35443824,
+        159630664
+      ]
+    ],
+    "replaced_bonds": [
+      [
+        159848924,
+        718498131,
+        35553523,
+        159841246
+      ],
+      [
+        159829078,
+        718540083,
+        35544731,
+        159827932
+      ],
+      [
+        159819898,
+        718557262,
+        35548584,
+        159816080
+      ]
+    ],
+    "simultaneous_confidence": 0.99,
+    "frequency_radius": 6.431118e-05,
+    "entropy_read": 0.004390309,
+    "entropy_interval": [
+      0.002918089,
+      0.005865693
+    ],
+    "weighted_energy_read": 0.004422269,
+    "weighted_energy_interval": [
+      0.0024015,
+      0.006443037
+    ]
+  }
+}

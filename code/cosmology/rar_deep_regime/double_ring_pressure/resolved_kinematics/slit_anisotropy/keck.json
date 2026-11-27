@@ -1,0 +1,24 @@
+{
+  "source": "https://arxiv.org/html/1111.4215",
+  "tables": [6, 7],
+  "instrument": "Keck I LRIS",
+  "observation_dates": ["2006-12-23", "2006-12-24"],
+  "slit_width_arcsec": 1.0,
+  "extraction_height_arcsec": 0.21,
+  "seeing_fwhm_arcsec": 0.8,
+  "published_center_accuracy_arcsec": 0.02,
+  "columns": ["offset_arcsec", "mean_velocity_km_s", "mean_error_km_s", "dispersion_km_s", "dispersion_error_km_s"],
+  "measurements": [
+    [-1.05, 101, 21, 252, 25],
+    [-0.84, 85, 16, 273, 18],
+    [-0.63, 62, 11, 263, 14],
+    [-0.42, 30, 10, 278, 12],
+    [-0.21, 20, 10, 287, 11],
+    [0.00, 0, 9, 287, 11],
+    [0.21, -22, 11, 286, 11],
+    [0.42, -55, 12, 299, 13],
+    [0.63, -67, 13, 274, 15],
+    [0.84, -63, 15, 272, 19],
+    [1.05, -94, 24, 301, 25]
+  ]
+}

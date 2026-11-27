@@ -14,7 +14,9 @@ from model.executable_model.carrier import seam_digest
 
 HERE = Path(__file__).resolve().parent
 K = float(candidate.KAPPA)
-H = 0.5
+# Magnitude of the blank contact transition between the two dimer orientations.
+_blank_law = candidate.native_law
+H = -float(_blank_law.seam_term(0)[_blank_law.SRC.index((0, 1)), _blank_law.SRC.index((1, 0))])
 SEEDS = (312141, 312142, 312143)
 DT, SAMPLES = 0.08, 16384
 # Importance sampling just one physical product-Pauli setting from each

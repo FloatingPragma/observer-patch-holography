@@ -1,0 +1,156 @@
+{
+  "source": "https://arxiv.org/pdf/2511.02730v1",
+  "source_sha256": "3ac2b5c5a5b2051108e0a925a45e99bcd5dbe8f0259ac80e2aadd7252de61a60",
+  "slopes_printed_in_figure_5": [
+    -0.462,
+    -0.299,
+    -0.301
+  ],
+  "excluded_bin_indices": [
+    2,
+    3,
+    8,
+    14,
+    15,
+    16,
+    18,
+    21,
+    22,
+    24,
+    31,
+    32,
+    33,
+    36,
+    37,
+    42,
+    55
+  ],
+  "assumptions": "Same clipped bins and unweighted continuous piecewise fit as reconstructed from the published figure. Linear spectral index versus stellar age with a common formation-time offset. The published covariance, median redshifts and breakpoints are held fixed. Galaxy selection and clipping are not resimulated.",
+  "forecast_inputs": "Assigned de Sitter screen area, flat Friedmann evolution with dust and constant Lambda, and the first astronomical bin for the matter calibration. The separate pulse readout uses the simulated emitter and receiver records.",
+  "background": {
+    "matter_coefficient": 1756.3240653173957,
+    "H0": 69.36003936370278,
+    "q0": -0.45238258697821443,
+    "redshift_at_zero_acceleration": 0.5151468626872342,
+    "H_at_other_redshifts": [
+      105.99294950817416,
+      117.5504155556322
+    ],
+    "drift_cm_s_per_ten_julian_years": {
+      "1": 1.2162378373765863,
+      "4": -7.665007124563486
+    }
+  },
+  "reported_H_for_three_bins": [
+    88.47999999999993,
+    106.52089680728176,
+    125.964594839753
+  ],
+  "clock_anchor_variation": [
+    {
+      "matter_coefficient": 1029.1707568006013,
+      "H0": 63.903534738053466,
+      "q0": -0.6219676777984411,
+      "redshift_at_zero_acceleration": 0.8106192600280402,
+      "H_at_other_redshifts": [
+        88.58789824630564,
+        96.75613985194765
+      ],
+      "drift_cm_s_per_ten_julian_years": {
+        "1": 3.3055834269071234,
+        "4": -2.660590242220323
+      }
+    },
+    {
+      "matter_coefficient": 2592.673463933163,
+      "H0": 75.14761778759303,
+      "q0": -0.3113339935410708,
+      "redshift_at_zero_acceleration": 0.33068013640452043,
+      "H_at_other_redshifts": [
+        123.00313705173355,
+        137.6359568360549
+      ],
+      "drift_cm_s_per_ten_julian_years": {
+        "1": -0.6076675383924223,
+        "4": -12.032405462835962
+      }
+    }
+  ],
+  "measured_minus_predicted": [
+    12.929103192718244,
+    -17.684594839753004
+  ],
+  "linearized_residual_sigma": [
+    6.505110327712027,
+    12.432736668667934
+  ],
+  "marginal_standardized_residuals": [
+    1.9875301941674617,
+    -1.4224217331265783
+  ],
+  "gaussian_two_sided_marginal_tails": [
+    0.04686367330448339,
+    0.15490385765916917
+  ],
+  "all_bin_chi2": 6.459274206509887,
+  "approximate_tail_two_dof": 0.039571856681010285,
+  "official_flat_BAO_CMB": {
+    "source": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base/desi-bao-all_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/",
+    "Lambda_lP2_mean": 2.9677036022648546e-122,
+    "Lambda_lP2_sd": 3.9776584184203244e-124,
+    "level202": 2.797289211682925e-122,
+    "level202_minus_mean_in_posterior_sd": -4.284289213793456,
+    "interpretation": "The fixed area assigned to the screen is identified with a de Sitter horizon. The distance to the flat-LambdaCDM posterior uses CMB data shared with level selection. Determining a vacuum stress from observer records requires an independent gravitational measurement."
+  },
+  "observer_zero_pulse_readout": {
+    "source": "code/cosmology/screen_coherence/level202_distance_redshift.json",
+    "source_sha256": "3bed0dcce1a046302c3d109ca8e641fd856e7a8aef62c5d662de3160849be5fa",
+    "receiver": [
+      0,
+      0
+    ],
+    "enrolled_beacons_per_epoch": 274,
+    "panels": [
+      {
+        "query_tick": 0,
+        "pulse_shift_counts": {
+          "0": 92,
+          "1/4": 5
+        },
+        "missing_pulse_pairs": 177,
+        "complete_pulse_and_echo": 96,
+        "pulse_pairs_in_galaxy_fit_range": 0
+      },
+      {
+        "query_tick": 4,
+        "pulse_shift_counts": {
+          "0": 95,
+          "1/4": 1
+        },
+        "missing_pulse_pairs": 178,
+        "complete_pulse_and_echo": 95,
+        "pulse_pairs_in_galaxy_fit_range": 0
+      },
+      {
+        "query_tick": 16,
+        "pulse_shift_counts": {
+          "0": 96
+        },
+        "missing_pulse_pairs": 178,
+        "complete_pulse_and_echo": 95,
+        "pulse_pairs_in_galaxy_fit_range": 0
+      },
+      {
+        "query_tick": 96,
+        "pulse_shift_counts": {
+          "0": 96
+        },
+        "missing_pulse_pairs": 178,
+        "complete_pulse_and_echo": 95,
+        "pulse_pairs_in_galaxy_fit_range": 0
+      }
+    ],
+    "chronometer_H_km_s_Mpc": null,
+    "instrument": "The material beacons supply pulse periods and radar echoes. A galaxy-clock rate requires spectroscopic redshifts and independently calibrated ages of comoving tracers."
+  }
+}

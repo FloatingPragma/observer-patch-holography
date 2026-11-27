@@ -122,3 +122,39 @@ def test_record_selects_actual_service_support_and_union_complement():
             assert support==(0,1)
             np.testing.assert_allclose(m.numeric(left),q@u@p@u,atol=1e-14,rtol=0)
             np.testing.assert_array_equal(m.numeric(right),identity)
+
+
+def test_archive_checks_current_runtime_sources_and_each_physical_output():
+    import copy
+    import json
+    from .provenance import PRODUCER, REVIEWED_PRODUCER, compare_replay
+
+    saved = json.loads(m.RECEIPT.read_text())
+    live = copy.deepcopy(saved)
+    live['source_sha256'][PRODUCER] = REVIEWED_PRODUCER
+    live['source_sha256']['model/candidate_laws/interval_echo/SPEC.md'] = 'changed prose'
+    compare_replay(saved, live)
+    bad_archive = copy.deepcopy(saved)
+    bad_archive['source_sha256']['model/candidate_laws/interval_echo/SPEC.md'] = 'invented original'
+    with pytest.raises(ValueError, match='differs from the deposit'):
+        compare_replay(bad_archive, live)
+    # The message experiment archived a different authentic revision of the same SPEC.
+    # Existence in the shared archive does not establish enrollment in this experiment.
+    from model.experiments.interval_echo_message.channel import SPEC as message_protocol
+    from model.experiments.record_provenance import verify_deposit
+    spec_path = 'model/candidate_laws/interval_echo/SPEC.md'
+    other = message_protocol['sources'][spec_path]
+    assert other != saved['source_sha256'][spec_path]
+    verify_deposit({spec_path: other})
+    bad_archive['source_sha256'][spec_path] = other
+    with pytest.raises(ValueError, match='source manifest differs'):
+        compare_replay(bad_archive, live)
+    for path in ('model/candidate_laws/contrast_memory_spherical_v1/law.py', PRODUCER):
+        bad_input = copy.deepcopy(live)
+        bad_input['source_sha256'][path] = 'changed executable'
+        with pytest.raises(ValueError):
+            compare_replay(saved, bad_input)
+    bad_result = copy.deepcopy(live)
+    bad_result['geometry']['ports'] -= 1
+    with pytest.raises(ValueError):
+        compare_replay(saved, bad_result)

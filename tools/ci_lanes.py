@@ -99,7 +99,9 @@ LANES: tuple[Lane, ...] = (
     lane("consensus", "push", "root", 1.5, "python -W error -m pytest -q code/consensus", env=BLAS1),
     lane("cosmology_accounting", "push", "root", 0.5,
          "python -m pytest -q code/cosmology/fixed_capacity_wlaw code/cosmology/postdiction_ledger -W error",
-         "python code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py"),
+         "python code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py",
+         "python -m pytest -q -W error code/cosmology/rar_deep_regime/double_ring_pressure "
+         "code/cosmology/rar_deep_regime/brightness_pairs", env={**CODE, **BLAS1}),
     lane("finite_gauge_transfer", "push", "root", 2,
          "python -W error -m pytest -q code/yang_mills/tests/test_z2_finite_transfer_receipt.py "
          "code/yang_mills/tests/test_z2_finite_transfer_verifier.py code/yang_mills/tests/test_z2_transfer_spectrum.py "

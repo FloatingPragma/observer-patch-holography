@@ -489,7 +489,7 @@ That is enough to answer the specific "your fixed pixels pick a preferred frame"
 
 So the criticism asks for too much in the wrong place. A full UV completion would be desirable, but the Lorentz-invariance issue is addressed at the level of the emergent observable net.
 
-The same holds for the executable model. Its ports, seams and cells are hardware of the computation and no physical space, so a pixel or a cell picks no frame that observers could detect. Its tests compare distributions of admissible observer records with what observers in our world record. The flagship's proposition on smooth effective field descriptions proves that for every finite admissible menu of observer readouts a smooth (1+3)-dimensional Lorentzian field theory reproduces their complete predictions: observers who inhabit the simulation can describe their experiences as relativistic 3+1D continuum spacetimes.
+In the executable model, a preferred frame would be observable if internal clocks and signals could detect it. Which frame dependences survive is a question about those records. The flagship's smooth-field proposition supplies a radial interval, hyperbolic evolution and preparation. For a fixed finite menu on bounded wave times, a free scalar field on a smooth static (1+3)-dimensional metric approximates the joint records to any prescribed accuracy, up to source and clock errors. Testing frame dependence across other instruments requires their own predictions.
 
 ---
 

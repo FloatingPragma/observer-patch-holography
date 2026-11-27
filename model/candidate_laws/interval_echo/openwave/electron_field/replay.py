@@ -62,6 +62,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--family-only", action="store_true", help="replay only the charged-family experiments")
+    mode.add_argument("--frozen-flight-only", action="store_true", help="run the matched native no-ring control only")
     mode.add_argument("--verify-only", action="store_true", help="verify the archive without numerical dependencies")
     args = parser.parse_args()
     digests = {}
@@ -84,6 +85,11 @@ def main():
             (root / "reverse-engineering-reality").symlink_to(MODEL_ROOT, target_is_directory=True)
             archive.extractall(root)
             env = os.environ | dict.fromkeys(("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"), "1")
+            if not args.family_only:
+                subprocess.run([sys.executable, "-B", "-W", "error", str(HERE / "frozen_flight.py"),
+                                str(root / "experiments")], cwd=root, env=env, check=True)
+            if args.frozen_flight_only:
+                return
             studies = [(root / "experiments" / directory, stem, record)
                        for directory, stem, record in EXPERIMENTS]
             studies.extend((HERE / directory, "search", "results")

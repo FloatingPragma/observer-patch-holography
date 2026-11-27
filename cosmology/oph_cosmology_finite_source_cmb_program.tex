@@ -4,6 +4,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,tabularx}
+\usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xurl}
@@ -842,6 +843,140 @@ so later arrivals cannot restore a missing reply. For a pulse sent at any
 settled tick $s$, the farthest reply returns at $s+32$ while clock and
 relay service continue. The \href{https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_reach.json}{individual
 round trips} specify this observer's material reach.
+
+On the level-12 sphere, a local replay at seed 20261126 places one
+receiver at observer zero and one at the central descendant of each of
+the twenty base faces. Each station times the incoming periods and
+immediate echoes from port zero on three adjacent observers, on matched
+trials with a twelve-tick window in each direction. For four-tick
+emitted periods starting at zero, 35 of 63 received pairs are complete.
+Four stretch to five ticks. All four give four-tick periods on the
+same routes at sends 96 and 100. All 63 transparent controls preserve
+the emitted period. Observer zero times two incoming four-tick periods
+from observers 3 and 67,108,864. Their round trips initially take eight
+ticks each. At the next send they take nine and eight ticks, respectively.
+Thus equal one-way frequency readings can accompany different changes
+in two-way range. The clock cadence and reflector service are supplied.
+The sampled directions and local material ranges alone do not determine
+a cosmological scale factor.
+
+Repeating the survey at level 13 gives five stretched periods among
+41 complete pairs on the first two sends, and zero among 38 complete
+pairs at sends 96 and 100. A level-independent prediction follows for
+another receiver experiment. Probe each of an observer's three external
+contacts with an immediate material reflection at settlement. Under
+independent fair initial port loads and eventual service, an external
+contact remains transmitting exactly when its two initial loads agree.
+Opposite loads reserve the pair at the highest repair priority until its
+write. The three contacts involve disjoint ports, so the number returning
+a two-tick echo has the binomial law $\mathrm{Bin}(3,1/2)$ at every level.
+Three of the 21 level-12 receivers and one of the 21 level-13 receivers
+have zero direct returns in these seeded samples.
+
+Let $B_r$ be the event that a reachable observer requires at least $r$
+handoffs between observers on its shortest settled material route from
+the receiver. Within one observer a written internal edge can be bypassed
+through a common neighbor of its endpoints. Both bypass edges are blank
+because written pairs are disjoint. An exploration by handoff count has
+at most three untested contacts at the root and at most two at each
+subsequently discovered observer. Independent fair initial loads make
+each untested contact transmitting with probability $1/2$. Reaching the
+same observer by two routes reduces frontier growth. Coupling to
+a binary branching tree below the root gives $q_0=1$,
+$q_{j+1}=1-(1-q_j/2)^2$ and
+$\Pr(B_r)\le 1-(1-q_{r-1}/2)^3$.
+In particular $\Pr(B_{100})<0.05533$, including on the level-202 sphere
+under the same ensemble hypotheses. This bounds tagged material echoes.
+An instrument that transfers information through a written contact has
+a different reach.
+
+\paragraph{Observer zero on the level-202 sphere.}
+We extend the seeded preparation and repair offers to 409-bit observer
+identifiers and evaluate the neighborhoods needed for timing. On the same
+21 placements used at levels 12 and 13, three of 40 complete early pulse
+pairs stretch from four ticks to five. All 34 complete late pairs preserve
+the four-tick period. These counts refer to one seed and one declared
+extension of the native preparation.
+
+Observer zero also queries 274 remote ports. In matched trials a reflected
+tag measures $D=c(t_{\rm return}-t_{\rm send})/2$, and two source pulses
+four ticks apart, centered on the reflection, measure $1+z$ by their
+received spacing. At the first send there are 96 complete pairs of readings.
+Five give $z=1/4$ and 91 give zero. Both shifts occur at each of the
+radar distances $4,8,9.5,12.5$ in units of light travel per tick.
+At send 96 all 95 complete readings give $z=0$.
+
+For fixed endpoints this relay makes a sign prediction at every level.
+Each material contact can close only once. Translating any successful
+later route back by $\delta$ ticks leaves each transfer admissible, so
+the earliest arrival $A$ satisfies $A(t+\delta)\ge A(t)+\delta$ whenever
+both pulses arrive. With a source period of four ticks, every measured
+shift is a nonnegative integer multiple of $1/4$. The argument also
+applies to a route with an immediate reflection. Of the 95 beacons with
+complete readings at sends 0 and 96, 60 keep the same range and 35
+increase by one-half to one and a half light-ticks. Their individual
+ranges at sends 16 and 96 agree exactly.
+
+The conditional whole-screen value $\Lambda\ell_{\rm P}^2=2.7973\times
+10^{-122}$ has a separate clock prediction. For comoving clocks in a flat
+expanding de Sitter chart, equality of the outward and inward conformal
+flight distances gives $2e^{-Ht_{\rm reflect}}=e^{-Ht_{\rm send}}+
+e^{-Ht_{\rm return}}$. The instantaneous redshift at reflection is then
+$z=(e^{2HD/c}-1)/2$. With one Planck time per tick the screen assignment
+gives $Ht_{\rm P}=9.6562\times10^{-62}$. A four-tick pulse cannot
+resolve the corresponding shift at ten light-ticks. Over the vacuum
+doubling interval of $7.1782\times10^{60}$ ticks the predicted range
+there grows from ten light-ticks to twenty to the displayed precision.
+The receiver instead records a twenty-tick round trip at both epochs.
+All 95 late ranges are constant. The last closure in the timing
+neighborhood occurs at tick 33, so translating the sends through the
+stationary local service gives the later readings exactly, assuming the
+same clocks and beacons persist. Thus these material beacons fail the
+comoving de Sitter range prediction. Interpreting the screen value as a
+cosmological expansion requires a physically identified comoving source
+population and null signal. The timestamps and derivation accompany
+\pathref{code/cosmology/screen_coherence/level202_distance_redshift.json}.
+
+Removing both the enrollment radius and the echo deadline gives an exact
+causal census for this material signal. At send zero, 174 tagged remote
+ports on 15 observers reply. From send 15 onward, 168 remote ports on
+14 observers return the same individual waits, from 4 to 60 ticks.
+All contacts on the boundary of the receiver's final component close.
+After its last incident closure at tick 27, only that component can
+deliver a reply. Backward propagation of possible arrivals from tick 27
+followed by forward timed challenges exhausts earlier replies, including
+those crossing the boundary during repair.
+
+\paragraph{A timing bound from the level alone.}
+A transponder on any descendant of the opposite base face answers only
+after receiving a fresh challenge. Let each base vertex carry its edge
+distance to the nearest vertex of the sender's base face. The sender's
+face has three zeros and the opposite face three twos. At each subdivision,
+double each old value and assign a midpoint the sum of its two endpoint
+values. The endpoints of every fine edge differ by at most one.
+This follows by subtraction for a corner-to-midpoint edge and for two
+midpoints sharing a corner. Across adjacent fine triangles, the sums
+on their three vertices differ by at most two, since the triangles share
+an edge. The opposite end sums differ by $6\,2^L$. Every one-way route
+therefore crosses at least $3\,2^L$ interobserver contacts. On a shortest
+fully transmitting path, consecutive crossings use distinct ports and
+require an intervening internal transfer. Repairs can only increase the
+wait or prevent the reply. The receiver's earliest possible round trip
+is bounded below by $12\,2^L-2$ transfer ticks, or $7.7133\times10^{61}$
+ticks at level 202. Hardware subdivision specifies the transponder
+preparation. The receiver reads only the returned challenge and its clock.
+The seeded level-202 census has zero replies from the opposite patch.
+The complete records and transparent-sphere controls accompany
+\pathref{code/cosmology/screen_coherence/level202_echo_reach.json}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{../code/cosmology/screen_coherence/level202_distance_redshift.png}
+\caption{Observer zero times independent pulses and echoes. Dot area counts
+beacons with identical readings. The 95 late beacons belong to nine remote
+observers. Crosses give the comoving de Sitter prediction at the same initial
+measured ranges, under the whole-screen and clock calibrations.}
+\end{figure}
 
 The assignment $c=299\,792\,458\,{\rm m\,s^{-1}}$ preserves every
 echo under $(\tau,c\tau)\mapsto(b\tau,bc\tau)$ for $b>0$. An independent

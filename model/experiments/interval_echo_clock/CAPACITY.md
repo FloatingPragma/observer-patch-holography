@@ -1,6 +1,6 @@
 # Clock accuracy at long handoff intervals
 
-On the reciprocal unit-link fixture, a five-bit interval field suffices to bring the **expected** traveller/home rate within 0.0005 of the optical target for every positive integer handoff interval. The largest difference is 0.000488401 at interval 32. The moving observer occupies 14 cells at rest and 15 across a transfer. The nine-bit elapsed word, prepared hands, guide, readout windows and local primary source have their original roles. [Frozen tolerance and experiment](CAPACITY_PROTOCOL.md) · [Measurements](capacity.json)
+On the reciprocal unit-link fixture, a five-bit interval field suffices to bring the **expected** traveller/home rate within 0.0005 of the optical target for every positive integer handoff interval. At b bits the first overflow alone gives error 1−√(1−4⁻ᵇ). This is 0.00195504 for four bits and 0.000488401 for five. The finite-state calculation checks the representable intervals, and monotonicity bounds all later overflows. The five-bit margin is a design tolerance. The moving observer occupies 14 cells at rest and 15 across a transfer. The nine-bit elapsed word, prepared hands, guide, readout windows and local primary source have their original roles. [Frozen tolerance and experiment](CAPACITY_PROTOCOL.md) · [Measurements](capacity.json)
 
 | Bits in each of age, length and address | First overflow | Intervals outside a 0.0005 rate tolerance | Largest absolute rate error |
 | ---: | ---: | --- | ---: |

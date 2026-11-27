@@ -1,4 +1,4 @@
-"""Signed message grammar and the honest observer's local signing guards."""
+"""Signed message grammar and the nonfaulty observer's local signing guards."""
 
 from functools import lru_cache
 
@@ -159,17 +159,17 @@ class Rules:
 
 
 class Observer:
-    def __init__(self, i, rules, board):
+    def __init__(self, i, rules, board, *, memory=None):
         self.i, self.rules = i, rules
         self.view = -1
         self.value = None
-        self.memory = LockMemory(i, board)
+        self.memory = LockMemory(i, board) if memory is None else memory
         self.decision = None
         self.decision_certificate = None
 
     @property
     def lock(self):
-        return self.memory.read(self.i)[1]
+        return self.memory.read(self.memory.i)[1]
 
     def change(self, view):
         if view < self.view:

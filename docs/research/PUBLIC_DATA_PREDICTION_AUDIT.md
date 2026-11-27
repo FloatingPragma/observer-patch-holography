@@ -19,10 +19,11 @@ reference candidate A-contrast-memory-spherical-v1
 [binding theorem](../../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md)) and gives each observer
 patch a travelling clock. Its tests compare
 distributions of admissible observer records with what observers in our world
-record. The state of the simulation is no physical space: the flagship's
-proposition on smooth effective field descriptions proves that observers who
-inhabit the simulation can describe their experiences as relativistic 3+1D
-continuum spacetimes. The model reproduces particle stability on its
+record. The flagship's smooth-field proposition takes a specified radial interval,
+hyperbolic evolution and preparation. A smooth static 3+1D free scalar field
+then approximates the joint predictions for a fixed finite set of admissible
+readouts on bounded wave times, up to the source and clock errors. The
+candidate still has to produce the physical inputs for this comparison. The model reproduces particle stability on its
 observers' agreed records. The observables compared below come from the
 theory's conditional maps; deriving them from the model's own records is work
 in progress.

@@ -39,7 +39,7 @@ SAMPLED_PREFIX = {'collar.reading.sampled.': 1e-4}
 
 
 def compute(full=False):
-    from model.executable_model import carrier
+    from model.executable_model import validation
     from . import catalogue, collar, events, extras, law, port_response, reader, stability, theorem
     from .common import Clock, clean
     import numpy, scipy, sympy
@@ -47,7 +47,7 @@ def compute(full=False):
     out = {'schema': SCHEMA, 'model': 'A-contrast-memory-spherical-v1', 'law': 'A-contrast-memory-spherical-v1'}
     out['local_law'] = law.exact_checks()
     clock.mark('local_law')
-    out['carrier'] = carrier.run(levels=(0, 1, 2) if full else (0,))
+    out['carrier'] = validation.run(levels=(0, 1, 2) if full else (0,))
     clock.mark('carrier')
     out['theorem'] = theorem.run(levels=(0, 1, 2) if full else (0,))
     clock.mark('theorem')

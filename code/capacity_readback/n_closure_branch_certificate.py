@@ -64,6 +64,24 @@ POISSON_BRANCH = "poisson_projective_limit"
 BRANCH_IDS = (FINITE_BRANCH, POISSON_BRANCH)
 
 
+OPEN_GATES = (
+    "inherited_screen_electroweak_bridge_premises",
+    "common_load_identification",
+    "global_capacity_attachment",
+    "horizon_record_identity",
+    "physical_repair_law_attachment",
+    "one_class_reserve_attachment",
+    "scalar_weighted_reserve_receipt",
+)
+PROMOTION_CONTROLS = (
+    "global_capacity",
+    "horizon_record_count",
+    "physical_cosmological_constant",
+    "prediction",
+    "prospective_freeze",
+)
+
+
 class CertificateError(ValueError):
     """Fail-closed validation error with a stable code."""
 
@@ -84,25 +102,39 @@ def canonical_json_bytes(value: Any) -> bytes:
     ).encode("utf-8")
 
 
-def _load_json(path: Path) -> dict[str, Any]:
+def _read_bytes(path: Path) -> bytes:
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
+        return path.read_bytes()
+    except OSError as exc:
+        raise CertificateError("SOURCE_READ", f"cannot read {path}: {exc}") from exc
+
+
+def _load_json(path: Path, raw: bytes) -> dict[str, Any]:
+    try:
+        value = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise CertificateError("SOURCE_READ", f"cannot read {path}: {exc}") from exc
     require(isinstance(value, dict), "SOURCE_TYPE", f"{path} is not a JSON object")
     return value
 
 
-def _source_pin(path: Path) -> dict[str, Any]:
-    try:
-        raw = path.read_bytes()
-    except OSError as exc:
-        raise CertificateError("SOURCE_READ", f"cannot read {path}: {exc}") from exc
-    return {
-        "path": path.relative_to(ROOT).as_posix(),
-        "sha256": "sha256:" + hashlib.sha256(raw).hexdigest(),
-        "bytes": len(raw),
-    }
+def _source_documents(
+    *, verify_sources: bool = True,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    paths = (P_SOURCE_PATH, FINITE_SEMANTICS_PATH, MENU_PATH)
+    contents = [_read_bytes(path) for path in paths]
+    documents = [_load_json(path, raw) for path, raw in zip(paths, contents)]
+    if verify_sources:
+        _check_sources(*documents)
+    pins = [
+        {
+            "path": path.relative_to(ROOT).as_posix(),
+            "sha256": "sha256:" + hashlib.sha256(raw).hexdigest(),
+            "bytes": len(raw),
+        }
+        for path, raw in zip(paths, contents)
+    ]
+    return documents, pins
 
 
 def _number(value: Any, label: str) -> Any:
@@ -119,11 +151,9 @@ def _decimal(value: Any, digits: int = 80) -> str:
     return mp.nstr(value, digits, strip_zeros=False)
 
 
-def _load_sources() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
-    p_source = _load_json(P_SOURCE_PATH)
-    finite = _load_json(FINITE_SEMANTICS_PATH)
-    menu = _load_json(MENU_PATH)
-
+def _check_sources(
+    p_source: Mapping[str, Any], finite: Mapping[str, Any], menu: Mapping[str, Any]
+) -> None:
     require(
         p_source.get("artifact") == "R_P_source_audit_pixel_certificate",
         "SOURCE_IDENTITY",
@@ -179,13 +209,13 @@ def _load_sources() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         "TYPE_CONFUSION",
         "source menu does not retain both reserve readings",
     )
-    return p_source, finite, menu
 
 
 def build() -> dict[str, Any]:
     """Build the deterministic retrospective branch packet."""
     mp.dps = PRECISION
-    p_source, finite, _menu = _load_sources()
+    documents, sources = _source_documents()
+    p_source = documents[0]
 
     P = _number(p_source.get("P_cand"), "P_cand")
     alpha_u = _number(p_source.get("alpha_U_P_cand"), "alpha_U_P_cand")
@@ -207,21 +237,6 @@ def build() -> dict[str, Any]:
     finite_n = n0 * finite_factor
     poisson_n = n0 * poisson_factor
 
-    sources = [
-        _source_pin(P_SOURCE_PATH),
-        _source_pin(FINITE_SEMANTICS_PATH),
-        _source_pin(MENU_PATH),
-    ]
-
-    shared_open_gates = {
-        "inherited_screen_electroweak_bridge_premises": "open",
-        "common_load_identification": "open",
-        "global_capacity_attachment": "open",
-        "horizon_record_identity": "open",
-        "physical_repair_law_attachment": "open",
-        "one_class_reserve_attachment": "open",
-        "scalar_weighted_reserve_receipt": "open",
-    }
     branches = [
         {
             "branch_id": FINITE_BRANCH,
@@ -237,7 +252,7 @@ def build() -> dict[str, Any]:
                 "the finite edge-center receipt types 1 - P/24 as the "
                 "finite one-step presence value"
             ),
-            "open_gates": shared_open_gates,
+            "open_gates": dict.fromkeys(OPEN_GATES, "open"),
         },
         {
             "branch_id": POISSON_BRANCH,
@@ -257,7 +272,7 @@ def build() -> dict[str, Any]:
             "additional_open_gate": {
                 "mean_count_or_projective_limit_carrier": "open"
             },
-            "open_gates": shared_open_gates,
+            "open_gates": dict.fromkeys(OPEN_GATES, "open"),
         },
     ]
 
@@ -307,13 +322,7 @@ def build() -> dict[str, Any]:
             "finite_factor_strictly_below_poisson_factor": True,
         },
         "branches": branches,
-        "promotion_controls": {
-            "global_capacity": False,
-            "horizon_record_count": False,
-            "physical_cosmological_constant": False,
-            "prediction": False,
-            "prospective_freeze": False,
-        },
+        "promotion_controls": dict.fromkeys(PROMOTION_CONTROLS, False),
         "verdict": (
             "ARITHMETIC_REPRODUCED_TWO_RETROSPECTIVE_BRANCHES_UNSELECTED_"
             "PHYSICAL_ATTACHMENTS_OPEN"
@@ -374,11 +383,8 @@ def validate(payload: Mapping[str, Any], *, verify_sources: bool = True) -> None
 
     pins = payload.get("source_pins")
     require(isinstance(pins, list) and len(pins) == 3, "SOURCE_PINS", "source pins incomplete")
-    paths = [P_SOURCE_PATH, FINITE_SEMANTICS_PATH, MENU_PATH]
-    expected_pins = [_source_pin(path) for path in paths]
+    documents, expected_pins = _source_documents(verify_sources=verify_sources)
     require(pins == expected_pins, "SOURCE_PINS", "source pins do not match consumed bytes")
-    if verify_sources:
-        _load_sources()
 
     source_inputs = payload.get("source_inputs")
     require(isinstance(source_inputs, Mapping), "PAYLOAD_TYPE", "source inputs missing")
@@ -387,8 +393,14 @@ def validate(payload: Mapping[str, Any], *, verify_sources: bool = True) -> None
         "SOURCE_STATUS",
         "source input promotion drift",
     )
-    P = _number(source_inputs.get("P"), "source_inputs.P")
-    alpha_u = _number(source_inputs.get("alpha_U"), "source_inputs.alpha_U")
+    P = _number(documents[0].get("P_cand"), "P_cand")
+    alpha_u = _number(documents[0].get("alpha_U_P_cand"), "alpha_U_P_cand")
+    require(
+        source_inputs.get("P") == _decimal(P)
+        and source_inputs.get("alpha_U") == _decimal(alpha_u),
+        "SOURCE_INPUT",
+        "P or alpha_U differs from the pinned source",
+    )
     require(P > 0 and alpha_u > 0, "DOMAIN", "P and alpha_U must be positive")
 
     baseline = payload.get("conditional_baseline")
@@ -439,9 +451,7 @@ def validate(payload: Mapping[str, Any], *, verify_sources: bool = True) -> None
         )
         gates = row.get("open_gates")
         require(
-            isinstance(gates, Mapping)
-            and gates
-            and all(value == "open" for value in gates.values()),
+            gates == dict.fromkeys(OPEN_GATES, "open"),
             "PROMOTION",
             f"{branch_id} physical gate was discharged",
         )
@@ -463,7 +473,7 @@ def validate(payload: Mapping[str, Any], *, verify_sources: bool = True) -> None
     controls = payload.get("promotion_controls")
     require(
         isinstance(controls, Mapping)
-        and controls
+        and controls.keys() == set(PROMOTION_CONTROLS)
         and all(value is False for value in controls.values()),
         "PROMOTION",
         "a physical or prediction promotion was enabled",
@@ -481,7 +491,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.validate_only:
-        payload = _load_json(args.output)
+        payload = _load_json(args.output, _read_bytes(args.output))
         validate(payload, verify_sources=True)
         print("N_CLOSURE_BRANCH_CERTIFICATE_VALID")
         return 0
