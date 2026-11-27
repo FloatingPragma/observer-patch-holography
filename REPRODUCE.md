@@ -284,9 +284,9 @@ path, and selected release ID into the shared manifest before final
 validation. Publication remains a separate maintainer action after the
 candidate is committed, pushed, and inspected.
 
-A manual dispatch of the `Nightly` workflow checks the latest public release
-against its tagged manifest, PDF files and Git commit. The paper preview job
-in `CI` rebuilds the manuscripts on the branch under review.
+A manual dispatch of the `Nightly` workflow resolves the GitHub Release tag
+and compares the published assets with its manifest, PDF files and Git commit.
+The paper preview job in `CI` rebuilds the manuscripts on the branch under review.
 
 Both builders derive `SOURCE_DATE_EPOCH` from the visible date in
 `paper/release_info.tex`, force UTC, avoid host-font selection, and retain the
