@@ -20,20 +20,19 @@ def run():
     old = blank.run()
     board, _, _, _ = source.matched.fp.make_board()
     lap = np.diag(board.degree) - board.adjacency().toarray()
-    ev, basis = eigh(lap)
-    ids = np.flatnonzero(np.diff(ev) > 1e-8)[:3] + 1
+    spatial, modes, preparation_sha256 = blank.fringe_modes(lap)
     probs = np.zeros((3, 2, 2))
     discrepancy = 0.0
     for parity in range(8):
         four, _ = source.timing.model(1, parity)
         h = four / 4
-        en, modes = eigh(h)
-        for i, idx in enumerate(ids):
-            a, b = basis[:, 0], basis[:, idx]
+        en, basis = eigh(h)
+        for i, b in enumerate(modes[1:]):
+            a = modes[0]
             launch = np.kron(((a + b) / np.sqrt(2))[:, None], np.eye(8))
             readers = [(a + b) / np.sqrt(2), (a - 1j * b) / np.sqrt(2)]
             for j, t in enumerate((1.0, 2.0)):
-                wave = modes @ (np.exp(-1j * t * en)[:, None] * (modes.T @ launch))
+                wave = basis @ (np.exp(-1j * t * en)[:, None] * (basis.T @ launch))
                 audit = expm_multiply(-1j * t * sparse.csr_matrix(h), launch)
                 discrepancy = max(discrepancy, float(abs(wave - audit).max()))
                 for k, an in enumerate(readers):
@@ -58,13 +57,13 @@ def run():
     phi = np.arctan2(y, x)
     ephi = np.arcsin(2 * np.sqrt(2) * eps / np.hypot(x, y))
     tlo, thi = clock_bounds(np.array(old["clock_yes"]))
-    amin = (phi - ephi) / (ev[ids[0]] * thi[0])
-    amax = (phi + ephi) / (ev[ids[0]] * tlo[0])
+    amin = (phi - ephi) / (spatial[0] * thi[0])
+    amax = (phi + ephi) / (spatial[0] * tlo[0])
     tlo, thi = clock_bounds(clock_hits)
     rows = []
-    for i, idx in enumerate(ids):
+    for i, shell in enumerate(spatial):
         for j in range(2):
-            low, high = ev[idx] * amin * tlo[j], ev[idx] * amax * thi[j]
+            low, high = shell * amin * tlo[j], shell * amax * thi[j]
             mid = (low + high) / 2
             forecast = (1 + np.array([np.cos(mid), np.sin(mid)])) / 2
             measured = hits[i, j] / blank.SHOTS
@@ -88,6 +87,7 @@ def run():
             )
     return dict(
         protocol_sha256=sha256((HERE / "EQUIPPED_MASS.md").read_bytes()).hexdigest(),
+        fringe_modes_sha256=preparation_sha256,
         seed=437111,
         trials=blank.SHOTS,
         clock_yes=clock_hits.tolist(),

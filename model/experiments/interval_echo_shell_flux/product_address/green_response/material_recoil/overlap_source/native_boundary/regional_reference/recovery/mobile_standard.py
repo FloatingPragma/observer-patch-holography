@@ -5,13 +5,26 @@ from hashlib import sha256
 import json
 
 import numpy as np
-from scipy.linalg import eigh, expm
+from scipy.linalg import eigvalsh, expm
 
 from . import measure as source
 
 HERE = source.HERE
 SHOTS = 2**26
 SEED = 704189
+
+
+def fringe_modes(lap):
+    """Read the prepared amplitudes in contact-map port order."""
+    preparation = (HERE / "fringe_modes.json").read_bytes()
+    modes = np.array(json.loads(preparation))
+    ev = eigvalsh(lap)
+    ids = np.r_[0, np.flatnonzero(np.diff(ev) > 1e-8)[:3] + 1]
+    spatial = ev[ids]
+    assert modes.shape == (4, lap.shape[0])
+    np.testing.assert_allclose(modes @ modes.T, np.eye(4), atol=1e-13, rtol=0)
+    np.testing.assert_allclose(lap @ modes.T, modes.T * spatial, atol=1e-13, rtol=0)
+    return spatial[1:], modes, sha256(preparation).hexdigest()
 
 
 def run():
@@ -21,9 +34,7 @@ def run():
     h, _, _ = source.matched.fp.generator(board, seam, 1, 8, False)
     native = h.toarray()
     np.testing.assert_array_equal(2 * (native - 48 * np.eye(board.n)), lap)
-    ev, modes = eigh(lap)
-    ids = np.flatnonzero(np.diff(ev) > 1e-8)[:3] + 1
-    spatial = ev[ids]
+    spatial, modes, preparation_sha256 = fringe_modes(lap)
     times = np.array([1.0, 2.0])
     # Empty magnitude-one receiver, with both source parity generators checked.
     vacuum_even, _ = source.timing.model(0, 0)
@@ -44,8 +55,8 @@ def run():
         ("half_exchange", 48 * np.eye(board.n) + lap / 4),
     ):
         probs = np.empty((3, 2, 2))
-        for i, idx in enumerate(ids):
-            a, b = modes[:, 0], modes[:, idx]
+        for i, b in enumerate(modes[1:]):
+            a = modes[0]
             launch = (a + b) / np.sqrt(2)
             analysers = [(a + b) / np.sqrt(2), (a - 1j * b) / np.sqrt(2)]
             for j, t in enumerate(times):
@@ -92,6 +103,7 @@ def run():
         )
     return dict(
         protocol_sha256=sha256((HERE / "MOBILE_STANDARD.md").read_bytes()).hexdigest(),
+        fringe_modes_sha256=preparation_sha256,
         seed=SEED,
         shots=SHOTS,
         graph_eigenvalues=spatial.tolist(),

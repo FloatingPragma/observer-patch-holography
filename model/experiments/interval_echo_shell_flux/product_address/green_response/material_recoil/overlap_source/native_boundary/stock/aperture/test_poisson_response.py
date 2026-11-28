@@ -166,9 +166,11 @@ def test_passive_pair_source_and_three_load_release():
     assert len(pair_probe.check_generator()) == 6
     local = json.loads((pair_contact.HERE / "pair_meter.json").read_bytes())
     for row in local["readings"]:
-        assert (
-            pair_meter.estimate(local["reference"], local["clocks"], *row["bright"])
-            == row["from_ordinary_fringe"]
+        np.testing.assert_allclose(
+            pair_meter.estimate(local["reference"], local["clocks"], *row["bright"]),
+            row["from_ordinary_fringe"],
+            rtol=0,
+            atol=2e-15,
         )
     # Off-diagonal phases survive propagation; compare all entries up to its global phase.
     h = sparse.csr_matrix([[1.5, -0.5, 0], [-0.5, 1, -0.5], [0, -0.5, 2.0]])

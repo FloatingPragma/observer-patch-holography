@@ -252,16 +252,17 @@ def run():
             )
         ]
         mix = (first + second) / 2
+        admission = np.vdot(mix, mix).real / 3
+        # The independent spectral solve can differ at roundoff scale in the
+        # full normalized space, even when the admitted line is very weak.
+        np.testing.assert_allclose(
+            admission, deposited["coherent_source_admission"], rtol=0, atol=2e-14
+        )
         for event in deposited["free_beat"][:3]:
             time = event["time"]
             evolution = np.exp(-1j * (energies - energies[0]) * time)
             weights = position_probabilities(modes @ (mix * evolution))
-            np.testing.assert_allclose(
-                weights.sum(),
-                deposited["coherent_source_admission"],
-                rtol=2e-12,
-                atol=0,
-            )
+            np.testing.assert_allclose(weights.sum(), admission, rtol=2e-12, atol=0)
             middle.append(
                 dict(
                     preparation="two tones",

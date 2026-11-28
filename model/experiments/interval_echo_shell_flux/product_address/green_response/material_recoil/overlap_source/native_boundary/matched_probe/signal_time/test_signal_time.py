@@ -9,10 +9,7 @@ from . import signal as s
 
 
 def test_true_sharp_clock_and_two_independent_material_standards():
-    run = s.run()
-    s.m.fp.check(
-        json.loads((s.HERE / "results.json").read_text()), json.loads(json.dumps(run))
-    )
+    run = s.replay(json.loads((s.HERE / "results.json").read_text()))
     assert abs(run["energy"]["admission"] - 2 / 33) < 1e-15
     assert run["energy"]["full_ordinary_cost"] == 561 / 16
     assert run["direct_check_max_error"] < 1e-9

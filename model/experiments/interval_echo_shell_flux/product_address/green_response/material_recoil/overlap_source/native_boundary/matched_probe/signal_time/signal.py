@@ -243,7 +243,7 @@ def crossings(banks):
     return data, dict(times=ts.tolist(), signed_return_by_hand=scan)
 
 
-def samples(banks, events):
+def samples(banks, events, recorded=None):
     # A common local grid anchored to the coarse scan rather than the calculated root.
     count = 2**30
     rng = np.random.default_rng(661823)
@@ -263,7 +263,15 @@ def samples(banks, events):
         idx = NAMES.index(n)
         # Avoid evaluating every other stock in the repeated dense windows.
         probs = (1 + np.cos(t[:, None] * b[0]) @ b[1][:, idx]) / 2
-        raw = rng.binomial(count, np.clip(probs, 0, 1))
+        probs = np.clip(probs, 0, 1)
+        label = f"{n}/{HANDS[k]}/{i + 1}"
+        if recorded is None:
+            raw = rng.binomial(count, probs)
+        else:
+            raw = np.asarray(recorded["records"][label]["same_sign"])
+        assert raw.shape == t.shape and np.issubdtype(raw.dtype, np.integer)
+        assert np.all((0 <= raw) & (raw <= count))
+        np.testing.assert_array_less(abs(raw / count - probs), eps)
         center = raw / count - 0.5
         orientation = 1 if i % 2 == 0 else -1
         before = np.flatnonzero(orientation * center > eps)
@@ -275,7 +283,7 @@ def samples(banks, events):
         )
         if bounds[0] is not None:
             assert bounds[0] <= bounds[1]
-        rows[f"{n}/{HANDS[k]}/{i + 1}"] = dict(
+        rows[label] = dict(
             first_time=float(t[0]),
             step=1 / 8192,
             same_sign=raw.tolist(),
@@ -290,11 +298,11 @@ def samples(banks, events):
     )
 
 
-def run():
+def run(recorded=None):
     states, energies = get_arms()
     banks, err = bank(states)
     events, scan = crossings(banks)
-    shot = samples(banks, events)
+    shot = samples(banks, events, recorded)
     delays = {}
     for k, (lo, hi) in ARMS.items():
         rows = []
@@ -363,18 +371,32 @@ def run():
     )
 
 
+def replay(archive):
+    result = run(recorded=archive["pointer_counts"])
+    old, new = dict(archive), json.loads(json.dumps(result))
+    for packet in (old, new):
+        # Near-degenerate frequencies can fall into different numerical bins.
+        # The consolidation and independent propagation errors bound the readout.
+        lines = packet.pop("resolved_lines")
+        assert len(lines) == len(HANDS) and all(type(n) is int and n > 0 for n in lines)
+        assert max(packet["spectrum_consolidation_error"]) < 1e-8
+        assert packet["direct_check_max_error"] < 1e-9
+    m.fp.check(old, new)
+    return result
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--write", action="store_true")
     args = p.parse_args()
-    result = run()
     path = HERE / "results.json"
     if args.write:
+        result = run()
         path.write_text(
             json.dumps(result, separators=(",", ":"), allow_nan=False) + "\n"
         )
     else:
-        m.fp.check(json.loads(path.read_text()), json.loads(json.dumps(result)))
+        result = replay(json.loads(path.read_text()))
     print(
         result["energy"],
         result["delay_contrasts"],

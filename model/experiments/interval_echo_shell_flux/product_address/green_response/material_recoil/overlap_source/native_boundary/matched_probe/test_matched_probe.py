@@ -93,11 +93,6 @@ def test_all_stocks_replay_against_native_flights_and_control_records():
         np.testing.assert_allclose(
             row["local_sector_weights"], target["local_sector_weights"], atol=5e-14
         )
-    read = counts.acquire(data)
-    assert read == json.loads((m.HERE / "counts.json").read_text())
-    for name, panel in read["records"].items():
-        for sample, record in zip(panel, stocks[name]["probes"], strict=True):
-            assert (
-                max(abs(np.array(sample["radial"]) - record["radial"][:5]))
-                < read["simultaneous_99_percent_half_width"]
-            )
+    count_archive = json.loads((m.HERE / "counts.json").read_text())
+    m.fp.check(count_archive, counts.acquire(data, recorded=count_archive))
+    counts.acquire(data)

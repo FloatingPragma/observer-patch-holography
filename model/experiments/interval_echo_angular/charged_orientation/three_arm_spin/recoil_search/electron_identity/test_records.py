@@ -24,11 +24,12 @@ def test_bridge_read_uses_only_tapes(receipt):
     line = receipt["archived_arrival_line"]
     inputs = {name: line[name] for name in ("spatial", "temporal")}
     read = read_longitudinal(inputs, read_hop(receipt["blank_hop_counts"]))
-    assert (
-        read["spatial"]["radians_per_step"]
-        == line["measured"]["spatial"]["radians_per_step"]
+    # Beta quantiles at these shot totals vary slightly with the math library.
+    # This tolerance is less than a thousandth of either recorded interval.
+    assert read["spatial"]["radians_per_step"] == pytest.approx(
+        line["measured"]["spatial"]["radians_per_step"], rel=0, abs=1e-8
     )
-    assert read["energy"] == line["measured"]["energy"]
+    assert read["energy"] == pytest.approx(line["measured"]["energy"], rel=0, abs=1e-8)
     assert 16.4309 < read["energy"][0] < 16.43120649 < read["energy"][1] < 16.4315
 
 
