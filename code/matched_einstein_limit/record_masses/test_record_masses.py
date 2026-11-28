@@ -14,19 +14,52 @@ def receipt(name):
     return json.loads((guide.HERE / (name + ".json")).read_text())
 
 
+def assert_replayed_counts(actual, archived, shots, *, exclusive=False):
+    # The seeded sampler can round a count differently across platforms.
+    # Keep the bank shape, support and shot totals exact.
+    actual = np.asarray(actual)
+    archived = np.asarray(archived)
+    assert actual.shape == archived.shape
+    for counts in (actual, archived):
+        assert np.issubdtype(counts.dtype, np.integer)
+        assert np.all((0 <= counts) & (counts <= shots))
+        if exclusive:
+            assert np.all(counts.sum(axis=-1) == shots)
+    np.testing.assert_array_equal(actual == 0, archived == 0)
+    np.testing.assert_array_equal(actual == shots, archived == shots)
+    np.testing.assert_allclose(actual, archived, rtol=0, atol=1)
+
+
 def test_two_readers_kinetic_curvature_and_origin_invariance():
     data = guide.run()
     saved = receipt("guide")
+    assert data["guides"].keys() == saved["guides"].keys()
     for label, x in data["guides"].items():
-        assert x["tapes"] == saved["guides"][label]["tapes"]
         delta = x["audit"]["analytic_gap"]
         assert x["audit"]["max_gate_phase_residual"] < 2e-12
         assert x["audit"]["max_preparation_error"] < 2e-12
         assert abs(x["audit"]["relative_bias"]) < 0.00012
-        for t, r in zip(x["tapes"], x["decoded"], strict=True):
-            assert r["rest_half_gap"][0] < delta < r["rest_half_gap"][1]
-            for sense in r["senses"].values():
-                assert sense["kinetic_mass"][0] < tan(delta) < sense["kinetic_mass"][1]
+        for t, r, original in zip(
+            x["tapes"], x["decoded"], saved["guides"][label]["tapes"], strict=True
+        ):
+            assert t.keys() == original.keys()
+            for field in ("hand", "echo_hand", "early", "shots"):
+                assert t[field] == original[field]
+            for field in ("echo_hits", "parked"):
+                assert_replayed_counts(t[field], original[field], t["shots"], exclusive=True)
+            assert t["reads"].keys() == original["reads"].keys()
+            for setting, read in t["reads"].items():
+                archived_read = original["reads"][setting]
+                assert read.keys() == archived_read.keys()
+                assert_replayed_counts(
+                    read["spatial"], archived_read["spatial"], t["shots"], exclusive=True
+                )
+                assert_replayed_counts(read["temporal"], archived_read["temporal"], t["shots"])
+
+            for decoded in (r, guide.decode(original)):
+                assert decoded["rest_half_gap"][0] < delta < decoded["rest_half_gap"][1]
+                for sense in decoded["senses"].values():
+                    assert sense["kinetic_mass"][0] < tan(delta) < sense["kinetic_mass"][1]
             shifted = dict(
                 t,
                 hand=[v + 951 for v in t["hand"]],
@@ -51,15 +84,22 @@ def test_two_readers_kinetic_curvature_and_origin_invariance():
 def test_parked_reference_reads_occupied_sector_phase():
     data = reference.run()
     saved = receipt("reference")
+    assert data["guides"].keys() == saved["guides"].keys()
     for key, g in data["guides"].items():
+        archived = saved["guides"][key]["rows"]
+        assert g["rows"].keys() == archived.keys()
         for label, row in g["rows"].items():
-            assert row["tape"] == saved["guides"][key]["rows"][label]["tape"]
+            tape, original = row["tape"], archived[label]["tape"]
+            assert tape.keys() == original.keys()
+            assert tape["hand"] == original["hand"]
+            assert_replayed_counts(tape["ports"], original["ports"], reference.SHOTS, exclusive=True)
+            assert_replayed_counts(tape["clock_yes"], original["clock_yes"], reference.SHOTS)
             contrast, sign = map(int, label.split("/"))
             expected = 4 * contrast + (sign < 0)
-            r = row["reading"]
-            lo, hi = r["rate_per_empty_clock"]
-            assert lo < expected < hi
-            assert r["turns"] > 10
+            for reading in (row["reading"], reference.decode(original)):
+                lo, hi = reading["rate_per_empty_clock"]
+                assert lo < expected < hi
+                assert reading["turns"] > 10
         no_arm = np.array(g["no_reference_control"])[:, 0] / reference.SHOTS
         assert np.hypot(no_arm[0] - no_arm[2], no_arm[3] - no_arm[1]) < 2 * np.sqrt(
             np.log(48000 / 0.01) / reference.SHOTS
