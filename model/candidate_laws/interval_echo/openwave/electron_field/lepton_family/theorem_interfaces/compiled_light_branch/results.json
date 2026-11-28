@@ -1,0 +1,1542 @@
+{
+  "conditional_finite_compiler_margin": {
+    "complete_trace_norm_bound": "1/1000",
+    "conditional_on_archive_hypotheses_and_identical_appended_instruments": true,
+    "executed_finite_compilation": false,
+    "illustrative_periods": [
+      4,
+      4,
+      512
+    ],
+    "per_event_absolute_error_bound": "1/2000",
+    "preferred_conditional_probability_error_below": "1/500",
+    "sufficient_round_count": 7247757312000,
+    "total_compiler_wait": 1
+  },
+  "held_line_identities": [
+    {
+      "charge": -1,
+      "coefficients_in_rho_equals_p_over_energy": {
+        "temporal": [
+          "(rho + 1)/2",
+          "-(rho - 1)/2"
+        ],
+        "transverse_x": [
+          "0",
+          "0"
+        ]
+      },
+      "matched_component": "temporal",
+      "physical_spin_z_twice": -1
+    },
+    {
+      "charge": -1,
+      "coefficients_in_rho_equals_p_over_energy": {
+        "temporal": [
+          "0",
+          "0"
+        ],
+        "transverse_x": [
+          "-(rho - 1)/2",
+          "(rho + 1)/2"
+        ]
+      },
+      "matched_component": "transverse_x",
+      "physical_spin_z_twice": 1
+    },
+    {
+      "charge": 1,
+      "coefficients_in_rho_equals_p_over_energy": {
+        "temporal": [
+          "0",
+          "0"
+        ],
+        "transverse_x": [
+          "-(rho - 1)/2",
+          "(rho + 1)/2"
+        ]
+      },
+      "matched_component": "transverse_x",
+      "physical_spin_z_twice": -1
+    },
+    {
+      "charge": 1,
+      "coefficients_in_rho_equals_p_over_energy": {
+        "temporal": [
+          "(rho + 1)/2",
+          "-(rho - 1)/2"
+        ],
+        "transverse_x": [
+          "0",
+          "0"
+        ]
+      },
+      "matched_component": "temporal",
+      "physical_spin_z_twice": 1
+    }
+  ],
+  "held_reservoir_and_weak_denominators_in_w": {
+    "-1": {
+      "matched_component": {
+        "left": {
+          "click_per_start": "w**2",
+          "nonclick_after_charged_admission_per_start": "-w*(w - 1)"
+        },
+        "wrong_right": {
+          "click_per_start": "-w*(w - 1)",
+          "nonclick_after_charged_admission_per_start": "w**2"
+        }
+      },
+      "neutral_refusal_energy_0_per_start": "(w - 1)**2",
+      "neutral_refusal_energy_2E_per_start": "-w*(w - 1)",
+      "original_charge_admission_per_start": "w",
+      "unmatched_component_per_start": {
+        "click": "0",
+        "nonclick_after_charged_admission": "w"
+      }
+    },
+    "1": {
+      "matched_component": {
+        "left": {
+          "click_per_start": "w**2",
+          "nonclick_after_charged_admission_per_start": "-w*(w - 1)"
+        },
+        "wrong_right": {
+          "click_per_start": "-w*(w - 1)",
+          "nonclick_after_charged_admission_per_start": "w**2"
+        }
+      },
+      "neutral_refusal_energy_0_per_start": "(w - 1)**2",
+      "neutral_refusal_energy_2E_per_start": "-w*(w - 1)",
+      "original_charge_admission_per_start": "w",
+      "unmatched_component_per_start": {
+        "click": "0",
+        "nonclick_after_charged_admission": "w"
+      }
+    }
+  },
+  "held_weak_residue_intervals": {
+    "axial_mode": "pi/256",
+    "conditional_probability_margin_exceeds": "9533/100000",
+    "families": [
+      {
+        "character": 1,
+        "external_resonance_work_abs_enclosure": [
+          "0.000000231488",
+          "0.000000231489"
+        ],
+        "held_energy_enclosure": [
+          "0.012271769774",
+          "0.012271769775"
+        ],
+        "matched_left_click_per_original_opposite_helicity_start": [
+          "0.000000000088",
+          "0.000000000089"
+        ],
+        "matched_left_click_per_original_preferred_helicity_start": [
+          "0.999981136583",
+          "0.999981136584"
+        ],
+        "negative_helicity_negative_charge_or_positive_helicity_positive_charge": [
+          "0.999990568247",
+          "0.999990568248"
+        ],
+        "opposite_helicity_either_charge": [
+          "0.000009431752",
+          "0.000009431753"
+        ],
+        "rest_energy_enclosure": [
+          "0.000075375698",
+          "0.000075375699"
+        ]
+      },
+      {
+        "character": 2,
+        "external_resonance_work_abs_enclosure": [
+          "0.007565223631",
+          "0.007565223632"
+        ],
+        "held_energy_enclosure": [
+          "0.019836761917",
+          "0.019836761918"
+        ],
+        "matched_left_click_per_original_opposite_helicity_start": [
+          "0.036361516511",
+          "0.036361516512"
+        ],
+        "matched_left_click_per_original_preferred_helicity_start": [
+          "0.654987597571",
+          "0.654987597572"
+        ],
+        "negative_helicity_negative_charge_or_positive_helicity_positive_charge": [
+          "0.809313040530",
+          "0.809313040531"
+        ],
+        "opposite_helicity_either_charge": [
+          "0.190686959469",
+          "0.190686959470"
+        ],
+        "rest_energy_enclosure": [
+          "0.015585457050",
+          "0.015585457051"
+        ]
+      },
+      {
+        "character": 0,
+        "external_resonance_work_abs_enclosure": [
+          "0.250132508030",
+          "0.250132508031"
+        ],
+        "held_energy_enclosure": [
+          "0.262404046316",
+          "0.262404046317"
+        ],
+        "matched_left_click_per_original_opposite_helicity_start": [
+          "0.227163854315",
+          "0.227163854316"
+        ],
+        "matched_left_click_per_original_preferred_helicity_start": [
+          "0.273929666268",
+          "0.273929666269"
+        ],
+        "negative_helicity_negative_charge_or_positive_helicity_positive_charge": [
+          "0.523382905976",
+          "0.523382905977"
+        ],
+        "opposite_helicity_either_charge": [
+          "0.476617094023",
+          "0.476617094024"
+        ],
+        "rest_energy_enclosure": [
+          "0.262116945028",
+          "0.262116945029"
+        ]
+      }
+    ],
+    "light_cut_on_preferred_conditional_response": "904651804389/1000000000000",
+    "period": 512,
+    "sine_momentum_enclosure": [
+      "0.012271538285",
+      "0.012271538286"
+    ],
+    "sufficient_symmetric_energy_meter_halfwidth": "1/10000000"
+  },
+  "historical_blobs_sha256": {
+    "Lean/Screen/ChargedCurrentDictionary.lean": "7fb6eb5e6545817d4e5c208caa36f21fa379f218c744ffbb49364e7033436579",
+    "model/coherent_defect_wave/mass_instrument/model.py": "e569d5c686db5106b9cac258a1ec0c58467336d70441ebd14ddde657e1d63749",
+    "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
+    "model/lepton_mass_compiler/PROOF.md": "094bf854bf3f6ac8b53c13a7ef86d05105f5261adcce54294838b418cff0de2a",
+    "model/lepton_mass_compiler/compiler.py": "98a21377d4d94defa0aa5d54bfb13d3d13b8f8fc69093f0a6800713328dcd89b",
+    "model/lepton_mass_compiler/results.json": "6bc87ad79291f19ad05e00dec1f341504e8eff1c100b4e00aeba3e4ade1c7b9d",
+    "model/particle_joint_mass_identity/joint.py": "e4277c7d70acb21c9377e03cc23c5fff0d7bc8fd061d71a9e2b2fa7a3a1117e1",
+    "model/particle_joint_mass_identity/results.json": "029df637c267a934d0001aa044ca6715543f17cc191bade80e856073a215ef19"
+  },
+  "historical_source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "rest_records": [
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 0,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "1/4",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "1/4",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "1/4",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "1/8",
+            "transfer_and_charged_sea_restored": "1/8"
+          },
+          "wrong_right": {
+            "complement": "1/8",
+            "transfer_and_charged_sea_restored": "1/8"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -2,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": -2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 2,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "add",
+        "source_energy_in_same_m": 4,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "1/8",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 0,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "1/8"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "1/8"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -2,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": -2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "1/8",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "1/8"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "1/8"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 2,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "add",
+        "source_energy_in_same_m": 4,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "1/8",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 0,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "1/8"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "1/8"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -2,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": -2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "1/8",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "1/8"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "1/8"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 2,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 0,
+        "setting": "remove",
+        "source_energy_in_same_m": 4,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 0,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "1/4",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "1/8",
+            "transfer_and_charged_sea_restored": "1/8"
+          },
+          "wrong_right": {
+            "complement": "1/8",
+            "transfer_and_charged_sea_restored": "1/8"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "1/4",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "1/4",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 1,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        },
+        "transverse_x": {
+          "left": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          },
+          "wrong_right": {
+            "complement": "0",
+            "transfer_and_charged_sea_restored": "0"
+          }
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -2,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": -2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 2
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 2,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 2,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": -1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": -1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 1,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 3,
+        "spin_z_twice": 1
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    },
+    {
+      "old_record": {
+        "native_electric_charge": 0,
+        "probability_exact": "0",
+        "reservoir_out": 1,
+        "setting": "remove",
+        "source_energy_in_same_m": 4,
+        "spin_z_twice": 0
+      },
+      "weak_outcomes_per_bank": {
+        "temporal": {
+          "weak_not_admitted": "0"
+        },
+        "transverse_x": {
+          "weak_not_admitted": "0"
+        }
+      }
+    }
+  ],
+  "schema": "oph.compiled_light_branch.v1"
+}

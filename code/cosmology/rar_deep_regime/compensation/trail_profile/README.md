@@ -1,0 +1,16 @@
+# How flat can a finite written trail keep a galaxy's lensing curve?
+
+At 62.71 and 291.07 kpc the four measured lens stacks have outer-to-inner equivalent speed ratios of **1.023, 1.047, 1.070 and 1.007**. A physical trail of 32 outward writes, with its ordinary mass enclosed at both radii, gives a ratio of at most **0.855** over every constant hop length and every subsequent free time. Its exact release profile has ceiling **0.805**. The calculation grants each unit of stored excess the same gravitational conversion as baryons, uses the spherical weak-field mapping and compares the same total baryonic mass at both radii. [Mistele et al., lensing data](https://arxiv.org/abs/2406.09685) · [Source and all-time energy bound](../../../../../model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/README.md) · [All radii and mass bins](results.json)
+
+For a uniform radial line density with total additional-to-baryon mass ratio $q$, the enclosed dark fractions at $r$ and $sr$ obey $y\le sx$ and $y\le1$. The Newtonian relation $v^2=GM(<r)/r$ then gives
+$$\frac{v^2(sr)}{v^2(r)}=\frac{1+qy}{s(1+qx)}\le\frac{1+q}{s+q}.$$
+This is sharp when the outer radius is the cutoff. The finite transfer instead uses the actual edge midpoints. It enumerates all breakpoints and the intervals between them in the unknown hop-to-kpc conversion. A positive cumulative deficit $D_j$ reduces $8.5j$ by at most 16.25 at any radius during free flight. Its monotonicity supplies the more generous all-time envelope. The discrete calculation even allows a separate optimum hop length for each comparison. [Radial comparison code](measure.py) · [Finite inequalities](../../../../../Lean/ObserverPatchHolography/EinsteinBranch/TrailAperture.lean)
+
+| Outward records | 14 | 32 | 64 |
+| --- | ---: | ---: | ---: |
+| Exact release speed-ratio ceiling | 0.698 | 0.805 | 0.886 |
+| All-free-time ceiling | 0.757 | 0.855 | 0.921 |
+
+Changing the baryon distribution matters. With 75% of the baryon mass inside the inner radius and 100% at the outer radius, the 32-record all-time ceiling is 0.926. With 50% inside, it reaches 1.074. The supplied non-geodesic paths also change the values. Each comparison assumes a common lens population and mass normalization across radii; the observed weighted stacks can weight individual galaxies differently. The two published statistical errors have unspecified radial covariance. Subtract the full tabulated conversion systematic with adverse signs and use the *largest possible* standard deviation of the squared-speed contrast from the two marginal statistical errors. For 32 records the residuals under this convention range from 0.43 to 1.88 standard deviations. The central shape is too flat for the compact-baryon trial, while these errors and the changing weights limit statistical rejection. [Inputs and systematics](inputs.json) · [Radius choices and assumptions](PROTOCOL.md)
+
+Replay with `PYTHONPATH=code:. .venv/bin/python -Bm cosmology.rar_deep_regime.compensation.trail_profile.measure`. The optional `--fetch` checks the authors' machine-readable table against its SHA-256 before refreshing the extracted rows. [Machine-readable observations](https://content.cld.iop.org/journals/2041-8205/969/1/L3/revision1/apjlad54b0t1_mrt.txt)

@@ -1,0 +1,718 @@
+{
+  "sha256": {
+    "poisson_response.json": "89a9582ee2ae21e9fd4a4ca26f235aef1a82a3d8cc40310332dfc1cd86824c17",
+    "mixture.json": "b027422a63d4a908a4efbf326d906acaafda2c0ca92e6d154b7d382acea6eec6",
+    "EXTERIOR_MARKS.md": "5f577f5962a9afb2435c16a7892f59f58ed628885f2bf46afd30afe1b1ed1bfb",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c",
+    "leroy_table7.dat": "c257c508ed8366f5aa635ed9af749cc495608a0804e44d53d464bcc657692895",
+    "leroy_sample.dat": "c4e863469487f161fa3b1c0d85dc4fa6397c0855b5f0c7575b05a90384326b96",
+    "table1.dat": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c"
+  },
+  "cosmic_ceiling": "597536560104613/100000000000000",
+  "minimum_live_degree": 5,
+  "galaxies": {
+    "DDO154": {
+      "edge_kpc": 1.4562790697674417,
+      "exterior_rings": 10,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": false,
+      "first_positive_conflict": null,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 1,
+        "last": 9,
+        "radius_kpc": 1.48,
+        "outer_kpc": 5.43,
+        "outside_map_kpc": 0.02372,
+        "minimum_net_ratio": 5.26037725,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 3,
+          "length_floor_kpc": 0.007906
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 5,
+          "length_floor_kpc": 0.004744
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 7,
+        "last": 8,
+        "radius_kpc": 4.44,
+        "outer_kpc": 4.94,
+        "outside_map_kpc": 2.98372,
+        "minimum_net_ratio": 0.36996305,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 9,
+          "length_floor_kpc": 0.331524
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 10,
+          "length_floor_kpc": 0.298372
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 6,
+          "last": 8,
+          "radius_kpc": 3.95,
+          "outer_kpc": 4.94,
+          "outside_map_kpc": 2.49372,
+          "minimum_net_ratio": 1.27503697,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 6,
+            "length_floor_kpc": 0.41562
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 8,
+            "length_floor_kpc": 0.311715
+          }
+        },
+        "field": {
+          "first": 6,
+          "last": 9,
+          "radius_kpc": 3.95,
+          "outer_kpc": 5.43,
+          "outside_map_kpc": 2.49372,
+          "minimum_net_ratio": 1.60399536,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 6,
+            "length_floor_kpc": 0.41562
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 7,
+            "length_floor_kpc": 0.356245
+          }
+        }
+      }
+    },
+    "IC2574": {
+      "edge_kpc": 8.699750000000002,
+      "exterior_rings": 4,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": true,
+      "first_positive_conflict": null,
+      "deposits": [
+        [
+          "17/20",
+          "884441149999999944436168566172623/162220287773150566966870198862128000"
+        ],
+        [
+          "57/25",
+          "2663401612857142795111211245543431/23174326824735795280981456980304000"
+        ],
+        [
+          "71/25",
+          "8222892499999997361229706237817/2027753597164382087085877485776600"
+        ],
+        [
+          "341/100",
+          "1612486413500000232598857118341351/8111014388657528348343509943106400"
+        ],
+        [
+          "37/10",
+          "2145761247500000071423277198256489/40555071943287641741717549715532000"
+        ],
+        [
+          "121/25",
+          "6819968556249998403143343015889071/50693839929109552177146937144415000"
+        ],
+        [
+          "128/25",
+          "11969344200000000706837670111176249/50693839929109552177146937144415000"
+        ],
+        [
+          "541/100",
+          "50415419812500016647542646053531/506938399291095521771469371444150"
+        ],
+        [
+          "597/100",
+          "872633682589285459031378945352681/7241977132729936025306705306345000"
+        ],
+        [
+          "313/50",
+          "13489556784374992654727745742387733/50693839929109552177146937144415000"
+        ],
+        [
+          "327/50",
+          "16795237671428581575330224284717271/57935817061839488202453642450760000"
+        ],
+        [
+          "71/10",
+          "125244865899999955323149894813104623/405550719432876417417175497155320000"
+        ],
+        [
+          "739/100",
+          "5172038645000009093736591948544393/40555071943287641741717549715532000"
+        ],
+        [
+          "4349875000000001/500000000000000",
+          "338090896624999964963634578585010273/202775359716438208708587748577660000"
+        ]
+      ],
+      "strongest_exterior_pair": null,
+      "farthest_exterior_pair": null,
+      "tightest_hop": {
+        "occupation": null,
+        "field": null
+      }
+    },
+    "NGC7793": {
+      "edge_kpc": 6.664615384615383,
+      "exterior_rings": 3,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": true,
+      "first_positive_conflict": null,
+      "deposits": [
+        [
+          "87/100",
+          "57174529500000128614777421913211/6695281358817665819720000000000000"
+        ],
+        [
+          "21/20",
+          "20286473000000007642872215737029/6695281358817665819720000000000000"
+        ],
+        [
+          "61/50",
+          "1898207690104160369222948081219/104613771231526028433125000000000"
+        ],
+        [
+          "7/5",
+          "643835866000000459739821088633797/20085844076452997459160000000000000"
+        ],
+        [
+          "157/100",
+          "7127664700000006280366249081955331/251073050955662468239500000000000000"
+        ],
+        [
+          "7/4",
+          "5205327595833335042476410970985071/167382033970441645493000000000000000"
+        ],
+        [
+          "48/25",
+          "39626393750000073909703407529/3347640679408832909860000000000"
+        ],
+        [
+          "21/10",
+          "4632268499999995105427356562177/167382033970441645493000000000000"
+        ],
+        [
+          "49/20",
+          "44955365437499876361573032432789/502146101911324936479000000000000"
+        ],
+        [
+          "131/50",
+          "297366220062500659663419031619581/2510730509556624682395000000000000"
+        ],
+        [
+          "279/100",
+          "10473258437499874829652770168701/2510730509556624682395000000000000"
+        ],
+        [
+          "351/100",
+          "37770307031250052687175337461961/418455084926104113732500000000000"
+        ],
+        [
+          "92/25",
+          "2490811772460938449986845248377/6538360701970376777070312500000"
+        ],
+        [
+          "403/100",
+          "671832198166665737234461900784623/6695281358817665819720000000000000"
+        ],
+        [
+          "21/5",
+          "1211539925833333504439699415022241/6695281358817665819720000000000000"
+        ],
+        [
+          "6664615384615383/1000000000000000",
+          "3924394550999998201391805290900059/10042922038226498729580000000000000"
+        ]
+      ],
+      "strongest_exterior_pair": null,
+      "farthest_exterior_pair": null,
+      "tightest_hop": {
+        "occupation": null,
+        "field": null
+      }
+    },
+    "NGC2403": {
+      "edge_kpc": 8.788750000000002,
+      "exterior_rings": 25,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": false,
+      "first_positive_conflict": null,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 47,
+        "last": 71,
+        "radius_kpc": 8.94,
+        "outer_kpc": 20.87,
+        "outside_map_kpc": 0.151249,
+        "minimum_net_ratio": 4.32674852,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 4,
+          "length_floor_kpc": 0.037812
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 5,
+          "length_floor_kpc": 0.030249
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 62,
+        "last": 70,
+        "radius_kpc": 16.4,
+        "outer_kpc": 20.37,
+        "outside_map_kpc": 7.611249,
+        "minimum_net_ratio": 0.00747725,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 17,
+          "length_floor_kpc": 0.44772
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 18,
+          "length_floor_kpc": 0.422847
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 61,
+          "last": 71,
+          "radius_kpc": 15.9,
+          "outer_kpc": 20.87,
+          "outside_map_kpc": 7.111249,
+          "minimum_net_ratio": 1.32243734,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 6,
+            "length_floor_kpc": 1.185208
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 8,
+            "length_floor_kpc": 0.888906
+          }
+        },
+        "field": {
+          "first": 60,
+          "last": 71,
+          "radius_kpc": 15.4,
+          "outer_kpc": 20.87,
+          "outside_map_kpc": 6.611249,
+          "minimum_net_ratio": 1.41367004,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 6,
+            "length_floor_kpc": 1.101874
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 7,
+            "length_floor_kpc": 0.944464
+          }
+        }
+      }
+    },
+    "NGC3198": {
+      "edge_kpc": 15.45,
+      "exterior_rings": 15,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": false,
+      "first_positive_conflict": null,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 22,
+        "last": 36,
+        "radius_kpc": 16.07,
+        "outer_kpc": 44.08,
+        "outside_map_kpc": 0.62,
+        "minimum_net_ratio": 3.01829006,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 4,
+          "length_floor_kpc": 0.155
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 6,
+          "length_floor_kpc": 0.103333
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 32,
+        "last": 34,
+        "radius_kpc": 36.12,
+        "outer_kpc": 40.1,
+        "outside_map_kpc": 20.67,
+        "minimum_net_ratio": 0.04635685,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 13,
+          "length_floor_kpc": 1.59
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 15,
+          "length_floor_kpc": 1.378
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 29,
+          "last": 36,
+          "radius_kpc": 30.08,
+          "outer_kpc": 44.08,
+          "outside_map_kpc": 14.63,
+          "minimum_net_ratio": 1.30613938,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 6,
+            "length_floor_kpc": 2.438333
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 8,
+            "length_floor_kpc": 1.82875
+          }
+        },
+        "field": {
+          "first": 30,
+          "last": 36,
+          "radius_kpc": 32.14,
+          "outer_kpc": 44.08,
+          "outside_map_kpc": 16.69,
+          "minimum_net_ratio": 0.92780141,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 7,
+            "length_floor_kpc": 2.384285
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 8,
+            "length_floor_kpc": 2.08625
+          }
+        }
+      }
+    },
+    "NGC6946": {
+      "edge_kpc": 10.99322033898305,
+      "exterior_rings": 23,
+      "unlimited_positive_anywhere": false,
+      "positive_within_map": false,
+      "first_positive_conflict": 0,
+      "deposits": [],
+      "strongest_exterior_pair": null,
+      "farthest_exterior_pair": null,
+      "tightest_hop": {
+        "occupation": null,
+        "field": null
+      }
+    },
+    "NGC3521": {
+      "edge_kpc": 11.19018691588785,
+      "exterior_rings": 3,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": true,
+      "first_positive_conflict": null,
+      "deposits": [
+        [
+          "43/50",
+          "94823193888886843763814407357/114554508844918223266800000000000"
+        ],
+        [
+          "103/100",
+          "561113172500010745936012839803/1030990579604264009401200000000000"
+        ],
+        [
+          "69/50",
+          "1993628125249996049178915010046299/103099057960426400940120000000000000"
+        ],
+        [
+          "171/100",
+          "1433527472221876539651666185613/3818483628163940775560000000000000"
+        ],
+        [
+          "309/100",
+          "95123993916666775857160224033431/5727725442245911163340000000000000"
+        ],
+        [
+          "103/20",
+          "244816133666672862735137481813427/17183176326737733490020000000000000"
+        ],
+        [
+          "441/50",
+          "16399660422416657468552923761548647/34366352653475466980040000000000000"
+        ],
+        [
+          "1107/100",
+          "3779394020749999622239575129157571/11455450884491822326680000000000000"
+        ],
+        [
+          "223803738317757/20000000000000",
+          "75218826857592591974285139390279/76369672563278815511200000000000"
+        ]
+      ],
+      "strongest_exterior_pair": null,
+      "farthest_exterior_pair": null,
+      "tightest_hop": {
+        "occupation": null,
+        "field": null
+      }
+    },
+    "NGC2841": {
+      "edge_kpc": 17.0,
+      "exterior_rings": 23,
+      "unlimited_positive_anywhere": true,
+      "positive_within_map": false,
+      "first_positive_conflict": null,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 27,
+        "last": 49,
+        "radius_kpc": 18.48,
+        "outer_kpc": 63.64,
+        "outside_map_kpc": 1.48,
+        "minimum_net_ratio": 6.50468571,
+        "occupation": {
+          "inventory_insufficient": true
+        },
+        "field": {
+          "inventory_insufficient": true
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 45,
+        "last": 49,
+        "radius_kpc": 55.3,
+        "outer_kpc": 63.64,
+        "outside_map_kpc": 38.3,
+        "minimum_net_ratio": 0.44056544,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 9,
+          "length_floor_kpc": 4.255555
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 10,
+          "length_floor_kpc": 3.83
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 39,
+          "last": 49,
+          "radius_kpc": 43.08,
+          "outer_kpc": 63.64,
+          "outside_map_kpc": 26.08,
+          "minimum_net_ratio": 3.47287647,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 4,
+            "length_floor_kpc": 6.52
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 5,
+            "length_floor_kpc": 5.216
+          }
+        },
+        "field": {
+          "first": 39,
+          "last": 49,
+          "radius_kpc": 43.08,
+          "outer_kpc": 63.64,
+          "outside_map_kpc": 26.08,
+          "minimum_net_ratio": 3.47287647,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 4,
+            "length_floor_kpc": 6.52
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 5,
+            "length_floor_kpc": 5.216
+          }
+        }
+      }
+    },
+    "NGC5055": {
+      "edge_kpc": 20.633168316831686,
+      "exterior_rings": 12,
+      "unlimited_positive_anywhere": false,
+      "positive_within_map": false,
+      "first_positive_conflict": 2,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 15,
+        "last": 24,
+        "radius_kpc": 22.96,
+        "outer_kpc": 48.81,
+        "outside_map_kpc": 2.326831,
+        "minimum_net_ratio": 1.23994315,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 6,
+          "length_floor_kpc": 0.387805
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 8,
+          "length_floor_kpc": 0.290853
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 22,
+        "last": 24,
+        "radius_kpc": 43.17,
+        "outer_kpc": 48.81,
+        "outside_map_kpc": 22.536831,
+        "minimum_net_ratio": 0.12334016,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 11,
+          "length_floor_kpc": 2.048802
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 13,
+          "length_floor_kpc": 1.733602
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 22,
+          "last": 24,
+          "radius_kpc": 43.17,
+          "outer_kpc": 48.81,
+          "outside_map_kpc": 22.536831,
+          "minimum_net_ratio": 0.12334016,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 11,
+            "length_floor_kpc": 2.048802
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 13,
+            "length_floor_kpc": 1.733602
+          }
+        },
+        "field": {
+          "first": 22,
+          "last": 24,
+          "radius_kpc": 43.17,
+          "outer_kpc": 48.81,
+          "outside_map_kpc": 22.536831,
+          "minimum_net_ratio": 0.12334016,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 11,
+            "length_floor_kpc": 2.048802
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 13,
+            "length_floor_kpc": 1.733602
+          }
+        }
+      }
+    },
+    "NGC7331": {
+      "edge_kpc": 23.6,
+      "exterior_rings": 12,
+      "unlimited_positive_anywhere": false,
+      "positive_within_map": false,
+      "first_positive_conflict": 1,
+      "deposits": [],
+      "strongest_exterior_pair": {
+        "first": 24,
+        "last": 34,
+        "radius_kpc": 24.57,
+        "outer_kpc": 35.32,
+        "outside_map_kpc": 0.97,
+        "minimum_net_ratio": 0.64809099,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 8,
+          "length_floor_kpc": 0.12125
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 9,
+          "length_floor_kpc": 0.107777
+        }
+      },
+      "farthest_exterior_pair": {
+        "first": 28,
+        "last": 32,
+        "radius_kpc": 28.91,
+        "outer_kpc": 33.15,
+        "outside_map_kpc": 5.31,
+        "minimum_net_ratio": 0.02715452,
+        "occupation": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 14,
+          "length_floor_kpc": 0.379285
+        },
+        "field": {
+          "inventory_insufficient": false,
+          "max_minimum_hops": 16,
+          "length_floor_kpc": 0.331875
+        }
+      },
+      "tightest_hop": {
+        "occupation": {
+          "first": 28,
+          "last": 34,
+          "radius_kpc": 28.91,
+          "outer_kpc": 35.32,
+          "outside_map_kpc": 5.31,
+          "minimum_net_ratio": 0.16447536,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 11,
+            "length_floor_kpc": 0.482727
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 12,
+            "length_floor_kpc": 0.4425
+          }
+        },
+        "field": {
+          "first": 28,
+          "last": 34,
+          "radius_kpc": 28.91,
+          "outer_kpc": 35.32,
+          "outside_map_kpc": 5.31,
+          "minimum_net_ratio": 0.16447536,
+          "occupation": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 11,
+            "length_floor_kpc": 0.482727
+          },
+          "field": {
+            "inventory_insufficient": false,
+            "max_minimum_hops": 12,
+            "length_floor_kpc": 0.4425
+          }
+        }
+      }
+    }
+  }
+}

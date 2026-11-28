@@ -1,5 +1,7 @@
 # Auditing finite numerical evidence
 
+When a run establishes a theorem premise, audit the observer-facing decoder and carry its error bound into the precise hypothesis and conclusion. Credit the resulting observable if every hypothesis is covered on that construction and domain. [Premise closure](../../AGENTS.md#closing-a-physical-premise)
+
 This procedure applies to numerical changes under the [standing evidence
 audit, #1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033).
 A passing test suite records execution on one tree. It does not establish

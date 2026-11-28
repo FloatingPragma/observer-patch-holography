@@ -1,0 +1,602 @@
+{
+  "sha256": {
+    "RECORD_DENSITY.md": "2ff743c5a7357fafef21a81845183d63bd68aaf4c2a53294280573691c3f76b4",
+    "pair_contact.json": "1779e00f6438fdedd7c9b023c48ac4a44edf07812a238f8d2efa6bc81938489a",
+    "results.json": "c4d4fda03bdbe5b0ee65ad8aee7f0cd7ad703c02b7185832decb74f33c503aa0"
+  },
+  "seams": [
+    [
+      10,
+      20
+    ],
+    [
+      14,
+      24
+    ]
+  ],
+  "classes": [
+    {
+      "words": 27,
+      "magnitude_counts": [
+        12,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "words": 884,
+      "magnitude_counts": [
+        24,
+        64,
+        88,
+        0
+      ]
+    },
+    {
+      "words": 2110,
+      "magnitude_counts": [
+        48,
+        176,
+        112,
+        112
+      ]
+    },
+    {
+      "words": 884,
+      "magnitude_counts": [
+        24,
+        64,
+        88,
+        0
+      ]
+    },
+    {
+      "words": 27,
+      "magnitude_counts": [
+        12,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "third_magnitude_two_words": [
+    0,
+    244,
+    664,
+    244,
+    0
+  ],
+  "third_head_counts": [
+    {
+      "0": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "3": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "8": [
+        4,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "0": [
+        8,
+        16,
+        24,
+        0
+      ],
+      "1": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "2": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "3": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "4": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "5": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "6": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "7": [
+        0,
+        8,
+        16,
+        0
+      ],
+      "8": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "9": [
+        0,
+        8,
+        16,
+        0
+      ],
+      "10": [
+        4,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "0": [
+        16,
+        48,
+        16,
+        16
+      ],
+      "1": [
+        8,
+        8,
+        8,
+        0
+      ],
+      "2": [
+        0,
+        16,
+        8,
+        16
+      ],
+      "3": [
+        0,
+        16,
+        16,
+        16
+      ],
+      "4": [
+        0,
+        16,
+        8,
+        16
+      ],
+      "5": [
+        8,
+        8,
+        8,
+        0
+      ],
+      "6": [
+        8,
+        8,
+        8,
+        0
+      ],
+      "7": [
+        0,
+        16,
+        8,
+        16
+      ],
+      "8": [
+        0,
+        16,
+        16,
+        16
+      ],
+      "9": [
+        0,
+        16,
+        8,
+        16
+      ],
+      "10": [
+        8,
+        8,
+        8,
+        0
+      ]
+    },
+    {
+      "0": [
+        8,
+        16,
+        24,
+        0
+      ],
+      "1": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "2": [
+        0,
+        8,
+        16,
+        0
+      ],
+      "3": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "4": [
+        0,
+        8,
+        16,
+        0
+      ],
+      "5": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "6": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "7": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "8": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "9": [
+        0,
+        8,
+        8,
+        0
+      ],
+      "10": [
+        4,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "0": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "3": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "8": [
+        4,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "dilute": {
+    "none": {
+      "order": 2,
+      "coefficient": "-3041616/51527255"
+    },
+    "third_head": {
+      "order": 1,
+      "coefficient": "56/663"
+    },
+    "ordinary": {
+      "order": 2,
+      "coefficient": "632/11605"
+    },
+    "all": {
+      "order": 2,
+      "coefficient": "72/1055"
+    }
+  },
+  "polynomial": {
+    "variable": "x=p(1-p)",
+    "joint_rows": [
+      "4*(423974*x**2 - 875650*x + 233155)/2098395",
+      "-16*x*(1147*x - 4220)/233155",
+      "-8*x*(13928*x - 11605)/233155",
+      "336*x**2/1055"
+    ],
+    "delta_both": "-48*x**2*(560035282*x**2 - 922107980*x + 66852185)/(233155*(299054*x**2 - 514840*x + 233155))",
+    "dilute_order": 2,
+    "dilute_coefficient": "-3041616/51527255",
+    "odds_at_dilution": "341887/278520",
+    "numerator_bernstein": [
+      "-3208904880",
+      "2323743000",
+      "6176285034"
+    ],
+    "denominator_bernstein": [
+      "54361254025",
+      "39356564000",
+      "229677959485/8"
+    ],
+    "interior_zeros": [
+      [
+        "2003799/26362982",
+        "1988438/26160885"
+      ]
+    ]
+  },
+  "cases": {
+    "fixed_2200": {
+      "none": {
+        "accepted": "224/1055",
+        "delta_both": "16/1055",
+        "receiver_nats_per_attempt": 0.019704765636098742,
+        "weight_into_witness_reference_null": "0",
+        "changed_passive_receiver": "0"
+      },
+      "third_head": {
+        "accepted": "224/1055",
+        "delta_both": "296/15825",
+        "receiver_nats_per_attempt": 0.024302544284521787,
+        "weight_into_witness_reference_null": "256/15825",
+        "changed_passive_receiver": "0"
+      },
+      "ordinary": {
+        "accepted": "224/1055",
+        "delta_both": "316/34815",
+        "receiver_nats_per_attempt": 0.011793003676150006,
+        "weight_into_witness_reference_null": "536/34815",
+        "changed_passive_receiver": "0"
+      },
+      "all": {
+        "accepted": "224/1055",
+        "delta_both": "12/1055",
+        "receiver_nats_per_attempt": 0.014778574227074057,
+        "weight_into_witness_reference_null": "24/1055",
+        "changed_passive_receiver": "0"
+      }
+    },
+    "1/16": {
+      "none": {
+        "accepted": "1337034763/3438010368",
+        "delta_both": "-13045564234035/255374409865023488",
+        "receiver_nats_per_attempt": 2.727838566722014e-06,
+        "weight_into_witness_reference_null": "0",
+        "changed_passive_receiver": "0",
+        "counts": {
+          "attempts": 4398046511104,
+          "native": [
+            1536745366926,
+            73439181253,
+            95396233646,
+            4808810286,
+            2687656918993
+          ],
+          "recovered": [
+            1536521437234,
+            73663806366,
+            95621899776,
+            4584253829,
+            2687655113899
+          ],
+          "delta_both": [
+            -5.3626840153192355e-05,
+            -4.848961379200784e-05
+          ],
+          "reference_log_odds": [
+            0.05205998971311014,
+            0.05468879372039005
+          ],
+          "source_nats_per_attempt": [
+            2.5243687952046117e-06,
+            2.9327871990142674e-06
+          ]
+        }
+      },
+      "third_head": {
+        "accepted": "1337034763/3438010368",
+        "delta_both": "165644413618318515737630823345612803/38209313140690072072102564649392838656",
+        "receiver_nats_per_attempt": -0.00023149453175426644,
+        "weight_into_witness_reference_null": "216060477985710349/47814954552862035968",
+        "changed_passive_receiver": "0",
+        "counts": {
+          "attempts": 4398046511104,
+          "native": [
+            1536744488563,
+            73439053231,
+            95396836679,
+            4809018858,
+            2687657113773
+          ],
+          "recovered": [
+            1555811520681,
+            54372817632,
+            76330390884,
+            23875277295,
+            2687656504612
+          ],
+          "delta_both": [
+            0.004332596644590631,
+            0.004337733870951815
+          ],
+          "reference_log_odds": [
+            0.052098263240302964,
+            0.05472696488384437
+          ],
+          "source_nats_per_attempt": [
+            -0.00023739100923104227,
+            -0.00022572076050393603
+          ]
+        }
+      },
+      "ordinary": {
+        "accepted": "1337034763/3438010368",
+        "delta_both": "3555/19013632",
+        "receiver_nats_per_attempt": -9.984071780986357e-06,
+        "weight_into_witness_reference_null": "3015/9506816",
+        "changed_passive_receiver": "0",
+        "counts": {
+          "attempts": 4398046511104,
+          "native": [
+            1536746841771,
+            73438894522,
+            95396104457,
+            4808946677,
+            2687655723677
+          ],
+          "recovered": [
+            1537568051870,
+            72616606072,
+            94573996918,
+            5631307798,
+            2687656548446
+          ],
+          "delta_both": [
+            0.00018441465744279423,
+            0.00018955188380397875
+          ],
+          "reference_log_odds": [
+            0.05209460331618459,
+            0.05472334144930115
+          ],
+          "source_nats_per_attempt": [
+            -1.0372912459763385e-05,
+            -9.607008425172433e-06
+          ]
+        }
+      },
+      "all": {
+        "accepted": "1337034763/3438010368",
+        "delta_both": "405/1728512",
+        "receiver_nats_per_attempt": -1.2511684890096826e-05,
+        "weight_into_witness_reference_null": "405/864256",
+        "changed_passive_receiver": "0",
+        "counts": {
+          "attempts": 4398046511104,
+          "native": [
+            1536747090803,
+            73438817290,
+            95396863520,
+            4808963508,
+            2687654775983
+          ],
+          "recovered": [
+            1537776129801,
+            72408233520,
+            94365607993,
+            5839286954,
+            2687657252836
+          ],
+          "delta_both": [
+            0.00023169981563176417,
+            0.0002368370419929487
+          ],
+          "reference_log_odds": [
+            0.05209136452474525,
+            0.054720093654367606
+          ],
+          "source_nats_per_attempt": [
+            -1.2959745118677546e-05,
+            -1.2069559556390495e-05
+          ]
+        }
+      }
+    },
+    "1/4": {
+      "none": {
+        "accepted": "18833423/67148640",
+        "delta_both": "298440532917/70257707833040",
+        "receiver_nats_per_attempt": 0.0021669414449118993,
+        "weight_into_witness_reference_null": "0",
+        "changed_passive_receiver": "0"
+      },
+      "third_head": {
+        "accepted": "18833423/67148640",
+        "delta_both": "135959858160456905189820792271/11560157097643484392070221213000",
+        "receiver_nats_per_attempt": 0.005999710742912492,
+        "weight_into_witness_reference_null": "1348886429942651/113698788281078000",
+        "changed_passive_receiver": "0"
+      },
+      "ordinary": {
+        "accepted": "18833423/67148640",
+        "delta_both": "711/371360",
+        "receiver_nats_per_attempt": 0.0009766924342062705,
+        "weight_into_witness_reference_null": "603/185680",
+        "changed_passive_receiver": "0"
+      },
+      "all": {
+        "accepted": "18833423/67148640",
+        "delta_both": "81/33760",
+        "receiver_nats_per_attempt": 0.001223956341600263,
+        "weight_into_witness_reference_null": "81/16880",
+        "changed_passive_receiver": "0"
+      }
+    },
+    "1/2": {
+      "none": {
+        "accepted": "985087/4196790",
+        "delta_both": "3088142517/229677959485",
+        "receiver_nats_per_attempt": 0.014956482644754273,
+        "weight_into_witness_reference_null": "0",
+        "changed_passive_receiver": "0"
+      },
+      "third_head": {
+        "accepted": "985087/4196790",
+        "delta_both": "11395375312590163893/636904348555795390850",
+        "receiver_nats_per_attempt": 0.019902419553039022,
+        "weight_into_witness_reference_null": "25502709/1774309550",
+        "changed_passive_receiver": "0"
+      },
+      "ordinary": {
+        "accepted": "985087/4196790",
+        "delta_both": "79/23210",
+        "receiver_nats_per_attempt": 0.0037861987574077604,
+        "weight_into_witness_reference_null": "67/11605",
+        "changed_passive_receiver": "0"
+      },
+      "all": {
+        "accepted": "985087/4196790",
+        "delta_both": "9/2110",
+        "receiver_nats_per_attempt": 0.0047447300883970665,
+        "weight_into_witness_reference_null": "9/1055",
+        "changed_passive_receiver": "0"
+      }
+    }
+  }
+}

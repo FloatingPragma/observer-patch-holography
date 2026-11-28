@@ -1,0 +1,1487 @@
+{
+  "sha256": {
+    "CLOSED_INVENTORY.md": "1f0b8d4b94998bda035a919c75ecacfa967c437feb2747388857d84bff3ab773",
+    "closed_inventory_maps.json": "54aaec4bb18cce31a16df2b00752b8d988e4c2b6acb410d7d8a4ff4f698fff7e",
+    "closed_energy.json": "e601be4b5739a689b589bf00cc686d17405b1feaf9447527858144773d411c10",
+    "thermal_standard.json": "9745241a4e4c08e9897a16e2a8a50bbc12af37338c9ce72e87a9cff47c0a7360",
+    "record_profile_maps.json": "59e4afaf85305135c0254f8b76d7ef861ae6fd84d9f5d47fb8fc3a5727e71247",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c"
+  },
+  "response_energy": {
+    "maximum": [
+      "372961/21504",
+      "372961/21504"
+    ],
+    "minimum": [
+      "-601975/36064",
+      "-601975/36064"
+    ],
+    "whole": [
+      "-1993/1848",
+      "-1993/1848"
+    ],
+    "one_bond": [
+      "31/56",
+      "31/56"
+    ],
+    "matched_envelope": [
+      "-372961/21504",
+      "372961/21504"
+    ],
+    "all_supported_envelope": [
+      "-565/16",
+      "565/16"
+    ]
+  },
+  "maximum_extra_per_ordinary": 0.008679138732992026,
+  "planck_minimum_shortfall": 618.0713765490617,
+  "all_accepted_stock_ratio_upper": 0.09197368556892778,
+  "ordinary_double_energy": [
+    191.97066955382462,
+    192.03018609969956
+  ],
+  "galaxies": 10,
+  "rings": 369,
+  "forecasts": {
+    "maximum": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.05190708923725751,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.05075180492160669,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.033719720813241594,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.01921579472981705,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.010230814149263523,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.002678225079961294,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0006772138260480176,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 27,
+        "complete": 0,
+        "max_speed_change": 0.28863407336231717,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 7,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.437514511690523,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.3219454730503628,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.19055169549042716,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.10314813167789794,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.027315671752973003,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.006926225375764261,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    },
+    "minimum": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.05005115403971061,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.04893510089701181,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.032492373757442294,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.018506518595440724,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.009849937462664826,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.002577805221555707,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0006517739341127538,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.2783071895876503,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.42227074674937626,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.3104941848097269,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.18361664212122264,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.09933752939539886,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.02629356533824989,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.006666173077178428,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    },
+    "whole": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0032309846288960387,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.003159000988901539,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0020981454245685427,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0011953223825891257,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0006362964488957346,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.00016654488930711864,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 4.211073420989919e-05,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.017965946253184484,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.027247237124356616,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.020041754274046752,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.011856742305440093,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.00641623536043312,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0016986927353173087,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.00043069355831448775,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    },
+    "one_bond": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0016583017785443133,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.001621359498134467,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0010769069168077294,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0006135341118707061,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0003266028903787799,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 8.548651266693241e-05,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 2.161526834854044e-05,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.009221026682723732,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.013984000412449404,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.010286328556844637,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0060856626893439625,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0032933253614828573,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.000871925667610185,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0002210730345666434,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    },
+    "matched_envelope": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.05200793275151128,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.050848205311293526,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.03376224799047378,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.019229597922574726,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.010234725595065441,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.002678493051387676,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0006772309582636638,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 27,
+        "complete": 0,
+        "max_speed_change": 0.28918763366723965,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 7,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.43878767919997586,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.32263433266095376,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.1907928036907265,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.10321874015562571,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.027320621001763357,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.006926543539037766,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    },
+    "all_supported_envelope": {
+      "atomic/1": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.10599673031419954,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/2": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.103630762414749,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0687859946425391,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.039166639306213114,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.020842344432399074,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0054537764666839905,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "atomic/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.0013788810093124937,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/1": {
+        "within_two": 28,
+        "complete": 0,
+        "max_speed_change": 0.5893821147763276,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 7,
+          "NGC3521": 14,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/2": {
+        "within_two": 29,
+        "complete": 0,
+        "max_speed_change": 0.8947398695366928,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 7,
+          "NGC3521": 15,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/4": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.6576246436567601,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/8": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.3887152571983279,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/16": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.21023113646089087,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/64": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.055630842560418614,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      },
+      "mapped_baryons/256": {
+        "within_two": 26,
+        "complete": 0,
+        "max_speed_change": 0.014102990049849495,
+        "galaxies": {
+          "DDO154": 0,
+          "IC2574": 0,
+          "NGC7793": 0,
+          "NGC2403": 0,
+          "NGC3198": 0,
+          "NGC6946": 6,
+          "NGC3521": 13,
+          "NGC2841": 0,
+          "NGC5055": 4,
+          "NGC7331": 3
+        }
+      }
+    }
+  }
+}

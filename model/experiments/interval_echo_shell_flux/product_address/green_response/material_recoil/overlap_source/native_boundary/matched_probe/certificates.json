@@ -1,0 +1,1301 @@
+{
+  "protocol_sha256": "b71cca82baf6210fa9055b686f98f0a3904b8eb548afece510abe014867cbc3b",
+  "sectors": [
+    {
+      "total": 0,
+      "dimension": 4,
+      "sectors": {
+        "-1": 2,
+        "0": 2
+      }
+    },
+    {
+      "total": 1,
+      "dimension": 96,
+      "sectors": {
+        "-1": 24,
+        "0": 48,
+        "1": 24
+      }
+    },
+    {
+      "total": 2,
+      "dimension": 1104,
+      "sectors": {
+        "-1": 132,
+        "0": 420,
+        "1": 420,
+        "2": 132
+      }
+    }
+  ],
+  "spectral_boards_and_probes": [
+    null,
+    2,
+    13
+  ],
+  "standards": {
+    "target": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ]
+      ]
+    },
+    "phase_feedback": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "-6288640"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "-6288640"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ]
+      ]
+    },
+    "sharp_coin_0": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ]
+      ]
+    },
+    "fixed_coin_0_orbit_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ]
+      ]
+    },
+    "fixed_coin_0_orbit_-1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ]
+      ]
+    },
+    "sharp_coin_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ]
+      ]
+    },
+    "fixed_coin_1_orbit_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ]
+      ]
+    },
+    "fixed_coin_1_orbit_-1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "-43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "1294720"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 5,
+            "difference_moment_of_4H": "43520"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 6,
+            "difference_moment_of_4H": "-1294720"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-4165/1152",
+          "29251513/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "85/36",
+          "-22890103/516096"
+        ]
+      ]
+    },
+    "exchange_1_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "6288640"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "6288640"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ]
+      ]
+    },
+    "exchange_1_-1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "1445/2304",
+          "-516125/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1445/2304",
+          "-516125/516096"
+        ]
+      ]
+    },
+    "exchange_-1_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "17"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "1445/2304",
+          "-516125/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1445/2304",
+          "-516125/516096"
+        ]
+      ]
+    },
+    "exchange_-1_-1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "6288640"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 7,
+            "difference_moment_of_4H": "6288640"
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "516125/516096"
+        ]
+      ]
+    },
+    "mass_coin_0": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "85/684",
+          "-10805/73728"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "4165/21888",
+          "-29309983/9805824"
+        ]
+      ]
+    },
+    "mass_coin_1": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "4165/21888",
+          "-29309983/9805824"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "85/684",
+          "-10805/73728"
+        ]
+      ]
+    },
+    "balanced_sharp": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ]
+      ]
+    },
+    "balanced_coherent": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 100,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          },
+          {
+            "orders": 13,
+            "first_different_order": null,
+            "difference_moment_of_4H": null
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1445/2304",
+          "1060235/172032"
+        ]
+      ]
+    },
+    "balanced_mass": {
+      "spectral_moments": [
+        [
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 100,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ],
+        [
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          },
+          {
+            "orders": 13,
+            "first_different_order": 1,
+            "difference_moment_of_4H": "-153"
+          }
+        ]
+      ],
+      "taylor_even": [
+        [
+          "0",
+          "0",
+          "0",
+          "765/4864",
+          "-1281127/817152"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "765/4864",
+          "-1281127/817152"
+        ]
+      ]
+    }
+  },
+  "pinched_identities": {
+    "phase_feedback": {
+      "reference": "exchange_1_1",
+      "visible_delta_difference": 0
+    },
+    "balanced_coherent": {
+      "reference": "target",
+      "visible_delta_difference": 0
+    }
+  },
+  "real_source_tomography": {
+    "None": {
+      "rank": 2,
+      "independent": [
+        {
+          "power": 0,
+          "probe": null,
+          "coordinates": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "power": 1,
+          "probe": null,
+          "coordinates": [
+            204,
+            187,
+            187,
+            204,
+            -34
+          ]
+        }
+      ]
+    },
+    "2": {
+      "rank": 5,
+      "independent": [
+        {
+          "power": 0,
+          "probe": 2,
+          "coordinates": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "power": 1,
+          "probe": 2,
+          "coordinates": [
+            406,
+            389,
+            389,
+            406,
+            -34
+          ]
+        },
+        {
+          "power": 5,
+          "probe": 2,
+          "coordinates": [
+            11061668480256,
+            9103935129984,
+            9103935042944,
+            11061668567296,
+            -3915466874624
+          ]
+        },
+        {
+          "power": 6,
+          "probe": 2,
+          "coordinates": [
+            4497371599872000,
+            3580154061233792,
+            3580153855135872,
+            4497371811148800,
+            -1834435494651136
+          ]
+        },
+        {
+          "power": 7,
+          "probe": 2,
+          "coordinates": [
+            1829069956450951168,
+            1410910197704608768,
+            1410909912494373888,
+            1829070255912245248,
+            -836320102139059200
+          ]
+        }
+      ]
+    },
+    "13": {
+      "rank": 5,
+      "independent": [
+        {
+          "power": 0,
+          "probe": 13,
+          "coordinates": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "power": 1,
+          "probe": 13,
+          "coordinates": [
+            406,
+            389,
+            389,
+            406,
+            -34
+          ]
+        },
+        {
+          "power": 5,
+          "probe": 13,
+          "coordinates": [
+            11061668567296,
+            9103935042944,
+            9103935129984,
+            11061668480256,
+            -3915466874624
+          ]
+        },
+        {
+          "power": 6,
+          "probe": 13,
+          "coordinates": [
+            4497371811148800,
+            3580153855135872,
+            3580154061233792,
+            4497371599872000,
+            -1834435494651136
+          ]
+        },
+        {
+          "power": 7,
+          "probe": 13,
+          "coordinates": [
+            1829070255912245248,
+            1410909912494373888,
+            1410910197704608768,
+            1829069956450951168,
+            -836320102139059200
+          ]
+        }
+      ]
+    },
+    "2,13": {
+      "rank": 5,
+      "independent": [
+        {
+          "power": 0,
+          "probe": 2,
+          "coordinates": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "power": 1,
+          "probe": 2,
+          "coordinates": [
+            406,
+            389,
+            389,
+            406,
+            -34
+          ]
+        },
+        {
+          "power": 5,
+          "probe": 2,
+          "coordinates": [
+            11061668480256,
+            9103935129984,
+            9103935042944,
+            11061668567296,
+            -3915466874624
+          ]
+        },
+        {
+          "power": 6,
+          "probe": 2,
+          "coordinates": [
+            4497371599872000,
+            3580154061233792,
+            3580153855135872,
+            4497371811148800,
+            -1834435494651136
+          ]
+        },
+        {
+          "power": 7,
+          "probe": 2,
+          "coordinates": [
+            1829069956450951168,
+            1410910197704608768,
+            1410909912494373888,
+            1829070255912245248,
+            -836320102139059200
+          ]
+        }
+      ]
+    },
+    "None,2,13": {
+      "rank": 5,
+      "independent": [
+        {
+          "power": 0,
+          "probe": null,
+          "coordinates": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "power": 1,
+          "probe": null,
+          "coordinates": [
+            204,
+            187,
+            187,
+            204,
+            -34
+          ]
+        },
+        {
+          "power": 5,
+          "probe": 2,
+          "coordinates": [
+            11061668480256,
+            9103935129984,
+            9103935042944,
+            11061668567296,
+            -3915466874624
+          ]
+        },
+        {
+          "power": 6,
+          "probe": 2,
+          "coordinates": [
+            4497371599872000,
+            3580154061233792,
+            3580153855135872,
+            4497371811148800,
+            -1834435494651136
+          ]
+        },
+        {
+          "power": 7,
+          "probe": 2,
+          "coordinates": [
+            1829069956450951168,
+            1410910197704608768,
+            1410909912494373888,
+            1829070255912245248,
+            -836320102139059200
+          ]
+        }
+      ]
+    }
+  },
+  "feedback": {
+    "phase_route": [
+      1,
+      0,
+      1
+    ],
+    "energy_bright": 0.0,
+    "energy_dark": 8.499999999999998,
+    "high_marginal_trace_distances": {
+      "coin": 0.0,
+      "A": 0.0,
+      "B": 0.0,
+      "coin+A": 0.5,
+      "coin+B": 0.5,
+      "A+B": 0.0,
+      "coin+A+B": 0.5
+    },
+    "high_seam_exchange": "3/8",
+    "high_seam_unweighted_contrast": "3/4",
+    "endpoint_gated_seam_energy_erased_feedback": [
+      "51/16",
+      "17/8"
+    ],
+    "current_element_over_i": "-17/4",
+    "visible_source_order": [
+      "c0 A",
+      "c0 B",
+      "c1 A",
+      "c1 B"
+    ]
+  }
+}

@@ -1,0 +1,1255 @@
+{
+  "charge_and_coin_read_address": 1,
+  "marks": [
+    [
+      74,
+      82
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "populated_parity": [
+    1,
+    1
+  ],
+  "predeclared_whole_space_rank_targets": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "same_wait_banks": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "schema": "oph.material_spin_band.low_window.v1",
+  "signs": {
+    "-1": {
+      "1": {
+        "binary_energy_cutoff_anywhere_in_gap": "2482519753/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 0,
+          "(1, -1)": 0,
+          "(1, 1)": 1
+        },
+        "empty_dyadic_interval": [
+          "1241146693/33554432",
+          "310343265/8388608"
+        ],
+        "full_rank": 1,
+        "local_reference_entanglement_and_wait_change_exact": false,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2460802968826,
+            "in_window_missing_port": 0.0038371355883,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -8.27234e-25,
+            "signed_port_and_coin_click": 8.25675291e-05,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "16": {
+        "binary_energy_cutoff_anywhere_in_gap": "2690550055/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 4,
+          "(-1, 1)": 4,
+          "(1, -1)": 4,
+          "(1, 1)": 4
+        },
+        "empty_dyadic_interval": [
+          "331344381/8388608",
+          "1365172531/33554432"
+        ],
+        "full_rank": 16,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062302646402,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -2.098869e-14,
+            "signed_port_and_coin_click": 1.0051816e-06,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062300717407,
+            "local_joint_record_change_frobenius_numeric": 1.92919e-07,
+            "partial_transpose_minimum_numeric": -1.891125e-14,
+            "signed_port_and_coin_click": 1.1980811e-06,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0061835493072,
+            "local_joint_record_change_frobenius_numeric": 4.671535e-05,
+            "partial_transpose_minimum_numeric": -2.602501e-15,
+            "signed_port_and_coin_click": 4.77205146e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006073115007,
+            "local_joint_record_change_frobenius_numeric": 0.0001571497,
+            "partial_transpose_minimum_numeric": -3.558185e-16,
+            "signed_port_and_coin_click": 0.0001581548148,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062294935433,
+            "local_joint_record_change_frobenius_numeric": 7.711164e-07,
+            "partial_transpose_minimum_numeric": -1.511807e-14,
+            "signed_port_and_coin_click": 1.7762785e-06,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0060727893559,
+            "local_joint_record_change_frobenius_numeric": 0.0001574753,
+            "partial_transpose_minimum_numeric": -1.119513e-15,
+            "signed_port_and_coin_click": 0.0001584804659,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006227188259,
+            "local_joint_record_change_frobenius_numeric": 3.076401e-06,
+            "partial_transpose_minimum_numeric": -9.664097e-15,
+            "signed_port_and_coin_click": 4.0815628e-06,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062180865543,
+            "local_joint_record_change_frobenius_numeric": 1.217811e-05,
+            "partial_transpose_minimum_numeric": -5.240711e-15,
+            "signed_port_and_coin_click": 1.31832675e-05,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "2": {
+        "binary_energy_cutoff_anywhere_in_gap": "620888813/16777216",
+        "certificate": {
+          "calibrated_near_half_beat_wait": "19869/128",
+          "each_energy_error_upper": 1.302533159364533e-13,
+          "finite_coarse_filter_certificate": {
+            "coherent_phase_bits_each": 22,
+            "coherent_read_repetitions": 51,
+            "controlled_native_H_exposure_elementary": "1/64",
+            "executed_clock_circuit": false,
+            "maximum_clock_exposure_for_one_query": "32768",
+            "maximum_wrong_bin_probability_one_read": "1/34",
+            "signed_phase_read_bins_accepting_below_coarse_cut": [
+              -10430,
+              386005
+            ],
+            "successful_operator_error_upper": 3.4204081750684533e-25,
+            "total_absolute_controlled_exposure": "213909453/32"
+          },
+          "fixed_positive_wait_witnesses_and_zero_clock_comparison": {
+            "19869/128": {
+              "joint_trace_error_upper": 4.96224071722929e-13,
+              "same_witness_at_zero_interval": [
+                2.3211870558384537e-11,
+                2.368467580306154e-11
+              ],
+              "wait_minus_zero_interval": [
+                -2.5577566859753138e-11,
+                -2.411231347163028e-11
+              ],
+              "wait_witness_interval": [
+                -1.8928910566915986e-12,
+                -9.004429132457403e-13
+              ],
+              "witness_vector_real_and_imag_integer": [
+                [
+                  4252,
+                  0
+                ],
+                [
+                  11863282,
+                  0
+                ],
+                [
+                  -11863282,
+                  -44
+                ],
+                [
+                  4252,
+                  0
+                ]
+              ]
+            },
+            "32": {
+              "joint_trace_error_upper": 2.899648706871903e-13,
+              "same_witness_at_zero_interval": [
+                8.827287063445857e-13,
+                1.3555339510215822e-12
+              ],
+              "wait_minus_zero_interval": [
+                -3.0421658195444972e-12,
+                -1.9894308334931198e-12
+              ],
+              "wait_witness_interval": [
+                -1.686631868522915e-12,
+                -1.1067021271485341e-12
+              ],
+              "witness_vector_real_and_imag_integer": [
+                [
+                  167932,
+                  -54944
+                ],
+                [
+                  11861967,
+                  0
+                ],
+                [
+                  9459507,
+                  -7157094
+                ],
+                [
+                  -167071,
+                  57509
+                ]
+              ]
+            }
+          },
+          "integer_spectral_residual_upper": 6.512665796822664e-14,
+          "prepared_energy_centers_dyadic": [
+            "325299818208903/8796093022208",
+            "5207645439812279/140737488355328"
+          ],
+          "projector_operator_error_upper": 1.839638840549045e-11,
+          "zero_wait_own_negative_witness": {
+            "joint_trace_error_upper": 2.3640262233849815e-13,
+            "same_witness_at_zero_interval": [
+              -1.6330696437071841e-12,
+              -1.1602643990301875e-12
+            ],
+            "wait_minus_zero_interval": [
+              -4.728052446769963e-13,
+              4.728052446769963e-13
+            ],
+            "wait_witness_interval": [
+              -1.6330696437071841e-12,
+              -1.1602643990301875e-12
+            ],
+            "witness_vector_real_and_imag_integer": [
+              [
+                186373,
+                0
+              ],
+              [
+                11861819,
+                0
+              ],
+              [
+                11861819,
+                0
+              ],
+              [
+                -186373,
+                0
+              ]
+            ]
+          }
+        },
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 0,
+          "(1, -1)": 0,
+          "(1, 1)": 2
+        },
+        "empty_dyadic_interval": [
+          "620859113/16777216",
+          "620918513/16777216"
+        ],
+        "full_rank": 2,
+        "individual_energy_record_comparator": "separable and stationary at every wait",
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419378,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675429e-05,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419378,
+            "local_joint_record_change_frobenius_numeric": 8.635632e-10,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675429e-05,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419379,
+            "local_joint_record_change_frobenius_numeric": 1.375696e-08,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675427e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419433,
+            "local_joint_record_change_frobenius_numeric": 8.533913e-08,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675373e-05,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419378,
+            "local_joint_record_change_frobenius_numeric": 1.727038e-09,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675429e-05,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419383,
+            "local_joint_record_change_frobenius_numeric": 2.715406e-08,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675423e-05,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419378,
+            "local_joint_record_change_frobenius_numeric": 3.453369e-09,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675429e-05,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2460798905194,
+            "in_window_missing_port": 0.0038375419378,
+            "local_joint_record_change_frobenius_numeric": 6.90108e-09,
+            "partial_transpose_minimum_numeric": -1.396667e-12,
+            "signed_port_and_coin_click": 8.25675428e-05,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "32": {
+        "binary_energy_cutoff_anywhere_in_gap": "3101514575/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 8,
+          "(-1, 1)": 8,
+          "(1, -1)": 8,
+          "(1, 1)": 8
+        },
+        "empty_dyadic_interval": [
+          "1524798241/33554432",
+          "788358167/16777216"
+        ],
+        "full_rank": 32,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0062321719188,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -2.096662e-14,
+            "signed_port_and_coin_click": 1.0059241e-06,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0062319793534,
+            "local_joint_record_change_frobenius_numeric": 1.926998e-07,
+            "partial_transpose_minimum_numeric": -1.897442e-14,
+            "signed_port_and_coin_click": 1.1984895e-06,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0061854601747,
+            "local_joint_record_change_frobenius_numeric": 4.671203e-05,
+            "partial_transpose_minimum_numeric": -2.519829e-15,
+            "signed_port_and_coin_click": 4.77176682e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0060750240148,
+            "local_joint_record_change_frobenius_numeric": 0.0001571482,
+            "partial_transpose_minimum_numeric": -2.985125e-16,
+            "signed_port_and_coin_click": 0.0001581538281,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0062314020797,
+            "local_joint_record_change_frobenius_numeric": 7.701271e-07,
+            "partial_transpose_minimum_numeric": -1.516506e-14,
+            "signed_port_and_coin_click": 1.7757632e-06,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0060746903663,
+            "local_joint_record_change_frobenius_numeric": 0.0001574816,
+            "partial_transpose_minimum_numeric": -1.255464e-15,
+            "signed_port_and_coin_click": 0.0001584874767,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0062290963997,
+            "local_joint_record_change_frobenius_numeric": 3.075569e-06,
+            "partial_transpose_minimum_numeric": -9.574349e-15,
+            "signed_port_and_coin_click": 4.0814432e-06,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2437668221571,
+            "in_window_missing_port": 0.0062199966106,
+            "local_joint_record_change_frobenius_numeric": 1.217544e-05,
+            "partial_transpose_minimum_numeric": -5.092031e-15,
+            "signed_port_and_coin_click": 1.31812323e-05,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "4": {
+        "binary_energy_cutoff_anywhere_in_gap": "1246716023/33554432",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 0,
+          "(1, -1)": 0,
+          "(1, 1)": 4
+        },
+        "empty_dyadic_interval": [
+          "622677113/16777216",
+          "312019455/8388608"
+        ],
+        "full_rank": 4,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062302646402,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -2.098869e-14,
+            "signed_port_and_coin_click": 1.0051816e-06,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062300717407,
+            "local_joint_record_change_frobenius_numeric": 1.92919e-07,
+            "partial_transpose_minimum_numeric": -1.891125e-14,
+            "signed_port_and_coin_click": 1.1980811e-06,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0061835493072,
+            "local_joint_record_change_frobenius_numeric": 4.671535e-05,
+            "partial_transpose_minimum_numeric": -2.602501e-15,
+            "signed_port_and_coin_click": 4.77205146e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006073115007,
+            "local_joint_record_change_frobenius_numeric": 0.0001571497,
+            "partial_transpose_minimum_numeric": -3.558185e-16,
+            "signed_port_and_coin_click": 0.0001581548148,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062294935433,
+            "local_joint_record_change_frobenius_numeric": 7.711164e-07,
+            "partial_transpose_minimum_numeric": -1.511807e-14,
+            "signed_port_and_coin_click": 1.7762785e-06,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0060727893559,
+            "local_joint_record_change_frobenius_numeric": 0.0001574753,
+            "partial_transpose_minimum_numeric": -1.119513e-15,
+            "signed_port_and_coin_click": 0.0001584804659,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006227188259,
+            "local_joint_record_change_frobenius_numeric": 3.076401e-06,
+            "partial_transpose_minimum_numeric": -9.664097e-15,
+            "signed_port_and_coin_click": 4.0815628e-06,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062180865543,
+            "local_joint_record_change_frobenius_numeric": 1.217811e-05,
+            "partial_transpose_minimum_numeric": -5.240711e-15,
+            "signed_port_and_coin_click": 1.31832675e-05,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "8": {
+        "binary_energy_cutoff_anywhere_in_gap": "2526311975/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 2,
+          "(1, -1)": 2,
+          "(1, 1)": 4
+        },
+        "empty_dyadic_interval": [
+          "1259156697/33554432",
+          "633577639/16777216"
+        ],
+        "full_rank": 8,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062302646402,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -2.098869e-14,
+            "signed_port_and_coin_click": 1.0051816e-06,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062300717407,
+            "local_joint_record_change_frobenius_numeric": 1.92919e-07,
+            "partial_transpose_minimum_numeric": -1.891125e-14,
+            "signed_port_and_coin_click": 1.1980811e-06,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0061835493072,
+            "local_joint_record_change_frobenius_numeric": 4.671535e-05,
+            "partial_transpose_minimum_numeric": -2.602501e-15,
+            "signed_port_and_coin_click": 4.77205146e-05,
+            "write_refusal": 0.75
+          },
+          "19869/128": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006073115007,
+            "local_joint_record_change_frobenius_numeric": 0.0001571497,
+            "partial_transpose_minimum_numeric": -3.558185e-16,
+            "signed_port_and_coin_click": 0.0001581548148,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062294935433,
+            "local_joint_record_change_frobenius_numeric": 7.711164e-07,
+            "partial_transpose_minimum_numeric": -1.511807e-14,
+            "signed_port_and_coin_click": 1.7762785e-06,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0060727893559,
+            "local_joint_record_change_frobenius_numeric": 0.0001574753,
+            "partial_transpose_minimum_numeric": -1.119513e-15,
+            "signed_port_and_coin_click": 0.0001584804659,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.006227188259,
+            "local_joint_record_change_frobenius_numeric": 3.076401e-06,
+            "partial_transpose_minimum_numeric": -9.664097e-15,
+            "signed_port_and_coin_click": 4.0815628e-06,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.2437687301782,
+            "in_window_missing_port": 0.0062180865543,
+            "local_joint_record_change_frobenius_numeric": 1.217811e-05,
+            "partial_transpose_minimum_numeric": -5.240711e-15,
+            "signed_port_and_coin_click": 1.31832675e-05,
+            "write_refusal": 0.75
+          }
+        }
+      }
+    },
+    "1": {
+      "1": {
+        "binary_energy_cutoff_anywhere_in_gap": "3571937121/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 0,
+          "(1, -1)": 0,
+          "(1, 1)": 1
+        },
+        "empty_dyadic_interval": [
+          "445904265/8388608",
+          "1788320061/33554432"
+        ],
+        "full_rank": 1,
+        "local_reference_entanglement_and_wait_change_exact": false,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.190339056656,
+            "in_window_missing_port": 0.0317247542282,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -4.221318e-23,
+            "signed_port_and_coin_click": 0.0279361891158,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "16": {
+        "binary_energy_cutoff_anywhere_in_gap": "3797069355/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 4,
+          "(-1, 1)": 4,
+          "(1, -1)": 4,
+          "(1, 1)": 4
+        },
+        "empty_dyadic_interval": [
+          "941620069/16777216",
+          "1913829217/33554432"
+        ],
+        "full_rank": 16,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.1178263108334,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -1.810465e-11,
+            "signed_port_and_coin_click": 0.0010890919738,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.09494178859,
+            "local_joint_record_change_frobenius_numeric": 0.02288452,
+            "partial_transpose_minimum_numeric": -1.169742e-13,
+            "signed_port_and_coin_click": 0.0239736142172,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.017367399026,
+            "local_joint_record_change_frobenius_numeric": 0.1004589,
+            "partial_transpose_minimum_numeric": -2.568697e-14,
+            "signed_port_and_coin_click": 0.1015480037812,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0451582628657,
+            "local_joint_record_change_frobenius_numeric": 0.07266805,
+            "partial_transpose_minimum_numeric": -4.641593e-14,
+            "signed_port_and_coin_click": 0.0737571399415,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0796260031954,
+            "local_joint_record_change_frobenius_numeric": 0.03820031,
+            "partial_transpose_minimum_numeric": -5.17718e-14,
+            "signed_port_and_coin_click": 0.0392893996118,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0174266662474,
+            "local_joint_record_change_frobenius_numeric": 0.1003996,
+            "partial_transpose_minimum_numeric": -7.407441e-15,
+            "signed_port_and_coin_click": 0.1014887365598,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.1025764967041,
+            "local_joint_record_change_frobenius_numeric": 0.01524982,
+            "partial_transpose_minimum_numeric": -3.019927e-14,
+            "signed_port_and_coin_click": 0.0163389061031,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.079434136058,
+            "local_joint_record_change_frobenius_numeric": 0.03839218,
+            "partial_transpose_minimum_numeric": -1.654396e-14,
+            "signed_port_and_coin_click": 0.0394812667492,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "2": {
+        "binary_energy_cutoff_anywhere_in_gap": "1793177905/33554432",
+        "certificate": {
+          "calibrated_near_half_beat_wait": "7651/1024",
+          "each_energy_error_upper": 1.5274542366616312e-13,
+          "finite_coarse_filter_certificate": {
+            "coherent_phase_bits_each": 22,
+            "coherent_read_repetitions": 51,
+            "controlled_native_H_exposure_elementary": "1/64",
+            "executed_clock_circuit": false,
+            "maximum_clock_exposure_for_one_query": "32768",
+            "maximum_wrong_bin_probability_one_read": "1/30",
+            "signed_phase_read_bins_accepting_below_coarse_cut": [
+              -10430,
+              557408
+            ],
+            "successful_operator_error_upper": 8.858846083019109e-24,
+            "total_absolute_controlled_exposure": "213909453/32"
+          },
+          "fixed_positive_wait_witnesses_and_zero_clock_comparison": {
+            "32": {
+              "joint_trace_error_upper": 7.023478034569098e-12,
+              "same_witness_at_zero_interval": [
+                2.0837636700570153e-10,
+                2.201125552061332e-10
+              ],
+              "wait_minus_zero_interval": [
+                -3.7599061532935743e-10,
+                -3.5020747105978755e-10
+              ],
+              "wait_witness_interval": [
+                -1.5587806012322424e-10,
+                -1.4183110405408599e-10
+              ],
+              "witness_vector_real_and_imag_integer": [
+                [
+                  -14356,
+                  7813
+                ],
+                [
+                  7475873,
+                  -9211327
+                ],
+                [
+                  11863272,
+                  0
+                ],
+                [
+                  15113,
+                  -6224
+                ]
+              ]
+            },
+            "7651/1024": {
+              "joint_trace_error_upper": 6.137864426267429e-12,
+              "same_witness_at_zero_interval": [
+                1.8085817892511917e-09,
+                1.8203179774516237e-09
+              ],
+              "wait_minus_zero_interval": [
+                -1.975310422718409e-09,
+                -1.9512985056654415e-09
+              ],
+              "wait_witness_interval": [
+                -1.5499244526678483e-10,
+                -1.4271671641424992e-10
+              ],
+              "witness_vector_real_and_imag_integer": [
+                [
+                  2047,
+                  -1
+                ],
+                [
+                  -11863283,
+                  1273
+                ],
+                [
+                  11863283,
+                  0
+                ],
+                [
+                  2047,
+                  1
+                ]
+              ]
+            }
+          },
+          "integer_spectral_residual_upper": 7.637271183308156e-14,
+          "prepared_energy_centers_dyadic": [
+            "3730653175649853/70368744177664",
+            "117507559410161/2199023255552"
+          ],
+          "projector_operator_error_upper": 2.482552557110692e-11,
+          "zero_wait_own_negative_witness": {
+            "joint_trace_error_upper": 5.868094100215804e-12,
+            "same_witness_at_zero_interval": [
+              -1.5472268601279263e-10,
+              -1.4298649781236095e-10
+            ],
+            "wait_minus_zero_interval": [
+              -1.1736188200431609e-11,
+              1.1736188200431609e-11
+            ],
+            "wait_witness_interval": [
+              -1.5472268601279263e-10,
+              -1.4298649781236095e-10
+            ],
+            "witness_vector_real_and_imag_integer": [
+              [
+                -18078,
+                0
+              ],
+              [
+                11863269,
+                0
+              ],
+              [
+                11863269,
+                0
+              ],
+              [
+                18078,
+                0
+              ]
+            ]
+          }
+        },
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 0,
+          "(1, -1)": 0,
+          "(1, 1)": 2
+        },
+        "empty_dyadic_interval": [
+          "1793126291/33554432",
+          "1793229519/33554432"
+        ],
+        "full_rank": 2,
+        "individual_energy_record_comparator": "separable and stationary at every wait",
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.0317248432831,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.027936190246,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.031724843309,
+            "local_joint_record_change_frobenius_numeric": 2.846833e-06,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361902201,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.031724843312,
+            "local_joint_record_change_frobenius_numeric": 3.006919e-06,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361902171,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.0317248433822,
+            "local_joint_record_change_frobenius_numeric": 5.568296e-06,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361901468,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.0317248433931,
+            "local_joint_record_change_frobenius_numeric": 5.865913e-06,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.027936190136,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.0317248436137,
+            "local_joint_record_change_frobenius_numeric": 1.016651e-05,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361899154,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.0317248438783,
+            "local_joint_record_change_frobenius_numeric": 1.364111e-05,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361896508,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.1903389664709,
+            "in_window_missing_port": 0.031724843871,
+            "local_joint_record_change_frobenius_numeric": 1.355697e-05,
+            "partial_transpose_minimum_numeric": -1.488546e-10,
+            "signed_port_and_coin_click": 0.0279361896581,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "32": {
+        "binary_energy_cutoff_anywhere_in_gap": "4259551141/67108864",
+        "each_parity_rank": {
+          "(-1, -1)": 8,
+          "(-1, 1)": 8,
+          "(1, -1)": 8,
+          "(1, 1)": 8
+        },
+        "empty_dyadic_interval": [
+          "525376705/8388608",
+          "2158044321/33554432"
+        ],
+        "full_rank": 32,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.242082076533,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -1.638178e-13,
+            "signed_port_and_coin_click": 1.9371055e-06,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.217753506776,
+            "local_joint_record_change_frobenius_numeric": 0.02293003,
+            "partial_transpose_minimum_numeric": -1.140653e-10,
+            "signed_port_and_coin_click": 0.0243305068624,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.1404741070068,
+            "local_joint_record_change_frobenius_numeric": 0.1004655,
+            "partial_transpose_minimum_numeric": -1.105862e-09,
+            "signed_port_and_coin_click": 0.1016099066317,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.1656057394387,
+            "local_joint_record_change_frobenius_numeric": 0.07276777,
+            "partial_transpose_minimum_numeric": -3.996586e-10,
+            "signed_port_and_coin_click": 0.0764782741997,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.2005320089362,
+            "local_joint_record_change_frobenius_numeric": 0.0383469,
+            "partial_transpose_minimum_numeric": -4.448187e-11,
+            "signed_port_and_coin_click": 0.0415520047022,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.1401360135836,
+            "local_joint_record_change_frobenius_numeric": 0.1004116,
+            "partial_transpose_minimum_numeric": -9.680672e-10,
+            "signed_port_and_coin_click": 0.1019480000548,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.2268274248275,
+            "local_joint_record_change_frobenius_numeric": 0.01524982,
+            "partial_transpose_minimum_numeric": -3.51485e-09,
+            "signed_port_and_coin_click": 0.0152565888109,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.0079159863616,
+            "in_window_missing_port": 0.1997613144439,
+            "local_joint_record_change_frobenius_numeric": 0.03859265,
+            "partial_transpose_minimum_numeric": -3.093887e-10,
+            "signed_port_and_coin_click": 0.0423226991945,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "4": {
+        "binary_energy_cutoff_anywhere_in_gap": "1795866801/33554432",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 1,
+          "(1, -1)": 0,
+          "(1, 1)": 3
+        },
+        "empty_dyadic_interval": [
+          "897919151/16777216",
+          "448973825/8388608"
+        ],
+        "full_rank": 4,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011048179,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -3.166689e-14,
+            "signed_port_and_coin_click": 0.0290240798193,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011048448,
+            "local_joint_record_change_frobenius_numeric": 2.848766e-06,
+            "partial_transpose_minimum_numeric": -3.103079e-14,
+            "signed_port_and_coin_click": 0.0290240797923,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011048487,
+            "local_joint_record_change_frobenius_numeric": 3.010345e-06,
+            "partial_transpose_minimum_numeric": -3.084157e-14,
+            "signed_port_and_coin_click": 0.0290240797885,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011049209,
+            "local_joint_record_change_frobenius_numeric": 5.572069e-06,
+            "partial_transpose_minimum_numeric": -2.930299e-14,
+            "signed_port_and_coin_click": 0.0290240797163,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011049348,
+            "local_joint_record_change_frobenius_numeric": 5.872341e-06,
+            "partial_transpose_minimum_numeric": -2.873824e-14,
+            "signed_port_and_coin_click": 0.0290240797023,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011051611,
+            "local_joint_record_change_frobenius_numeric": 1.017335e-05,
+            "partial_transpose_minimum_numeric": -2.470383e-14,
+            "signed_port_and_coin_click": 0.029024079476,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.031801105435,
+            "local_joint_record_change_frobenius_numeric": 1.364997e-05,
+            "partial_transpose_minimum_numeric": -2.168785e-14,
+            "signed_port_and_coin_click": 0.0290240792021,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.1891748153629,
+            "in_window_missing_port": 0.0318011054273,
+            "local_joint_record_change_frobenius_numeric": 1.35657e-05,
+            "partial_transpose_minimum_numeric": -2.170304e-14,
+            "signed_port_and_coin_click": 0.0290240792098,
+            "write_refusal": 0.75
+          }
+        }
+      },
+      "8": {
+        "binary_energy_cutoff_anywhere_in_gap": "453995055/8388608",
+        "each_parity_rank": {
+          "(-1, -1)": 0,
+          "(-1, 1)": 2,
+          "(1, -1)": 2,
+          "(1, 1)": 4
+        },
+        "empty_dyadic_interval": [
+          "1814167285/33554432",
+          "1817793155/33554432"
+        ],
+        "full_rank": 8,
+        "readouts": {
+          "0": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.1178263108334,
+            "local_joint_record_change_frobenius_numeric": 0.0,
+            "partial_transpose_minimum_numeric": -1.810465e-11,
+            "signed_port_and_coin_click": 0.0010890919738,
+            "write_refusal": 0.75
+          },
+          "1": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.09494178859,
+            "local_joint_record_change_frobenius_numeric": 0.02288452,
+            "partial_transpose_minimum_numeric": -1.169742e-13,
+            "signed_port_and_coin_click": 0.0239736142172,
+            "write_refusal": 0.75
+          },
+          "16": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.017367399026,
+            "local_joint_record_change_frobenius_numeric": 0.1004589,
+            "partial_transpose_minimum_numeric": -2.568697e-14,
+            "signed_port_and_coin_click": 0.1015480037812,
+            "write_refusal": 0.75
+          },
+          "2": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0451582628657,
+            "local_joint_record_change_frobenius_numeric": 0.07266805,
+            "partial_transpose_minimum_numeric": -4.641593e-14,
+            "signed_port_and_coin_click": 0.0737571399415,
+            "write_refusal": 0.75
+          },
+          "32": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0796260031954,
+            "local_joint_record_change_frobenius_numeric": 0.03820031,
+            "partial_transpose_minimum_numeric": -5.17718e-14,
+            "signed_port_and_coin_click": 0.0392893996118,
+            "write_refusal": 0.75
+          },
+          "4": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.0174266662474,
+            "local_joint_record_change_frobenius_numeric": 0.1003996,
+            "partial_transpose_minimum_numeric": -7.407441e-15,
+            "signed_port_and_coin_click": 0.1014887365598,
+            "write_refusal": 0.75
+          },
+          "7651/1024": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.1025764967041,
+            "local_joint_record_change_frobenius_numeric": 0.01524982,
+            "partial_transpose_minimum_numeric": -3.019927e-14,
+            "signed_port_and_coin_click": 0.0163389061031,
+            "write_refusal": 0.75
+          },
+          "8": {
+            "coarse_window_refusal": 0.1310845971928,
+            "in_window_missing_port": 0.079434136058,
+            "local_joint_record_change_frobenius_numeric": 0.03839218,
+            "partial_transpose_minimum_numeric": -1.654396e-14,
+            "signed_port_and_coin_click": 0.0394812667492,
+            "write_refusal": 0.75
+          }
+        }
+      }
+    }
+  }
+}

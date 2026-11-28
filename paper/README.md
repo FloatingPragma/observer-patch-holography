@@ -37,19 +37,10 @@ spacetimes. The [specification](../model/candidate_laws/contrast_memory_spherica
 [proof of the binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) sit beside the
 code.
 
-The particle paper gives the defect classes, their statistics and the bound
-objects of the executable model. In a written-field extension a signed
-material load carries flux and changes a distant probe. It is a candidate
-for the electron's charge and field response. A four-face orbital doublet
-affects its motion, yet the two orbital labels stay at their original
-gateways when the material loads exchange. Spin attached to the
-travelling charge and its physical rest energy require separate
-measurements. [Particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
+The particle paper follows what arrives with a moving material charge. In the written-field experiment a distant probe detects the source, and two loads can exchange while their orbital labels stay in the original cells. On a separate interacting ring, two neighboring receivers record one excess or missing material unit and recover spin entangled with the sender’s reference on the same trial. The ring supplies the spinor and its fermion algebra. An electron assignment requires electric charge, calibrated rest mass and the lepton family of this branch. [Particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf) · [Two-site measurement](../model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/README.md)
 
 The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
-states the conditional stress and generalized-volume entropy relation. A
-common physical defect assignment, interacting continuum and Einstein
-realization on the executable model are work in progress.
+states the conditional stress and generalized-volume entropy relation. The Einstein interpretation of the executable model requires a common physical defect assignment and an interacting continuum.
 
 | Paper | Role |
 | --- | --- |

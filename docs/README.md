@@ -1,5 +1,9 @@
 # OPH Reference Documents, Registers And Research Notes
 
+**IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.**
+
+Start research with the [rule for closing a physical premise](../AGENTS.md#closing-a-physical-premise). A finite theorem and an experiment establishing its exact measurable antecedent can prove what observers will infer at a different scale.
+
 This directory contains the canonical reference documents, the observables
 register, repository policies, and the public-data comparison that the papers
 cite. Completion of the theory is tracked in the

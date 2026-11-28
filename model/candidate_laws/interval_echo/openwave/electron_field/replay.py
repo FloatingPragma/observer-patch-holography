@@ -62,9 +62,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--family-only", action="store_true", help="replay only the charged-family experiments")
+    mode.add_argument("--contact-chain-only", action="store_true", help="replay the separate interacting contact-ring experiments")
     mode.add_argument("--frozen-flight-only", action="store_true", help="run the matched native no-ring control only")
     mode.add_argument("--verify-only", action="store_true", help="verify the archive without numerical dependencies")
     args = parser.parse_args()
+    if args.contact_chain_only:
+        module = (
+            "model.candidate_laws.interval_echo.openwave.electron_field.lepton_family."
+            "theorem_interfaces.interacting_chain"
+        )
+        env = os.environ | dict.fromkeys(("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"), "1")
+        subprocess.run([sys.executable, "-B", "-W", "error", "-m", module], cwd=MODEL_ROOT, env=env, check=True)
+        return
     digests = {}
     for entry in (HERE / "records.sha256").read_text().splitlines():
         digest, name = entry.split("  ", maxsplit=1)

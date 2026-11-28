@@ -1,0 +1,912 @@
+{
+  "blank_pulse": {
+    "kappa": 8,
+    "exposure_in_pi_units": 1,
+    "closed_load_words": 9
+  },
+  "intact_turns": {
+    "receiver": 160,
+    "forbidden_rotation_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "shadow_rotation_probability": "0",
+    "native_echo_writes_magnitude_one": 1
+  },
+  "charts": [
+    {
+      "length": 19,
+      "arm_paths": [
+        [
+          4,
+          2,
+          6,
+          10,
+          20,
+          18,
+          15,
+          14,
+          24,
+          34,
+          116,
+          111,
+          110,
+          224,
+          222,
+          226,
+          159,
+          164,
+          165,
+          160
+        ],
+        [
+          4,
+          9,
+          8,
+          3,
+          48,
+          49,
+          56,
+          94,
+          86,
+          87,
+          204,
+          205,
+          212,
+          154,
+          150,
+          152,
+          166,
+          162,
+          158,
+          160
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          82,
+          79,
+          72,
+          182,
+          183,
+          188,
+          121,
+          128,
+          123,
+          168,
+          178,
+          170,
+          157,
+          156,
+          161,
+          160
+        ]
+      ],
+      "vacancy_hubs": [
+        4,
+        160
+      ],
+      "first_compensator": [
+        36,
+        37
+      ],
+      "second_compensator": {
+        "excess_at": 12,
+        "spare_at": 17,
+        "shutters": [
+          [
+            12,
+            13
+          ],
+          [
+            12,
+            19
+          ],
+          [
+            12,
+            22
+          ],
+          [
+            12,
+            23
+          ],
+          [
+            13,
+            17
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            21
+          ],
+          [
+            17,
+            23
+          ]
+        ]
+      },
+      "fixed_active_head_edges": [
+        [
+          2,
+          10
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          165,
+          159
+        ],
+        [
+          158,
+          166
+        ],
+        [
+          161,
+          157
+        ]
+      ],
+      "matched_pairs": [
+        {
+          "cycle_arms": [
+            0,
+            1
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            0,
+            2
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            0
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            2
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            0
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            1
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 38,
+          "parked_intervals": 40,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        }
+      ],
+      "computational_orderings": 3
+    },
+    {
+      "length": 20,
+      "arm_paths": [
+        [
+          4,
+          2,
+          6,
+          10,
+          20,
+          19,
+          18,
+          15,
+          14,
+          24,
+          34,
+          116,
+          111,
+          110,
+          224,
+          222,
+          226,
+          159,
+          164,
+          165,
+          160
+        ],
+        [
+          4,
+          9,
+          8,
+          3,
+          48,
+          53,
+          49,
+          56,
+          94,
+          86,
+          87,
+          204,
+          205,
+          212,
+          154,
+          150,
+          152,
+          166,
+          162,
+          158,
+          160
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          82,
+          78,
+          79,
+          72,
+          182,
+          183,
+          188,
+          121,
+          128,
+          123,
+          168,
+          178,
+          170,
+          157,
+          156,
+          161,
+          160
+        ]
+      ],
+      "vacancy_hubs": [
+        4,
+        160
+      ],
+      "first_compensator": [
+        36,
+        37
+      ],
+      "second_compensator": {
+        "excess_at": 27,
+        "spare_at": 28,
+        "shutters": [
+          [
+            26,
+            27
+          ],
+          [
+            26,
+            28
+          ],
+          [
+            27,
+            30
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            27,
+            33
+          ],
+          [
+            28,
+            29
+          ],
+          [
+            28,
+            33
+          ],
+          [
+            28,
+            35
+          ]
+        ]
+      },
+      "fixed_active_head_edges": [
+        [
+          2,
+          10
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          165,
+          159
+        ],
+        [
+          158,
+          166
+        ],
+        [
+          161,
+          157
+        ]
+      ],
+      "matched_pairs": [
+        {
+          "cycle_arms": [
+            0,
+            1
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            0,
+            2
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            0
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            2
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            0
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            1
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 40,
+          "parked_intervals": 42,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        }
+      ],
+      "computational_orderings": 3
+    },
+    {
+      "length": 21,
+      "arm_paths": [
+        [
+          4,
+          2,
+          6,
+          10,
+          20,
+          19,
+          18,
+          15,
+          14,
+          24,
+          31,
+          34,
+          116,
+          111,
+          110,
+          224,
+          222,
+          226,
+          159,
+          164,
+          165,
+          160
+        ],
+        [
+          4,
+          9,
+          8,
+          3,
+          48,
+          53,
+          49,
+          56,
+          94,
+          86,
+          88,
+          87,
+          204,
+          205,
+          212,
+          154,
+          150,
+          152,
+          166,
+          162,
+          158,
+          160
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          82,
+          78,
+          79,
+          72,
+          182,
+          183,
+          186,
+          188,
+          121,
+          128,
+          123,
+          168,
+          178,
+          170,
+          157,
+          156,
+          161,
+          160
+        ]
+      ],
+      "vacancy_hubs": [
+        4,
+        160
+      ],
+      "first_compensator": [
+        36,
+        37
+      ],
+      "second_compensator": {
+        "excess_at": 27,
+        "spare_at": 28,
+        "shutters": [
+          [
+            26,
+            27
+          ],
+          [
+            26,
+            28
+          ],
+          [
+            27,
+            30
+          ],
+          [
+            27,
+            32
+          ],
+          [
+            27,
+            33
+          ],
+          [
+            28,
+            29
+          ],
+          [
+            28,
+            33
+          ],
+          [
+            28,
+            35
+          ]
+        ]
+      },
+      "fixed_active_head_edges": [
+        [
+          2,
+          10
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          165,
+          159
+        ],
+        [
+          158,
+          166
+        ],
+        [
+          161,
+          157
+        ]
+      ],
+      "matched_pairs": [
+        {
+          "cycle_arms": [
+            0,
+            1
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            0,
+            2
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            0
+          ],
+          "parking_port": 161,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            1,
+            2
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            0
+          ],
+          "parking_port": 158,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        },
+        {
+          "cycle_arms": [
+            2,
+            1
+          ],
+          "parking_port": 165,
+          "exchange_intervals": 42,
+          "parked_intervals": 44,
+          "native_amplitudes": [
+            1,
+            1
+          ],
+          "antisymmetric_amplitudes": [
+            -1,
+            1
+          ],
+          "head_operator": "identity_on_64_words"
+        }
+      ],
+      "computational_orderings": 3
+    }
+  ],
+  "banks": {
+    "phase_bins": [
+      "bright",
+      "dark",
+      "receiver_refused",
+      "source_refused"
+    ],
+    "native_phase": [
+      "1/81",
+      "0",
+      "8/81",
+      "8/9"
+    ],
+    "antisymmetric_changed_rule": [
+      "0",
+      "1/81",
+      "8/81",
+      "8/9"
+    ],
+    "winding_bins": [
+      "++",
+      "+-",
+      "-+",
+      "--",
+      "receiver_refused",
+      "source_refused"
+    ],
+    "winding_records": {
+      "+-": {
+        "native_blank_routing": [
+          "0",
+          "1/81",
+          "0",
+          "0",
+          "8/81",
+          "8/9"
+        ],
+        "control_swaps_winding_with_centre": [
+          "0",
+          "0",
+          "1/81",
+          "0",
+          "8/81",
+          "8/9"
+        ]
+      },
+      "-+": {
+        "native_blank_routing": [
+          "0",
+          "0",
+          "1/81",
+          "0",
+          "8/81",
+          "8/9"
+        ],
+        "control_swaps_winding_with_centre": [
+          "0",
+          "1/81",
+          "0",
+          "0",
+          "8/81",
+          "8/9"
+        ]
+      }
+    }
+  }
+}

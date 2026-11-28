@@ -1,0 +1,4958 @@
+{
+  "primary_radii_kpc": [
+    62.71,
+    291.07
+  ],
+  "cases": [
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.5540900733694413,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.5640844505961581,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.6283453749356862,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.5640844505961581,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          11340.84591042108,
+          19145.778162803366,
+          32808.2766487549,
+          48553.057644504464
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.5365822012676198,
+          2.0552795076798938,
+          4.071605974281916,
+          6.239375147978331
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.6179923058461364,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.6362505529096193,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7485192167196141,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.6362505529096193,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          8944.73096707058,
+          16302.224105306024,
+          27855.43640611691,
+          39399.85894572833
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.0724766553969445,
+          1.5427197542620217,
+          3.045202039123451,
+          4.453166557046291
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.7107385025572844,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7458186608485073,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9820813367880966,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7458186608485073,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 1,
+          "outer_heads": 13
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3091.3644626000637,
+          9355.827764848222,
+          15756.355241958394,
+          17039.90212443232
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.2893277431087553,
+          0.6866598650572372,
+          1.3342885512637954,
+          1.4880171732885157
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.5540900733694413,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.5680511132144191,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.6465310368527998,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.5933984790438304,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          11005.105459219554,
+          18747.34313574864,
+          32114.291236073834,
+          47270.52357008848
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.4644114664152392,
+          1.9753150516601847,
+          3.911377542607479,
+          5.960170775586445
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.6179923058461364,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.655928926255623,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7701829671930204,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.68519754322534,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          8468.2860114236,
+          15736.81008351052,
+          26870.610633764536,
+          37579.83133805088
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.9926390787445908,
+          1.4549427186510162,
+          2.8695789120592976,
+          4.148091797424528
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.7107385025572844,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8033455884289661,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0105048756225528,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8391921769553518,
+          "extremizing_test_hop_kpc": 72.7675,
+          "inner_heads": 0,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2271.1985032363327,
+          8382.507913043102,
+          14061.048019551794,
+          13906.854599787566
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.2062262730981252,
+          0.5964669539697427,
+          1.1542734489446806,
+          1.176925500039412
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6763055340418727,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.684630128481996,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7513199571258808,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.684630128481996,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          8883.90009807184,
+          16230.033969001219,
+          27729.697206164215,
+          39167.48402043108
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.0620804101785508,
+          1.5312830980691252,
+          3.022317230934831,
+          4.413404205327047
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7350965818511662,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7497281492821048,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8459957830352378,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7497281492821048,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6693.939280048644,
+          13631.130278203138,
+          23202.983619486724,
+          30801.79748876938
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.7243156300708018,
+          1.1607816733785405,
+          2.281346729693324,
+          3.1274522541752785
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8124802865290157,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8378085344448267,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9887450728588896,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8378085344448267,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 3,
+          "outer_heads": 30
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2901.1810517331132,
+          9130.130407907905,
+          15363.240523719185,
+          16313.398350601656
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.2696059948623354,
+          0.665244036073768,
+          1.2915407194303354,
+          1.4141275645875513
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6763055340418727,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7550993544357726,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8617337067600362,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7550993544357726,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6304.739142398196,
+          13169.252756982498,
+          22398.495458539008,
+          29315.046528264862
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.6708863749116252,
+          1.1023627103785838,
+          2.1645855313916713,
+          2.925075840416931
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7350965818511662,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8517029342923871,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.026544102868479,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8517029342923871,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1798.0566323659023,
+          7821.013778373499,
+          13083.049820831282,
+          12099.444830566734
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.1605029216767216,
+          0.5468942186646664,
+          1.0553514873138345,
+          1.0060461304060306
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8124802865290157,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9983738937275644,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.3468589480377409,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9983738937275644,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -9211.124927855844,
+          -5243.970012228481,
+          -9673.253094140442,
+          -29955.810745238716
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5900015324283601,
+          -0.26151565323508624,
+          -0.5558489028659873,
+          -1.7700142216428945
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7800256867276847,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7881514184102598,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 7,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8480654657420127,
+          "extremizing_test_hop_kpc": 4.583779527559055,
+          "inner_heads": 7,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7938469543961628,
+          "extremizing_test_hop_kpc": 4.583779527559055,
+          "inner_heads": 7,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6643.165517209332,
+          13570.875264253658,
+          23098.03275452151,
+          30607.840875276157
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.7172434202818324,
+          1.1530460446207353,
+          2.265884512040672,
+          3.1006482593778504
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8272025569145791,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8376879509301606,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 7,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9116699958102444,
+          "extremizing_test_hop_kpc": 4.583779527559055,
+          "inner_heads": 7,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8437414601392205,
+          "extremizing_test_hop_kpc": 4.583779527559055,
+          "inner_heads": 7,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          5022.318951628661,
+          11647.359516009623,
+          19747.695109231332,
+          24416.180197160436
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.5067285819042584,
+          0.9231954318330297,
+          1.8066078698725256,
+          2.305055096770996
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8841249332021915,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8979169102924626,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 7,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9958986316490982,
+          "extremizing_test_hop_kpc": 7.56025974025974,
+          "inner_heads": 4,
+          "outer_heads": 39
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9044056610013516,
+          "extremizing_test_hop_kpc": 4.583779527559055,
+          "inner_heads": 7,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2695.5867031396588,
+          8886.144347988775,
+          14938.270942773814,
+          15528.024539865377
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.24859783031491475,
+          0.6424389110003023,
+          1.2460226087688382,
+          1.335459994872535
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7800256867276847,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8951372378720501,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0061605749972824,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9059981083744824,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2398.0688713042964,
+          8533.069450542378,
+          14323.292811400825,
+          14391.501503366044
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.21875551076255517,
+          0.6100575000962107,
+          1.1813957121048773,
+          1.2237858265840587
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8272025569145791,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9802513164171328,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1329495449052667,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9921448922365839,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1529.4753788237404,
+          3872.114257451598,
+          6204.94303408379,
+          -611.7824665545013
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.12201265281890027,
+          0.24141632187781262,
+          0.4460819784871684,
+          -0.04529390828679772
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 33.94,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8841249332021915,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0954142772702915,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.4481749838526448,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 33
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1087051472158098,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 3,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1261054421768708,
+          1.4790864543227162,
+          1.3061151294159843,
+          1.1416087642269492
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -13311.954724674475,
+          -10110.569271254048,
+          -18149.789206173376,
+          -45621.04836846238
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.7715063088712331,
+          -0.4555421134705586,
+          -0.9420002738184818,
+          -2.4333480242228993
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6223353903350007,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.6148285923196846,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 2,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.6884086379544946,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 2,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.6308497992813278,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 2,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          10634.775511020733,
+          15330.720526422112,
+          22909.466812015904,
+          47608.779688884126
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.381299039859578,
+          1.580311875864831,
+          2.7317278037874324,
+          5.897945004673146
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.6881035130445451,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.6818968366724587,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 2,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7929740946160828,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 2,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.6996657083275668,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 2,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          8535.174178700649,
+          11865.939461272053,
+          15811.038682610095,
+          40161.229656771815
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.9980641623544785,
+          1.0983482285006707,
+          1.6921806938453121,
+          4.463185793043762
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.7803890923716046,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7771280515676279,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 2,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0014882250560726,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 1,
+          "outer_heads": 9
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7973784587630528,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 2,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3463.5021888102533,
+          3496.6205773834577,
+          -1335.501740078662,
+          22171.37114899819
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.3263987513658538,
+          0.2596580096596238,
+          -0.11458006253974307,
+          1.9732979530092625
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6223353903350007,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.6488895397562442,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.753746288096625,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.6747639157085424,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          9357.581857071638,
+          13223.084033430014,
+          18591.472143059997,
+          43078.413141644705
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          1.1387020843938136,
+          1.2749262598096305,
+          2.072934066975134,
+          4.98850919712261
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.6881035130445451,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7319051748560833,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8979036110978774,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.761089787175112,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6130.306459827802,
+          7897.405050344667,
+          7680.552003844483,
+          31630.861352458473
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.643378120212774,
+          0.6545127005882999,
+          0.7356921476863353,
+          3.1444594411041398
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.7803890923716046,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.857945875069123,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.178078476807068,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8921563419639985,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1753.4662962964244,
+          -5112.467894049538,
+          -18973.26719338201,
+          3666.12769601779
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.13774505474707344,
+          -0.3154801991397774,
+          -1.3519606446548078,
+          0.2708197178097343
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7389278963730057,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7355929506268916,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7952283621760579,
+          "extremizing_test_hop_kpc": 9.24031746031746,
+          "inner_heads": 5,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7413382176758532,
+          "extremizing_test_hop_kpc": 9.24031746031746,
+          "inner_heads": 5,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          8486.646150203154,
+          11785.858070734266,
+          15646.972906289317,
+          39989.09463540779
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.9901079220369983,
+          1.088368821421394,
+          1.6706659180428929,
+          4.4335083065539544
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7944411318847562,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7975850120393012,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8807282696755958,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7975850120393012,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6544.375514284686,
+          8580.705540519857,
+          9080.455584790157,
+          33099.616373874574
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.699173237090846,
+          0.72419069849548,
+          0.8857998531570622,
+          3.351326876968357
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.864697341476936,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8784594836975084,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0187084080166975,
+          "extremizing_test_hop_kpc": 18.778709677419354,
+          "inner_heads": 2,
+          "outer_heads": 16
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8784594836975084,
+          "extremizing_test_hop_kpc": 10.584363636363637,
+          "inner_heads": 4,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2991.968498810225,
+          2718.4914270808536,
+          -2929.684386819551,
+          20498.781836901875
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.27696376508627435,
+          0.19822997931827596,
+          -0.2468021347775263,
+          1.7912706455379952
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7389278963730057,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.7756380698590236,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8497829120117748,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7756380698590236,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          7270.232798654152,
+          9778.521781237103,
+          11534.46706115401,
+          35674.32346626398
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.8019756802511429,
+          0.8527100889541713,
+          1.1627206873094902,
+          3.7330453105175265
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7944411318847562,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8493895761168538,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9568663167254519,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8493895761168538,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          4647.963234633115,
+          5451.228883637492,
+          2668.978289739038,
+          26372.803470488547
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.4588193625942528,
+          0.42440615448096086,
+          0.24010978682506684,
+          2.461717952391293
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.864697341476936,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.94917849439238,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.178078476807068,
+          "extremizing_test_hop_kpc": 48.51166666666666,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.94917849439238,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 28
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1753.4662962964244,
+          -5112.467894049538,
+          -18973.26719338201,
+          3666.12769601779
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.13774505474707344,
+          -0.3154801991397774,
+          -1.3519606446548078,
+          0.2708197178097343
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8301569266112434,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8363324585788029,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8825114642067352,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8363324585788029,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6501.7576766378115,
+          8510.377200256635,
+          8936.371251774079,
+          32948.44554289363
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.6933381806202387,
+          0.7169013083105703,
+          0.870095372039804,
+          3.3296825696763603
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8713644155681508,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8812827294067596,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9375671629297809,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8812827294067596,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          5143.5263225491735,
+          6269.011563219588,
+          4344.400623021438,
+          28130.62807962262
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.5180292214407146,
+          0.49816609972506976,
+          0.39894421007101194,
+          2.680497912064953
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9193880844010165,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9343586357299722,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0187084080166975,
+          "extremizing_test_hop_kpc": 18.778709677419354,
+          "inner_heads": 2,
+          "outer_heads": 16
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9343586357299722,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 9,
+          "outer_heads": 60
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2991.968498810225,
+          2718.4914270808536,
+          -2929.684386819551,
+          20498.781836901875
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.27696376508627435,
+          0.19822997931827596,
+          -0.2468021347775263,
+          1.7912706455379952
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8301569266112434,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8357435884526655,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 8,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9259623241460065,
+          "extremizing_test_hop_kpc": 32.34111111111111,
+          "inner_heads": 3,
+          "outer_heads": 34
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.845883824500716,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 8,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          5436.653916859335,
+          6752.73336449915,
+          5335.4197888633,
+          29170.38852881481
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.5541955187271578,
+          0.5432488380934073,
+          0.49603590454175067,
+          2.814251030734899
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8713644155681508,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.903944603343645,
+          "extremizing_test_hop_kpc": 32.34111111111111,
+          "inner_heads": 3,
+          "outer_heads": 34
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.042645299179482,
+          "extremizing_test_hop_kpc": 32.34111111111111,
+          "inner_heads": 3,
+          "outer_heads": 34
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.921412092323594,
+          "extremizing_test_hop_kpc": 32.34111111111111,
+          "inner_heads": 3,
+          "outer_heads": 34
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          2323.1603022778836,
+          1614.81810591669,
+          -5190.821700061927,
+          18126.43503520816
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.2097787322597736,
+          0.11481130565742877,
+          -0.42633438302829824,
+          1.5441532627110242
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 46.13,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9193880844010165,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.01756090448701,
+          "extremizing_test_hop_kpc": 48.51166666666666,
+          "inner_heads": 1,
+          "outer_heads": 20
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.3600504316473634,
+          "extremizing_test_hop_kpc": 48.51166666666666,
+          "inner_heads": 1,
+          "outer_heads": 20
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0296624388834288,
+          "extremizing_test_hop_kpc": 32.34111111111111,
+          "inner_heads": 3,
+          "outer_heads": 34
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.1495659722222222,
+          1.1358016395645747,
+          1.0509355009379058,
+          1.222709217915354
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -8013.8284784244315,
+          -15443.374059769112,
+          -40138.58573734599,
+          -18540.164447558644
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5247387053183088,
+          -0.7922818985399006,
+          -2.3767781111049273,
+          -1.1375100131554483
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6925536628770546,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.6976742800167087,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.7568172077451041,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.6976742800167087,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          6709.665293893182,
+          10118.803109016693,
+          19133.65903425695,
+          29010.437836484904
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.8247164621990103,
+          0.9913974324298506,
+          2.169951099584398,
+          3.428072019835843
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7582680840800433,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.77377970138995,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.871773547009467,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.77377970138995,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3327.0991333210477,
+          4950.450331381368,
+          10801.067197557759,
+          15483.818137407143
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.3643719230225914,
+          0.4314413966209503,
+          1.089298552677945,
+          1.627051308601322
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8471226424745559,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8818429406684472,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0743265070804477,
+          "extremizing_test_hop_kpc": 44.78,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8818429406684472,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 2,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -3794.9533276398893,
+          -5931.607216562047,
+          -6743.351264521552,
+          -12996.717214488166
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.3380282425239406,
+          -0.419396983415022,
+          -0.5514856486051601,
+          -1.1074746685110841
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.6925536628770546,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.756567090755572,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8788239005475311,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7867350933815658,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3104.102351586316,
+          4609.724982172678,
+          10251.73835227104,
+          14592.071304542902
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.3375246060591648,
+          0.3988417301293389,
+          1.0264047846158588,
+          1.5222324601657957
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.7582680840800433,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.853358445349306,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.046902872070387,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8873859891518014,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -2743.925867458416,
+          -4325.701985049554,
+          -4154.256944080083,
+          -8793.73992674824
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.25133356225893694,
+          -0.31461227153154797,
+          -0.34949604623809577,
+          -0.7708402445701815
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.8471226424745559,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.000314498782986,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.373570309385007,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0402018938267843,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -17029.823373981995,
+          -26153.67357640675,
+          -39346.045453737876,
+          -65921.93593461663
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.1262269998582588,
+          -1.3690938133409727,
+          -2.381149249260641,
+          -4.156768232252189
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7980301570117366,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.805271378928127,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8549863228811524,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.805271378928127,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3850.8349140953687,
+          5750.686350077342,
+          12091.234568808595,
+          17578.19689987177
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.42896957346545467,
+          0.5099055491493226,
+          1.2406865873168005,
+          1.8793549280225361
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8486408068931746,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8605685646316634,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9263247940614583,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8605685646316634,
+          "extremizing_test_hop_kpc": 9.866779661016949,
+          "inner_heads": 6,
+          "outer_heads": 30
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1554.8713822943957,
+          2242.5954706587777,
+          6435.372695227996,
+          8396.816828248804
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.16108425295082615,
+          0.18475291359709775,
+          0.6134227805142859,
+          0.8339565958513634
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9102889784983345,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9291801953670838,
+          "extremizing_test_hop_kpc": 11.414509803921568,
+          "inner_heads": 5,
+          "outer_heads": 26
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0743265070804477,
+          "extremizing_test_hop_kpc": 44.78,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9291801953670838,
+          "extremizing_test_hop_kpc": 11.414509803921568,
+          "inner_heads": 5,
+          "outer_heads": 26
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -3794.9533276398893,
+          -5931.607216562047,
+          -6743.351264521552,
+          -12996.717214488166
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.3380282425239406,
+          -0.419396983415022,
+          -0.5514856486051601,
+          -1.1074746685110841
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7980301570117366,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8108533472539466,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8797525458853432,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8273733267692989,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          3074.596201699942,
+          4564.641402285869,
+          10179.053091435218,
+          14474.07849986426
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.33400093570436257,
+          0.394563538000074,
+          1.0181511322302936,
+          1.5084769123752821
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8486408068931746,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8665338411777691,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9531574647253916,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.884188231276911,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          643.6927216167969,
+          850.3705921840974,
+          4190.781012665772,
+          4753.084042009321
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.06488411729033124,
+          0.06813970031872343,
+          0.38851313470993953,
+          0.4591225618057246
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9102889784983345,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9486796498440467,
+          "extremizing_test_hop_kpc": 44.78,
+          "inner_heads": 3,
+          "outer_heads": 19
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1676764478916741,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 9
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9545850157860883,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 6,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -7576.34476945192,
+          -11709.340462231956,
+          -16058.40674715479,
+          -28118.208277382008
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.6139952823618491,
+          -0.7525164319377071,
+          -1.1934773136614096,
+          -2.1774118201704833
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8739274014969571,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8855346257608635,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9208789763992039,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8855346257608635,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1736.6234297299218,
+          2520.3014059198995,
+          6883.0995259453275,
+          9123.629167899628
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.18091610259836002,
+          0.20880294738327512,
+          0.659811105002781,
+          0.9112673348941595
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9088049633543636,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9224399837632583,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9638719551603818,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9224399837632583,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          272.58353200307215,
+          283.33860525566934,
+          3276.593009503009,
+          3269.047178739606
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.027177225331411852,
+          0.022453540500210447,
+          0.3004067721566156,
+          0.3122847267392444
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9482219445927494,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9643808243484039,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0743265070804477,
+          "extremizing_test_hop_kpc": 44.78,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9643808243484039,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 13,
+          "outer_heads": 63
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -3794.9533276398893,
+          -5931.607216562047,
+          -6743.351264521552,
+          -12996.717214488166
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.3380282425239406,
+          -0.419396983415022,
+          -0.5514856486051601,
+          -1.1074746685110841
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8739274014969571,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9329462585826711,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9875226006399394,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9431143672486988,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -561.2694697647689,
+          -990.7374285143387,
+          1222.4848603330247,
+          -65.46629547437124
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.05462362408472228,
+          -0.07661505694635751,
+          0.10936646513859143,
+          -0.006102399652413157
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9088049633543636,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9767457020955131,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0402618616519133,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9873911774877084,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 11,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -2493.4924390874994,
+          -3943.0551294697507,
+          -3537.340839022396,
+          -7792.276072176745
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.22994687165288694,
+          -0.28875296658437155,
+          -0.2996445406397486,
+          -0.6877580464731674
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 62.71,
+      "outer_kpc": 291.07,
+      "primary": true,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9482219445927494,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0752479762296323,
+          "extremizing_test_hop_kpc": 145.535,
+          "inner_heads": 0,
+          "outer_heads": 10
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.3349344453011176,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 13
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0752479762296323,
+          "extremizing_test_hop_kpc": 145.535,
+          "inner_heads": 0,
+          "outer_heads": 10
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          1.0227834414581405,
+          1.0470143706640238,
+          1.0699245911272157,
+          1.0066909747021013
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -15139.127653075986,
+          -23264.806953571795,
+          -34688.51771242128,
+          -58361.190403169734
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.0394335341373235,
+          -1.2647782814158621,
+          -2.1802682059080793,
+          -3.8219834379543003
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7626198270868607,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.766568772031605,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8171885976745832,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.766568772031605,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          4624.533389416872,
+          7304.729209815509,
+          15980.947165504625,
+          21900.663989450044
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.5409369614516333,
+          0.6827259103243415,
+          1.7259276166891537,
+          2.4634622848714716
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8261679405499457,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8394579245687177,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9201647061550713,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8394579245687177,
+          "extremizing_test_hop_kpc": 25.310434782608695,
+          "inner_heads": 3,
+          "outer_heads": 12
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1293.4690234516288,
+          2314.6961272992385,
+          8306.690464485964,
+          8909.118510496337
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.13650427360356102,
+          0.19499837306877038,
+          0.8082247452327479,
+          0.9027798758803952
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9088107629173364,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9382347224812441,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 2,
+          "outer_heads": 9
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1332955026113005,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 5
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9382347224812441,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 2,
+          "outer_heads": 9
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -6855.279288839221,
+          -9892.370201077512,
+          -10466.764344572211,
+          -22871.96485052643
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5838117914913468,
+          -0.6713571388780138,
+          -0.819707330098671,
+          -1.8652950420007828
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.7626198270868607,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.73891304591928,
+          "extremizing_test_hop_kpc": 97.02333333333333,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8109086093599415,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 4,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.7664423510034558,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 4,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          4814.902978060272,
+          7589.9084921318745,
+          16419.529231418397,
+          22643.127927985734
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.5667148681389038,
+          0.7138446492699794,
+          1.7845105258832836,
+          2.56309697310224
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8261679405499457,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.847984962914984,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 5
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9546520466969707,
+          "extremizing_test_hop_kpc": 97.02333333333333,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.847984962914984,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 5
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          89.60638731184099,
+          511.27424133335353,
+          5533.177290469401,
+          4213.911672819061
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.009133698171227087,
+          0.041588879955181665,
+          0.5197551031978169,
+          0.41223474164778195
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9088107629173364,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0385652343473135,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 5
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.2525342532907158,
+          "extremizing_test_hop_kpc": 97.02333333333333,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0385652343473135,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 5
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -12152.099992556045,
+          -17827.16450099044,
+          -22669.819378549106,
+          -43530.1928239329
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.9195262559899074,
+          -1.0741268582069825,
+          -1.5755809688181872,
+          -3.1503579383448885
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8518377071606567,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8567261971771125,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 8,
+          "outer_heads": 29
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8998894883188642,
+          "extremizing_test_hop_kpc": 9.24031746031746,
+          "inner_heads": 9,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8623548228890708,
+          "extremizing_test_hop_kpc": 9.24031746031746,
+          "inner_heads": 9,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1980.5505206971811,
+          3343.9645607378197,
+          9889.619884360662,
+          11588.817711273161
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.21331675200447328,
+          0.28755876499722777,
+          0.9823169354509084,
+          1.1988339393247742
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8964227289775601,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9063678884145333,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 8,
+          "outer_heads": 29
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.959905583948455,
+          "extremizing_test_hop_kpc": 11.414509803921568,
+          "inner_heads": 7,
+          "outer_heads": 26
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.908703714936773,
+          "extremizing_test_hop_kpc": 9.24031746031746,
+          "inner_heads": 9,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -97.66812049495866,
+          230.73148178295696,
+          5101.725811731654,
+          3483.5189160535365
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.009902859877895931,
+          0.018668554084818274,
+          0.4766635127186239,
+          0.33895867518866557
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9488314205267777,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9685857182424499,
+          "extremizing_test_hop_kpc": 11.414509803921568,
+          "inner_heads": 7,
+          "outer_heads": 26
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1332955026113005,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 5
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9685857182424499,
+          "extremizing_test_hop_kpc": 11.414509803921568,
+          "inner_heads": 7,
+          "outer_heads": 26
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -6855.279288839221,
+          -9892.370201077512,
+          -10466.764344572211,
+          -22871.96485052643
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5838117914913468,
+          -0.6713571388780138,
+          -0.819707330098671,
+          -1.8652950420007828
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8518377071606567,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9123529595877832,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 6,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9780823188201788,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 7,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9265983328631529,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 7,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -753.549556616395,
+          -751.7983359817226,
+          3590.676503391396,
+          925.5036482507035
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.07501697513656728,
+          -0.05971426326649063,
+          0.32931394550280796,
+          0.0883978413506796
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8964227289775601,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9750033310695686,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 6,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.051438054632594,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 7,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9848364675370014,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 7,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -3525.502782376421,
+          -4904.266370240819,
+          -2795.474672506093,
+          -9885.442176135566
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.32595000204308305,
+          -0.3615552957266079,
+          -0.23789376479661248,
+          -0.8760673319424465
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9488314205267777,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0849889807600661,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 6
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.2525342532907158,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0849889807600661,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 6
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -12152.099992556045,
+          -17827.16450099044,
+          -22669.819378549106,
+          -43530.1928239329
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.9195262559899074,
+          -1.0741268582069825,
+          -1.5755809688181872,
+          -3.1503579383448885
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.9109302621323022,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9183106030183555,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 18,
+          "outer_heads": 63
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9442765208035605,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9183106030183555,
+          "extremizing_test_hop_kpc": 4.65712,
+          "inner_heads": 18,
+          "outer_heads": 63
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          456.44678129560737,
+          1060.8120169121412,
+          6378.320776887282,
+          5644.63264916873
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.047015227485629786,
+          0.08720501330730993,
+          0.6055220203961306,
+          0.5580802344503042
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9396394444355946,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9486983682346013,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9795006295417716,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9486983682346013,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -805.2447261454322,
+          -829.2392310877649,
+          3471.578834423485,
+          723.8863655464897
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.08004871821981067,
+          -0.06577034836637848,
+          0.3179302438337381,
+          0.06904060259419584
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9712462046829307,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9833450015692178,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1332955026113005,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 1,
+          "outer_heads": 5
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9833450015692178,
+          "extremizing_test_hop_kpc": 4.891932773109244,
+          "inner_heads": 17,
+          "outer_heads": 60
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -6855.279288839221,
+          -9892.370201077512,
+          -10466.764344572211,
+          -22871.96485052643
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5838117914913468,
+          -0.6713571388780138,
+          -0.819707330098671,
+          -1.8652950420007828
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.9109302621323022,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0569544503681785,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.114840051846482,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0684741146655756,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -6082.766717236692,
+          -8735.123487881894,
+          -8687.014952811669,
+          -19859.074343341774
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5276790529862841,
+          -0.6039500231152917,
+          -0.6931460152313071,
+          -1.6501156220414395
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9396394444355946,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1036240190043467,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1703820865092744,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1156523312982642,
+          "extremizing_test_hop_kpc": 20.073793103448274,
+          "inner_heads": 12,
+          "outer_heads": 64
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -8446.010980877652,
+          -12275.333391396629,
+          -14131.563941925911,
+          -29076.00681773766
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.6931627185388108,
+          -0.802619994364677,
+          -1.0661133751674323,
+          -2.284224334101724
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 85.24,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9712462046829307,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1723343265137813,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 8
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.4621247465663088,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 11
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1723343265137813,
+          "extremizing_test_hop_kpc": 194.04666666666665,
+          "inner_heads": 0,
+          "outer_heads": 8
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9865166865315852,
+          1.0283506722637952,
+          1.0801858809570892,
+          1.0000373412994772
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -22745.741399989703,
+          -33696.7531008163,
+          -47075.9294465029,
+          -84846.64877074589
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.4073352583306245,
+          -1.6582315097518272,
+          -2.670690167425784,
+          -5.011935250181464
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8303331164105991,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8301890179323957,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 5,
+          "outer_heads": 13
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8915928351841537,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 5,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8518220880916677,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 5,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1569.243208304024,
+          -4834.905311218951,
+          8979.641802509783,
+          21986.396252987008
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.17145938088789842,
+          -0.42337090933396376,
+          0.9084907561166784,
+          2.3184543119517627
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8896941570505805,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8931993423408612,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 3,
+          "outer_heads": 9
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9754209359989647,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 5,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9162835265005846,
+          "extremizing_test_hop_kpc": 21.56074074074074,
+          "inner_heads": 5,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1480.2608350903101,
+          -10892.10912941215,
+          1961.4612607037138,
+          12455.88224334117
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.14874095003751087,
+          -0.8768084275593471,
+          0.1823677482050049,
+          1.2070888874424863
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9639276442752359,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9983825604043725,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.246056754869342,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9983825604043725,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -13194.640532443047,
+          -34160.281402956665,
+          -24998.211683287158,
+          -24154.680730585053
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.0131194515850608,
+          -2.0991765857438547,
+          -1.7725567706882916,
+          -1.785357644290555
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.8303331164105991,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.8275848573868088,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 6
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.8915928351841537,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 5,
+          "outer_heads": 14
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.8518220880916677,
+          "extremizing_test_hop_kpc": 64.68222222222222,
+          "inner_heads": 5,
+          "outer_heads": 14
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          1569.243208304024,
+          -4834.905311218951,
+          8979.641802509783,
+          21986.396252987008
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.17145938088789842,
+          -0.42337090933396376,
+          0.9084907561166784,
+          2.3184543119517627
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.8896941570505805,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9424483404849325,
+          "extremizing_test_hop_kpc": 291.07,
+          "inner_heads": 0,
+          "outer_heads": 4
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.061424691825629,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 6
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9424483404849325,
+          "extremizing_test_hop_kpc": 291.07,
+          "inner_heads": 0,
+          "outer_heads": 4
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -4893.50689707007,
+          -17671.810610327117,
+          -5893.841357593197,
+          1788.577347474181
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.45113973647037947,
+          -1.3047273822079448,
+          -0.5024218320469057,
+          0.1589230693789042
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 20,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9639276442752359,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1542587715604353,
+          "extremizing_test_hop_kpc": 291.07,
+          "inner_heads": 0,
+          "outer_heads": 4
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.39262340493588,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 6
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1542587715604353,
+          "extremizing_test_hop_kpc": 291.07,
+          "inner_heads": 0,
+          "outer_heads": 4
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -20730.173574956327,
+          -49128.046281348805,
+          -42340.61576557113,
+          -47705.23262684801
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.382029762217376,
+          -2.6201276586691193,
+          -2.6045840959926334,
+          -3.059112003467264
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.899211128039388,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9061550162401817,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9353732557736838,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9061550162401817,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          10.758729608337035,
+          -7930.509711350469,
+          5392.919080570277,
+          17115.716317277816
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          0.001125278077969629,
+          -0.6646240181296891,
+          0.5220906806338169,
+          1.727059397325868
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9372421235690868,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9486966793666148,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.985327448465477,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9486966793666148,
+          "extremizing_test_hop_kpc": 10.21298245614035,
+          "inner_heads": 11,
+          "outer_heads": 29
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1858.733677133856,
+          -11643.866500868819,
+          1090.437416224564,
+          11273.053602343025
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.1849268206748078,
+          -0.9280302260216395,
+          0.10037462838141677,
+          1.0815902295146322
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9805462957492345,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9983825604043725,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.246056754869342,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9983825604043725,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -13194.640532443047,
+          -34160.281402956665,
+          -24998.211683287158,
+          -24154.680730585053
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.0131194515850608,
+          -2.0991765857438547,
+          -1.7725567706882916,
+          -1.785357644290555
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.899211128039388,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.021838087873429,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 7,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.0919730263604186,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 8,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.0409052635380731,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 8,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -6175.258448004976,
+          -20217.742761201138,
+          -8843.686206524215,
+          -2217.2383324661178
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.5521956800662048,
+          -1.4476627777041686,
+          -0.7310569840557458,
+          -0.19104852181267598
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9372421235690868,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.0860621880750312,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 7,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.1663502443172529,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 8,
+          "outer_heads": 32
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1012189295263688,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 8,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -9448.048185171647,
+          -26718.457044578143,
+          -16375.740246773797,
+          -12445.57972727656
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.7846359269736719,
+          -1.7763032518579045,
+          -1.2565480867507908,
+          -0.9954431149071875
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 80,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9805462957492345,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1641490166104904,
+          "extremizing_test_hop_kpc": 34.243529411764705,
+          "inner_heads": 7,
+          "outer_heads": 28
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.4604010421062594,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 7
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1733996641269748,
+          "extremizing_test_hop_kpc": 29.107,
+          "inner_heads": 8,
+          "outer_heads": 32
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -24497.940096212966,
+          -56611.92872054487,
+          -51011.81780671311,
+          -59480.50857497946
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.5322880951336673,
+          -2.832184874482984,
+          -2.943074919599662,
+          -3.57733502641773
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.9413782837459271,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9504682658733701,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9684277882433052,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9504682658733701,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -1215.3942126683996,
+          -10366.006821031488,
+          2571.029816509358,
+          13283.661127959356
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.12298469547117509,
+          -0.8403473277742632,
+          0.2407367024407568,
+          1.2964278652901227
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9644495924932851,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 0.9749582608555367,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 0.9951535296202432,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 0.9749582608555367,
+          "extremizing_test_hop_kpc": 4.732845528455284,
+          "inner_heads": 24,
+          "outer_heads": 62
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -2237.9116385850257,
+          -12397.024444978404,
+          217.79079793176243,
+          10088.021275008601
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.22047052535879338,
+          -0.9783388330077748,
+          0.019849643125860177,
+          0.95833784279674
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "geodesic",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9893048253805213,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.001748179554069,
+          "extremizing_test_hop_kpc": 5.151681415929204,
+          "inner_heads": 22,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.246056754869342,
+          "extremizing_test_hop_kpc": 83.16285714285715,
+          "inner_heads": 1,
+          "outer_heads": 4
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.001748179554069,
+          "extremizing_test_hop_kpc": 5.151681415929204,
+          "inner_heads": 22,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -13194.640532443047,
+          -34160.281402956665,
+          -24998.211683287158,
+          -24154.680730585053
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.0131194515850608,
+          -2.0991765857438547,
+          -1.7725567706882916,
+          -1.785357644290555
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 1.0,
+      "uniform_continuous_trail_ceiling": 0.9413782837459271,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1364015218027663,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 13,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.194470116583818,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 13,
+          "outer_heads": 57
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1501896977883919,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 13,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -10741.553897121179,
+          -29287.736385016215,
+          -19352.636322049893,
+          -16488.130297424403
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -0.8676181837357144,
+          -1.8935864740733963,
+          -1.4440173057568304,
+          -1.2824200337746614
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.75,
+      "uniform_continuous_trail_ceiling": 0.9644495924932851,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.1837619567045212,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 13,
+          "outer_heads": 57
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.2993389187034088,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 11
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.1981247658621839,
+          "extremizing_test_hop_kpc": 23.2856,
+          "inner_heads": 13,
+          "outer_heads": 57
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -15837.227083292692,
+          -39409.22848351073,
+          -31079.90537750771,
+          -32413.46897489941
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.1545915550172157,
+          -2.2990069963153625,
+          -2.0917916656295987,
+          -2.274065072199949
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "inner_kpc": 115.88,
+      "outer_kpc": 291.07,
+      "primary": false,
+      "owners": 320,
+      "layout": "alternative",
+      "inner_baryon_fraction": 0.5,
+      "uniform_continuous_trail_ceiling": 0.9893048253805213,
+      "limits": {
+        "at_release": {
+          "speed_ratio_ceiling": 1.3033164529482824,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 11
+        },
+        "all_free_times": {
+          "speed_ratio_ceiling": 1.7047745384725883,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 11
+        },
+        "evacuated": {
+          "speed_ratio_ceiling": 1.3033164529482824,
+          "extremizing_test_hop_kpc": 116.428,
+          "inner_heads": 1,
+          "outer_heads": 11
+        }
+      },
+      "comparison": {
+        "observed_speed_ratios": [
+          0.9615887307580598,
+          0.8624419613245573,
+          1.0329015788976081,
+          1.1053739474987618
+        ],
+        "quadratic_excess_after_full_systematics": [
+          -39569.00618123954,
+          -86547.45847732916,
+          -85696.62597128107,
+          -106581.61236750537
+        ],
+        "minimum_z_under_any_radial_correlation": [
+          -1.9844164928249362,
+          -3.4698208670884307,
+          -3.960214840384532,
+          -5.1346470906767445
+        ],
+        "above_bonferroni_four_one_sided_95": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    }
+  ]
+}

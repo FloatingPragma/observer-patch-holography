@@ -1,0 +1,91 @@
+{
+  "sha256": {
+    "CLOCK_RELEASE.md": "b23ee18104a80847d163ab972ccbf03065750cf4c4274dab64998e5cb5e5a669",
+    "renewal_clock.json": "48f9c437e1b4a784f11b711b37aa1525ee6976f917c5a660de62793983a8fcb3",
+    "closed_energy.json": "e601be4b5739a689b589bf00cc686d17405b1feaf9447527858144773d411c10"
+  },
+  "near": 13,
+  "far": 12,
+  "observables": [
+    "near_minus_far_load",
+    "radial_load_moment"
+  ],
+  "readers": {
+    "1": {
+      "even": {
+        "original": [
+          "1895/112",
+          "-1895/224"
+        ],
+        "repair_increment": [
+          "-3/56",
+          "3/112"
+        ],
+        "ordinary_donor_increment": [
+          "17",
+          "-17/2"
+        ],
+        "equivalent_donors": [
+          "-3/952",
+          "-3/952"
+        ]
+      },
+      "odd": {
+        "original": [
+          "-1895/112",
+          "1895/224"
+        ],
+        "repair_increment": [
+          "3/56",
+          "-3/112"
+        ],
+        "ordinary_donor_increment": [
+          "-17",
+          "17/2"
+        ],
+        "equivalent_donors": [
+          "-3/952",
+          "-3/952"
+        ]
+      }
+    },
+    "2": {
+      "even": {
+        "original": [
+          "65/2",
+          "-65/4"
+        ],
+        "repair_increment": [
+          "0",
+          "0"
+        ],
+        "ordinary_donor_increment": [
+          "65/2",
+          "-65/4"
+        ],
+        "equivalent_donors": [
+          "0",
+          "0"
+        ]
+      },
+      "odd": {
+        "original": [
+          "-65/2",
+          "65/4"
+        ],
+        "repair_increment": [
+          "0",
+          "0"
+        ],
+        "ordinary_donor_increment": [
+          "-65/2",
+          "65/4"
+        ],
+        "equivalent_donors": [
+          "0",
+          "0"
+        ]
+      }
+    }
+  }
+}

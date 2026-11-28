@@ -1,0 +1,195 @@
+{
+  "sha256": {
+    "PAIR_FIELD.md": "c8e64ded64fef3f21084df3070c3b5e0e3934ae5a2f4a677cebde53356515527",
+    "pair_transfer.json": "838eeec192d99ddc844f8eeafdd7d4d9f895d0c4b2e5991a649c4cee61236a7c",
+    "fluctuation_balls.json": "5ded4de278f5d0e6457dca67c9984844f2731b16c31270edcab26311cdd394a1"
+  },
+  "signed_levels": [
+    -32,
+    -16,
+    0,
+    16,
+    32
+  ],
+  "shots_per_arm": 262144,
+  "spectrometers": {
+    "1": {
+      "original": {
+        "counts": [
+          14170,
+          37313,
+          158900,
+          37623,
+          14138
+        ],
+        "mean_square": "1280/7",
+        "measured_mean_square": 183.7578125
+      },
+      "repaired": {
+        "counts": [
+          23271,
+          30514,
+          154007,
+          30769,
+          23583
+        ],
+        "mean_square": "18688/77",
+        "measured_mean_square": 242.8701171875
+      }
+    },
+    "2": {
+      "original": {
+        "counts": [
+          13974,
+          37608,
+          159458,
+          37185,
+          13919
+        ],
+        "mean_square": "1280/7",
+        "measured_mean_square": 181.9970703125
+      },
+      "repaired": {
+        "counts": [
+          23231,
+          30749,
+          154238,
+          30646,
+          23280
+        ],
+        "mean_square": "18688/77",
+        "measured_mean_square": 241.6396484375
+      }
+    }
+  },
+  "canonical_mean_square_increase": "4608/77",
+  "observed_increase_bands_99": {
+    "1": [
+      51.799514944772305,
+      66.4250944302277
+    ],
+    "2": [
+      52.329788382272305,
+      66.9553678677277
+    ]
+  },
+  "stationary_minimum_partner_variance": "905/4508",
+  "unavoidable_mean_square_increase": "6400/1127",
+  "stationary_minimum_witness": {
+    "weights": [
+      "9",
+      "0",
+      "2376/161",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "755/161",
+      "0",
+      "0",
+      "10",
+      "10",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "50/161",
+      "50/161",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "10",
+      "10",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "dual": [
+      "130/161",
+      "-130/161",
+      "-130/161",
+      "0",
+      "2/161",
+      "-2/161",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  },
+  "original_clean_ports": 232,
+  "original_sensitive_ports": [
+    1,
+    3,
+    6,
+    7,
+    9,
+    13,
+    15,
+    18,
+    19,
+    21,
+    25,
+    27,
+    30,
+    31,
+    33,
+    37,
+    39,
+    42,
+    43,
+    45
+  ],
+  "original_changed_mean_ports": 0,
+  "original_changed_mean_square_ports": 20,
+  "independent_static_field": {
+    "1": {
+      "peak_weight": "17/28",
+      "min_detuning_spacing": "31/2",
+      "any_independent_static_field_arrival_upper": "2165265/7003136",
+      "measured_tuned_arm_arrival_lower_99": 0.3259308661960893,
+      "degree": 5
+    },
+    "2": {
+      "peak_weight": "17/28",
+      "min_detuning_spacing": "65/2",
+      "any_independent_static_field_arrival_upper": "9323217/30399488",
+      "measured_tuned_arm_arrival_lower_99": 0.3251984443210893,
+      "degree": 5
+    }
+  }
+}

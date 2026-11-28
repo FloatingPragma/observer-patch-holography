@@ -12094,6 +12094,43 @@
           "PR-180"
         ]
       }
+    },
+    {
+      "claim_id": "OPH-CONTACT-RING-SIGNED-SPIN-TRANSPORT",
+      "statement": "On four- and eight-site periodic repulsive contact rings, a binary energy pass preserves two pump-accessible lines with opposite half-ring translation characters. At their relative half period the admitted input translates by half the ring up to common phase, including correlations with a retained reference. On eight sites the common local gate at site 4 and one nominated neighbor reads one extra or missing material unit and yields a reference-spin Bell overlap between 0.7348755 and 0.7349713 for either sign. The joint pass is about 0.099872% per original alternating-spin start, per sign and per chosen neighbor. The parked and energy-resolved controls give overlaps of about 0.18035 and 0.47919 on the same detector.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "finite_transport_on_a_supplied_spinor_contact_ring",
+      "assumptions": [
+        "declared_periodic_contact_ring_and_binary_spinor_instrument"
+      ],
+      "imported_results": [
+        "finite_dimensional_spectral_evolution",
+        "spin_covariance_of_a_qubit_channel",
+        "two_qubit_separable_Bell_overlap_bound"
+      ],
+      "oph_specific_delta": "The same two-site receipt gives the material sign and a spin entanglement witness for a freely propagated, coherently filtered input. Counting the source, pump and terminal refusals puts each receiver on an original-start denominator.",
+      "novelty_type": "finite_signed_receiver_measurement",
+      "evidence": [
+        "Lean/ObserverPatchHolography/ChargedSpinTransport.lean",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/HalfBeat.lean",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/certificate.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/results.json",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/PROTOCOL.md",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/measure.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/records.json",
+        "paper/tex_fragments/PARTICLES_CONTRAST_MEMORY_BOUND_OBJECTS.tex"
+      ],
+      "falsifier": "A populated line has the wrong half-ring character, a third line is reachable in the accepted interval, or the original-start joint rate or conditional Bell overlap falls outside its enclosure at either signed receiver.",
+      "scope_if_false": "The failed ring, admission window or local receiver loses the associated transport or entanglement conclusion.",
+      "status": "finite_signed_transport_and_two_site_spin_recovery",
+      "claim_class": "conditional_implication",
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The half-beat identity and signed local witness use the specified finite contact Hamiltonian, its spinor injection, and the two-site gate. The experiment supplies these instruments and compares material occupancies and spin-reference records in their own units."
+      }
     }
   ],
   "claim_context": {
@@ -21508,6 +21545,34 @@
         "oph_specific_delta": "Two material digit reads implement a finite real-register program. Independent cohorts implement adaptive positive-error reads of a continuous chart. Shared finite transcripts force abstention for zero-error signs.",
         "falsifier": "A supported sharp branch or public interval fails to replay, or a zero-error sign is published on a shared finite transcript."
       }
+    },
+    "OPH-CONTACT-RING-SIGNED-SPIN-TRANSPORT": {
+      "prior_work": {
+        "summary": "Finite spectral evolution and two-qubit measurements",
+        "overlap": "Evolution in spectral projectors, rotation-covariant qubit channels and the Bell overlap of separable pairs are standard.",
+        "imported_step": "Spectral projectors separate the accessible energies. The signed Pauli correlations at a fixed local gate give the Bell overlap with the retained reference.",
+        "citations": [
+          {
+            "work": "Symmetric spectral methods",
+            "keys": [
+              "parlett1998symmetric"
+            ]
+          },
+          {
+            "work": "Finite-dimensional states, quantum channels and partial traces",
+            "keys": [
+              "nielsen2010quantum"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Signed reception and spin on an interacting ring (sec:signed-spin-receiver).",
+      "falsifiers": {
+        "mathematical": "A pump-accessible component outside the two translation characters contradicts the half-period identity on the admitted source.",
+        "physical_identification": "An independently calibrated electric, rest-mass or weak-family read incompatible with a light electron rules out that physical assignment on this branch.",
+        "phenomenological": "At one fixed neighbor, a held source ensemble and matched parked or energy-resolved controls give spin-reference or joint-gate frequencies incompatible with the stated uncertainty."
+      },
+      "depends_on": []
     }
   },
   "official_executable_model": {

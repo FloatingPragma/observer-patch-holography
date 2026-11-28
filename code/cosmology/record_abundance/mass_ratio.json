@@ -1,0 +1,139 @@
+{
+  "protocol_sha256": "0cf975a8e641b9d7228ef0f999df53bea521f719eaf4efccea6aeaf267342c5a",
+  "primary_tex_sha256": {
+    "0711.1588v1": "8343c2215f5bf582df8fb17ed6b3a33b606da8452352618811cf630cfb91a5fe",
+    "astro-ph/0502307v1": "c5617f8592a497fc3a8db7d8eaa33059056f85c76da2fc4d7e7787d784e352ce",
+    "1807.06209v4": "fe0833d2d0fda17427a709c9559dc7b3a988b955f47bb7de7a02c900ffdc21cf",
+    "1303.5076v3": "8a2b1b01cd4179b416b426adc5e9628dac361c9015d825a9018e68f4350abacb",
+    "1309.3565v1": "340533654ea063293528070903ba3524701de8b0cbff97f41cd4b34a50c2958e"
+  },
+  "p": 0.16,
+  "stationary_cuts_per_ordinary": 2.52,
+  "relative_enhancement_cap": 1.1904761904761905,
+  "external_2018_cold_to_baryons": 5.322479928635148,
+  "dark_to_baryons_cap": 6.336285629327557,
+  "minimum_baryon_fraction": 0.1363087603899168,
+  "ngc3741": {
+    "distance_mpc": 3.03,
+    "dynamical_msun": 4030000000.0,
+    "catalogued_stars_and_gas_msun": 182800000.0,
+    "required_total_baryons_msun": 549324304.3713647,
+    "minimum_extra_interior_baryons_msun": 366524304.3713647,
+    "if_all_ionized_extra_hydrogen_msun": 281941772.59335744,
+    "nonbaryonic_to_catalogued_baryons": 21.045951859956237,
+    "maximum_fraction_of_inferred_dark_mass_from_known_baryons": 0.3010690925974936,
+    "minimum_one_link_exterior_baryons_if_no_hidden_interior_msun": 848739196.5138688,
+    "maximum_velocity_fraction_at_fixed_radius_with_known_baryons": 0.5768643339743598
+  },
+  "distance_sensitivity": [
+    {
+      "distance_mpc": 2.6999999999999997,
+      "dynamical_msun": 3591089108.910891,
+      "catalogued_stars_and_gas_msun": 145150475.44358397,
+      "required_total_baryons_msun": 489496904.8853745,
+      "minimum_extra_interior_baryons_msun": 344346429.4417905,
+      "if_all_ionized_extra_hydrogen_msun": 264881868.80137733,
+      "nonbaryonic_to_catalogued_baryons": 23.74045708728422,
+      "maximum_fraction_of_inferred_dark_mass_from_known_baryons": 0.26689821539794095,
+      "minimum_one_link_exterior_baryons_if_no_hidden_interior_msun": 797383170.3960481,
+      "maximum_velocity_fraction_at_fixed_radius_with_known_baryons": 0.54454560386039
+    },
+    {
+      "distance_mpc": 3.36,
+      "dynamical_msun": 4468910891.089109,
+      "catalogued_stars_and_gas_msun": 224786119.00794044,
+      "required_total_baryons_msun": 609151703.857355,
+      "minimum_extra_interior_baryons_msun": 384365584.8494146,
+      "if_all_ionized_extra_hydrogen_msun": 295665834.4995497,
+      "nonbaryonic_to_catalogued_baryons": 18.880724445139105,
+      "maximum_fraction_of_inferred_dark_mass_from_known_baryons": 0.3355954718654269,
+      "minimum_one_link_exterior_baryons_if_no_hidden_interior_msun": 890053220.9240375,
+      "maximum_velocity_fraction_at_fixed_radius_with_known_baryons": 0.6074660524997975
+    }
+  ],
+  "required_distance_if_no_unseen_mass_mpc": 9.10532080002864,
+  "favorable_2018_marginal_error_corner_missing_baryons_msun": 359981097.7926698,
+  "outer_radius_upper_scale_kpc": 7.6,
+  "mean_missing_hplus_column_lower_if_all_ionized_cm_minus2": 1.9400036318504396e+20,
+  "uniform_reference_baryons_msun_inside_upper_scale": 11441.561524385555,
+  "maximum_background_subtraction_correction_msun": 11599.52029824501,
+  "planck2013_clusters": {
+    "external_cold_to_baryons": 5.437641723356009,
+    "minimum_baryon_fraction": 0.1338082096776524,
+    "systems": {
+      "0122": {
+        "baryon_fraction": 0.12,
+        "quoted_error": 0.013,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.013808209677652394
+      },
+      "1651": {
+        "baryon_fraction": 0.151,
+        "quoted_error": 0.013,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "2401": {
+        "baryon_fraction": 0.121,
+        "quoted_error": 0.014,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.012808209677652393
+      },
+      "2721": {
+        "baryon_fraction": 0.15,
+        "quoted_error": 0.021,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "2811": {
+        "baryon_fraction": 0.145,
+        "quoted_error": 0.012,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "2955": {
+        "baryon_fraction": 0.103,
+        "quoted_error": 0.011,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.030808209677652396
+      },
+      "2984": {
+        "baryon_fraction": 0.159,
+        "quoted_error": 0.016,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "3112": {
+        "baryon_fraction": 0.163,
+        "quoted_error": 0.01,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "3693": {
+        "baryon_fraction": 0.141,
+        "quoted_error": 0.014,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "4010": {
+        "baryon_fraction": 0.15,
+        "quoted_error": 0.012,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.0
+      },
+      "S0084": {
+        "baryon_fraction": 0.118,
+        "quoted_error": 0.011,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.015808209677652396
+      },
+      "S0296": {
+        "baryon_fraction": 0.101,
+        "quoted_error": 0.014,
+        "minimum_extra_baryons_over_total_at_central_mass": 0.032808209677652383
+      }
+    },
+    "below_at_center": [
+      "0122",
+      "2401",
+      "2955",
+      "S0084",
+      "S0296"
+    ],
+    "below_at_upper_two_quoted_errors": [
+      "2955",
+      "S0296"
+    ],
+    "published_high_mass_weighted_mean": 0.144,
+    "published_error_on_mean": 0.005
+  }
+}

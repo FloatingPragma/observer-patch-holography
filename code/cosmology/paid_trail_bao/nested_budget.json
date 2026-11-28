@@ -1,0 +1,354 @@
+{
+  "sha256": {
+    "NESTED_SOURCE.md": "15587fa66293568727fc1320dbf11d7cfad3d1ed5470341751a342c878b688c0",
+    "nested_source.json": "26dc497a09aea2f5cc6137e545a44932535a65eec3b0638fca0520a8086d3df7",
+    "thermal_standard.json": "9745241a4e4c08e9897a16e2a8a50bbc12af37338c9ce72e87a9cff47c0a7360",
+    "nested_budget_maps.json": "47373e2b9f9681859dc70916e20c073de0ca75fd50f960add631af84b600e642",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c",
+    "leroy_table7.dat": "c257c508ed8366f5aa635ed9af749cc495608a0804e44d53d464bcc657692895",
+    "leroy_sample.dat": "c4e863469487f161fa3b1c0d85dc4fa6397c0855b5f0c7575b05a90384326b96"
+  },
+  "span_per_double_max": "96",
+  "ordinary_energy": [
+    191.97066955382462,
+    192.03018609969956
+  ],
+  "mass_ratio_upper": 0.5000763930402586,
+  "absolute_energy_per_double": [
+    "117",
+    "213"
+  ],
+  "absolute_final_mass_ratio_upper": 1.109544497058074,
+  "planck_base_lcdm_central_ratio": 5.364327223960661,
+  "planck_central_to_span": 10.727015509266014,
+  "galaxies": {
+    "DDO154": {
+      "radii_kpc": [
+        2.96,
+        5.92
+      ],
+      "rings": 11,
+      "nonnegative_mass_integral_lower": 23701535180.054367,
+      "linear_mass_integral_lower": 24856604277.09347,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 1733737218.7710612,
+          "integrated_relocated_ceiling": 2824842164.8200192,
+          "required_to_local": 13.670777164751021,
+          "required_to_relocated": 8.390392736000695,
+          "linear_to_local": 14.337007943287263,
+          "required_to_all_final_energy": 4.843348360021933
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 1836059862.6585567,
+          "integrated_relocated_ceiling": 2927164808.7075143,
+          "required_to_local": 12.908911992518203,
+          "required_to_relocated": 8.097096244649014,
+          "linear_to_local": 13.53801408255932,
+          "required_to_all_final_energy": 4.674043164772462
+        }
+      }
+    },
+    "IC2574": {
+      "radii_kpc": [
+        5.12,
+        9.96
+      ],
+      "rings": 22,
+      "nonnegative_mass_integral_lower": 132865582106.65297,
+      "linear_mass_integral_lower": 125084774810.17473,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 1,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 25144589140.58698,
+          "integrated_relocated_ceiling": 34644648130.38099,
+          "required_to_local": 5.284062561682061,
+          "required_to_relocated": 3.835096884420048,
+          "linear_to_local": 4.974619951465818,
+          "required_to_all_final_energy": 3.2468534135990637
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 3,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 39842609213.61323,
+          "integrated_relocated_ceiling": 51136946673.50353,
+          "required_to_local": 3.3347610693442262,
+          "required_to_relocated": 2.5982306482818793,
+          "linear_to_local": 3.1394724712817346,
+          "required_to_all_final_energy": 2.199702981158832
+        }
+      }
+    },
+    "NGC7793": {
+      "radii_kpc": [
+        3.85,
+        7.87
+      ],
+      "rings": 26,
+      "nonnegative_mass_integral_lower": 136364289314.01538,
+      "linear_mass_integral_lower": 131270106792.84737,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 9614118795.194508,
+          "integrated_relocated_ceiling": 12141189925.894814,
+          "required_to_local": 14.183753313114385,
+          "required_to_relocated": 11.231542389694168,
+          "linear_to_local": 13.65388857671085,
+          "required_to_all_final_energy": 6.1920377641768285
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 10,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 45568410302.54781,
+          "integrated_relocated_ceiling": 49600504593.46058,
+          "required_to_local": 2.992518027480783,
+          "required_to_relocated": 2.7492520576493065,
+          "linear_to_local": 2.8807260538888673,
+          "required_to_all_final_energy": 1.5156843088466412
+        }
+      }
+    },
+    "NGC2403": {
+      "radii_kpc": [
+        10.43,
+        20.87
+      ],
+      "rings": 72,
+      "nonnegative_mass_integral_lower": 7747989724867.678,
+      "linear_mass_integral_lower": 7740854001412.438,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 247754734317.19385,
+          "integrated_relocated_ceiling": 277966646776.66187,
+          "required_to_local": 31.272822076320573,
+          "required_to_relocated": 27.87381081404692,
+          "linear_to_local": 31.244020513860402,
+          "required_to_all_final_energy": 17.58110959923817
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 1,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 686046386842.1705,
+          "integrated_relocated_ceiling": 716258299301.6387,
+          "required_to_local": 11.293681992162657,
+          "required_to_relocated": 10.817312319343554,
+          "linear_to_local": 11.283280766251266,
+          "required_to_all_final_energy": 6.8229046514058815
+        }
+      }
+    },
+    "NGC3198": {
+      "radii_kpc": [
+        22.12,
+        44.08
+      ],
+      "rings": 37,
+      "nonnegative_mass_integral_lower": 91108023207741.34,
+      "linear_mass_integral_lower": 93891623709039.67,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 3046393825140.2803,
+          "integrated_relocated_ceiling": 3454687181826.4795,
+          "required_to_local": 29.906843447447574,
+          "required_to_relocated": 26.37229318099154,
+          "linear_to_local": 30.820579707784876,
+          "required_to_all_final_energy": 15.804343110719634
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 2,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 8596078885617.015,
+          "integrated_relocated_ceiling": 9004372242303.215,
+          "required_to_local": 10.598788636081919,
+          "required_to_relocated": 10.118198221493891,
+          "linear_to_local": 10.922610757579182,
+          "required_to_all_final_energy": 6.063616662278828
+        }
+      }
+    },
+    "NGC6946": {
+      "radii_kpc": [
+        9.36,
+        18.9
+      ],
+      "rings": 54,
+      "nonnegative_mass_integral_lower": 4936422906302.865,
+      "linear_mass_integral_lower": 4427794282736.197,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 7,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 246411635803.39127,
+          "integrated_relocated_ceiling": 332428905081.44836,
+          "required_to_local": 20.033237838823386,
+          "required_to_relocated": 14.84955980315067,
+          "linear_to_local": 17.969095770579106,
+          "required_to_all_final_energy": 7.1322324939983615
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 21,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 2726588045808.5996,
+          "integrated_relocated_ceiling": 2820692766104.6377,
+          "required_to_local": 1.8104762521391145,
+          "required_to_relocated": 1.7500746503207578,
+          "linear_to_local": 1.6239322583192382,
+          "required_to_all_final_energy": 0.8405595487949887
+        }
+      }
+    },
+    "NGC3521": {
+      "radii_kpc": [
+        8.82,
+        17.74
+      ],
+      "rings": 34,
+      "nonnegative_mass_integral_lower": 6741019299770.654,
+      "linear_mass_integral_lower": 7659717632018.136,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 14,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 249816096024.0022,
+          "integrated_relocated_ceiling": 334570117798.0913,
+          "required_to_local": 26.983927004939588,
+          "required_to_relocated": 20.148300583851817,
+          "linear_to_local": 30.66142556035378,
+          "required_to_all_final_energy": 14.10750014526603
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 29,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 2196368138193.4841,
+          "integrated_relocated_ceiling": 2292560588281.0293,
+          "required_to_local": 3.069166403640854,
+          "required_to_relocated": 2.9403887226488075,
+          "linear_to_local": 3.48744707174557,
+          "required_to_all_final_energy": 2.0588105760717452
+        }
+      }
+    },
+    "NGC2841": {
+      "radii_kpc": [
+        32.79,
+        63.64
+      ],
+      "rings": 50,
+      "nonnegative_mass_integral_lower": 1033057453744721.5,
+      "linear_mass_integral_lower": 1059702022297509.5,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 0,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 7585671802345.503,
+          "integrated_relocated_ceiling": 8669013384312.569,
+          "required_to_local": 136.18536112059294,
+          "required_to_relocated": 119.16666960211877,
+          "linear_to_local": 139.69784745628564,
+          "required_to_all_final_energy": 76.13603587152231
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 1,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 58531722408159.05,
+          "integrated_relocated_ceiling": 59615063990126.12,
+          "required_to_local": 17.649531078906335,
+          "required_to_relocated": 17.328798873986347,
+          "linear_to_local": 18.104746942314346,
+          "required_to_all_final_energy": 11.071435134382257
+        }
+      }
+    },
+    "NGC5055": {
+      "radii_kpc": [
+        28.74,
+        54.59
+      ],
+      "rings": 27,
+      "nonnegative_mass_integral_lower": 208795502582849.03,
+      "linear_mass_integral_lower": 213946273421065.03,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 4,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 5272513863574.256,
+          "integrated_relocated_ceiling": 6422672686866.053,
+          "required_to_local": 39.6007498482528,
+          "required_to_relocated": 32.509130195879706,
+          "linear_to_local": 40.57765971923497,
+          "required_to_all_final_energy": 18.220132449487068
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 12,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 45627259618783.766,
+          "integrated_relocated_ceiling": 46777418442075.56,
+          "required_to_local": 4.576113146556196,
+          "required_to_relocated": 4.463596101212818,
+          "linear_to_local": 4.6890011630895305,
+          "required_to_all_final_energy": 2.501676042240566
+        }
+      }
+    },
+    "NGC7331": {
+      "radii_kpc": [
+        18.15,
+        36.31
+      ],
+      "rings": 36,
+      "nonnegative_mass_integral_lower": 89891257119387.56,
+      "linear_mass_integral_lower": 92417735677217.12,
+      "tracers": {
+        "atomic": {
+          "rings_compatible_signed": 3,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 2798178514188.56,
+          "integrated_relocated_ceiling": 3070025388841.959,
+          "required_to_local": 32.124918643889664,
+          "required_to_relocated": 29.2802976307943,
+          "linear_to_local": 33.0278197794029,
+          "required_to_all_final_energy": 19.314789208089373
+        },
+        "mapped_baryons": {
+          "rings_compatible_signed": 15,
+          "whole_curve_compatible": false,
+          "integrated_local_ceiling": 28204486325423.87,
+          "integrated_relocated_ceiling": 28637021279694.93,
+          "required_to_local": 3.1871261926992966,
+          "required_to_relocated": 3.138987684557993,
+          "linear_to_local": 3.2767033801254035,
+          "required_to_all_final_energy": 2.070637608214144
+        }
+      }
+    }
+  },
+  "summary": {
+    "atomic": {
+      "ring_count": 369,
+      "rings_compatible_signed": 29,
+      "whole_curves_compatible": 0,
+      "whole_curves_excluded_all_final_energy": 10,
+      "local_positive_integral_excluded": 10,
+      "relocated_positive_integral_excluded": 10
+    },
+    "mapped_baryons": {
+      "ring_count": 369,
+      "rings_compatible_signed": 94,
+      "whole_curves_compatible": 0,
+      "whole_curves_excluded_all_final_energy": 9,
+      "local_positive_integral_excluded": 10,
+      "relocated_positive_integral_excluded": 10
+    }
+  }
+}

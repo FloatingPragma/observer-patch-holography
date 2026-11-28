@@ -62,7 +62,7 @@ def local_parts(charge, strength):
     return blocks.real
 
 
-def hamiltonian(board, route, charge, strength):
+def hamiltonian(board, route, charge, strength, *, center=True):
     arms = [tuple(sorted(route[:2])), tuple(sorted(route[2:]))]
     blank = np.array([e for e in board.seams if e not in arms])
     a, b = blank.T
@@ -90,7 +90,8 @@ def hamiltonian(board, route, charge, strength):
             )
             total += sparse.kron(dyad, active, format="csr")
     # Uniform-material terms are multiples of the identity. Remove a total scalar.
-    total -= sparse.eye(total.shape[0], format="csr") * float(np.mean(total.diagonal()))
+    if center:
+        total -= sparse.eye(total.shape[0], format="csr") * float(np.mean(total.diagonal()))
     return total
 
 

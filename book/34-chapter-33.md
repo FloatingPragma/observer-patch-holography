@@ -110,7 +110,7 @@ Why does space have three directions? Because the twelve readings of a patch spl
 
 Why is there a speed limit at all? Because the four numbers of a two-by-two block carry the interval in their determinant, one sign for time against the opposite sign for the three directions of space, and where the determinant vanishes there is a cone whose directions make up an observer's sky. A separation is a count of seams crossed and a duration is a count of repairs committed, and the speed of light is the conversion between the two counts once each carries physical units, worked out by each observer from its own books and agreed on because every observer's sky is a sphere.
 
-And the missing mass at galactic scales? It is a repair charge on the collars. It stays because no later commit writes what would clear it, and its profile around a galaxy produces an acceleration law fixing the speed of the outermost stars from the visible mass and one acceleration constant.
+And the missing mass at galactic scales? OPH proposes that some of the extra pull comes from records shared across the boundaries between patches. Two stations can detect such a record by comparing the work each does. In a simulated sphere whose matter law assigns mass to shared records, clocks and falling probes agree on how much extra pull they produce. Galaxies ask more of the idea. Even if each galaxy can attach its own extra mass to its gas, disk and bulge, those three shapes miss the outer speeds in 23 of 136 galaxies, allowing each speed to move by five quoted errors. Explaining the missing pull requires a way to determine where the records carry gravitating mass before looking at the orbits.
 
 ## The empty column
 

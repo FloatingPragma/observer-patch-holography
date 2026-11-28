@@ -1,0 +1,147 @@
+{
+ "seed": 28122925,
+ "starts_per_arm": 32768,
+ "collector": 0,
+ "paths": [
+  [
+   0
+  ],
+  [
+   37,
+   50,
+   58,
+   48,
+   3,
+   4,
+   11,
+   0
+  ]
+ ],
+ "received_energy_and_arrival": [
+  [
+   [
+    0,
+    1
+   ],
+   [
+    32,
+    1
+   ],
+   [
+    33,
+    0
+   ],
+   [
+    32,
+    0
+   ],
+   [
+    64,
+    1
+   ],
+   [
+    65,
+    1
+   ],
+   [
+    33,
+    1
+   ],
+   [
+    65,
+    0
+   ],
+   [
+    66,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    1
+   ],
+   [
+    32,
+    1
+   ],
+   [
+    33,
+    0
+   ],
+   [
+    32,
+    0
+   ],
+   [
+    64,
+    1
+   ],
+   [
+    65,
+    1
+   ],
+   [
+    33,
+    1
+   ],
+   [
+    65,
+    0
+   ],
+   [
+    66,
+    1
+   ]
+  ]
+ ],
+ "complete_symbol_pairs": 81,
+ "forward_paths": {
+  "fresh": {
+   "comparisons": 1442358,
+   "accepted": 13821,
+   "flag_counts_all_starts": [
+    30218,
+    667,
+    1334,
+    549
+   ]
+  },
+  "shared": {
+   "comparisons": 1465018,
+   "accepted": 13932,
+   "flag_counts_all_starts": [
+    30219,
+    633,
+    1445,
+    471
+   ]
+  },
+  "same_serial": {
+   "comparisons": 1471050,
+   "accepted": 13850,
+   "flag_counts_all_starts": [
+    30181,
+    691,
+    1372,
+    524
+   ]
+  },
+  "opposed_serial": {
+   "comparisons": 1458325,
+   "accepted": 13930,
+   "flag_counts_all_starts": [
+    30145,
+    676,
+    1414,
+    533
+   ]
+  }
+ },
+ "inputs": {
+  "ARCHIVED_OVERLAP.md": "9b1b4044a56247b494cab3539c5107049c0994c587379e8112d17fa1feefc7b4",
+  "reference_arrival.json": "e3ff141b479bcc8e7d47a6338830a89a03f44c06bd0384e44f39bf2c726cc4f6",
+  "shared_contact.json": "4f282fa09108d5b80c1760f091339e838412b16b45f5941869a15678aaba3671",
+  "pair_clock_information.json": "e27b9c045caf718f3e141832ea6abc03c7e319e62d433414556a7160059758c6"
+ }
+}

@@ -1,0 +1,78 @@
+{
+  "cells": 2110,
+  "enrolled": 448,
+  "cycles": {
+    "0": {
+      "maximum_steps_to_enrollment": 6,
+      "exact_return_blank": "3/14",
+      "exact_joint": [
+        "3/28",
+        "11/28",
+        "1/4",
+        "1/4"
+      ]
+    },
+    "1": {
+      "maximum_steps_to_enrollment": 5,
+      "exact_return_blank": "3/14",
+      "exact_joint": [
+        "3/28",
+        "11/28",
+        "1/4",
+        "1/4"
+      ]
+    },
+    "2": {
+      "maximum_steps_to_enrollment": 5,
+      "exact_return_blank": "3/14",
+      "exact_joint": [
+        "3/28",
+        "11/28",
+        "1/4",
+        "1/4"
+      ]
+    }
+  },
+  "trials": 262144,
+  "first_returns": 262144,
+  "unreturned": 0,
+  "last_sweep": 960,
+  "joint_coverage": 0.99,
+  "held": {
+    "blank": {
+      "seen": 56363,
+      "bounds": [
+        0.2113779751573732,
+        0.21863758880747056
+      ]
+    },
+    "cell_0": {
+      "seen": 27964,
+      "bounds": [
+        0.10304438751088883,
+        0.11030400116098617
+      ]
+    },
+    "cell_1": {
+      "seen": 103427,
+      "bounds": [
+        0.3909128872667482,
+        0.39817250091684553
+      ]
+    },
+    "cell_2": {
+      "seen": 65199,
+      "bounds": [
+        0.2450846401964357,
+        0.25234425384653303
+      ]
+    },
+    "cell_3": {
+      "seen": 65554,
+      "bounds": [
+        0.24643885772573257,
+        0.2536984713758299
+      ]
+    }
+  }
+}

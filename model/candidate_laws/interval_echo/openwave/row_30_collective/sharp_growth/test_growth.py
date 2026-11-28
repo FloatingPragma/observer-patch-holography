@@ -78,3 +78,28 @@ def test_whole_profile_gate_keeps_failed_single_write_result():
         assert row["spatial"]["status"] == "pass"
         assert row["max_lattice_errors"][bit] < 0.004
         assert row["max_lattice_errors"][1 - bit] > 0.35
+
+
+def test_conditional_profiles_keep_every_repair_history():
+    receipt = json.loads((unsorted.HERE / "conditional_profiles.json").read_bytes())
+    rows = receipt["rows"]
+    level, route = single_write.enroll()
+    assert receipt["level"] == level and receipt["route"] == [list(p) for p in route]
+    assert [row["record"] for row in rows] == [format(i, "05b") for i in range(32)]
+    assert all(len(row["count_sha256"]) == 17 for row in rows)
+    assert all(row["launch_label_rejected"] for row in rows)
+    passing = [r["record"] for r in rows if r["odd_profile_q"] <= r["quadratic_cutoff"]]
+    assert passing == receipt["profile_pass_records"] == ["00000", "11111"]
+    assert receipt["native_weight_passing_profile"] == len(passing) / len(rows)
+    assert sum(r["pair_sum_closure"] < 0.0048 for r in rows[1:-1]) == 13
+
+
+def test_free_seam_preserves_each_sharp_pointer_at_every_coupling():
+    law = experiment.candidate.native_law
+    exchange, contrast = law.local_term_parts()
+    energies = np.diag([int(word != (1, 1)) for word in law.SRC])
+    for bit in (0, 1):
+        memory = growth.label(2, 1 - 2 * bit)
+        embedding = np.kron(memory[:, None], np.eye(law.N_SRC))
+        np.testing.assert_allclose(exchange @ embedding, bit * embedding @ energies, atol=1e-13)
+        np.testing.assert_allclose(contrast @ embedding, 4 * embedding @ energies, atol=1e-13)

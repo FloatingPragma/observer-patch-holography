@@ -1,0 +1,276 @@
+{
+  "operators": {
+    "0": {
+      "write_isometry": 0,
+      "memory_intertwines": 0,
+      "written_energy_complement": 0,
+      "blank_energy": 0,
+      "free_memory_ruler": 0,
+      "empty_write_energy": 0,
+      "sharp_write_diagonal": 0
+    },
+    "1": {
+      "write_isometry": 0,
+      "memory_intertwines": 0,
+      "written_energy_complement": 0,
+      "blank_energy": 0,
+      "free_memory_ruler": 0,
+      "empty_write_energy": 0,
+      "sharp_write_diagonal": 0
+    },
+    "8": {
+      "write_isometry": 0,
+      "memory_intertwines": 0,
+      "written_energy_complement": 0,
+      "blank_energy": 0,
+      "free_memory_ruler": 0,
+      "empty_write_energy": 0,
+      "sharp_write_diagonal": 0
+    }
+  },
+  "geometry": {
+    "words_checked": 531441,
+    "minimum_complement_per_three_largest": "3/2",
+    "witness": {
+      "ports": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "internal": 9,
+      "degree": 9,
+      "gate_square": 12
+    },
+    "coherent_external_bound": "3/7",
+    "pooled_classical_sharp_bound": "17/82",
+    "pooled_coherent_input_sharp_bound": "17/80"
+  },
+  "spectra": [
+    0,
+    8,
+    9,
+    32,
+    33
+  ],
+  "trials_per_bank": 4194304,
+  "shot_panels": [
+    {
+      "bright_probability": 0.5,
+      "incident": 3.999999999999999,
+      "diagonal_incident": 4.249999999999999,
+      "readings": {
+        "coherent": {
+          "retained": 6.938893903907228e-18,
+          "erased": 3.499999999999999,
+          "gain": 3.499999999999999,
+          "unresolved_input_credit": 0.4999999999999998,
+          "memory_energy": 3.9999999999999987,
+          "spectral_counts": [
+            {
+              "counts": [
+                4194304,
+                0,
+                0,
+                0,
+                0
+              ],
+              "mean": 0.0,
+              "forecast": 0.0,
+              "probabilities": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "counts": [
+                2360441,
+                1833863,
+                0,
+                0,
+                0
+              ],
+              "mean": 3.4978160858154297,
+              "forecast": 3.499999999999999,
+              "probabilities": [
+                0.5625,
+                0.4374999999999999,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "measured_gain": 3.4978160858154297
+        },
+        "sharp": {
+          "retained": 2.1249999999999996,
+          "erased": 3.718749999999999,
+          "gain": 1.5937499999999996,
+          "unresolved_input_credit": 0.5312499999999998,
+          "memory_energy": 4.249999999999998,
+          "spectral_counts": [
+            {
+              "counts": [
+                3145898,
+                524557,
+                523849,
+                0,
+                0
+              ],
+              "mean": 2.1245710849761963,
+              "forecast": 2.1249999999999996,
+              "probabilities": [
+                0.75,
+                0.12499999999999997,
+                0.12499999999999997,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "counts": [
+                2357978,
+                918744,
+                917582,
+                0,
+                0
+              ],
+              "mean": 3.721282482147217,
+              "forecast": 3.718749999999999,
+              "probabilities": [
+                0.5625,
+                0.21874999999999994,
+                0.21874999999999994,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "measured_gain": 1.5967113971710205
+        }
+      }
+    },
+    {
+      "bright_probability": 0.0625,
+      "incident": 0.4999999999999999,
+      "diagonal_incident": 0.5312499999999999,
+      "readings": {
+        "coherent": {
+          "retained": 8.673617379884035e-19,
+          "erased": 0.4921874999999999,
+          "gain": 0.4921874999999999,
+          "unresolved_input_credit": 0.0078124999999999965,
+          "memory_energy": 0.4999999999999999,
+          "spectral_counts": [
+            {
+              "counts": [
+                4194304,
+                0,
+                0,
+                0,
+                0
+              ],
+              "mean": 0.0,
+              "forecast": 0.0,
+              "probabilities": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "counts": [
+                3936112,
+                258192,
+                0,
+                0,
+                0
+              ],
+              "mean": 0.492462158203125,
+              "forecast": 0.4921874999999999,
+              "probabilities": [
+                0.9384765625,
+                0.061523437499999986,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "measured_gain": 0.492462158203125
+        },
+        "sharp": {
+          "retained": 0.26562499999999994,
+          "erased": 0.5229492187499999,
+          "gain": 0.25732421874999994,
+          "unresolved_input_credit": 0.008300781249999997,
+          "memory_energy": 0.5312499999999999,
+          "spectral_counts": [
+            {
+              "counts": [
+                4062937,
+                65739,
+                65628,
+                0,
+                0
+              ],
+              "mean": 0.26620960235595703,
+              "forecast": 0.26562499999999994,
+              "probabilities": [
+                0.96875,
+                0.015624999999999997,
+                0.015624999999999997,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "counts": [
+                3935223,
+                129341,
+                129740,
+                0,
+                0
+              ],
+              "mean": 0.525090217590332,
+              "forecast": 0.5229492187499999,
+              "probabilities": [
+                0.9384765625,
+                0.030761718749999993,
+                0.030761718749999993,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "measured_gain": 0.258880615234375
+        }
+      }
+    }
+  ],
+  "arbitrary_complex_states": 240,
+  "sampled_fraction_ranges": {
+    "coherent": [
+      0.3868162402941106,
+      0.9272142648129895
+    ],
+    "sharp": [
+      0.19274645496125214,
+      0.45172218167622397
+    ]
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "board_cells": 320,
+  "exact_full_generator_and_pulse_conjugacy_between_charge_signs": true,
+  "energy_outcome_order": [
+    "lower_retained_line",
+    "upper_retained_line",
+    "outside_retained_band"
+  ],
+  "cases": [
+    {
+      "fans": 3,
+      "physical_hubs": [
+        98,
+        241,
+        1011
+      ],
+      "inertia": [
+        {
+          "dyadic_cut": "17/4",
+          "count_below": 2,
+          "factor_error_infinity_upper": 2.3775604445313666e-07,
+          "inverse_residual_infinity_upper": 2.0007727373636194e-07,
+          "inverse_times_factor_error_upper": 6.0465740835627974e-06
+        },
+        {
+          "dyadic_cut": "145/32",
+          "count_below": 2,
+          "factor_error_infinity_upper": 1.1741893121428044e-06,
+          "inverse_residual_infinity_upper": 3.7354266178768274e-07,
+          "inverse_times_factor_error_upper": 5.625021502640043e-05
+        }
+      ],
+      "energy_centers": [
+        "3901674496547/1099511627776",
+        "2273037021431/549755813888"
+      ],
+      "energy_radii": [
+        "16627/140737488355328",
+        "30707/281474976710656"
+      ],
+      "vector_distance_error_bound": "6145499965810347095/2678532479534049864511812864",
+      "native_first_ring_pi": [
+        {
+          "incoming_line": 0,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.9988384813110319,
+              0.9988384996552032
+            ],
+            [
+              7.825659841213273e-07,
+              7.825822213981462e-07
+            ],
+            [
+              0.0011607177625754645,
+              0.001160736122983888
+            ]
+          ]
+        },
+        {
+          "incoming_line": 1,
+          "outcome_probabilities_lower_upper": [
+            [
+              7.825659841213273e-07,
+              7.825822213981462e-07
+            ],
+            [
+              0.997193727671031,
+              0.9971937460000928
+            ],
+            [
+              0.0028054714176859127,
+              0.00280548976298475
+            ]
+          ]
+        }
+      ],
+      "supplied_two_head_pi_phases": [
+        {
+          "incoming_line": 0,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.00022321305091363696,
+              0.0002232133251407452
+            ],
+            [
+              0.0003700593862637892,
+              0.00037005973935448573
+            ],
+            [
+              0.9994067269355047,
+              0.9994067275628227
+            ]
+          ]
+        },
+        {
+          "incoming_line": 1,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.0003700593862637892,
+              0.00037005973935448573
+            ],
+            [
+              0.00048553097146234153,
+              0.0004855313759069203
+            ],
+            [
+              0.9991444088847384,
+              0.999144409642274
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "fans": 4,
+      "physical_hubs": [
+        98,
+        241,
+        1011,
+        1045
+      ],
+      "inertia": [
+        {
+          "dyadic_cut": "17/4",
+          "count_below": 2,
+          "factor_error_infinity_upper": 4.475669493637461e-06,
+          "inverse_residual_infinity_upper": 1.5043135137685839e-07,
+          "inverse_times_factor_error_upper": 8.07577160754255e-05
+        },
+        {
+          "dyadic_cut": "145/32",
+          "count_below": 2,
+          "factor_error_infinity_upper": 2.464066786797713e-06,
+          "inverse_residual_infinity_upper": 8.610830688790185e-07,
+          "inverse_times_factor_error_upper": 0.00025685233205017356
+        }
+      ],
+      "energy_centers": [
+        "3900145886437/1099511627776",
+        "4294105370239/1099511627776"
+      ],
+      "energy_radii": [
+        "8675/35184372088832",
+        "68457/281474976710656"
+      ],
+      "vector_distance_error_bound": "2726877505652327267/978055046285877171484996992",
+      "native_first_ring_pi": [
+        {
+          "incoming_line": 0,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.9989159410220233,
+              0.9989159633144289
+            ],
+            [
+              3.5210413707096363e-07,
+              3.5211737231951735e-07
+            ],
+            [
+              0.0010836845681988915,
+              0.0010837068738394657
+            ]
+          ]
+        },
+        {
+          "incoming_line": 1,
+          "outcome_probabilities_lower_upper": [
+            [
+              3.5210413707096363e-07,
+              3.5211737231951735e-07
+            ],
+            [
+              0.9986886237130225,
+              0.9986886460028914
+            ],
+            [
+              0.0013110018797363975,
+              0.001311024182840353
+            ]
+          ]
+        }
+      ],
+      "supplied_two_head_pi_phases": [
+        {
+          "incoming_line": 0,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.00019332604199705943,
+              0.00019332635212279732
+            ],
+            [
+              0.0001904717201819371,
+              0.00019047202800976943
+            ],
+            [
+              0.9996162016198673,
+              0.9996162022378211
+            ]
+          ]
+        },
+        {
+          "incoming_line": 1,
+          "outcome_probabilities_lower_upper": [
+            [
+              0.0001904717201819371,
+              0.00019047202800976943
+            ],
+            [
+              0.0001695398204537732,
+              0.00016954011087509793
+            ],
+            [
+              0.9996399878611151,
+              0.9996399884593644
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

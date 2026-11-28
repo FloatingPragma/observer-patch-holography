@@ -1,0 +1,583 @@
+{
+  "input_return": {
+    "0": {
+      "time": 2.0,
+      "q": [
+        0.9419779280015911,
+        0.05465551115942033,
+        0.003366560838988545
+      ],
+      "d": [
+        0.0,
+        0.0,
+        4.336808689942018e-19
+      ],
+      "linear_modular": 2.4693197045546177e-18,
+      "quartic_information": 5.586683417492398e-35
+    },
+    "8": {
+      "time": 2.0,
+      "q": [
+        0.8856920238083038,
+        0.061098652966967336,
+        0.053209323224728856
+      ],
+      "d": [
+        0.02121159845677012,
+        -0.006841232919839742,
+        -0.014370365536930434
+      ],
+      "linear_modular": -0.05870404957821257,
+      "quartic_information": 0.005155053137980569
+    }
+  },
+  "ordinary_unlike_minus_equal": 8.499999999999998,
+  "energy_ticket_scale": 512,
+  "parked_archive_energy": 16,
+  "local": [
+    {
+      "orientation": 1,
+      "erasure": 0.0,
+      "switches": "shared",
+      "energy": 4.249122343525923,
+      "pulse_probability": 0.00829906707719907
+    },
+    {
+      "orientation": 1,
+      "erasure": 0.0,
+      "switches": "independent",
+      "energy": 4.249122343525923,
+      "pulse_probability": 0.00829906707719907
+    },
+    {
+      "orientation": 1,
+      "erasure": 0.5,
+      "switches": "shared",
+      "energy": 4.249561171762961,
+      "pulse_probability": 0.008299924163599535
+    },
+    {
+      "orientation": 1,
+      "erasure": 0.5,
+      "switches": "independent",
+      "energy": 4.24978058588148,
+      "pulse_probability": 0.008300352706799767
+    },
+    {
+      "orientation": 1,
+      "erasure": 1.0,
+      "switches": "shared",
+      "energy": 4.249999999999999,
+      "pulse_probability": 0.00830078125
+    },
+    {
+      "orientation": 1,
+      "erasure": 1.0,
+      "switches": "independent",
+      "energy": 4.249999999999999,
+      "pulse_probability": 0.00830078125
+    },
+    {
+      "orientation": -1,
+      "erasure": 0.0,
+      "switches": "shared",
+      "energy": 4.250877656474075,
+      "pulse_probability": 0.00830249542280093
+    },
+    {
+      "orientation": -1,
+      "erasure": 0.0,
+      "switches": "independent",
+      "energy": 4.250877656474075,
+      "pulse_probability": 0.00830249542280093
+    },
+    {
+      "orientation": -1,
+      "erasure": 0.5,
+      "switches": "shared",
+      "energy": 4.250438828237037,
+      "pulse_probability": 0.008301638336400465
+    },
+    {
+      "orientation": -1,
+      "erasure": 0.5,
+      "switches": "independent",
+      "energy": 4.250219414118519,
+      "pulse_probability": 0.008301209793200233
+    },
+    {
+      "orientation": -1,
+      "erasure": 1.0,
+      "switches": "shared",
+      "energy": 4.249999999999999,
+      "pulse_probability": 0.00830078125
+    },
+    {
+      "orientation": -1,
+      "erasure": 1.0,
+      "switches": "independent",
+      "energy": 4.249999999999999,
+      "pulse_probability": 0.00830078125
+    }
+  ],
+  "conservative_transfer": {
+    "native_ports": [
+      38,
+      39,
+      40,
+      45
+    ],
+    "reader_energy_change": 0.0008776564740695101,
+    "supply_energy_change": -0.0008776564740827217,
+    "summed_ticket_change": -2.5804011705155006e-17
+  },
+  "guides": [
+    {
+      "interior": 10,
+      "max_hit": 0.3223344905949617,
+      "max_bias_squared": 2.1456021115365837e-05,
+      "total_excess_ticket_rate": 3.9990587164493105e-06,
+      "first_passage_checks": [
+        {
+          "point_zero_based": [
+            4,
+            4,
+            4
+          ],
+          "ever_hit": 0.3223344905949617,
+          "by_tick": {
+            "0": 0.125,
+            "4": 0.22442626953125,
+            "16": 0.27990627124841616,
+            "64": 0.31520422138271853,
+            "256": 0.322323704390286,
+            "1024": 0.32233449059496116
+          }
+        },
+        {
+          "point_zero_based": [
+            7,
+            4,
+            4
+          ],
+          "ever_hit": 0.07763710271246271,
+          "by_tick": {
+            "0": 0.0,
+            "4": 0.007568359375,
+            "16": 0.0356921005039732,
+            "64": 0.06959632330341962,
+            "256": 0.0776214793136253,
+            "1024": 0.07763710271246245
+          }
+        },
+        {
+          "point_zero_based": [
+            8,
+            4,
+            4
+          ],
+          "ever_hit": 0.041717045757661234,
+          "by_tick": {
+            "0": 0.0,
+            "4": 0.000701904296875,
+            "16": 0.011751326782833083,
+            "64": 0.03532805467569179,
+            "256": 0.04170260641970415,
+            "1024": 0.04171704575766077
+          }
+        }
+      ],
+      "shells": [
+        {
+          "k": 1,
+          "edges": 24,
+          "enclosed_tickets": 1.4248139021922622e-06,
+          "outward_flux": 1.4248139021922624e-06,
+          "inward_recoil_per_edge": 9.498759347948416e-08,
+          "radius_times_inward_recoil": 9.498759347948416e-08
+        },
+        {
+          "k": 2,
+          "edges": 96,
+          "enclosed_tickets": 2.8080178430959427e-06,
+          "outward_flux": 2.808017843095943e-06,
+          "inward_recoil_per_edge": 4.680029738493239e-08,
+          "radius_times_inward_recoil": 9.360059476986478e-08
+        },
+        {
+          "k": 4,
+          "edges": 384,
+          "enclosed_tickets": 3.905857564175485e-06,
+          "outward_flux": 3.905857564175486e-06,
+          "inward_recoil_per_edge": 1.6274406517397858e-08,
+          "radius_times_inward_recoil": 6.509762606959143e-08
+        },
+        {
+          "k": 5,
+          "edges": 600,
+          "enclosed_tickets": 3.9990587164493105e-06,
+          "outward_flux": 3.999058716449309e-06,
+          "inward_recoil_per_edge": 1.0664156577198157e-08,
+          "radius_times_inward_recoil": 5.3320782885990787e-08
+        }
+      ]
+    },
+    {
+      "interior": 34,
+      "max_hit": 0.34586686140420225,
+      "max_bias_squared": 2.4703218315757203e-05,
+      "total_excess_ticket_rate": 1.3812006666631601e-05,
+      "first_passage_checks": [
+        {
+          "point_zero_based": [
+            16,
+            16,
+            16
+          ],
+          "ever_hit": 0.34586686140420225,
+          "by_tick": {
+            "0": 0.125,
+            "4": 0.22442626953125,
+            "16": 0.27990644909736506,
+            "64": 0.3163268427536506,
+            "256": 0.3360062788092899,
+            "1024": 0.3450503868524335
+          }
+        },
+        {
+          "point_zero_based": [
+            19,
+            16,
+            16
+          ],
+          "ever_hit": 0.10934091654541517,
+          "by_tick": {
+            "0": 0.0,
+            "4": 0.007568359375,
+            "16": 0.03569592368528696,
+            "64": 0.0716758078051674,
+            "256": 0.09624216569491716,
+            "1024": 0.10824558537886232
+          }
+        },
+        {
+          "point_zero_based": [
+            32,
+            16,
+            16
+          ],
+          "ever_hit": 0.003525332852774386,
+          "by_tick": {
+            "0": 0.0,
+            "4": 0.0,
+            "16": 3.1530333899354446e-14,
+            "64": 4.2425500379044226e-06,
+            "256": 0.0009476314136661439,
+            "1024": 0.003263491027670793
+          }
+        }
+      ],
+      "shells": [
+        {
+          "k": 1,
+          "edges": 24,
+          "enclosed_tickets": 1.6404480912807515e-06,
+          "outward_flux": 1.640448091280753e-06,
+          "inward_recoil_per_edge": 1.0936320608538353e-07,
+          "radius_times_inward_recoil": 1.0936320608538353e-07
+        },
+        {
+          "k": 2,
+          "edges": 96,
+          "enclosed_tickets": 3.786709478656536e-06,
+          "outward_flux": 3.7867094786565416e-06,
+          "inward_recoil_per_edge": 6.311182464427569e-08,
+          "radius_times_inward_recoil": 1.2622364928855139e-07
+        },
+        {
+          "k": 4,
+          "edges": 384,
+          "enclosed_tickets": 7.339946538879664e-06,
+          "outward_flux": 7.339946538879675e-06,
+          "inward_recoil_per_edge": 3.0583110578665313e-08,
+          "radius_times_inward_recoil": 1.2233244231466125e-07
+        },
+        {
+          "k": 8,
+          "edges": 1536,
+          "enclosed_tickets": 1.168296018107384e-05,
+          "outward_flux": 1.16829601810739e-05,
+          "inward_recoil_per_edge": 1.2169750188618647e-08,
+          "radius_times_inward_recoil": 9.735800150894918e-08
+        },
+        {
+          "k": 16,
+          "edges": 6144,
+          "enclosed_tickets": 1.3803124789989147e-05,
+          "outward_flux": 1.3803124789989363e-05,
+          "inward_recoil_per_edge": 3.5945637473930634e-09,
+          "radius_times_inward_recoil": 5.7513019958289014e-08
+        },
+        {
+          "k": 17,
+          "edges": 6936,
+          "enclosed_tickets": 1.3812006666631601e-05,
+          "outward_flux": 1.3812006666631842e-05,
+          "inward_recoil_per_edge": 3.18616070741219e-09,
+          "radius_times_inward_recoil": 5.416473202600723e-08
+        }
+      ]
+    },
+    {
+      "interior": 82,
+      "max_hit": 0.351851060418462,
+      "max_bias_squared": 2.556544515535415e-05,
+      "total_excess_ticket_rate": 3.341639689669085e-05,
+      "first_passage_checks": [],
+      "shells": [
+        {
+          "k": 1,
+          "edges": 24,
+          "enclosed_tickets": 1.6977053423477362e-06,
+          "outward_flux": 1.6977053423477328e-06,
+          "inward_recoil_per_edge": 1.1318035615651552e-07,
+          "radius_times_inward_recoil": 1.1318035615651552e-07
+        },
+        {
+          "k": 2,
+          "edges": 96,
+          "enclosed_tickets": 4.068117618840522e-06,
+          "outward_flux": 4.068117618840533e-06,
+          "inward_recoil_per_edge": 6.780196031400889e-08,
+          "radius_times_inward_recoil": 1.3560392062801778e-07
+        },
+        {
+          "k": 4,
+          "edges": 384,
+          "enclosed_tickets": 8.531566081296496e-06,
+          "outward_flux": 8.531566081296516e-06,
+          "inward_recoil_per_edge": 3.5548192005402155e-08,
+          "radius_times_inward_recoil": 1.4219276802160862e-07
+        },
+        {
+          "k": 8,
+          "edges": 1536,
+          "enclosed_tickets": 1.6053354921108362e-05,
+          "outward_flux": 1.6053354921108434e-05,
+          "inward_recoil_per_edge": 1.6722244709487953e-08,
+          "radius_times_inward_recoil": 1.3377795767590362e-07
+        },
+        {
+          "k": 16,
+          "edges": 6144,
+          "enclosed_tickets": 2.6145952267852017e-05,
+          "outward_flux": 2.614595226785254e-05,
+          "inward_recoil_per_edge": 6.808841736419932e-09,
+          "radius_times_inward_recoil": 1.0894146778271891e-07
+        },
+        {
+          "k": 32,
+          "edges": 24576,
+          "enclosed_tickets": 3.307774910898226e-05,
+          "outward_flux": 3.30777491089839e-05,
+          "inward_recoil_per_edge": 2.1534992909494726e-09,
+          "radius_times_inward_recoil": 6.891197731038312e-08
+        },
+        {
+          "k": 41,
+          "edges": 40344,
+          "enclosed_tickets": 3.341639689669085e-05,
+          "outward_flux": 3.341639689669274e-05,
+          "inward_recoil_per_edge": 1.3252586514651096e-09,
+          "radius_times_inward_recoil": 5.43356047100695e-08
+        }
+      ]
+    },
+    {
+      "interior": 178,
+      "max_hit": 0.3541624595291984,
+      "max_bias_squared": 2.5902440258582625e-05,
+      "total_excess_ticket_rate": 7.26191743509704e-05,
+      "first_passage_checks": [],
+      "shells": [
+        {
+          "k": 1,
+          "edges": 24,
+          "enclosed_tickets": 1.720083923421502e-06,
+          "outward_flux": 1.7200839234215027e-06,
+          "inward_recoil_per_edge": 1.1467226156143352e-07,
+          "radius_times_inward_recoil": 1.1467226156143352e-07
+        },
+        {
+          "k": 2,
+          "edges": 96,
+          "enclosed_tickets": 4.180281897800569e-06,
+          "outward_flux": 4.180281897800554e-06,
+          "inward_recoil_per_edge": 6.967136496334257e-08,
+          "radius_times_inward_recoil": 1.3934272992668515e-07
+        },
+        {
+          "k": 4,
+          "edges": 384,
+          "enclosed_tickets": 9.026118819952857e-06,
+          "outward_flux": 9.02611881995282e-06,
+          "inward_recoil_per_edge": 3.760882841647009e-08,
+          "radius_times_inward_recoil": 1.5043531366588035e-07
+        },
+        {
+          "k": 8,
+          "edges": 1536,
+          "enclosed_tickets": 1.8043710961185374e-05,
+          "outward_flux": 1.8043710961185137e-05,
+          "inward_recoil_per_edge": 1.8795532251234516e-08,
+          "radius_times_inward_recoil": 1.5036425800987613e-07
+        },
+        {
+          "k": 16,
+          "edges": 6144,
+          "enclosed_tickets": 3.339969074696031e-05,
+          "outward_flux": 3.33996907469597e-05,
+          "inward_recoil_per_edge": 8.697836132020756e-09,
+          "radius_times_inward_recoil": 1.391653781123321e-07
+        },
+        {
+          "k": 32,
+          "edges": 24576,
+          "enclosed_tickets": 5.473604649407991e-05,
+          "outward_flux": 5.473604649407603e-05,
+          "inward_recoil_per_edge": 3.5635446936247417e-09,
+          "radius_times_inward_recoil": 1.1403343019599174e-07
+        },
+        {
+          "k": 64,
+          "edges": 98304,
+          "enclosed_tickets": 7.122787094289743e-05,
+          "outward_flux": 7.122787094288437e-05,
+          "inward_recoil_per_edge": 1.159307795294342e-09,
+          "radius_times_inward_recoil": 7.41956988988379e-08
+        },
+        {
+          "k": 89,
+          "edges": 190104,
+          "enclosed_tickets": 7.26191743509704e-05,
+          "outward_flux": 7.261917435095548e-05,
+          "inward_recoil_per_edge": 6.111953402428606e-10,
+          "radius_times_inward_recoil": 5.439638528161459e-08
+        }
+      ]
+    }
+  ],
+  "paired_acquisition": {
+    "proposals_per_address": 35184372088832,
+    "expected_releases": 140704369.88463944,
+    "unmatched_releases": 140728000,
+    "visits": 6589586095,
+    "last_drain": 660,
+    "panels": [
+      {
+        "probe": 1,
+        "arms": [
+          {
+            "starts": [
+              1864266591,
+              382177240,
+              382113648,
+              86849101,
+              382126479,
+              86873716,
+              86865846,
+              23479998
+            ],
+            "right": [
+              932158913,
+              191091115,
+              191052443,
+              43429508,
+              191068762,
+              43432571,
+              43421669,
+              2346772
+            ]
+          },
+          {
+            "starts": [
+              1935597859,
+              403884378,
+              403868640,
+              95217603,
+              310854601,
+              65153160,
+              65133310,
+              15123925
+            ],
+            "right": [
+              967793047,
+              201950383,
+              201918766,
+              47614764,
+              155430259,
+              32574269,
+              32570232,
+              13611496
+            ]
+          }
+        ],
+        "signed_per_expected_excess": -0.023652986063820346,
+        "forecast": -0.023752487826390764,
+        "simultaneous_99_width": 0.0010612850873622317
+      },
+      {
+        "probe": 2,
+        "arms": [
+          {
+            "starts": [
+              1864249114,
+              382164094,
+              382113853,
+              86841138,
+              382167043,
+              86863649,
+              86856540,
+              23480267
+            ],
+            "right": [
+              932116502,
+              191078264,
+              191057259,
+              43418750,
+              191094652,
+              43435122,
+              43427006,
+              2348541
+            ]
+          },
+          {
+            "starts": [
+              1935580480,
+              403917031,
+              403876631,
+              95225015,
+              310848893,
+              65143720,
+              65134420,
+              15124207
+            ],
+            "right": [
+              967784785,
+              201962322,
+              201933783,
+              47616521,
+              155425106,
+              32572073,
+              32557860,
+              13611200
+            ]
+          }
+        ],
+        "signed_per_expected_excess": -0.023832248442243135,
+        "forecast": -0.023752487826390764,
+        "simultaneous_99_width": 0.0010612850873622317
+      }
+    ]
+  }
+}

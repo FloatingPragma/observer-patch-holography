@@ -1,0 +1,1049 @@
+{
+  "physical_fan_hubs": [
+    1585,
+    634,
+    482,
+    1736,
+    3555
+  ],
+  "physical_directed_loop": [
+    [
+      1584,
+      1585
+    ],
+    [
+      1585,
+      1592
+    ],
+    [
+      1592,
+      626
+    ],
+    [
+      626,
+      634
+    ],
+    [
+      634,
+      624
+    ],
+    [
+      624,
+      483
+    ],
+    [
+      483,
+      482
+    ],
+    [
+      482,
+      1729
+    ],
+    [
+      1729,
+      1736
+    ],
+    [
+      1736,
+      1731
+    ],
+    [
+      1731,
+      3560
+    ],
+    [
+      3560,
+      3555
+    ],
+    [
+      3555,
+      3554
+    ],
+    [
+      3554,
+      1584
+    ]
+  ],
+  "physical_directed_bridges": [
+    [
+      1592,
+      626
+    ],
+    [
+      624,
+      483
+    ],
+    [
+      482,
+      1729
+    ],
+    [
+      1731,
+      3560
+    ],
+    [
+      3554,
+      1584
+    ]
+  ],
+  "per_fan_changed_port_head_counts_if_only_bare_bridges_flipped": [
+    [
+      [
+        1584,
+        -1
+      ],
+      [
+        1592,
+        1
+      ]
+    ],
+    [
+      [
+        624,
+        1
+      ],
+      [
+        626,
+        -1
+      ]
+    ],
+    [
+      [
+        482,
+        1
+      ],
+      [
+        483,
+        -1
+      ]
+    ],
+    [
+      [
+        1729,
+        -1
+      ],
+      [
+        1731,
+        1
+      ]
+    ],
+    [
+      [
+        3554,
+        1
+      ],
+      [
+        3560,
+        -1
+      ]
+    ]
+  ],
+  "bare_bridge_masks_preserving_summed_cell_gauss_record": [
+    0,
+    31
+  ],
+  "bare_bridge_masks_preserving_every_port_gauss_record": [
+    0
+  ],
+  "full_loop_masks_preserving_every_port_gauss_record": [
+    0,
+    16383
+  ],
+  "same_sharp_original_local_head_count_sector_available_on_both_arms": false,
+  "local_bridge_diagonal_read_both_signs": [
+    {
+      "bridge_word": "initial",
+      "interferometer_port": "bright",
+      "probability": "1/4"
+    },
+    {
+      "bridge_word": "initial",
+      "interferometer_port": "dark",
+      "probability": "1/4"
+    },
+    {
+      "bridge_word": "complement",
+      "interferometer_port": "bright",
+      "probability": "1/4"
+    },
+    {
+      "bridge_word": "complement",
+      "interferometer_port": "dark",
+      "probability": "1/4"
+    }
+  ],
+  "raw_single_edge_and_all_bridge_eraser_records": [
+    {
+      "bare_bridge_bits_measured": 1,
+      "identical_for_plus_and_minus_exchange_phase": true,
+      "original_gauss_record_total_probability": "1/2",
+      "gauss_record_refused_total_probability": "1/2",
+      "outcomes": [
+        {
+          "bare_X_outcomes": [
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/8",
+          "gauss_record_refused_probability": "1/8"
+        },
+        {
+          "bare_X_outcomes": [
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/8",
+          "gauss_record_refused_probability": "1/8"
+        },
+        {
+          "bare_X_outcomes": [
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/8",
+          "gauss_record_refused_probability": "1/8"
+        },
+        {
+          "bare_X_outcomes": [
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/8",
+          "gauss_record_refused_probability": "1/8"
+        }
+      ]
+    },
+    {
+      "bare_bridge_bits_measured": 5,
+      "identical_for_plus_and_minus_exchange_phase": true,
+      "original_gauss_record_total_probability": "1/32",
+      "gauss_record_refused_total_probability": "31/32",
+      "outcomes": [
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            -1,
+            1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "bright",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        },
+        {
+          "bare_X_outcomes": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "phase_port": "dark",
+          "original_gauss_record_probability": "1/2048",
+          "gauss_record_refused_probability": "31/2048"
+        }
+      ]
+    }
+  ],
+  "supplied_whole_loop_comparison": [
+    {
+      "supplied_test_arm_sign": 1,
+      "joint_outcomes": [
+        {
+          "whole_loop_read": 1,
+          "interferometer_port": "bright",
+          "probability": "1/2"
+        },
+        {
+          "whole_loop_read": 1,
+          "interferometer_port": "dark",
+          "probability": "0"
+        },
+        {
+          "whole_loop_read": -1,
+          "interferometer_port": "bright",
+          "probability": "0"
+        },
+        {
+          "whole_loop_read": -1,
+          "interferometer_port": "dark",
+          "probability": "1/2"
+        }
+      ],
+      "original_gauss_record_refused_probability": 0,
+      "other_loop_pattern_refused_probability": 0
+    },
+    {
+      "supplied_test_arm_sign": -1,
+      "joint_outcomes": [
+        {
+          "whole_loop_read": 1,
+          "interferometer_port": "bright",
+          "probability": "0"
+        },
+        {
+          "whole_loop_read": 1,
+          "interferometer_port": "dark",
+          "probability": "1/2"
+        },
+        {
+          "whole_loop_read": -1,
+          "interferometer_port": "bright",
+          "probability": "1/2"
+        },
+        {
+          "whole_loop_read": -1,
+          "interferometer_port": "dark",
+          "probability": "0"
+        }
+      ],
+      "original_gauss_record_refused_probability": 0,
+      "other_loop_pattern_refused_probability": 0
+    }
+  ]
+}

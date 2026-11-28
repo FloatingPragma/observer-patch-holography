@@ -1,0 +1,2624 @@
+{
+  "sha256": {
+    "closed_passage.json": "1dab4082f89a48e140160da8cd1234bcebf98d84ed4fb204c211b55c8aabebe0",
+    "PASSAGE_MASS.md": "d2098447f18685512778125b8d9168845f20969948726ca4cd3745b0a5eb9619",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c",
+    "table1.dat": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c",
+    "table2.dat": "7d027e515441c6b4ebbf6aadee0327e6ad81156c4e8b151af2f6d62cb44c3962"
+  },
+  "ngc2841": {
+    "radii_kpc": [
+      20.57,
+      30.7,
+      40.99,
+      51.27,
+      61.56
+    ],
+    "work_km2_s2": [
+      [
+        23046.669979478873,
+        27786.337479973783
+      ],
+      [
+        17036.501907548038,
+        19394.22169435135
+      ],
+      [
+        12942.606376007128,
+        14814.275158356975
+      ],
+      [
+        11647.279097240335,
+        13764.813444678908
+      ]
+    ],
+    "fitted_gain_intervals": [
+      [
+        48.119588037411724,
+        58.01563149016225
+      ],
+      [
+        43.953269716607224,
+        50.036061493223905
+      ],
+      [
+        428.19021177189427,
+        490.11207117162905
+      ],
+      [
+        153.0322965838768,
+        180.8543433965565
+      ]
+    ],
+    "common_gain": false,
+    "clock_outer_per_inner": 0.12271210047901994,
+    "observed_ratio_lower": 0.5211868172734347
+  },
+  "imaged": {
+    "summary": {
+      "catalog": 10,
+      "eligible": 10,
+      "rings": 137,
+      "feasible": 1,
+      "growth_conflicts": 9,
+      "negative_upper": 0,
+      "positive_required": 10,
+      "shared_box_growth": 0
+    },
+    "galaxies": {
+      "DDO154": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.96,
+          5.43
+        ],
+        "inner_upper_msun": 1027772995.1582935,
+        "outer_lower_msun": 2309795778.614045,
+        "minimum_growth_msun": 1282022783.4557517
+      },
+      "IC2574": {
+        "included": true,
+        "rings": 15,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.12,
+          9.38
+        ],
+        "inner_upper_msun": 1607400471.1988149,
+        "outer_lower_msun": 6838966864.395126,
+        "minimum_growth_msun": 5231566393.196312
+      },
+      "NGC7793": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          4.03,
+          6.82
+        ],
+        "inner_upper_msun": 10905363523.093395,
+        "outer_lower_msun": 7080754720.353623,
+        "minimum_growth_msun": 0
+      },
+      "NGC2403": {
+        "included": true,
+        "rings": 21,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          10.93,
+          20.87
+        ],
+        "inner_upper_msun": 31257607751.72074,
+        "outer_lower_msun": 66363991524.64071,
+        "minimum_growth_msun": 35106383772.91997
+      },
+      "NGC3198": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          22.12,
+          44.08
+        ],
+        "inner_upper_msun": 96602308045.51935,
+        "outer_lower_msun": 166660706695.8095,
+        "minimum_growth_msun": 70058398650.29016
+      },
+      "NGC6946": {
+        "included": true,
+        "rings": 27,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          9.73,
+          12.26
+        ],
+        "inner_upper_msun": 28466466566.813812,
+        "outer_lower_msun": 39024927483.50903,
+        "minimum_growth_msun": 10558460916.69522
+      },
+      "NGC3521": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          11.07,
+          17.74
+        ],
+        "inner_upper_msun": 87453711693.53801,
+        "outer_lower_msun": 88406185780.32231,
+        "minimum_growth_msun": 952474086.7843018
+      },
+      "NGC2841": {
+        "included": true,
+        "rings": 16,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          32.79,
+          63.64
+        ],
+        "inner_upper_msun": 535917180339.2864,
+        "outer_lower_msun": 984534559081.5311,
+        "minimum_growth_msun": 448617378742.24475
+      },
+      "NGC5055": {
+        "included": true,
+        "rings": 10,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          28.74,
+          48.81
+        ],
+        "inner_upper_msun": 142462377825.52374,
+        "outer_lower_msun": 241070326742.73816,
+        "minimum_growth_msun": 98607948917.21442
+      },
+      "NGC7331": {
+        "included": true,
+        "rings": 17,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          19.24,
+          35.32
+        ],
+        "inner_upper_msun": 107954902990.29558,
+        "outer_lower_msun": 266058307952.93558,
+        "minimum_growth_msun": 158103404962.64
+      }
+    }
+  },
+  "bulgeless": {
+    "summary": {
+      "catalog": 118,
+      "eligible": 108,
+      "rings": 828,
+      "feasible": 17,
+      "growth_conflicts": 91,
+      "negative_upper": 0,
+      "positive_required": 108,
+      "shared_box_growth": 63
+    },
+    "galaxies": {
+      "CamB": {
+        "rings": 2,
+        "included": false
+      },
+      "D512-2": {
+        "rings": 1,
+        "included": false
+      },
+      "D564-8": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          2.04,
+          3.07
+        ],
+        "inner_upper_msun": 268914601.7403885,
+        "outer_lower_msun": 255531648.25786775,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "D631-7": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.04,
+          7.19
+        ],
+        "inner_upper_msun": 2083996832.3951776,
+        "outer_lower_msun": 3526849204.0735064,
+        "minimum_growth_msun": 1442852371.6783288,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.04,
+            7.19
+          ],
+          "mass_growth_lower_msun": 1187545695.9356732
+        }
+      },
+      "DDO064": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          1.88,
+          2.27
+        ],
+        "inner_upper_msun": 1120765585.5478613,
+        "outer_lower_msun": 417199401.4669449,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "DDO154": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.96,
+          5.43
+        ],
+        "inner_upper_msun": 1027772995.1582935,
+        "outer_lower_msun": 2309795778.614045,
+        "minimum_growth_msun": 1282022783.4557517,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            2.96,
+            5.43
+          ],
+          "mass_growth_lower_msun": 954521738.7957063
+        }
+      },
+      "DDO161": {
+        "included": true,
+        "rings": 15,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          6.75,
+          12.9
+        ],
+        "inner_upper_msun": 3881497748.9173594,
+        "outer_lower_msun": 9845298674.18655,
+        "minimum_growth_msun": 5963800925.269191,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            6.75,
+            13.37
+          ],
+          "mass_growth_lower_msun": 1477828333.7631426
+        }
+      },
+      "DDO168": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.06,
+          3.71
+        ],
+        "inner_upper_msun": 722189184.3068323,
+        "outer_lower_msun": 1583452144.1710598,
+        "minimum_growth_msun": 861262959.8642275,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            2.06,
+            3.71
+          ],
+          "mass_growth_lower_msun": 458497784.43266165
+        }
+      },
+      "DDO170": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          6.35,
+          12.33
+        ],
+        "inner_upper_msun": 3732949474.598021,
+        "outer_lower_msun": 8289095145.722566,
+        "minimum_growth_msun": 4556145671.124544,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            6.35,
+            12.33
+          ],
+          "mass_growth_lower_msun": 989221247.0149736
+        }
+      },
+      "ESO079-G014": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          8.34,
+          16.67
+        ],
+        "inner_upper_msun": 38007799588.67429,
+        "outer_lower_msun": 81003323266.80916,
+        "minimum_growth_msun": 42995523678.134865,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            10.04,
+            16.67
+          ],
+          "mass_growth_lower_msun": 5888032671.051785
+        }
+      },
+      "ESO116-G012": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.23,
+          9.86
+        ],
+        "inner_upper_msun": 12313152083.676353,
+        "outer_lower_msun": 19024055205.478592,
+        "minimum_growth_msun": 6710903121.802238,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.23,
+            9.86
+          ],
+          "mass_growth_lower_msun": 1509353493.7503533
+        }
+      },
+      "ESO444-G084": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          1.81,
+          3.39
+        ],
+        "inner_upper_msun": 1096231965.0400743,
+        "outer_lower_msun": 2597957465.201591,
+        "minimum_growth_msun": 1501725500.1615167,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            1.81,
+            3.39
+          ],
+          "mass_growth_lower_msun": 616460295.0110765
+        }
+      },
+      "ESO563-G021": {
+        "included": true,
+        "rings": 13,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          21.94,
+          42.41
+        ],
+        "inner_upper_msun": 392455284797.4594,
+        "outer_lower_msun": 641138681130.2356,
+        "minimum_growth_msun": 248683396332.77618,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            21.94,
+            42.41
+          ],
+          "mass_growth_lower_msun": 147255104403.50922
+        }
+      },
+      "F565-V2": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          6.29,
+          8.8
+        ],
+        "inner_upper_msun": 10216460282.621845,
+        "outer_lower_msun": 8482590642.178907,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "F568-3": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          10.17,
+          17.98
+        ],
+        "inner_upper_msun": 23247632612.281357,
+        "outer_lower_msun": 27156422125.954296,
+        "minimum_growth_msun": 3908789513.6729393,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "F568-V1": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.53,
+          5.87
+        ],
+        "inner_upper_msun": 8443841764.509531,
+        "outer_lower_msun": 11959601169.84854,
+        "minimum_growth_msun": 3515759405.3390083,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.53,
+            5.87
+          ],
+          "mass_growth_lower_msun": 613674270.2840625
+        }
+      },
+      "F571-8": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          9.33,
+          15.55
+        ],
+        "inner_upper_msun": 39002057381.1267,
+        "outer_lower_msun": 58905726476.72746,
+        "minimum_growth_msun": 19903669095.60076,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            9.33,
+            15.55
+          ],
+          "mass_growth_lower_msun": 11346299682.497839
+        }
+      },
+      "F571-V1": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.78,
+          13.59
+        ],
+        "inner_upper_msun": 12175471053.953018,
+        "outer_lower_msun": 12597839097.283718,
+        "minimum_growth_msun": 422368043.3306999,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "F574-1": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.05,
+          12.6
+        ],
+        "inner_upper_msun": 14542112156.77379,
+        "outer_lower_msun": 17094897849.14918,
+        "minimum_growth_msun": 2552785692.375389,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "F583-1": {
+        "rings": 2,
+        "included": false
+      },
+      "F583-4": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.92,
+          7.29
+        ],
+        "inner_upper_msun": 3094203632.1715126,
+        "outer_lower_msun": 4566262003.394826,
+        "minimum_growth_msun": 1472058371.2233133,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "IC2574": {
+        "included": true,
+        "rings": 15,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.12,
+          9.38
+        ],
+        "inner_upper_msun": 1607400471.1988149,
+        "outer_lower_msun": 6838966864.395126,
+        "minimum_growth_msun": 5231566393.196312,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.12,
+            9.38
+          ],
+          "mass_growth_lower_msun": 3475296984.443999
+        }
+      },
+      "KK98-251": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          1.57,
+          3.13
+        ],
+        "inner_upper_msun": 197995050.04608214,
+        "outer_lower_msun": 386749551.7578612,
+        "minimum_growth_msun": 188754501.71177906,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC0024": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.07,
+          11.27
+        ],
+        "inner_upper_msun": 16590841442.942694,
+        "outer_lower_msun": 25322647657.75468,
+        "minimum_growth_msun": 8731806214.811987,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            7.07,
+            11.27
+          ],
+          "mass_growth_lower_msun": 7144498618.518449
+        }
+      },
+      "NGC0055": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          6.75,
+          12.89
+        ],
+        "inner_upper_msun": 7512302895.608176,
+        "outer_lower_msun": 13592344190.570826,
+        "minimum_growth_msun": 6080041294.962649,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            6.75,
+            12.89
+          ],
+          "mass_growth_lower_msun": 3092969359.5316267
+        }
+      },
+      "NGC0100": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.79,
+          9.35
+        ],
+        "inner_upper_msun": 6891191153.841188,
+        "outer_lower_msun": 11192839784.427866,
+        "minimum_growth_msun": 4301648630.586678,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.79,
+            9.35
+          ],
+          "mass_growth_lower_msun": 1190491579.6629064
+        }
+      },
+      "NGC0247": {
+        "included": true,
+        "rings": 14,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          8.62,
+          14.01
+        ],
+        "inner_upper_msun": 13928269300.805853,
+        "outer_lower_msun": 19939840638.58007,
+        "minimum_growth_msun": 6011571337.774218,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            8.62,
+            14.01
+          ],
+          "mass_growth_lower_msun": 2824241228.523311
+        }
+      },
+      "NGC0289": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          37.84,
+          71.12
+        ],
+        "inner_upper_msun": 238696936215.3669,
+        "outer_lower_msun": 276502772584.10974,
+        "minimum_growth_msun": 37805836368.74283,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            37.84,
+            71.12
+          ],
+          "mass_growth_lower_msun": 9198212006.485289
+        }
+      },
+      "NGC0300": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.45,
+          9.96
+        ],
+        "inner_upper_msun": 8234515908.086278,
+        "outer_lower_msun": 16930894827.50403,
+        "minimum_growth_msun": 8696378919.417751,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.45,
+            10.45
+          ],
+          "mass_growth_lower_msun": 3123699307.119326
+        }
+      },
+      "NGC0801": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          31.67,
+          52.86
+        ],
+        "inner_upper_msun": 175600970139.60498,
+        "outer_lower_msun": 326449184411.095,
+        "minimum_growth_msun": 150848214271.49,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            31.67,
+            52.86
+          ],
+          "mass_growth_lower_msun": 108336073677.76729
+        }
+      },
+      "NGC1003": {
+        "included": true,
+        "rings": 19,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          15.36,
+          30.24
+        ],
+        "inner_upper_msun": 30792641052.31673,
+        "outer_lower_msun": 74571069202.01553,
+        "minimum_growth_msun": 43778428149.69881,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            15.36,
+            30.24
+          ],
+          "mass_growth_lower_msun": 12049363718.791035
+        }
+      },
+      "NGC1090": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          16.37,
+          30.09
+        ],
+        "inner_upper_msun": 60517025171.109184,
+        "outer_lower_msun": 110572450463.37946,
+        "minimum_growth_msun": 50055425292.27027,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            16.37,
+            28.87
+          ],
+          "mass_growth_lower_msun": 13975844368.989475
+        }
+      },
+      "NGC2403": {
+        "included": true,
+        "rings": 21,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          10.93,
+          20.87
+        ],
+        "inner_upper_msun": 31257607751.72074,
+        "outer_lower_msun": 66363991524.64071,
+        "minimum_growth_msun": 35106383772.91997,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            10.93,
+            20.87
+          ],
+          "mass_growth_lower_msun": 26956322644.212013
+        }
+      },
+      "NGC2903": {
+        "included": true,
+        "rings": 14,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          12.48,
+          24.0
+        ],
+        "inner_upper_msun": 67932473667.4677,
+        "outer_lower_msun": 122118204389.8374,
+        "minimum_growth_msun": 54185730722.369705,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            12.48,
+            24.0
+          ],
+          "mass_growth_lower_msun": 19380231735.610134
+        }
+      },
+      "NGC2915": {
+        "included": true,
+        "rings": 15,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.02,
+          9.7
+        ],
+        "inner_upper_msun": 10001971575.308443,
+        "outer_lower_msun": 11413912685.502867,
+        "minimum_growth_msun": 1411941110.1944237,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.02,
+            9.7
+          ],
+          "mass_growth_lower_msun": 650277691.1450255
+        }
+      },
+      "NGC2976": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          1.14,
+          2.1
+        ],
+        "inner_upper_msun": 566181503.3308558,
+        "outer_lower_msun": 1284883387.351964,
+        "minimum_growth_msun": 718701884.0211082,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC2998": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          22.46,
+          42.28
+        ],
+        "inner_upper_msun": 150871797962.48785,
+        "outer_lower_msun": 257532107735.30396,
+        "minimum_growth_msun": 106660309772.8161,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            22.46,
+            42.28
+          ],
+          "mass_growth_lower_msun": 47874151280.77716
+        }
+      },
+      "NGC3109": {
+        "included": true,
+        "rings": 13,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.35,
+          6.45
+        ],
+        "inner_upper_msun": 2302434489.974115,
+        "outer_lower_msun": 4950908107.133645,
+        "minimum_growth_msun": 2648473617.15953,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.35,
+            6.45
+          ],
+          "mass_growth_lower_msun": 1885227315.7596955
+        }
+      },
+      "NGC3198": {
+        "included": true,
+        "rings": 12,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          22.12,
+          44.08
+        ],
+        "inner_upper_msun": 96602308045.51935,
+        "outer_lower_msun": 166660706695.8095,
+        "minimum_growth_msun": 70058398650.29016,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            22.12,
+            44.08
+          ],
+          "mass_growth_lower_msun": 42500074283.119514
+        }
+      },
+      "NGC3521": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          11.07,
+          17.74
+        ],
+        "inner_upper_msun": 87453711693.53801,
+        "outer_lower_msun": 88406185780.32231,
+        "minimum_growth_msun": 952474086.7843018,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3726": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          22.3,
+          30.08
+        ],
+        "inner_upper_msun": 93963709637.1982,
+        "outer_lower_msun": 103502982598.08386,
+        "minimum_growth_msun": 9539272960.885666,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            22.3,
+            30.08
+          ],
+          "mass_growth_lower_msun": 5335239727.766941
+        }
+      },
+      "NGC3741": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.73,
+          7.0
+        ],
+        "inner_upper_msun": 1776278003.1682532,
+        "outer_lower_msun": 3009828216.971098,
+        "minimum_growth_msun": 1233550213.8028448,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.73,
+            7.0
+          ],
+          "mass_growth_lower_msun": 915152636.7886176
+        }
+      },
+      "NGC3769": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          31.82,
+          34.61
+        ],
+        "inner_upper_msun": 130020168841.17825,
+        "outer_lower_msun": 58038874683.84746,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3877": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          6.11,
+          11.35
+        ],
+        "inner_upper_msun": 18262521350.7511,
+        "outer_lower_msun": 13473508804.262665,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3893": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          10.9,
+          17.3
+        ],
+        "inner_upper_msun": 65318785084.26211,
+        "outer_lower_msun": 54040779484.45509,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3917": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.85,
+          13.94
+        ],
+        "inner_upper_msun": 24557127310.423733,
+        "outer_lower_msun": 35753784460.2882,
+        "minimum_growth_msun": 11196657149.864468,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            7.85,
+            13.94
+          ],
+          "mass_growth_lower_msun": 3811202243.831288
+        }
+      },
+      "NGC3949": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.5,
+          6.11
+        ],
+        "inner_upper_msun": 5285511419.883781,
+        "outer_lower_msun": 6775900198.418713,
+        "minimum_growth_msun": 1490388778.5349312,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3953": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          8.72,
+          13.94
+        ],
+        "inner_upper_msun": 51499059217.87544,
+        "outer_lower_msun": 52879404703.548096,
+        "minimum_growth_msun": 1380345485.6726532,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC3972": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.37,
+          8.72
+        ],
+        "inner_upper_msun": 10106460168.917902,
+        "outer_lower_msun": 20784918967.328884,
+        "minimum_growth_msun": 10678458798.410982,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.24,
+            8.72
+          ],
+          "mass_growth_lower_msun": 3045720440.3800044
+        }
+      },
+      "NGC3992": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          27.52,
+          46.02
+        ],
+        "inner_upper_msun": 327959923672.8671,
+        "outer_lower_msun": 373118432292.463,
+        "minimum_growth_msun": 45158508619.59589,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            27.52,
+            46.02
+          ],
+          "mass_growth_lower_msun": 27246781061.369316
+        }
+      },
+      "NGC4010": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.24,
+          10.47
+        ],
+        "inner_upper_msun": 9751258097.652658,
+        "outer_lower_msun": 19071060166.78351,
+        "minimum_growth_msun": 9319802069.13085,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.24,
+            10.47
+          ],
+          "mass_growth_lower_msun": 2247819556.717554
+        }
+      },
+      "NGC4051": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          8.72,
+          12.19
+        ],
+        "inner_upper_msun": 19049341115.925133,
+        "outer_lower_msun": 5616552955.565904,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC4068": {
+        "rings": 2,
+        "included": false
+      },
+      "NGC4085": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.58,
+          6.2
+        ],
+        "inner_upper_msun": 6078678685.139919,
+        "outer_lower_msun": 6316433720.473627,
+        "minimum_growth_msun": 237755035.3337078,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC4088": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          12.19,
+          21.48
+        ],
+        "inner_upper_msun": 22301973435.841434,
+        "outer_lower_msun": 55318751674.21809,
+        "minimum_growth_msun": 33016778238.37665,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            12.19,
+            21.48
+          ],
+          "mass_growth_lower_msun": 18297689689.056
+        }
+      },
+      "NGC4100": {
+        "included": true,
+        "rings": 13,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          12.19,
+          18.35
+        ],
+        "inner_upper_msun": 74457372569.06512,
+        "outer_lower_msun": 76320382972.51497,
+        "minimum_growth_msun": 1863010403.4498444,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC4183": {
+        "included": true,
+        "rings": 11,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          10.47,
+          18.93
+        ],
+        "inner_upper_msun": 26070711653.93912,
+        "outer_lower_msun": 31381407903.74534,
+        "minimum_growth_msun": 5310696249.806217,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            10.47,
+            18.93
+          ],
+          "mass_growth_lower_msun": 1993162553.2983708
+        }
+      },
+      "NGC4559": {
+        "included": true,
+        "rings": 16,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          11.13,
+          20.97
+        ],
+        "inner_upper_msun": 27146193170.506668,
+        "outer_lower_msun": 32155096580.41388,
+        "minimum_growth_msun": 5008903409.907211,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "NGC5055": {
+        "included": true,
+        "rings": 10,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          28.74,
+          48.81
+        ],
+        "inner_upper_msun": 142462377825.52374,
+        "outer_lower_msun": 241070326742.73816,
+        "minimum_growth_msun": 98607948917.21442,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            28.74,
+            48.81
+          ],
+          "mass_growth_lower_msun": 63350260102.35808
+        }
+      },
+      "NGC5371": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          23.12,
+          46.24
+        ],
+        "inner_upper_msun": 89196465139.71738,
+        "outer_lower_msun": 233997625250.58524,
+        "minimum_growth_msun": 144801160110.86786,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            23.12,
+            46.24
+          ],
+          "mass_growth_lower_msun": 54822098657.67869
+        }
+      },
+      "NGC5585": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.48,
+          10.96
+        ],
+        "inner_upper_msun": 7634841588.202934,
+        "outer_lower_msun": 13742290109.213846,
+        "minimum_growth_msun": 6107448521.010912,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.48,
+            9.57
+          ],
+          "mass_growth_lower_msun": 1183610650.0113213
+        }
+      },
+      "NGC5907": {
+        "included": true,
+        "rings": 10,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          30.2,
+          50.33
+        ],
+        "inner_upper_msun": 216299287353.5858,
+        "outer_lower_msun": 347873632068.5708,
+        "minimum_growth_msun": 131574344714.98502,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            30.2,
+            50.33
+          ],
+          "mass_growth_lower_msun": 105757224315.88885
+        }
+      },
+      "NGC6015": {
+        "included": true,
+        "rings": 18,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          15.29,
+          29.23
+        ],
+        "inner_upper_msun": 69231952999.35341,
+        "outer_lower_msun": 116742856423.55771,
+        "minimum_growth_msun": 47510903424.2043,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            15.29,
+            29.23
+          ],
+          "mass_growth_lower_msun": 16719326405.747643
+        }
+      },
+      "NGC6503": {
+        "included": true,
+        "rings": 16,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          12.12,
+          22.76
+        ],
+        "inner_upper_msun": 31751074248.106003,
+        "outer_lower_msun": 53978203342.52981,
+        "minimum_growth_msun": 22227129094.423805,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            12.12,
+            22.76
+          ],
+          "mass_growth_lower_msun": 18380302850.05057
+        }
+      },
+      "NGC6789": {
+        "rings": 1,
+        "included": false
+      },
+      "NGC7793": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          4.03,
+          6.82
+        ],
+        "inner_upper_msun": 10905363523.093395,
+        "outer_lower_msun": 7080754720.353623,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC00128": {
+        "included": true,
+        "rings": 11,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          28.77,
+          46.28
+        ],
+        "inner_upper_msun": 96841598861.97968,
+        "outer_lower_msun": 158487275553.81406,
+        "minimum_growth_msun": 61645676691.83438,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            28.77,
+            51.26
+          ],
+          "mass_growth_lower_msun": 30035516213.983032
+        }
+      },
+      "UGC00191": {
+        "rings": 2,
+        "included": false
+      },
+      "UGC00634": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          9.01,
+          18.01
+        ],
+        "inner_upper_msun": 17292175384.74298,
+        "outer_lower_msun": 37121107537.98565,
+        "minimum_growth_msun": 19828932153.24267,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            9.01,
+            18.01
+          ],
+          "mass_growth_lower_msun": 3015292988.225498
+        }
+      },
+      "UGC00731": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          6.36,
+          10.91
+        ],
+        "inner_upper_msun": 6865416309.120598,
+        "outer_lower_msun": 7956707343.474518,
+        "minimum_growth_msun": 1091291034.35392,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC00891": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.45,
+          7.39
+        ],
+        "inner_upper_msun": 2455250295.532506,
+        "outer_lower_msun": 5579052915.135995,
+        "minimum_growth_msun": 3123802619.603489,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.45,
+            7.39
+          ],
+          "mass_growth_lower_msun": 876020012.4075582
+        }
+      },
+      "UGC01281": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          3.07,
+          4.99
+        ],
+        "inner_upper_msun": 2316383566.841205,
+        "outer_lower_msun": 2095854041.9116395,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC02259": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.07,
+          8.14
+        ],
+        "inner_upper_msun": 5779239249.807057,
+        "outer_lower_msun": 11038420944.419193,
+        "minimum_growth_msun": 5259181694.612136,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.07,
+            8.14
+          ],
+          "mass_growth_lower_msun": 987905088.8008757
+        }
+      },
+      "UGC04278": {
+        "included": true,
+        "rings": 10,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.46,
+          6.51
+        ],
+        "inner_upper_msun": 2700373088.242106,
+        "outer_lower_msun": 7295432329.335239,
+        "minimum_growth_msun": 4595059241.093134,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.46,
+            5.4
+          ],
+          "mass_growth_lower_msun": 833376047.288008
+        }
+      },
+      "UGC04325": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.49,
+          5.59
+        ],
+        "inner_upper_msun": 6020660455.514355,
+        "outer_lower_msun": 7023489467.148229,
+        "minimum_growth_msun": 1002829011.6338739,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC04483": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          0.73,
+          1.21
+        ],
+        "inner_upper_msun": 71838104.06233796,
+        "outer_lower_msun": 82654571.70261553,
+        "minimum_growth_msun": 10816467.640277565,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC04499": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.55,
+          8.18
+        ],
+        "inner_upper_msun": 4124495805.8248043,
+        "outer_lower_msun": 6020801202.690511,
+        "minimum_growth_msun": 1896305396.8657064,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC05005": {
+        "rings": 1,
+        "included": false
+      },
+      "UGC05414": {
+        "included": true,
+        "rings": 3,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.74,
+          4.11
+        ],
+        "inner_upper_msun": 1433571782.9345057,
+        "outer_lower_msun": 1968660370.0552278,
+        "minimum_growth_msun": 535088587.12072206,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC05716": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          6.2,
+          12.37
+        ],
+        "inner_upper_msun": 6020474701.197803,
+        "outer_lower_msun": 11769072661.797,
+        "minimum_growth_msun": 5748597960.599198,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            6.2,
+            12.37
+          ],
+          "mass_growth_lower_msun": 857425305.3134115
+        }
+      },
+      "UGC05721": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.61,
+          6.74
+        ],
+        "inner_upper_msun": 5811346799.859753,
+        "outer_lower_msun": 6540809201.715725,
+        "minimum_growth_msun": 729462401.8559723,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC05750": {
+        "rings": 2,
+        "included": false
+      },
+      "UGC05764": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          1.81,
+          2.9
+        ],
+        "inner_upper_msun": 973349483.711188,
+        "outer_lower_msun": 1570480638.589956,
+        "minimum_growth_msun": 597131154.8787681,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            1.81,
+            2.54
+          ],
+          "mass_growth_lower_msun": 60483458.0740734
+        }
+      },
+      "UGC05829": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          4.4,
+          6.91
+        ],
+        "inner_upper_msun": 3259726376.5094233,
+        "outer_lower_msun": 3243172909.911416,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC05918": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          2.79,
+          4.46
+        ],
+        "inner_upper_msun": 1291451764.256066,
+        "outer_lower_msun": 989050350.9608905,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC05986": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.02,
+          8.16
+        ],
+        "inner_upper_msun": 13525506682.835054,
+        "outer_lower_msun": 16936280305.307838,
+        "minimum_growth_msun": 3410773622.472784,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.02,
+            8.16
+          ],
+          "mass_growth_lower_msun": 1101912695.3363047
+        }
+      },
+      "UGC06399": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.37,
+          7.85
+        ],
+        "inner_upper_msun": 6048594443.695076,
+        "outer_lower_msun": 8321247491.100387,
+        "minimum_growth_msun": 2272653047.4053106,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.37,
+            7.85
+          ],
+          "mass_growth_lower_msun": 548177974.252209
+        }
+      },
+      "UGC06446": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          5.23,
+          8.9
+        ],
+        "inner_upper_msun": 8431956514.464832,
+        "outer_lower_msun": 8426817080.554627,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC06667": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.37,
+          7.85
+        ],
+        "inner_upper_msun": 6671904135.873971,
+        "outer_lower_msun": 9744550774.467188,
+        "minimum_growth_msun": 3072646638.593217,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.37,
+            7.85
+          ],
+          "mass_growth_lower_msun": 1455396354.6337786
+        }
+      },
+      "UGC06818": {
+        "included": true,
+        "rings": 5,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.5,
+          6.98
+        ],
+        "inner_upper_msun": 1772321513.2324889,
+        "outer_lower_msun": 4629756164.081087,
+        "minimum_growth_msun": 2857434650.8485985,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.5,
+            6.98
+          ],
+          "mass_growth_lower_msun": 1323143219.2941794
+        }
+      },
+      "UGC06917": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.24,
+          10.47
+        ],
+        "inner_upper_msun": 10389806675.311777,
+        "outer_lower_msun": 16142080428.649912,
+        "minimum_growth_msun": 5752273753.338135,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.24,
+            9.6
+          ],
+          "mass_growth_lower_msun": 910757616.544393
+        }
+      },
+      "UGC06923": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.87,
+          5.16
+        ],
+        "inner_upper_msun": 3159474243.21091,
+        "outer_lower_msun": 3276705284.650739,
+        "minimum_growth_msun": 117231041.43982935,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC06930": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          8.72,
+          16.61
+        ],
+        "inner_upper_msun": 19716594885.57477,
+        "outer_lower_msun": 22211693947.10171,
+        "minimum_growth_msun": 2495099061.5269394,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC06983": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.85,
+          10.47
+        ],
+        "inner_upper_msun": 20042724514.26127,
+        "outer_lower_msun": 20101255251.27032,
+        "minimum_growth_msun": 58530737.00905228,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07089": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.24,
+          9.16
+        ],
+        "inner_upper_msun": 4574216545.792936,
+        "outer_lower_msun": 5171452636.070904,
+        "minimum_growth_msun": 597236090.2779675,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07125": {
+        "included": true,
+        "rings": 7,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          10.08,
+          18.68
+        ],
+        "inner_upper_msun": 7027595733.845011,
+        "outer_lower_msun": 7937917622.312498,
+        "minimum_growth_msun": 910321888.4674873,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07151": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.0,
+          5.5
+        ],
+        "inner_upper_msun": 2481110269.2972574,
+        "outer_lower_msun": 3753520548.4391947,
+        "minimum_growth_msun": 1272410279.1419373,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.0,
+            5.5
+          ],
+          "mass_growth_lower_msun": 252686250.10512832
+        }
+      },
+      "UGC07232": {
+        "rings": 2,
+        "included": false
+      },
+      "UGC07261": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          3.81,
+          6.67
+        ],
+        "inner_upper_msun": 4576400001.274573,
+        "outer_lower_msun": 4189210638.830242,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07323": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.91,
+          5.82
+        ],
+        "inner_upper_msun": 1905138251.265,
+        "outer_lower_msun": 4580259671.870004,
+        "minimum_growth_msun": 2675121420.6050034,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07399": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.07,
+          6.13
+        ],
+        "inner_upper_msun": 5910956835.636498,
+        "outer_lower_msun": 11534298346.124105,
+        "minimum_growth_msun": 5623341510.487607,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.07,
+            6.13
+          ],
+          "mass_growth_lower_msun": 1434160691.8444715
+        }
+      },
+      "UGC07524": {
+        "included": true,
+        "rings": 16,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.51,
+          10.35
+        ],
+        "inner_upper_msun": 6765343114.151194,
+        "outer_lower_msun": 9111098697.437666,
+        "minimum_growth_msun": 2345755583.2864723,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC07603": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.39,
+          4.11
+        ],
+        "inner_upper_msun": 2055662097.7504609,
+        "outer_lower_msun": 2748555704.3012547,
+        "minimum_growth_msun": 692893606.5507939,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            2.39,
+            4.11
+          ],
+          "mass_growth_lower_msun": 202962532.38795975
+        }
+      },
+      "UGC07690": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          2.36,
+          4.13
+        ],
+        "inner_upper_msun": 1807831227.66775,
+        "outer_lower_msun": 1198993864.7721984,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC08286": {
+        "included": true,
+        "rings": 9,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          4.25,
+          8.04
+        ],
+        "inner_upper_msun": 5755628418.553917,
+        "outer_lower_msun": 10057059227.015617,
+        "minimum_growth_msun": 4301430808.4617,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            4.25,
+            8.04
+          ],
+          "mass_growth_lower_msun": 3473048297.773604
+        }
+      },
+      "UGC08490": {
+        "included": true,
+        "rings": 16,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.08,
+          10.15
+        ],
+        "inner_upper_msun": 7529982617.811875,
+        "outer_lower_msun": 9921510530.426783,
+        "minimum_growth_msun": 2391527912.6149073,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            5.08,
+            10.15
+          ],
+          "mass_growth_lower_msun": 1173983285.1652856
+        }
+      },
+      "UGC08550": {
+        "included": true,
+        "rings": 6,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.92,
+          5.36
+        ],
+        "inner_upper_msun": 1839288742.590106,
+        "outer_lower_msun": 2810627953.748971,
+        "minimum_growth_msun": 971339211.158865,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            2.92,
+            5.36
+          ],
+          "mass_growth_lower_msun": 107013671.33521175
+        }
+      },
+      "UGC08837": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          2.63,
+          4.2
+        ],
+        "inner_upper_msun": 617997855.0567192,
+        "outer_lower_msun": 883002672.3602704,
+        "minimum_growth_msun": 265004817.3035512,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC09037": {
+        "included": true,
+        "rings": 11,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          13.41,
+          23.14
+        ],
+        "inner_upper_msun": 34605863526.57337,
+        "outer_lower_msun": 50580907277.42237,
+        "minimum_growth_msun": 15975043750.848999,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            13.41,
+            23.14
+          ],
+          "mass_growth_lower_msun": 1468456953.4744766
+        }
+      },
+      "UGC10310": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          4.42,
+          7.74
+        ],
+        "inner_upper_msun": 5332998870.093911,
+        "outer_lower_msun": 4311745214.0477705,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC11455": {
+        "included": true,
+        "rings": 10,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          24.89,
+          39.87
+        ],
+        "inner_upper_msun": 217703101779.7422,
+        "outer_lower_msun": 399614704051.50574,
+        "minimum_growth_msun": 181911602271.76355,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            24.89,
+            39.87
+          ],
+          "mass_growth_lower_msun": 115465461123.84546
+        }
+      },
+      "UGC11557": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          7.04,
+          10.56
+        ],
+        "inner_upper_msun": 5566606067.485186,
+        "outer_lower_msun": 2000036294.7131925,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC11820": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          7.91,
+          15.82
+        ],
+        "inner_upper_msun": 7393078119.947474,
+        "outer_lower_msun": 19495909630.15461,
+        "minimum_growth_msun": 12102831510.207136,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            10.52,
+            15.82
+          ],
+          "mass_growth_lower_msun": 956549188.7682071
+        }
+      },
+      "UGC12506": {
+        "included": true,
+        "rings": 15,
+        "nonincreasing_possible": true,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": false,
+        "witness_radii_kpc": [
+          25.41,
+          46.71
+        ],
+        "inner_upper_msun": 350393728948.41376,
+        "outer_lower_msun": 329497169156.2029,
+        "minimum_growth_msun": 0,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC12632": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          5.69,
+          10.66
+        ],
+        "inner_upper_msun": 6172745825.075384,
+        "outer_lower_msun": 7968796091.723931,
+        "minimum_growth_msun": 1796050266.6485472,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGC12732": {
+        "included": true,
+        "rings": 8,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          8.64,
+          15.4
+        ],
+        "inner_upper_msun": 13114490471.395031,
+        "outer_lower_msun": 22397182321.333107,
+        "minimum_growth_msun": 9282691849.938076,
+        "shared_box": {
+          "positive_growth_for_every_setting": false,
+          "radii_kpc": null,
+          "mass_growth_lower_msun": 0.0
+        }
+      },
+      "UGCA442": {
+        "included": true,
+        "rings": 4,
+        "nonincreasing_possible": false,
+        "required_positive": true,
+        "negative_upper": false,
+        "growth_conflict": true,
+        "witness_radii_kpc": [
+          3.79,
+          6.33
+        ],
+        "inner_upper_msun": 2528695587.9261937,
+        "outer_lower_msun": 3988646550.579573,
+        "minimum_growth_msun": 1459950962.6533794,
+        "shared_box": {
+          "positive_growth_for_every_setting": true,
+          "radii_kpc": [
+            3.79,
+            6.33
+          ],
+          "mass_growth_lower_msun": 1091904986.6366227
+        }
+      },
+      "UGCA444": {
+        "rings": 1,
+        "included": false
+      }
+    }
+  }
+}

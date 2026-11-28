@@ -1,0 +1,75 @@
+{
+  "sha256": {
+    "SOURCE_DWELL.md": "c840e8bf995c2d6ae7878fc443a860826fabcb152c9f529d6c1cea5d9ffba01c",
+    "pair_contact.json": "1779e00f6438fdedd7c9b023c48ac4a44edf07812a238f8d2efa6bc81938489a",
+    "record_receiver.json": "3ac886f2794c067737556dc76ec896667eb2b6530af8cd1d3eab3e0b99e586d5"
+  },
+  "dwell": 0.0966643893412244,
+  "mixed_forecast": [
+    0.499371433149422,
+    0.4994612725099658
+  ],
+  "mixed_exact": 0.4994162838779347,
+  "cases": {
+    "accepted_2200": {
+      "forecast": [
+        0.035638811848261495,
+        0.0357062968270987
+      ],
+      "trial_basis": "accepted",
+      "sufficient_per_arm": 14504,
+      "threshold": 0.017819405924130748,
+      "sign": 1,
+      "bright_counts": [
+        7953,
+        8668
+      ],
+      "observed_shift": 0.049296745725317156,
+      "independent_99_percent": [
+        0.030183911682143735,
+        0.06840957976849057
+      ],
+      "detected": true
+    },
+    "sparse_blind": {
+      "forecast": [
+        -2.813703257516633e-05,
+        -2.3050383402203446e-05
+      ],
+      "trial_basis": "attempted",
+      "sufficient_per_arm": 34669642922,
+      "threshold": 1.1525191701101723e-05,
+      "sign": -1,
+      "bright_counts": [
+        12798940073,
+        12798080772
+      ],
+      "observed_shift": -2.4785400932258267e-05,
+      "independent_99_percent": [
+        -3.7147559218434406e-05,
+        -1.2423242646082127e-05
+      ],
+      "detected": true
+    },
+    "sparse_third": {
+      "forecast": [
+        0.0020596519449537927,
+        0.002275845837817451
+      ],
+      "trial_basis": "attempted",
+      "sufficient_per_arm": 4342282,
+      "threshold": 0.0010298259724768964,
+      "sign": 1,
+      "bright_counts": [
+        1602174,
+        1612157
+      ],
+      "observed_shift": 0.0022990215743703426,
+      "independent_99_percent": [
+        0.0011944090267083725,
+        0.0034036341220323126
+      ],
+      "detected": true
+    }
+  }
+}

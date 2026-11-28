@@ -1,0 +1,250 @@
+{
+  "held_equal_energy_challenge": [
+    {
+      "source_sign": -1,
+      "energy_of_either": 8,
+      "ticket_probability_of_either": 0.015625,
+      "modular_difference": 0.23547587691666444,
+      "energy_difference_inferred_from_masked_log": 0.8888888888888886
+    },
+    {
+      "source_sign": 1,
+      "energy_of_either": 8,
+      "ticket_probability_of_either": 0.015625,
+      "modular_difference": 0.22745734139456072,
+      "energy_difference_inferred_from_masked_log": 0.8888888888888884
+    }
+  ],
+  "material_endpoints": [
+    {
+      "probe": 1,
+      "signed_endpoint_per_prep_each_bank": -0.0010416666666667146,
+      "predicted_difference_from_masked_log": -0.00011574074074074606,
+      "physical_difference": 0
+    },
+    {
+      "probe": 2,
+      "signed_endpoint_per_prep_each_bank": -0.0010416666666667057,
+      "predicted_difference_from_masked_log": -0.00011574074074074508,
+      "physical_difference": 0
+    }
+  ],
+  "contact_bank": [
+    {
+      "contacts": 16,
+      "local_weights": [
+        0.375,
+        0.25,
+        0.0,
+        0.375
+      ],
+      "singular": true
+    },
+    {
+      "contacts": 32,
+      "local_weights": [
+        0.375,
+        0.25,
+        0.0,
+        0.375
+      ],
+      "singular": true
+    },
+    {
+      "contacts": 64,
+      "local_weights": [
+        0.375,
+        0.25,
+        0.0,
+        0.375
+      ],
+      "singular": true
+    },
+    {
+      "contacts": 128,
+      "local_weights": [
+        0.38281249986997157,
+        0.10937500234051208,
+        0.12499999791954482,
+        0.38281249986997157
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        -108983287,
+        -108983286
+      ],
+      "beta_equal_to_even": 0.1565953683445918,
+      "beta_even_to_odd": -0.13353135458191365,
+      "matched_energy_modular": 0.2578904203791157,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.20372277258060068,
+          "fractional_error": -0.10898328602958018
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.2635838808803971,
+          "fractional_error": -0.10898328602958007
+        }
+      ]
+    },
+    {
+      "contacts": 256,
+      "local_weights": [
+        0.3827865326966409,
+        0.10984241146046331,
+        0.12458452314625484,
+        0.3827865326966409
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        -106294954,
+        -106294953
+      ],
+      "beta_equal_to_even": 0.15605384529957164,
+      "beta_even_to_odd": -0.12593767080891283,
+      "matched_energy_modular": 0.2506591254297641,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.20433743505798402,
+          "fractional_error": -0.1062949535772898
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.2643791533929786,
+          "fractional_error": -0.10629495357728969
+        }
+      ]
+    },
+    {
+      "contacts": 512,
+      "local_weights": [
+        0.3819185878944574,
+        0.125465417899767,
+        0.11069740631131822,
+        0.3819185878944574
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        -5883490,
+        -5883489
+      ],
+      "beta_equal_to_even": 0.13914716239772826,
+      "beta_even_to_odd": 0.1252297564647861,
+      "matched_energy_modular": 0.0123710274959489,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.2272955922282776,
+          "fractional_error": -0.005883489990919255
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.2940832463039169,
+          "fractional_error": -0.005883489990918922
+        }
+      ]
+    },
+    {
+      "contacts": 1024,
+      "local_weights": [
+        0.3818624577809339,
+        0.12647575994318924,
+        0.1097993244949429,
+        0.3818624577809339
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        1392615,
+        1392616
+      ],
+      "beta_equal_to_even": 0.13812622710018846,
+      "beta_even_to_odd": 0.1413962918877377,
+      "matched_energy_modular": -0.0029067242555999157,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.22895920683994422,
+          "fractional_error": 0.0013926156983155025
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.29623569097211877,
+          "fractional_error": 0.0013926156983155025
+        }
+      ]
+    },
+    {
+      "contacts": 2048,
+      "local_weights": [
+        0.3818721540681915,
+        0.12630122677255215,
+        0.10995446509106474,
+        0.3818721540681915
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        128193,
+        128194
+      ],
+      "beta_equal_to_even": 0.1383020168629224,
+      "beta_even_to_odd": 0.13860341610045893,
+      "matched_energy_modular": -0.00026791043336613085,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.22867010825231893,
+          "fractional_error": 0.0001281931190602048
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.29586164477827376,
+          "fractional_error": 0.0001281931190602048
+        }
+      ]
+    },
+    {
+      "contacts": 4096,
+      "local_weights": [
+        0.38187279682492764,
+        0.1262896571513026,
+        0.10996474919884214,
+        0.38187279682492764
+      ],
+      "singular": false,
+      "fractional_error_billionths": [
+        44487,
+        44488
+      ],
+      "beta_equal_to_even": 0.13831367820825652,
+      "beta_even_to_odd": 0.13841828227642913,
+      "matched_energy_modular": -9.298139393203175e-05,
+      "source": [
+        {
+          "source_sign": -1,
+          "native_erasure_energy": 0.22864079807526924,
+          "modular_predicted_energy": 0.2286509696513133,
+          "fractional_error": 4.4487143719296185e-05
+        },
+        {
+          "source_sign": 1,
+          "native_erasure_energy": 0.2958237222126313,
+          "modular_predicted_energy": 0.29583688256507695,
+          "fractional_error": 4.4487143719296185e-05
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "board_sha256": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+  "written_seams": [
+    [
+      152,
+      166
+    ],
+    [
+      156,
+      161
+    ],
+    [
+      156,
+      163
+    ],
+    [
+      156,
+      167
+    ],
+    [
+      157,
+      161
+    ],
+    [
+      157,
+      164
+    ],
+    [
+      157,
+      165
+    ],
+    [
+      157,
+      170
+    ],
+    [
+      158,
+      166
+    ],
+    [
+      162,
+      166
+    ],
+    [
+      166,
+      167
+    ]
+  ],
+  "normalized_accepted_weight_in_compact_component": "729/730",
+  "strengths": {
+    "8": {
+      "twice_pair_energy": 50,
+      "ports_with_zero_residual_by_live_distance_to_bridge": {
+        "1": 2,
+        "2": 3,
+        "3": 4,
+        "4": 5,
+        "5": 6,
+        "6": 7,
+        "7": 11,
+        "8": 12,
+        "9": 13,
+        "10": 18,
+        "11": 23,
+        "12": 25,
+        "13": 29,
+        "14": 25,
+        "15": 18,
+        "16": 16,
+        "17": 14,
+        "18": 5
+      },
+      "twice_contact_shift_at_bridge": -34
+    },
+    "0": {
+      "twice_pair_energy": 2,
+      "ports_with_zero_residual_by_live_distance_to_bridge": {
+        "1": 2,
+        "2": 3,
+        "3": 4,
+        "4": 5,
+        "5": 6,
+        "6": 7,
+        "7": 11,
+        "8": 12,
+        "9": 13,
+        "10": 18,
+        "11": 23,
+        "12": 25,
+        "13": 29,
+        "14": 25,
+        "15": 18,
+        "16": 16,
+        "17": 14,
+        "18": 5
+      },
+      "twice_contact_shift_at_bridge": -2
+    }
+  },
+  "contact_detector_at_unit_exposure": [
+    {
+      "launch": 163,
+      "distance": 0,
+      "bridge_probability": {
+        "vacant_full_board": 0.600481541,
+        "vacant_exterior_compression": 0.5991921972,
+        "compact_pair_free_release": 0.9940107184
+      },
+      "accepted_and_bridge_click_interval_full_preparation": [
+        0.95330159,
+        0.9961364300000001
+      ]
+    },
+    {
+      "launch": 162,
+      "distance": 1,
+      "bridge_probability": {
+        "vacant_full_board": 0.1824571599,
+        "vacant_exterior_compression": 0.1830960337,
+        "compact_pair_free_release": 0.0027123267
+      },
+      "accepted_and_bridge_click_interval_full_preparation": [
+        0,
+        0.03957053
+      ]
+    },
+    {
+      "launch": 97,
+      "distance": 6,
+      "bridge_probability": {
+        "vacant_full_board": 2e-10,
+        "vacant_exterior_compression": 2e-10,
+        "compact_pair_free_release": 0.0
+      },
+      "accepted_and_bridge_click_interval_full_preparation": [
+        0,
+        0.03686868
+      ]
+    },
+    {
+      "launch": 74,
+      "distance": 18,
+      "bridge_probability": {
+        "vacant_full_board": 0.0,
+        "vacant_exterior_compression": 0.0,
+        "compact_pair_free_release": 0.0
+      },
+      "accepted_and_bridge_click_interval_full_preparation": [
+        0,
+        0.03686868
+      ]
+    }
+  ]
+}

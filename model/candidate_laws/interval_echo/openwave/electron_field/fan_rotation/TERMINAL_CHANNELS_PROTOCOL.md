@@ -1,0 +1,7 @@
+# Terminal reflection and the longer-guide decoder
+
+IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.
+
+Use the three- and four-fan guides and both charge signs from the [longer-guide protocol](../fan_path/PROTOCOL.md). At each terminal with five degree-five rim sites, reverse the rim order while keeping its hub, intercell bridge, and all other fans fixed. Move each directed head with its endpoint and compare the integer weighted generator before and after. Use the existing source and receiver code. Establish which terminal reflection outcomes can reach the receiver at any time. For four fans compare tracing the other fans with admitting only their uniform vacuum read.
+
+As a control, keep the source and every generator fixed and replace just the initially neutral receiving fan's vacuum with its reflection-odd doublet preparation. Use the same receiving decoder on those trials. To check that the permitted outcomes can actually be read, apply powers of the integer generator $2H$ to integer-scaled preparations. Read the first nonzero moment of each permitted preparation and detector pair through the two reflection eigenlines of the original decoder. Stack the observer rows across moments to see whether any fixed source superposition can be dark at every time. A nonzero moment identifies a nonzero analytic arrival amplitude without selecting an exposure from a scan. No particular transmission probability is presumed.

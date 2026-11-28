@@ -1,0 +1,492 @@
+{
+  "scope": "20-cell spectrum with excluded-group bounds; secondary passing clusters are diagnostic",
+  "joint_selector_threshold": 0.9,
+  "spectral_cluster_width": 1e-06,
+  "residual_norm_bound": 2e-10,
+  "orthogonality_norm_bound": 1e-08,
+  "exact_eigenvector_distance_allowance": 0.000202,
+  "families": [
+    {
+      "arrow_order": "ascending",
+      "histories": 32,
+      "reachable_physical_ports": 12,
+      "plain": {
+        "distinct_temporal_groups": 31,
+        "distinct_spatial_groups": 31,
+        "passing_pairs": [
+          {
+            "energy": 4.0,
+            "energy_index_range": [
+              16,
+              17
+            ],
+            "energy_dimension": 2,
+            "wave_number_squared": 1.0,
+            "wave_dimension": 2,
+            "maximum_joint_weight": 1.0
+          }
+        ],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 0.45467057
+      },
+      "staggered": {
+        "distinct_temporal_groups": 31,
+        "distinct_spatial_groups": 31,
+        "passing_pairs": [
+          {
+            "energy": -28.43684489,
+            "energy_index_range": [
+              0,
+              0
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.57796008,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.936445886
+          },
+          {
+            "energy": 4.0,
+            "energy_index_range": [
+              16,
+              17
+            ],
+            "energy_dimension": 2,
+            "wave_number_squared": 1.0,
+            "wave_dimension": 2,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": 4.53263935,
+            "energy_index_range": [
+              18,
+              18
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 0.83056468,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.941233566
+          },
+          {
+            "energy": 4.87111862,
+            "energy_index_range": [
+              20,
+              20
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 0.64072516,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.945299769
+          },
+          {
+            "energy": 4.88126032,
+            "energy_index_range": [
+              21,
+              21
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 0.63534605,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.970696565
+          }
+        ],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 0.85060814,
+        "historical_resolution": 1e-08,
+        "historical_resolution_passing_group_count": 5
+      },
+      "exact_equal_degree_leaf_spaces": [
+        {
+          "parent_port": 5,
+          "leaf_ports": [
+            9,
+            11
+          ],
+          "joint_dimension_contributed": 1,
+          "energy": 4,
+          "wave_number_squared": 1
+        },
+        {
+          "parent_port": 5,
+          "leaf_ports": [
+            9,
+            11
+          ],
+          "joint_dimension_contributed": 1,
+          "energy": 4,
+          "wave_number_squared": 1
+        }
+      ]
+    },
+    {
+      "arrow_order": "reversed_cell_labels",
+      "histories": 2730,
+      "reachable_physical_ports": 54,
+      "plain": {
+        "distinct_temporal_groups": 1154,
+        "distinct_spatial_groups": 1627,
+        "passing_pairs": [],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 0.87994837
+      },
+      "staggered": {
+        "distinct_temporal_groups": 1154,
+        "distinct_spatial_groups": 1627,
+        "passing_pairs": [
+          {
+            "energy": -30.15455014,
+            "energy_index_range": [
+              0,
+              0
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.88421121,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.924275697
+          },
+          {
+            "energy": -30.1544982,
+            "energy_index_range": [
+              1,
+              1
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.88414637,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.921536364
+          },
+          {
+            "energy": -30.15318206,
+            "energy_index_range": [
+              2,
+              3
+            ],
+            "energy_dimension": 2,
+            "wave_number_squared": 7.88376715,
+            "wave_dimension": 2,
+            "maximum_joint_weight": 0.924617543
+          },
+          {
+            "energy": -30.15079535,
+            "energy_index_range": [
+              4,
+              4
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.88288513,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.931452493
+          },
+          {
+            "energy": -30.15078387,
+            "energy_index_range": [
+              5,
+              5
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.88287183,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.930363965
+          },
+          {
+            "energy": -28.85459958,
+            "energy_index_range": [
+              11,
+              11
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.72030241,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.907849467
+          },
+          {
+            "energy": -28.84933321,
+            "energy_index_range": [
+              13,
+              13
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.7193759,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.910414894
+          },
+          {
+            "energy": -28.84925524,
+            "energy_index_range": [
+              14,
+              14
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.71931726,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.931895527
+          },
+          {
+            "energy": -28.84922316,
+            "energy_index_range": [
+              16,
+              16
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.71929195,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.914084852
+          },
+          {
+            "energy": -26.88979786,
+            "energy_index_range": [
+              24,
+              27
+            ],
+            "energy_dimension": 4,
+            "wave_number_squared": 7.08295741,
+            "wave_dimension": 4,
+            "maximum_joint_weight": 0.903004217
+          },
+          {
+            "energy": -26.8070411,
+            "energy_index_range": [
+              29,
+              29
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 7.04435622,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.956126063
+          },
+          {
+            "energy": -25.00004725,
+            "energy_index_range": [
+              31,
+              31
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 6.61524681,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.9172092
+          },
+          {
+            "energy": -24.99910843,
+            "energy_index_range": [
+              33,
+              33
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 6.61499078,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.900761121
+          },
+          {
+            "energy": -24.99659944,
+            "energy_index_range": [
+              37,
+              37
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 6.61430972,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.916410171
+          },
+          {
+            "energy": -24.04087397,
+            "energy_index_range": [
+              50,
+              59
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 6.36857274,
+            "wave_dimension": 10,
+            "maximum_joint_weight": 0.909848316
+          },
+          {
+            "energy": -24.03284725,
+            "energy_index_range": [
+              70,
+              72
+            ],
+            "energy_dimension": 3,
+            "wave_number_squared": 6.3641918,
+            "wave_dimension": 3,
+            "maximum_joint_weight": 0.909575734
+          },
+          {
+            "energy": -24.03284152,
+            "energy_index_range": [
+              74,
+              79
+            ],
+            "energy_dimension": 6,
+            "wave_number_squared": 6.36418799,
+            "wave_dimension": 6,
+            "maximum_joint_weight": 0.909619144
+          },
+          {
+            "energy": -23.99788709,
+            "energy_index_range": [
+              136,
+              138
+            ],
+            "energy_dimension": 3,
+            "wave_number_squared": 6.35204286,
+            "wave_dimension": 4,
+            "maximum_joint_weight": 0.906341861
+          },
+          {
+            "energy": -20.26930889,
+            "energy_index_range": [
+              154,
+              154
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 5.5681589,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.909097879
+          },
+          {
+            "energy": -17.73085756,
+            "energy_index_range": [
+              170,
+              170
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 6.20022196,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 0.922987954
+          },
+          {
+            "energy": -10.91391211,
+            "energy_index_range": [
+              254,
+              261
+            ],
+            "energy_dimension": 8,
+            "wave_number_squared": 4.53024598,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 0.941848589
+          },
+          {
+            "energy": -10.79861255,
+            "energy_index_range": [
+              282,
+              301
+            ],
+            "energy_dimension": 20,
+            "wave_number_squared": 4.44124034,
+            "wave_dimension": 9,
+            "maximum_joint_weight": 0.907549779
+          },
+          {
+            "energy": -10.12098393,
+            "energy_index_range": [
+              399,
+              408
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 4.53024598,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": -4.17662912,
+            "energy_index_range": [
+              1210,
+              1219
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 3.04415728,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": -0.415691,
+            "energy_index_range": [
+              1510,
+              1519
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 2.10392275,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": 5.13306552,
+            "energy_index_range": [
+              2259,
+              2268
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 0.71673362,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": 5.95679659,
+            "energy_index_range": [
+              2412,
+              2421
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 0.51080085,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          },
+          {
+            "energy": 7.62344195,
+            "energy_index_range": [
+              2674,
+              2683
+            ],
+            "energy_dimension": 10,
+            "wave_number_squared": 0.09413951,
+            "wave_dimension": 18,
+            "maximum_joint_weight": 1.0
+          }
+        ],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 0.89794391,
+        "historical_resolution": 1e-08,
+        "historical_resolution_passing_group_count": 25
+      },
+      "exact_equal_degree_leaf_spaces": []
+    },
+    {
+      "arrow_order": "descending",
+      "histories": 1,
+      "reachable_physical_ports": 1,
+      "plain": {
+        "distinct_temporal_groups": 1,
+        "distinct_spatial_groups": 1,
+        "passing_pairs": [
+          {
+            "energy": 8.0,
+            "energy_index_range": [
+              0,
+              0
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 0.0,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 1.0
+          }
+        ],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 1.7e-07
+      },
+      "staggered": {
+        "distinct_temporal_groups": 1,
+        "distinct_spatial_groups": 1,
+        "passing_pairs": [
+          {
+            "energy": 8.0,
+            "energy_index_range": [
+              0,
+              0
+            ],
+            "energy_dimension": 1,
+            "wave_number_squared": 0.0,
+            "wave_dimension": 1,
+            "maximum_joint_weight": 1.0
+          }
+        ],
+        "upper_on_exact_joint_weight_outside_passing_clusters": 1.7e-07,
+        "historical_resolution": 1e-08,
+        "historical_resolution_passing_group_count": 1
+      },
+      "exact_equal_degree_leaf_spaces": []
+    }
+  ]
+}

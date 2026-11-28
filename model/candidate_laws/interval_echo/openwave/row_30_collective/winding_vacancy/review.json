@@ -1,0 +1,127 @@
+{
+  "algorithm": "independent finite Jacobi, deflated periodogram and spatial scan; no producer imports",
+  "host_c_squared": 4.571428571428571,
+  "independent_transfers": {
+    "foil": [
+      2.710335886849496e-09,
+      1.5553079349284113e-09,
+      2.1680614058318753e-09
+    ],
+    "phase": [
+      -0.0009717831458872975,
+      -7.587651717257426e-05,
+      -6.638790157767607e-06
+    ],
+    "visible_sample_phase_error_check_1024": 0.0017867572122749861,
+    "visible_sample_phase_error_free": 3.1415559251675664
+  },
+  "material_max_group_velocity": 0.5,
+  "max_all_errors": {
+    "continuum": 0.49473379270534856,
+    "hopping": 0.09798042300884724,
+    "lattice": 0.04991880241350799,
+    "native": 0.00023167810932100963,
+    "parabola": 0.6039199945348077
+  },
+  "max_analytic_root_error": 3.552713678800501e-15,
+  "max_direct_sharp_correlation_error": 0.00221539958157993,
+  "max_long_errors": {
+    "continuum": 0.0006433209683329721,
+    "hopping": 0.00022337018711127143,
+    "lattice": 0.0002277810074478026,
+    "native": 0.00023167810932100963,
+    "parabola": 0.0007578990324130785
+  },
+  "max_sharp_impulse_error": 0.0019220381133354114,
+  "nearest_stationary_energy_to_centre": 3.5,
+  "quartic_coefficients": {
+    "hopping": -0.023809523809523808,
+    "host_continuum": -0.00510204081632653,
+    "host_lattice": -0.028911564625850338,
+    "native": -0.03547133138969873
+  },
+  "raw_upper": [
+    {
+      "errors": {
+        "continuum": 0.00020710738217033509,
+        "hopping": 0.00022337018711127143,
+        "lattice": 0.0002277810074478026,
+        "native": 0.00023167810932100963,
+        "parabola": 0.00020267482579505725
+      },
+      "frequency": 8.00862856242933,
+      "q": 0.17174627424715005,
+      "source_j": 69
+    },
+    {
+      "errors": {
+        "continuum": -0.0006433209683329721,
+        "hopping": -0.0002229772145128095,
+        "lattice": -0.00011122924068374118,
+        "native": 2.89908991852883e-05,
+        "parabola": -0.0007578990324130785
+      },
+      "frequency": 8.042173136479564,
+      "q": 0.38764003972412997,
+      "source_j": 64
+    },
+    {
+      "errors": {
+        "continuum": -0.006458764915651116,
+        "hopping": -0.002320121136490272,
+        "lattice": -0.0012780637429532504,
+        "native": 1.2582566238705795e-05,
+        "parabola": -0.007586118672136877
+      },
+      "frequency": 8.127845591331239,
+      "q": 0.6884890421184822,
+      "source_j": 57
+    },
+    {
+      "errors": {
+        "continuum": -0.03094052595251462,
+        "hopping": -0.010375406674761223,
+        "lattice": -0.005682792770556944,
+        "native": -8.496690494297354e-05,
+        "parabola": -0.036538122830648945
+      },
+      "frequency": 8.268327831969362,
+      "q": 1.0329748389508069,
+      "source_j": 49
+    },
+    {
+      "errors": {
+        "continuum": -0.1524757067998248,
+        "hopping": -0.041909071249751406,
+        "lattice": -0.02203868166160383,
+        "native": 2.2649275447150785e-05,
+        "parabola": -0.18260281604423056
+      },
+      "frequency": 8.541810795959382,
+      "q": 1.5923108421781378,
+      "source_j": 36
+    },
+    {
+      "errors": {
+        "continuum": -0.49473379270534856,
+        "hopping": -0.09798042300884724,
+        "lattice": -0.04991880241350799,
+        "native": -0.0002249690266484805,
+        "parabola": -0.6039199945348077
+      },
+      "frequency": 8.826999625679177,
+      "q": 2.2379063534594903,
+      "source_j": 21
+    }
+  ],
+  "receipt_hashes": {
+    "counts.npz": "a32c5a60821c15ff7cf5685a0963ac3b84838dd87fe95b39b9cc372f18378eb7",
+    "density_counts.npz": "ff23e85e20118eaaf9a31a9016fcc5d212871194b17f12dfb015e9f498c4d3bf",
+    "phase_counts.npz": "9b5dd394d667094f9b89d34dad29d406ea67821d791a74de5c95198aaefaa086"
+  },
+  "rest_against_stationary_clock": 1.000001764601545,
+  "rest_mass_times_front_speed_squared": 0.4375,
+  "upper_formation_rest": 7.999998235398455,
+  "upper_host_continuum_speed": 2.138089935299395,
+  "upper_kinetic_curvature": 0.5714285714285714
+}

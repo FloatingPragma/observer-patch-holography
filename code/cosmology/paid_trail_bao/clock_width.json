@@ -1,0 +1,3624 @@
+{
+  "sha256": {
+    "CLOCK_WIDTH.md": "51f0de55eeadc23aeaaa247b51482232552bdb0fb61c4c27e855a7bafcb950f4",
+    "clock_width_maps.json": "da5cfed36ad1cc900dd8ad77dd0019f1f8954b41395e4b11bad64b95bbbe95e0",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c",
+    "renewal_clock.json": "48f9c437e1b4a784f11b711b37aa1525ee6976f917c5a660de62793983a8fcb3"
+  },
+  "native_tick_weighted_variance_multipliers": {
+    "1": 4.219680490246751,
+    "2": 1.2095336865755237
+  },
+  "galaxies": {
+    "DDO154": {
+      "last_radius_kpc": 5.92,
+      "selected_inner_index": 4,
+      "outer_rings": [
+        {
+          "radius_kpc": 2.96,
+          "integral_central_kms2": 1246.7508384912524,
+          "integral_lower_kms2": 1194.8398925963968,
+          "renewal": {
+            "required_rms_kms": 34.56645629130543,
+            "potential_from_both_detected_widths_kms2": -4.864769148426617,
+            "observed_rms_kms": 8.651977830395909,
+            "observed_max_kms": 10.5471630859375,
+            "effective_samples_needed": 15.961691809507542,
+            "allowed_potential_fraction": 0.06265000089997347
+          },
+          "rms_lapse": {
+            "required_rms_kms": 48.8843514528128,
+            "potential_from_both_detected_widths_kms2": -2.4323845742133083,
+            "observed_rms_kms": 8.651977830395909,
+            "observed_max_kms": 10.5471630859375,
+            "effective_samples_needed": 31.923383831215993,
+            "allowed_potential_fraction": 0.031325000449986734
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 16.82732468503764,
+            "2": 31.430108072124494
+          }
+        },
+        {
+          "radius_kpc": 3.46,
+          "integral_central_kms2": 1004.5173910553888,
+          "integral_lower_kms2": 957.9880601394298,
+          "renewal": {
+            "required_rms_kms": 30.951382283268924,
+            "potential_from_both_detected_widths_kms2": -4.066010950303836,
+            "observed_rms_kms": 8.69801578387013,
+            "observed_max_kms": 11.5150205078125,
+            "effective_samples_needed": 12.662507504687254,
+            "allowed_potential_fraction": 0.07897330007808241
+          },
+          "rms_lapse": {
+            "required_rms_kms": 43.771864715834916,
+            "potential_from_both_detected_widths_kms2": -2.033005475151918,
+            "observed_rms_kms": 8.69801578387013,
+            "observed_max_kms": 11.5150205078125,
+            "effective_samples_needed": 25.325015144344864,
+            "allowed_potential_fraction": 0.039486650039041206
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.06746756861776,
+            "2": 28.143043705335607
+          }
+        },
+        {
+          "radius_kpc": 3.95,
+          "integral_central_kms2": 776.9001530955532,
+          "integral_lower_kms2": 735.1654032119251,
+          "renewal": {
+            "required_rms_kms": 27.113933801989802,
+            "potential_from_both_detected_widths_kms2": -0.39465880265024444,
+            "observed_rms_kms": 8.90656110557116,
+            "observed_max_kms": 12.567857421875,
+            "effective_samples_needed": 9.267550455232437,
+            "allowed_potential_fraction": 0.10790337840394457
+          },
+          "rms_lapse": {
+            "required_rms_kms": 38.34489299047383,
+            "potential_from_both_detected_widths_kms2": -0.19732940132512222,
+            "observed_rms_kms": 8.90656110557116,
+            "observed_max_kms": 12.567857421875,
+            "effective_samples_needed": 18.535100986271743,
+            "allowed_potential_fraction": 0.05395168920197228
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 13.199356154118183,
+            "2": 24.653781760999404
+          }
+        },
+        {
+          "radius_kpc": 4.44,
+          "integral_central_kms2": 560.1322827859144,
+          "integral_lower_kms2": 523.8585747469888,
+          "renewal": {
+            "required_rms_kms": 22.887957013977886,
+            "potential_from_both_detected_widths_kms2": 3.4196385814801453,
+            "observed_rms_kms": 9.118175701029834,
+            "observed_max_kms": 12.9990068359375,
+            "effective_samples_needed": 6.300835556982615,
+            "allowed_potential_fraction": 0.15870910983284067
+          },
+          "rms_lapse": {
+            "required_rms_kms": 32.368459271346545,
+            "potential_from_both_detected_widths_kms2": 1.7098192907400727,
+            "observed_rms_kms": 9.118175701029834,
+            "observed_max_kms": 12.9990068359375,
+            "effective_samples_needed": 12.601671150690988,
+            "allowed_potential_fraction": 0.07935455491642034
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 11.1421049587969,
+            "2": 20.81124418531759
+          }
+        },
+        {
+          "radius_kpc": 4.94,
+          "integral_central_kms2": 350.57775968348864,
+          "integral_lower_kms2": 323.4150329616044,
+          "renewal": {
+            "required_rms_kms": 17.983743590907466,
+            "potential_from_both_detected_widths_kms2": 6.164565710366943,
+            "observed_rms_kms": 9.267472969818625,
+            "observed_max_kms": 13.9474423828125,
+            "effective_samples_needed": 3.7656291538359734,
+            "allowed_potential_fraction": 0.265559873388688
+          },
+          "rms_lapse": {
+            "required_rms_kms": 25.432854111381452,
+            "potential_from_both_detected_widths_kms2": 3.0822828551834713,
+            "observed_rms_kms": 9.267472969818625,
+            "observed_max_kms": 13.9474423828125,
+            "effective_samples_needed": 7.531258321222479,
+            "allowed_potential_fraction": 0.132779936694344
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 8.75468083584787,
+            "2": 16.352009006655727
+          }
+        },
+        {
+          "radius_kpc": 5.43,
+          "integral_central_kms2": 162.69983586546908,
+          "integral_lower_kms2": 147.12239997997142,
+          "renewal": {
+            "required_rms_kms": 12.129402297738665,
+            "potential_from_both_detected_widths_kms2": 3.46807854845816,
+            "observed_rms_kms": 9.120831545526633,
+            "observed_max_kms": 13.668158203125,
+            "effective_samples_needed": 1.7685198215669622,
+            "allowed_potential_fraction": 0.5654446097582577
+          },
+          "rms_lapse": {
+            "required_rms_kms": 17.153565239961313,
+            "potential_from_both_detected_widths_kms2": 1.73403927422908,
+            "observed_rms_kms": 9.120831545526633,
+            "observed_max_kms": 13.668158203125,
+            "effective_samples_needed": 3.537039646028915,
+            "allowed_potential_fraction": 0.28272230487912886
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 5.904724192130425,
+            "2": 11.028854732907421
+          }
+        },
+        {
+          "radius_kpc": 5.92,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 8.928689127205203,
+            "observed_max_kms": 12.8101669921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 8.928689127205203,
+            "observed_max_kms": 12.8101669921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "IC2574": {
+      "last_radius_kpc": 9.96,
+      "selected_inner_index": 7,
+      "outer_rings": [
+        {
+          "radius_kpc": 5.12,
+          "integral_central_kms2": 1487.828076479603,
+          "integral_lower_kms2": 1143.822400165336,
+          "renewal": {
+            "required_rms_kms": 33.82044363168381,
+            "potential_from_both_detected_widths_kms2": 10.200984682240488,
+            "observed_rms_kms": 10.141725436483815,
+            "observed_max_kms": 16.84609375,
+            "effective_samples_needed": 11.120771117180519,
+            "allowed_potential_fraction": 0.08992182243965631
+          },
+          "rms_lapse": {
+            "required_rms_kms": 47.82933022157987,
+            "potential_from_both_detected_widths_kms2": 5.100492341120244,
+            "observed_rms_kms": 10.141725436483815,
+            "observed_max_kms": 16.84609375,
+            "effective_samples_needed": 22.2415423758922,
+            "allowed_potential_fraction": 0.044960911219828155
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 16.464157655799557,
+            "2": 30.751784025323715
+          }
+        },
+        {
+          "radius_kpc": 5.41,
+          "integral_central_kms2": 1416.1391167961876,
+          "integral_lower_kms2": 1076.2820679135857,
+          "renewal": {
+            "required_rms_kms": 32.80673824624997,
+            "potential_from_both_detected_widths_kms2": 6.3315066640636255,
+            "observed_rms_kms": 9.949126434340908,
+            "observed_max_kms": 15.256599609375,
+            "effective_samples_needed": 10.873170725876983,
+            "allowed_potential_fraction": 0.09196949359555757
+          },
+          "rms_lapse": {
+            "required_rms_kms": 46.395734303971004,
+            "potential_from_both_detected_widths_kms2": 3.1657533320318128,
+            "observed_rms_kms": 9.949126434340908,
+            "observed_max_kms": 15.256599609375,
+            "effective_samples_needed": 21.74634158196294,
+            "allowed_potential_fraction": 0.04598474679777879
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.970674913110741,
+            "2": 29.830056048669825
+          }
+        },
+        {
+          "radius_kpc": 5.68,
+          "integral_central_kms2": 1348.8459285480162,
+          "integral_lower_kms2": 1017.7153290881577,
+          "renewal": {
+            "required_rms_kms": 31.90165097373902,
+            "potential_from_both_detected_widths_kms2": 3.50740792249416,
+            "observed_rms_kms": 9.806172447079726,
+            "observed_max_kms": 15.408259765625,
+            "effective_samples_needed": 10.583450085725095,
+            "allowed_potential_fraction": 0.09448714710485878
+          },
+          "rms_lapse": {
+            "required_rms_kms": 45.11574759687286,
+            "potential_from_both_detected_widths_kms2": 1.75370396124708,
+            "observed_rms_kms": 9.806172447079726,
+            "observed_max_kms": 15.408259765625,
+            "effective_samples_needed": 21.16690029129305,
+            "allowed_potential_fraction": 0.04724357355242939
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.530068642265796,
+            "2": 29.007090843617
+          }
+        },
+        {
+          "radius_kpc": 5.97,
+          "integral_central_kms2": 1274.8216742893183,
+          "integral_lower_kms2": 956.7206162971914,
+          "renewal": {
+            "required_rms_kms": 30.93090075295762,
+            "potential_from_both_detected_widths_kms2": 5.162118194576982,
+            "observed_rms_kms": 9.890183432865847,
+            "observed_max_kms": 16.1178642578125,
+            "effective_samples_needed": 9.780846471904303,
+            "allowed_potential_fraction": 0.1022406401788255
+          },
+          "rms_lapse": {
+            "required_rms_kms": 43.74289945765912,
+            "potential_from_both_detected_widths_kms2": 2.581059097288491,
+            "observed_rms_kms": 9.890183432865847,
+            "observed_max_kms": 16.1178642578125,
+            "effective_samples_needed": 19.561693047925257,
+            "allowed_potential_fraction": 0.05112032008941275
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.057496938198192,
+            "2": 28.12442054345457
+          }
+        },
+        {
+          "radius_kpc": 6.26,
+          "integral_central_kms2": 1196.1552219972086,
+          "integral_lower_kms2": 887.6859613151661,
+          "renewal": {
+            "required_rms_kms": 29.794059235004077,
+            "potential_from_both_detected_widths_kms2": 7.340757336907885,
+            "observed_rms_kms": 9.999718370057352,
+            "observed_max_kms": 15.8649951171875,
+            "effective_samples_needed": 8.877359676007487,
+            "allowed_potential_fraction": 0.11264610659910393
+          },
+          "rms_lapse": {
+            "required_rms_kms": 42.13516275233067,
+            "potential_from_both_detected_widths_kms2": 3.6703786684539423,
+            "observed_rms_kms": 9.999718370057352,
+            "observed_max_kms": 15.8649951171875,
+            "effective_samples_needed": 17.75471943969522,
+            "allowed_potential_fraction": 0.056323053299551964
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 14.50407019474439,
+            "2": 27.090729051649973
+          }
+        },
+        {
+          "radius_kpc": 6.54,
+          "integral_central_kms2": 1113.4070724892433,
+          "integral_lower_kms2": 811.4199708773015,
+          "renewal": {
+            "required_rms_kms": 28.48543442779412,
+            "potential_from_both_detected_widths_kms2": 8.544603912717001,
+            "observed_rms_kms": 10.059732305465143,
+            "observed_max_kms": 15.7688876953125,
+            "effective_samples_needed": 8.01812543923119,
+            "allowed_potential_fraction": 0.12471743071745027
+          },
+          "rms_lapse": {
+            "required_rms_kms": 40.28448778880069,
+            "potential_from_both_detected_widths_kms2": 4.2723019563585005,
+            "observed_rms_kms": 10.059732305465143,
+            "observed_max_kms": 15.7688876953125,
+            "effective_samples_needed": 16.036250950852143,
+            "allowed_potential_fraction": 0.062358715358725135
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 13.867017488611028,
+            "2": 25.900840832566967
+          }
+        },
+        {
+          "radius_kpc": 6.83,
+          "integral_central_kms2": 1023.6895176311721,
+          "integral_lower_kms2": 733.6669552566341,
+          "renewal": {
+            "required_rms_kms": 27.086287273289216,
+            "potential_from_both_detected_widths_kms2": 6.431965361572208,
+            "observed_rms_kms": 9.9541737730522,
+            "observed_max_kms": 16.156232421875,
+            "effective_samples_needed": 7.404377019747352,
+            "allowed_potential_fraction": 0.13505525189537912
+          },
+          "rms_lapse": {
+            "required_rms_kms": 38.305794894393316,
+            "potential_from_both_detected_widths_kms2": 3.215982680786104,
+            "observed_rms_kms": 9.9541737730522,
+            "observed_max_kms": 16.156232421875,
+            "effective_samples_needed": 14.80875409993771,
+            "allowed_potential_fraction": 0.06752762594768956
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 13.185897525008551,
+            "2": 24.62864370873406
+          }
+        },
+        {
+          "radius_kpc": 7.1,
+          "integral_central_kms2": 939.8807707766211,
+          "integral_lower_kms2": 660.2369669734488,
+          "renewal": {
+            "required_rms_kms": 25.695076754089314,
+            "potential_from_both_detected_widths_kms2": 8.238309725613274,
+            "observed_rms_kms": 10.044496994383092,
+            "observed_max_kms": 18.194828125,
+            "effective_samples_needed": 6.54400243595466,
+            "allowed_potential_fraction": 0.1528116795338407
+          },
+          "rms_lapse": {
+            "required_rms_kms": 36.338326098587245,
+            "potential_from_both_detected_widths_kms2": 4.119154862806637,
+            "observed_rms_kms": 10.044496994383092,
+            "observed_max_kms": 18.194828125,
+            "effective_samples_needed": 13.088004919982392,
+            "allowed_potential_fraction": 0.07640583976692035
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 12.508641201290317,
+            "2": 23.363663098600536
+          }
+        },
+        {
+          "radius_kpc": 7.39,
+          "integral_central_kms2": 847.9908516640569,
+          "integral_lower_kms2": 575.3151832967736,
+          "renewal": {
+            "required_rms_kms": 23.98572878063413,
+            "potential_from_both_detected_widths_kms2": 11.991899109360583,
+            "observed_rms_kms": 10.229638764795673,
+            "observed_max_kms": 18.776384765625,
+            "effective_samples_needed": 5.49775321670578,
+            "allowed_potential_fraction": 0.1818924864760749
+          },
+          "rms_lapse": {
+            "required_rms_kms": 33.92094299925952,
+            "potential_from_both_detected_widths_kms2": 5.9959495546802914,
+            "observed_rms_kms": 10.229638764795673,
+            "observed_max_kms": 18.776384765625,
+            "effective_samples_needed": 10.995506468604018,
+            "allowed_potential_fraction": 0.09094624323803745
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 11.676512124863223,
+            "2": 21.809410875410478
+          }
+        },
+        {
+          "radius_kpc": 7.68,
+          "integral_central_kms2": 750.3563757938721,
+          "integral_lower_kms2": 497.61946614591443,
+          "renewal": {
+            "required_rms_kms": 22.30738594106255,
+            "potential_from_both_detected_widths_kms2": 10.298024823927621,
+            "observed_rms_kms": 10.14650851134621,
+            "observed_max_kms": 18.49350390625,
+            "effective_samples_needed": 4.833526613390377,
+            "allowed_potential_fraction": 0.2068882789277138
+          },
+          "rms_lapse": {
+            "required_rms_kms": 31.547407782609195,
+            "potential_from_both_detected_widths_kms2": 5.1490124119638105,
+            "observed_rms_kms": 10.14650851134621,
+            "observed_max_kms": 18.49350390625,
+            "effective_samples_needed": 9.667053253542843,
+            "allowed_potential_fraction": 0.1034441394638569
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 10.859476682865,
+            "2": 20.28335057043558
+          }
+        },
+        {
+          "radius_kpc": 7.96,
+          "integral_central_kms2": 658.0178068421862,
+          "integral_lower_kms2": 436.8748611194826,
+          "renewal": {
+            "required_rms_kms": 20.901551669225004,
+            "potential_from_both_detected_widths_kms2": 0.6939923420563076,
+            "observed_rms_kms": 9.661656300990094,
+            "observed_max_kms": 17.4436796875,
+            "effective_samples_needed": 4.6800865858561735,
+            "allowed_potential_fraction": 0.2136712608978768
+          },
+          "rms_lapse": {
+            "required_rms_kms": 29.55925788118107,
+            "potential_from_both_detected_widths_kms2": 0.3469961710281538,
+            "observed_rms_kms": 9.661656300990094,
+            "observed_max_kms": 17.4436796875,
+            "effective_samples_needed": 9.360173194461726,
+            "allowed_potential_fraction": 0.1068356304489384
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 10.175101358238095,
+            "2": 19.00507307727917
+          }
+        },
+        {
+          "radius_kpc": 9.1,
+          "integral_central_kms2": 300.12904042892285,
+          "integral_lower_kms2": 228.25853075193396,
+          "renewal": {
+            "required_rms_kms": 15.108227263375085,
+            "potential_from_both_detected_widths_kms2": 0.7374832070933703,
+            "observed_rms_kms": 9.663906732970048,
+            "observed_max_kms": 15.05764453125,
+            "effective_samples_needed": 2.4441145602839205,
+            "allowed_potential_fraction": 0.40914612473571466
+          },
+          "rms_lapse": {
+            "required_rms_kms": 21.36625991284607,
+            "potential_from_both_detected_widths_kms2": 0.36874160354668517,
+            "observed_rms_kms": 9.663906732970048,
+            "observed_max_kms": 15.05764453125,
+            "effective_samples_needed": 4.8882291267752045,
+            "allowed_potential_fraction": 0.20457306236785733
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 7.354848395034856,
+            "2": 13.737399392761514
+          }
+        },
+        {
+          "radius_kpc": 9.38,
+          "integral_central_kms2": 203.99337507452145,
+          "integral_lower_kms2": 156.32592971848203,
+          "renewal": {
+            "required_rms_kms": 12.503036825285113,
+            "potential_from_both_detected_widths_kms2": 1.629269204341517,
+            "observed_rms_kms": 9.70993714406654,
+            "observed_max_kms": 17.11148046875,
+            "effective_samples_needed": 1.6580521399631947,
+            "allowed_potential_fraction": 0.6031173424783607
+          },
+          "rms_lapse": {
+            "required_rms_kms": 17.681964256857277,
+            "potential_from_both_detected_widths_kms2": 0.8146346021707584,
+            "observed_rms_kms": 9.70993714406654,
+            "observed_max_kms": 17.11148046875,
+            "effective_samples_needed": 3.3161042828103393,
+            "allowed_potential_fraction": 0.30155867123918034
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 6.086613520199793,
+            "2": 11.368587955234174
+          }
+        },
+        {
+          "radius_kpc": 9.67,
+          "integral_central_kms2": 100.88702805731063,
+          "integral_lower_kms2": 71.13733434351379,
+          "renewal": {
+            "required_rms_kms": 8.434295131880715,
+            "potential_from_both_detected_widths_kms2": 1.3234730554864482,
+            "observed_rms_kms": 9.694177798686578,
+            "observed_max_kms": 18.069294921875,
+            "effective_samples_needed": 0.7569646977222615,
+            "allowed_potential_fraction": 1.3210655700087182
+          },
+          "rms_lapse": {
+            "required_rms_kms": 11.92789456692334,
+            "potential_from_both_detected_widths_kms2": 0.6617365277432241,
+            "observed_rms_kms": 9.694177798686578,
+            "observed_max_kms": 18.069294921875,
+            "effective_samples_needed": 1.5139293960436677,
+            "allowed_potential_fraction": 0.6605327850043591
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 4.105906069095322,
+            "2": 7.669018926128196
+          }
+        },
+        {
+          "radius_kpc": 9.96,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 9.625674528867428,
+            "observed_max_kms": 16.82435546875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 9.625674528867428,
+            "observed_max_kms": 16.82435546875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC7793": {
+      "last_radius_kpc": 7.87,
+      "selected_inner_index": 17,
+      "outer_rings": [
+        {
+          "radius_kpc": 3.85,
+          "integral_central_kms2": 5108.883330706542,
+          "integral_lower_kms2": 2897.7201509796387,
+          "renewal": {
+            "required_rms_kms": 53.830476476555916,
+            "potential_from_both_detected_widths_kms2": 60.56397068364538,
+            "observed_rms_kms": 11.961516767355064,
+            "observed_max_kms": 19.252298828125,
+            "effective_samples_needed": 20.252747170460665,
+            "allowed_potential_fraction": 0.04937601832028494
+          },
+          "rms_lapse": {
+            "required_rms_kms": 76.12779051576949,
+            "potential_from_both_detected_widths_kms2": 30.28198534182269,
+            "observed_rms_kms": 11.961516767355064,
+            "observed_max_kms": 19.252298828125,
+            "effective_samples_needed": 40.50549499389997,
+            "allowed_potential_fraction": 0.02468800916014247
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 26.205258010469844,
+            "2": 48.94622922794878
+          }
+        },
+        {
+          "radius_kpc": 4.03,
+          "integral_central_kms2": 4758.389060818726,
+          "integral_lower_kms2": 2698.034551250911,
+          "renewal": {
+            "required_rms_kms": 51.94260863441479,
+            "potential_from_both_detected_widths_kms2": 63.45638403343037,
+            "observed_rms_kms": 12.081816781020661,
+            "observed_max_kms": 19.839564453125,
+            "effective_samples_needed": 18.48344938789633,
+            "allowed_potential_fraction": 0.05410245637660093
+          },
+          "rms_lapse": {
+            "required_rms_kms": 73.45794214712328,
+            "potential_from_both_detected_widths_kms2": 31.728192016715184,
+            "observed_rms_kms": 12.081816781020661,
+            "observed_max_kms": 19.839564453125,
+            "effective_samples_needed": 36.96689933065997,
+            "allowed_potential_fraction": 0.027051228188300466
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 25.28622353165517,
+            "2": 47.2296549339472
+          }
+        },
+        {
+          "radius_kpc": 4.2,
+          "integral_central_kms2": 4418.394189533608,
+          "integral_lower_kms2": 2489.596667434842,
+          "renewal": {
+            "required_rms_kms": 49.89585856477847,
+            "potential_from_both_detected_widths_kms2": 60.203662043737914,
+            "observed_rms_kms": 11.946446113185127,
+            "observed_max_kms": 20.043443359375,
+            "effective_samples_needed": 17.44421951210268,
+            "allowed_potential_fraction": 0.05732558068089446
+          },
+          "rms_lapse": {
+            "required_rms_kms": 70.56340037721982,
+            "potential_from_both_detected_widths_kms2": 30.101831021868957,
+            "observed_rms_kms": 11.946446113185127,
+            "observed_max_kms": 20.043443359375,
+            "effective_samples_needed": 34.88843950741895,
+            "allowed_potential_fraction": 0.02866279034044723
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 24.289843466523738,
+            "2": 45.368614411217116
+          }
+        },
+        {
+          "radius_kpc": 4.38,
+          "integral_central_kms2": 4068.322692894315,
+          "integral_lower_kms2": 2274.7942487393325,
+          "renewal": {
+            "required_rms_kms": 47.694803464606316,
+            "potential_from_both_detected_widths_kms2": 58.24869482813753,
+            "observed_rms_kms": 11.864341849278977,
+            "observed_max_kms": 19.889060546875,
+            "effective_samples_needed": 16.16050112782918,
+            "allowed_potential_fraction": 0.06187926995346098
+          },
+          "rms_lapse": {
+            "required_rms_kms": 67.45063834116786,
+            "potential_from_both_detected_widths_kms2": 29.124347414068765,
+            "observed_rms_kms": 11.864341849278977,
+            "observed_max_kms": 19.889060546875,
+            "effective_samples_needed": 32.321002664688706,
+            "allowed_potential_fraction": 0.03093963497673049
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 23.218346044047976,
+            "2": 43.36726954994152
+          }
+        },
+        {
+          "radius_kpc": 4.73,
+          "integral_central_kms2": 3434.2940412060607,
+          "integral_lower_kms2": 1947.964003600564,
+          "renewal": {
+            "required_rms_kms": 44.13574543055404,
+            "potential_from_both_detected_widths_kms2": 52.824929700078755,
+            "observed_rms_kms": 11.633522354822839,
+            "observed_max_kms": 21.6300703125,
+            "effective_samples_needed": 14.393236933702298,
+            "allowed_potential_fraction": 0.06947707556613275
+          },
+          "rms_lapse": {
+            "required_rms_kms": 62.41737011154476,
+            "potential_from_both_detected_widths_kms2": 26.412464850039377,
+            "observed_rms_kms": 11.633522354822839,
+            "observed_max_kms": 21.6300703125,
+            "effective_samples_needed": 28.786474179363946,
+            "allowed_potential_fraction": 0.034738537783066376
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 21.48575810945679,
+            "2": 40.13113861124987
+          }
+        },
+        {
+          "radius_kpc": 5.25,
+          "integral_central_kms2": 2615.520995837937,
+          "integral_lower_kms2": 1577.8455990572959,
+          "renewal": {
+            "required_rms_kms": 39.72210483984385,
+            "potential_from_both_detected_widths_kms2": 45.58056215102591,
+            "observed_rms_kms": 11.317882965488419,
+            "observed_max_kms": 23.179412109375,
+            "effective_samples_needed": 12.317827253038692,
+            "allowed_potential_fraction": 0.08118314922939336
+          },
+          "rms_lapse": {
+            "required_rms_kms": 56.17553963706616,
+            "potential_from_both_detected_widths_kms2": 22.790281075512954,
+            "observed_rms_kms": 11.317882965488419,
+            "observed_max_kms": 23.179412109375,
+            "effective_samples_needed": 24.635654722327914,
+            "allowed_potential_fraction": 0.04059157461469668
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 19.337150145798596,
+            "2": 36.11796469522917
+          }
+        },
+        {
+          "radius_kpc": 6.82,
+          "integral_central_kms2": 806.0919234350555,
+          "integral_lower_kms2": 542.4530095069783,
+          "renewal": {
+            "required_rms_kms": 23.290620668930103,
+            "potential_from_both_detected_widths_kms2": 29.605577056816987,
+            "observed_rms_kms": 10.58864909726144,
+            "observed_max_kms": 23.70966015625,
+            "effective_samples_needed": 4.838168748105846,
+            "allowed_potential_fraction": 0.20668977343660352
+          },
+          "rms_lapse": {
+            "required_rms_kms": 32.93791167578812,
+            "potential_from_both_detected_widths_kms2": 14.802788528408493,
+            "observed_rms_kms": 10.58864909726144,
+            "observed_max_kms": 23.70966015625,
+            "effective_samples_needed": 9.67633752541296,
+            "allowed_potential_fraction": 0.10334488671830176
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 11.338125979975436,
+            "2": 21.177372610088984
+          }
+        },
+        {
+          "radius_kpc": 7.35,
+          "integral_central_kms2": 359.5823313716997,
+          "integral_lower_kms2": 232.40820759653988,
+          "renewal": {
+            "required_rms_kms": 15.244940403197086,
+            "potential_from_both_detected_widths_kms2": 10.37777179274388,
+            "observed_rms_kms": 9.638033223585222,
+            "observed_max_kms": 22.408779296875,
+            "effective_samples_needed": 2.5019269415859906,
+            "allowed_potential_fraction": 0.3996919271120912
+          },
+          "rms_lapse": {
+            "required_rms_kms": 21.55960148970857,
+            "potential_from_both_detected_widths_kms2": 5.18888589637194,
+            "observed_rms_kms": 9.638033223585222,
+            "observed_max_kms": 22.408779296875,
+            "effective_samples_needed": 5.0038538896416895,
+            "allowed_potential_fraction": 0.1998459635560456
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 7.42140182976095,
+            "2": 13.86170802085093
+          }
+        },
+        {
+          "radius_kpc": 7.87,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 9.08371689431489,
+            "observed_max_kms": 27.354419921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 9.08371689431489,
+            "observed_max_kms": 27.354419921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC2403": {
+      "last_radius_kpc": 20.87,
+      "selected_inner_index": 50,
+      "outer_rings": [
+        {
+          "radius_kpc": 10.43,
+          "integral_central_kms2": 9776.325081033043,
+          "integral_lower_kms2": 8648.134891471747,
+          "renewal": {
+            "required_rms_kms": 92.9953509996525,
+            "potential_from_both_detected_widths_kms2": 49.23091208575473,
+            "observed_rms_kms": 8.965951245064035,
+            "observed_max_kms": 18.565677734375,
+            "effective_samples_needed": 107.5795516654668,
+            "allowed_potential_fraction": 0.009295447249809666
+          },
+          "rms_lapse": {
+            "required_rms_kms": 131.5152897850696,
+            "potential_from_both_detected_widths_kms2": 24.615456042877366,
+            "observed_rms_kms": 8.965951245064035,
+            "observed_max_kms": 18.565677734375,
+            "effective_samples_needed": 215.15911368261268,
+            "allowed_potential_fraction": 0.004647723624904833
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 45.27114241281961,
+            "2": 84.5575232674175
+          }
+        },
+        {
+          "radius_kpc": 10.93,
+          "integral_central_kms2": 9212.01254987109,
+          "integral_lower_kms2": 8100.939560232414,
+          "renewal": {
+            "required_rms_kms": 90.00522165586817,
+            "potential_from_both_detected_widths_kms2": 47.03666812052255,
+            "observed_rms_kms": 8.842739267992544,
+            "observed_max_kms": 18.484193359375,
+            "effective_samples_needed": 103.6004810240166,
+            "allowed_potential_fraction": 0.009652465266070755
+          },
+          "rms_lapse": {
+            "required_rms_kms": 127.28660801837344,
+            "potential_from_both_detected_widths_kms2": 23.518334060261274,
+            "observed_rms_kms": 8.842739267992544,
+            "observed_max_kms": 18.484193359375,
+            "effective_samples_needed": 207.2009713860742,
+            "allowed_potential_fraction": 0.004826232633035377
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 43.81551511640006,
+            "2": 81.83869991934952
+          }
+        },
+        {
+          "radius_kpc": 11.43,
+          "integral_central_kms2": 8654.173575872712,
+          "integral_lower_kms2": 7558.528828947939,
+          "renewal": {
+            "required_rms_kms": 86.93980185613486,
+            "potential_from_both_detected_widths_kms2": 43.835456220202175,
+            "observed_rms_kms": 8.659839828694802,
+            "observed_max_kms": 16.99867578125,
+            "effective_samples_needed": 100.79002971605287,
+            "allowed_potential_fraction": 0.009921616696115671
+          },
+          "rms_lapse": {
+            "required_rms_kms": 122.951449480029,
+            "potential_from_both_detected_widths_kms2": 21.917728110101088,
+            "observed_rms_kms": 8.659839828694802,
+            "observed_max_kms": 16.99867578125,
+            "effective_samples_needed": 201.58006790854512,
+            "allowed_potential_fraction": 0.004960808348057836
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 42.323235611918996,
+            "2": 79.0514175094867
+          }
+        },
+        {
+          "radius_kpc": 11.92,
+          "integral_central_kms2": 8117.628506814833,
+          "integral_lower_kms2": 7058.129468576962,
+          "renewal": {
+            "required_rms_kms": 84.01267610142219,
+            "potential_from_both_detected_widths_kms2": 42.04951726524393,
+            "observed_rms_kms": 8.556102319527163,
+            "observed_max_kms": 16.67379296875,
+            "effective_samples_needed": 96.4134666066318,
+            "allowed_potential_fraction": 0.01037199546966698
+          },
+          "rms_lapse": {
+            "required_rms_kms": 118.81186828653104,
+            "potential_from_both_detected_widths_kms2": 21.024758632621964,
+            "observed_rms_kms": 8.556102319527163,
+            "observed_max_kms": 16.67379296875,
+            "effective_samples_needed": 192.82694078483334,
+            "allowed_potential_fraction": 0.00518599773483349
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 40.898279143908844,
+            "2": 76.38988119127119
+          }
+        },
+        {
+          "radius_kpc": 12.42,
+          "integral_central_kms2": 7579.394573189473,
+          "integral_lower_kms2": 6571.7931151799485,
+          "renewal": {
+            "required_rms_kms": 81.06659827233528,
+            "potential_from_both_detected_widths_kms2": 39.79897532938671,
+            "observed_rms_kms": 8.423558925095492,
+            "observed_max_kms": 18.253990234375,
+            "effective_samples_needed": 92.61741650772646,
+            "allowed_potential_fraction": 0.010797105705084738
+          },
+          "rms_lapse": {
+            "required_rms_kms": 114.64548482793772,
+            "potential_from_both_detected_widths_kms2": 19.899487664693353,
+            "observed_rms_kms": 8.423558925095492,
+            "observed_max_kms": 18.253990234375,
+            "effective_samples_needed": 185.23483978773677,
+            "allowed_potential_fraction": 0.005398552852542369
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 39.464096601167086,
+            "2": 73.71111239366141
+          }
+        },
+        {
+          "radius_kpc": 12.92,
+          "integral_central_kms2": 7044.833108280059,
+          "integral_lower_kms2": 6092.158684692672,
+          "renewal": {
+            "required_rms_kms": 78.05228306186412,
+            "potential_from_both_detected_widths_kms2": 35.80444215270462,
+            "observed_rms_kms": 8.183019722865692,
+            "observed_max_kms": 17.9598984375,
+            "effective_samples_needed": 90.97960059305683,
+            "allowed_potential_fraction": 0.01099147530876273
+          },
+          "rms_lapse": {
+            "required_rms_kms": 110.3825991508268,
+            "potential_from_both_detected_widths_kms2": 17.90222107635231,
+            "observed_rms_kms": 8.183019722865692,
+            "observed_max_kms": 17.9598984375,
+            "effective_samples_needed": 181.9592073531121,
+            "allowed_potential_fraction": 0.005495737654381365
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 37.99669536332587,
+            "2": 70.97029765609781
+          }
+        },
+        {
+          "radius_kpc": 13.42,
+          "integral_central_kms2": 6522.668028109911,
+          "integral_lower_kms2": 5629.690274372546,
+          "renewal": {
+            "required_rms_kms": 75.0312631553737,
+            "potential_from_both_detected_widths_kms2": 30.54832914020106,
+            "observed_rms_kms": 7.855297497138029,
+            "observed_max_kms": 17.180962890625,
+            "effective_samples_needed": 91.234530408736,
+            "allowed_potential_fraction": 0.010960762624589991
+          },
+          "rms_lapse": {
+            "required_rms_kms": 106.11023161796732,
+            "potential_from_both_detected_widths_kms2": 15.27416457010053,
+            "observed_rms_kms": 7.855297497138029,
+            "observed_max_kms": 17.180962890625,
+            "effective_samples_needed": 182.4690665322893,
+            "allowed_potential_fraction": 0.005480381312294996
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 36.52603020696551,
+            "2": 68.22338656550632
+          }
+        },
+        {
+          "radius_kpc": 13.91,
+          "integral_central_kms2": 6025.792922941997,
+          "integral_lower_kms2": 5199.451337315794,
+          "renewal": {
+            "required_rms_kms": 72.10722216057378,
+            "potential_from_both_detected_widths_kms2": 28.402761680561543,
+            "observed_rms_kms": 7.717521059735178,
+            "observed_max_kms": 30.374171875,
+            "effective_samples_needed": 87.29751552887282,
+            "allowed_potential_fraction": 0.011455080050517149
+          },
+          "rms_lapse": {
+            "required_rms_kms": 101.97501299939015,
+            "potential_from_both_detected_widths_kms2": 14.201380840280772,
+            "observed_rms_kms": 7.717521059735178,
+            "observed_max_kms": 30.374171875,
+            "effective_samples_needed": 174.59503610805524,
+            "allowed_potential_fraction": 0.0057275400252585745
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 35.10257543343598,
+            "2": 65.56465511501047
+          }
+        },
+        {
+          "radius_kpc": 14.41,
+          "integral_central_kms2": 5532.919426084471,
+          "integral_lower_kms2": 4764.927145213735,
+          "renewal": {
+            "required_rms_kms": 69.02845262299252,
+            "potential_from_both_detected_widths_kms2": 28.140086999990697,
+            "observed_rms_kms": 7.700484181316877,
+            "observed_max_kms": 36.0613125,
+            "effective_samples_needed": 80.35635156362318,
+            "allowed_potential_fraction": 0.01244456731446839
+          },
+          "rms_lapse": {
+            "required_rms_kms": 97.62097518295663,
+            "potential_from_both_detected_widths_kms2": 14.070043499995348,
+            "observed_rms_kms": 7.700484181316877,
+            "observed_max_kms": 36.0613125,
+            "effective_samples_needed": 160.71270738749632,
+            "allowed_potential_fraction": 0.006222283657234195
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 33.603797132221615,
+            "2": 62.76523424062701
+          }
+        },
+        {
+          "radius_kpc": 14.91,
+          "integral_central_kms2": 5049.264362082887,
+          "integral_lower_kms2": 4309.150145373387,
+          "renewal": {
+            "required_rms_kms": 65.64411815750236,
+            "potential_from_both_detected_widths_kms2": 27.535273583858455,
+            "observed_rms_kms": 7.661112400309906,
+            "observed_max_kms": 33.0263828125,
+            "effective_samples_needed": 73.41891611943223,
+            "allowed_potential_fraction": 0.013620468354771627
+          },
+          "rms_lapse": {
+            "required_rms_kms": 92.83480330112064,
+            "potential_from_both_detected_widths_kms2": 13.767636791929228,
+            "observed_rms_kms": 7.661112400309906,
+            "observed_max_kms": 33.0263828125,
+            "effective_samples_needed": 146.83783575899042,
+            "allowed_potential_fraction": 0.006810234177385814
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 31.956266520068855,
+            "2": 59.687973525610445
+          }
+        },
+        {
+          "radius_kpc": 15.4,
+          "integral_central_kms2": 4583.599251277055,
+          "integral_lower_kms2": 3855.123333511312,
+          "renewal": {
+            "required_rms_kms": 62.08964016800392,
+            "potential_from_both_detected_widths_kms2": 24.601458589303654,
+            "observed_rms_kms": 7.467183419051616,
+            "observed_max_kms": 25.7355078125,
+            "effective_samples_needed": 69.13924735672427,
+            "allowed_potential_fraction": 0.014463565331819589
+          },
+          "rms_lapse": {
+            "required_rms_kms": 87.80801215006636,
+            "potential_from_both_detected_widths_kms2": 12.300729294651827,
+            "observed_rms_kms": 7.467183419051616,
+            "observed_max_kms": 25.7355078125,
+            "effective_samples_needed": 138.27849767910968,
+            "allowed_potential_fraction": 0.007231782665909794
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 30.225908200689876,
+            "2": 56.456007066323025
+          }
+        },
+        {
+          "radius_kpc": 15.9,
+          "integral_central_kms2": 4124.750363080579,
+          "integral_lower_kms2": 3408.665084010237,
+          "renewal": {
+            "required_rms_kms": 58.38377470367627,
+            "potential_from_both_detected_widths_kms2": 17.671513463833655,
+            "observed_rms_kms": 6.987766673570119,
+            "observed_max_kms": 29.2482734375,
+            "effective_samples_needed": 69.80837842978653,
+            "allowed_potential_fraction": 0.014324928342196242
+          },
+          "rms_lapse": {
+            "required_rms_kms": 82.56712679134505,
+            "potential_from_both_detected_widths_kms2": 8.835756731916828,
+            "observed_rms_kms": 6.987766673570119,
+            "observed_max_kms": 29.2482734375,
+            "effective_samples_needed": 139.6167595071616,
+            "allowed_potential_fraction": 0.007162464171098121
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 28.421852821631695,
+            "2": 53.08638910308769
+          }
+        },
+        {
+          "radius_kpc": 16.4,
+          "integral_central_kms2": 3677.105519016582,
+          "integral_lower_kms2": 2985.6685618108145,
+          "renewal": {
+            "required_rms_kms": 54.64127205147071,
+            "potential_from_both_detected_widths_kms2": 12.140236372302741,
+            "observed_rms_kms": 6.580091639931118,
+            "observed_max_kms": 23.60790625,
+            "effective_samples_needed": 68.9568982659201,
+            "allowed_potential_fraction": 0.014501812603473297
+          },
+          "rms_lapse": {
+            "required_rms_kms": 77.27442864227278,
+            "potential_from_both_detected_widths_kms2": 6.070118186151371,
+            "observed_rms_kms": 6.580091639931118,
+            "observed_max_kms": 23.60790625,
+            "effective_samples_needed": 137.91379882259136,
+            "allowed_potential_fraction": 0.007250906301736648
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 26.599962063361573,
+            "2": 49.68345818567628
+          }
+        },
+        {
+          "radius_kpc": 16.89,
+          "integral_central_kms2": 3244.424014955824,
+          "integral_lower_kms2": 2602.7849340869457,
+          "renewal": {
+            "required_rms_kms": 51.01749672195928,
+            "potential_from_both_detected_widths_kms2": 12.086521584136523,
+            "observed_rms_kms": 6.57600875924746,
+            "observed_max_kms": 27.42996484375,
+            "effective_samples_needed": 60.18850060544151,
+            "allowed_potential_fraction": 0.016614469610976814
+          },
+          "rms_lapse": {
+            "required_rms_kms": 72.14963630488108,
+            "potential_from_both_detected_widths_kms2": 6.043260792068262,
+            "observed_rms_kms": 6.57600875924746,
+            "observed_max_kms": 27.42996484375,
+            "effective_samples_needed": 120.37700295393527,
+            "allowed_potential_fraction": 0.008307234805488407
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 24.835869049561484,
+            "2": 46.3884820019507
+          }
+        },
+        {
+          "radius_kpc": 17.39,
+          "integral_central_kms2": 2804.661599383705,
+          "integral_lower_kms2": 2224.4524876605296,
+          "renewal": {
+            "required_rms_kms": 47.16410197585176,
+            "potential_from_both_detected_widths_kms2": 6.903947670942523,
+            "observed_rms_kms": 6.1693854869153,
+            "observed_max_kms": 21.5718515625,
+            "effective_samples_needed": 58.44391822973875,
+            "allowed_potential_fraction": 0.017110420424457422
+          },
+          "rms_lapse": {
+            "required_rms_kms": 66.7001130841104,
+            "potential_from_both_detected_widths_kms2": 3.4519738354712617,
+            "observed_rms_kms": 6.1693854869153,
+            "observed_max_kms": 21.5718515625,
+            "effective_samples_needed": 116.88783790598625,
+            "allowed_potential_fraction": 0.008555210212228711
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 22.95999482091863,
+            "2": 42.88472065904497
+          }
+        },
+        {
+          "radius_kpc": 17.89,
+          "integral_central_kms2": 2366.771235099731,
+          "integral_lower_kms2": 1862.726378304764,
+          "renewal": {
+            "required_rms_kms": 43.15931414663409,
+            "potential_from_both_detected_widths_kms2": 6.0740046981536135,
+            "observed_rms_kms": 6.101751741346462,
+            "observed_max_kms": 20.0840859375,
+            "effective_samples_needed": 50.03109425794726,
+            "allowed_potential_fraction": 0.019987570229824406
+          },
+          "rms_lapse": {
+            "required_rms_kms": 61.03648772514577,
+            "potential_from_both_detected_widths_kms2": 3.0370023490768068,
+            "observed_rms_kms": 6.101751741346462,
+            "observed_max_kms": 20.0840859375,
+            "effective_samples_needed": 100.0621895528203,
+            "allowed_potential_fraction": 0.009993785114912203
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 21.01042080242477,
+            "2": 39.24330271277142
+          }
+        },
+        {
+          "radius_kpc": 18.38,
+          "integral_central_kms2": 1950.2284294329154,
+          "integral_lower_kms2": 1548.282358466729,
+          "renewal": {
+            "required_rms_kms": 39.34821942353722,
+            "potential_from_both_detected_widths_kms2": 8.784913933421585,
+            "observed_rms_kms": 6.319990787133826,
+            "observed_max_kms": 38.80633984375,
+            "effective_samples_needed": 38.76299085118036,
+            "allowed_potential_fraction": 0.025797803173405614
+          },
+          "rms_lapse": {
+            "required_rms_kms": 55.646785803655085,
+            "potential_from_both_detected_widths_kms2": 4.392456966710792,
+            "observed_rms_kms": 6.319990787133826,
+            "observed_max_kms": 38.80633984375,
+            "effective_samples_needed": 77.52598237012938,
+            "allowed_potential_fraction": 0.012898901586702807
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 19.155138682367944,
+            "2": 35.77800334824943
+          }
+        },
+        {
+          "radius_kpc": 18.88,
+          "integral_central_kms2": 1544.6345225901937,
+          "integral_lower_kms2": 1252.321388011295,
+          "renewal": {
+            "required_rms_kms": 35.3881533388815,
+            "potential_from_both_detected_widths_kms2": 7.177499351268544,
+            "observed_rms_kms": 6.191515886001054,
+            "observed_max_kms": 25.04226953125,
+            "effective_samples_needed": 32.667945150071795,
+            "allowed_potential_fraction": 0.030611047072592292
+          },
+          "rms_lapse": {
+            "required_rms_kms": 50.04640657352103,
+            "potential_from_both_detected_widths_kms2": 3.588749675634272,
+            "observed_rms_kms": 6.191515886001054,
+            "observed_max_kms": 25.04226953125,
+            "effective_samples_needed": 65.33589075533727,
+            "allowed_potential_fraction": 0.015305523536296146
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 17.227335692697032,
+            "2": 32.17724936975174
+          }
+        },
+        {
+          "radius_kpc": 19.38,
+          "integral_central_kms2": 1151.0148813450223,
+          "integral_lower_kms2": 951.740681827687,
+          "renewal": {
+            "required_rms_kms": 30.850294761427108,
+            "potential_from_both_detected_widths_kms2": 1.9725437440075153,
+            "observed_rms_kms": 5.755859045987229,
+            "observed_max_kms": 33.07038671875,
+            "effective_samples_needed": 28.72753322966361,
+            "allowed_potential_fraction": 0.034809811100588235
+          },
+          "rms_lapse": {
+            "required_rms_kms": 43.62890537032041,
+            "potential_from_both_detected_widths_kms2": 0.9862718720037577,
+            "observed_rms_kms": 5.755859045987229,
+            "observed_max_kms": 33.07038671875,
+            "effective_samples_needed": 57.45506676353869,
+            "allowed_potential_fraction": 0.017404905550294118
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.018257069939422,
+            "2": 28.05112824517226
+          }
+        },
+        {
+          "radius_kpc": 19.87,
+          "integral_central_kms2": 763.7419469418485,
+          "integral_lower_kms2": 640.8688913082337,
+          "renewal": {
+            "required_rms_kms": 25.315388474071117,
+            "potential_from_both_detected_widths_kms2": 1.274811943219697,
+            "observed_rms_kms": 5.694925948265763,
+            "observed_max_kms": 19.046734375,
+            "effective_samples_needed": 19.760277071772016,
+            "allowed_potential_fraction": 0.05060657802280555
+          },
+          "rms_lapse": {
+            "required_rms_kms": 35.801365780596456,
+            "potential_from_both_detected_widths_kms2": 0.6374059716098485,
+            "observed_rms_kms": 5.694925948265763,
+            "observed_max_kms": 19.046734375,
+            "effective_samples_needed": 39.5205542844472,
+            "allowed_potential_fraction": 0.025303289011402774
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 12.323804841059292,
+            "2": 23.018425404168646
+          }
+        },
+        {
+          "radius_kpc": 20.37,
+          "integral_central_kms2": 374.20711595356465,
+          "integral_lower_kms2": 321.42625615637587,
+          "renewal": {
+            "required_rms_kms": 17.9283645860726,
+            "potential_from_both_detected_widths_kms2": -3.013877275163789,
+            "observed_rms_kms": 5.305044046603378,
+            "observed_max_kms": 14.062427734375,
+            "effective_samples_needed": 11.420979773551284,
+            "allowed_potential_fraction": 0.08755816238703149
+          },
+          "rms_lapse": {
+            "required_rms_kms": 25.354536371462547,
+            "potential_from_both_detected_widths_kms2": -1.5069386375818945,
+            "observed_rms_kms": 5.305044046603378,
+            "observed_max_kms": 14.062427734375,
+            "effective_samples_needed": 22.84195958794799,
+            "allowed_potential_fraction": 0.04377908119351574
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 8.727721737488546,
+            "2": 16.301654753034295
+          }
+        },
+        {
+          "radius_kpc": 20.87,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 5.581878681282855,
+            "observed_max_kms": 44.12019140625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 5.581878681282855,
+            "observed_max_kms": 44.12019140625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC3198": {
+      "last_radius_kpc": 44.08,
+      "selected_inner_index": 25,
+      "outer_rings": [
+        {
+          "radius_kpc": 22.12,
+          "integral_central_kms2": 11887.52187467193,
+          "integral_lower_kms2": 11037.752416109752,
+          "renewal": {
+            "required_rms_kms": 105.06071146671134,
+            "potential_from_both_detected_widths_kms2": 67.67469451798951,
+            "observed_rms_kms": 14.33450586603581,
+            "observed_max_kms": 27.072232421875,
+            "effective_samples_needed": 53.71742938677571,
+            "allowed_potential_fraction": 0.018615932885813757
+          },
+          "rms_lapse": {
+            "required_rms_kms": 148.57828759057256,
+            "potential_from_both_detected_widths_kms2": 33.837347258994754,
+            "observed_rms_kms": 14.33450586603581,
+            "observed_max_kms": 27.072232421875,
+            "effective_samples_needed": 107.43486537067304,
+            "allowed_potential_fraction": 0.009307966442906879
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 51.14469034929942,
+            "2": 95.52814693253941
+          }
+        },
+        {
+          "radius_kpc": 24.03,
+          "integral_central_kms2": 10458.402429188916,
+          "integral_lower_kms2": 9707.686734847453,
+          "renewal": {
+            "required_rms_kms": 98.52759643431695,
+            "potential_from_both_detected_widths_kms2": 57.85136166348966,
+            "observed_rms_kms": 13.987663334059533,
+            "observed_max_kms": 25.265126953125,
+            "effective_samples_needed": 49.616421131581504,
+            "allowed_potential_fraction": 0.020154618775623526
+          },
+          "rms_lapse": {
+            "required_rms_kms": 139.33906690802718,
+            "potential_from_both_detected_widths_kms2": 28.92568083174483,
+            "observed_rms_kms": 13.987663334059533,
+            "observed_max_kms": 25.265126953125,
+            "effective_samples_needed": 99.23284762236104,
+            "allowed_potential_fraction": 0.010077309387811763
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 47.964299309838054,
+            "2": 89.58780668518159
+          }
+        },
+        {
+          "radius_kpc": 26.1,
+          "integral_central_kms2": 9060.205508922218,
+          "integral_lower_kms2": 8406.995886785473,
+          "renewal": {
+            "required_rms_kms": 91.68967379145022,
+            "potential_from_both_detected_widths_kms2": 45.2871077098418,
+            "observed_rms_kms": 13.531092770610659,
+            "observed_max_kms": 23.5499765625,
+            "effective_samples_needed": 45.91716984524767,
+            "allowed_potential_fraction": 0.021778346730033565
+          },
+          "rms_lapse": {
+            "required_rms_kms": 129.66878323775276,
+            "potential_from_both_detected_widths_kms2": 22.6435538549209,
+            "observed_rms_kms": 13.531092770610659,
+            "observed_max_kms": 23.5499765625,
+            "effective_samples_needed": 91.83434398560803,
+            "allowed_potential_fraction": 0.010889173365016783
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 44.63552462975517,
+            "2": 83.37031520028827
+          }
+        },
+        {
+          "radius_kpc": 28.16,
+          "integral_central_kms2": 7784.337560528715,
+          "integral_lower_kms2": 7220.161516670489,
+          "renewal": {
+            "required_rms_kms": 84.97153527321257,
+            "potential_from_both_detected_widths_kms2": 43.749589643671065,
+            "observed_rms_kms": 13.474158730606607,
+            "observed_max_kms": 21.264642578125,
+            "effective_samples_needed": 39.768903053306474,
+            "allowed_potential_fraction": 0.025145275890992923
+          },
+          "rms_lapse": {
+            "required_rms_kms": 120.16790001246709,
+            "potential_from_both_detected_widths_kms2": 21.874794821835533,
+            "observed_rms_kms": 13.474158730606607,
+            "observed_max_kms": 21.264642578125,
+            "effective_samples_needed": 79.53780930145315,
+            "allowed_potential_fraction": 0.012572637945496462
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 41.36506215675131,
+            "2": 77.26173936329039
+          }
+        },
+        {
+          "radius_kpc": 30.08,
+          "integral_central_kms2": 6693.122888088724,
+          "integral_lower_kms2": 6205.458086868983,
+          "renewal": {
+            "required_rms_kms": 78.77473136163027,
+            "potential_from_both_detected_widths_kms2": 30.35415898955896,
+            "observed_rms_kms": 12.967556547685033,
+            "observed_max_kms": 22.630705078125,
+            "effective_samples_needed": 36.902650545317016,
+            "allowed_potential_fraction": 0.02709832542676032
+          },
+          "rms_lapse": {
+            "required_rms_kms": 111.40429538689304,
+            "potential_from_both_detected_widths_kms2": 15.17707949477948,
+            "observed_rms_kms": 12.967556547685033,
+            "observed_max_kms": 22.630705078125,
+            "effective_samples_needed": 73.80530363857882,
+            "allowed_potential_fraction": 0.01354916271338016
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 38.34839100738807,
+            "2": 71.62719542851669
+          }
+        },
+        {
+          "radius_kpc": 32.14,
+          "integral_central_kms2": 5589.859703451561,
+          "integral_lower_kms2": 5178.769337811073,
+          "renewal": {
+            "required_rms_kms": 71.96366782631019,
+            "potential_from_both_detected_widths_kms2": 12.096649317920306,
+            "observed_rms_kms": 12.243366085904025,
+            "observed_max_kms": 22.07309375,
+            "effective_samples_needed": 34.548158999129036,
+            "allowed_potential_fraction": 0.028945103210914064
+          },
+          "rms_lapse": {
+            "required_rms_kms": 101.77199650414603,
+            "potential_from_both_detected_widths_kms2": 6.048324658960153,
+            "observed_rms_kms": 12.243366085904025,
+            "observed_max_kms": 22.07309375,
+            "effective_samples_needed": 69.09631998897763,
+            "allowed_potential_fraction": 0.014472551605457032
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 35.0326916312828,
+            "2": 65.43412602050037
+          }
+        },
+        {
+          "radius_kpc": 34.06,
+          "integral_central_kms2": 4594.164582752989,
+          "integral_lower_kms2": 4250.612191685406,
+          "renewal": {
+            "required_rms_kms": 65.19671994970734,
+            "potential_from_both_detected_widths_kms2": 7.2856820073356685,
+            "observed_rms_kms": 12.045291436697786,
+            "observed_max_kms": 30.752564453125,
+            "effective_samples_needed": 29.29657624330099,
+            "allowed_potential_fraction": 0.03413368219328069
+          },
+          "rms_lapse": {
+            "required_rms_kms": 92.20208666527816,
+            "potential_from_both_detected_widths_kms2": 3.6428410036678343,
+            "observed_rms_kms": 12.045291436697786,
+            "observed_max_kms": 30.752564453125,
+            "effective_samples_needed": 58.593153872167164,
+            "allowed_potential_fraction": 0.017066841096640344
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 31.738468234857756,
+            "2": 59.28116948692716
+          }
+        },
+        {
+          "radius_kpc": 36.12,
+          "integral_central_kms2": 3571.6556518389366,
+          "integral_lower_kms2": 3296.6917870423877,
+          "renewal": {
+            "required_rms_kms": 57.416825473939056,
+            "potential_from_both_detected_widths_kms2": 4.012608301053794,
+            "observed_rms_kms": 11.908651144587235,
+            "observed_max_kms": 86.9388046875,
+            "effective_samples_needed": 23.246266263747817,
+            "allowed_potential_fraction": 0.04301766168405498
+          },
+          "rms_lapse": {
+            "required_rms_kms": 81.19965403826751,
+            "potential_from_both_detected_widths_kms2": 2.006304150526897,
+            "observed_rms_kms": 11.908651144587235,
+            "observed_max_kms": 86.9388046875,
+            "effective_samples_needed": 46.492533380183644,
+            "allowed_potential_fraction": 0.02150883084202749
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 27.951131481104003,
+            "2": 52.20717491535672
+          }
+        },
+        {
+          "radius_kpc": 38.19,
+          "integral_central_kms2": 2589.7140365915784,
+          "integral_lower_kms2": 2380.062183786116,
+          "renewal": {
+            "required_rms_kms": 48.7858813110949,
+            "potential_from_both_detected_widths_kms2": 2.8360470234867536,
+            "observed_rms_kms": 11.859148822915706,
+            "observed_max_kms": 66.71896875,
+            "effective_samples_needed": 16.92315263334052,
+            "allowed_potential_fraction": 0.059090645468052844
+          },
+          "rms_lapse": {
+            "required_rms_kms": 68.99365545924293,
+            "potential_from_both_detected_widths_kms2": 1.4180235117433768,
+            "observed_rms_kms": 11.859148822915706,
+            "observed_max_kms": 66.71896875,
+            "effective_samples_needed": 33.84630571483598,
+            "allowed_potential_fraction": 0.029545322734026422
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 23.749494537396224,
+            "2": 44.3593496851234
+          }
+        },
+        {
+          "radius_kpc": 40.1,
+          "integral_central_kms2": 1712.6853276829638,
+          "integral_lower_kms2": 1560.620581906118,
+          "renewal": {
+            "required_rms_kms": 39.50469080318966,
+            "potential_from_both_detected_widths_kms2": -6.962897968961119,
+            "observed_rms_kms": 11.438551735111211,
+            "observed_max_kms": 72.068828125,
+            "effective_samples_needed": 11.92766003966335,
+            "allowed_potential_fraction": 0.08383874159968503
+          },
+          "rms_lapse": {
+            "required_rms_kms": 55.86806975375322,
+            "potential_from_both_detected_widths_kms2": -3.4814489844805596,
+            "observed_rms_kms": 11.438551735111211,
+            "observed_max_kms": 72.068828125,
+            "effective_samples_needed": 23.85532028644152,
+            "allowed_potential_fraction": 0.041919370799842516
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 19.23131064188668,
+            "2": 35.92027747468071
+          }
+        },
+        {
+          "radius_kpc": 42.17,
+          "integral_central_kms2": 800.1884329007987,
+          "integral_lower_kms2": 722.3141362232759,
+          "renewal": {
+            "required_rms_kms": 26.87590257323153,
+            "potential_from_both_detected_widths_kms2": -4.066581013623511,
+            "observed_rms_kms": 11.564462060831728,
+            "observed_max_kms": 59.62921875,
+            "effective_samples_needed": 5.401013275767457,
+            "allowed_potential_fraction": 0.18515044348457155
+          },
+          "rms_lapse": {
+            "required_rms_kms": 38.00826599644848,
+            "potential_from_both_detected_widths_kms2": -2.0332905068117557,
+            "observed_rms_kms": 11.564462060831728,
+            "observed_max_kms": 59.62921875,
+            "effective_samples_needed": 10.80202659494193,
+            "allowed_potential_fraction": 0.09257522174228577
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 13.083479978159081,
+            "2": 24.43734802589608
+          }
+        },
+        {
+          "radius_kpc": 44.08,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 11.738967747471797,
+            "observed_max_kms": 56.63915625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 11.738967747471797,
+            "observed_max_kms": 56.63915625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC6946": {
+      "last_radius_kpc": 18.9,
+      "selected_inner_index": 26,
+      "outer_rings": [
+        {
+          "radius_kpc": 9.36,
+          "integral_central_kms2": 9896.311275692007,
+          "integral_lower_kms2": 7199.537254510412,
+          "renewal": {
+            "required_rms_kms": 84.85008864386792,
+            "potential_from_both_detected_widths_kms2": 76.32873473435782,
+            "observed_rms_kms": 11.332692924997945,
+            "observed_max_kms": 121.8280390625,
+            "effective_samples_needed": 56.05809800507997,
+            "allowed_potential_fraction": 0.017838636609606717
+          },
+          "rms_lapse": {
+            "required_rms_kms": 119.9961485318099,
+            "potential_from_both_detected_widths_kms2": 38.16436736717891,
+            "observed_rms_kms": 11.332692924997945,
+            "observed_max_kms": 121.8280390625,
+            "effective_samples_needed": 112.11620050073078,
+            "allowed_potential_fraction": 0.008919318304803359
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 41.305940624400314,
+            "2": 77.15131205615977
+          }
+        },
+        {
+          "radius_kpc": 9.73,
+          "integral_central_kms2": 9467.026220896558,
+          "integral_lower_kms2": 6836.158829419264,
+          "renewal": {
+            "required_rms_kms": 82.6810685066843,
+            "potential_from_both_detected_widths_kms2": 64.24782688527033,
+            "observed_rms_kms": 10.786520340997816,
+            "observed_max_kms": 36.250046875,
+            "effective_samples_needed": 58.75562189289515,
+            "allowed_potential_fraction": 0.017019648591361545
+          },
+          "rms_lapse": {
+            "required_rms_kms": 116.9286906571248,
+            "potential_from_both_detected_widths_kms2": 32.123913442635164,
+            "observed_rms_kms": 10.786520340997816,
+            "observed_max_kms": 36.250046875,
+            "effective_samples_needed": 117.51124825489143,
+            "allowed_potential_fraction": 0.008509824295680772
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 40.2500381682971,
+            "2": 75.17909550182807
+          }
+        },
+        {
+          "radius_kpc": 10.1,
+          "integral_central_kms2": 9039.888185077425,
+          "integral_lower_kms2": 6459.77807120318,
+          "renewal": {
+            "required_rms_kms": 80.37274602345356,
+            "potential_from_both_detected_widths_kms2": 50.79530489426753,
+            "observed_rms_kms": 10.143791158109899,
+            "observed_max_kms": 70.553875,
+            "effective_samples_needed": 62.77937891380254,
+            "allowed_potential_fraction": 0.015928797842010286
+          },
+          "rms_lapse": {
+            "required_rms_kms": 113.66422951393258,
+            "potential_from_both_detected_widths_kms2": 25.397652447133765,
+            "observed_rms_kms": 10.143791158109899,
+            "observed_max_kms": 70.553875,
+            "effective_samples_needed": 125.5587623398558,
+            "allowed_potential_fraction": 0.007964398921005143
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 39.12632182388067,
+            "2": 73.08021604187296
+          }
+        },
+        {
+          "radius_kpc": 10.48,
+          "integral_central_kms2": 8610.580734277106,
+          "integral_lower_kms2": 6080.404381224624,
+          "renewal": {
+            "required_rms_kms": 77.97694907410343,
+            "potential_from_both_detected_widths_kms2": 49.82413496623924,
+            "observed_rms_kms": 10.095807502632647,
+            "observed_max_kms": 35.4467421875,
+            "effective_samples_needed": 59.65548150585182,
+            "allowed_potential_fraction": 0.016762919483965313
+          },
+          "rms_lapse": {
+            "required_rms_kms": 110.276060798217,
+            "potential_from_both_detected_widths_kms2": 24.91206748311962,
+            "observed_rms_kms": 10.095807502632647,
+            "observed_max_kms": 35.4467421875,
+            "effective_samples_needed": 119.31096704761322,
+            "allowed_potential_fraction": 0.008381459741982657
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 37.96002196350772,
+            "2": 70.90179901230083
+          }
+        },
+        {
+          "radius_kpc": 10.76,
+          "integral_central_kms2": 8296.549490934964,
+          "integral_lower_kms2": 5801.915686515802,
+          "renewal": {
+            "required_rms_kms": 76.17030834772295,
+            "potential_from_both_detected_widths_kms2": 46.00869047554002,
+            "observed_rms_kms": 9.905043393911427,
+            "observed_max_kms": 43.0649921875,
+            "effective_samples_needed": 59.136914647859335,
+            "allowed_potential_fraction": 0.01690991215362465
+          },
+          "rms_lapse": {
+            "required_rms_kms": 107.72108485397453,
+            "potential_from_both_detected_widths_kms2": 23.00434523777001,
+            "observed_rms_kms": 9.905043393911427,
+            "observed_max_kms": 43.0649921875,
+            "effective_samples_needed": 118.27383311330337,
+            "allowed_potential_fraction": 0.008454956076812325
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 37.080529722943176,
+            "2": 69.25908178380891
+          }
+        },
+        {
+          "radius_kpc": 11.13,
+          "integral_central_kms2": 7855.059358514258,
+          "integral_lower_kms2": 5406.540498890501,
+          "renewal": {
+            "required_rms_kms": 73.52918238025018,
+            "potential_from_both_detected_widths_kms2": 44.97123196801206,
+            "observed_rms_kms": 9.852533995202144,
+            "observed_max_kms": 31.428333984375,
+            "effective_samples_needed": 55.695946596165335,
+            "allowed_potential_fraction": 0.017954628490087467
+          },
+          "rms_lapse": {
+            "required_rms_kms": 103.9859685161964,
+            "potential_from_both_detected_widths_kms2": 22.48561598400603,
+            "observed_rms_kms": 9.852533995202144,
+            "observed_max_kms": 31.428333984375,
+            "effective_samples_needed": 111.39189654276925,
+            "allowed_potential_fraction": 0.008977314245043734
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 35.79480104383853,
+            "2": 66.85759538641261
+          }
+        },
+        {
+          "radius_kpc": 11.51,
+          "integral_central_kms2": 7382.696003531292,
+          "integral_lower_kms2": 4980.372294953697,
+          "renewal": {
+            "required_rms_kms": 70.57175378963713,
+            "potential_from_both_detected_widths_kms2": 42.109291469593686,
+            "observed_rms_kms": 9.706208612282657,
+            "observed_max_kms": 38.377359375,
+            "effective_samples_needed": 52.864311227110626,
+            "allowed_potential_fraction": 0.018916354038679074
+          },
+          "rms_lapse": {
+            "required_rms_kms": 99.8035327123908,
+            "potential_from_both_detected_widths_kms2": 21.054645734796843,
+            "observed_rms_kms": 9.706208612282657,
+            "observed_max_kms": 38.377359375,
+            "effective_samples_needed": 105.72862538365034,
+            "allowed_potential_fraction": 0.009458177019339537
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 34.355092827651596,
+            "2": 64.16850572575396
+          }
+        },
+        {
+          "radius_kpc": 11.88,
+          "integral_central_kms2": 6918.419050083802,
+          "integral_lower_kms2": 4559.758667363182,
+          "renewal": {
+            "required_rms_kms": 67.5259859834045,
+            "potential_from_both_detected_widths_kms2": 41.82995423870086,
+            "observed_rms_kms": 9.69180831393011,
+            "observed_max_kms": 24.28920703125,
+            "effective_samples_needed": 48.54362861514755,
+            "allowed_potential_fraction": 0.02060002627270588
+          },
+          "rms_lapse": {
+            "required_rms_kms": 95.49616640157556,
+            "potential_from_both_detected_widths_kms2": 20.91497711935043,
+            "observed_rms_kms": 9.69180831393011,
+            "observed_max_kms": 24.28920703125,
+            "effective_samples_needed": 97.08725969311529,
+            "allowed_potential_fraction": 0.01030001313635294
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 32.87238012610102,
+            "2": 61.39909220804349
+          }
+        },
+        {
+          "radius_kpc": 12.26,
+          "integral_central_kms2": 6444.256008455505,
+          "integral_lower_kms2": 4129.045776606406,
+          "renewal": {
+            "required_rms_kms": 64.25765224044812,
+            "potential_from_both_detected_widths_kms2": 37.162751245710126,
+            "observed_rms_kms": 9.447959853651868,
+            "observed_max_kms": 30.038900390625,
+            "effective_samples_needed": 46.2565916521693,
+            "allowed_potential_fraction": 0.021618540985334805
+          },
+          "rms_lapse": {
+            "required_rms_kms": 90.87404432842563,
+            "potential_from_both_detected_widths_kms2": 18.581375622855063,
+            "observed_rms_kms": 9.447959853651868,
+            "observed_max_kms": 30.038900390625,
+            "effective_samples_needed": 92.51318542945114,
+            "allowed_potential_fraction": 0.010809270492667403
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 31.28131991997787,
+            "2": 58.42730702152646
+          }
+        },
+        {
+          "radius_kpc": 12.54,
+          "integral_central_kms2": 6105.2877470803405,
+          "integral_lower_kms2": 3850.867195074783,
+          "renewal": {
+            "required_rms_kms": 62.055356558263476,
+            "potential_from_both_detected_widths_kms2": 25.730210893009655,
+            "observed_rms_kms": 8.82221089256482,
+            "observed_max_kms": 37.114015625,
+            "effective_samples_needed": 49.4770366273864,
+            "allowed_potential_fraction": 0.02021139682478124
+          },
+          "rms_lapse": {
+            "required_rms_kms": 87.75952780264542,
+            "potential_from_both_detected_widths_kms2": 12.865105446504828,
+            "observed_rms_kms": 8.82221089256482,
+            "observed_max_kms": 37.114015625,
+            "effective_samples_needed": 98.95407537469941,
+            "allowed_potential_fraction": 0.01010569841239062
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 30.209218568764182,
+            "2": 56.42483414104067
+          }
+        },
+        {
+          "radius_kpc": 12.91,
+          "integral_central_kms2": 5666.119806738413,
+          "integral_lower_kms2": 3528.246562705192,
+          "renewal": {
+            "required_rms_kms": 59.39904571589889,
+            "potential_from_both_detected_widths_kms2": 24.053891380258737,
+            "observed_rms_kms": 8.726688118564935,
+            "observed_max_kms": 95.8126953125,
+            "effective_samples_needed": 46.32975733568008,
+            "allowed_potential_fraction": 0.021584400107244158
+          },
+          "rms_lapse": {
+            "required_rms_kms": 84.00293686787032,
+            "potential_from_both_detected_widths_kms2": 12.026945690129368,
+            "observed_rms_kms": 8.726688118564935,
+            "observed_max_kms": 95.8126953125,
+            "effective_samples_needed": 92.6595164901292,
+            "allowed_potential_fraction": 0.010792200053622079
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 28.9160977283702,
+            "2": 54.00954065115884
+          }
+        },
+        {
+          "radius_kpc": 13.29,
+          "integral_central_kms2": 5220.148873855909,
+          "integral_lower_kms2": 3216.9965273951916,
+          "renewal": {
+            "required_rms_kms": 56.71857354491244,
+            "potential_from_both_detected_widths_kms2": 16.684395876130523,
+            "observed_rms_kms": 8.293707856479624,
+            "observed_max_kms": 32.470826171875,
+            "effective_samples_needed": 46.76846683391017,
+            "allowed_potential_fraction": 0.02138192857733838
+          },
+          "rms_lapse": {
+            "required_rms_kms": 80.21217666344795,
+            "potential_from_both_detected_widths_kms2": 8.342197938065262,
+            "observed_rms_kms": 8.293707856479624,
+            "observed_max_kms": 32.470826171875,
+            "effective_samples_needed": 93.53693534184684,
+            "allowed_potential_fraction": 0.01069096428866919
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 27.611214891949906,
+            "2": 51.57227808341285
+          }
+        },
+        {
+          "radius_kpc": 13.66,
+          "integral_central_kms2": 4782.241427442104,
+          "integral_lower_kms2": 2933.6338563990225,
+          "renewal": {
+            "required_rms_kms": 54.16303078925246,
+            "potential_from_both_detected_widths_kms2": 17.37426202428401,
+            "observed_rms_kms": 8.335193828419108,
+            "observed_max_kms": 31.962619140625,
+            "effective_samples_needed": 42.22547164907803,
+            "allowed_potential_fraction": 0.023682388304497825
+          },
+          "rms_lapse": {
+            "required_rms_kms": 76.59809334645345,
+            "potential_from_both_detected_widths_kms2": 8.687131012142006,
+            "observed_rms_kms": 8.335193828419108,
+            "observed_max_kms": 31.962619140625,
+            "effective_samples_needed": 84.45094467644103,
+            "allowed_potential_fraction": 0.011841194152248912
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 26.367149045755458,
+            "2": 49.248609602142146
+          }
+        },
+        {
+          "radius_kpc": 14.03,
+          "integral_central_kms2": 4345.639843768016,
+          "integral_lower_kms2": 2656.266018876475,
+          "renewal": {
+            "required_rms_kms": 51.53897610672309,
+            "potential_from_both_detected_widths_kms2": 18.698195040558556,
+            "observed_rms_kms": 8.414237290130561,
+            "observed_max_kms": 53.442671875,
+            "effective_samples_needed": 37.51820586442922,
+            "allowed_potential_fraction": 0.0266537269398506
+          },
+          "rms_lapse": {
+            "required_rms_kms": 72.8871195394944,
+            "potential_from_both_detected_widths_kms2": 9.349097520279278,
+            "observed_rms_kms": 8.414237290130561,
+            "observed_max_kms": 53.442671875,
+            "effective_samples_needed": 75.03641283770699,
+            "allowed_potential_fraction": 0.0133268634699253
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 25.089730852750765,
+            "2": 46.86264554600581
+          }
+        },
+        {
+          "radius_kpc": 14.31,
+          "integral_central_kms2": 4032.713146136574,
+          "integral_lower_kms2": 2459.6507982312173,
+          "renewal": {
+            "required_rms_kms": 49.59486699133516,
+            "potential_from_both_detected_widths_kms2": 18.680858169954373,
+            "observed_rms_kms": 8.413207016590395,
+            "observed_max_kms": 75.6753984375,
+            "effective_samples_needed": 34.74963994155089,
+            "allowed_potential_fraction": 0.028777276972419892
+          },
+          "rms_lapse": {
+            "required_rms_kms": 70.13773400310613,
+            "potential_from_both_detected_widths_kms2": 9.340429084977186,
+            "observed_rms_kms": 8.413207016590395,
+            "observed_max_kms": 75.6753984375,
+            "effective_samples_needed": 69.49928083410585,
+            "allowed_potential_fraction": 0.014388638486209946
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 24.143317513990244,
+            "2": 45.094932966917554
+          }
+        },
+        {
+          "radius_kpc": 14.69,
+          "integral_central_kms2": 3641.6933779281644,
+          "integral_lower_kms2": 2211.728875553954,
+          "renewal": {
+            "required_rms_kms": 47.02902192017131,
+            "potential_from_both_detected_widths_kms2": 11.112881028641471,
+            "observed_rms_kms": 7.950727963969801,
+            "observed_max_kms": 80.97075,
+            "effective_samples_needed": 34.98791839116609,
+            "allowed_potential_fraction": 0.02858129485648995
+          },
+          "rms_lapse": {
+            "required_rms_kms": 66.50908103382505,
+            "potential_from_both_detected_widths_kms2": 5.556440514320736,
+            "observed_rms_kms": 7.950727963969801,
+            "observed_max_kms": 80.97075,
+            "effective_samples_needed": 69.97583764334297,
+            "allowed_potential_fraction": 0.014290647428244974
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 22.894236389210963,
+            "2": 42.76189693905916
+          }
+        },
+        {
+          "radius_kpc": 15.06,
+          "integral_central_kms2": 3285.2225468603738,
+          "integral_lower_kms2": 1973.5646487625975,
+          "renewal": {
+            "required_rms_kms": 44.424820432177555,
+            "potential_from_both_detected_widths_kms2": 7.9686741143065625,
+            "observed_rms_kms": 7.750475355780443,
+            "observed_max_kms": 52.55233984375,
+            "effective_samples_needed": 32.854486421174514,
+            "allowed_potential_fraction": 0.030437243724520873
+          },
+          "rms_lapse": {
+            "required_rms_kms": 62.82618390607286,
+            "potential_from_both_detected_widths_kms2": 3.9843370571532812,
+            "observed_rms_kms": 7.750475355780443,
+            "observed_max_kms": 52.55233984375,
+            "effective_samples_needed": 65.70897356379639,
+            "allowed_potential_fraction": 0.015218621862260437
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 21.62648294597612,
+            "2": 40.39398472036236
+          }
+        },
+        {
+          "radius_kpc": 15.44,
+          "integral_central_kms2": 2934.6462227570473,
+          "integral_lower_kms2": 1739.9097845384197,
+          "renewal": {
+            "required_rms_kms": 41.71222604201279,
+            "potential_from_both_detected_widths_kms2": 6.918668400528187,
+            "observed_rms_kms": 7.682438579389095,
+            "observed_max_kms": 33.3259296875,
+            "effective_samples_needed": 29.48007207930982,
+            "allowed_potential_fraction": 0.033921219957024726
+          },
+          "rms_lapse": {
+            "required_rms_kms": 58.989996070885105,
+            "potential_from_both_detected_widths_kms2": 3.4593342002640934,
+            "observed_rms_kms": 7.682438579389095,
+            "observed_max_kms": 33.3259296875,
+            "effective_samples_needed": 58.96014472932751,
+            "allowed_potential_fraction": 0.016960609978512363
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 20.3059626659266,
+            "2": 37.92751450657414
+          }
+        },
+        {
+          "radius_kpc": 15.72,
+          "integral_central_kms2": 2685.62377904857,
+          "integral_lower_kms2": 1579.7421072774473,
+          "renewal": {
+            "required_rms_kms": 39.7459698731961,
+            "potential_from_both_detected_widths_kms2": 5.3230176313167785,
+            "observed_rms_kms": 7.577876467443955,
+            "observed_max_kms": 87.2052421875,
+            "effective_samples_needed": 27.510035799495835,
+            "allowed_potential_fraction": 0.03635037103395416
+          },
+          "rms_lapse": {
+            "required_rms_kms": 56.20928989134406,
+            "potential_from_both_detected_widths_kms2": 2.6615088156583893,
+            "observed_rms_kms": 7.577876467443955,
+            "observed_max_kms": 87.2052421875,
+            "effective_samples_needed": 55.020072082535606,
+            "allowed_potential_fraction": 0.01817518551697708
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 19.34876790208386,
+            "2": 36.139664361839046
+          }
+        },
+        {
+          "radius_kpc": 16.09,
+          "integral_central_kms2": 2355.8308183679815,
+          "integral_lower_kms2": 1370.9228514136605,
+          "renewal": {
+            "required_rms_kms": 37.025975501928336,
+            "potential_from_both_detected_widths_kms2": 5.3028592120142015,
+            "observed_rms_kms": 7.576546267035226,
+            "observed_max_kms": 32.05705078125,
+            "effective_samples_needed": 23.881987110431062,
+            "allowed_potential_fraction": 0.041872562893673894
+          },
+          "rms_lapse": {
+            "required_rms_kms": 52.36263691460035,
+            "potential_from_both_detected_widths_kms2": 2.6514296060071008,
+            "observed_rms_kms": 7.576546267035226,
+            "observed_max_kms": 32.05705078125,
+            "effective_samples_needed": 47.76397458514777,
+            "allowed_potential_fraction": 0.020936281446836947
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 18.0246452312184,
+            "2": 33.6664655958429
+          }
+        },
+        {
+          "radius_kpc": 16.47,
+          "integral_central_kms2": 2020.287623314494,
+          "integral_lower_kms2": 1168.8058618471018,
+          "renewal": {
+            "required_rms_kms": 34.18780293389877,
+            "potential_from_both_detected_widths_kms2": 2.6275770804275114,
+            "observed_rms_kms": 7.397889645248151,
+            "observed_max_kms": 48.51250390625,
+            "effective_samples_needed": 21.3563331269763,
+            "allowed_potential_fraction": 0.04682451805992563
+          },
+          "rms_lapse": {
+            "required_rms_kms": 48.34885473404916,
+            "potential_from_both_detected_widths_kms2": 1.3137885402137557,
+            "observed_rms_kms": 7.397889645248151,
+            "observed_max_kms": 48.51250390625,
+            "effective_samples_needed": 42.71266653168573,
+            "allowed_potential_fraction": 0.023412259029962815
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 16.64299213632439,
+            "2": 31.08581139777441
+          }
+        },
+        {
+          "radius_kpc": 16.84,
+          "integral_central_kms2": 1705.790160951936,
+          "integral_lower_kms2": 986.274199354857,
+          "renewal": {
+            "required_rms_kms": 31.405002862066983,
+            "potential_from_both_detected_widths_kms2": 0.37314591955666443,
+            "observed_rms_kms": 7.243917451286592,
+            "observed_max_kms": 30.442732421875,
+            "effective_samples_needed": 18.7953617710066,
+            "allowed_potential_fraction": 0.05320461597805183
+          },
+          "rms_lapse": {
+            "required_rms_kms": 44.41338109574667,
+            "potential_from_both_detected_widths_kms2": 0.18657295977833221,
+            "observed_rms_kms": 7.243917451286592,
+            "observed_max_kms": 30.442732421875,
+            "effective_samples_needed": 37.59072374826939,
+            "allowed_potential_fraction": 0.026602307989025915
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.288294971314796,
+            "2": 28.55550553524407
+          }
+        },
+        {
+          "radius_kpc": 17.21,
+          "integral_central_kms2": 1399.7133354455107,
+          "integral_lower_kms2": 808.4256221631099,
+          "renewal": {
+            "required_rms_kms": 28.43282655310554,
+            "potential_from_both_detected_widths_kms2": -0.5747492672110874,
+            "observed_rms_kms": 7.1781923110026975,
+            "observed_max_kms": 28.852935546875,
+            "effective_samples_needed": 15.689528514799754,
+            "allowed_potential_fraction": 0.06373677853146008
+          },
+          "rms_lapse": {
+            "required_rms_kms": 40.21008901842562,
+            "potential_from_both_detected_widths_kms2": -0.2873746336055437,
+            "observed_rms_kms": 7.1781923110026975,
+            "observed_max_kms": 28.852935546875,
+            "effective_samples_needed": 31.379057170725993,
+            "allowed_potential_fraction": 0.03186838926573004
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 13.841407406370772,
+            "2": 25.85300627373998
+          }
+        },
+        {
+          "radius_kpc": 17.5,
+          "integral_central_kms2": 1163.4725052954216,
+          "integral_lower_kms2": 670.4411837644213,
+          "renewal": {
+            "required_rms_kms": 25.89287906481345,
+            "potential_from_both_detected_widths_kms2": -4.565784846283894,
+            "observed_rms_kms": 6.8945927560999545,
+            "observed_max_kms": 49.91730078125,
+            "effective_samples_needed": 14.104037317154134,
+            "allowed_potential_fraction": 0.07090168445946493
+          },
+          "rms_lapse": {
+            "required_rms_kms": 36.618060810635164,
+            "potential_from_both_detected_widths_kms2": -2.282892423141947,
+            "observed_rms_kms": 6.8945927560999545,
+            "observed_max_kms": 49.91730078125,
+            "effective_samples_needed": 28.208074739519635,
+            "allowed_potential_fraction": 0.035450842229732465
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 12.604933504960535,
+            "2": 23.543518040934885
+          }
+        },
+        {
+          "radius_kpc": 17.87,
+          "integral_central_kms2": 863.4364486318907,
+          "integral_lower_kms2": 487.6545270483198,
+          "renewal": {
+            "required_rms_kms": 22.082901267073115,
+            "potential_from_both_detected_widths_kms2": -4.379140558109758,
+            "observed_rms_kms": 6.908115051208904,
+            "observed_max_kms": 34.13505078125,
+            "effective_samples_needed": 10.218640900493298,
+            "allowed_potential_fraction": 0.09786037225353326
+          },
+          "rms_lapse": {
+            "required_rms_kms": 31.22993851080334,
+            "potential_from_both_detected_widths_kms2": -2.189570279054879,
+            "observed_rms_kms": 6.908115051208904,
+            "observed_max_kms": 34.13505078125,
+            "effective_samples_needed": 20.43728185643179,
+            "allowed_potential_fraction": 0.04893018612676663
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 10.750195116244438,
+            "2": 20.079234258813603
+          }
+        },
+        {
+          "radius_kpc": 18.24,
+          "integral_central_kms2": 555.4159034845812,
+          "integral_lower_kms2": 301.4072827325613,
+          "renewal": {
+            "required_rms_kms": 17.3610853127897,
+            "potential_from_both_detected_widths_kms2": -3.218143846888295,
+            "observed_rms_kms": 6.991641457668179,
+            "observed_max_kms": 37.38466015625,
+            "effective_samples_needed": 6.16588534384082,
+            "allowed_potential_fraction": 0.16218271110145893
+          },
+          "rms_lapse": {
+            "required_rms_kms": 24.552282327448232,
+            "potential_from_both_detected_widths_kms2": -1.6090719234441475,
+            "observed_rms_kms": 6.991641457668179,
+            "observed_max_kms": 37.38466015625,
+            "effective_samples_needed": 12.331770708359608,
+            "allowed_potential_fraction": 0.08109135555072947
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 8.451564053340153,
+            "2": 15.785846921415683
+          }
+        },
+        {
+          "radius_kpc": 18.62,
+          "integral_central_kms2": 234.75104191408903,
+          "integral_lower_kms2": 121.07728986388867,
+          "renewal": {
+            "required_rms_kms": 11.003512618497982,
+            "potential_from_both_detected_widths_kms2": 1.6634963906166267,
+            "observed_rms_kms": 7.3324409655228076,
+            "observed_max_kms": 100.920796875,
+            "effective_samples_needed": 2.251985248877149,
+            "allowed_potential_fraction": 0.44405264238435027
+          },
+          "rms_lapse": {
+            "required_rms_kms": 15.561316784064255,
+            "potential_from_both_detected_widths_kms2": 0.8317481953083133,
+            "observed_rms_kms": 7.3324409655228076,
+            "observed_max_kms": 100.920796875,
+            "effective_samples_needed": 4.503970500788098,
+            "allowed_potential_fraction": 0.22202632119217514
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 5.3566289221828,
+            "2": 10.005121377147573
+          }
+        },
+        {
+          "radius_kpc": 18.9,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 7.218115690488805,
+            "observed_max_kms": 34.8606171875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 7.218115690488805,
+            "observed_max_kms": 34.8606171875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC3521": {
+      "last_radius_kpc": 17.74,
+      "selected_inner_index": 29,
+      "outer_rings": [
+        {
+          "radius_kpc": 8.82,
+          "integral_central_kms2": 17706.408173477103,
+          "integral_lower_kms2": 12857.915108898564,
+          "renewal": {
+            "required_rms_kms": 113.39275121738788,
+            "potential_from_both_detected_widths_kms2": 568.9348812977901,
+            "observed_rms_kms": 34.49172172470278,
+            "observed_max_kms": 55.5137890625,
+            "effective_samples_needed": 10.807888060831969,
+            "allowed_potential_fraction": 0.09252502054840339
+          },
+          "rms_lapse": {
+            "required_rms_kms": 160.36157238190427,
+            "potential_from_both_detected_widths_kms2": 284.46744064889504,
+            "observed_rms_kms": 34.49172172470278,
+            "observed_max_kms": 55.5137890625,
+            "effective_samples_needed": 21.615777667879414,
+            "allowed_potential_fraction": 0.046262510274201696
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 55.2008173931509,
+            "2": 103.104188503537
+          }
+        },
+        {
+          "radius_kpc": 11.07,
+          "integral_central_kms2": 12544.937900648825,
+          "integral_lower_kms2": 9634.6138830121,
+          "renewal": {
+            "required_rms_kms": 98.15607163810698,
+            "potential_from_both_detected_widths_kms2": 282.95085513191304,
+            "observed_rms_kms": 30.061517560460874,
+            "observed_max_kms": 57.19555078125,
+            "effective_samples_needed": 10.66135823055476,
+            "allowed_potential_fraction": 0.09379668396343291
+          },
+          "rms_lapse": {
+            "required_rms_kms": 138.81365146006584,
+            "potential_from_both_detected_widths_kms2": 141.47542756595652,
+            "observed_rms_kms": 30.061517560460874,
+            "observed_max_kms": 57.19555078125,
+            "effective_samples_needed": 21.322717604002253,
+            "allowed_potential_fraction": 0.046898341981716454
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 47.78343702179552,
+            "2": 89.24999177011057
+          }
+        },
+        {
+          "radius_kpc": 13.32,
+          "integral_central_kms2": 7913.6222665948235,
+          "integral_lower_kms2": 6254.437605191324,
+          "renewal": {
+            "required_rms_kms": 79.08500377956935,
+            "potential_from_both_detected_widths_kms2": 163.59383569656796,
+            "observed_rms_kms": 28.006031805339305,
+            "observed_max_kms": 55.01407421875,
+            "effective_samples_needed": 7.974163279409399,
+            "allowed_potential_fraction": 0.12540501058132325
+          },
+          "rms_lapse": {
+            "required_rms_kms": 111.84308687118465,
+            "potential_from_both_detected_widths_kms2": 81.79691784828398,
+            "observed_rms_kms": 28.006031805339305,
+            "observed_max_kms": 55.01407421875,
+            "effective_samples_needed": 15.948327113740863,
+            "allowed_potential_fraction": 0.06270250529066163
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 38.49943497537462,
+            "2": 71.90931563040957
+          }
+        },
+        {
+          "radius_kpc": 15.49,
+          "integral_central_kms2": 3897.8007234478964,
+          "integral_lower_kms2": 2992.3127086938407,
+          "renewal": {
+            "required_rms_kms": 54.70203614589519,
+            "potential_from_both_detected_widths_kms2": 120.26678454407234,
+            "observed_rms_kms": 27.22151292565335,
+            "observed_max_kms": 66.517953125,
+            "effective_samples_needed": 4.038150180752222,
+            "allowed_potential_fraction": 0.24763814315055438
+          },
+          "rms_lapse": {
+            "required_rms_kms": 77.36036205085664,
+            "potential_from_both_detected_widths_kms2": 60.13339227203617,
+            "observed_rms_kms": 27.22151292565335,
+            "observed_max_kms": 66.517953125,
+            "effective_samples_needed": 8.076300495950496,
+            "allowed_potential_fraction": 0.12381907157527719
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 26.629542681561368,
+            "2": 49.73870891888918
+          }
+        },
+        {
+          "radius_kpc": 17.74,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 24.914734205010596,
+            "observed_max_kms": 59.767515625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 24.914734205010596,
+            "observed_max_kms": 59.767515625,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC2841": {
+      "last_radius_kpc": 63.64,
+      "selected_inner_index": 34,
+      "outer_rings": [
+        {
+          "radius_kpc": 32.79,
+          "integral_central_kms2": 42893.10807519552,
+          "integral_lower_kms2": 39817.933899455216,
+          "renewal": {
+            "required_rms_kms": 199.54433772926518,
+            "potential_from_both_detected_widths_kms2": 997.2170804423736,
+            "observed_rms_kms": 33.82909311745927,
+            "observed_max_kms": 76.173671875,
+            "effective_samples_needed": 34.793499070975976,
+            "allowed_potential_fraction": 0.028741007425284154
+          },
+          "rms_lapse": {
+            "required_rms_kms": 282.1983399673693,
+            "potential_from_both_detected_widths_kms2": 498.6085402211868,
+            "observed_rms_kms": 33.82909311745927,
+            "observed_max_kms": 76.173671875,
+            "effective_samples_needed": 69.58701355666763,
+            "allowed_potential_fraction": 0.014370503712642077
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 97.1403412526191,
+            "2": 181.43890849432682
+          }
+        },
+        {
+          "radius_kpc": 34.88,
+          "integral_central_kms2": 38890.20062528888,
+          "integral_lower_kms2": 36110.82322671151,
+          "renewal": {
+            "required_rms_kms": 190.02849912879873,
+            "potential_from_both_detected_widths_kms2": 847.9417895446381,
+            "observed_rms_kms": 31.54571680078298,
+            "observed_max_kms": 75.3474453125,
+            "effective_samples_needed": 36.28746886303296,
+            "allowed_potential_fraction": 0.02755772796201091
+          },
+          "rms_lapse": {
+            "required_rms_kms": 268.74090769950953,
+            "potential_from_both_detected_widths_kms2": 423.97089477231907,
+            "observed_rms_kms": 31.54571680078298,
+            "observed_max_kms": 75.3474453125,
+            "effective_samples_needed": 72.57495230590554,
+            "allowed_potential_fraction": 0.013778863981005455
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 92.50792812843257,
+            "2": 172.78647871995094
+          }
+        },
+        {
+          "radius_kpc": 36.96,
+          "integral_central_kms2": 35192.255814762204,
+          "integral_lower_kms2": 32642.63479613991,
+          "renewal": {
+            "required_rms_kms": 180.67274482891787,
+            "potential_from_both_detected_widths_kms2": 737.6920425109639,
+            "observed_rms_kms": 29.746974640934937,
+            "observed_max_kms": 94.009328125,
+            "effective_samples_needed": 36.88923751274937,
+            "allowed_potential_fraction": 0.027108182334501577
+          },
+          "rms_lapse": {
+            "required_rms_kms": 255.50986928841738,
+            "potential_from_both_detected_widths_kms2": 368.84602125548196,
+            "observed_rms_kms": 29.746974640934937,
+            "observed_max_kms": 94.009328125,
+            "effective_samples_needed": 73.77848842360933,
+            "allowed_potential_fraction": 0.013554091167250789
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 87.95344577274106,
+            "2": 164.27960817865502
+          }
+        },
+        {
+          "radius_kpc": 38.9,
+          "integral_central_kms2": 32052.245651438196,
+          "integral_lower_kms2": 29662.557055870013,
+          "renewal": {
+            "required_rms_kms": 172.2282263474617,
+            "potential_from_both_detected_widths_kms2": 510.7098019796675,
+            "observed_rms_kms": 25.649566425360234,
+            "observed_max_kms": 96.87746875,
+            "effective_samples_needed": 45.08671580336355,
+            "allowed_potential_fraction": 0.022179485543402138
+          },
+          "rms_lapse": {
+            "required_rms_kms": 243.56751362082784,
+            "potential_from_both_detected_widths_kms2": 255.35490098983374,
+            "observed_rms_kms": 25.649566425360234,
+            "observed_max_kms": 96.87746875,
+            "effective_samples_needed": 90.1734464871699,
+            "allowed_potential_fraction": 0.011089742771701069
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 83.84256286652872,
+            "2": 156.60129350698358
+          }
+        },
+        {
+          "radius_kpc": 40.99,
+          "integral_central_kms2": 28980.570000636682,
+          "integral_lower_kms2": 26751.231608904527,
+          "renewal": {
+            "required_rms_kms": 163.5580496035728,
+            "potential_from_both_detected_widths_kms2": 320.4547419171191,
+            "observed_rms_kms": 21.625105700437633,
+            "observed_max_kms": 94.926375,
+            "effective_samples_needed": 57.204127802845555,
+            "allowed_potential_fraction": 0.01748125851457244
+          },
+          "rms_lapse": {
+            "required_rms_kms": 231.30602919658546,
+            "potential_from_both_detected_widths_kms2": 160.22737095855956,
+            "observed_rms_kms": 21.625105700437633,
+            "observed_max_kms": 94.926375,
+            "effective_samples_needed": 114.40827263236461,
+            "allowed_potential_fraction": 0.00874062925728622
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 79.62182707815175,
+            "2": 148.71779541946364
+          }
+        },
+        {
+          "radius_kpc": 43.08,
+          "integral_central_kms2": 26092.198962235587,
+          "integral_lower_kms2": 24014.108810507107,
+          "renewal": {
+            "required_rms_kms": 154.96487349947478,
+            "potential_from_both_detected_widths_kms2": 243.03556980809327,
+            "observed_rms_kms": 19.75413941624862,
+            "observed_max_kms": 88.3747109375,
+            "effective_samples_needed": 61.53898135198464,
+            "allowed_potential_fraction": 0.0162498648735487
+          },
+          "rms_lapse": {
+            "required_rms_kms": 219.15344043345482,
+            "potential_from_both_detected_widths_kms2": 121.51778490404664,
+            "observed_rms_kms": 19.75413941624862,
+            "observed_max_kms": 88.3747109375,
+            "effective_samples_needed": 123.07797914675626,
+            "allowed_potential_fraction": 0.00812493243677435
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 75.43857603382251,
+            "2": 140.90431140598858
+          }
+        },
+        {
+          "radius_kpc": 45.16,
+          "integral_central_kms2": 23299.309462918398,
+          "integral_lower_kms2": 21400.65523742433,
+          "renewal": {
+            "required_rms_kms": 146.28963662996313,
+            "potential_from_both_detected_widths_kms2": 184.81888544489945,
+            "observed_rms_kms": 18.221123441749697,
+            "observed_max_kms": 126.2776953125,
+            "effective_samples_needed": 64.45799934085682,
+            "allowed_potential_fraction": 0.015513980071303692
+          },
+          "rms_lapse": {
+            "required_rms_kms": 206.8848004722888,
+            "potential_from_both_detected_widths_kms2": 92.40944272244973,
+            "observed_rms_kms": 18.221123441749697,
+            "observed_max_kms": 126.2776953125,
+            "effective_samples_needed": 128.91601403009346,
+            "allowed_potential_fraction": 0.007756990035651846
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 71.21537692157794,
+            "2": 133.01621231760694
+          }
+        },
+        {
+          "radius_kpc": 47.1,
+          "integral_central_kms2": 20707.952984299496,
+          "integral_lower_kms2": 19002.804520908307,
+          "renewal": {
+            "required_rms_kms": 137.85066749869125,
+            "potential_from_both_detected_widths_kms2": 104.1382793241601,
+            "observed_rms_kms": 15.853350847594072,
+            "observed_max_kms": 83.3227109375,
+            "effective_samples_needed": 75.60936744350397,
+            "allowed_potential_fraction": 0.013225875815802453
+          },
+          "rms_lapse": {
+            "required_rms_kms": 194.95029386364843,
+            "potential_from_both_detected_widths_kms2": 52.06913966208005,
+            "observed_rms_kms": 15.853350847594072,
+            "observed_max_kms": 83.3227109375,
+            "effective_samples_needed": 151.21875087345472,
+            "allowed_potential_fraction": 0.006612937907901227
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 67.10719549903968,
+            "2": 125.34294348212283
+          }
+        },
+        {
+          "radius_kpc": 49.19,
+          "integral_central_kms2": 17914.2479072508,
+          "integral_lower_kms2": 16411.421237275707,
+          "renewal": {
+            "required_rms_kms": 128.10707527553816,
+            "potential_from_both_detected_widths_kms2": 84.56911085840791,
+            "observed_rms_kms": 15.22365148637365,
+            "observed_max_kms": 58.9984921875,
+            "effective_samples_needed": 70.81227808438052,
+            "allowed_potential_fraction": 0.014121846056412759
+          },
+          "rms_lapse": {
+            "required_rms_kms": 181.17077156113945,
+            "potential_from_both_detected_widths_kms2": 42.284555429203955,
+            "observed_rms_kms": 15.22365148637365,
+            "observed_max_kms": 58.9984921875,
+            "effective_samples_needed": 141.62456909920374,
+            "allowed_potential_fraction": 0.007060923028206379
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 62.36390944866009,
+            "2": 116.48342505178137
+          }
+        },
+        {
+          "radius_kpc": 51.27,
+          "integral_central_kms2": 15115.298065475044,
+          "integral_lower_kms2": 13808.6252328974,
+          "renewal": {
+            "required_rms_kms": 117.51011145296229,
+            "potential_from_both_detected_widths_kms2": 58.6326711697238,
+            "observed_rms_kms": 14.346537032564452,
+            "observed_max_kms": 54.70871875,
+            "effective_samples_needed": 67.08977091525249,
+            "allowed_potential_fraction": 0.014905403044809805
+          },
+          "rms_lapse": {
+            "required_rms_kms": 166.1843997159658,
+            "potential_from_both_detected_widths_kms2": 29.3163355848619,
+            "observed_rms_kms": 14.346537032564452,
+            "observed_max_kms": 54.70871875,
+            "effective_samples_needed": 134.17955213829063,
+            "allowed_potential_fraction": 0.007452701522404902
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 57.20519287628947,
+            "2": 106.84796472651425
+          }
+        },
+        {
+          "radius_kpc": 53.36,
+          "integral_central_kms2": 12384.518526035481,
+          "integral_lower_kms2": 11267.424286486117,
+          "renewal": {
+            "required_rms_kms": 106.14812759897252,
+            "potential_from_both_detected_widths_kms2": 26.63690126495315,
+            "observed_rms_kms": 13.184360236825853,
+            "observed_max_kms": 52.347828125,
+            "effective_samples_needed": 64.81963096203032,
+            "allowed_potential_fraction": 0.015427426026264065
+          },
+          "rms_lapse": {
+            "required_rms_kms": 150.11612637587902,
+            "potential_from_both_detected_widths_kms2": 13.318450632476575,
+            "observed_rms_kms": 13.184360236825853,
+            "observed_max_kms": 52.347828125,
+            "effective_samples_needed": 129.63927005030394,
+            "allowed_potential_fraction": 0.0077137130131320324
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 51.674056280568145,
+            "2": 96.51689759498257
+          }
+        },
+        {
+          "radius_kpc": 55.3,
+          "integral_central_kms2": 9966.507483209967,
+          "integral_lower_kms2": 9017.946186872834,
+          "renewal": {
+            "required_rms_kms": 94.96286979285651,
+            "potential_from_both_detected_widths_kms2": 9.029800720689906,
+            "observed_rms_kms": 12.498810114478992,
+            "observed_max_kms": 58.13278125,
+            "effective_samples_needed": 57.72584791251615,
+            "allowed_potential_fraction": 0.017323263069526612
+          },
+          "rms_lapse": {
+            "required_rms_kms": 134.2977817517269,
+            "potential_from_both_detected_widths_kms2": 4.514900360344953,
+            "observed_rms_kms": 12.498810114478992,
+            "observed_max_kms": 58.13278125,
+            "effective_samples_needed": 115.45170161713929,
+            "allowed_potential_fraction": 0.008661631534763306
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 46.22895183586668,
+            "2": 86.34652147374773
+          }
+        },
+        {
+          "radius_kpc": 57.38,
+          "integral_central_kms2": 7402.168936428424,
+          "integral_lower_kms2": 6658.898000585288,
+          "renewal": {
+            "required_rms_kms": 81.60207256721452,
+            "potential_from_both_detected_widths_kms2": -4.941744103409147,
+            "observed_rms_kms": 11.926806338266088,
+            "observed_max_kms": 86.8367109375,
+            "effective_samples_needed": 46.811660182535164,
+            "allowed_potential_fraction": 0.021362199767203282
+          },
+          "rms_lapse": {
+            "required_rms_kms": 115.4027598798626,
+            "potential_from_both_detected_widths_kms2": -2.4708720517045735,
+            "observed_rms_kms": 11.926806338266088,
+            "observed_max_kms": 86.8367109375,
+            "effective_samples_needed": 93.62332383335722,
+            "allowed_potential_fraction": 0.010681099883601641
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 39.72477127792563,
+            "2": 74.19800103553044
+          }
+        },
+        {
+          "radius_kpc": 59.47,
+          "integral_central_kms2": 4877.405939451445,
+          "integral_lower_kms2": 4362.417670048922,
+          "renewal": {
+            "required_rms_kms": 66.048601619727,
+            "potential_from_both_detected_widths_kms2": -13.252272377435453,
+            "observed_rms_kms": 11.57316642685608,
+            "observed_max_kms": 41.9718984375,
+            "effective_samples_needed": 32.570382385891556,
+            "allowed_potential_fraction": 0.03070274127199863
+          },
+          "rms_lapse": {
+            "required_rms_kms": 93.40682931985101,
+            "potential_from_both_detected_widths_kms2": -6.626136188717727,
+            "observed_rms_kms": 11.57316642685608,
+            "observed_max_kms": 41.9718984375,
+            "effective_samples_needed": 65.1407663526988,
+            "allowed_potential_fraction": 0.015351370635999315
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 32.15317344310493,
+            "2": 60.055756639504736
+          }
+        },
+        {
+          "radius_kpc": 61.56,
+          "integral_central_kms2": 2428.6367867320137,
+          "integral_lower_kms2": 2161.3461356570856,
+          "renewal": {
+            "required_rms_kms": 46.4902802921788,
+            "potential_from_both_detected_widths_kms2": -7.73313874014252,
+            "observed_rms_kms": 11.809204663710258,
+            "observed_max_kms": 41.01963671875,
+            "effective_samples_needed": 15.49826314173153,
+            "allowed_potential_fraction": 0.06452335994706498
+          },
+          "rms_lapse": {
+            "required_rms_kms": 65.74718530300156,
+            "potential_from_both_detected_widths_kms2": -3.86656937007126,
+            "observed_rms_kms": 11.809204663710258,
+            "observed_max_kms": 41.01963671875,
+            "effective_samples_needed": 30.996526656168694,
+            "allowed_potential_fraction": 0.03226167997353249
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 22.631971139363642,
+            "2": 42.2720374218423
+          }
+        },
+        {
+          "radius_kpc": 63.64,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 12.132207282348524,
+            "observed_max_kms": 52.12669921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 12.132207282348524,
+            "observed_max_kms": 52.12669921875,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC5055": {
+      "last_radius_kpc": 54.59,
+      "selected_inner_index": 17,
+      "outer_rings": [
+        {
+          "radius_kpc": 28.74,
+          "integral_central_kms2": 14059.049487694056,
+          "integral_lower_kms2": 12500.921973388477,
+          "renewal": {
+            "required_rms_kms": 111.80752587717254,
+            "potential_from_both_detected_widths_kms2": 165.90848701354687,
+            "observed_rms_kms": 15.352413563039885,
+            "observed_max_kms": 30.6088515625,
+            "effective_samples_needed": 53.03819709545145,
+            "allowed_potential_fraction": 0.01885433749633019
+          },
+          "rms_lapse": {
+            "required_rms_kms": 158.11972496915632,
+            "potential_from_both_detected_widths_kms2": 82.95424350677344,
+            "observed_rms_kms": 15.352413563039885,
+            "observed_max_kms": 30.6088515625,
+            "effective_samples_needed": 106.07640156806664,
+            "allowed_potential_fraction": 0.009427168748165096
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 54.42911255670625,
+            "2": 101.66279678719346
+          }
+        },
+        {
+          "radius_kpc": 31.62,
+          "integral_central_kms2": 12087.96068389618,
+          "integral_lower_kms2": 10655.040004019344,
+          "renewal": {
+            "required_rms_kms": 103.22325627306324,
+            "potential_from_both_detected_widths_kms2": 92.74715204532846,
+            "observed_rms_kms": 12.748931997634402,
+            "observed_max_kms": 36.4524140625,
+            "effective_samples_needed": 65.55525349676873,
+            "allowed_potential_fraction": 0.015254308465479776
+          },
+          "rms_lapse": {
+            "required_rms_kms": 145.9797333002749,
+            "potential_from_both_detected_widths_kms2": 46.37357602266423,
+            "observed_rms_kms": 12.748931997634402,
+            "observed_max_kms": 36.4524140625,
+            "effective_samples_needed": 131.11051476533018,
+            "allowed_potential_fraction": 0.007627154232739888
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 50.250197292876315,
+            "2": 93.85741115252911
+          }
+        },
+        {
+          "radius_kpc": 34.51,
+          "integral_central_kms2": 10264.229438680286,
+          "integral_lower_kms2": 9027.50037616547,
+          "renewal": {
+            "required_rms_kms": 95.01316134908265,
+            "potential_from_both_detected_widths_kms2": 46.22457624474156,
+            "observed_rms_kms": 10.77091877267796,
+            "observed_max_kms": 28.32477734375,
+            "effective_samples_needed": 77.81476953577781,
+            "allowed_potential_fraction": 0.012851031437123983
+          },
+          "rms_lapse": {
+            "required_rms_kms": 134.36890475796983,
+            "potential_from_both_detected_widths_kms2": 23.11228812237078,
+            "observed_rms_kms": 10.77091877267796,
+            "observed_max_kms": 28.32477734375,
+            "effective_samples_needed": 155.62954688762065,
+            "allowed_potential_fraction": 0.006425515718561992
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 46.253434309233384,
+            "2": 86.39224988264166
+          }
+        },
+        {
+          "radius_kpc": 37.4,
+          "integral_central_kms2": 8530.708480682786,
+          "integral_lower_kms2": 7637.048591918952,
+          "renewal": {
+            "required_rms_kms": 87.3902106439435,
+            "potential_from_both_detected_widths_kms2": 36.01487570108396,
+            "observed_rms_kms": 10.286058071553455,
+            "observed_max_kms": 29.554513671875,
+            "effective_samples_needed": 72.18178682261974,
+            "allowed_potential_fraction": 0.01385391088136424
+          },
+          "rms_lapse": {
+            "required_rms_kms": 123.58842373674565,
+            "potential_from_both_detected_widths_kms2": 18.00743785054198,
+            "observed_rms_kms": 10.286058071553455,
+            "observed_max_kms": 29.554513671875,
+            "effective_samples_needed": 144.36357977878782,
+            "allowed_potential_fraction": 0.00692695544068212
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 42.542499480033726,
+            "2": 79.46095896661954
+          }
+        },
+        {
+          "radius_kpc": 40.29,
+          "integral_central_kms2": 6868.417604169184,
+          "integral_lower_kms2": 6310.160306457377,
+          "renewal": {
+            "required_rms_kms": 79.43651885610022,
+            "potential_from_both_detected_widths_kms2": 25.336122529370225,
+            "observed_rms_kms": 9.753165510116162,
+            "observed_max_kms": 32.07619140625,
+            "effective_samples_needed": 66.33599065765891,
+            "allowed_potential_fraction": 0.015074773507740556
+          },
+          "rms_lapse": {
+            "required_rms_kms": 112.34020428585455,
+            "potential_from_both_detected_widths_kms2": 12.668061264685113,
+            "observed_rms_kms": 9.753165510116162,
+            "observed_max_kms": 32.07619140625,
+            "effective_samples_needed": 132.67198597276808,
+            "allowed_potential_fraction": 0.007537386753870278
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 38.670556315514965,
+            "2": 72.228936385029
+          }
+        },
+        {
+          "radius_kpc": 43.17,
+          "integral_central_kms2": 5314.59341437456,
+          "integral_lower_kms2": 4877.417886470115,
+          "renewal": {
+            "required_rms_kms": 69.83851386459638,
+            "potential_from_both_detected_widths_kms2": 15.463084858468203,
+            "observed_rms_kms": 9.233157628184959,
+            "observed_max_kms": 32.261556640625,
+            "effective_samples_needed": 57.21230939865699,
+            "allowed_potential_fraction": 0.017478756532829234
+          },
+          "rms_lapse": {
+            "required_rms_kms": 98.76657482327441,
+            "potential_from_both_detected_widths_kms2": 7.731542429234102,
+            "observed_rms_kms": 9.233157628184959,
+            "observed_max_kms": 32.261556640625,
+            "effective_samples_needed": 114.42462190214559,
+            "allowed_potential_fraction": 0.008739378266414617
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 33.99814370371733,
+            "2": 63.50179549394394
+          }
+        },
+        {
+          "radius_kpc": 45.92,
+          "integral_central_kms2": 3910.777223555773,
+          "integral_lower_kms2": 3526.1631551116498,
+          "renewal": {
+            "required_rms_kms": 59.38150574281642,
+            "potential_from_both_detected_widths_kms2": 18.178055786253648,
+            "observed_rms_kms": 9.379028239498579,
+            "observed_max_kms": 27.83737109375,
+            "effective_samples_needed": 40.08544643390039,
+            "allowed_potential_fraction": 0.024946710292387996
+          },
+          "rms_lapse": {
+            "required_rms_kms": 83.97813159932332,
+            "potential_from_both_detected_widths_kms2": 9.089027893126824,
+            "observed_rms_kms": 9.379028239498579,
+            "observed_max_kms": 27.83737109375,
+            "effective_samples_needed": 80.1708944405075,
+            "allowed_potential_fraction": 0.012473355146193998
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 28.90755907981629,
+            "2": 53.993592147646694
+          }
+        },
+        {
+          "radius_kpc": 48.81,
+          "integral_central_kms2": 2499.6323134957242,
+          "integral_lower_kms2": 2221.6171596137056,
+          "renewal": {
+            "required_rms_kms": 47.13403427536824,
+            "potential_from_both_detected_widths_kms2": 10.280506055392138,
+            "observed_rms_kms": 8.948107117098427,
+            "observed_max_kms": 37.73336328125,
+            "effective_samples_needed": 27.7464150113487,
+            "allowed_potential_fraction": 0.03604069251847331
+          },
+          "rms_lapse": {
+            "required_rms_kms": 66.65759093350842,
+            "potential_from_both_detected_widths_kms2": 5.140253027696069,
+            "observed_rms_kms": 8.948107117098427,
+            "observed_max_kms": 37.73336328125,
+            "effective_samples_needed": 55.49283070855617,
+            "allowed_potential_fraction": 0.018020346259236656
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 22.945357539205265,
+            "2": 42.857381117273235
+          }
+        },
+        {
+          "radius_kpc": 51.7,
+          "integral_central_kms2": 1194.166987263738,
+          "integral_lower_kms2": 1043.235047300715,
+          "renewal": {
+            "required_rms_kms": 32.29914942154699,
+            "potential_from_both_detected_widths_kms2": 2.7848391557366514,
+            "observed_rms_kms": 8.518976116473555,
+            "observed_max_kms": 27.142294921875,
+            "effective_samples_needed": 14.37498399617814,
+            "allowed_potential_fraction": 0.06956529521465242
+          },
+          "rms_lapse": {
+            "required_rms_kms": 45.67789529761903,
+            "potential_from_both_detected_widths_kms2": 1.3924195778683257,
+            "observed_rms_kms": 8.518976116473555,
+            "observed_max_kms": 27.142294921875,
+            "effective_samples_needed": 28.74996815921469,
+            "allowed_potential_fraction": 0.03478264760732621
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 15.723575184755825,
+            "2": 29.368522720457925
+          }
+        },
+        {
+          "radius_kpc": 54.59,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 8.353928112876279,
+            "observed_max_kms": 53.94258984375,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 8.353928112876279,
+            "observed_max_kms": 53.94258984375,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    },
+    "NGC7331": {
+      "last_radius_kpc": 36.31,
+      "selected_inner_index": 18,
+      "outer_rings": [
+        {
+          "radius_kpc": 18.15,
+          "integral_central_kms2": 20382.85817681663,
+          "integral_lower_kms2": 18000.888899283484,
+          "renewal": {
+            "required_rms_kms": 134.16739805912138,
+            "potential_from_both_detected_widths_kms2": 320.1039633554484,
+            "observed_rms_kms": 21.15892009473344,
+            "observed_max_kms": 43.26308203125,
+            "effective_samples_needed": 40.20749327625551,
+            "allowed_potential_fraction": 0.02487098836980566
+          },
+          "rms_lapse": {
+            "required_rms_kms": 189.74136346419675,
+            "potential_from_both_detected_widths_kms2": 160.0519816777242,
+            "observed_rms_kms": 21.15892009473344,
+            "observed_max_kms": 43.26308203125,
+            "effective_samples_needed": 80.41499460554601,
+            "allowed_potential_fraction": 0.01243549418490283
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 65.31414010916134,
+            "2": 121.99387131895888
+          }
+        },
+        {
+          "radius_kpc": 19.24,
+          "integral_central_kms2": 19188.672379320185,
+          "integral_lower_kms2": 16969.068444309374,
+          "renewal": {
+            "required_rms_kms": 130.26538314626572,
+            "potential_from_both_detected_widths_kms2": 301.80674131281813,
+            "observed_rms_kms": 20.722033622292052,
+            "observed_max_kms": 55.33273046875,
+            "effective_samples_needed": 39.51784871783905,
+            "allowed_potential_fraction": 0.02530502353896831
+          },
+          "rms_lapse": {
+            "required_rms_kms": 184.22308024879862,
+            "potential_from_both_detected_widths_kms2": 150.90337065640907,
+            "observed_rms_kms": 20.722033622292052,
+            "observed_max_kms": 55.33273046875,
+            "effective_samples_needed": 79.03570489689959,
+            "allowed_potential_fraction": 0.012652511769484155
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 63.41459705762219,
+            "2": 118.44590130500802
+          }
+        },
+        {
+          "radius_kpc": 20.32,
+          "integral_central_kms2": 17990.764004367316,
+          "integral_lower_kms2": 15924.188994635068,
+          "renewal": {
+            "required_rms_kms": 126.19108686972712,
+            "potential_from_both_detected_widths_kms2": 267.6789073250326,
+            "observed_rms_kms": 19.881520145578456,
+            "observed_max_kms": 94.0147109375,
+            "effective_samples_needed": 40.286374595601814,
+            "allowed_potential_fraction": 0.024822290325931032
+          },
+          "rms_lapse": {
+            "required_rms_kms": 178.46115440672872,
+            "potential_from_both_detected_widths_kms2": 133.8394536625163,
+            "observed_rms_kms": 19.881520145578456,
+            "observed_max_kms": 94.0147109375,
+            "effective_samples_needed": 80.57275632916418,
+            "allowed_potential_fraction": 0.012411145162965516
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 61.43118557538703,
+            "2": 114.74128168157057
+          }
+        },
+        {
+          "radius_kpc": 21.41,
+          "integral_central_kms2": 16760.177063829247,
+          "integral_lower_kms2": 14840.640532511148,
+          "renewal": {
+            "required_rms_kms": 121.82217268538233,
+            "potential_from_both_detected_widths_kms2": 290.11790461587105,
+            "observed_rms_kms": 20.438048847465083,
+            "observed_max_kms": 47.5655859375,
+            "effective_samples_needed": 35.52824999340215,
+            "allowed_potential_fraction": 0.028146617984957392
+          },
+          "rms_lapse": {
+            "required_rms_kms": 172.28257592143908,
+            "potential_from_both_detected_widths_kms2": 145.05895230793553,
+            "observed_rms_kms": 20.438048847465083,
+            "observed_max_kms": 47.5655859375,
+            "effective_samples_needed": 71.05650585338559,
+            "allowed_potential_fraction": 0.014073308992478696
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 59.304350909968115,
+            "2": 110.76877597214575
+          }
+        },
+        {
+          "radius_kpc": 22.49,
+          "integral_central_kms2": 15498.121193854644,
+          "integral_lower_kms2": 13717.954925199345,
+          "renewal": {
+            "required_rms_kms": 117.12367810184482,
+            "potential_from_both_detected_widths_kms2": 294.8043548244602,
+            "observed_rms_kms": 20.552379203436796,
+            "observed_max_kms": 44.82369140625,
+            "effective_samples_needed": 32.47619915735856,
+            "allowed_potential_fraction": 0.030791782902954604
+          },
+          "rms_lapse": {
+            "required_rms_kms": 165.63790036709523,
+            "potential_from_both_detected_widths_kms2": 147.4021774122301,
+            "observed_rms_kms": 20.552379203436796,
+            "observed_max_kms": 44.82369140625,
+            "effective_samples_needed": 64.95240327165178,
+            "allowed_potential_fraction": 0.015395891451477302
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 57.01707294251378,
+            "2": 106.49659396736153
+          }
+        },
+        {
+          "radius_kpc": 23.48,
+          "integral_central_kms2": 14342.032934705363,
+          "integral_lower_kms2": 12683.864210545982,
+          "renewal": {
+            "required_rms_kms": 112.6226669261744,
+            "potential_from_both_detected_widths_kms2": 258.5268297068474,
+            "observed_rms_kms": 19.65000675931364,
+            "observed_max_kms": 48.48833203125,
+            "effective_samples_needed": 32.84930657871274,
+            "allowed_potential_fraction": 0.03044204497952612
+          },
+          "rms_lapse": {
+            "required_rms_kms": 159.27250861703746,
+            "potential_from_both_detected_widths_kms2": 129.2634148534237,
+            "observed_rms_kms": 19.65000675931364,
+            "observed_max_kms": 48.48833203125,
+            "effective_samples_needed": 65.69861779335064,
+            "allowed_potential_fraction": 0.01522102248976306
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 54.82593203337059,
+            "2": 102.40397693734377
+          }
+        },
+        {
+          "radius_kpc": 24.57,
+          "integral_central_kms2": 13101.234170438716,
+          "integral_lower_kms2": 11570.756863366298,
+          "renewal": {
+            "required_rms_kms": 107.56745608309099,
+            "potential_from_both_detected_widths_kms2": 210.23520728787466,
+            "observed_rms_kms": 18.38018343291499,
+            "observed_max_kms": 52.48803125,
+            "effective_samples_needed": 34.25012124249988,
+            "allowed_potential_fraction": 0.029196978761368928
+          },
+          "rms_lapse": {
+            "required_rms_kms": 152.1233601588473,
+            "potential_from_both_detected_widths_kms2": 105.11760364393733,
+            "observed_rms_kms": 18.38018343291499,
+            "observed_max_kms": 52.48803125,
+            "effective_samples_needed": 68.50024689443026,
+            "allowed_potential_fraction": 0.014598489380684464
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 52.3650007336445,
+            "2": 97.8074449183687
+          }
+        },
+        {
+          "radius_kpc": 25.65,
+          "integral_central_kms2": 11888.855977208672,
+          "integral_lower_kms2": 10478.913383140754,
+          "renewal": {
+            "required_rms_kms": 102.36656677855365,
+            "potential_from_both_detected_widths_kms2": 195.16849884688466,
+            "observed_rms_kms": 17.965645953631658,
+            "observed_max_kms": 85.9897578125,
+            "effective_samples_needed": 32.46613589643747,
+            "allowed_potential_fraction": 0.030801326640505174
+          },
+          "rms_lapse": {
+            "required_rms_kms": 144.76819129156416,
+            "potential_from_both_detected_widths_kms2": 97.58424942344233,
+            "observed_rms_kms": 17.965645953631658,
+            "observed_max_kms": 85.9897578125,
+            "effective_samples_needed": 64.93227557821999,
+            "allowed_potential_fraction": 0.015400663320252587
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 49.83315158368108,
+            "2": 93.07845240796544
+          }
+        },
+        {
+          "radius_kpc": 26.74,
+          "integral_central_kms2": 10658.142857571973,
+          "integral_lower_kms2": 9365.060799664163,
+          "renewal": {
+            "required_rms_kms": 96.77324675542052,
+            "potential_from_both_detected_widths_kms2": 177.18825038410804,
+            "observed_rms_kms": 17.45806936650477,
+            "observed_max_kms": 85.1808359375,
+            "effective_samples_needed": 30.72686089891358,
+            "allowed_potential_fraction": 0.0325448165269608
+          },
+          "rms_lapse": {
+            "required_rms_kms": 136.85804160155794,
+            "potential_from_both_detected_widths_kms2": 88.59412519205402,
+            "observed_rms_kms": 17.45806936650477,
+            "observed_max_kms": 85.1808359375,
+            "effective_samples_needed": 61.4537249995771,
+            "allowed_potential_fraction": 0.0162724082634804
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 47.11026291660479,
+            "2": 87.9926359352693
+          }
+        },
+        {
+          "radius_kpc": 27.82,
+          "integral_central_kms2": 9416.297907091806,
+          "integral_lower_kms2": 8235.110230669556,
+          "renewal": {
+            "required_rms_kms": 90.74751020249941,
+            "potential_from_both_detected_widths_kms2": 214.34216759459082,
+            "observed_rms_kms": 18.491568439422608,
+            "observed_max_kms": 49.7539296875,
+            "effective_samples_needed": 24.083629543698645,
+            "allowed_potential_fraction": 0.04152198247765099
+          },
+          "rms_lapse": {
+            "required_rms_kms": 128.33636261976528,
+            "potential_from_both_detected_widths_kms2": 107.17108379729541,
+            "observed_rms_kms": 18.491568439422608,
+            "observed_max_kms": 49.7539296875,
+            "effective_samples_needed": 48.16726129413123,
+            "allowed_potential_fraction": 0.020760991238825494
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 44.17686920716609,
+            "2": 82.5136377563296
+          }
+        },
+        {
+          "radius_kpc": 28.91,
+          "integral_central_kms2": 8159.664156759433,
+          "integral_lower_kms2": 7087.316950854519,
+          "renewal": {
+            "required_rms_kms": 84.18620570079715,
+            "potential_from_both_detected_widths_kms2": 184.78109364525037,
+            "observed_rms_kms": 17.674191050594196,
+            "observed_max_kms": 64.994734375,
+            "effective_samples_needed": 22.688343142067026,
+            "allowed_potential_fraction": 0.044075498657130306
+          },
+          "rms_lapse": {
+            "required_rms_kms": 119.0572762139245,
+            "potential_from_both_detected_widths_kms2": 92.39054682262518,
+            "observed_rms_kms": 17.674191050594196,
+            "observed_max_kms": 64.994734375,
+            "effective_samples_needed": 45.37668807326963,
+            "allowed_potential_fraction": 0.022037749328565153
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 40.98275522923673,
+            "2": 76.54766577919955
+          }
+        },
+        {
+          "radius_kpc": 29.89,
+          "integral_central_kms2": 7019.036347248998,
+          "integral_lower_kms2": 6057.099365270347,
+          "renewal": {
+            "required_rms_kms": 77.82737031004837,
+            "potential_from_both_detected_widths_kms2": 199.5286756892866,
+            "observed_rms_kms": 18.086586504628443,
+            "observed_max_kms": 74.166296875,
+            "effective_samples_needed": 18.51618422609925,
+            "allowed_potential_fraction": 0.05400680937640204
+          },
+          "rms_lapse": {
+            "required_rms_kms": 110.0645244707345,
+            "potential_from_both_detected_widths_kms2": 99.7643378446433,
+            "observed_rms_kms": 18.086586504628443,
+            "observed_max_kms": 74.166296875,
+            "effective_samples_needed": 37.032369700084175,
+            "allowed_potential_fraction": 0.02700340468820102
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 37.88720540379071,
+            "2": 70.76579210780572
+          }
+        },
+        {
+          "radius_kpc": 30.98,
+          "integral_central_kms2": 5783.843006020377,
+          "integral_lower_kms2": 4956.294629857398,
+          "renewal": {
+            "required_rms_kms": 70.4009571420577,
+            "potential_from_both_detected_widths_kms2": 157.4884178851706,
+            "observed_rms_kms": 16.88444116463758,
+            "observed_max_kms": 67.2959765625,
+            "effective_samples_needed": 17.385362285497436,
+            "allowed_potential_fraction": 0.0575196541530397
+          },
+          "rms_lapse": {
+            "required_rms_kms": 99.56198976696173,
+            "potential_from_both_detected_widths_kms2": 78.7442089425853,
+            "observed_rms_kms": 16.88444116463758,
+            "observed_max_kms": 67.2959765625,
+            "effective_samples_needed": 34.770725529731806,
+            "allowed_potential_fraction": 0.02875982707651985
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 34.271947172808815,
+            "2": 64.01320611833866
+          }
+        },
+        {
+          "radius_kpc": 32.06,
+          "integral_central_kms2": 4611.8662179566845,
+          "integral_lower_kms2": 3927.0754643884284,
+          "renewal": {
+            "required_rms_kms": 62.666382935226444,
+            "potential_from_both_detected_widths_kms2": 107.61365996056773,
+            "observed_rms_kms": 15.33654444042534,
+            "observed_max_kms": 47.82801953125,
+            "effective_samples_needed": 16.696068644454936,
+            "allowed_potential_fraction": 0.05989434050817057
+          },
+          "rms_lapse": {
+            "required_rms_kms": 88.62364961995704,
+            "potential_from_both_detected_widths_kms2": 53.806829980283865,
+            "observed_rms_kms": 15.33654444042534,
+            "observed_max_kms": 47.82801953125,
+            "effective_samples_needed": 33.39213801843807,
+            "allowed_potential_fraction": 0.029947170254085286
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 30.506672816015563,
+            "2": 56.98041973248862
+          }
+        },
+        {
+          "radius_kpc": 33.15,
+          "integral_central_kms2": 3419.699103794197,
+          "integral_lower_kms2": 2890.374448170601,
+          "renewal": {
+            "required_rms_kms": 53.762203216083556,
+            "potential_from_both_detected_widths_kms2": 144.0493670524856,
+            "observed_rms_kms": 16.481665649071978,
+            "observed_max_kms": 105.9364921875,
+            "effective_samples_needed": 10.640252076238514,
+            "allowed_potential_fraction": 0.09398273719490302
+          },
+          "rms_lapse": {
+            "required_rms_kms": 76.03123754253025,
+            "potential_from_both_detected_widths_kms2": 72.0246835262428,
+            "observed_rms_kms": 16.481665649071978,
+            "observed_max_kms": 105.9364921875,
+            "effective_samples_needed": 21.28050449466491,
+            "allowed_potential_fraction": 0.04699136859745151
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 26.17202184904234,
+            "2": 48.88415066435525
+          }
+        },
+        {
+          "radius_kpc": 34.23,
+          "integral_central_kms2": 2248.154042667202,
+          "integral_lower_kms2": 1868.2277563852426,
+          "renewal": {
+            "required_rms_kms": 43.223000541407536,
+            "potential_from_both_detected_widths_kms2": 92.69817910886638,
+            "observed_rms_kms": 14.842308259958859,
+            "observed_max_kms": 72.6071328125,
+            "effective_samples_needed": 8.480606847720544,
+            "allowed_potential_fraction": 0.11791609104443418
+          },
+          "rms_lapse": {
+            "required_rms_kms": 61.126553889775096,
+            "potential_from_both_detected_widths_kms2": 46.34908955443319,
+            "observed_rms_kms": 14.842308259958859,
+            "observed_max_kms": 72.6071328125,
+            "effective_samples_needed": 16.961213871726084,
+            "allowed_potential_fraction": 0.05895804552221709
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 21.04142402803288,
+            "2": 39.3012105947245
+          }
+        },
+        {
+          "radius_kpc": 35.32,
+          "integral_central_kms2": 1067.4526805972926,
+          "integral_lower_kms2": 862.9437765070833,
+          "renewal": {
+            "required_rms_kms": 29.375904763085682,
+            "potential_from_both_detected_widths_kms2": 19.647399606569568,
+            "observed_rms_kms": 12.134386462939897,
+            "observed_max_kms": 42.0689296875,
+            "effective_samples_needed": 5.860664468341433,
+            "allowed_potential_fraction": 0.1706291171220421
+          },
+          "rms_lapse": {
+            "required_rms_kms": 41.54380302265734,
+            "potential_from_both_detected_widths_kms2": 9.823699803284784,
+            "observed_rms_kms": 12.134386462939897,
+            "observed_max_kms": 42.0689296875,
+            "effective_samples_needed": 11.721328992954298,
+            "allowed_potential_fraction": 0.08531455856102105
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 14.300508076366604,
+            "2": 26.71051535162591
+          }
+        },
+        {
+          "radius_kpc": 36.31,
+          "integral_central_kms2": 0.0,
+          "integral_lower_kms2": 0.0,
+          "renewal": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 11.295837073690848,
+            "observed_max_kms": 50.2065,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "rms_lapse": {
+            "required_rms_kms": 0.0,
+            "potential_from_both_detected_widths_kms2": 0.0,
+            "observed_rms_kms": 11.295837073690848,
+            "observed_max_kms": 50.2065,
+            "effective_samples_needed": 0.0,
+            "allowed_potential_fraction": null
+          },
+          "tick_weighted_minimum_rms_kms": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

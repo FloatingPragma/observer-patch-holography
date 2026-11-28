@@ -1,0 +1,42 @@
+{
+  "sha256": {
+    "clock_release.json": "e9e1b09c44b2147acd307d989bd2969e85444317e89e5075c0dca69d49d8c02a"
+  },
+  "covered_sites": 40,
+  "covered_bonds": 78,
+  "full_H_norm_upper": 26550,
+  "readers": {
+    "1": {
+      "even": {
+        "second": "-3/56",
+        "fourth": "-47305/56",
+        "first_nonzero_order": 2,
+        "uniform_certified_nonzero_time": "1/100000000000",
+        "half_margin_time_estimate": 7.108994911860799e-11
+      },
+      "odd": {
+        "second": "3/56",
+        "fourth": "25391/28",
+        "first_nonzero_order": 2,
+        "uniform_certified_nonzero_time": "1/100000000000",
+        "half_margin_time_estimate": 7.108994911860799e-11
+      }
+    },
+    "2": {
+      "even": {
+        "second": "0",
+        "fourth": "-821909/112",
+        "first_nonzero_order": 4,
+        "uniform_certified_nonzero_time": "1/1000000000000",
+        "half_margin_time_estimate": 1.1079876695952385e-12
+      },
+      "odd": {
+        "second": "0",
+        "fourth": "825455/112",
+        "first_nonzero_order": 4,
+        "uniform_certified_nonzero_time": "1/1000000000000",
+        "half_margin_time_estimate": 1.1103752184043611e-12
+      }
+    }
+  }
+}

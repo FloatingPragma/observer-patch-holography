@@ -1,0 +1,1237 @@
+{
+  "route_collector": {
+    "guide_receipt_sha256": "be604d14816009407eb005b891d67a72066dfbcd86080f7c2f9575dd1b829052",
+    "calibration_sha256": "6071a21cddbc6dc729637d4c9b97cd56aad6c39d47f10c023daa9d4afdb74d11",
+    "route_words": [
+      177,
+      146
+    ],
+    "route_ports": 144,
+    "rest_frequency_in_neutral_clock_units": [
+      1.753788731363287,
+      1.7537887637266052
+    ],
+    "inverse_two_contact_pulses": 143,
+    "collector_coefficient_squared_given_sharp_capture": 0.0089979524744525,
+    "certified_coefficient_squared_interval": [
+      0.008997952465115727,
+      0.008997952474527036
+    ],
+    "sharp_filter_acceptance_given_capture": 0.008997952474452516,
+    "sharp_filtered_excited_weight_given_capture": 1.52781457474086e-17,
+    "off_pole_acceptance_after_collection": 0,
+    "collector_without_filter": {
+      "coherent_filter_stages": 0,
+      "originals_per_calibration_input": 281474976710656,
+      "independent_inputs": {
+        "sharp_1045": {
+          "return_probability": 0.008997952474526028,
+          "return_and_refusal_counts": [
+            2532697300930,
+            278942279409726
+          ]
+        },
+        "native_swap_1052": {
+          "return_probability": 0.002837428384281259,
+          "return_and_refusal_counts": [
+            798664778343,
+            280676311932313
+          ]
+        },
+        "rest_packet": {
+          "return_probability": 0.9999999999999989,
+          "return_and_refusal_counts": [
+            281474976710656,
+            0
+          ]
+        },
+        "odd_two_ends": {
+          "return_probability": 0.0,
+          "return_and_refusal_counts": [
+            0,
+            281474976710656
+          ]
+        }
+      },
+      "off_pole_acceptance": 0,
+      "full_filter_vs_bypass_maximum_effect_difference": 1.045716781252227e-09
+    },
+    "calibration_shots_given_input": 281474976710656,
+    "calibration_bins": [
+      "origin_returned",
+      "collector_refused",
+      "filter_refused"
+    ],
+    "calibration_counts": {
+      "rest_packet": [
+        281474976708339,
+        0,
+        2317
+      ],
+      "sharp_arrival": [
+        2532696576287,
+        0,
+        278942280134369
+      ],
+      "odd_two_ends": [
+        0,
+        0,
+        281474976710656
+      ]
+    }
+  },
+  "handoff": {
+    "commissioned_background": 348,
+    "native_address_schedule": [
+      [
+        1047,
+        1052,
+        1050
+      ],
+      [
+        1047,
+        1050,
+        1046
+      ],
+      [
+        1047,
+        1046,
+        1048
+      ],
+      [
+        1047,
+        1048,
+        1053
+      ],
+      [
+        1045,
+        1052
+      ],
+      [
+        1045,
+        1052,
+        1053
+      ],
+      [
+        1045,
+        1049,
+        1053
+      ],
+      [
+        1047,
+        1052,
+        1053
+      ],
+      [
+        1045,
+        1052,
+        1053
+      ]
+    ],
+    "exactly_replayed_route_ports_for_both_signed_words": 144,
+    "recovered_wheel_input_words_in_positive_chart": [
+      218,
+      698
+    ],
+    "join_receipt_sha256": "88dba5eb44d0199b42d7d518e129f333bdc58dedf88b3bb4d567b69730961bd2"
+  },
+  "wheel_energy_filter_rejection_waits": 17,
+  "appointments": [
+    {
+      "arrival_appointment": 27.0625,
+      "sharp_capture_per_original": 0.014563948303517059,
+      "collector_returns_per_original": 0.0001310457146754296,
+      "joint_heralds_per_million_99pct_first_exterior_setting": [
+        10.8613,
+        10.8634
+      ],
+      "face_reference_after_collection": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0001310457146754296,
+        "expected_witness": 0.12450513599577394,
+        "count_score": 0.12450466235559872,
+        "count_radius": 9.251800004473854e-06,
+        "model_and_dyadic_radius": 4.493354508100749e-06,
+        "apparatus_witness_norm_guard": 2e-11,
+        "simultaneous_99pct": [
+          0.12449091,
+          0.12451841
+        ],
+        "settings": [
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "X",
+            "counts": [
+              13445642165,
+              13817199472,
+              2986020698,
+              6637144283,
+              0,
+              4062496519944,
+              277375594184094
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Y",
+            "counts": [
+              14359647865,
+              12903359911,
+              4966800036,
+              4656467156,
+              0,
+              4062500072646,
+              277375590363042
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Z",
+            "counts": [
+              3925369158,
+              23337349925,
+              4251343063,
+              5371808356,
+              0,
+              4062500512666,
+              277375590327488
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "X",
+            "counts": [
+              10120221478,
+              12068665209,
+              6311339773,
+              8385820320,
+              0,
+              4062500487244,
+              277375590176632
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Y",
+            "counts": [
+              10832455376,
+              11356398089,
+              8493733133,
+              6203437750,
+              0,
+              4062498988394,
+              277375591697914
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Z",
+            "counts": [
+              4378883397,
+              17810004144,
+              3798053749,
+              10899176413,
+              0,
+              4062499072488,
+              277375591520465
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "X",
+            "counts": [
+              8059403011,
+              11807246034,
+              8372450771,
+              8647261584,
+              0,
+              4062504414139,
+              277375585935117
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Y",
+            "counts": [
+              10585955572,
+              9280756476,
+              8740517935,
+              8279085727,
+              0,
+              4062499142153,
+              277375591252793
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Z",
+            "counts": [
+              4924498162,
+              14942310733,
+              3252545301,
+              13767141340,
+              0,
+              4062498789289,
+              277375591425831
+            ]
+          }
+        ]
+      },
+      "wheel_exterior_reference_after_collection": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "wheel_energy_refused",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 1.0862207210975106e-05,
+        "expected_witness": 0.09675095075965742,
+        "count_score": 0.09657942353803445,
+        "count_radius": 0.0014472260060988604,
+        "model_and_dyadic_radius": 0.0015489835217840275,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          0.09358318,
+          0.09957567
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              757105521,
+              833580961,
+              673734511,
+              793057802,
+              33828819978,
+              0,
+              4062501383293,
+              277375589028590
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              835003792,
+              755801894,
+              772546475,
+              694211133,
+              33828935532,
+              0,
+              4062499994534,
+              277375590217296
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              278205557,
+              1312486870,
+              282132981,
+              1184650874,
+              33828503493,
+              0,
+              4062502184014,
+              277375588546867
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              769549664,
+              847528675,
+              661320660,
+              779080845,
+              33828520876,
+              0,
+              4062503644186,
+              277375587065750
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              848998107,
+              768050890,
+              758521594,
+              681902476,
+              33828525332,
+              0,
+              4062503695277,
+              277375587016980
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              282269139,
+              1334758186,
+              278031841,
+              1162360810,
+              33828681879,
+              0,
+              4062505281865,
+              277375585326936
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              710945405,
+              808980081,
+              719820583,
+              817616233,
+              33828425107,
+              0,
+              4062501571316,
+              277375589351931
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              801014046,
+              719040180,
+              806474710,
+              731028714,
+              33828629649,
+              0,
+              4062502249455,
+              277375588273902
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              279516130,
+              1240491277,
+              280806314,
+              1256590181,
+              33828791045,
+              0,
+              4062499488886,
+              277375591026823
+            ]
+          }
+        ]
+      },
+      "wheel_current_after_collection": {
+        "originals_per_apparatus": 70368744177664,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "wheel_energy_refused",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          125829168,
+          116434083,
+          126872172,
+          115424878,
+          71886188,
+          67995188,
+          73038464,
+          66835887,
+          8457382647,
+          0,
+          1015624834396,
+          69343897644593
+        ],
+        "independent_material_counts": [
+          72984776,
+          70941162,
+          340670035,
+          43211122,
+          40875877,
+          195700748,
+          8457199204,
+          0,
+          1015625726395,
+          69343896868345
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 6.886471984589533e-06,
+            "short_long_outside_flip_given_gate": [
+              0.5193966792271938,
+              0.5236058044348888
+            ],
+            "agreement_probability_given_gate": 0.4978954373961525,
+            "outward_current_native": -0.016836500830780095,
+            "outside_current_simultaneous_99pct": [
+              -0.0180131,
+              -0.01586849
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.01770105,
+              -0.01603615
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 3.975735226385571e-06,
+            "short_long_outside_flip_given_gate": [
+              0.5139021217245477,
+              0.522221168235236
+            ],
+            "agreement_probability_given_gate": 0.49584047674465587,
+            "outward_current_native": -0.03327618604275311,
+            "outside_current_simultaneous_99pct": [
+              -0.03456322,
+              -0.0315395
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.03458588,
+              -0.03218602
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 1.0862207210975106e-05,
+            "short_long_outside_flip_given_gate": [
+              0.5173855865098131,
+              0.5230990062485013
+            ],
+            "agreement_probability_given_gate": 0.497143290130656,
+            "outward_current_native": -0.022853678954752158,
+            "outside_current_simultaneous_99pct": [
+              -0.02365214,
+              -0.02202306
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.02353885,
+              -0.02229006
+            ]
+          }
+        }
+      }
+    },
+    {
+      "arrival_appointment": 30.8125,
+      "sharp_capture_per_original": 0.015843699515073126,
+      "collector_returns_per_original": 0.0001425608552561341,
+      "joint_heralds_per_million_99pct_first_exterior_setting": [
+        11.7499,
+        11.7521
+      ],
+      "face_reference_after_collection": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0001425608552561341,
+        "expected_witness": -0.011515408097887625,
+        "count_score": -0.011512389771709888,
+        "count_radius": 8.870279708761994e-06,
+        "model_and_dyadic_radius": 4.364475048393139e-06,
+        "apparatus_witness_norm_guard": 2e-11,
+        "simultaneous_99pct": [
+          -0.01152563,
+          -0.01149915
+        ],
+        "settings": [
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "X",
+            "counts": [
+              13897068835,
+              15705681229,
+              4113985918,
+              6410627540,
+              0,
+              4419479612920,
+              277015369734214
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Y",
+            "counts": [
+              12294336705,
+              17308632702,
+              5495517132,
+              5028860333,
+              0,
+              4419483211330,
+              277015366152454
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Z",
+            "counts": [
+              3701954078,
+              25900872465,
+              4567448594,
+              5957296989,
+              0,
+              4419477298016,
+              277015371840514
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "X",
+            "counts": [
+              12386657792,
+              11503702798,
+              5624353060,
+              10612914353,
+              0,
+              4419477153835,
+              277015371928818
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Y",
+            "counts": [
+              13020855892,
+              10869291514,
+              4768964690,
+              11468191959,
+              0,
+              4419480526814,
+              277015368879787
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Z",
+            "counts": [
+              3604928232,
+              20285144905,
+              4664419828,
+              11572324198,
+              0,
+              4419477672659,
+              277015372220834
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "X",
+            "counts": [
+              6394951936,
+              13033246596,
+              11615965060,
+              9083300881,
+              0,
+              4419476854459,
+              277015372391724
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Y",
+            "counts": [
+              8551281282,
+              10876793198,
+              9238441938,
+              11460793417,
+              0,
+              4419476730262,
+              277015372670559
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Z",
+            "counts": [
+              4259450299,
+              15168458839,
+              4009849043,
+              16689692673,
+              0,
+              4419477383316,
+              277015371876486
+            ]
+          }
+        ]
+      },
+      "wheel_exterior_reference_after_collection": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "wheel_energy_refused",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 1.1750904382851437e-05,
+        "expected_witness": -0.00899852997056385,
+        "count_score": -0.008846913352659566,
+        "count_radius": 0.0013914169721284063,
+        "model_and_dyadic_radius": 0.0015129771108696112,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          -0.01175134,
+          -0.00594249
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              815863122,
+              925597369,
+              687291000,
+              878859558,
+              36819791322,
+              0,
+              4419479338657,
+              277015369969628
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              744421421,
+              997011195,
+              674087722,
+              892118129,
+              36819525298,
+              0,
+              4419474777988,
+              277015374768903
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              276544137,
+              1464910393,
+              269738506,
+              1296401211,
+              36819864729,
+              0,
+              4419481131044,
+              277015368120636
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              826606953,
+              941663131,
+              676562754,
+              862782985,
+              36820028716,
+              0,
+              4419476883676,
+              277015372182441
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              755428052,
+              1012806764,
+              663093425,
+              876214736,
+              36820091395,
+              0,
+              4419478527139,
+              277015370549145
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              279811562,
+              1488448862,
+              266516384,
+              1272931415,
+              36820109930,
+              0,
+              4419477244201,
+              277015371648302
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              743718989,
+              901206239,
+              759407613,
+              903242661,
+              36819733638,
+              0,
+              4419477208002,
+              277015372193514
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              699630524,
+              945289717,
+              718869699,
+              943843321,
+              36819608582,
+              0,
+              4419477565991,
+              277015371902822
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              274350802,
+              1370531103,
+              271925614,
+              1390787300,
+              36819441291,
+              0,
+              4419477066353,
+              277015372608193
+            ]
+          }
+        ]
+      },
+      "wheel_current_after_collection": {
+        "originals_per_apparatus": 70368744177664,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "wheel_energy_refused",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          118355753,
+          109072644,
+          121093234,
+          106328683,
+          98194270,
+          87822714,
+          97671355,
+          88355642,
+          9204641052,
+          0,
+          1104869339391,
+          69253843302926
+        ],
+        "independent_material_counts": [
+          70951745,
+          65408174,
+          318470004,
+          55237874,
+          56280833,
+          260543084,
+          9204990746,
+          0,
+          1104868628068,
+          69253843667136
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 6.463945681851661e-06,
+            "short_long_outside_flip_given_gate": [
+              0.5203977174013884,
+              0.5325198246545624
+            ],
+            "agreement_probability_given_gate": 0.493938946373413,
+            "outward_current_native": -0.04848842901269601,
+            "outside_current_simultaneous_99pct": [
+              -0.04933091,
+              -0.04707781
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.0496342,
+              -0.04787163
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 5.286958700999773e-06,
+            "short_long_outside_flip_given_gate": [
+              0.5278733248844646,
+              0.5250442171714861
+            ],
+            "agreement_probability_given_gate": 0.5014145538564893,
+            "outward_current_native": 0.011316430851913974,
+            "outside_current_simultaneous_99pct": [
+              0.0100746,
+              0.01262901
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              0.01020671,
+              0.01221879
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 1.1750904382851437e-05,
+            "short_long_outside_flip_given_gate": [
+              0.5237611375042347,
+              0.5291564045517158
+            ],
+            "agreement_probability_given_gate": 0.49730236647625947,
+            "outward_current_native": -0.0215810681899244,
+            "outside_current_simultaneous_99pct": [
+              -0.02219222,
+              -0.02062437
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.02237329,
+              -0.02116917
+            ]
+          }
+        }
+      },
+      "face_scrambled_reference": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0001425608552561341,
+        "expected_witness": 0.2658149981561363,
+        "count_score": 0.26581337408898337,
+        "count_radius": 8.870294104474249e-06,
+        "model_and_dyadic_radius": 4.364475048393139e-06,
+        "apparatus_witness_norm_guard": 2e-11,
+        "simultaneous_99pct": [
+          0.26580013,
+          0.26582661
+        ],
+        "settings": [
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "X",
+            "counts": [
+              14801301686,
+              14801295051,
+              5262131142,
+              5262365560,
+              0,
+              4419481715851,
+              277015367901366
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Y",
+            "counts": [
+              14801435077,
+              14801441554,
+              5262203103,
+              5262289109,
+              0,
+              4419482200294,
+              277015367141519
+            ]
+          },
+          {
+            "receiving_face_axis": "X",
+            "reference_axis": "Z",
+            "counts": [
+              14801315090,
+              14801386004,
+              5262257926,
+              5262285118,
+              0,
+              4419474975827,
+              277015374490691
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "X",
+            "counts": [
+              11945181783,
+              11945090763,
+              8118530238,
+              8118528948,
+              0,
+              4419478839135,
+              277015370539789
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Y",
+            "counts": [
+              11945152255,
+              11945262497,
+              8118476312,
+              8118458777,
+              0,
+              4419481166927,
+              277015368193888
+            ]
+          },
+          {
+            "receiving_face_axis": "Y",
+            "reference_axis": "Z",
+            "counts": [
+              11945170389,
+              11945078159,
+              8118543008,
+              8118575555,
+              0,
+              4419481767332,
+              277015367576213
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "X",
+            "counts": [
+              9714061721,
+              9714009883,
+              10349570807,
+              10349599807,
+              0,
+              4419479564973,
+              277015369903465
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Y",
+            "counts": [
+              9713998965,
+              9713961018,
+              10349507606,
+              10349451532,
+              0,
+              4419483841115,
+              277015365950420
+            ]
+          },
+          {
+            "receiving_face_axis": "Z",
+            "reference_axis": "Z",
+            "counts": [
+              9713911183,
+              9714080477,
+              10349750003,
+              10349577396,
+              0,
+              4419478918197,
+              277015370473400
+            ]
+          }
+        ]
+      },
+      "exterior_scrambled_reference": {
+        "originals_per_setting": 281474976710656,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "wheel_energy_refused",
+          "collector_refused",
+          "rest_filter_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 1.1750904382851437e-05,
+        "expected_witness": 0.20771684400591509,
+        "count_score": 0.20738475140001864,
+        "count_radius": 0.0013914219336673285,
+        "model_and_dyadic_radius": 0.0015129771108696112,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          0.20448032,
+          0.21028918
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              870727059,
+              870727714,
+              783080752,
+              783132583,
+              36819551473,
+              0,
+              4419476101340,
+              277015373389735
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              870680675,
+              870714572,
+              783103999,
+              783119246,
+              36820015424,
+              0,
+              4419480941821,
+              277015368134919
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              870725433,
+              870717250,
+              783101995,
+              783085102,
+              36819644287,
+              0,
+              4419475158728,
+              277015374277861
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              884144279,
+              884103051,
+              769708195,
+              769732765,
+              36819805641,
+              0,
+              4419478993048,
+              277015370223677
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              884125273,
+              884093528,
+              769734006,
+              769711825,
+              36819892461,
+              0,
+              4419475800029,
+              277015373353534
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              884085966,
+              884108144,
+              769728206,
+              769675946,
+              36819789245,
+              0,
+              4419479971435,
+              277015369351714
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              822434596,
+              822460401,
+              831330395,
+              831325786,
+              36819667522,
+              0,
+              4419477844320,
+              277015371647636
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              822482421,
+              822423176,
+              831387107,
+              831332375,
+              36819547533,
+              0,
+              4419477812509,
+              277015371725535
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              822413643,
+              822425330,
+              831368432,
+              831414817,
+              36819656319,
+              0,
+              4419475064504,
+              277015374367611
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

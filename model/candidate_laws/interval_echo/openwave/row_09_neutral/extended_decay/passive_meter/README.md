@@ -18,6 +18,22 @@ A second experiment sampled the work done on the meter through the E–F contact
 
 The common current half-width includes a simultaneous 99% bound on sampling at all four arms and the composite midpoint error T Δt² ‖[H,[H,i[H,D]]]‖/24. The endpoint readouts have their own simultaneous 99% counting intervals. Local contact power supplies an independent measurement of how much energy entered the meter through ordinary evolution. The declared static Hamiltonian and the exact 64-word sector bound this conclusion. The apparatus selects its gap and geometry. The result establishes passive reception in a finite material. A free daughter’s mass, weak interaction and identity between different materials require additional records. [Power protocol](POWER.md) · [Power circuit](power.py) · [All power counts](power_counts.json)
 
+## How much of the signal belongs to the calorimeter?
+
+Two spectator contacts on the receiving dimer set its energy gap. Both are native written memories coupled to fixed exterior units. Equal contact costs reproduce the original meter. Raising either cost by one exchange unit gives the same isolated Ramsey gap, $\sqrt{2}$, for opposite bias directions. All mounts use the same five-dimer input, parent pulse, source-to-receiver contact and read time. The meter starts in its own calibrated ground state. The table gives computed probabilities over **all launches** at 32 exchange times. The settings, controls, and comparisons were specified locally before computing these flights. The performance of the original meter was known. [Design](DETUNING.md) · [Complete joint laws and Ramsey quadratures](detuning.json)
+
+| Receiver contact costs | Pulse excess in hot probability over idle | Lower heavy core and hot meter after pulse | Largest total hot probability in any control |
+| --- | ---: | ---: | ---: |
+| 32, 32 | 54.9657 percentage points | 46.0134% | 16.5330% |
+| 33, 32 | 0.2587 percentage points | 1.2012% | 4.1444% |
+| 32, 33 | 6.1521 percentage points | 5.7112% | 14.2204% |
+
+The upstream cut erased the pulse excess for every meter. The last bias direction clears the one-point marginal contrast. Only the equal-cost meter clears the stronger comparison between its joint yield and every control's total heating. The detuned meters consequently give no second calibrated gap at which that comparison establishes excess joint events.
+
+The difference between the two equal-gap meters tests an interpretation of the measured excess. The capture interaction is $-P_E\otimes n_F$, where $P_E$ is the occupation of the incident source rail and $n_F$ the meter's first-rail occupation. In weak absorption, the leading excitation probability from a cold meter is proportional to
+$|\langle 1|n_F|0\rangle|^2\,\|\int_0^t e^{i\Delta s} P_E(s)|\psi\rangle\,ds\|^2$.
+Here $P_E(s)$ evolves under the five-dimer Hamiltonian with the meter disconnected. Both bias directions have the same gap $\Delta$ and the same squared matrix element $1/8$. The leading weak-absorption prediction is therefore identical for each of the two receivers on any common input. Their pulse excesses differ by 5.8934 points at the full native contact. Detector orientation and its interaction with the source affect the reading beyond this weak-absorption description. Both meter levels stay in the same one-load sector. That charge accounting belongs to the receiver. The energy and electric charge of a freely emitted daughter remain unresolved. [Native generator and all flight settings](detuning.py) · [Direct propagation and matrix-element checks](test_detuning.py)
+
 Run from the repository root.
 
 ~~~sh
@@ -25,7 +41,8 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 p=model.candidate_laws.interval_echo.openwave.row_09_neutral.extended_decay.passive_meter
 python -Bm "$p.calorimeter"
 python -Bm "$p.power"
-python -Bm pytest -q --pyargs "$p.test_meter"
+python -Bm "$p.detuning"
+python -Bm pytest -q --pyargs "$p.test_meter" "$p.test_detuning"
 ~~~
 
-Both modules accept `--acquire PATH` to generate the complete simulation record for that instrument.
+Each of the three measurement modules accepts `--acquire PATH` to generate its complete simulation record.

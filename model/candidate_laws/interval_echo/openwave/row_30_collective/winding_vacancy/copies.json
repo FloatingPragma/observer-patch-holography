@@ -1,0 +1,1066 @@
+{
+  "contact_speed": 1.4142068119517104,
+  "contrast_one_trace_range": [
+    1.9999999999999973,
+    2.0000000000000018
+  ],
+  "contrast_one_wedge_residual": 6.556121636041912e-14,
+  "controls": {
+    "dephased_max_contrast": 0.0015028661377339304,
+    "equal_side": -0.26636319785123935,
+    "mismatched_momenta": 3.764765678271771,
+    "uniform_shift_local_read_max_error": 1.2212453270876722e-15
+  },
+  "counts_sha256": "6fd7a9b998f83d8a681c8a9db0cda65c5edbc36e61fb8f496bc5c15875079511",
+  "curvature_matched_one_hop_max_recoil_error": 0.14260990659459827,
+  "dyadic_times": [
+    0.03125,
+    0.0625,
+    0.125,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0,
+    64.0,
+    128.0,
+    256.0,
+    512.0,
+    1024.0,
+    2048.0,
+    4096.0,
+    8192.0
+  ],
+  "finite_grid_max_upper_secant": 0.49984094240255617,
+  "held_continuum_max_error": 10.821441468443956,
+  "held_continuum_pass_indices": [
+    3,
+    4
+  ],
+  "held_lattice_invariant_max_error": 7.653999552470481e-05,
+  "held_lattice_max_including_intervals": 0.0026689701523358047,
+  "host_rest_lattice_invariant_max_error": 8.988890461061118,
+  "inverse_kinetic_mass": 0.5714824948802152,
+  "inverse_mass_count_radius": 0.00024751850731547127,
+  "kinetic_mass": 1.7498348750115322,
+  "max_product_residual": 5.244514413885353e-13,
+  "max_wedge_residual": 5.244753768635992e-13,
+  "meter_intervals": {
+    "blank": [
+      0.499838025825948,
+      0.5001544672657963
+    ],
+    "even": [
+      3.9999622747966046,
+      4.000021408229431
+    ]
+  },
+  "native_scalar_two_range_odd_max_error": 0.0010262789146420204,
+  "packet_centroids": [
+    {
+      "bulk_point_speed": 0.49415467904604415,
+      "exact_speed": 0.4637358686598164,
+      "max_boundary_weight": 8.823450802847052e-14,
+      "q": -1.6,
+      "sampled_speed": 0.463737618923186
+    },
+    {
+      "bulk_point_speed": 0.49462035856429465,
+      "exact_speed": 0.46716387285181293,
+      "max_boundary_weight": 1.3277085874169728e-13,
+      "q": -1.3,
+      "sampled_speed": 0.4673037528991683
+    },
+    {
+      "bulk_point_speed": -0.49462035856429465,
+      "exact_speed": -0.46716387285185185,
+      "max_boundary_weight": 1.3323121755412875e-13,
+      "q": 1.3,
+      "sampled_speed": -0.4670517206192028
+    },
+    {
+      "bulk_point_speed": -0.49415467904604415,
+      "exact_speed": -0.46373586865983873,
+      "max_boundary_weight": 8.83404471722015e-14,
+      "q": 1.6,
+      "sampled_speed": -0.46388992071151913
+    }
+  ],
+  "paired_frequency_radius": 4.887813790957966e-07,
+  "planted_two_range_odd_max_error": 9.32498593897435e-08,
+  "protocol_sha256": "c3e68ac395ae8a7b397a73496617cfb5bac4c94d2c73f463d6effdaf1d5c720a",
+  "recoil_consistency_max_error": 1.8475901192305244e-07,
+  "recoil_frequency_radius": 4.887774608146947e-07,
+  "reference_traces": [
+    8.999999999999993,
+    9.000000000000007
+  ],
+  "rest": 3.4999999993787685,
+  "rest_and_curvature_speed": 1.4142802875405323,
+  "rows": [
+    {
+      "energy": 3.4999999993787685,
+      "foil_energy": 3.500000036634978,
+      "index": 0,
+      "min_joint_visibility": 0.9986841664991718,
+      "q": 0.0,
+      "recoil": 0.0,
+      "reference_index": 21,
+      "spatial": {
+        "known_stationary_carrier": true
+      },
+      "unwrap_margin": 2.9145445924883235
+    },
+    {
+      "energy": 3.5015975576061718,
+      "foil_energy": 3.500700451598846,
+      "index": 1,
+      "min_joint_visibility": 0.9997204325262149,
+      "q": 0.07479982508547127,
+      "recoil": 0.0015975782653125446,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          1
+        ],
+        "best_index": 1,
+        "best_rms": 9.9534337934646e-07,
+        "runner_up_rms": 0.010805015002335095
+      },
+      "unwrap_margin": 2.9154359128925487
+    },
+    {
+      "energy": 3.5063765902581934,
+      "foil_energy": 3.502814751073421,
+      "index": 2,
+      "min_joint_visibility": 0.9991619068784732,
+      "q": 0.14959965017094254,
+      "recoil": 0.006376537460594945,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          2
+        ],
+        "best_index": 2,
+        "best_rms": 9.43298528511677e-07,
+        "runner_up_rms": 0.014194723694114472
+      },
+      "unwrap_margin": 2.9145395378394565
+    },
+    {
+      "energy": 3.514297703722355,
+      "foil_energy": 3.5063811909754103,
+      "index": 3,
+      "min_joint_visibility": 0.9990198303976289,
+      "q": 0.2243994752564138,
+      "recoil": 0.014297764201123699,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          3
+        ],
+        "best_index": 3,
+        "best_rms": 8.538317267105177e-07,
+        "runner_up_rms": 0.01540079987196053
+      },
+      "unwrap_margin": 2.914772392766662
+    },
+    {
+      "energy": 3.525295595168054,
+      "foil_energy": 3.5114620719277156,
+      "index": 4,
+      "min_joint_visibility": 0.9986248137470854,
+      "q": 0.2991993003418851,
+      "recoil": 0.025295588956116825,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          4
+        ],
+        "best_index": 4,
+        "best_rms": 1.2479465552841475e-06,
+        "runner_up_rms": 0.016056677909057862
+      },
+      "unwrap_margin": 2.912813472227404
+    },
+    {
+      "energy": 3.5392802330435216,
+      "foil_energy": 3.5181416581620217,
+      "index": 5,
+      "min_joint_visibility": 0.9987604238607457,
+      "q": 0.3739991254273563,
+      "recoil": 0.03928028303069676,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          5
+        ],
+        "best_index": 5,
+        "best_rms": 1.1991362825294437e-06,
+        "runner_up_rms": 0.01648735211341533
+      },
+      "unwrap_margin": 2.912293517847763
+    },
+    {
+      "energy": 3.556139029851802,
+      "foil_energy": 3.526523095273446,
+      "index": 6,
+      "min_joint_visibility": 0.9989019168451004,
+      "q": 0.4487989505128276,
+      "recoil": 0.0561390746125618,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          6
+        ],
+        "best_index": 6,
+        "best_rms": 7.765687161515038e-07,
+        "runner_up_rms": 0.01679986701995256
+      },
+      "unwrap_margin": 2.9124574289074814
+    },
+    {
+      "energy": 3.575737466997171,
+      "foil_energy": 3.53672453359697,
+      "index": 7,
+      "min_joint_visibility": 0.9985247546205965,
+      "q": 0.5235987755982988,
+      "recoil": 0.075737413070422,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          7
+        ],
+        "best_index": 7,
+        "best_rms": 1.1332506575788063e-06,
+        "runner_up_rms": 0.017039919981192288
+      },
+      "unwrap_margin": 2.9093751677239283
+    },
+    {
+      "energy": 3.5979223171711636,
+      "foil_energy": 3.5488751053109038,
+      "index": 8,
+      "min_joint_visibility": 0.9995438409767808,
+      "q": 0.5983986006837702,
+      "recoil": 0.09792234289419666,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          8
+        ],
+        "best_index": 8,
+        "best_rms": 1.2400215098735455e-06,
+        "runner_up_rms": 0.017230688181272127
+      },
+      "unwrap_margin": 2.9081349953881377
+    },
+    {
+      "energy": 3.6225231538295004,
+      "foil_energy": 3.5631096467526406,
+      "index": 9,
+      "min_joint_visibility": 0.9986471879764677,
+      "q": 0.6731984257692414,
+      "recoil": 0.12252309973174076,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          9
+        ],
+        "best_index": 9,
+        "best_rms": 1.0989414651107901e-06,
+        "runner_up_rms": 0.01738358819836147
+      },
+      "unwrap_margin": 2.9072472524914117
+    },
+    {
+      "energy": 3.6493550827486585,
+      "foil_energy": 3.579564028752977,
+      "index": 10,
+      "min_joint_visibility": 0.9992516702299318,
+      "q": 0.7479982508547126,
+      "recoil": 0.1493550451642743,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          10
+        ],
+        "best_index": 10,
+        "best_rms": 1.2005348887144855e-06,
+        "runner_up_rms": 0.0175062919790264
+      },
+      "unwrap_margin": 2.9049669636322966
+    },
+    {
+      "energy": 3.6782208990886938,
+      "foil_energy": 3.598368907499335,
+      "index": 11,
+      "min_joint_visibility": 0.998899762784418,
+      "q": 0.8227980759401838,
+      "recoil": 0.17822092491522365,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          11
+        ],
+        "best_index": 11,
+        "best_rms": 1.1921042558342826e-06,
+        "runner_up_rms": 0.017564002821028428
+      },
+      "unwrap_margin": 2.9041592621016554
+    },
+    {
+      "energy": 3.7089136824689035,
+      "foil_energy": 3.6196443424103952,
+      "index": 12,
+      "min_joint_visibility": 0.9989557627233797,
+      "q": 0.8975979010256552,
+      "recoil": 0.20891369659080503,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          12
+        ],
+        "best_index": 12,
+        "best_rms": 1.0161994089386451e-06,
+        "runner_up_rms": 0.01754506933535425
+      },
+      "unwrap_margin": 2.9024519575918575
+    },
+    {
+      "energy": 3.7412189676413616,
+      "foil_energy": 3.643494130930647,
+      "index": 13,
+      "min_joint_visibility": 0.9990876764337693,
+      "q": 0.9723977261111265,
+      "recoil": 0.24121892506092094,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          13
+        ],
+        "best_index": 13,
+        "best_rms": 1.1260307867772639e-06,
+        "runner_up_rms": 0.017543415001881356
+      },
+      "unwrap_margin": 2.8994495725978586
+    },
+    {
+      "energy": 3.7749171919001365,
+      "foil_energy": 3.6699999906210965,
+      "index": 14,
+      "min_joint_visibility": 0.99906218631557,
+      "q": 1.0471975511965976,
+      "recoil": 0.27491730225242056,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          14
+        ],
+        "best_index": 14,
+        "best_rms": 1.0379649411631875e-06,
+        "runner_up_rms": 0.01755583846805087
+      },
+      "unwrap_margin": 2.8980656191474954
+    },
+    {
+      "energy": 3.809785374750717,
+      "foil_energy": 3.699216830998669,
+      "index": 15,
+      "min_joint_visibility": 0.9987633652350517,
+      "q": 1.121997376282069,
+      "recoil": 0.30978535658310014,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          15
+        ],
+        "best_index": 15,
+        "best_rms": 1.4561064106140505e-06,
+        "runner_up_rms": 0.017579317263934024
+      },
+      "unwrap_margin": 2.895728657256065
+    },
+    {
+      "energy": 3.845599583155062,
+      "foil_energy": 3.7311672661064805,
+      "index": 16,
+      "min_joint_visibility": 0.9989301486512581,
+      "q": 1.1967972013675403,
+      "recoil": 0.34559955947317716,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          16
+        ],
+        "best_index": 16,
+        "best_rms": 1.050833713774378e-06,
+        "runner_up_rms": 0.017611034134249248
+      },
+      "unwrap_margin": 2.8936627042889396
+    },
+    {
+      "energy": 3.8821360156042104,
+      "foil_energy": 3.7658378635963814,
+      "index": 17,
+      "min_joint_visibility": 0.999166403875216,
+      "q": 1.2715970264530116,
+      "recoil": 0.3821358989746775,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          17
+        ],
+        "best_index": 17,
+        "best_rms": 1.4458703909838332e-06,
+        "runner_up_rms": 0.017648358093628795
+      },
+      "unwrap_margin": 2.89098555886305
+    },
+    {
+      "energy": 3.9191728408948383,
+      "foil_energy": 3.803175092893771,
+      "index": 18,
+      "min_joint_visibility": 0.9992484884562632,
+      "q": 1.3463968515384828,
+      "recoil": 0.41917302627508174,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          18
+        ],
+        "best_index": 18,
+        "best_rms": 1.2193332423810217e-06,
+        "runner_up_rms": 0.01768765303594443
+      },
+      "unwrap_margin": 2.88828622325193
+    },
+    {
+      "energy": 3.956492276110848,
+      "foil_energy": 3.843082585945168,
+      "index": 19,
+      "min_joint_visibility": 0.9992888439505903,
+      "q": 1.4211966766239539,
+      "recoil": 0.456492184848035,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          19
+        ],
+        "best_index": 19,
+        "best_rms": 1.1885080111337587e-06,
+        "runner_up_rms": 0.017727648432335062
+      },
+      "unwrap_margin": 2.885681146436354
+    },
+    {
+      "energy": 3.993880222452821,
+      "foil_energy": 3.8854198785199774,
+      "index": 20,
+      "min_joint_visibility": 0.9989792554104614,
+      "q": 1.4959965017094252,
+      "recoil": 0.49388019991030335,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          20
+        ],
+        "best_index": 20,
+        "best_rms": 1.1932867240646644e-06,
+        "runner_up_rms": 0.017711306371280197
+      },
+      "unwrap_margin": 2.8835987608865254
+    },
+    {
+      "energy": 4.031128926323041,
+      "foil_energy": 3.92999995047744,
+      "index": 21,
+      "min_joint_visibility": 0.9985786694801886,
+      "q": 1.5707963267948966,
+      "recoil": 0.5311288900866135,
+      "reference_index": 14,
+      "spatial": {
+        "accepted_indices": [
+          21
+        ],
+        "best_index": 21,
+        "best_rms": 1.2557518325214973e-06,
+        "runner_up_rms": 0.01767411931771966
+      },
+      "unwrap_margin": 2.8816692158494335
+    },
+    {
+      "energy": 4.06803648555915,
+      "foil_energy": 3.9765905878976704,
+      "index": 22,
+      "min_joint_visibility": 0.9988516831379938,
+      "q": 1.6455961518803677,
+      "recoil": 0.5680364195897729,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          22
+        ],
+        "best_index": 22,
+        "best_rms": 1.234785813020662e-06,
+        "runner_up_rms": 0.01763475090480156
+      },
+      "unwrap_margin": 2.878758477384516
+    },
+    {
+      "energy": 4.104408453471372,
+      "foil_energy": 4.024914219224312,
+      "index": 23,
+      "min_joint_visibility": 0.9990668056695884,
+      "q": 1.720395976965839,
+      "recoil": 0.6044085727648703,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          23
+        ],
+        "best_index": 23,
+        "best_rms": 1.25902840400122e-06,
+        "runner_up_rms": 0.017594553839164338
+      },
+      "unwrap_margin": 2.8770033905046595
+    },
+    {
+      "energy": 4.140058422906752,
+      "foil_energy": 4.074650534976283,
+      "index": 24,
+      "min_joint_visibility": 0.9989425697264851,
+      "q": 1.7951958020513104,
+      "recoil": 0.6400583292857935,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          24
+        ],
+        "best_index": 24,
+        "best_rms": 1.1372238508158336e-06,
+        "runner_up_rms": 0.017556762520677328
+      },
+      "unwrap_margin": 2.8757396638728463
+    },
+    {
+      "energy": 4.1748079110591565,
+      "foil_energy": 4.125439216399975,
+      "index": 25,
+      "min_joint_visibility": 0.9994225385640777,
+      "q": 1.8699956271367817,
+      "recoil": 0.6748079156704238,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          25
+        ],
+        "best_index": 25,
+        "best_rms": 9.727450149657559e-07,
+        "runner_up_rms": 0.017522746954664655
+      },
+      "unwrap_margin": 2.873129043498625
+    },
+    {
+      "energy": 4.20848717715729,
+      "foil_energy": 4.176883340318015,
+      "index": 26,
+      "min_joint_visibility": 0.9990469172514499,
+      "q": 1.944795452222253,
+      "recoil": 0.7084871185618518,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          26
+        ],
+        "best_index": 26,
+        "best_rms": 1.284112423563451e-06,
+        "runner_up_rms": 0.017494847091326458
+      },
+      "unwrap_margin": 2.8706695175525443
+    },
+    {
+      "energy": 4.240935641727441,
+      "foil_energy": 4.228554966492885,
+      "index": 27,
+      "min_joint_visibility": 0.9993970821632814,
+      "q": 2.019595277307724,
+      "recoil": 0.7409356005514426,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          27
+        ],
+        "best_index": 27,
+        "best_rms": 8.806410195231562e-07,
+        "runner_up_rms": 0.017474973147337855
+      },
+      "unwrap_margin": 2.8687045504645208
+    },
+    {
+      "energy": 4.272001885996295,
+      "foil_energy": 4.280000001336889,
+      "index": 28,
+      "min_joint_visibility": 0.9990436013416594,
+      "q": 2.0943951023931953,
+      "recoil": 0.7720018519386186,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          28
+        ],
+        "best_index": 28,
+        "best_rms": 7.921750977364176e-07,
+        "runner_up_rms": 0.01746606140071235
+      },
+      "unwrap_margin": 2.867091344554273
+    },
+    {
+      "energy": 4.301543969564713,
+      "foil_energy": 4.330744533332487,
+      "index": 29,
+      "min_joint_visibility": 0.999135991765148,
+      "q": 2.169194927478667,
+      "recoil": 0.8015439560897082,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          29
+        ],
+        "best_index": 29,
+        "best_rms": 1.0894857248222716e-06,
+        "runner_up_rms": 0.017469536935627476
+      },
+      "unwrap_margin": 2.8662087112273573
+    },
+    {
+      "energy": 4.329429485427242,
+      "foil_energy": 4.380301898164379,
+      "index": 30,
+      "min_joint_visibility": 0.9986975097088862,
+      "q": 2.243994752564138,
+      "recoil": 0.8294294374522285,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          30
+        ],
+        "best_index": 30,
+        "best_rms": 1.0298586461047955e-06,
+        "runner_up_rms": 0.017488705846829548
+      },
+      "unwrap_margin": 2.863273688024224
+    },
+    {
+      "energy": 4.355535663130311,
+      "foil_energy": 4.428179574353802,
+      "index": 31,
+      "min_joint_visibility": 0.9988155566410172,
+      "q": 2.318794577649609,
+      "recoil": 0.8555357234923614,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          31
+        ],
+        "best_index": 31,
+        "best_rms": 9.472501793451647e-07,
+        "runner_up_rms": 0.01752545207019528
+      },
+      "unwrap_margin": 2.860136185370198
+    },
+    {
+      "energy": 4.379749634398939,
+      "foil_energy": 4.473887392086422,
+      "index": 32,
+      "min_joint_visibility": 0.9993581752993754,
+      "q": 2.3935944027350806,
+      "recoil": 0.8797496293852592,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          32
+        ],
+        "best_index": 32,
+        "best_rms": 1.0143506227277783e-06,
+        "runner_up_rms": 0.017465105075926336
+      },
+      "unwrap_margin": 2.8600002384191585
+    },
+    {
+      "energy": 4.401968371993305,
+      "foil_energy": 4.516944119570905,
+      "index": 33,
+      "min_joint_visibility": 0.9992498347679283,
+      "q": 2.4683942278205517,
+      "recoil": 0.9019684018769782,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          33
+        ],
+        "best_index": 33,
+        "best_rms": 1.0256881668667708e-06,
+        "runner_up_rms": 0.0173347448269737
+      },
+      "unwrap_margin": 2.857646549324239
+    },
+    {
+      "energy": 4.422098527636207,
+      "foil_energy": 4.556886389794267,
+      "index": 34,
+      "min_joint_visibility": 0.9987274357844074,
+      "q": 2.5431940529060233,
+      "recoil": 0.9220985010283822,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          34
+        ],
+        "best_index": 34,
+        "best_rms": 1.0627784482212564e-06,
+        "runner_up_rms": 0.017176796596110478
+      },
+      "unwrap_margin": 2.85699785996779
+    },
+    {
+      "energy": 4.440056490074427,
+      "foil_energy": 4.593275466587705,
+      "index": 35,
+      "min_joint_visibility": 0.9993987255868659,
+      "q": 2.617993877991494,
+      "recoil": 0.9400564801825194,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          35
+        ],
+        "best_index": 35,
+        "best_rms": 1.0738611860387488e-06,
+        "runner_up_rms": 0.0169846751805282
+      },
+      "unwrap_margin": 2.855742733224323
+    },
+    {
+      "energy": 4.455768773836563,
+      "foil_energy": 4.625705108156632,
+      "index": 36,
+      "min_joint_visibility": 0.9992200228937888,
+      "q": 2.6927937030769655,
+      "recoil": 0.9557687741225819,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          36
+        ],
+        "best_index": 36,
+        "best_rms": 9.935193219238804e-07,
+        "runner_up_rms": 0.016746113978513767
+      },
+      "unwrap_margin": 2.8549531864660453
+    },
+    {
+      "energy": 4.469171604563205,
+      "foil_energy": 4.653807631909078,
+      "index": 37,
+      "min_joint_visibility": 0.9988683692078343,
+      "q": 2.767593528162437,
+      "recoil": 0.9691715620730026,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          37
+        ],
+        "best_index": 37,
+        "best_rms": 1.3888955121302044e-06,
+        "runner_up_rms": 0.016438384654024415
+      },
+      "unwrap_margin": 2.8543425170349472
+    },
+    {
+      "energy": 4.480211056573352,
+      "foil_energy": 4.677260858735051,
+      "index": 38,
+      "min_joint_visibility": 0.9987755285037528,
+      "q": 2.8423933532479078,
+      "recoil": 0.9802109650793581,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          38
+        ],
+        "best_index": 38,
+        "best_rms": 1.1064414430906298e-06,
+        "runner_up_rms": 0.016015196958692805
+      },
+      "unwrap_margin": 2.853588337793834
+    },
+    {
+      "energy": 4.488843003432365,
+      "foil_energy": 4.695793263580808,
+      "index": 39,
+      "min_joint_visibility": 0.998889696222421,
+      "q": 2.9171931783333793,
+      "recoil": 0.988843006841559,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          39
+        ],
+        "best_index": 39,
+        "best_rms": 1.3026099249120745e-06,
+        "runner_up_rms": 0.015367970920941205
+      },
+      "unwrap_margin": 2.8529549382567803
+    },
+    {
+      "energy": 4.495033118596574,
+      "foil_energy": 4.709188379793594,
+      "index": 40,
+      "min_joint_visibility": 0.9985738513831552,
+      "q": 2.9919930034188504,
+      "recoil": 0.9950331488567776,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          40
+        ],
+        "best_index": 40,
+        "best_rms": 1.2673183727330702e-06,
+        "runner_up_rms": 0.014172056278784689
+      },
+      "unwrap_margin": 2.853111538285672
+    },
+    {
+      "energy": 4.498757059301947,
+      "foil_energy": 4.717289126038196,
+      "index": 41,
+      "min_joint_visibility": 0.9987611483310171,
+      "q": 3.0667928285043216,
+      "recoil": 0.9987571022027417,
+      "reference_index": 21,
+      "spatial": {
+        "accepted_indices": [
+          41
+        ],
+        "best_index": 41,
+        "best_rms": 1.2800646928089292e-06,
+        "runner_up_rms": 0.010792585200360355
+      },
+      "unwrap_margin": 2.8531192309479554
+    }
+  ],
+  "shots_per_joint_bank": 4194304,
+  "stock": {
+    "donor_clearance": [
+      34,
+      26
+    ],
+    "donors": [
+      2040,
+      2843
+    ],
+    "even_rotations_to_reachable_ingress": [
+      2,
+      0
+    ],
+    "exterior_cuts": 607,
+    "held_endpoint_bypasses_checked": 82,
+    "ingress_shutters": [
+      [
+        148,
+        146
+      ],
+      [
+        388,
+        386
+      ]
+    ],
+    "longest_borrowed_phase_path": 62,
+    "off_route_phase": 0,
+    "prep_access_biconnected": false,
+    "routes": [
+      [
+        146,
+        147,
+        152,
+        82,
+        74,
+        75,
+        876,
+        877,
+        884,
+        910,
+        902,
+        903,
+        888,
+        889,
+        896,
+        1366,
+        1358,
+        1359,
+        1488,
+        1489,
+        1496,
+        1534,
+        1526,
+        1527,
+        1500,
+        1501,
+        1508,
+        1474,
+        1466,
+        1467,
+        3324,
+        3325,
+        3332,
+        3358,
+        3350,
+        3351,
+        3336,
+        3337,
+        3344,
+        3339,
+        3338,
+        3409,
+        3408,
+        3418,
+        3452,
+        3445,
+        3444,
+        3423,
+        3422,
+        3430,
+        3392,
+        3385,
+        3384,
+        1407,
+        1406,
+        1414,
+        1436,
+        1429,
+        1428,
+        1419,
+        1418,
+        1426,
+        836,
+        829,
+        828,
+        927,
+        926,
+        934,
+        956,
+        949,
+        948,
+        939,
+        938,
+        946,
+        800,
+        793,
+        792,
+        15,
+        14,
+        22,
+        12,
+        13
+      ],
+      [
+        386,
+        387,
+        392,
+        586,
+        578,
+        579,
+        612,
+        613,
+        620,
+        610,
+        602,
+        603,
+        744,
+        745,
+        752,
+        694,
+        686,
+        687,
+        708,
+        718,
+        710,
+        697,
+        696,
+        706,
+        740,
+        735,
+        734,
+        637,
+        636,
+        646,
+        663,
+        662,
+        625,
+        624,
+        483,
+        482,
+        1729,
+        1728,
+        1767,
+        1766,
+        1760,
+        1753,
+        1752,
+        1899,
+        1904,
+        1897,
+        1910,
+        1918,
+        1908,
+        1887,
+        1892,
+        1885,
+        1790,
+        1798,
+        1788,
+        3771,
+        3776,
+        3769,
+        3782,
+        3790,
+        3780,
+        3781,
+        3788,
+        3754,
+        3746,
+        3747,
+        1776,
+        1777,
+        1784,
+        442,
+        434,
+        435,
+        468,
+        469,
+        458,
+        459,
+        528,
+        529,
+        398,
+        399,
+        420,
+        421
+      ]
+    ],
+    "second_root": 2784,
+    "sharp_stock_parking": [
+      2041,
+      2832
+    ],
+    "two_vacancy_dimension": 7056,
+    "vacancy_loading_path_lengths": [
+      38,
+      54
+    ]
+  }
+}

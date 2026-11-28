@@ -1,0 +1,3556 @@
+{
+  "protocol_sha256": "69e6ad46bb5387eb0b6c73089fb8ff788d8996c1bb5f96b32cb632ae031a79d8",
+  "immutable_source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "immutable_source_hashes": {
+    "model/particle_common_contract/contract.json": "7617133bb473e37250f31491d5fadf3c4275d7b97a4e8342321d9e108988ed31",
+    "model/particle_primary_charged_string/results.json": "d2b43d798437761904974f1ca622f55ec22e4c1cb0769b2dd0ddcac8a1205a41",
+    "model/particle_primary_charged_readout/results.json": "b70d0f1fb7497619ddea0f73246f8b2d09cc664cdfaa6d94109b6202b1d9d8b6",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/particle_primary_occupation_bound/results.json": "32ae452255a49623857805cb1a8b9039f673a62f378e932df135a28c83db3dab",
+    "Lean/Screen/NeutralCurrentDictionary.lean": "7347c9a16b3176faba38c90545dadeefcd3b58463f2738be506fe58b32291628"
+  },
+  "exterior_dictionary_revision": "3078a56fd1ed0a9c818a5966b2d1efb7e36e72bb",
+  "exterior_dictionary_sha256": "5ac78f566db823f11ebba3aa7d00cb9ce5eac041061eca72bd5991d854dc3737",
+  "endpoint_theorem_sha256": "a9b3ff5618b7099dd15cd210369bfaa4c9c2ee393b5d7bf25b012442d0662c2c",
+  "source_identity": {
+    "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+    "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+    "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+    "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+    "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+  },
+  "same_spinor_modes": {
+    "both_beta_spin_casimirs": [
+      3,
+      4
+    ],
+    "axes_with_half_turn_squared_minus_identity": 3,
+    "opposite_half_turn_orders_on_each_endpoint_have_minus_sign": true,
+    "dimension_of_native_singlet": 1,
+    "position_hopping_coefficient_after_projection": "-1/2",
+    "same_quasiparticle_hopping_coefficient_on_both_charge_signs": true
+  },
+  "actual_directed_bonds_spin_and_native_transfer_decoder": [
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        6,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        6,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        -6,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        -6,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        6,
+        -6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        6,
+        -6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        -6,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        -6,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        6,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        6,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        -6,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        -6,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        3,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        6,
+        -6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        6,
+        -6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        -6,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        -6,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3
+      ]
+    },
+    {
+      "target": [
+        0,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        0,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0,
+        0,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        -6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        -6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        6,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        6,
+        -6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        6,
+        -6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -6,
+        6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -6,
+        6,
+        0,
+        0
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3
+      ]
+    },
+    {
+      "target": [
+        1,
+        0,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        0,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        0
+      ],
+      "source": [
+        1,
+        1,
+        1
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        -6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 0,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -6,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3
+      ]
+    },
+    {
+      "target": [
+        1,
+        1,
+        1
+      ],
+      "source": [
+        1,
+        1,
+        0
+      ],
+      "matched_beta_component": 1,
+      "spinor_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -6,
+        6
+      ],
+      "doublet_particle_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        -3
+      ],
+      "doublet_hole_native_transfer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        3
+      ]
+    }
+  ],
+  "expanded_radix_five_decoder": [
+    0,
+    6,
+    -3,
+    3,
+    -6
+  ],
+  "bigger_meter_or_changed_source_required_for_decoder": false,
+  "reference_setting_phase_exposure_in_pi_units": "1/2",
+  "address_uniformly_chosen_before_string_on_original_bank": 8,
+  "named_endpoint_each_sign_per_original_probability_lower": "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+  "same_energy_interval": [
+    "77/8",
+    "271/8"
+  ],
+  "named_endpoint_each_sign_energy_joint_original_weight_lower": "30783131183/916330926080",
+  "native_string_total_failure_probability_upper": "15092358427080149083431511553299561225571184638650914125103880271843574549708646096379504666138979827671058725080127134576756214098013331104936771253406557086497392291876057276061659309665680870952392604640671666218863501313378818827558987748403788826905520431205040973320943003983406116019647643211496675931962033864838138411543511421263493504135444477544674512194075228358715782943263074227542730975892776094794472209090990342351275355595208192377604877725829495839689625928028848048196892164589864566613700922414257320274563617614209715840735392860755152932643520677336977351216358243658557684559117363488059342753291879219409753793644171989823766584849136688675590145701317516269201793101151296878002377804513113947678360812012175142982316429372931574697222972670311414230125457106812198022486118150277695831892497224762431610259079732446523620055373776708804115546187510550716957581063699838946999471226766975077906221379004068253657051994701371287765348187419096068394454631072108193129/73430180783227994540962747453263059340605830552988101985490923606757678760999634918495648127230721918541150921685519044496799403456317061152651809370513113047709799134894100800470435549632996433853976810620793720316687822726262587317457940549974097159380779775269267201850902587383625459994119205958597306109612554828774462314270720189554136654209028961268624746672266284652778182893802802983392249731420476522053483676813533242967287228513201253640869141449151817706754593649343769468083083008149478315385799862944639437674524136850256549953586416189806254710092463099223705791131473573283222926867484423440004574349916289230368073602940209617746798534656379726848350065613910401148085692692413087188111125099335901394117666388348872818998713466739855468782384750995798750191792315461265291038075705992657160516252458077588882979020029904568840489456315312360597695020968675610315005542280244675894817328969262640595481334685467777739077228769476439997921549083576002101345605480680559476736",
+  "success_off_named_receiver_original_weight_lower": "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/97906907710970659387950329937684079120807774070650802647321231475676905014666179891327530836307629224721534562247358725995732537941756081536869079160684150730279732179858801067293914066177328578471969080827724960422250430301683449756610587399965462879174373033692356269134536783178167279992158941278129741479483406438365949752360960252738848872278705281691499662229688379537037577191737070644522999641893968696071311569084710990623049638017601671521158855265535756942339458199125025957444110677532637753847733150592852583566032182467008733271448554919741672946789950798964941054841964764377630569156645897920006099133221718973824098137253612823662398046208506302464466754151880534864114256923217449584148166799114535192156888517798497091998284622319807291709846334661065000255723087281687054717434274656876214021669944103451843972026706539425120652608420416480796926694624900813753340723040326234526423105292350187460641779580623703652102971692635253330562065444768002801794140640907412635648",
+  "sum_phase_ports_is_same_original_charge_energy_and_idle_reference_channel": true,
+  "same_full_polynomial_source_upper_and_lower_gate": {
+    "original_stock_probability_lower_exact": "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+    "simple_probability_lower": "0.78320864",
+    "same_bound_each_reference_orientation_and_each_beta_sign": true,
+    "full_source_polynomial_preparation_used": true,
+    "uniform_spatial_and_spin_address_average": 48,
+    "original_gate_refusal_probability_upper": "158078522433351211894400482883056932583474244038443098136580726318557855109019573003690859397586992679987437946048386343036474852504246409929909/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+    "retained_weak_doublet_fraction": "13/20",
+    "retained_electric_fraction": "52/315",
+    "original_selected_energy_upper": "-3618526599713/5000000000",
+    "full_fock_schur_shift_upper": "375821351071329021680052637604876258541755228283289085823460708200278183102570653757875011790715937150843603043240432436758977142858008371/35897774733149587591095998085296573626451187913200121258989688566974361566462530507258510161783813457616019891742050025328075098302709760",
+    "weak_doublet_beta_defect_budget_coefficient": "39/20",
+    "electric_Casimir_budget_coefficient": "26/3",
+    "certified_nonconstant_link_margin_lower": "14549641648213228212277/2951479051793528258560",
+    "per_native_block_vacuum_resolvent_enclosures": [
+      {
+        "dimension": 3,
+        "native_transfer": -4,
+        "loss": "251700102046782775233442991018944309852965847/2245094936347954051359172646761809097567240192"
+      },
+      {
+        "dimension": 2,
+        "native_transfer": -3,
+        "loss": "290194657195414906208116947025651030454179867/1603508648574981897912826424814180082793840640"
+      },
+      {
+        "dimension": 6,
+        "native_transfer": 1,
+        "loss": "167450218761020712586058693472778403922753875/1053838728116690615360552023176150901067874304"
+      },
+      {
+        "dimension": 3,
+        "native_transfer": 2,
+        "loss": "125934410855573357462319226231720067391424265/939263218573553466735089638827575827656343552"
+      },
+      {
+        "dimension": 1,
+        "native_transfer": 6,
+        "loss": "29537384588732758802370234419281603174449117/137417480114572820638068600409507295431491584"
+      }
+    ]
+  },
+  "pure_Y_vs_combined_total_variation_lower_per_original_start_by_control": {
+    "upper": "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000",
+    "held_lower": "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+  },
+  "gauge_and_weak_checks": {
+    "local_weak_covariance_identities": 24,
+    "full_fock_rotor_pulse_domain": {
+      "total_weak_fundamental_copies_in_full_receiver_Fock_space": 16,
+      "doubled_weight_spectral_set": [
+        -16,
+        -15,
+        -14,
+        -13,
+        -12,
+        -11,
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "maximum_multiplication_degree_in_each_full_spectator_pulse": 32,
+      "maximum_degree_after_two_pulses_and_one_preparation": 65,
+      "declared_rotor_harmonic_degree": 65,
+      "declared_rotor_finite_dimension": 4356,
+      "admitted_and_emitted_control_column_rotor_dimension": 4,
+      "four_mode_compressed_coordinates_noncommuting": true
+    },
+    "symbolic_car_rotor_controls": [
+      {
+        "direction": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": 1,
+        "spin_component": 0,
+        "signed_native_number_transfers": [
+          3,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "1/2",
+            "-1/2"
+          ],
+          [
+            "-1/2",
+            "-1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": -1,
+        "spin_component": 0,
+        "signed_native_number_transfers": [
+          -3,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "-1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": 1,
+        "spin_component": 1,
+        "signed_native_number_transfers": [
+          3,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "1/2",
+            "-1/2"
+          ],
+          [
+            "-1/2",
+            "-1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": -1,
+        "spin_component": 1,
+        "signed_native_number_transfers": [
+          -3,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "-1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": 1,
+        "spin_component": 0,
+        "signed_native_number_transfers": [
+          -3,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "1/2",
+            "-1/2"
+          ],
+          [
+            "-1/2",
+            "-1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": -1,
+        "spin_component": 0,
+        "signed_native_number_transfers": [
+          3,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "-1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": 1,
+        "spin_component": 1,
+        "signed_native_number_transfers": [
+          -3,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "1/2",
+            "-1/2"
+          ],
+          [
+            "-1/2",
+            "-1/2"
+          ]
+        ]
+      },
+      {
+        "direction": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "receiver_beta_sign": -1,
+        "spin_component": 1,
+        "signed_native_number_transfers": [
+          3,
+          0,
+          0,
+          0,
+          -3,
+          0,
+          0,
+          0
+        ],
+        "joint_frame_overlap_between_preparations": 0,
+        "source_density_after_unreading_frame_equal": true,
+        "source_gauss_projection_both_keep_weight": "1/2",
+        "source_gauss_projected_upper_lower_columns_equal": true,
+        "upper_lower_current_generator_eigenvalues": [
+          [
+            "-1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ]
+      }
+    ],
+    "weak_rotor_moment_gram": [
+      "1",
+      "1/3",
+      "1/3",
+      "1/3"
+    ],
+    "wilson_coefficient_haar_squared_norm": "1/2",
+    "link_polynomial_degree": 1,
+    "singlet_transfer_weak_current_CAR_commutators_checked": 128
+  },
+  "source_using_original_clock_denominations": {
+    "endpoint_onsite_and_electric_center": "87/4",
+    "independent_control_onsite_plus_electric_center": "237/8",
+    "control_energy_full_histogram_executed": false
+  },
+  "indistinguishability_for_all_original_singlet_input_records": "(a,b) ↦ (a′,b)",
+  "signed_banks": [
+    {
+      "receiver_particle_hole_sign": 1,
+      "spinor_native_receiver_increment": 6,
+      "doublet_native_receiver_increment": -3,
+      "same_current_settings": [
+        {
+          "meter_setting": "hypercharge",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "1",
+            "unit_phase": "I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "1",
+                "0"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "-1/2",
+            "unit_phase": "sqrt(2)/2 - sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "1/2 - sqrt(2)/4",
+                "sqrt(2)/4 + 1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "-1/2",
+            "unit_phase": "sqrt(2)/2 - sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "1/2 - sqrt(2)/4",
+                "sqrt(2)/4 + 1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "combined",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "1",
+            "unit_phase": "I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "1",
+                "0"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "-1",
+            "unit_phase": "-I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "0",
+                "1"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ],
+              "sine": [
+                "0",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "reversed_weak",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "1",
+            "unit_phase": "I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "1",
+                "0"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "-1",
+            "unit_phase": "-I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "0",
+                "1"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ],
+              "sine": [
+                "0",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "weak_only",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "1/2",
+            "unit_phase": "sqrt(2)/2 + sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "-1/2",
+            "unit_phase": "sqrt(2)/2 - sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "1/2 - sqrt(2)/4",
+                "sqrt(2)/4 + 1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "sham",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "receiver_particle_hole_sign": -1,
+      "spinor_native_receiver_increment": -6,
+      "doublet_native_receiver_increment": 3,
+      "same_current_settings": [
+        {
+          "meter_setting": "hypercharge",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "-1",
+            "unit_phase": "-I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "0",
+                "1"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "0",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "1/2",
+            "unit_phase": "sqrt(2)/2 + sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "1/2",
+            "unit_phase": "sqrt(2)/2 + sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "combined",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "-1",
+            "unit_phase": "-I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "0",
+                "1"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "0",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "1",
+            "unit_phase": "I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "1",
+                "0"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "reversed_weak",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "-1",
+            "unit_phase": "-I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "0",
+                "1"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ],
+              "sine": [
+                "0",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "1",
+            "unit_phase": "I",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1/2",
+                "1/2"
+              ],
+              "sine": [
+                "1",
+                "0"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "weak_only",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "-1/2",
+            "unit_phase": "sqrt(2)/2 - sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "1/2 - sqrt(2)/4",
+                "sqrt(2)/4 + 1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "1/2",
+            "unit_phase": "sqrt(2)/2 + sqrt(2)*I/2",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ],
+              "sine": [
+                "sqrt(2)/4 + 1/2",
+                "1/2 - sqrt(2)/4"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000 + 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000 - 571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091*sqrt(2)/2916694197068403991776549844430346607149159017947509852292912196066666877275080603714753950644934843431301616204041564557906101737095168000000000"
+              ]
+            }
+          }
+        },
+        {
+          "meter_setting": "sham",
+          "source_endpoint_at_named_receiver": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/587441446265823956327701979626104474724846644423904815883927388854061430087997079347965185017845775348329207373484152355974395227650536489221214474964104904381678393079152806403763484397063971470831814484966349762533502581810100698539663524399792777275046238202154137614807220699069003679952953647668778448876900438630195698514165761516433093233672231690148997973378130277222225463150422423867137997851363812176427869414508265943738297828105610029126953131593214541654036749194750155744664664065195826523086398903557115501396193094802052399628691329518450037680739704793789646329051788586265783414939875387520036594799330313842944588823521676941974388277251037814786800524911283209184685541539304697504889000794687211152941331106790982551989707733918843750259078007966390001534338523690122328304605647941257284130019664620711063832160239236550723915650522498884781560167749404882520044338241957407158538631754101124763850677483742221912617830155811519983372392668608016810764843845444475813888",
+                "0"
+              ],
+              "sine": [
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776",
+                "58337822356147845457531235899963498115034645914337187860387043334914104211290988822116143461091742090870092196605391909920043189358303730047715038117106555961212406843018043524408776239967315562901584205980122054097824321412883768489898952801570308332475259344064226228529959583400219343974471562747100630177650520963936323902727208768290643150073584483723950234478191056294062399950539728755849518755527700427259011467722542900616011872917993061263264263723322321867064967721314921419886190843559613748772098940530382117399960519236046834112851023329051101777448942421886728439915115329624665242308367059951945231596624410010958319809296037627923031949807243038172759919912592884878883899591261790310108747294822787446439305576336697676016397037366923894085161778325487335961666858354453093015589587842379464684359960852826451368760950172122316869400941535651793579474781165059598047961216544836947817857742495665517575113306463709485420176774775068710156200896156906032951150849608451283607/1174882892531647912655403959252208949449693288847809631767854777708122860175994158695930370035691550696658414746968304711948790455301072978442428949928209808763356786158305612807526968794127942941663628969932699525067005163620201397079327048799585554550092476404308275229614441398138007359905907295337556897753800877260391397028331523032866186467344463380297995946756260554444450926300844847734275995702727624352855738829016531887476595656211220058253906263186429083308073498389500311489329328130391653046172797807114231002792386189604104799257382659036900075361479409587579292658103577172531566829879750775040073189598660627685889177647043353883948776554502075629573601049822566418369371083078609395009778001589374422305882662213581965103979415467837687500518156015932780003068677047380244656609211295882514568260039329241422127664320478473101447831301044997769563120335498809765040088676483914814317077263508202249527701354967484443825235660311623039966744785337216033621529687690888951627776"
+              ]
+            }
+          },
+          "other_address_or_failure_phase": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "0",
+                "0"
+              ],
+              "sine": [
+                "0",
+                "0"
+              ]
+            }
+          },
+          "independent_upper_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          },
+          "held_independent_lower_control": {
+            "signed_response_reconstructed_from_phase": "0",
+            "unit_phase": "1",
+            "conditioned_plus_minus": {
+              "cosine": [
+                "1",
+                "0"
+              ],
+              "sine": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "original_plus_minus_weight_algebraic_lower": {
+              "cosine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/729173549267100997944137461107586651787289754486877463073228049016666719318770150928688487661233710857825404051010391139476525434273792000000000",
+                "0"
+              ],
+              "sine": [
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000",
+                "571095026833749786049736978224529719203815510448434364936647322698108864209750577924997628263646718177837966104962004796440050581769545590070091/1458347098534201995888274922215173303574579508973754926146456098033333438637540301857376975322467421715650808102020782278953050868547584000000000"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "full_canonical_source_histogram_executed": false,
+  "higgs_dynamics_or_native_neutral_mode_identified": false
+}

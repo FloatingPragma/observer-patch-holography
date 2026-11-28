@@ -1,0 +1,3 @@
+# Does the free rest preparation retain its measured response at long ages?
+
+The five recorded age windows give specific signs for the free uniform in-phase launch. Test whether the first and second cuts keep opposite signs for all sufficiently large uniform age windows on this same chart. Use the reconstructed seam map and the exact native two-load observable from the isolated experiment. Compute outward rational bounds for every enrolled cut, including unresolved eigenspaces. Report a sufficient age for each resolved sign. Persistence refers to an ensemble with uniform time since preparation. The instantaneous acceleration of every member is a different observable.

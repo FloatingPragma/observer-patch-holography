@@ -1,0 +1,131 @@
+{
+  "review_date": "2026-11-28",
+  "timezone": "Asia/Bangkok",
+  "reviewer": "Codex",
+  "scope": "Local scientific decision and exact author preflight before public task registration",
+  "openwave_base": "c9b5707ac03285eb4c885115245ac2cd5e90273d",
+  "adopted_m10_source": "09f062f77f7f540f2783f128ae6314c5d8b818ea",
+  "open_pr_count_on_checked_base": 0,
+  "local_row_4_source": "e2810645c67ca634a05ea005f84bf95dc922d66d",
+  "public_parent": {
+    "tag": "r2074",
+    "commit": "9ade2801a7d0b5ebe16a9fc01923b93926246833"
+  },
+  "upstream_task_identifier": "M10.5 proposed locally, unallocated",
+  "public_status": {
+    "4": "partial",
+    "9": "untested",
+    "30": "untested"
+  },
+  "local_dispositions": {
+    "4": "Scientific case supports full credit on the proposed candidate. HOLD pending public source, registered reproduction and final release.",
+    "9": "HOLD for emergence of a light neutral decay product beyond the supplied charge sector.",
+    "30": "HOLD. The measured interior lines miss the tested laws, and the full-guide long-wave relationship is unresolved."
+  },
+  "outgoing_files_sha256": {
+    "01-row-04-registration.patch": "d6d354b1f2786ea1a29c614d6a5d9b85c7cd3f6489f9594382d4b4efb91b00a3",
+    "02-row-04-reproduction.patch": "d065b71a7a2b248bab3e089f36e6787305bdc91cdb50d7bfad371cfe2bc1bb20",
+    "row_04_source.bundle": "a1808ce50cc803c9ce614775ea794e63d6c388187e5792fb33eb82e9b2d32f11",
+    "ROW_04_PR.md": "e64887b645a8ec323285e49add2e305a0c22fef0ba1e695be7d08ec51dc202ea",
+    "reference_control.py": "2c6e1c3bc3338ecbd0a7a430920bc890ecd9a96aae63b0a6db6c9b6132f29a5f",
+    "reference_control.json": "1ea44d5734f24f4c66394cdcc682948b42896406df7d28990dcdcf3ff89af988"
+  },
+  "source_manifest": {
+    "entries": 46,
+    "sha256": "fd05a4545e644ac1aca5cce8b8efbb1cbce855d44d1da636dbd3b85e5d734870"
+  },
+  "environment": {
+    "python": "3.12.6",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "system": "Darwin arm64",
+    "blas_threads": 1
+  },
+  "headline": {
+    "source_columns": [
+      14,
+      15
+    ],
+    "resolved_releases": 32,
+    "unresolved_strengths": [
+      0
+    ],
+    "commissioning_exhaustion": 7.964339699111335e-27,
+    "minimum_calculated_signed_weight": 0.999999500949,
+    "minimum_calculated_click_probability": 0.124999937619,
+    "minimum_signed_weight_after_allowance": 0.999999498949,
+    "maximum_observed_swap_weight": 0.410438892525,
+    "largest_signed_weight_drift_below": 2e-10,
+    "commuting_control_maximum_two_port_probability": 0.366307750126
+  },
+  "coherent_flight_control_at_37": {
+    "signed_weight": {
+      "observed_minimum": 0.021882839306,
+      "observed_maximum": 0.514993370987,
+      "launches_rejecting_0p98": 32
+    },
+    "two_tip_occupancy": {
+      "observed_minimum": 0.414087435669,
+      "observed_maximum": 0.744749531062,
+      "launches_rejecting_0p98": 32
+    }
+  },
+  "second_coherent_calculation": {
+    "method": "raw native component and complete dense matrix exponential",
+    "preparations_times": 160,
+    "max_abs_bin_difference": 2.4273916210404423e-12
+  },
+  "anonymous_inputs": {
+    "board.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+    "analyzers.json": "bca73380e3f4960b8b4aa1268023573845e9f40463c8545af35ed550e7f17a69",
+    "clock.json": "0259cd71489f34564d6ef4e2edb91b8f420de947911ebfe35ec733f7336a398d"
+  },
+  "upstream_checks": {
+    "roadmap": "clean",
+    "model_matrix": "clean",
+    "patches": "Applied in order to a fresh checkout of the stated base. Only M10 paths changed.",
+    "standalone": "Outputs from clean platform and source checkouts byte-identical; supplementary control also matched its complete receipt.",
+    "verified_external_links": [
+      "https://floatingpragma.ai/oph/simulation/openwave/row-4/",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_arrows/PROTOCOL.md",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_selective/PROTOCOL.md",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_selective/analyzers.json",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/CANDIDATE.md",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/clock.json",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/phase_reader.py#L18",
+      "https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/openwave/interval_echo/row_04/FEDERATION_LEVEL0.npz"
+    ]
+  },
+  "tests": {
+    "frozen_row4_source": "903 passed in 277.33s (0:04:37)",
+    "public_r2074_parent": "901 passed in 315.73s (0:05:15)",
+    "working_tree_importlib": "1059 passed in 1174.87s (0:19:34)",
+    "concurrent_additional_workspace_module": "11 passed in 2.26s",
+    "attribute": "Both two-directory suites exercised model/candidate_laws/interval_echo/openwave and openwave/interval_echo with PYTHONPATH=code. Clean-source suites used standard imports. Two unrelated workspace test modules collide under ordinary import collection.",
+    "row4_leaf": "18 passed in 10.89s"
+  },
+  "direct_replays": {
+    "row4_signed": "Signed return floor 0.999999498949 on 32 resolved launches",
+    "row9_energy": "Verified the original daughter, both contact layers and their measured work.",
+    "row9_interface": "Verified both pre-absorption charge records, the direct tag and the charged-arm return.",
+    "row30_wall": "Verified unguarded electric material wall counts and spectra.",
+    "row30_observers": "Independent saved-count decoder verified 21 lines and 15 misses.",
+    "row30_long_guide": "45 modes counting multiplicity. One-wall weight at least 1421/1571 in each mode; total band weight at least 49/59 for each sharp wall."
+  },
+  "project_checks": [
+    "model evaluate --check",
+    "check_observables.py",
+    "check_claim_registry.py",
+    "check_private_links.py",
+    "check_docs_policy.py",
+    "Ruff on scoped code",
+    "git diff --check"
+  ],
+  "public_release": {
+    "source_pushed": false,
+    "candidate_publicly_tagged": false,
+    "task_registered": false,
+    "pr_opened": false,
+    "post_registration_receipt_available": false
+  }
+}

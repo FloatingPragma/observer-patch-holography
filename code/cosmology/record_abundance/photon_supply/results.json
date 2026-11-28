@@ -1,0 +1,180 @@
+{
+  "omega_gamma": 2.4729027417213634e-05,
+  "parameters": {
+    "temperature_K": 2.72548,
+    "bbn_baryons": 0.02218,
+    "cmb_baryons": 0.0224,
+    "neff_standard": 3.044,
+    "planck_bao_effective": 2.99
+  },
+  "boards": [
+    {
+      "heads": 14,
+      "ratio": 2.103960396039604,
+      "calibration_bounds": {
+        "baryon_ratio": {
+          "allowed_energy_over_final": 0.09727910737883216,
+          "max_work_weighted_scale_factor": 5.0676554475536246e-05,
+          "minimum_single_burst_redshift": 19731.99113069621,
+          "max_fraction_since_z10000": 0.5068162213098379
+        },
+        "neutrino_ratio": {
+          "allowed_energy_over_final": 0.09395532194480949,
+          "max_work_weighted_scale_factor": 4.982695552012704e-05,
+          "minimum_single_burst_redshift": 20068.458179038476,
+          "max_fraction_since_z10000": 0.4983193821567905
+        }
+      },
+      "snapshots": {
+        "1100": {
+          "lost_over_final_comoving_photon_energy": 1.7309767073777136,
+          "original_fraction_removed": 0.6338306374790721,
+          "baryon_to_photon_jump": 2.1244107825180456,
+          "neff_after": 8.313093097257761
+        },
+        "10000.0": {
+          "lost_over_final_comoving_photon_energy": 0.19056147933435283,
+          "original_fraction_removed": 0.1600601755071871,
+          "baryon_to_photon_jump": 1.139761204143089,
+          "neff_after": 3.62406914309377
+        },
+        "50000.0": {
+          "lost_over_final_comoving_photon_energy": 0.03811534478956147,
+          "original_fraction_removed": 0.03671590539612716,
+          "baryon_to_photon_jump": 1.0284524282725476,
+          "neff_after": 3.1600231095394253
+        },
+        "100000.0": {
+          "lost_over_final_comoving_photon_energy": 0.01905786296959893,
+          "original_fraction_removed": 0.018701453236485623,
+          "baryon_to_photon_jump": 1.014259614548396,
+          "neff_after": 3.1020121348794594
+        },
+        "1000000.0": {
+          "lost_over_final_comoving_photon_energy": 0.0019058034490194136,
+          "original_fraction_removed": 0.0019021782711096831,
+          "baryon_to_photon_jump": 1.001429012348731,
+          "neff_after": 3.049801265698815
+        }
+      },
+      "mixed_epoch_control": {
+        "lost_over_final_comoving_photon_energy": 0.11239472309057322,
+        "original_fraction_removed": 0.10103852594545419,
+        "baryon_to_photon_jump": 1.0831639317325916,
+        "neff_after": 3.3861295370877054
+      }
+    },
+    {
+      "heads": 32,
+      "ratio": 5.133663366336633,
+      "calibration_bounds": {
+        "baryon_ratio": {
+          "allowed_energy_over_final": 0.09727910737883216,
+          "max_work_weighted_scale_factor": 2.076907970308863e-05,
+          "minimum_single_burst_redshift": 48147.49835889874,
+          "max_fraction_since_z10000": 0.20771156611058939
+        },
+        "neutrino_ratio": {
+          "allowed_energy_over_final": 0.09395532194480949,
+          "max_work_weighted_scale_factor": 2.0420883409888133e-05,
+          "minimum_single_burst_redshift": 48968.47795685388,
+          "max_fraction_since_z10000": 0.20422925498229122
+        }
+      },
+      "snapshots": {
+        "1100": {
+          "lost_over_final_comoving_photon_energy": 4.223583166001621,
+          "original_fraction_removed": 0.8085605286216879,
+          "baryon_to_photon_jump": 3.455225412549797,
+          "neff_after": 15.900587157308934
+        },
+        "10000.0": {
+          "lost_over_final_comoving_photon_energy": 0.46497000957582085,
+          "original_fraction_removed": 0.31739216948915694,
+          "baryon_to_photon_jump": 1.3315931442968973,
+          "neff_after": 4.459368709148799
+        },
+        "50000.0": {
+          "lost_over_final_comoving_photon_energy": 0.09300144128652996,
+          "original_fraction_removed": 0.08508812319319684,
+          "baryon_to_photon_jump": 1.0689700832148386,
+          "neff_after": 3.327096387276197
+        },
+        "100000.0": {
+          "lost_over_final_comoving_photon_energy": 0.04650118564582139,
+          "original_fraction_removed": 0.04443490966245239,
+          "baryon_to_photon_jump": 1.0346769960509925,
+          "neff_after": 3.18554960910588
+        },
+        "1000000.0": {
+          "lost_over_final_comoving_photon_energy": 0.004650160415607369,
+          "original_fraction_removed": 0.004628636513314918,
+          "baryon_to_photon_jump": 1.0034855969801533,
+          "neff_after": 3.0581550883051087
+        }
+      },
+      "mixed_epoch_control": {
+        "lost_over_final_comoving_photon_energy": 0.2742431243409986,
+        "original_fraction_removed": 0.21522040739504023,
+        "baryon_to_photon_jump": 1.1993314550847098,
+        "neff_after": 3.878796070494
+      }
+    },
+    {
+      "heads": 64,
+      "ratio": 10.51980198019802,
+      "calibration_bounds": {
+        "baryon_ratio": {
+          "allowed_energy_over_final": 0.09727910737883216,
+          "max_work_weighted_scale_factor": 1.0135310895107251e-05,
+          "minimum_single_burst_redshift": 98663.95565348103,
+          "max_fraction_since_z10000": 0.10136324426196762
+        },
+        "neutrino_ratio": {
+          "allowed_energy_over_final": 0.09395532194480949,
+          "max_work_weighted_scale_factor": 9.965391104025409e-06,
+          "minimum_single_burst_redshift": 100346.29089519237,
+          "max_fraction_since_z10000": 0.09966387643135811
+        }
+      },
+      "snapshots": {
+        "1100": {
+          "lost_over_final_comoving_photon_energy": 8.654883536888567,
+          "original_fraction_removed": 0.8964254725415087,
+          "baryon_to_photon_jump": 5.477221188754495,
+          "neff_after": 29.3894654862888
+        },
+        "10000.0": {
+          "lost_over_final_comoving_photon_energy": 0.9528073966717641,
+          "original_fraction_removed": 0.4879167286521272,
+          "baryon_to_photon_jump": 1.6519411002504276,
+          "neff_after": 5.94434571546885
+        },
+        "50000.0": {
+          "lost_over_final_comoving_photon_energy": 0.1905767239478073,
+          "original_fraction_removed": 0.16007093042763185,
+          "baryon_to_photon_jump": 1.13977214972936,
+          "neff_after": 3.6241155476971256
+        },
+        "100000.0": {
+          "lost_over_final_comoving_photon_energy": 0.09528931484799466,
+          "original_fraction_removed": 0.08699921888785977,
+          "baryon_to_photon_jump": 1.0706478227949443,
+          "neff_after": 3.3340606743972963
+        },
+        "1000000.0": {
+          "lost_over_final_comoving_photon_energy": 0.009529017245097068,
+          "original_fraction_removed": 0.009439072163671725,
+          "baryon_to_photon_jump": 1.0071382838494074,
+          "neff_after": 3.0730063284940754
+        }
+      },
+      "mixed_epoch_control": {
+        "lost_over_final_comoving_photon_energy": 0.561973615452866,
+        "original_fraction_removed": 0.3597843202299751,
+        "baryon_to_photon_jump": 1.3971893615766615,
+        "neff_after": 4.754647685438524
+      }
+    }
+  ]
+}

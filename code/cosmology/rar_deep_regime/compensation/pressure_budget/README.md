@@ -1,0 +1,30 @@
+# How much gravitating energy does an isolated lens need if pressure contributes?
+
+At 291.07 kpc, the four measured galaxy stacks require **5.40 to 8.04 units of additional mass-energy per unit of allowed baryonic mass** under the spherical, stationary, positive-energy interpretation below. This calculation doubles the catalogue baryon ceilings, shifts the lens measurements down by two statistical errors plus the full systematic in acceleration, and allows anisotropic pressures as large as the energy density. It addresses whether pressure can magnify the apparent mass of a small energy reservoir. [Measured lens profiles](https://arxiv.org/abs/2406.09685) · [Input data and construction](../README.md) · [Numerical results](results.json)
+
+## An exterior stress budget
+
+Use $G=c=1$, local density $\rho\ge0$, and radial and tangential pressures $p_r,p_t$ in a static, spherical Einstein solution. Let $m'=4\pi r^2\rho$ and $\Phi$ be the logarithm of the lapse. The radial force balance and weak-field lensing pseudo-mass $L$ give
+
+$$(r^2p_r)'=2r p_t-r^2(\rho+p_r)\Phi',\qquad L=(m+r^2\Phi')/2.$$
+
+For $s\ge r$ assume $|p_r|,|p_t|\le\rho$ and $|s\Phi'|\le\epsilon$. Integrate the first equation outwards, with $s^2p_r(s)\to0$. Multiplication by $2\pi r$ bounds each shell's contribution to $2\pi r^3p_r(r)$ by $4\pi s^2\rho(s)(r/s)(1+\epsilon)$. Consequently
+
+$$2\pi r^3p_r(r)\le(1+\epsilon)[m_\infty-m(r)],\qquad
+L(r)\le \frac{1+\epsilon}{1-\eta}m_\infty,\quad \eta=2m(r)/r.$$
+
+The second inequality uses the exact static relation $(1-\eta)L=m(1-\eta/2)+2\pi r^3p_r$. $L$ itself is the leading weak-field optical pseudo-mass. The calculation does not bound errors of an arbitrary nonlinear optical prescription. A hollow distribution, positive radial pressure, or tangential tension are allowed. At a finite outer wall $R$ an extra $2\pi rR^2p_r(R)$ remains. A uniform, externally supported isotropic fluid gives $L(R)/m(R)=1+3p/(2\rho)$ at leading order. A smooth isolated anisotropic family is integrated independently to check the sign and normalization. [Optical mass derivation](https://arxiv.org/abs/astro-ph/0512213) · [Calculation and controls](measure.py) · [Finite shell and lens inequalities](../../../../../Lean/ObserverPatchHolography/EinsteinBranch/WrittenPopulation.lean)
+
+## Four observed lens stacks
+
+At a single common radius, the bound constrains the total mass of any isolated supporting distribution, including its exterior. With both $\epsilon$ and $\eta$ bounded by 0.001, the allowed multiplier is 1.002002. In ascending catalogue mass bins the minimum additional-to-baryon ratios are 6.34, 6.10, 8.04 and 5.40. An alternative simultaneous four-bin error allocation in the parent analysis gives 5.03, 5.29, 7.69 and 5.26 under its stated normal-error convention. Each bin uses its own weight distribution. A further 25% downward change of the optical mass in the first calculation still requires ratios from 3.80 to 5.78.
+
+Grant every unit of native written energy the same mass conversion as ordinary matter and identify the incident stock with the entire allowed baryonic mass. At most $3/7$ is added by a single external service. The first data comparison then needs at least 15, 15, 19 and 13 such units of **simultaneously surviving** stock, respectively. One service leaves an absolute shortfall from $3.74\times10^{11}$ to $3.14\times10^{12}$ solar masses. The receipt also gives the boundary pressure equivalent at $R=r$ for a bounded exterior with imposed traction. Ordinary environmental mass, exterior forces, nonstationary stress, a different metric response, or a new source of formation energy change the inference. The data give an abundance requirement under these premises, independent of the microscopic identity of the source. [Native energy bound](../../../../../model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/population/README.md) · [Protocol](PROTOCOL.md)
+
+## Can an actually prepared, powered stock meet both abundance scales?
+
+The 14-, 32- and 64-record trails gained total energy of 106.25, 259.25 and 531.25 from their apparatus, each on an ordinary blank board with initial energy 50.5. These whole-board excesses are conserved after release. Transferring all three as ordinary cold mass gives additional-to-baryon ratios of **2.104, 5.134 and 10.520**. The middle preparation is inside both central 68% Planck polarization posterior intervals under the standard cosmological model. Its conditional residual over the 310 held bands is 307.3, versus 293.2 for the standard abundance. The two other prepared ratios score 4,612 and 4,272. The three sizes were compared retrospectively. [Native formation costs](../../../../../model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/README.md) · [Acoustic fits and posterior distributions](../../../cold_acoustic_polarization/README.md)
+
+Assign the same ratio to the total stock of each galaxy, including all exterior supporting material. Even the most favorable allocation of the 32-record supply gives equivalent speed ceilings of 75.8, 107.1, 151.2 and 239.7 km/s at 291.07 kpc, below the four compared lower values of 82.9, 115.2, 183.6 and 244.8 km/s. Under the alternative four-bin uncertainty allocation it satisfies the energy requirement of the lightest bin only. The 64-record preparation can supply every favorably shifted lens mass but misses the polarization data. A compatible total supply alone would leave its radial distribution undetermined. In an evolving universe, baryon loss and redistribution can also make the ratio inside individual halos differ from the cosmic mean. Obtaining both distributions from a source history is a separate physical prediction. [All sizes and mass bins](results.json) · [Abundance comparison figure](abundance.pdf)
+
+Replay from the repository root with `PYTHONPATH=code:. .venv/bin/python -Bm cosmology.rar_deep_regime.compensation.pressure_budget.measure`.

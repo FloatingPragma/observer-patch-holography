@@ -1,0 +1,33 @@
+{
+  "inputs_sha256": {
+    "results.json": "e5759ffee1eca7d3bc8e4a018b81a4550c5b1d76fc15198f355913b284e02f1c",
+    "mass_ratio.json": "8cd405402965f77dd907556dcfb8265513d7e43aa5f6e3aaad0695b1cbf32b0c",
+    "clustering.json": "cdce7bb13db13cb5f7b3f483f3a18c1aae614387657029d3a0332cff68ef29bf"
+  },
+  "measured_flagged_scores": {
+    "0.0": {
+      "predicted": 0.00022946151315784708,
+      "read": 0.00022881907493132406,
+      "half_width": 4.716988065758843e-06
+    },
+    "0.5": {
+      "predicted": 0.00011473075657892354,
+      "read": 0.00011457873695363999,
+      "half_width": 4.716988065758843e-06
+    },
+    "1.0": {
+      "predicted": 0.0,
+      "read": 0.0,
+      "half_width": 0.0
+    }
+  },
+  "occupation": 0.16,
+  "externally_anchored_cosmic_ratio": 5.322479928635148,
+  "galaxy_min_failed_fraction_gain": 3.3214967081889193,
+  "galaxy_max_cosmic_failed_fraction": 0.30106909259749365,
+  "galaxy_gain_at_distance_endpoints": [
+    3.746746670857338,
+    2.979777988187511
+  ],
+  "cluster_max_cosmic_failed_fraction_fixed_sites": 0.008661788347469373
+}

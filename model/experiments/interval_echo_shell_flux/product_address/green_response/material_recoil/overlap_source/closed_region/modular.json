@@ -1,0 +1,1488 @@
+[
+  {
+    "source_sign": -1,
+    "held_masked": {
+      "singular": false,
+      "minimum_weight": 0.05361835244641594,
+      "beta_equal_to_even": 0.2649103615312476,
+      "beta_even_to_odd": 0.0,
+      "held_energy": 0.2286407980752693,
+      "held_modular": 0.05700641550956472,
+      "residual_nats": -0.003562900969347846
+    },
+    "thermal_control": {
+      "singular": false,
+      "minimum_weight": 0.12057516062478918,
+      "beta_equal_to_even": 0.12499999999999993,
+      "beta_even_to_odd": 0.12499999999999933,
+      "held_energy": 0.2286407980752693,
+      "held_modular": 0.028580099759408575,
+      "residual_nats": -6.938893903907228e-17
+    },
+    "free_contacts": [
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.6591327205962325e-06,
+          "beta_equal_to_even": -0.21531971615158574,
+          "beta_even_to_odd": 0.23441684102488924,
+          "held_energy": -0.005519930098624246,
+          "held_modular": -0.003455694525282316,
+          "residual_nats": -0.004644244307294683
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207078963e-07,
+          "beta_equal_to_even": -0.3407260733532754,
+          "beta_even_to_odd": 0.2755751363996879,
+          "held_energy": -0.005519930098624246,
+          "held_modular": -0.0035838352419685394,
+          "residual_nats": -0.005464619349657337
+        }
+      },
+      {
+        "edge": [
+          0,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720596516e-06,
+          "beta_equal_to_even": -0.20420553560385324,
+          "beta_even_to_odd": 0.04201155650315869,
+          "held_energy": -0.005519930098624389,
+          "held_modular": -0.0034194579503197286,
+          "residual_nats": -0.0045466582326051524
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207079311e-07,
+          "beta_equal_to_even": -0.32928724246907914,
+          "beta_even_to_odd": 0.07267501516601094,
+          "held_energy": -0.005519930098624389,
+          "held_modular": -0.0035430496515543534,
+          "residual_nats": -0.00536069221235245
+        }
+      },
+      {
+        "edge": [
+          0,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720596491e-06,
+          "beta_equal_to_even": -0.18567438118805146,
+          "beta_even_to_odd": 0.131356851558861,
+          "held_energy": -0.005519930098623945,
+          "held_modular": -0.0033767504195336305,
+          "residual_nats": -0.004401660024796932
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.71079820707928e-07,
+          "beta_equal_to_even": -0.31160123835489295,
+          "beta_even_to_odd": 0.174007250783907,
+          "held_energy": -0.005519930098623945,
+          "held_modular": -0.003503993259711218,
+          "residual_nats": -0.005224010314074886
+        }
+      },
+      {
+        "edge": [
+          0,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720595958e-06,
+          "beta_equal_to_even": -0.13692589318237547,
+          "beta_even_to_odd": -0.03732382143248181,
+          "held_energy": -0.005519930098623386,
+          "held_modular": -0.0032530412176770577,
+          "residual_nats": -0.004008862576735343
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207078628e-07,
+          "beta_equal_to_even": -0.2640400625717997,
+          "beta_even_to_odd": 0.00967209767066457,
+          "held_energy": -0.005519930098623386,
+          "held_modular": -0.0033809251434857796,
+          "residual_nats": -0.004838407832118259
+        }
+      },
+      {
+        "edge": [
+          0,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720596733e-06,
+          "beta_equal_to_even": -0.15624920082513383,
+          "beta_even_to_odd": 0.2928816031542043,
+          "held_energy": -0.005519930098624689,
+          "held_modular": -0.0033101258887954545,
+          "residual_nats": -0.004172610555316165
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207079576e-07,
+          "beta_equal_to_even": -0.2839013100255825,
+          "beta_even_to_odd": 0.3597730373087771,
+          "held_energy": -0.005519930098624689,
+          "held_modular": -0.003445571860613025,
+          "residual_nats": -0.005012687246862217
+        }
+      },
+      {
+        "edge": [
+          1,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.057348415245734e-06,
+          "beta_equal_to_even": -0.27587185567014305,
+          "beta_even_to_odd": -0.292745448275304,
+          "held_energy": 0.002946216166780865,
+          "held_modular": 0.0012062059608135124,
+          "residual_nats": 0.0020189840819487253
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068783971e-07,
+          "beta_equal_to_even": -0.40692941273768124,
+          "beta_even_to_odd": -0.3103250586935684,
+          "held_energy": 0.002946216166780865,
+          "held_modular": 0.0011948130136832783,
+          "residual_nats": 0.002393715028229678
+        }
+      },
+      {
+        "edge": [
+          1,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152471336e-06,
+          "beta_equal_to_even": -0.2511748513031189,
+          "beta_even_to_odd": -0.3040715667402569,
+          "held_energy": 0.002946216166781439,
+          "held_modular": 0.0012675064050355071,
+          "residual_nats": 0.00200752181263368
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068785687e-07,
+          "beta_equal_to_even": -0.38223204611288863,
+          "beta_even_to_odd": -0.32500959520435835,
+          "held_energy": 0.002946216166781439,
+          "held_modular": 0.001254957853187427,
+          "residual_nats": 0.002381096086907168
+        }
+      },
+      {
+        "edge": [
+          1,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.015885520788427e-06,
+          "beta_equal_to_even": -0.24832480474502727,
+          "beta_even_to_odd": -0.16675137041986154,
+          "held_energy": 0.0025737139318422683,
+          "held_modular": 0.0014530802439173753,
+          "residual_nats": 0.002092197253511663
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.4709138176947565e-07,
+          "beta_equal_to_even": -0.3837432245661746,
+          "beta_even_to_odd": -0.13436571967512378,
+          "held_energy": 0.0025737139318422683,
+          "held_modular": 0.001437943297671372,
+          "residual_nats": 0.002425588580987412
+        }
+      },
+      {
+        "edge": [
+          1,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207853423e-06,
+          "beta_equal_to_even": -0.26036199841245244,
+          "beta_even_to_odd": 0.01841131271751628,
+          "held_energy": 0.002573713931842733,
+          "held_modular": 0.0014194545971202457,
+          "residual_nats": 0.00208955189975679
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.4709138176909745e-07,
+          "beta_equal_to_even": -0.39539893449302665,
+          "beta_even_to_odd": 0.047869050661379475,
+          "held_energy": 0.002573713931842733,
+          "held_modular": 0.0014053438750606848,
+          "residual_nats": 0.0024229876214011594
+        }
+      },
+      {
+        "edge": [
+          2,
+          3
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720595722e-06,
+          "beta_equal_to_even": -0.2153197161515935,
+          "beta_even_to_odd": 0.23441684102492744,
+          "held_energy": -0.005519930098623978,
+          "held_modular": -0.0034556945252821737,
+          "residual_nats": -0.004644244307294526
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207078337e-07,
+          "beta_equal_to_even": -0.3407260733532832,
+          "beta_even_to_odd": 0.27557513639971987,
+          "held_energy": -0.005519930098623978,
+          "held_modular": -0.0035838352419683855,
+          "residual_nats": -0.005464619349657135
+        }
+      },
+      {
+        "edge": [
+          2,
+          4
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.057348415247699e-06,
+          "beta_equal_to_even": -0.2511748513031056,
+          "beta_even_to_odd": -0.3040715667402685,
+          "held_energy": 0.0029462161667812917,
+          "held_modular": 0.0012675064050354464,
+          "residual_nats": 0.002007521812633543
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.74745706878638e-07,
+          "beta_equal_to_even": -0.38223204611287587,
+          "beta_even_to_odd": -0.3250095952043637,
+          "held_energy": 0.0029462161667812917,
+          "held_modular": 0.001254957853187367,
+          "residual_nats": 0.002381096086907014
+        }
+      },
+      {
+        "edge": [
+          2,
+          6
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.057348415240927e-06,
+          "beta_equal_to_even": -0.27587185567023964,
+          "beta_even_to_odd": -0.29274544827530313,
+          "held_energy": 0.0029462161667811616,
+          "held_modular": 0.0012062059608137234,
+          "residual_nats": 0.002018984081949303
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.7474570687780796e-07,
+          "beta_equal_to_even": -0.4069294127377783,
+          "beta_even_to_odd": -0.3103250586935653,
+          "held_energy": 0.0029462161667811616,
+          "held_modular": 0.0011948130136834984,
+          "residual_nats": 0.0023937150282303046
+        }
+      },
+      {
+        "edge": [
+          2,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207848887e-06,
+          "beta_equal_to_even": -0.26036199841246666,
+          "beta_even_to_odd": 0.018411312717550032,
+          "held_energy": 0.0025737139318432432,
+          "held_modular": 0.0014194545971205313,
+          "residual_nats": 0.002089551899757245
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.470913817690419e-07,
+          "beta_equal_to_even": -0.395398934493041,
+          "beta_even_to_odd": 0.04786905066140701,
+          "held_energy": 0.0025737139318432432,
+          "held_modular": 0.0014053438750609708,
+          "residual_nats": 0.002422987621401684
+        }
+      },
+      {
+        "edge": [
+          2,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207903783e-06,
+          "beta_equal_to_even": -0.24832480474496688,
+          "beta_even_to_odd": -0.1667513704198491,
+          "held_energy": 0.0025737139318419344,
+          "held_modular": 0.0014530802439171797,
+          "residual_nats": 0.002092197253511229
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.470913817697148e-07,
+          "beta_equal_to_even": -0.3837432245661143,
+          "beta_even_to_odd": -0.13436571967510602,
+          "held_energy": 0.0025737139318419344,
+          "held_modular": 0.001437943297671173,
+          "residual_nats": 0.0024255885809869294
+        }
+      },
+      {
+        "edge": [
+          3,
+          4
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720597982e-06,
+          "beta_equal_to_even": -0.18567438118803148,
+          "beta_even_to_odd": 0.13135685155887167,
+          "held_energy": -0.005519930098623737,
+          "held_modular": -0.0033767504195335446,
+          "residual_nats": -0.004401660024796697
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207081107e-07,
+          "beta_equal_to_even": -0.3116012383548724,
+          "beta_even_to_odd": 0.17400725078390344,
+          "held_energy": -0.005519930098623737,
+          "held_modular": -0.003503993259711121,
+          "residual_nats": -0.00522401031407461
+        }
+      },
+      {
+        "edge": [
+          3,
+          6
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720594561e-06,
+          "beta_equal_to_even": -0.20420553560387822,
+          "beta_even_to_odd": 0.04201155650315869,
+          "held_energy": -0.005519930098623799,
+          "held_modular": -0.0034194579503194185,
+          "residual_nats": -0.004546658232604859
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207076916e-07,
+          "beta_equal_to_even": -0.32928724246910424,
+          "beta_even_to_odd": 0.07267501516600561,
+          "held_energy": -0.005519930098623799,
+          "held_modular": -0.003543049651554032,
+          "residual_nats": -0.005360692212352074
+        }
+      },
+      {
+        "edge": [
+          3,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720598293e-06,
+          "beta_equal_to_even": -0.1562492008251114,
+          "beta_even_to_odd": 0.2928816031541892,
+          "held_energy": -0.005519930098624117,
+          "held_modular": -0.0033101258887951335,
+          "residual_nats": -0.0041726105553156305
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.71079820708149e-07,
+          "beta_equal_to_even": -0.2839013100255604,
+          "beta_even_to_odd": 0.35977303730875754,
+          "held_energy": -0.005519930098624117,
+          "held_modular": -0.003445571860612699,
+          "residual_nats": -0.005012687246861607
+        }
+      },
+      {
+        "edge": [
+          3,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 4.659132720598338e-06,
+          "beta_equal_to_even": -0.13692589318234372,
+          "beta_even_to_odd": -0.03732382143249602,
+          "held_energy": -0.005519930098623614,
+          "held_modular": -0.003253041217677194,
+          "residual_nats": -0.004008862576735335
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 5.710798207081545e-07,
+          "beta_equal_to_even": -0.26404006257176826,
+          "beta_even_to_odd": 0.009672097670662794,
+          "held_energy": -0.005519930098623614,
+          "held_modular": -0.003380925143485914,
+          "residual_nats": -0.00483840783211828
+        }
+      },
+      {
+        "edge": [
+          4,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207870313e-06,
+          "beta_equal_to_even": -0.27624028976920634,
+          "beta_even_to_odd": -0.31755229174625743,
+          "held_energy": 0.0025737139318423533,
+          "held_modular": 0.0013819412980527052,
+          "residual_nats": 0.00209290478036788
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.4709138176930455e-07,
+          "beta_equal_to_even": -0.41073128646457824,
+          "beta_even_to_odd": -0.2908125939685178,
+          "held_energy": 0.0025737139318423533,
+          "held_modular": 0.0013692791412905315,
+          "residual_nats": 0.0024263839755079494
+        }
+      },
+      {
+        "edge": [
+          4,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152461015e-06,
+          "beta_equal_to_even": -0.21660667207049378,
+          "beta_even_to_odd": 0.12048128359050025,
+          "held_energy": 0.002946216166781623,
+          "held_modular": 0.0015055648267491423,
+          "residual_nats": 0.0021437349058359965
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068784422e-07,
+          "beta_equal_to_even": -0.34770999304985195,
+          "beta_even_to_odd": 0.08018283227826295,
+          "held_energy": 0.002946216166781623,
+          "held_modular": 0.0014862278658445496,
+          "residual_nats": 0.0025106566687195494
+        }
+      },
+      {
+        "edge": [
+          4,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207850285e-06,
+          "beta_equal_to_even": -0.2658741693421258,
+          "beta_even_to_odd": 0.5713677012433589,
+          "held_energy": 0.002573713931842109,
+          "held_modular": 0.0013987116503818018,
+          "residual_nats": 0.002082995704134579
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.47091381769059e-07,
+          "beta_equal_to_even": -0.40065549098562436,
+          "beta_even_to_odd": 0.6007510670906058,
+          "held_energy": 0.002573713931842109,
+          "held_modular": 0.0013852635411811206,
+          "residual_nats": 0.0024164361601998626
+        }
+      },
+      {
+        "edge": [
+          5,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.015885520787344e-06,
+          "beta_equal_to_even": -0.27125841299855025,
+          "beta_even_to_odd": 0.20390693690056594,
+          "held_energy": 0.0025737139318425684,
+          "held_modular": 0.0013887758261459996,
+          "residual_nats": 0.002086917382809874
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.470913817693428e-07,
+          "beta_equal_to_even": -0.40598077949687406,
+          "beta_even_to_odd": 0.23094324035622016,
+          "held_energy": 0.0025737139318425684,
+          "held_modular": 0.001375511418551511,
+          "residual_nats": 0.0024203898068029216
+        }
+      },
+      {
+        "edge": [
+          5,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152471883e-06,
+          "beta_equal_to_even": -0.22345950446898477,
+          "beta_even_to_odd": -0.14938032624897524,
+          "held_energy": 0.0029462161667804312,
+          "held_modular": 0.0013938417059243637,
+          "residual_nats": 0.0020522017106116308
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068785754e-07,
+          "beta_equal_to_even": -0.3547388426654545,
+          "beta_even_to_odd": -0.17822320719215767,
+          "held_energy": 0.0029462161667804312,
+          "held_modular": 0.0013779925463703532,
+          "residual_nats": 0.0024231298596162952
+        }
+      },
+      {
+        "edge": [
+          6,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207910763e-06,
+          "beta_equal_to_even": -0.2762402897690809,
+          "beta_even_to_odd": -0.3175522917462459,
+          "held_energy": 0.0025737139318429475,
+          "held_modular": 0.0013819412980529237,
+          "residual_nats": 0.00209290478036794
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.4709138176980033e-07,
+          "beta_equal_to_even": -0.4107312864644529,
+          "beta_even_to_odd": -0.29081259396851067,
+          "held_energy": 0.0025737139318429475,
+          "held_modular": 0.0013692791412907432,
+          "residual_nats": 0.002426383975508082
+        }
+      },
+      {
+        "edge": [
+          6,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152476863e-06,
+          "beta_equal_to_even": -0.22345950446897622,
+          "beta_even_to_odd": -0.14938032624893616,
+          "held_energy": 0.0029462161667810987,
+          "held_modular": 0.001393841705924705,
+          "residual_nats": 0.002052201710612096
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.7474570687863647e-07,
+          "beta_equal_to_even": -0.3547388426654463,
+          "beta_even_to_odd": -0.17822320719212215,
+          "held_energy": 0.0029462161667810987,
+          "held_modular": 0.0013779925463706902,
+          "residual_nats": 0.0024231298596168447
+        }
+      },
+      {
+        "edge": [
+          6,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.015885520786924e-06,
+          "beta_equal_to_even": -0.27125841299856324,
+          "beta_even_to_odd": 0.2039069369005997,
+          "held_energy": 0.0025737139318434145,
+          "held_modular": 0.0013887758261464473,
+          "residual_nats": 0.002086917382810584
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.4709138176929137e-07,
+          "beta_equal_to_even": -0.40598077949688727,
+          "beta_even_to_odd": 0.23094324035624858,
+          "held_energy": 0.0025737139318434145,
+          "held_modular": 0.0013755114185519583,
+          "residual_nats": 0.0024203898068037464
+        }
+      },
+      {
+        "edge": [
+          7,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 2.0158855207846236e-06,
+          "beta_equal_to_even": -0.26587416934213726,
+          "beta_even_to_odd": 0.5713677012433322,
+          "held_energy": 0.0025737139318425073,
+          "held_modular": 0.0013987116503820381,
+          "residual_nats": 0.0020829957041349507
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 2.470913817690094e-07,
+          "beta_equal_to_even": -0.400655490985636,
+          "beta_even_to_odd": 0.6007510670905791,
+          "held_energy": 0.0025737139318425073,
+          "held_modular": 0.0013852635411813557,
+          "residual_nats": 0.002416436160200287
+        }
+      },
+      {
+        "edge": [
+          7,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.057348415246829e-06,
+          "beta_equal_to_even": -0.21660667207047601,
+          "beta_even_to_odd": 0.12048128359047183,
+          "held_energy": 0.0029462161667822657,
+          "held_modular": 0.0015055648267495044,
+          "residual_nats": 0.0021437349058364454
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068785314e-07,
+          "beta_equal_to_even": -0.34770999304983496,
+          "beta_even_to_odd": 0.0801828322782363,
+          "held_energy": 0.0029462161667822657,
+          "held_modular": 0.0014862278658449074,
+          "residual_nats": 0.00251065666872008
+        }
+      },
+      {
+        "edge": [
+          8,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152464107e-06,
+          "beta_equal_to_even": -0.1867192694153056,
+          "beta_even_to_odd": 0.27235833780191854,
+          "held_energy": 0.0029462161667812787,
+          "held_modular": 0.0016365709359984003,
+          "residual_nats": 0.0021866862661993627
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.747457068784801e-07,
+          "beta_equal_to_even": -0.31761921589644715,
+          "beta_even_to_odd": 0.21303247111171153,
+          "held_energy": 0.0029462161667812787,
+          "held_modular": 0.0016112090983651066,
+          "residual_nats": 0.0025469839671196123
+        }
+      },
+      {
+        "edge": [
+          10,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 3.0573484152463548e-06,
+          "beta_equal_to_even": -0.1867192694153056,
+          "beta_even_to_odd": 0.2723583378019203,
+          "held_energy": 0.002946216166781473,
+          "held_modular": 0.0016365709359985202,
+          "residual_nats": 0.0021866862661995188
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 3.7474570687847325e-07,
+          "beta_equal_to_even": -0.3176192158964475,
+          "beta_even_to_odd": 0.2130324711117133,
+          "held_energy": 0.002946216166781473,
+          "held_modular": 0.0016112090983652254,
+          "residual_nats": 0.002546983967119794
+        }
+      }
+    ]
+  },
+  {
+    "source_sign": 1,
+    "held_masked": {
+      "singular": false,
+      "minimum_weight": 0.05717205530342444,
+      "beta_equal_to_even": 0.25588950906888097,
+      "beta_even_to_odd": 0.0,
+      "held_energy": 0.29582372221263137,
+      "held_modular": 0.07124535251568874,
+      "residual_nats": -0.004452834532230526
+    },
+    "thermal_control": {
+      "singular": false,
+      "minimum_weight": 0.12057516062478918,
+      "beta_equal_to_even": 0.12499999999999993,
+      "beta_even_to_odd": 0.12499999999999933,
+      "held_energy": 0.29582372221263137,
+      "held_modular": 0.036977965276578914,
+      "residual_nats": 1.3877787807814457e-17
+    },
+    "free_contacts": [
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685040801,
+          "beta_equal_to_even": -0.2870755189600992,
+          "beta_even_to_odd": -0.004162913354137654,
+          "held_energy": -0.007141884921128586,
+          "held_modular": -0.00153594645557026,
+          "residual_nats": -0.003586206775656556
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980168026,
+          "beta_equal_to_even": -0.2880131909130513,
+          "beta_even_to_odd": -0.0013121261570807619,
+          "held_energy": -0.007141884921128586,
+          "held_modular": -0.0015464924046056454,
+          "residual_nats": -0.003603449469873695
+        }
+      },
+      {
+        "edge": [
+          0,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00026309006850409617,
+          "beta_equal_to_even": -0.2881114150778329,
+          "beta_even_to_odd": 0.012445958833556148,
+          "held_energy": -0.007141884921128777,
+          "held_modular": -0.0015392267366430223,
+          "residual_nats": -0.0035968853075924708
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980168183,
+          "beta_equal_to_even": -0.2890510415411008,
+          "beta_even_to_odd": 0.015352238142518182,
+          "held_energy": -0.007141884921128777,
+          "held_modular": -0.001549794717408293,
+          "residual_nats": -0.0036141639924272486
+        }
+      },
+      {
+        "edge": [
+          0,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00026309006850409476,
+          "beta_equal_to_even": -0.2907219642606406,
+          "beta_even_to_odd": 0.006771025879355186,
+          "held_energy": -0.007141884921128105,
+          "held_modular": -0.0015394006853428597,
+          "residual_nats": -0.003615703498136673
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980168169,
+          "beta_equal_to_even": -0.29165345109690505,
+          "beta_even_to_odd": 0.009600811193918535,
+          "held_energy": -0.007141884921128105,
+          "held_modular": -0.001549946477127547,
+          "residual_nats": -0.0036329018617115064
+        }
+      },
+      {
+        "edge": [
+          0,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685040647,
+          "beta_equal_to_even": -0.29425153944272375,
+          "beta_even_to_odd": 0.017279545125703955,
+          "held_energy": -0.007141884921127428,
+          "held_modular": -0.0015424286072849174,
+          "residual_nats": -0.003643939239849439
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980167874,
+          "beta_equal_to_even": -0.2951772163030686,
+          "beta_even_to_odd": 0.020089884487545895,
+          "held_energy": -0.007141884921127428,
+          "held_modular": -0.001552975512546147,
+          "residual_nats": -0.0036610972227214015
+        }
+      },
+      {
+        "edge": [
+          0,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00026309006850410837,
+          "beta_equal_to_even": -0.2932587182689378,
+          "beta_even_to_odd": 0.0013196443771761324,
+          "held_energy": -0.007141884921129256,
+          "held_modular": -0.0015392564313644582,
+          "residual_nats": -0.0036336764493590775
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980168303,
+          "beta_equal_to_even": -0.2941824861220296,
+          "beta_even_to_odd": 0.004076689208796225,
+          "held_energy": -0.007141884921129256,
+          "held_modular": -0.0015497819719598634,
+          "residual_nats": -0.003650799433655103
+        }
+      },
+      {
+        "edge": [
+          1,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423100332,
+          "beta_equal_to_even": -0.32971800313902466,
+          "beta_even_to_odd": -0.009688780584517609,
+          "held_energy": 0.0038119208830489975,
+          "held_modular": 0.0006025694792873075,
+          "residual_nats": 0.0018594284209701704
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596119602,
+          "beta_equal_to_even": -0.33100463887307763,
+          "beta_even_to_odd": -0.01273459426718393,
+          "held_energy": 0.0038119208830489975,
+          "held_modular": 0.0006009585426228212,
+          "residual_nats": 0.0018627220379291978
+        }
+      },
+      {
+        "edge": [
+          1,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423108236,
+          "beta_equal_to_even": -0.3324094817602943,
+          "beta_even_to_odd": -0.014367401533634139,
+          "held_energy": 0.0038119208830497226,
+          "held_modular": 0.0005895941419865171,
+          "residual_nats": 0.0018567127872323188
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596127345,
+          "beta_equal_to_even": -0.33369684127425514,
+          "beta_even_to_odd": -0.01734821340665782,
+          "held_energy": 0.0038119208830497226,
+          "held_modular": 0.0005880086309131894,
+          "residual_nats": 0.0018600345887742511
+        }
+      },
+      {
+        "edge": [
+          1,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834930106,
+          "beta_equal_to_even": -0.3574852390874794,
+          "beta_even_to_odd": -0.07548588433827019,
+          "held_energy": 0.003329964038077827,
+          "held_modular": 0.0006039746023301435,
+          "residual_nats": 0.001794387592635104
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860991388,
+          "beta_equal_to_even": -0.3591469131360712,
+          "beta_even_to_odd": -0.07254959051379917,
+          "held_energy": 0.003329964038077827,
+          "held_modular": 0.0006024372499640204,
+          "residual_nats": 0.0017983835550937988
+        }
+      },
+      {
+        "edge": [
+          1,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834912684,
+          "beta_equal_to_even": -0.3565517456840056,
+          "beta_even_to_odd": -0.08982904584701679,
+          "held_energy": 0.0033299640380783277,
+          "held_modular": 0.0006073482475353292,
+          "residual_nats": 0.0017946527383771176
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860974316,
+          "beta_equal_to_even": -0.3582160703584816,
+          "beta_even_to_odd": -0.08687226589067176,
+          "held_energy": 0.0033299640380783277,
+          "held_modular": 0.0006058016671125275,
+          "residual_nats": 0.0017986482992680072
+        }
+      },
+      {
+        "edge": [
+          2,
+          3
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685040513,
+          "beta_equal_to_even": -0.28707551896010763,
+          "beta_even_to_odd": -0.0041629133540954655,
+          "held_energy": -0.007141884921127944,
+          "held_modular": -0.0015359464555701418,
+          "residual_nats": -0.0035862067756563137
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00025780079801677433,
+          "beta_equal_to_even": -0.2880131909130598,
+          "beta_even_to_odd": -0.0013121261570394616,
+          "held_energy": -0.007141884921127944,
+          "held_modular": -0.001546492404605526,
+          "residual_nats": -0.0036034494698734517
+        }
+      },
+      {
+        "edge": [
+          2,
+          4
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423111426,
+          "beta_equal_to_even": -0.3324094817602816,
+          "beta_even_to_odd": -0.014367401533659674,
+          "held_energy": 0.0038119208830499213,
+          "held_modular": 0.0005895941419865986,
+          "residual_nats": 0.001856712787232418
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0001691702959613047,
+          "beta_equal_to_even": -0.33369684127424243,
+          "beta_even_to_odd": -0.01734821340668269,
+          "held_energy": 0.0038119208830499213,
+          "held_modular": 0.000588008630913271,
+          "residual_nats": 0.0018600345887743507
+        }
+      },
+      {
+        "edge": [
+          2,
+          6
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423073187,
+          "beta_equal_to_even": -0.32971800313912036,
+          "beta_even_to_odd": -0.00968878058454381,
+          "held_energy": 0.003811920883049434,
+          "held_modular": 0.0006025694792874104,
+          "residual_nats": 0.001859428420970782
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596093,
+          "beta_equal_to_even": -0.3310046388731733,
+          "beta_even_to_odd": -0.012734594267210131,
+          "held_energy": 0.003811920883049434,
+          "held_modular": 0.000600958542622924,
+          "residual_nats": 0.0018627220379298095
+        }
+      },
+      {
+        "edge": [
+          2,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834910124,
+          "beta_equal_to_even": -0.35655174568402004,
+          "beta_even_to_odd": -0.08982904584698614,
+          "held_energy": 0.0033299640380790845,
+          "held_modular": 0.0006073482475354355,
+          "residual_nats": 0.0017946527383775417
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860971809,
+          "beta_equal_to_even": -0.358216070358496,
+          "beta_even_to_odd": -0.08687226589064112,
+          "held_energy": 0.0033299640380790845,
+          "held_modular": 0.0006058016671126335,
+          "residual_nats": 0.0017986482992684324
+        }
+      },
+      {
+        "edge": [
+          2,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834941123,
+          "beta_equal_to_even": -0.3574852390874189,
+          "beta_even_to_odd": -0.07548588433828751,
+          "held_energy": 0.0033299640380773233,
+          "held_modular": 0.0006039746023300286,
+          "residual_nats": 0.0017943875926346073
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369861002184,
+          "beta_equal_to_even": -0.3591469131360106,
+          "beta_even_to_odd": -0.07254959051381649,
+          "held_energy": 0.0033299640380773233,
+          "held_modular": 0.0006024372499639053,
+          "residual_nats": 0.001798383555093301
+        }
+      },
+      {
+        "edge": [
+          3,
+          4
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685041789,
+          "beta_equal_to_even": -0.29072196426062324,
+          "beta_even_to_odd": 0.0067710258794084766,
+          "held_energy": -0.007141884921128025,
+          "held_modular": -0.0015394006853428916,
+          "residual_nats": -0.0036157034981365572
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980168994,
+          "beta_equal_to_even": -0.2916534510968877,
+          "beta_even_to_odd": 0.009600811193971381,
+          "held_energy": -0.007141884921128025,
+          "held_modular": -0.0015499464771275785,
+          "residual_nats": -0.0036329018617113906
+        }
+      },
+      {
+        "edge": [
+          3,
+          6
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685039858,
+          "beta_equal_to_even": -0.28811141507785853,
+          "beta_even_to_odd": 0.012445958833578352,
+          "held_energy": -0.007141884921127687,
+          "held_modular": -0.0015392267366427814,
+          "residual_nats": -0.0035968853075920995
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00025780079801671015,
+          "beta_equal_to_even": -0.28905104154112626,
+          "beta_even_to_odd": 0.015352238142540164,
+          "held_energy": -0.007141884921127687,
+          "held_modular": -0.0015497947174080526,
+          "residual_nats": -0.003614163992426875
+        }
+      },
+      {
+        "edge": [
+          3,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.0002630900685041965,
+          "beta_equal_to_even": -0.29325871826891464,
+          "beta_even_to_odd": 0.0013196443771725797,
+          "held_energy": -0.007141884921128423,
+          "held_modular": -0.0015392564313643376,
+          "residual_nats": -0.0036336764493585475
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00025780079801691663,
+          "beta_equal_to_even": -0.2941824861220063,
+          "beta_even_to_odd": 0.004076689208792672,
+          "held_energy": -0.007141884921128423,
+          "held_modular": -0.0015497819719597428,
+          "residual_nats": -0.003650799433654571
+        }
+      },
+      {
+        "edge": [
+          3,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00026309006850419906,
+          "beta_equal_to_even": -0.29425153944268956,
+          "beta_even_to_odd": 0.0172795451256591,
+          "held_energy": -0.007141884921127712,
+          "held_modular": -0.001542428607284942,
+          "residual_nats": -0.0036439392398493024
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0002578007980169191,
+          "beta_equal_to_even": -0.29517721630303456,
+          "beta_even_to_odd": 0.020089884487500598,
+          "held_energy": -0.007141884921127712,
+          "held_modular": -0.0015529755125461707,
+          "residual_nats": -0.0036610972227212662
+        }
+      },
+      {
+        "edge": [
+          4,
+          5
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834922224,
+          "beta_equal_to_even": -0.35575134418448284,
+          "beta_even_to_odd": -0.05745005912704415,
+          "held_energy": 0.0033299640380780007,
+          "held_modular": 0.0006113119544987487,
+          "residual_nats": 0.0017959511371309859
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860983665,
+          "beta_equal_to_even": -0.3574159619352778,
+          "beta_even_to_odd": -0.05448362513175642,
+          "held_energy": 0.0033299640380780007,
+          "held_modular": 0.0006097653505915152,
+          "residual_nats": 0.0017999476504710458
+        }
+      },
+      {
+        "edge": [
+          4,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423102406,
+          "beta_equal_to_even": -0.3359578233639311,
+          "beta_even_to_odd": -0.05130777155938837,
+          "held_energy": 0.0038119208830497704,
+          "held_modular": 0.0005574765934309602,
+          "residual_nats": 0.001838121236135875
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596121632,
+          "beta_equal_to_even": -0.3372462509218555,
+          "beta_even_to_odd": -0.05413112923286123,
+          "held_energy": 0.0038119208830497704,
+          "held_modular": 0.0005559553851955566,
+          "residual_nats": 0.0018415114118148204
+        }
+      },
+      {
+        "edge": [
+          4,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834910913,
+          "beta_equal_to_even": -0.35749740463635815,
+          "beta_even_to_odd": -0.12097502800964954,
+          "held_energy": 0.0033299640380776334,
+          "held_modular": 0.000602860291014031,
+          "residual_nats": 0.001793313792159192
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860972581,
+          "beta_equal_to_even": -0.35916092518998244,
+          "beta_even_to_odd": -0.11802995401764971,
+          "held_energy": 0.0033299640380776334,
+          "held_modular": 0.00060131545996057,
+          "residual_nats": 0.001797308424725903
+        }
+      },
+      {
+        "edge": [
+          5,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834923987,
+          "beta_equal_to_even": -0.35561122547235824,
+          "beta_even_to_odd": -0.10418145005112667,
+          "held_energy": 0.0033299640380780897,
+          "held_modular": 0.0006107455741362423,
+          "residual_nats": 0.0017949181664960743
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860985393,
+          "beta_equal_to_even": -0.3572782407664019,
+          "beta_even_to_odd": -0.10120385440217827,
+          "held_energy": 0.0033299640380780897,
+          "held_modular": 0.0006091896260651481,
+          "residual_nats": 0.0017989133194050717
+        }
+      },
+      {
+        "edge": [
+          5,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423108542,
+          "beta_equal_to_even": -0.334117885786373,
+          "beta_even_to_odd": -0.03319955149032783,
+          "held_energy": 0.0038119208830485187,
+          "held_modular": 0.0005736037440446534,
+          "residual_nats": 0.0018472346902737486
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596127646,
+          "beta_equal_to_even": -0.33540589060983206,
+          "beta_even_to_odd": -0.03610047339923983,
+          "held_energy": 0.0038119208830485187,
+          "held_modular": 0.0005720505382451134,
+          "residual_nats": 0.0018505912569582192
+        }
+      },
+      {
+        "edge": [
+          6,
+          7
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834945065,
+          "beta_equal_to_even": -0.3557513441843574,
+          "beta_even_to_odd": -0.05745005912701773,
+          "held_energy": 0.003329964038078753,
+          "held_modular": 0.0006113119544988649,
+          "residual_nats": 0.001795951137130952
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369861006047,
+          "beta_equal_to_even": -0.35741596193515235,
+          "beta_even_to_odd": -0.05448362513173044,
+          "held_energy": 0.003329964038078753,
+          "held_modular": 0.0006097653505916314,
+          "residual_nats": 0.0017999476504710133
+        }
+      },
+      {
+        "edge": [
+          6,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423111356,
+          "beta_equal_to_even": -0.33411788578636126,
+          "beta_even_to_odd": -0.03319955149031717,
+          "held_energy": 0.00381192088304925,
+          "held_modular": 0.0005736037440447708,
+          "residual_nats": 0.0018472346902740655
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596130403,
+          "beta_equal_to_even": -0.3354058906098204,
+          "beta_even_to_odd": -0.03610047339922895,
+          "held_energy": 0.00381192088304925,
+          "held_modular": 0.0005720505382452301,
+          "residual_nats": 0.0018505912569585369
+        }
+      },
+      {
+        "edge": [
+          6,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834921618,
+          "beta_equal_to_even": -0.3556112254723697,
+          "beta_even_to_odd": -0.10418145005110624,
+          "held_energy": 0.0033299640380797775,
+          "held_modular": 0.0006107455741365621,
+          "residual_nats": 0.0017949181664970325
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860983071,
+          "beta_equal_to_even": -0.35727824076641335,
+          "beta_even_to_odd": -0.10120385440215873,
+          "held_energy": 0.0033299640380797775,
+          "held_modular": 0.0006091896260654677,
+          "residual_nats": 0.0017989133194060325
+        }
+      },
+      {
+        "edge": [
+          7,
+          8
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00011383222834908628,
+          "beta_equal_to_even": -0.35749740463636837,
+          "beta_even_to_odd": -0.12097502800966131,
+          "held_energy": 0.003329964038078088,
+          "held_modular": 0.0006028602910141453,
+          "residual_nats": 0.0017933137921595026
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00011154369860970341,
+          "beta_equal_to_even": -0.35916092518999276,
+          "beta_even_to_odd": -0.11802995401766081,
+          "held_energy": 0.003329964038078088,
+          "held_modular": 0.0006013154599606839,
+          "residual_nats": 0.0017973084247262143
+        }
+      },
+      {
+        "edge": [
+          7,
+          10
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423106515,
+          "beta_equal_to_even": -0.3359578233639136,
+          "beta_even_to_odd": -0.05130777155939281,
+          "held_energy": 0.003811920883050706,
+          "held_modular": 0.0005574765934310757,
+          "residual_nats": 0.0018381212361362382
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.0001691702959612566,
+          "beta_equal_to_even": -0.33724625092183835,
+          "beta_even_to_odd": -0.05413112923286456,
+          "held_energy": 0.003811920883050706,
+          "held_modular": 0.0005559553851956713,
+          "residual_nats": 0.0018415114118151851
+        }
+      },
+      {
+        "edge": [
+          8,
+          9
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423104151,
+          "beta_equal_to_even": -0.33863317567242873,
+          "beta_even_to_odd": -0.0549580679816315,
+          "held_energy": 0.0038119208830493002,
+          "held_modular": 0.0005449639710592042,
+          "residual_nats": 0.0018358068450982376
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596123342,
+          "beta_equal_to_even": -0.3399222458791203,
+          "beta_even_to_odd": -0.05772490951552234,
+          "held_energy": 0.0038119208830493002,
+          "held_modular": 0.0005434646183453786,
+          "residual_nats": 0.0018392213260250163
+        }
+      },
+      {
+        "edge": [
+          10,
+          11
+        ],
+        "formed": {
+          "singular": false,
+          "minimum_weight": 0.00017264114423103837,
+          "beta_equal_to_even": -0.3386331756724287,
+          "beta_even_to_odd": -0.05495806798163727,
+          "held_energy": 0.0038119208830500024,
+          "held_modular": 0.0005449639710593567,
+          "residual_nats": 0.0018358068450986275
+        },
+        "independent": {
+          "singular": false,
+          "minimum_weight": 0.00016917029596123036,
+          "beta_equal_to_even": -0.33992224587912045,
+          "beta_even_to_odd": -0.05772490951552767,
+          "held_energy": 0.0038119208830500024,
+          "held_modular": 0.0005434646183455306,
+          "residual_nats": 0.0018392213260254075
+        }
+      }
+    ]
+  }
+]

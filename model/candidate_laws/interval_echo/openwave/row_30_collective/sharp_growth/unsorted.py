@@ -105,7 +105,7 @@ def traces(gaps, weights, count=experiment.SAMPLES, dt=experiment.DT):
     return out, float(bound)
 
 
-def observe(panel, out, scales, names, folder):
+def observe(panel, out, scales, names, folder, *, label=None):
     times = experiment.DT * np.arange(experiment.SAMPLES)
     rng = np.random.default_rng([SEED, 50 + panel])
     hashes = {}
@@ -145,7 +145,7 @@ def observe(panel, out, scales, names, folder):
         dict(dimers=N, observer=dict(modes=modes, pair_sum_lines=sums)), folder
     )
     return dict(
-        label=LABELS[panel],
+        label=LABELS[panel] if label is None else label,
         count_sha256=hashes,
         pair_lines=sums,
         omega_first_from_three=(sums["1,2"] + sums["1,3"] - sums["2,3"]) / 2,

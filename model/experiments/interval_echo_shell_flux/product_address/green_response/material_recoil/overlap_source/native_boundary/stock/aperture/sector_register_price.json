@@ -1,0 +1,199 @@
+{
+  "sha256": {
+    "sector_fronts_collective.json": "5ed9524760f24174abe5d97b6f51bd959aace90c86a1857ad5607e91ed02dafe",
+    "sector_passage.json": "db6f221d080cc01417ad09b7984d6efc442d4eb9009582d40edd9074cfd291bb",
+    "SECTOR_REGISTER_BALLS.md": "8976f32702336738ee73bf2702d76e458f78a6c15d8e2bce15efe5577492cc5a"
+  },
+  "exterior_receiver": {
+    "routes": [
+      [
+        72,
+        82,
+        1,
+        8,
+        3,
+        48,
+        58,
+        50,
+        37,
+        45,
+        39,
+        104,
+        97
+      ],
+      [
+        72,
+        82,
+        1,
+        9,
+        3,
+        48,
+        58,
+        50,
+        37,
+        44,
+        39,
+        104,
+        97
+      ]
+    ],
+    "blank_duration": 12,
+    "distinct_physical_loads": 13,
+    "verified_return_words": 448
+  },
+  "matched_corners": [
+    {
+      "base_total": [
+        720,
+        704
+      ],
+      "ordinary_clock_control": [
+        [
+          12192,
+          12160
+        ],
+        [
+          12194,
+          12162
+        ],
+        [
+          12194,
+          12160
+        ],
+        [
+          12192,
+          12162
+        ]
+      ],
+      "mixed_price_per_covariance": {
+        "ordinary": [
+          0.0014501663911021246,
+          0.0014501703911021246
+        ],
+        "retained": [
+          0.0015496703520648792,
+          0.001557810527105881
+        ],
+        "exchanged": [
+          0.001870644464777398,
+          0.0018710853220788323
+        ]
+      },
+      "matched_relative_modular_change": [
+        -0.0001607074850069766,
+        -0.00015641696883575851
+      ]
+    },
+    {
+      "base_total": [
+        448,
+        448
+      ],
+      "ordinary_clock_control": [
+        [
+          11648,
+          11648
+        ],
+        [
+          11650,
+          11650
+        ],
+        [
+          11650,
+          11648
+        ],
+        [
+          11648,
+          11650
+        ]
+      ],
+      "mixed_price_per_covariance": {
+        "ordinary": [
+          0.0025824342444382134,
+          0.002582438244438213
+        ],
+        "retained": [
+          0.003106850372323586,
+          0.0031610487204445877
+        ],
+        "exchanged": [
+          0.015919928006480875,
+          0.01607677491022469
+        ]
+      },
+      "matched_relative_modular_change": [
+        -0.006484962268950551,
+        -0.006379439643018144
+      ]
+    }
+  ],
+  "whole_register_measured": {
+    "peer": {
+      "ordinary": {
+        "n_registers": 4096,
+        "connected_modular_nats": -0.005502817637744903,
+        "jackknife_standard_error": 0.0012487450325163348
+      },
+      "retained": {
+        "n_registers": 4096,
+        "connected_modular_nats": -0.00589375981858634,
+        "jackknife_standard_error": 0.0013375398413380455
+      },
+      "exchanged": {
+        "n_registers": 4096,
+        "connected_modular_nats": -0.007087575771239496,
+        "jackknife_standard_error": 0.0016087830839052158
+      },
+      "relative": {
+        "n_registers": 4096,
+        "connected_modular_nats": 0.0011938159526531562,
+        "jackknife_standard_error": 0.0002712856475146634
+      }
+    },
+    "ordinary": {
+      "ordinary": {
+        "n_registers": 1170,
+        "connected_modular_nats": -0.04046952104092156,
+        "jackknife_standard_error": 0.005947285507744159
+      },
+      "retained": {
+        "n_registers": 1170,
+        "connected_modular_nats": -0.04337580217889532,
+        "jackknife_standard_error": 0.006374515048856357
+      },
+      "exchanged": {
+        "n_registers": 1170,
+        "connected_modular_nats": -0.05228898277143882,
+        "jackknife_standard_error": 0.00768495172058824
+      },
+      "relative": {
+        "n_registers": 1170,
+        "connected_modular_nats": 0.0089131805925435,
+        "jackknife_standard_error": 0.0013107846495854505
+      }
+    }
+  },
+  "peer_minus_ordinary": {
+    "ordinary": {
+      "nats_per_register": 0.034966703403176654,
+      "sampling_standard_error": 0.006076970385550511
+    },
+    "retained": {
+      "nats_per_register": 0.03748204236030898,
+      "sampling_standard_error": 0.006513329020958697
+    },
+    "exchanged": {
+      "nats_per_register": 0.045201407000199326,
+      "sampling_standard_error": 0.007851539082169286
+    },
+    "relative": {
+      "nats_per_register": -0.007719364639890344,
+      "sampling_standard_error": 0.001338563521143581
+    }
+  },
+  "single_member_mixed_relative_price": [
+    -3.061607939618532,
+    -3.02258858790916
+  ],
+  "covariance_contrast_per_member": 0.026809887105849327
+}

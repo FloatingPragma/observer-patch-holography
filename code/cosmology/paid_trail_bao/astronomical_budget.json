@@ -1,0 +1,85 @@
+{
+  "inputs": "Six DESI DR2 radial distances and three Loubser DESI DR1 stellar-age rates",
+  "joint_gaussian_marginal_box_coverage_lower": 0.9501655,
+  "ruler": "unrestricted positive constant",
+  "flat": {
+    "quantity_minimized": "omega_m",
+    "minimum": 0.0572857145,
+    "source_fraction_floor": 1.2780408941,
+    "extremizing_parameters": {
+      "omega_m": 0.0572857145,
+      "omega_k": 0.0,
+      "omega_vac": 0.2228630294,
+      "omega_rad": 5e-05,
+      "ruler_scale": 186.1922359724
+    },
+    "ruler_Mpc_at_extremum": 219.7049891848,
+    "inequality_multipliers": {
+      "BAO 0.934 upper H": -0.16116683,
+      "BAO 2.33 lower H": -0.0438577758,
+      "CC 0.67 lower H": -0.1173090541,
+      "radiation cap": -4.0505736973,
+      "flat": -0.2106763919
+    }
+  },
+  "free_curvature": {
+    "quantity_minimized": "omega_m",
+    "minimum": 0.0313121384,
+    "source_fraction_floor": 0.1880880583,
+    "extremizing_parameters": {
+      "omega_m": 0.0313121384,
+      "omega_k": 0.1232866001,
+      "omega_vac": 0.0,
+      "omega_rad": 5e-05,
+      "ruler_scale": 200.8970714402
+    },
+    "ruler_Mpc_at_extremum": 211.5114584989,
+    "inequality_multipliers": {
+      "BAO 0.934 upper H": -0.2486488485,
+      "BAO 2.33 lower H": -0.067663957,
+      "CC 0.67 lower H": -0.0644398722,
+      "radiation cap": -5.3427588974,
+      "vacuum nonnegative": -0.1165450194
+    }
+  },
+  "unit_ticket_maximum": {
+    "quantity_minimized": "omega_k",
+    "minimum": 0.0314497246,
+    "source_fraction_cap": 1.0,
+    "extremizing_parameters": {
+      "omega_m": 0.05066,
+      "omega_k": 0.0314497246,
+      "omega_vac": 0.1660119126,
+      "omega_rad": 5e-05,
+      "ruler_scale": 189.94335755
+    },
+    "ruler_Mpc_at_extremum": 217.5247346946,
+    "inequality_multipliers": {
+      "BAO 0.934 upper H": -0.7649971053,
+      "BAO 2.33 lower H": -0.2081760344,
+      "CC 0.67 lower H": -0.5568210708,
+      "radiation cap": -19.2265192147,
+      "mass cap": -4.7466163195
+    }
+  },
+  "observed_ticket_fraction": {
+    "quantity_minimized": "omega_k",
+    "minimum": 0.0622984156,
+    "source_fraction_cap": 0.7272727273,
+    "extremizing_parameters": {
+      "omega_m": 0.0441609091,
+      "omega_k": 0.0622984156,
+      "omega_vac": 0.1102472738,
+      "omega_rad": 5e-05,
+      "ruler_scale": 193.6227916882
+    },
+    "ruler_Mpc_at_extremum": 215.4479986351,
+    "inequality_multipliers": {
+      "BAO 0.934 upper H": -0.7649971053,
+      "BAO 2.33 lower H": -0.2081760344,
+      "CC 0.67 lower H": -0.5568210708,
+      "radiation cap": -19.2265192147,
+      "mass cap": -4.7466163195
+    }
+  }
+}

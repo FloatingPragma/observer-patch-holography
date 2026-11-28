@@ -1,0 +1,342 @@
+{
+  "schema": "oph.row27.spherical_exterior.v1",
+  "angular_and_time_tick": 5.684341886080802e-14,
+  "ordinary_release_calibration": {
+    "ordinary_radius_ticks": 35138539201221,
+    "radius_error_upper": 1.9162449405030207e-13,
+    "gain": [
+      0.2499999999949743,
+      0.25000000003173434
+    ]
+  },
+  "sources": {
+    "blank": {
+      "stock": "0",
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        35184372088832,
+        52776558133248
+      ],
+      "clock_ratio_2_to_4": 1.0,
+      "shots": [
+        {
+          "local_sine": 0.5,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 36844988291815,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 9211247072954,
+            "reception_angle_ticks": 9211247072954,
+            "echo_clock_ticks": 243764480361062,
+            "bending": 4.618527782440651e-14,
+            "round_trip": 13.856406460551057,
+            "minimum_radius_diagnostic": 1.9999999999999918,
+            "matched_blank_mirror_address_ticks": 36844988291815,
+            "matched_blank_echo_clock_ticks": 243764480361063,
+            "delay": -5.684341886080802e-14
+          },
+          "forecast": {
+            "impact_parameter": [
+              1.9999999999999998,
+              2.0000000000000004
+            ],
+            "turning_radius": [
+              1.9999999999999996,
+              2.000000000000001
+            ],
+            "bending": [
+              -2.47341212335103e-07,
+              2.6283955799295473e-09
+            ],
+            "round_trip": [
+              13.856352586059034,
+              13.856409435144814
+            ],
+            "delay": [
+              -5.3885005565118506e-05,
+              3.963958749125193e-06
+            ],
+            "clock_ratio_2_to_4": [
+              0.9999999999999999,
+              1.0000000000000002
+            ]
+          }
+        },
+        {
+          "local_sine": 0.75,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 25428950696410,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 14919265870656,
+            "reception_angle_ticks": 14919265870656,
+            "echo_clock_ticks": 186178197166026,
+            "bending": -1.0658141036401503e-14,
+            "round_trip": 10.583005244258516,
+            "minimum_radius_diagnostic": 3.0000000000000218,
+            "matched_blank_mirror_address_ticks": 25428950696410,
+            "matched_blank_echo_clock_ticks": 186178197166030,
+            "delay": -2.2737367544323206e-13
+          },
+          "forecast": {
+            "impact_parameter": [
+              2.9999999999999996,
+              3.0000000000000004
+            ],
+            "turning_radius": [
+              2.999999999999999,
+              3.0000000000000013
+            ],
+            "bending": [
+              -6.898978230594575e-08,
+              3.316969069261804e-10
+            ],
+            "round_trip": [
+              10.582997512964212,
+              10.583005407914651
+            ],
+            "delay": [
+              -7.733284329063124e-06,
+              5.775949884144491e-07
+            ],
+            "clock_ratio_2_to_4": [
+              0.9999999999999999,
+              1.0000000000000002
+            ]
+          }
+        }
+      ]
+    },
+    "ordinary": {
+      "stock": "1/3",
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        45314904462950,
+        63302469897654
+      ],
+      "clock_ratio_2_to_4": 0.9780192938436693,
+      "shots": [
+        {
+          "local_sine": 0.5,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 39715215811107,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 9211247072954,
+            "reception_angle_ticks": 9211247072954,
+            "echo_clock_ticks": 261038491271584,
+            "bending": 0.16315354510497926,
+            "round_trip": 14.838320298144026,
+            "minimum_radius_diagnostic": 1.9539416558332574,
+            "matched_blank_mirror_address_ticks": 39715215811107,
+            "matched_blank_echo_clock_ticks": 254422012324963,
+            "delay": 0.3761032841464953
+          },
+          "forecast": {
+            "impact_parameter": [
+              2.0430156738201033,
+              2.0430156738266345
+            ],
+            "turning_radius": [
+              1.9539416557527145,
+              1.953941655927338
+            ],
+            "bending": [
+              0.1631532929456999,
+              0.1631535482736563
+            ],
+            "round_trip": [
+              14.83826136854859,
+              14.838323760882611
+            ],
+            "delay": [
+              0.3760443437073517,
+              0.37610760981052455
+            ],
+            "clock_ratio_2_to_4": [
+              0.9780192938375809,
+              0.9780192938472441
+            ]
+          }
+        },
+        {
+          "local_sine": 0.75,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 26827997654291,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 14919265870656,
+            "reception_angle_ticks": 14919265870656,
+            "echo_clock_ticks": 196257457202694,
+            "bending": 0.07952661223275825,
+            "round_trip": 11.155944844329838,
+            "minimum_radius_diagnostic": 2.9775201358345114,
+            "matched_blank_mirror_address_ticks": 26827997654291,
+            "matched_blank_echo_clock_ticks": 194423101335096,
+            "delay": 0.104271058921654
+          },
+          "forecast": {
+            "impact_parameter": [
+              3.064523510730155,
+              3.0645235107399516
+            ],
+            "turning_radius": [
+              2.9775201358133923,
+              2.977520135857049
+            ],
+            "bending": [
+              0.0795265429748346,
+              0.07952661262707857
+            ],
+            "round_trip": [
+              11.155936679026073,
+              11.155945025778099
+            ],
+            "delay": [
+              0.1042628913371059,
+              0.10427164102075372
+            ],
+            "clock_ratio_2_to_4": [
+              0.9780192938375809,
+              0.9780192938472441
+            ]
+          }
+        }
+      ]
+    },
+    "held": {
+      "stock": "19/33",
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        49536596938818,
+        67853355961350
+      ],
+      "clock_ratio_2_to_4": 0.9604420750840975,
+      "shots": [
+        {
+          "local_sine": 0.5,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 42349943412358,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 9211247072954,
+            "reception_angle_ticks": 9211247072954,
+            "echo_clock_ticks": 276565886886823,
+            "bending": 0.3129204697270218,
+            "round_trip": 15.72095055091853,
+            "minimum_radius_diagnostic": 1.913576842336601,
+            "matched_blank_mirror_address_ticks": 42349943412358,
+            "matched_blank_echo_clock_ticks": 262716998746576,
+            "delay": 0.7872181493125368
+          },
+          "forecast": {
+            "impact_parameter": [
+              2.076103099950947,
+              2.0761030999627845
+            ],
+            "turning_radius": [
+              1.9135768422274848,
+              1.9135768424021082
+            ],
+            "bending": [
+              0.3129202157021605,
+              0.3129204734662862
+            ],
+            "round_trip": [
+              15.720886866052888,
+              15.720954497681165
+            ],
+            "delay": [
+              0.7871544537095007,
+              0.7872228255253958
+            ],
+            "clock_ratio_2_to_4": [
+              0.9604420750730936,
+              0.9604420750904427
+            ]
+          },
+          "angular_light_control": {
+            "event": "returned",
+            "mirror_address_ticks": 39918797150147,
+            "echo_address_ticks": 10,
+            "emission_angle_ticks": 9211247072954,
+            "reception_angle_ticks": 9211247072958,
+            "echo_clock_ticks": 263263473846063,
+            "bending": 0.17472580443250152,
+            "round_trip": 14.964795914583135,
+            "minimum_radius_diagnostic": 1.990205137560859,
+            "matched_blank_mirror_address_ticks": 39918797150147,
+            "matched_blank_echo_clock_ticks": 255114434178395,
+            "delay": 0.46321927514259187
+          }
+        },
+        {
+          "local_sine": 0.75,
+          "reading": {
+            "event": "returned",
+            "mirror_address_ticks": 28001978551208,
+            "echo_address_ticks": 0,
+            "emission_angle_ticks": 14919265870656,
+            "reception_angle_ticks": 14919265870656,
+            "echo_clock_ticks": 204691774663435,
+            "bending": 0.14625970009079836,
+            "round_trip": 11.635380284555765,
+            "minimum_radius_diagnostic": 2.958780554150239,
+            "matched_blank_mirror_address_ticks": 28001978551208,
+            "matched_blank_echo_clock_ticks": 201104991145633,
+            "delay": 0.20388503786546153
+          },
+          "forecast": {
+            "impact_parameter": [
+              3.1141546499264203,
+              3.114154649944177
+            ],
+            "turning_radius": [
+              2.9587805540650147,
+              2.9587805542396386
+            ],
+            "bending": [
+              0.14625963104123998,
+              0.1462597005848083
+            ],
+            "round_trip": [
+              11.635371753817164,
+              11.635380482462775
+            ],
+            "delay": [
+              0.20387650436204605,
+              0.2038856222667443
+            ],
+            "clock_ratio_2_to_4": [
+              0.9604420750730936,
+              0.9604420750904427
+            ]
+          },
+          "angular_light_control": {
+            "event": "returned",
+            "mirror_address_ticks": 27253745542354,
+            "echo_address_ticks": -10,
+            "emission_angle_ticks": 14919265870656,
+            "reception_angle_ticks": 14919265870652,
+            "echo_clock_ticks": 199617271138630,
+            "bending": 0.1037275777628004,
+            "round_trip": 11.346928155184628,
+            "minimum_radius_diagnostic": 2.978492737227767,
+            "matched_blank_mirror_address_ticks": 27253745542354,
+            "matched_blank_echo_clock_ticks": 196871718641370,
+            "delay": 0.15606659060608763
+          }
+        }
+      ]
+    }
+  }
+}

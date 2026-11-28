@@ -28,7 +28,23 @@ At four clock units the squared transfer length from the central dimer flip into
 
 The direct time-and-space measurement used the same ordinary observer on all three ensembles. The two uniform controls scored 79.30 and 55.05 against the odd-appointment spatial cutoff of 121.01. Their four resolved frequencies meet their own independently metered lattice forecasts within 0.000707 and 0.000543. Pooling all single-write histories gave **83,987.74** against the identical cutoff. Temporal pair lines remained measurable. The spatial rejection prevents assignment of the four frequencies to the proposed waves in that ensemble. Contributions above the hand's Nyquist frequency change any normalized signed mean by at most 2 × 10⁻⁹ in the pooled control. Other spatially disordered modes and other instruments remain possible. [Frequency and spatial decisions](unsorted.json) · [Full orientation-space acquisition](unsorted.py)
 
-OW-30 therefore has a measured massive wall dispersion on a strand whose uniform contact response is actively commissioned from sharp writes. Unfiltered repairs fail the enrolled spatial test on the six-dimer component. The public M10.4 pin specifies a different pair and detector. At official revision c531265eb the task directory ends at M10.4 and the coherent-strand confirmation still awaits admission and its public draw. [Public canonical specification](https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/openwave/xperiments/m10_oph/research/m10_theory_canonical.md) · [Public tasks](https://github.com/openwave-labs/openwave/tree/c531265eb6085725c6268e156804499c810ba5e4/openwave/xperiments/m10_oph/research/tasks)
+### Does knowing the five contact readings recover the wave?
+
+On the same six dimers, keep the order and value of all five first-write readings. For each of the 32 equally probable histories, simulate both clock hands and the five overlapping pair measurements with two spatial scans apiece. Each history receives the same conditional shot budget and its own random stream. Fit all four wavelengths on the even holds and score their predicted shapes on the odd holds with the existing reader. The pooled rejection and the individual impulse losses informed this comparison. [Acquisition](conditional_profiles.py) · [All 32 dispositions and count hashes](conditional_profiles.json)
+
+| First-write history | Histories | Odd-hold statistic | Cutoff |
+| --- | ---: | ---: | ---: |
+| All zero | 1 | 45.17 | 121.01 |
+| All one | 1 | 36.37 | 121.01 |
+| Mixed, each read separately | 30 | 12,821,524 to 211,978,553 | 121.01 |
+
+The two passing histories carry **1/16 of the native first-write probability**. Thirteen mixed histories meet the 0.0048 tolerance for the held temporal pair sum even as their measured spatial profiles fail. All 32 histories produced complete records. The measured dependence on uniform preparation therefore survives giving the observer the actual contact pattern. This tests one four-mode reader and one six-dimer component. Other excitations or spatial descriptions of the mixed material have a separate measurement obligation.
+
+The native connector energies locate the change. For orientation signs $z_i$ and recorded gap $g_i=32+b_i$ with $b_i$ the pointer bit, connector $i$ contributes $g_i(3+z_i-z_{i+1}+z_i z_{i+1})/4$. Thus the field on an interior orientation is $(g_i-g_{i-1})/4$. All interior fields cancel on either uniform history. Every mixed history introduces at least one field of magnitude 0.25 into the generator used for flight. Both the fields and the bond strengths change with the pattern. The spatial experiment measures their combined effect. [Native gap measurement](growth.py) · [Full-generator spectral reconstruction](unsorted.py)
+
+Free flight conserves the probability of each written pattern. To see this, put either of the two returned memory states beside each of the nine possible load words. On 11 the echo maps the state back to its blank donor, where the memory generator vanishes. On each other word the state is orthogonal to the write image, so the echo leaves it fixed and the memory generator gives eigenvalue $4\kappa+b_i$. The local seam term therefore preserves that memory projector for every coupling. Terms on other seams act trivially on this private memory, even when they share a load. Their sum commutes with each pointer projector and hence with their product. After the five independent fair writes, passive waiting alone keeps the uniform fraction at exactly 1/16 at every exposure. This conclusion applies to free flight between addressed preparation events. [Seam law](../../../../contrast_memory_spherical_v1/law.py) · [Checks of both generator terms](test_growth.py)
+
+OW-30 has a measured massive wall dispersion on a strand whose uniform contact response is actively commissioned from sharp writes. The public M10.4 pin specifies a different pair and detector. The coherent-strand confirmation requires admission of its specified candidate and a subsequent public draw. [Candidate declaration and filing decision](../../submission/ROW_30_DECISION.md)
 
 From the repository root with one numerical thread run
 
@@ -38,7 +54,8 @@ P=model.candidate_laws.interval_echo.openwave.row_30_collective.sharp_growth
 .venv/bin/python -m "$P.measure"
 .venv/bin/python -m "$P.single_write"
 .venv/bin/python -m "$P.unsorted"
+.venv/bin/python -m "$P.conditional_profiles"
 .venv/bin/python -m pytest -q --pyargs "$P.test_growth"
 ~~~
 
-The two spectrum acquisitions accept an optional `--save-counts` directory that retains each full raw array.
+The spectrum acquisitions accept `--save-counts` to retain the raw arrays. For `conditional_profiles`, supply a fresh directory for the 544 arrays, grouped by first-write history.

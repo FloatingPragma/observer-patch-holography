@@ -1,0 +1,387 @@
+{
+  "physical_ports": {
+    "cells": 20,
+    "left": [
+      14,
+      18,
+      15,
+      16,
+      23,
+      22
+    ],
+    "right": [
+      24,
+      31,
+      25,
+      29,
+      35,
+      34
+    ]
+  },
+  "rim_degrees": [
+    [
+      5,
+      5,
+      5,
+      5,
+      6
+    ],
+    [
+      5,
+      5,
+      5,
+      5,
+      6
+    ]
+  ],
+  "archived_collective_search_sha256": "06c85b04550c2b713188f506d84a1d021b08fcc5067c8ceb233728788bd8c29c",
+  "archived_collective_receipt_sha256": "21911de502fb808c534ccab8ff1097b670b2387e19656c0b3a68f3f1feff2c48",
+  "sectors": [
+    {
+      "sign": 1,
+      "heads_each_side": [
+        3,
+        1,
+        2,
+        0,
+        2,
+        1
+      ],
+      "dimension": 160,
+      "parked_charged_fan_ground_energies": [
+        3.50122840023517,
+        3.50122840023517
+      ],
+      "opposite_neutral_doublet_energy": 1,
+      "parked_separated_threshold": 4.501228400235171,
+      "exact_threshold_dimension_certificate": {
+        "parked_charged_ground_bracket": [
+          "7/2",
+          "351/100"
+        ],
+        "parked_charged_fan_counts_below_bracket_endpoints": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "separated_threshold_bracket": [
+          "9/2",
+          "451/100"
+        ],
+        "released_counts_below_bracket_endpoints": [
+          1,
+          1
+        ]
+      },
+      "closest_released_level_to_threshold": 0.15288052448099787,
+      "released_energy_eigenspaces_below_threshold": [
+        {
+          "energy": 3.548011445120832,
+          "multiplicity": 1,
+          "source_probability_range": [
+            2.0181221148876275e-20,
+            0.011071621422973452
+          ],
+          "projector_weights_on_eigenspace": {
+            "gateway_charge_and_receiver_doublet": [
+              0.0112267354820577
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.011071621422973467
+            ],
+            "opposite_cell_doublet": [
+              0.01859322891002132
+            ],
+            "opposite_cell_nonvacuum": [
+              0.018599012398966445
+            ]
+          }
+        }
+      ],
+      "source_probability_range_below_threshold": [
+        2.0181221148876275e-20,
+        0.011071621422973452
+      ],
+      "subspace_detector_probability_ranges": {
+        "gateway_charge_and_receiver_doublet": [
+          0.0112267354820577
+        ],
+        "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+          0.011071621422973467
+        ],
+        "opposite_cell_doublet": [
+          0.01859322891002132
+        ],
+        "opposite_cell_nonvacuum": [
+          0.018599012398966445
+        ]
+      },
+      "release_reads": [
+        {
+          "release_time": 27.0625,
+          "full_arrival_probability_ranges": {
+            "gateway_charge_and_receiver_doublet": [
+              0.1026430186166841,
+              0.30016032061661013
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.05480113008948094,
+              0.23579090912263065
+            ]
+          },
+          "full_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.20140166961664713,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.1452960196060558,
+            "opposite_cell_doublet": 0.41832886551223236,
+            "opposite_cell_nonvacuum": 0.4985896181510659
+          },
+          "below_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 6.214908253660311e-05,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 6.129040046682241e-05,
+            "opposite_cell_doublet": 0.00010292859576122071,
+            "opposite_cell_nonvacuum": 0.00010296061206127298
+          },
+          "above_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.20339332312977554,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.14751534176282927,
+            "opposite_cell_doublet": 0.4162404335013411,
+            "opposite_cell_nonvacuum": 0.4965003267559612
+          },
+          "interference_contributions_to_full_probabilities": {
+            "gateway_charge_and_receiver_doublet": -0.0020538025956650108,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": -0.002280612557240297,
+            "opposite_cell_doublet": 0.001985503415130041,
+            "opposite_cell_nonvacuum": 0.001986330783043444
+          },
+          "parked_control_probabilities_exact": {
+            "gateway_charge_and_receiver_doublet": 0,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0,
+            "opposite_cell_doublet": 0,
+            "opposite_cell_nonvacuum": 0
+          }
+        },
+        {
+          "release_time": 30.8125,
+          "full_arrival_probability_ranges": {
+            "gateway_charge_and_receiver_doublet": [
+              0.14254042266776812,
+              0.16178212958754723
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.12086607479391127,
+              0.14231374584274592
+            ]
+          },
+          "full_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.15216127612765767,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.13158991031832862,
+            "opposite_cell_doublet": 0.37534678322805326,
+            "opposite_cell_nonvacuum": 0.47545728969842693
+          },
+          "below_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 6.214908253660313e-05,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 6.129040046682244e-05,
+            "opposite_cell_doublet": 0.0001029285957612207,
+            "opposite_cell_nonvacuum": 0.00010296061206127294
+          },
+          "above_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.1483361034640052,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.12793284162512328,
+            "opposite_cell_doublet": 0.374082273905206,
+            "opposite_cell_nonvacuum": 0.47418704470180567
+          },
+          "interference_contributions_to_full_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.003763023581115882,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.003595778292738522,
+            "opposite_cell_doublet": 0.0011615807270860534,
+            "opposite_cell_nonvacuum": 0.0011672843845599856
+          },
+          "parked_control_probabilities_exact": {
+            "gateway_charge_and_receiver_doublet": 0,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0,
+            "opposite_cell_doublet": 0,
+            "opposite_cell_nonvacuum": 0
+          }
+        }
+      ]
+    },
+    {
+      "sign": -1,
+      "heads_each_side": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        1
+      ],
+      "dimension": 160,
+      "parked_charged_fan_ground_energies": [
+        3.5012284002351626,
+        3.5012284002351626
+      ],
+      "opposite_neutral_doublet_energy": 1,
+      "parked_separated_threshold": 4.501228400235163,
+      "exact_threshold_dimension_certificate": {
+        "parked_charged_ground_bracket": [
+          "7/2",
+          "351/100"
+        ],
+        "parked_charged_fan_counts_below_bracket_endpoints": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "separated_threshold_bracket": [
+          "9/2",
+          "451/100"
+        ],
+        "released_counts_below_bracket_endpoints": [
+          1,
+          1
+        ]
+      },
+      "closest_released_level_to_threshold": 0.15288052448100053,
+      "released_energy_eigenspaces_below_threshold": [
+        {
+          "energy": 3.5480114451208276,
+          "multiplicity": 1,
+          "source_probability_range": [
+            0.0,
+            0.011071621422973401
+          ],
+          "projector_weights_on_eigenspace": {
+            "gateway_charge_and_receiver_doublet": [
+              0.011226735482057559
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.011071621422973334
+            ],
+            "opposite_cell_doublet": [
+              0.018593228910020763
+            ],
+            "opposite_cell_nonvacuum": [
+              0.018599012398965897
+            ]
+          }
+        }
+      ],
+      "source_probability_range_below_threshold": [
+        0.0,
+        0.011071621422973401
+      ],
+      "subspace_detector_probability_ranges": {
+        "gateway_charge_and_receiver_doublet": [
+          0.011226735482057559
+        ],
+        "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+          0.011071621422973334
+        ],
+        "opposite_cell_doublet": [
+          0.018593228910020763
+        ],
+        "opposite_cell_nonvacuum": [
+          0.018599012398965897
+        ]
+      },
+      "release_reads": [
+        {
+          "release_time": 27.0625,
+          "full_arrival_probability_ranges": {
+            "gateway_charge_and_receiver_doublet": [
+              0.10264301861669574,
+              0.3001603206165689
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.054801130089489614,
+              0.2357909091225877
+            ]
+          },
+          "full_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.2014016696166323,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.1452960196060386,
+            "opposite_cell_doublet": 0.4183288655122232,
+            "opposite_cell_nonvacuum": 0.4985896181510593
+          },
+          "below_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 6.214908253660203e-05,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 6.129040046682136e-05,
+            "opposite_cell_doublet": 0.00010292859576121713,
+            "opposite_cell_nonvacuum": 0.00010296061206126932
+          },
+          "above_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.2033933231297618,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.1475153417628131,
+            "opposite_cell_doublet": 0.41624043350133205,
+            "opposite_cell_nonvacuum": 0.49650032675595446
+          },
+          "interference_contributions_to_full_probabilities": {
+            "gateway_charge_and_receiver_doublet": -0.0020538025956660932,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": -0.002280612557241324,
+            "opposite_cell_doublet": 0.00198550341512993,
+            "opposite_cell_nonvacuum": 0.001986330783043555
+          },
+          "parked_control_probabilities_exact": {
+            "gateway_charge_and_receiver_doublet": 0,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0,
+            "opposite_cell_doublet": 0,
+            "opposite_cell_nonvacuum": 0
+          }
+        },
+        {
+          "release_time": 30.8125,
+          "full_arrival_probability_ranges": {
+            "gateway_charge_and_receiver_doublet": [
+              0.14254042266775238,
+              0.16178212958753477
+            ],
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": [
+              0.12086607479388277,
+              0.14231374584275117
+            ]
+          },
+          "full_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.15216127612764363,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.13158991031831693,
+            "opposite_cell_doublet": 0.37534678322804615,
+            "opposite_cell_nonvacuum": 0.4754572896984113
+          },
+          "below_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 6.214908253660206e-05,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 6.129040046682137e-05,
+            "opposite_cell_doublet": 0.00010292859576121716,
+            "opposite_cell_nonvacuum": 0.0001029606120612693
+          },
+          "above_threshold_mean_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.14833610346399206,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.12793284162511245,
+            "opposite_cell_doublet": 0.37408227390519855,
+            "opposite_cell_nonvacuum": 0.47418704470178985
+          },
+          "interference_contributions_to_full_probabilities": {
+            "gateway_charge_and_receiver_doublet": 0.003763023581114966,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0.0035957782927376614,
+            "opposite_cell_doublet": 0.0011615807270863865,
+            "opposite_cell_nonvacuum": 0.0011672843845601522
+          },
+          "parked_control_probabilities_exact": {
+            "gateway_charge_and_receiver_doublet": 0,
+            "gateway_charge_and_receiver_doublet_and_source_vacuum": 0,
+            "opposite_cell_doublet": 0,
+            "opposite_cell_nonvacuum": 0
+          }
+        }
+      ]
+    }
+  ]
+}

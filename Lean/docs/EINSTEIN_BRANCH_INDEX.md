@@ -5,7 +5,7 @@ algebra and the composition *conditional on* the listed continuum,
 asymptotic, and physical inputs. A synthetic inhabitant of the
 Einstein-admissible tower exists (`Geometry/EinsteinBranchInhabitant.lean`,
 `demoAdmissibleTower`), which proves the premise clauses jointly satisfiable;
-a source-derived inhabited tower is not constructed. A separate finite source-order path
+constructing that general tower from bare consensus records remains open. The separately specified pressureless spherical source supplies exact clock and release predictions at the ordinary coupling. A separate finite source-order path
 constructs an exact `1+3` algebraic carrier and an explicit order-faithful non-chain
 control; it does not construct the tensor fields or continuum tower consumed
 by the Einstein branch.
@@ -22,10 +22,12 @@ Finite instrument tests accompany the quantified small-ball route. [RegionalMome
 
 [NestedVolumes](../ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean) proves how entropy contrasts and independent shell-area and clock errors bound the change of radius at the same enclosed volume. The measured regions must be nested proper balls.
 
+[GravityCalibration](../ObserverPatchHolography/EinsteinBranch/GravityCalibration.lean) proves how signed linear certificates bound the matter density, how nonnegative tracer mixtures bound the outer acceleration, and how a finite unit flow bounds cubic field energy. Its flat abundance theorem takes the measured matter lower bound and the stated baryon and neutrino caps as inputs. [TwoFrequencyClock](../ObserverPatchHolography/EinsteinBranch/TwoFrequencyClock.lean) proves that the two exact five-port phase readings determine a common random elapsed time almost surely, given the same appointment and reference. The finite-precision timing window is quantified by the [clock calculation](../../model/candidate_laws/interval_echo/openwave/row_27_metric/parked_signals/two_frequency/clock.py).
+
 | Lean declaration | Compact-paper anchor | Level | What is proved / what is input |
 |---|---|---|---|
 | `BareConsensusTower` | `def:bare-finite-consensus-reduct` (`paper/reality_as_consensus_protocol.tex`) | exact finite structure | Finite states/quotients, mismatch, repair, normal forms, boundary data, and typed coarse maps. |
-| `bare_consensus_not_einstein_complete` | `thm:bare-consensus-not-einstein-complete` (`paper/reality_as_consensus_protocol.tex`); Theorem 4.3h in `paper/tex_fragments/PAPER.tex` | model-theoretic exact | Two free geometric decorations of the constant demo tower share one reduct and disagree on the integer Einstein identity. The quantifier ranges over free decorations; extensions whose geometry is read from `Quot` are the object of the readout and composition rows below. |
+| `bare_consensus_not_einstein_complete` | `thm:bare-consensus-not-einstein-complete` (`paper/reality_as_consensus_protocol.tex`) | model-theoretic exact | Two free geometric decorations of the constant demo tower share one reduct and disagree on the integer Einstein identity. The quantifier ranges over free decorations; extensions whose geometry is read from `Quot` are the object of the readout and composition rows below. |
 | `TypedArrowCommutation`, `ReadoutNaturality` | `def:einstein-admissible-realized-tower`, EB2 | explicit receipt predicates | Common-domain typed arrows and refinement diagrams are failable premises, not constructor truths. |
 | `EinsteinAdmissibleTower` | `def:einstein-admissible-realized-tower` | bundled conditional structure | Packages one bare source tower, its typed readouts, boundary fibre, arrow commutation, and refinement naturality; a synthetic inhabitant exists (`demoAdmissibleTower`), no source-derived inhabitant is constructed. |
 | `boundary_fiber_readout_composition` | EB1; D1 composition | exact finite composition | Same protected boundary plus consistent fibre uniqueness gives identical geometry/modular/event/stress/entropy/scale readouts. |

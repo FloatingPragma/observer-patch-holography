@@ -176,17 +176,14 @@ the measured sky requires the instrument windows, covariance and nuisance
 model. The peak measurements and marginal errors are from the
 \href{https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/}{Planck public release}.
 
-\section{Retrospective Comparison Ledger}
+\section{Comparisons with measured cosmological parameters}
 \label{sec:ledger}
 
-The deterministic cosmology ledger records the conditional comparisons
-in Table~\ref{tab:ledger}. Its
-producer reads the corpus values and the parent receipts, types each public
-measurement once with its citation, and writes one row per comparison with a
-class label; an independent verifier recomputes every row. Every row is on
-seen data. No row is a frozen prediction or a score, and the rule, theory
-minus measurement over the quoted standard deviation, is fixed before any row
-is read. Table~\ref{tab:ledger} summarizes the rows.
+Table~\ref{tab:ledger} compares each model quantity with the cited
+measurement. The signed difference is the model value minus the measured
+central value, divided by the quoted standard deviation. All measurements in
+the table were available when the comparisons were specified. The accompanying
+calculation and independent verifier use the same inputs and conventions.
 
 \clearpage
 \begin{table}[!htbp]
@@ -281,6 +278,18 @@ read from \(\rho\propto1/N\), so a posterior on it is no measurement of screen
 work: identical fixed-volume records admit \(H_\alpha(V)=Q(V/V_0)^{-\alpha}\) with
 \(p/\rho=\alpha\), and an additive energy offset changes \(p/\rho\) while leaving
 pressure unchanged~\cite{ophobservers}.
+
+The thirteen DESI DR2 distance measurements also test the constant-vacuum
+branch directly. For a flat late dust and vacuum history, the stated length
+and drag-ruler calibrations fix the vacuum amplitude. Fitting the matter
+coefficient to all distances gives $\chi^2=17.27$ on nominally twelve
+degrees of freedom. Setting that coefficient from the radial measurement at
+$z=2.33$ gives a squared residual of $31.34$. Drawing the thirteen distances
+with their released covariance and repeating the anchor calibration gives a
+tail probability of about $0.14$ at the all-distance matter fit. This comparison
+uses distance measurements alone. The combined cosmological posteriors above
+also use other observations and priors.
+
 A failure of a conditional branch rejects the full proposal only if that
 branch's premises are shown necessary.
 

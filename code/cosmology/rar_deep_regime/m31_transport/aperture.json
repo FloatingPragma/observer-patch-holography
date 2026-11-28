@@ -1,0 +1,547 @@
+{
+  "dr_kpc": 0.05,
+  "surveys": {
+    "Chemin": {
+      "endpoint_radii_kpc": [
+        28.17,
+        38.09
+      ],
+      "source_cases": {
+        "disk_7.1_bulge_6.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.442208358019052,
+          "upper_mass_ratio_high_loss": 1.0006516874391198,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.726706007745942,
+            2.403867191924946,
+            2.125689090141388
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.515539686008967,
+            3.097012502377041,
+            2.679062746230028
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 219.37057955975357,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.075554881724484,
+            2.1805700028169173
+          ]
+        },
+        "disk_7.1_bulge_6.4_spherical": {
+          "upper_mass_ratio_all_lifetimes": 1.442208358019052,
+          "upper_mass_ratio_high_loss": 1.0006516874391198,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.5281053496019954,
+            2.247252818620165,
+            2.002099884095838
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.431374532487862,
+            3.0128473488559346,
+            2.5948975927089215
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 223.57686223325902,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            1.9675599577442817,
+            2.039249619374002
+          ]
+        },
+        "disk_5.325_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4654813584958173,
+          "upper_mass_ratio_high_loss": 1.002253980665469,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.3016609327852104,
+            2.078092232612661,
+            1.8786931143104988
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            4.5610169344187295,
+            4.016283687186105,
+            3.472301989580842
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 227.94660113691305
+        },
+        "disk_5.325_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4438268120589988,
+          "upper_mass_ratio_high_loss": 1.0006812066305402,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.4391418984645545,
+            2.184525857219056,
+            1.960013585020905
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            4.018202160243226,
+            3.5382985899954367,
+            3.059057126111122
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 223.92547892758486,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            1.931425942196439,
+            1.9903445788505438
+          ]
+        },
+        "disk_5.325_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4268265022692894,
+          "upper_mass_ratio_high_loss": 1.0002650200866587,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.675029996702444,
+            2.3640828963840756,
+            2.095150926948681
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.526258956001524,
+            3.1051093485107137,
+            2.6845407865723443
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 219.46343072444486,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.0491679179534756,
+            2.145235617596133
+          ]
+        },
+        "disk_7.1_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4713078019489059,
+          "upper_mass_ratio_high_loss": 1.0033995572068128,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.4264028482815303,
+            2.175472129189049,
+            1.9538885528589989
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            4.153988549859435,
+            3.659453632353398,
+            3.1656010075747743
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 225.55802918680632
+        },
+        "disk_7.1_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4515620578026933,
+          "upper_mass_ratio_high_loss": 1.0010871520109403,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.592589697357604,
+            2.302626679362563,
+            2.050041786267487
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.73382919575029,
+            3.2893145103725576,
+            2.845413106537396
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 221.67526613224308,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.0103470670340315,
+            2.092863205838718
+          ]
+        },
+        "disk_7.1_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4348123906248573,
+          "upper_mass_ratio_high_loss": 1.0004334369278165,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.8854880883471905,
+            2.5221707299611182,
+            2.2130821801149727
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.3315432178069244,
+            2.9349209280211856,
+            2.538845844295669
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 217.20782394760954,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.1497604374064547,
+            2.283582840065958
+          ]
+        },
+        "disk_8.875_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4753889749169473,
+          "upper_mass_ratio_high_loss": 1.0046050325567937,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.5765227052939665,
+            2.2912635620601005,
+            2.042343374178481
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.8431063193476787,
+            3.3870400307095863,
+            2.9316029609616887
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 222.98904799517317
+        },
+        "disk_8.875_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.4573924986603113,
+          "upper_mass_ratio_high_loss": 1.0015532610673208,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.781310632588454,
+            2.4457278048382394,
+            2.157701772151105
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.505087313517654,
+            3.0891341679119764,
+            2.6737548984799435
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 219.2268098120831,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.1030803861442067,
+            2.217810209952124
+          ]
+        },
+        "disk_8.875_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.441216924956384,
+          "upper_mass_ratio_high_loss": 1.0006342728874518,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            3.1544585272125087,
+            2.720073992667251,
+            2.3581081280724723
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.1678685696447566,
+            2.791933598972636,
+            2.41651729278181
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 214.77594576437184,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            2.270632012544043,
+            2.458170566652098
+          ]
+        }
+      }
+    },
+    "Corbelli": {
+      "endpoint_radii_kpc": [
+        28.5,
+        36.5
+      ],
+      "source_cases": {
+        "disk_7.1_bulge_6.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3514371638036438,
+          "upper_mass_ratio_high_loss": 1.00057362600275,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.106875419129259,
+            1.0214938605192876,
+            0.33936174397610946
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.34809019523309,
+            0.053980947774395556,
+            -1.9282773088682175
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 208.41509343605523,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.36687340365239457,
+            0.30921674213963485
+          ]
+        },
+        "disk_7.1_bulge_6.4_spherical": {
+          "upper_mass_ratio_all_lifetimes": 1.3514371638036438,
+          "upper_mass_ratio_high_loss": 1.00057362600275,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            1.950018608883,
+            0.987274840883499,
+            0.36460791544123766
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.2588882798410954,
+            -0.03522096761759962,
+            -2.017479224260212
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 212.19523528656921,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.3876668441047678,
+            0.3397844647273004
+          ]
+        },
+        "disk_5.325_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3696357778077763,
+          "upper_mass_ratio_high_loss": 1.001979246132895,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            1.796275628231863,
+            1.0128635912436048,
+            0.4803367144005042
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            3.041560066801436,
+            0.055666608149553466,
+            -2.5243377959233744
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 215.74243225379962
+        },
+        "disk_5.325_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3527053272422553,
+          "upper_mass_ratio_high_loss": 1.0005981755918811,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            1.8933521404010125,
+            1.0142283172501494,
+            0.4317841265062747
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.6795785691344056,
+            0.04904162565566174,
+            -2.2239118447993436
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 212.38346573720324,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.4472830030918628,
+            0.41533127348320864
+          ]
+        },
+        "disk_5.325_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3393963896887129,
+          "upper_mass_ratio_high_loss": 1.000232717298216,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.066754003291508,
+            1.0165726165313997,
+            0.35092608010375115
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.3515212900946643,
+            0.04303752394111248,
+            -1.951641243363627
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 208.61031409815595,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.3766814523473808,
+            0.3228483331053213
+          ]
+        },
+        "disk_7.1_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3741842529760842,
+          "upper_mass_ratio_high_loss": 1.002992343831224,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            1.8851098432885014,
+            1.0177395548282642,
+            0.4411311274887431
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.7745213128608754,
+            0.06378430028112715,
+            -2.2784671991735355
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 213.60809302762436
+        },
+        "disk_7.1_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3587538613227528,
+          "upper_mass_ratio_high_loss": 1.0009569289631903,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.00604863207748,
+            1.0198163310614639,
+            0.3842152256725192
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.493889561284168,
+            0.05733277300855016,
+            -2.0480093403577886
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 210.35888628716938,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.4056405713227281,
+            0.3610852445961375
+          ]
+        },
+        "disk_7.1_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.345648575003957,
+          "upper_mass_ratio_high_loss": 1.0003815183364453,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.2301630892079736,
+            1.023481675644775,
+            0.28746070735941937
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.2251957489938285,
+            0.05115569059247879,
+            -1.827355047643606
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 206.58241838410996,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.3226961775826354,
+            0.24818255117550075
+          ]
+        },
+        "disk_8.875_bulge_2.4_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3773691545450775,
+          "upper_mass_ratio_high_loss": 1.0040594587502145,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            1.9950665419487914,
+            1.0236110980284323,
+            0.39494966906598944
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.57091526990175,
+            0.07103967964868158,
+            -2.089013959840294
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 211.33061466232974
+        },
+        "disk_8.875_bulge_4.8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3633108147076394,
+          "upper_mass_ratio_high_loss": 1.0013692421235914,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.149705746462451,
+            1.0266943023805983,
+            0.3272351153277614
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.3447913609083937,
+            0.06479141069554276,
+            -1.9052755037117421
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 208.1768575559883,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.3566393942107547,
+            0.2948443652741921
+          ]
+        },
+        "disk_8.875_bulge_8_disk": {
+          "upper_mass_ratio_all_lifetimes": 1.3506602471856481,
+          "upper_mass_ratio_high_loss": 1.0005591290439728,
+          "interval_for_largest_bound_per_kpc": [
+            3.906250000000001e-05,
+            0.00015625000000000003
+          ],
+          "mu_split_per_kpc": 1.0,
+          "panels": 160,
+          "required_mass_ratio_nominal_one_two_error_boxes": [
+            2.4501982102562385,
+            1.032321879724411,
+            0.20923683264559698
+          ],
+          "required_slope_over_SPARC_ceiling_nominal_one_two_error_boxes": [
+            2.1192028015812334,
+            0.058557934555121594,
+            -1.721972049444376
+          ],
+          "outer_speed_ceiling_conditioned_on_inner_measurement_kms": 204.41422337408122,
+          "two_error_mass_ratio_at_735_835_kpc": [
+            0.2577039863441863,
+            0.1537021019135415
+          ]
+        }
+      }
+    }
+  }
+}

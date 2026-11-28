@@ -1,0 +1,32 @@
+{
+  "schema": "oph.openwave26.cubic_strength.v1",
+  "fixture_sha256": "578776c047e327661f496a261986274f5e7e0f8f0498f4729c16d73ae269b2ff",
+  "dirichlet_energy": "642754164150366239279661/151115727451828646838272",
+  "kappa_exact": "4835703278458516698824704/642754164150366239279661",
+  "q": "1/8",
+  "g_fixture": "1.05773138390369E-2",
+  "reflected_flow_energy_through_layer_11": "3264872141/11543051520",
+  "infinite_flow_energy_upper": "3/8",
+  "dirichlet_energy_floor": "8/3",
+  "g_floor_all_profiles": "6.63145596216231E-3",
+  "historical_G_pred_over_observed": "1.18192926318085E+40",
+  "historical_speed_over_c": "1.95750508412115E-3",
+  "CODATA_electron_gravity_coupling": "1.75180939879077E-45",
+  "CODATA_five_standard_uncertainty_box": [
+    "1.75161254024625E-45",
+    "1.75200625733650E-45"
+  ],
+  "fixture_dimensionless_mismatch_central": "6.03793645949046E+42",
+  "family_dimensionless_mismatch_lower": "3.78506408546954E+42",
+  "best_common_error_factor_fixture_electron_fixed": "2.45722128826251E+21",
+  "best_common_error_factor_fixture_both_units_free": "4.95703670378030E+10",
+  "best_common_error_factor_family_lower_electron_fixed": "1.94552411587971E+21",
+  "best_common_error_factor_family_lower_both_units_free": "4.41080958088163E+10",
+  "necessary_max_abs_q_times_gap_over_sqrt_speed": "6.42500388351538E-23",
+  "one_dimensional_control_energies": {
+    "8": "1/4",
+    "64": "1/32",
+    "512": "1/256"
+  },
+  "common_length_positive_control_fm": "3.86159267320510E+2"
+}

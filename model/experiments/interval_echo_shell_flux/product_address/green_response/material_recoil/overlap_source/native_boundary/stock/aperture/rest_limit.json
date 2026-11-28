@@ -1,0 +1,84 @@
+{
+  "sha256": {
+    "mediated_release.json": "66c6cff0878f2f1be219c7ed79ebfbbae73c5c68f9a8cb1f1a1a6be2e0edf9b0",
+    "REST_LIMIT.md": "5db1bdfbf9ef42dd459a1dc2efce35009448985d668ec9080fa3123842b0a140",
+    "isolated_medium.json": "2d81d208ca602bb1578502d6a81cdbe42eb7823e3fc847ce3893e37fdcfcf7a0"
+  },
+  "ports": 240,
+  "singletons": 107,
+  "centers_radius": "1/1000000000",
+  "cuts": [
+    {
+      "limit_lower": 0.0109717,
+      "limit_upper": 0.0110785,
+      "finite_window_error_numerator": 213222,
+      "sign_guaranteed_from_age": 19433775
+    },
+    {
+      "limit_lower": -0.0059931,
+      "limit_upper": -0.0059251,
+      "finite_window_error_numerator": 135687,
+      "sign_guaranteed_from_age": 22900210
+    },
+    {
+      "limit_lower": -0.0072736,
+      "limit_upper": -0.0071667,
+      "finite_window_error_numerator": 213222,
+      "sign_guaranteed_from_age": 29751387
+    },
+    {
+      "limit_lower": -0.0056522,
+      "limit_upper": -0.005555,
+      "finite_window_error_numerator": 193838,
+      "sign_guaranteed_from_age": 34893904
+    },
+    {
+      "limit_lower": -0.0085448,
+      "limit_upper": -0.0084379,
+      "finite_window_error_numerator": 213222,
+      "sign_guaranteed_from_age": 25269489
+    },
+    {
+      "limit_lower": -0.0086874,
+      "limit_upper": -0.0085902,
+      "finite_window_error_numerator": 193838,
+      "sign_guaranteed_from_age": 22564795
+    },
+    {
+      "limit_lower": -0.0060286,
+      "limit_upper": -0.0059217,
+      "finite_window_error_numerator": 213222,
+      "sign_guaranteed_from_age": 36006330
+    },
+    {
+      "limit_lower": -0.0041893,
+      "limit_upper": -0.0040921,
+      "finite_window_error_numerator": 193838,
+      "sign_guaranteed_from_age": 47368334
+    },
+    {
+      "limit_lower": -0.0048707,
+      "limit_upper": -0.0047639,
+      "finite_window_error_numerator": 213222,
+      "sign_guaranteed_from_age": 44757758
+    },
+    {
+      "limit_lower": -0.0036424,
+      "limit_upper": -0.0035452,
+      "finite_window_error_numerator": 193838,
+      "sign_guaranteed_from_age": 54675579
+    },
+    {
+      "limit_lower": 0.0027213,
+      "limit_upper": 0.00277,
+      "finite_window_error_numerator": 96920,
+      "sign_guaranteed_from_age": 35613704
+    },
+    {
+      "limit_lower": -0.0026079,
+      "limit_upper": -0.0025296,
+      "finite_window_error_numerator": 156273,
+      "sign_guaranteed_from_age": 61776964
+    }
+  ]
+}

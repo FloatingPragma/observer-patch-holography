@@ -1,0 +1,826 @@
+{
+  "units": "radii kpc, masses solar, speeds km/s, v2 (km/s)^2, S solar masses/kpc",
+  "sha256": {
+    "leroy_table7.dat": "c257c508ed8366f5aa635ed9af749cc495608a0804e44d53d464bcc657692895",
+    "leroy_sample.dat": "c4e863469487f161fa3b1c0d85dc4fa6397c0855b5f0c7575b05a90384326b96",
+    "table1.dat": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c",
+    "table2.dat": "7d027e515441c6b4ebbf6aadee0327e6ad81156c4e8b151af2f6d62cb44c3962",
+    "PROTOCOL.md": "c9f05e8becada52a4bd0e04389fa935c604bc0ef9193a4b3c261321e0c4ebba2"
+  },
+  "excluded": {
+    "HoI": "no SPARC counterpart",
+    "UGC04305": "quality or inclination",
+    "NGC4214": "quality or inclination",
+    "NGC2976": "orbit interior to aperture or 3 Rd",
+    "NGC4449": "no SPARC counterpart",
+    "NGC3077": "no SPARC counterpart",
+    "NGC0925": "no SPARC counterpart",
+    "NGC0628": "no SPARC counterpart",
+    "NGC3184": "no SPARC counterpart",
+    "NGC4736": "no SPARC counterpart",
+    "NGC3351": "no SPARC counterpart",
+    "NGC3627": "no SPARC counterpart",
+    "NGC5194": "no SPARC counterpart"
+  },
+  "train": [
+    "DDO154",
+    "NGC7793",
+    "NGC3198",
+    "NGC6946",
+    "NGC5055"
+  ],
+  "held": [
+    "IC2574",
+    "NGC2403",
+    "NGC3521",
+    "NGC2841",
+    "NGC7331"
+  ],
+  "pair_high_low": [
+    "NGC3521",
+    "NGC3198"
+  ],
+  "profiles": {
+    "DDO154": {
+      "mass_msun": 61646762.01959074,
+      "stellar_msun": 15564387.89617306,
+      "atomic_with_he_msun": 46082374.12341768,
+      "molecular_with_he_msun": 0.0,
+      "n_input_rings": 7,
+      "n_measured_star_HI_H2": [
+        7,
+        7,
+        0
+      ],
+      "max_sigma_msun_pc2": 10.687519740400216,
+      "edge_kpc": 1.4562790697674417,
+      "rd_kpc": 0.7516279069767443,
+      "S_msun_kpc": 89318196.70037952,
+      "F": 0.8428481270827731,
+      "terminal_jump_fraction": 0.8843574442760724,
+      "atomic_fraction_of_sparc": 0.12321490407330929
+    },
+    "IC2574": {
+      "mass_msun": 2685753693.336856,
+      "stellar_msun": 903482948.4663279,
+      "atomic_with_he_msun": 1782270744.870528,
+      "molecular_with_he_msun": 0.0,
+      "n_input_rings": 46,
+      "n_measured_star_HI_H2": [
+        46,
+        46,
+        0
+      ],
+      "max_sigma_msun_pc2": 27.936895664062497,
+      "edge_kpc": 8.699750000000002,
+      "rd_kpc": 2.05275,
+      "S_msun_kpc": 871389854.5878911,
+      "F": 0.5472753878417961,
+      "terminal_jump_fraction": 0.3676073544125644,
+      "atomic_fraction_of_sparc": 1.2649548211947306
+    },
+    "NGC7793": {
+      "mass_msun": 4091233065.1673694,
+      "stellar_msun": 3179428281.8699794,
+      "atomic_with_he_msun": 911804783.29739,
+      "molecular_with_he_msun": 0.0,
+      "n_input_rings": 38,
+      "n_measured_star_HI_H2": [
+        38,
+        38,
+        0
+      ],
+      "max_sigma_msun_pc2": 228.54862943786983,
+      "edge_kpc": 6.664615384615384,
+      "rd_kpc": 1.2033333333333334,
+      "S_msun_kpc": 2702000458.6680694,
+      "F": 0.7150947909873623,
+      "terminal_jump_fraction": 0.07432939229274223,
+      "atomic_fraction_of_sparc": 0.7786814095249965
+    },
+    "NGC2403": {
+      "mass_msun": 6927998079.342991,
+      "stellar_msun": 5356454533.448448,
+      "atomic_with_he_msun": 1571543545.8945427,
+      "molecular_with_he_msun": 0.0,
+      "n_input_rings": 57,
+      "n_measured_star_HI_H2": [
+        57,
+        57,
+        0
+      ],
+      "max_sigma_msun_pc2": 257.8652588500977,
+      "edge_kpc": 8.788750000000002,
+      "rd_kpc": 1.58,
+      "S_msun_kpc": 3585825907.3038254,
+      "F": 0.861219023902928,
+      "terminal_jump_fraction": 0.13381027291141193,
+      "atomic_fraction_of_sparc": 0.36122123317363486
+    },
+    "NGC3198": {
+      "mass_msun": 19657977246.69804,
+      "stellar_msun": 14854979236.396675,
+      "atomic_with_he_msun": 4401098774.516602,
+      "molecular_with_he_msun": 401899235.78476185,
+      "n_input_rings": 23,
+      "n_measured_star_HI_H2": [
+        23,
+        23,
+        10
+      ],
+      "max_sigma_msun_pc2": 407.53515625,
+      "edge_kpc": 15.45,
+      "rd_kpc": 3.2,
+      "S_msun_kpc": 6053164176.899424,
+      "F": 0.8859669517034536,
+      "terminal_jump_fraction": 0.10744858524650945,
+      "atomic_fraction_of_sparc": 0.297736870005128
+    },
+    "NGC6946": {
+      "mass_msun": 39431584831.45584,
+      "stellar_msun": 33625649367.40076,
+      "atomic_with_he_msun": 2530878864.0116835,
+      "molecular_with_he_msun": 3275056600.043395,
+      "n_input_rings": 41,
+      "n_measured_star_HI_H2": [
+        41,
+        41,
+        27
+      ],
+      "max_sigma_msun_pc2": 1595.5818203820736,
+      "edge_kpc": 10.99322033898305,
+      "rd_kpc": 2.3389830508474576,
+      "S_msun_kpc": 20086822456.156715,
+      "F": 0.8238431924208175,
+      "terminal_jump_fraction": 0.06540938753606233,
+      "atomic_fraction_of_sparc": 0.3282081730485117
+    },
+    "NGC3521": {
+      "mass_msun": 36239198195.34539,
+      "stellar_msun": 31096164765.926712,
+      "atomic_with_he_msun": 3258890025.264203,
+      "molecular_with_he_msun": 1884143404.154479,
+      "n_input_rings": 30,
+      "n_measured_star_HI_H2": [
+        30,
+        30,
+        19
+      ],
+      "max_sigma_msun_pc2": 2185.3181829472005,
+      "edge_kpc": 11.190186915887853,
+      "rd_kpc": 2.0869158878504677,
+      "S_msun_kpc": 21789428856.035328,
+      "F": 0.8533779146422844,
+      "terminal_jump_fraction": 0.05961335469549714,
+      "atomic_fraction_of_sparc": 0.5768518694355906
+    },
+    "NGC2841": {
+      "mass_msun": 70580120112.97704,
+      "stellar_msun": 67766857663.80841,
+      "atomic_with_he_msun": 2146548158.436664,
+      "molecular_with_he_msun": 666714290.7319696,
+      "n_input_rings": 25,
+      "n_measured_star_HI_H2": [
+        25,
+        20,
+        9
+      ],
+      "max_sigma_msun_pc2": 2508.516796875,
+      "edge_kpc": 17.0,
+      "rd_kpc": 4.0,
+      "S_msun_kpc": 29584803404.430386,
+      "F": 0.9284791833688969,
+      "terminal_jump_fraction": 0.05090720048203559,
+      "atomic_fraction_of_sparc": 0.16146744083320774
+    },
+    "NGC5055": {
+      "mass_msun": 81114545097.56572,
+      "stellar_msun": 70542590574.07161,
+      "atomic_with_he_msun": 6196878319.763008,
+      "molecular_with_he_msun": 4375076203.731089,
+      "n_input_rings": 43,
+      "n_measured_star_HI_H2": [
+        43,
+        43,
+        23
+      ],
+      "max_sigma_msun_pc2": 2692.4516358690325,
+      "edge_kpc": 20.633168316831686,
+      "rd_kpc": 3.136633663366337,
+      "S_msun_kpc": 35980239222.024925,
+      "F": 0.9133530930699809,
+      "terminal_jump_fraction": 0.04972667713228821,
+      "atomic_fraction_of_sparc": 0.38871593382497266
+    },
+    "NGC7331": {
+      "mass_msun": 114128337123.10236,
+      "stellar_msun": 99423269190.34784,
+      "atomic_with_he_msun": 10821417742.618034,
+      "molecular_with_he_msun": 3883650190.1364794,
+      "n_input_rings": 33,
+      "n_measured_star_HI_H2": [
+        33,
+        33,
+        16
+      ],
+      "max_sigma_msun_pc2": 3715.017968749999,
+      "edge_kpc": 23.6,
+      "rd_kpc": 3.3,
+      "S_msun_kpc": 44901905180.59409,
+      "F": 0.8804619352485422,
+      "terminal_jump_fraction": 0.029391185888708413,
+      "atomic_fraction_of_sparc": 0.7189775739358955
+    }
+  },
+  "targets": {
+    "DDO154": {
+      "observed_kms": 45.5,
+      "e_kms": 1.3,
+      "radius_kpc": 5.92,
+      "sparc_baryon_v2": 264.20340000000004,
+      "additional_molecular_v2": 0.0,
+      "baryon_v2": 264.20340000000004,
+      "excess_v2": 1806.0466
+    },
+    "IC2574": {
+      "observed_kms": 67.5,
+      "e_kms": 9.3,
+      "radius_kpc": 10.23,
+      "sparc_baryon_v2": 1025.48935,
+      "additional_molecular_v2": 0.0,
+      "baryon_v2": 1025.48935,
+      "excess_v2": 3530.76065
+    },
+    "NGC7793": {
+      "observed_kms": 90.8,
+      "e_kms": 6.1,
+      "radius_kpc": 7.87,
+      "sparc_baryon_v2": 3198.2841,
+      "additional_molecular_v2": 0.0,
+      "baryon_v2": 3198.2841,
+      "excess_v2": 5046.3559
+    },
+    "NGC2403": {
+      "observed_kms": 134.0,
+      "e_kms": 3.12,
+      "radius_kpc": 20.87,
+      "sparc_baryon_v2": 2646.2373499999994,
+      "additional_molecular_v2": 0.0,
+      "baryon_v2": 2646.2373499999994,
+      "excess_v2": 15309.76265
+    },
+    "NGC3198": {
+      "observed_kms": 149.0,
+      "e_kms": 3.0,
+      "radius_kpc": 44.08,
+      "sparc_baryon_v2": 4187.79405,
+      "additional_molecular_v2": 39.21359718695702,
+      "baryon_v2": 4227.007647186957,
+      "excess_v2": 17973.992352813042
+    },
+    "NGC6946": {
+      "observed_kms": 154.0,
+      "e_kms": 21.0,
+      "radius_kpc": 20.4,
+      "sparc_baryon_v2": 8892.64702,
+      "additional_molecular_v2": 690.4778182094578,
+      "baryon_v2": 9583.124838209458,
+      "excess_v2": 14132.875161790542
+    },
+    "NGC3521": {
+      "observed_kms": 206.0,
+      "e_kms": 10.7,
+      "radius_kpc": 17.74,
+      "sparc_baryon_v2": 12643.8051,
+      "additional_molecular_v2": 456.7950905384975,
+      "baryon_v2": 13100.600190538496,
+      "excess_v2": 29335.3998094615
+    },
+    "NGC2841": {
+      "observed_kms": 294.0,
+      "e_kms": 7.07,
+      "radius_kpc": 63.64,
+      "sparc_baryon_v2": 11784.819420000002,
+      "additional_molecular_v2": 45.0578725202564,
+      "baryon_v2": 11829.877292520257,
+      "excess_v2": 74606.12270747975
+    },
+    "NGC5055": {
+      "observed_kms": 172.0,
+      "e_kms": 4.84,
+      "radius_kpc": 54.59,
+      "sparc_baryon_v2": 7717.658799999999,
+      "additional_molecular_v2": 344.6939146794615,
+      "baryon_v2": 8062.35271467946,
+      "excess_v2": 21521.64728532054
+    },
+    "NGC7331": {
+      "observed_kms": 238.0,
+      "e_kms": 9.0,
+      "radius_kpc": 36.31,
+      "sparc_baryon_v2": 18364.87157,
+      "additional_molecular_v2": 460.0181265088864,
+      "baryon_v2": 18824.889696508886,
+      "excess_v2": 37819.110303491114
+    }
+  },
+  "pair_and_primary_summary": {
+    "held_median_abs_kms": {
+      "boundary": 34.99507854460899,
+      "sqrt_mass": 38.015364297844144,
+      "exp_proxy": 26.87167457154294,
+      "boundary_finite": 30.50244401460715,
+      "sqrt_mass_finite": 29.863988090619046,
+      "exp_proxy_finite": 31.606993064142372
+    },
+    "pair_source_ratios": {
+      "boundary": 3.599675842130619,
+      "sqrt_mass": 1.357750201982802,
+      "exp_proxy": 2.82673297447845,
+      "boundary_finite": 3.467266874502833,
+      "sqrt_mass_finite": 1.307807287557888,
+      "exp_proxy_finite": 2.72275561337013
+    },
+    "pair_observed_excess_ratio": 1.632102608793551
+  },
+  "pair_geometry_controls": {
+    "endpoints": {
+      "NGC3521": {
+        "speed_only": {
+          "excess_v2": [
+            25041.48980946152,
+            33858.289809461494
+          ],
+          "required_boundary_gain": [
+            1.1492494812467479e-06,
+            1.5538860625106877e-06
+          ]
+        },
+        "speed_distance_inclination": {
+          "excess_v2": [
+            19679.732339534898,
+            40429.93672461125
+          ],
+          "required_boundary_gain": [
+            6.573803899312503e-07,
+            2.8871188232913544e-06
+          ]
+        }
+      },
+      "NGC3198": {
+        "speed_only": {
+          "excess_v2": [
+            17088.992352813042,
+            18876.992352813042
+          ],
+          "required_boundary_gain": [
+            2.8231503150087094e-06,
+            3.1185330186240367e-06
+          ]
+        },
+        "speed_distance_inclination": {
+          "excess_v2": [
+            16049.874477625415,
+            20129.91697152595
+          ],
+          "required_boundary_gain": [
+            2.356112743293771e-06,
+            3.7790660283931368e-06
+          ]
+        }
+      }
+    },
+    "ratio_bounds": {
+      "speed_only": {
+        "excess_v2": [
+          1.3265614215142618,
+          1.98129234950989
+        ],
+        "required_boundary_gain": [
+          0.3685224669366564,
+          0.5504085468810378
+        ]
+      },
+      "speed_distance_inclination": {
+        "excess_v2": [
+          0.9776360412897955,
+          2.519018873385786
+        ],
+        "required_boundary_gain": [
+          0.17395313683121044,
+          1.225373799071794
+        ]
+      }
+    }
+  },
+  "held_predictions": {
+    "boundary": {
+      "gain": 1.8676369516560194e-06,
+      "median_abs_kms": 34.99507854460899,
+      "rms_kms": 45.48569022965829,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 1627.439891726511,
+          "predicted_total_kms": 51.50659415770481,
+          "total_residual_kms": -15.99340584229519,
+          "excess_residual_v2": -1903.3207582734892
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 6697.0209666860965,
+          "predicted_total_kms": 96.66053132838707,
+          "total_residual_kms": -37.339468671612934,
+          "excess_residual_v2": -8612.741683313903
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 40694.74248701153,
+          "predicted_total_kms": 231.93823030615292,
+          "total_residual_kms": 25.938230306152917,
+          "excess_residual_v2": 11359.342677550027
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 55253.67204559299,
+          "predicted_total_kms": 259.004921455391,
+          "total_residual_kms": -34.99507854460899,
+          "excess_residual_v2": -19352.45066188676
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 83860.45731503238,
+          "predicted_total_kms": 320.44554453376514,
+          "total_residual_kms": 82.44554453376514,
+          "excess_residual_v2": 46041.34701154127
+        }
+      }
+    },
+    "sqrt_mass": {
+      "gain": 0.07889523353561403,
+      "median_abs_kms": 38.015364297844144,
+      "rms_kms": 57.08285215505126,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 4088.6869195172644,
+          "predicted_total_kms": 71.51346914754775,
+          "total_residual_kms": 4.013469147547752,
+          "excess_residual_v2": 557.9262695172642
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 6566.812940875572,
+          "predicted_total_kms": 95.98463570215586,
+          "total_residual_kms": -38.015364297844144,
+          "excess_residual_v2": -8742.949709124428
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 15018.96676131963,
+          "predicted_total_kms": 167.68889931017534,
+          "total_residual_kms": -38.311100689824656,
+          "excess_residual_v2": -14316.433048141871
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 20960.033025503366,
+          "predicted_total_kms": 181.07984514579096,
+          "total_residual_kms": -112.92015485420904,
+          "excess_residual_v2": -53646.08968197639
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 26653.086626605887,
+          "predicted_total_kms": 213.2556595336095,
+          "total_residual_kms": -24.744340466390497,
+          "excess_residual_v2": -11166.023676885226
+        }
+      }
+    },
+    "exp_proxy": {
+      "gain": 1.4842586989321062e-06,
+      "median_abs_kms": 26.87167457154294,
+      "rms_kms": 49.481327451749415,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 1941.9575118861335,
+          "predicted_total_kms": 54.474277066209275,
+          "total_residual_kms": -13.025722933790725,
+          "excess_residual_v2": -1588.8031381138667
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 6508.190769271998,
+          "predicted_total_kms": 95.67877569906503,
+          "total_residual_kms": -38.32122430093497,
+          "excess_residual_v2": -8801.571880728003
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 25774.08388948934,
+          "predicted_total_kms": 197.16664038327536,
+          "total_residual_kms": -8.833359616724636,
+          "excess_residual_v2": -3561.315919972163
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 26189.78931233977,
+          "predicted_total_kms": 194.9863241482849,
+          "total_residual_kms": -99.0136758517151,
+          "excess_residual_v2": -48416.33339513998
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 51332.11429382446,
+          "predicted_total_kms": 264.87167457154294,
+          "total_residual_kms": 26.87167457154294,
+          "excess_residual_v2": 13513.003990333345
+        }
+      }
+    },
+    "boundary_finite": {
+      "gain": 2.6117334026126697e-06,
+      "median_abs_kms": 30.50244401460715,
+      "rms_kms": 55.765518510186446,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 1245.5101186012937,
+          "predicted_total_kms": 47.65500465429936,
+          "total_residual_kms": -19.84499534570064,
+          "excess_residual_v2": -2285.2505313987067
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 8065.506744949528,
+          "predicted_total_kms": 103.49755598539285,
+          "total_residual_kms": -30.50244401460715,
+          "excess_residual_v2": -7244.255905050472
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 48564.18326376035,
+          "predicted_total_kms": 248.32394861208786,
+          "total_residual_kms": 42.32394861208786,
+          "excess_residual_v2": 19228.78345429885
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 71741.37603238628,
+          "predicted_total_kms": 289.0869303944863,
+          "total_residual_kms": -4.913069605513726,
+          "excess_residual_v2": -2864.746675093469
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 103253.36090963928,
+          "predicted_total_kms": 349.3969813924387,
+          "total_residual_kms": 111.3969813924387,
+          "excess_residual_v2": 65434.25060614816
+        }
+      }
+    },
+    "sqrt_mass_finite": {
+      "gain": 0.11032835720517553,
+      "median_abs_kms": 29.863988090619046,
+      "rms_kms": 47.513627909803006,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 3129.148398008726,
+          "predicted_total_kms": 64.45647948816881,
+          "total_residual_kms": -3.04352051183119,
+          "excess_residual_v2": -401.6122519912742
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 7908.691690069835,
+          "predicted_total_kms": 102.73718431059824,
+          "total_residual_kms": -31.262815689401762,
+          "excess_residual_v2": -7401.070959930165
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 17923.2945008031,
+          "predicted_total_kms": 176.13601190938095,
+          "total_residual_kms": -29.863988090619046,
+          "excess_residual_v2": -11412.105308658403
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 27214.51000927289,
+          "predicted_total_kms": 197.59652654283462,
+          "total_residual_kms": -96.40347345716538,
+          "excess_residual_v2": -47391.61269820686
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 32816.667842324125,
+          "predicted_total_kms": 227.24778885356181,
+          "total_residual_kms": -10.752211146438185,
+          "excess_residual_v2": -5002.442461166989
+        }
+      }
+    },
+    "exp_proxy_finite": {
+      "gain": 2.075611118468261e-06,
+      "median_abs_kms": 31.606993064142372,
+      "rms_kms": 44.81397732073653,
+      "held": {
+        "IC2574": {
+          "predicted_excess_v2": 1486.2163224854976,
+          "predicted_total_kms": 50.11692002193967,
+          "total_residual_kms": -17.38307997806033,
+          "excess_residual_v2": -2044.5443275145026
+        },
+        "NGC2403": {
+          "predicted_excess_v2": 7838.090519366589,
+          "predicted_total_kms": 102.39300693585763,
+          "total_residual_kms": -31.606993064142372,
+          "excess_residual_v2": -7471.672130633411
+        },
+        "NGC3521": {
+          "predicted_excess_v2": 30758.207497300067,
+          "predicted_total_kms": 209.4249452377595,
+          "total_residual_kms": 3.424945237759488,
+          "excess_residual_v2": 1422.8076878385655
+        },
+        "NGC2841": {
+          "predicted_excess_v2": 34004.82635281067,
+          "predicted_total_kms": 214.09040997982822,
+          "total_residual_kms": -79.90959002017178,
+          "excess_residual_v2": -40601.29635466908
+        },
+        "NGC7331": {
+          "predicted_excess_v2": 63202.771522270516,
+          "predicted_total_kms": 286.4047157760839,
+          "total_residual_kms": 48.40471577608389,
+          "excess_residual_v2": 25383.6612187794
+        }
+      }
+    }
+  },
+  "surface_residual": {
+    "positive_galaxies": [
+      "DDO154",
+      "IC2574",
+      "NGC2403",
+      "NGC2841",
+      "NGC3198",
+      "NGC3521",
+      "NGC5055",
+      "NGC6946",
+      "NGC7331",
+      "NGC7793"
+    ],
+    "fixed_sqrt_mass_residual_slope": -0.05044924440775505,
+    "fixed_sqrt_mass_residual_spearman": -0.0303030303030303,
+    "fixed_sqrt_mass_slope_leave_one_out": [
+      0.18806185493861802,
+      -0.21417038029297752,
+      -0.03331719454915835,
+      -0.15202736567368494,
+      -0.04905925924837364,
+      -0.08311964382623015,
+      0.013238919588615929,
+      0.0003067808356970703,
+      -0.04319854683764825,
+      -0.07173582400337035
+    ],
+    "free_mass_exponent_and_surface_exponent": [
+      0.26741629193319827,
+      0.5098667085705122
+    ]
+  },
+  "controls": {
+    "coarse_1p6_kpc": {
+      "held_median_abs_kms": {
+        "boundary": 36.22473210645677,
+        "sqrt_mass": 38.015364297844144,
+        "exp_proxy": 26.87167457154294,
+        "boundary_finite": 28.11117354522368,
+        "sqrt_mass_finite": 29.29618962073087,
+        "exp_proxy_finite": 30.511192343451384
+      },
+      "pair_source_ratios": {
+        "boundary": 3.3335784568004865,
+        "sqrt_mass": 1.357750201982802,
+        "exp_proxy": 2.82673297447845,
+        "boundary_finite": 3.1559307244428867,
+        "sqrt_mass_finite": 1.2853951494121125,
+        "exp_proxy_finite": 2.676095241062535
+      },
+      "pair_observed_excess_ratio": 1.632102608793551
+    },
+    "half_CO": {
+      "held_median_abs_kms": {
+        "boundary": 35.24169944074242,
+        "sqrt_mass": 38.015364297844144,
+        "exp_proxy": 24.780535503402064,
+        "boundary_finite": 30.50244401460715,
+        "sqrt_mass_finite": 31.153624427651806,
+        "exp_proxy_finite": 31.606993064142372
+      },
+      "pair_source_ratios": {
+        "boundary": 3.581539248238946,
+        "sqrt_mass": 1.3468878270706803,
+        "exp_proxy": 2.781684615883152,
+        "boundary_finite": 3.4542140908407837,
+        "sqrt_mass_finite": 1.2990054243680529,
+        "exp_proxy_finite": 2.6827946116137524
+      },
+      "pair_observed_excess_ratio": 1.6430174478139252
+    },
+    "double_CO": {
+      "held_median_abs_kms": {
+        "boundary": 34.502539901236105,
+        "sqrt_mass": 35.81819417282529,
+        "exp_proxy": 31.00519008392854,
+        "boundary_finite": 30.50244401460715,
+        "sqrt_mass_finite": 27.335413461093424,
+        "exp_proxy_finite": 31.606993064142372
+      },
+      "pair_source_ratios": {
+        "boundary": 3.6342986047839974,
+        "sqrt_mass": 1.3785780300485713,
+        "exp_proxy": 2.9141220627000544,
+        "boundary_finite": 3.4921906531127034,
+        "sqrt_mass_finite": 1.3246730207542416,
+        "exp_proxy_finite": 2.800174376424274
+      },
+      "pair_observed_excess_ratio": 1.6102013363205763
+    },
+    "no_CO_source_or_target": {
+      "held_median_abs_kms": {
+        "boundary": 35.4885556140369,
+        "sqrt_mass": 37.998351287175055,
+        "exp_proxy": 22.672621670508704,
+        "boundary_finite": 30.50244401460715,
+        "sqrt_mass_finite": 31.262815689401762,
+        "exp_proxy_finite": 31.606993064142372
+      },
+      "pair_source_ratios": {
+        "boundary": 3.56281698195104,
+        "sqrt_mass": 1.3357076226002398,
+        "exp_proxy": 2.7356960398207986,
+        "boundary_finite": 3.4407426968241794,
+        "sqrt_mass_finite": 1.289941714894778,
+        "exp_proxy_finite": 2.641961744717426
+      },
+      "pair_observed_excess_ratio": 1.6539085259278903
+    },
+    "low_stellar_source": {
+      "held_median_abs_kms": {
+        "boundary": 37.45843061453631,
+        "sqrt_mass": 37.999283621500666,
+        "exp_proxy": 24.70536002428355,
+        "boundary_finite": 30.44930118410231,
+        "sqrt_mass_finite": 30.032556478430024,
+        "exp_proxy_finite": 31.3868574274978
+      },
+      "pair_source_ratios": {
+        "boundary": 3.5523157038333553,
+        "sqrt_mass": 1.341269971339156,
+        "exp_proxy": 2.758528251553633,
+        "boundary_finite": 3.4236788713480566,
+        "sqrt_mass_finite": 1.2926997610860163,
+        "exp_proxy_finite": 2.6586361343586025
+      },
+      "pair_observed_excess_ratio": 1.632102608793551
+    },
+    "high_stellar_source": {
+      "held_median_abs_kms": {
+        "boundary": 33.00180493959374,
+        "sqrt_mass": 37.998739792842855,
+        "exp_proxy": 28.444027221964575,
+        "boundary_finite": 30.540305416973723,
+        "sqrt_mass_finite": 29.73951679157861,
+        "exp_proxy_finite": 31.762330867074425
+      },
+      "pair_source_ratios": {
+        "boundary": 3.6328877538362065,
+        "sqrt_mass": 1.369775986636277,
+        "exp_proxy": 2.87702827237254,
+        "boundary_finite": 3.497593295711958,
+        "sqrt_mass_finite": 1.3187633728642532,
+        "exp_proxy_finite": 2.7698832110620843
+      },
+      "pair_observed_excess_ratio": 1.632102608793551
+    },
+    "published_source_common_catalogue_inclination": {
+      "held_median_abs_kms": {
+        "boundary": 39.352124085204125,
+        "sqrt_mass": 39.018527401897686,
+        "exp_proxy": 27.738654333123065,
+        "boundary_finite": 28.380414231611425,
+        "sqrt_mass_finite": 32.391865638374284,
+        "exp_proxy_finite": 33.831714495191235
+      },
+      "pair_source_ratios": {
+        "boundary": 3.3679939923668347,
+        "sqrt_mass": 1.3133299050072667,
+        "exp_proxy": 2.6447991690367294,
+        "boundary_finite": 3.2441071128077197,
+        "sqrt_mass_finite": 1.2650209281706781,
+        "exp_proxy_finite": 2.547513984783107
+      },
+      "pair_observed_excess_ratio": 1.6348270323234932
+    },
+    "published_target_without_CO": {
+      "held_median_abs_kms": {
+        "boundary": 35.08207581244403,
+        "sqrt_mass": 38.015364297844144,
+        "exp_proxy": 26.001867159731376,
+        "boundary_finite": 30.50244401460715,
+        "sqrt_mass_finite": 31.165507977392792,
+        "exp_proxy_finite": 31.606993064142372
+      },
+      "pair_source_ratios": {
+        "boundary": 3.599675842130619,
+        "sqrt_mass": 1.357750201982802,
+        "exp_proxy": 2.82673297447845,
+        "boundary_finite": 3.467266874502833,
+        "sqrt_mass_finite": 1.307807287557888,
+        "exp_proxy_finite": 2.72275561337013
+      },
+      "pair_observed_excess_ratio": 1.6539085259278903
+    }
+  }
+}

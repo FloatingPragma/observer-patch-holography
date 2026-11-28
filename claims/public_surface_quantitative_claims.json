@@ -89,6 +89,70 @@
   ],
   "comparison_table_surfaces": [
     {
+      "path": "code/cosmology/rar_deep_regime/m31_transport/README.md",
+      "heading": "## Stationary transport and absolute speeds",
+      "label_column": "Survey and radius (kpc)",
+      "comparison_column": "Measured (km/s)",
+      "rows": [
+        {
+          "label": "Chemin 28.17",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Chemin 38.09",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Corbelli 28.5",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Corbelli 36.5",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/cosmology/rar_deep_regime/m31_transport/README.md",
+      "heading": "## A shape bound independent of dark abundance and mark lifetime",
+      "label_column": "Endpoints (kpc)",
+      "comparison_column": "Required ratio from measured velocities",
+      "rows": [
+        {
+          "label": "Chemin 28.17 to 38.09",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Corbelli 28.5 to 36.5",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        }
+      ]
+    },
+    {
       "path": "code/cosmology/rar_deep_regime/finite_halo/README.md",
       "heading": "## Can one profile fit the dwarf and the lensing stacks?",
       "label_column": "Survey",

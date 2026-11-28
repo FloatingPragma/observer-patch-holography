@@ -1,0 +1,296 @@
+{
+  "source_count_prediction_99": [
+    1.1419055901868382,
+    1.211410657276388
+  ],
+  "sha256": {
+    "PAIR_WORK.md": "845d85cbf9563d4fca4393dff424612764314948b06b475dc20f4fcd47235e9c",
+    "fluctuation_balls.json": "5ded4de278f5d0e6457dca67c9984844f2731b16c31270edcab26311cdd394a1"
+  },
+  "home": [
+    8,
+    20,
+    32,
+    44
+  ],
+  "path": [
+    49,
+    53,
+    52,
+    51
+  ],
+  "degree": 5,
+  "compression_routes": [
+    [
+      8,
+      3,
+      48,
+      53
+    ],
+    [
+      20,
+      18,
+      22,
+      68,
+      61,
+      60,
+      190,
+      182,
+      72,
+      82,
+      1,
+      8,
+      3,
+      48,
+      58,
+      50,
+      51
+    ]
+  ],
+  "mobile_routes": [
+    [
+      8,
+      3,
+      48,
+      49
+    ],
+    [
+      20,
+      18,
+      22,
+      68,
+      61,
+      60,
+      190,
+      182,
+      72,
+      82,
+      1,
+      8,
+      3,
+      48,
+      58,
+      50,
+      51
+    ]
+  ],
+  "shots": 262144,
+  "levels": [
+    0,
+    1,
+    8,
+    9,
+    32,
+    33
+  ],
+  "arms": {
+    "original": {
+      "partner_variance": "11/28",
+      "middle_variance": "3/28",
+      "work": "-419/28",
+      "exchange_only_work": "-19/28",
+      "read": {
+        "counts": [
+          [
+            159412,
+            0,
+            37437,
+            37312,
+            14103,
+            13880
+          ],
+          [
+            51335,
+            0,
+            79732,
+            79512,
+            25849,
+            25716
+          ],
+          [
+            14108,
+            0,
+            117006,
+            116893,
+            7077,
+            7060
+          ]
+        ],
+        "work": -14.999958038330078
+      }
+    },
+    "repaired": {
+      "partner_variance": "127/308",
+      "middle_variance": "5/28",
+      "work": "-4247/308",
+      "exchange_only_work": "-199/308",
+      "read": {
+        "counts": [
+          [
+            153843,
+            0,
+            30487,
+            30608,
+            23531,
+            23675
+          ],
+          [
+            54013,
+            0,
+            76996,
+            76879,
+            27195,
+            27061
+          ],
+          [
+            23494,
+            0,
+            108247,
+            107193,
+            11610,
+            11600
+          ]
+        ],
+        "work": -13.742561340332031
+      }
+    }
+  },
+  "required_increment_lower": "1",
+  "canonical_increment": "181/154",
+  "measured_increment_99": [
+    0.49451008034449384,
+    2.0202833156516
+  ],
+  "arrival_simultaneous_halfwidth": 0.0040208699324413375,
+  "mobile": {
+    "1": {
+      "original": {
+        "lower_level": [
+          29.31620380965925,
+          29.316203809659374
+        ],
+        "expected_arrival": 0.302454406563823,
+        "arrivals": 79734
+      },
+      "original_unpaired": {
+        "lower_level": [
+          29.67886073458611,
+          29.678860734586234
+        ],
+        "expected_arrival": 0.280782056553437,
+        "arrivals": 73520
+      },
+      "repaired": {
+        "lower_level": [
+          28.621649436276726,
+          28.62164943627685
+        ],
+        "expected_arrival": 0.292704178414819,
+        "arrivals": 76835
+      },
+      "repaired_unpaired": {
+        "lower_level": [
+          29.251826578471892,
+          29.251826578472016
+        ],
+        "expected_arrival": 0.259165511955673,
+        "arrivals": 68387
+      },
+      "vacuum": {
+        "lower_level": [
+          49.99999999999987,
+          50.0
+        ],
+        "expected_arrival": 0.4971834464433526,
+        "arrivals": 130205
+      },
+      "ordinary": {
+        "lower_level": [
+          33.48530681703675,
+          33.48530681703687
+        ],
+        "expected_arrival": 0.0017245198122919098,
+        "arrivals": 432
+      },
+      "shifts_in_ordinary_units": {
+        "repair": [
+          0.042056753079670176,
+          0.04205675307968595
+        ],
+        "original_pairing": [
+          0.021959652589904403,
+          0.021959652589919873
+        ],
+        "repaired_pairing": [
+          0.038158574017296186,
+          0.038158574017311896
+        ]
+      }
+    },
+    "2": {
+      "original": {
+        "lower_level": [
+          153.56881922564338,
+          153.5688192256435
+        ],
+        "expected_arrival": 0.30200915548454815,
+        "arrivals": 79538
+      },
+      "original_unpaired": {
+        "lower_level": [
+          154.27414469791364,
+          154.27414469791378
+        ],
+        "expected_arrival": 0.28018188136947364,
+        "arrivals": 73540
+      },
+      "repaired": {
+        "lower_level": [
+          152.10141155495455,
+          152.1014115549547
+        ],
+        "expected_arrival": 0.29230764985094604,
+        "arrivals": 76679
+      },
+      "repaired_unpaired": {
+        "lower_level": [
+          153.33092011963572,
+          153.33092011963586
+        ],
+        "expected_arrival": 0.2585200769835497,
+        "arrivals": 67703
+      },
+      "vacuum": {
+        "lower_level": [
+          193.9999999999999,
+          194.0
+        ],
+        "expected_arrival": 0.4971834464433526,
+        "arrivals": 130071
+      },
+      "ordinary": {
+        "lower_level": [
+          161.99230951211086,
+          161.992309512111
+        ],
+        "expected_arrival": 0.00047285704524905925,
+        "arrivals": 134
+      },
+      "shifts_in_ordinary_units": {
+        "repair": [
+          0.045845471770102314,
+          0.04584547177011048
+        ],
+        "original_pairing": [
+          0.02203612511615071,
+          0.022036125116158694
+        ],
+        "repaired_pairing": [
+          0.03841291095795436,
+          0.038412910957962475
+        ]
+      }
+    }
+  },
+  "common_repair_scalar_excluded": true
+}

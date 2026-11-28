@@ -1,0 +1,436 @@
+{
+  "cells": 80,
+  "formation_time": 4,
+  "source": [
+    {
+      "source_sign": -1,
+      "orientation": "matching",
+      "formed_sharp_pairs": [
+        0.8774350166611566,
+        1.0215196055230705e-06,
+        0.10723568337322635,
+        0.015328278446011496
+      ],
+      "formed_unlike": 0.10723670489283188,
+      "retained_energy": 0.9115119915890708,
+      "fully_erased_energy": 1.14015278966434,
+      "already_independent_energy": 1.14015278966434,
+      "independent_unlike": 0.1341356223134518,
+      "covariance_of_original_load_bits": 0.013449458710309968,
+      "modular_change_fixed_formed": 0.05700641550956472,
+      "modular_change_subtract_product": 0.006843245948647318,
+      "erased_minus_formed_energy": 0.2286407980752693,
+      "erased_minus_formed_ticket": 0.00044656405874076035
+    },
+    {
+      "source_sign": -1,
+      "orientation": "opposed",
+      "formed_sharp_pairs": [
+        0.8774350166611566,
+        1.0215196055230705e-06,
+        0.10723568337322635,
+        0.015328278446011496
+      ],
+      "formed_unlike": 0.8927632951071681,
+      "retained_energy": 7.588488008410928,
+      "fully_erased_energy": 7.359847210335658,
+      "already_independent_energy": 7.359847210335658,
+      "independent_unlike": 0.8658643776865481,
+      "covariance_of_original_load_bits": 0.013449458710309968,
+      "modular_change_fixed_formed": 0.05700641550956472,
+      "modular_change_subtract_product": 0.006843245948647318,
+      "erased_minus_formed_energy": -0.22864079807527,
+      "erased_minus_formed_ticket": -0.0004465640587407617
+    },
+    {
+      "source_sign": 1,
+      "orientation": "matching",
+      "formed_sharp_pairs": [
+        0.02010470889475352,
+        0.11434184465461694,
+        2.2659522319336556e-06,
+        0.8655511804983975
+      ],
+      "formed_unlike": 0.11434411060684888,
+      "retained_energy": 0.9719249401582153,
+      "fully_erased_energy": 1.2677486623708465,
+      "already_independent_energy": 1.2677486623708465,
+      "independent_unlike": 0.14914690145539375,
+      "covariance_of_original_load_bits": 0.017401395424272437,
+      "modular_change_fixed_formed": 0.07124535251568874,
+      "modular_change_subtract_product": 0.010642982899534354,
+      "erased_minus_formed_energy": 0.29582372221263137,
+      "erased_minus_formed_ticket": 0.0005777807074465456
+    },
+    {
+      "source_sign": 1,
+      "orientation": "opposed",
+      "formed_sharp_pairs": [
+        0.02010470889475352,
+        0.11434184465461694,
+        2.2659522319336556e-06,
+        0.8655511804983975
+      ],
+      "formed_unlike": 0.885655889393151,
+      "retained_energy": 7.528075059841782,
+      "fully_erased_energy": 7.23225133762915,
+      "already_independent_energy": 7.23225133762915,
+      "independent_unlike": 0.8508530985446061,
+      "covariance_of_original_load_bits": 0.017401395424272437,
+      "modular_change_fixed_formed": 0.07124535251568874,
+      "modular_change_subtract_product": 0.010642982899534354,
+      "erased_minus_formed_energy": -0.29582372221263137,
+      "erased_minus_formed_ticket": -0.0005777807074465456
+    }
+  ],
+  "noisy_ports": [
+    {
+      "source_sign": -1,
+      "left": [
+        0.1,
+        0.8
+      ],
+      "right": [
+        0.1,
+        0.8
+      ],
+      "erased_minus_formed_energy": 0.11203399105688194
+    },
+    {
+      "source_sign": -1,
+      "left": [
+        0.8,
+        0.1
+      ],
+      "right": [
+        0.8,
+        0.1
+      ],
+      "erased_minus_formed_energy": 0.1120339910568819
+    },
+    {
+      "source_sign": -1,
+      "left": [
+        0.1,
+        0.8
+      ],
+      "right": [
+        0.8,
+        0.1
+      ],
+      "erased_minus_formed_energy": -0.1120339910568823
+    },
+    {
+      "source_sign": -1,
+      "left": [
+        0.5,
+        0.5
+      ],
+      "right": [
+        0.1,
+        0.8
+      ],
+      "erased_minus_formed_energy": -1.7694179454963432e-16
+    },
+    {
+      "source_sign": 1,
+      "left": [
+        0.1,
+        0.8
+      ],
+      "right": [
+        0.1,
+        0.8
+      ],
+      "erased_minus_formed_energy": 0.14495362388418945
+    },
+    {
+      "source_sign": 1,
+      "left": [
+        0.8,
+        0.1
+      ],
+      "right": [
+        0.8,
+        0.1
+      ],
+      "erased_minus_formed_energy": 0.14495362388418945
+    },
+    {
+      "source_sign": 1,
+      "left": [
+        0.1,
+        0.8
+      ],
+      "right": [
+        0.8,
+        0.1
+      ],
+      "erased_minus_formed_energy": -0.14495362388418945
+    },
+    {
+      "source_sign": 1,
+      "left": [
+        0.5,
+        0.5
+      ],
+      "right": [
+        0.1,
+        0.8
+      ],
+      "erased_minus_formed_energy": 0.0
+    }
+  ],
+  "passive_control": [
+    {
+      "beta": 0,
+      "coherent_erasure_energy": 0.0,
+      "sharp_erasure_energy": 0.0
+    },
+    {
+      "beta": 0.015625,
+      "coherent_erasure_energy": 0.2835714837179513,
+      "sharp_erasure_energy": 0.2817478755414194
+    },
+    {
+      "beta": 0.125,
+      "coherent_erasure_energy": 2.0717871004547845,
+      "sharp_erasure_energy": 2.0637599023970474
+    },
+    {
+      "beta": 1,
+      "coherent_erasure_energy": 4.2481032405553085,
+      "sharp_erasure_energy": 4.2480502395097135
+    }
+  ],
+  "native_receiver_acquisitions": [
+    {
+      "source_sign": -1,
+      "proposals_per_address": 35184372088832,
+      "expected_releases": 36655297799.70291,
+      "unmatched_releases": 36655614851,
+      "visits": 1716381957141,
+      "last_drain": 786,
+      "panels": [
+        {
+          "probe": 1,
+          "arms": [
+            {
+              "starts": [
+                485596787934,
+                99537964367,
+                99538177806,
+                22622890032,
+                99537732929,
+                22622409308,
+                22622369862,
+                6113581660
+              ],
+              "right": [
+                242797923907,
+                49769067909,
+                49768791598,
+                11311347644,
+                49769088931,
+                11311109013,
+                11311135080,
+                611378817
+              ]
+            },
+            {
+              "starts": [
+                504176096311,
+                105199728486,
+                105198573579,
+                24799371011,
+                80956026939,
+                16961616777,
+                16961764248,
+                3936865892
+              ],
+              "right": [
+                252087763545,
+                52599739617,
+                52599272736,
+                12399725172,
+                40478125579,
+                8480944686,
+                8480762227,
+                3543158936
+              ]
+            }
+          ],
+          "signed_per_expected_excess": -0.023779459609439176,
+          "forecast": -0.023752487826390778,
+          "simultaneous_99_width": 6.238752364525967e-05
+        },
+        {
+          "probe": 2,
+          "arms": [
+            {
+              "starts": [
+                485597145995,
+                99538194009,
+                99538487733,
+                22622781522,
+                99537958975,
+                22622524103,
+                22622125430,
+                6113570869
+              ],
+              "right": [
+                242798411210,
+                49769065314,
+                49769358496,
+                11311351410,
+                49769078730,
+                11311375744,
+                11311087083,
+                611405732
+              ]
+            },
+            {
+              "starts": [
+                504175633543,
+                105199225797,
+                105198421716,
+                24799429846,
+                80955905600,
+                16961775029,
+                16961850616,
+                3936926358
+              ],
+              "right": [
+                252087907639,
+                52599802225,
+                52599360010,
+                12399893664,
+                40478116391,
+                8480826802,
+                8480984996,
+                3543269285
+              ]
+            }
+          ],
+          "signed_per_expected_excess": -0.023726006653997194,
+          "forecast": -0.023752487826390778,
+          "simultaneous_99_width": 6.238752364525967e-05
+        }
+      ]
+    },
+    {
+      "source_sign": 1,
+      "proposals_per_address": 35184372088832,
+      "expected_releases": 47425948147.49936,
+      "unmatched_releases": 47426323452,
+      "visits": 2220704014976,
+      "last_drain": 893,
+      "panels": [
+        {
+          "probe": 1,
+          "arms": [
+            {
+              "starts": [
+                628278239177,
+                128785219882,
+                128784626882,
+                29269665853,
+                128784377385,
+                29269731076,
+                29269369602,
+                7909930476
+              ],
+              "right": [
+                314139505612,
+                64392308816,
+                64392471661,
+                14634832979,
+                64392449408,
+                14634877949,
+                14634687900,
+                790945988
+              ]
+            },
+            {
+              "starts": [
+                652319744742,
+                136109117333,
+                136108836644,
+                32085780729,
+                104744402037,
+                21945642693,
+                21945717213,
+                5093613252
+              ],
+              "right": [
+                326160582383,
+                68054456866,
+                68054330690,
+                16042762421,
+                52372279409,
+                10972675549,
+                10972812617,
+                4584248864
+              ]
+            }
+          ],
+          "signed_per_expected_excess": -0.023737603990514194,
+          "forecast": -0.023752487826390757,
+          "simultaneous_99_width": 5.4825639039976925e-05
+        },
+        {
+          "probe": 2,
+          "arms": [
+            {
+              "starts": [
+                628277955700,
+                128784922985,
+                128784903383,
+                29269602229,
+                128785058626,
+                29269993853,
+                29269569025,
+                7909836483
+              ],
+              "right": [
+                314138905552,
+                64392566949,
+                64392236222,
+                14634683128,
+                64392412626,
+                14634991006,
+                14634711859,
+                790967790
+              ]
+            },
+            {
+              "starts": [
+                652318874200,
+                136109009429,
+                136108281666,
+                32085981935,
+                104744874815,
+                21945784717,
+                21945796267,
+                5093569663
+              ],
+              "right": [
+                326159476705,
+                68054926120,
+                68054168068,
+                16042795234,
+                52372392888,
+                10972952416,
+                10972900864,
+                4584223776
+              ]
+            }
+          ],
+          "signed_per_expected_excess": -0.023756958564030473,
+          "forecast": -0.023752487826390757,
+          "simultaneous_99_width": 5.4825639039976925e-05
+        }
+      ]
+    }
+  ]
+}

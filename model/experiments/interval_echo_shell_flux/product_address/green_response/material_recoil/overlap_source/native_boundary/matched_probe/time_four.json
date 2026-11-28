@@ -1,0 +1,60 @@
+{
+  "protocol_sha256": "dab948ee352270e575469cfd4e9419cd2e53f087ca34b703296d0857c06dbad3",
+  "time": 4,
+  "launch": 2,
+  "exact_reflected_launch": 13,
+  "scale": 140737488355328,
+  "order": 13,
+  "sectors": [
+    {
+      "total": 1,
+      "dimension": 96,
+      "source_indices": [
+        4,
+        56,
+        6,
+        58
+      ],
+      "observable_norm": 3,
+      "scalar_removed_from_4H": 211,
+      "absolute_row_bound": 53,
+      "steps": 128,
+      "per_column_error": "17865413395483862014996188169/107921497232960321507891902224846028800",
+      "per_column_error_ceiling_billionths": 1
+    },
+    {
+      "total": 2,
+      "dimension": 1104,
+      "source_indices": [
+        92,
+        224,
+        94,
+        226
+      ],
+      "observable_norm": 6,
+      "scalar_removed_from_4H": 379,
+      "absolute_row_bound": 93,
+      "steps": 256,
+      "per_column_error": "4043566700663618161245326836643/3638242408775353719311318777884521267200",
+      "per_column_error_ceiling_billionths": 2
+    }
+  ],
+  "contrasts": {
+    "target": {
+      "fixed_point_center": "2737517208707714414745171841/39614081257132168796771975168",
+      "absolute_error_bound": "1866785937706708352426676048721734891867329812955807264955305119539210795953/130270044209850559449204545535622335968733771360548784851045699550593676591759360000",
+      "radius_billionths": [
+        69104635,
+        69104665
+      ]
+    },
+    "phase_feedback": {
+      "fixed_point_center": "-5318850197481334882010738017/39614081257132168796771975168",
+      "absolute_error_bound": "1866785937706708352426676048721734891867329812955807264955305119539210795953/260540088419701118898409091071244671937467542721097569702091399101187353183518720000",
+      "radius_billionths": [
+        -134266663,
+        -134266648
+      ]
+    }
+  }
+}

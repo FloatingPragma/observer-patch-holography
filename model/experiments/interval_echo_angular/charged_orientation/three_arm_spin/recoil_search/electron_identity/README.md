@@ -1,0 +1,40 @@
+# Two readers compare the energy and wavelength of the charged guide
+
+On the three negative winding guides, one frequency and one wavelength fix the offset of a cosine dispersion. The spatial reader predicts the remaining four frequencies at each length. The highest three lines have decreasing frequency secants on all three guides. Their records reject a positive massive relativistic dispersion on the tested arm-step ruler, even with an arbitrary constant energy zero and arbitrary positive scales. The low-momentum physical mass remains unassigned. [Count banks and intervals](records.json) · [Protocol and control](PROTOCOL.md)
+
+| Guide steps | Inferred lower edge in twice-hop units | Positive lower bound on the decrease of the two upper secant slopes |
+| ---: | ---: | ---: |
+| 19 | [15.99439, 16.00618] | 0.24118 |
+| 20 | [15.99453, 16.00822] | 0.16795 |
+| 21 | [15.99131, 16.00708] | 0.19867 |
+
+The intervals and slope bounds are rounded outward. Each bank contains $2^{56}$ simulated launches. The stored tape distinguishes source refusal, filter refusal, detection elsewhere and each accepted sign. The counts sample the finite model, and their simultaneous 99% bounds describe that sampler. The clock filters select guide lines by the prescribed harmonic windows. Their settings and represented exposure durations enter the preparation. The decoders receive no selected spectral center or simulation amplitude.
+
+## A shared preparation with the signed probe and turn experiments
+
+The original negative charge uses the fixed 16.43120649 center, tick 1/32 and $2^{25}$ controlled delays. Keeping that exact preparation, the middle observer reads **0.9657485–0.9657671** radians per step from signed contacts. The receiving observer reads a clock frequency of **16.43095–16.43145** in twice-hop units on fresh copies with a far-hub vacancy. The first-layout band forecast covers the measured arrival-line frequency. This joins the independent time and space records to the preparation used in the selected-line signed probe and turn experiments. The observers apply their distinct terminal instruments to fresh repetitions of that preparation. [Original receipt](../../results.json) · [Signed local response](../../charge_probe/README.md) · [Turn phase](../../echo_turn/README.md)
+
+All spatial counters sum over the three arms and all head words. The hub vacancy and its ancillary delay pointer are also invariant under arm permutations. Free flight and the finite delay filter commute with those permutations. Each effect pulled back to the source doublet therefore commutes with its irreducible two-dimensional representation, so it is scalar there. This makes the reported frequency and spatial banks independent of the logical input to that filtered source, including its marginal when the input is entangled with a retained reference. The receipt checks the 18 effects for filter acceptance, center occupancy, contact parities and hub quadratures. Their complementary effects follow by subtraction. The joint outcome law of a delay pointer and a separate winding analyzer is a distinct instrument.
+
+## Which records determine the prediction?
+
+One patch reads the vacancy at the middle-third ports. Fresh copies use an addressed quarter phase and a half contact before the same local load read. The two endpoint outcomes measure the plus and minus parities of the neighboring ports. Left and right edges and alternating central stations occupy four disjoint banks. On a coherent bulk line, the difference of the two effects on an edge is $2\operatorname{Re}\langle u_j,u_{j\pm1}\rangle$, where the vector at a station contains the three arms and all head words. The slot orientation is fixed by the parity instrument. The full native local columns verify its half-contact action. [Native parity check and disjoint cohorts](measure.py) · [Quarter-phase relay](../impulse.py)
+
+A centered station has the exact local generator action $Hu_j=17u_j-(u_{j-1}+u_{j+1})/2$. Therefore a single energy line has $(u_{j-1}+u_{j+1})/2=\cos(k)u_j$. After summing all enrolled edges, dividing the signed parity contrast by four times the sharp middle-third rate measures $\cos(k)$. The measured sign distinguishes the two intensity aliases $k$ and $\pi-k$. A bank with unresolved denominator or phase leaves the reading open. All eligible middle-third generator rows, including every stored head word, are checked.
+
+At the far hub a different observer reads a delay pointer jointly with the actual arriving vacancy. In the supplied coherent timing device, the two pointer branches select zero wait and a wait of length $T$. The pointer phase is set to zero or $\pi/2$. With $P$ the hub detection effect, the two count differences are the real and imaginary components of the overlap between $P\psi$ and $P e^{-iHT}\psi$, with the sign convention of the delayed pointer. A simultaneous interval for the overlap angle follows from the four corners of its complex interval. One shorter delay disambiguates the longer angle. The isolated blank reference reads a transfer fraction $p$, giving the phase scale $2\arcsin\sqrt{p}$ at the same long wait. The ratio of the unwrapped hub angle to this scale gives the measured $F$ in twice-hop units. These operations use a supplied relative wait and timing control. The pulse reference is also supplied.
+
+The exact recurrence on a sharp line gives $F=A-\cos(k)$. The first record fixes $A=F_1+\cos(k_1)$ and thus the guide band edge $A-1$. Each held record independently tests $F_i+\cos(k_i)-A$. The finite clock filter admits a small mixture around the selected line. The receipts retain its main-line weight, and the prediction is tested on the actual finite preparations. The native panels give main-line weights above 0.9999997. Three unresolved half-hopping settings retain their count banks. The two resolved settings both miss the native forecast with the independent bench and offset held fixed. [Acquisition, decoder and matched law](measure.py)
+
+## What the secants exclude
+
+For positive momentum $p$, the function $\sqrt{m^2+c^2p^2}$ is convex, including the massless endpoint. A constant energy offset preserves differences. Positive changes to the common energy and momentum units preserve the order of slopes. Two secants of such a branch at increasing momenta must have nondecreasing slopes. The three upper recorded lines on each guide give the reverse inequality over their entire uncertainty boxes. The synthetic positive massive comparison passes the convexity check. This exclusion concerns the measured guide phases in radians per step on these finite lengths. A nonlinear momentum map or emergent spacetime ruler would require independent observer evidence. The low-phase sector can approximate a massive branch within finite resolution.
+
+The delay apparatus measures a guided line relative to its own timing reference. The conserved whole-material preparation contains a charge and its compensator. In a reference convention that assigns $\lambda Q$ to each charged subsystem, the two shifts cancel on the neutral stock. The same preparation and all charge-preserving records on that stock can therefore admit different allocations of the total formation cost. An independently weighed compensation channel or physical reference is needed to turn an isolated guided line into a 511 keV rest-energy assignment. A return to the selected line and a physical recoil or separated-copy energy check on the same identified excitation are also part of the published row. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/c9b5707ac03285eb4c885115245ac2cd5e90273d/MODELS.md#L102) · [Maintainer decision](https://github.com/openwave-labs/openwave/blob/c9b5707ac03285eb4c885115245ac2cd5e90273d/openwave/xperiments/m10_oph/research/findings/m10_2_maintainer_review.md#5-the-three-rows)
+
+Run from the repository root with the recorded numerical environment.
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -m model.experiments.interval_echo_angular.charged_orientation.three_arm_spin.recoil_search.electron_identity.measure
+~~~

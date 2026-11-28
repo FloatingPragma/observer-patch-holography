@@ -252,6 +252,31 @@ theorem lambda_constant {P : Type*} (step : Fin 4 → P → P) (base : P)
   have h := lam_eq_of_symmReachable step (fun p => -Λ p) hstep (connected p)
   linarith
 
+/-- Two preparations compared at the same proper volume and calibration.
+The separation is already forced at finite resolution if the measured
+entropy contrast exceeds the two allowed stationarity errors. -/
+theorem two_stock_area_interval (s₀ s₁ a₀ a₁ η e₀ e₁ : ℝ)
+    (h₀ : |s₀ + η * a₀| ≤ e₀) (h₁ : |s₁ + η * a₁| ≤ e₁) :
+    s₁ - s₀ - (e₀ + e₁) ≤ η * (a₀ - a₁) ∧
+      η * (a₀ - a₁) ≤ s₁ - s₀ + (e₀ + e₁) := by
+  rcases abs_le.mp h₀ with ⟨hl₀, hu₀⟩
+  rcases abs_le.mp h₁ with ⟨hl₁, hu₁⟩
+  constructor <;> linarith
+
+/-- Even a freely chosen common area and area coefficient incur a minimum
+stationarity error on at least one stock if their bulk entropies differ. -/
+theorem shared_area_error_floor (s₀ s₁ a η : ℝ) :
+    |s₁ - s₀| / 2 ≤ max |s₀ + η * a| |s₁ + η * a| := by
+  let m := max |s₀ + η * a| |s₁ + η * a|
+  have h := two_stock_area_interval s₀ s₁ a a η m m
+    (le_max_left _ _) (le_max_right _ _)
+  simp only [sub_self, mul_zero] at h
+  change |s₁ - s₀| / 2 ≤ m
+  have habs : |s₁ - s₀| ≤ 2 * m := abs_le.mpr ⟨by linarith [h.2], by linarith [h.1]⟩
+  linarith
+
+assert_no_sorry two_stock_area_interval
+assert_no_sorry shared_area_error_floor
 assert_no_sorry probes_unit_future
 assert_no_sorry decoder_design
 assert_no_sorry design_decoder

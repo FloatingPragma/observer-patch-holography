@@ -1,0 +1,3623 @@
+{
+  "inputs": {
+    "ORDINARY_MASS_CROSSING.md": "18d051c6efd12ef1b26fe4c4f663ac25b60dcbd6d2c2f19fad9dbbefd29d0695",
+    "sector_home.json": "84c71f13607355dd923a925e5457d2552cb5a3c2de7832a7d1b307d02a60998e",
+    "thermal_standard.json": "9745241a4e4c08e9897a16e2a8a50bbc12af37338c9ce72e87a9cff47c0a7360"
+  },
+  "rest_and_motion": {
+    "1": {
+      "standing_gap_native": 48,
+      "first_laplacian_eigenvalue": 0.04414253069899848,
+      "time": 22.653889212171705,
+      "mode_phase_counts": [
+        15751725,
+        12409033
+      ],
+      "trials_per_quadrature": 16777216,
+      "kinetic_mass_at_p_squared_equal_lambda": [
+        0.9979115485678728,
+        1.002965296810245
+      ]
+    },
+    "2": {
+      "standing_gap_native": 192,
+      "first_laplacian_eigenvalue": 0.04414253069899848,
+      "time": 22.653889212171705,
+      "mode_phase_counts": [
+        15750902,
+        12410099
+      ],
+      "trials_per_quadrature": 16777216,
+      "kinetic_mass_at_p_squared_equal_lambda": [
+        0.9975958214412046,
+        1.0026464921021512
+      ]
+    }
+  },
+  "route": [
+    38,
+    40,
+    45,
+    37,
+    50,
+    59,
+    48,
+    3,
+    9,
+    1,
+    82,
+    72,
+    182,
+    190,
+    60,
+    67,
+    68,
+    22,
+    19,
+    20
+  ],
+  "inventories": [
+    {
+      "fixed_homes": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "returned_ranging_probes": 100,
+      "orders": {
+        "ascending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        },
+        "descending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "fixed_homes": [
+        2,
+        0,
+        1,
+        1
+      ],
+      "returned_ranging_probes": 100,
+      "orders": {
+        "ascending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        },
+        "descending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "fixed_homes": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "returned_ranging_probes": 100,
+      "orders": {
+        "ascending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 5,
+                "cut_service_per_slot": 2.5,
+                "keeps_initial_markers": false,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        },
+        "descending": {
+          "markers": [
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "cut_edges": [
+            [
+              14,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              18
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              22,
+              68
+            ]
+          ],
+          "protected_cut_periods": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "crossings_by_load": [
+            [],
+            [
+              [
+                68,
+                22,
+                48
+              ]
+            ],
+            [
+              [
+                68,
+                22,
+                192
+              ]
+            ]
+          ],
+          "target_out_and_back_by_arm": [
+            2,
+            2,
+            2,
+            4,
+            2,
+            4
+          ],
+          "moving_surveys": [
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 48
+              }
+            ],
+            [
+              {
+                "port": 38,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 40,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 45,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 37,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 50,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 59,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 48,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 3,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 9,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 1,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 82,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 72,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 182,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 190,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 60,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 67,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 68,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.5,
+                "keeps_initial_markers": true,
+                "rest_inside": 0
+              },
+              {
+                "port": 22,
+                "cut_count": 6,
+                "cut_service_per_slot": 5.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 19,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              },
+              {
+                "port": 20,
+                "cut_count": 6,
+                "cut_service_per_slot": 6.0,
+                "keeps_initial_markers": true,
+                "rest_inside": 192
+              }
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "shots_per_arm": 262144,
+  "readings": {
+    "blank": {
+      "agreed_load_counts": [
+        [
+          262144,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "spectral_counts": [
+        [
+          262144,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          262144,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "echo_counts": [
+        262144,
+        0
+      ],
+      "reconstructed_mean_rest_energy": 0.0
+    },
+    "known_single": {
+      "agreed_load_counts": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          262144,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "spectral_counts": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          130813,
+          131331,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131270,
+          130874,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "echo_counts": [
+        0,
+        262144
+      ],
+      "reconstructed_mean_rest_energy": 48.0
+    },
+    "quarter_double": {
+      "agreed_load_counts": [
+        [
+          196881,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          65263
+        ]
+      ],
+      "spectral_counts": [
+        [
+          196881,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          32549,
+          32714
+        ],
+        [
+          196881,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          32584,
+          32679
+        ]
+      ],
+      "echo_counts": [
+        196881,
+        65263
+      ],
+      "reconstructed_mean_rest_energy": 47.800048828125,
+      "fraction_interval": [
+        0.24659137147154603,
+        0.25133651523271316
+      ],
+      "entropy_interval": [
+        0.5585593054721032,
+        0.563798698924263
+      ]
+    },
+    "half_double": {
+      "agreed_load_counts": [
+        [
+          130625,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          131519
+        ]
+      ],
+      "spectral_counts": [
+        [
+          130625,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          66034,
+          65485
+        ],
+        [
+          130625,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          65933,
+          65586
+        ]
+      ],
+      "echo_counts": [
+        130625,
+        131519
+      ],
+      "reconstructed_mean_rest_energy": 96.327392578125,
+      "fraction_interval": [
+        0.4989620212365172,
+        0.5044482453740426
+      ],
+      "entropy_interval": [
+        0.6931076062640855,
+        0.6931471805599453
+      ]
+    },
+    "known_double": {
+      "agreed_load_counts": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          262144
+        ]
+      ],
+      "spectral_counts": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          130932,
+          131212
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131206,
+          130938
+        ]
+      ],
+      "echo_counts": [
+        0,
+        262144
+      ],
+      "reconstructed_mean_rest_energy": 192.0
+    }
+  },
+  "half_minus_quarter_entropy": [
+    0.12930890733982248,
+    0.1345878750878421
+  ],
+  "half_minus_quarter_energy": [
+    47.54409715273037,
+    49.50851978927935
+  ]
+}

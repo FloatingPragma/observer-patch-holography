@@ -1,0 +1,754 @@
+{
+  "protocol_sha256": "8d833e5f7680ebad0b3ed0d9d22a09fb52518802994d4cfb29ac8c3ed678cef3",
+  "calibration": "NGC3198",
+  "outside_motivating_pair": [
+    "DDO154",
+    "IC2574",
+    "NGC2403",
+    "NGC2841",
+    "NGC5055",
+    "NGC6946",
+    "NGC7331",
+    "NGC7793"
+  ],
+  "predictions": {
+    "stars_atomic_molecular_compact": {
+      "gain": 2.969354841127034e-06,
+      "calibration_source": 6053164176.899424,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 89318196.70037952,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 265.2174197730086,
+          "predicted_over_measured_excess": 0.14684971017525716,
+          "excess_residual_v2": -1540.8291802269914,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 23.00914643729768,
+          "total_residual_kms": -22.49085356270232
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 871389854.5878911,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 2587.465683229537,
+          "predicted_over_measured_excess": 0.7328351989052377,
+          "excess_residual_v2": -943.2949667704634,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 60.10786165910027,
+          "total_residual_kms": -7.392138340899727
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 3585825907.3038254,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 10647.589517291353,
+          "predicted_over_measured_excess": 0.6954771122654441,
+          "excess_residual_v2": -4662.173132708647,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 115.29885891582515,
+          "total_residual_kms": -18.70114108417485
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 29584803404.430386,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 87847.77921273692,
+          "predicted_over_measured_excess": 1.1774875308448325,
+          "excess_residual_v2": 13241.656505257168,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 315.7176848154965,
+          "total_residual_kms": 21.71768481549651
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 35980239222.024925,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 106838.09751882851,
+          "predicted_over_measured_excess": 4.964215615209924,
+          "excess_residual_v2": 85316.45023350796,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 338.96968925481815,
+          "total_residual_kms": 166.96968925481815
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 20086822456.156715,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 59644.90350304816,
+          "predicted_over_measured_excess": 4.22029507939781,
+          "excess_residual_v2": 45512.02834125762,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 263.1121972491158,
+          "total_residual_kms": 109.11219724911581
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 44901905180.59409,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 133329.6895238241,
+          "predicted_over_measured_excess": 3.525458120349181,
+          "excess_residual_v2": 95510.57922033299,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 390.06996708325676,
+          "total_residual_kms": 152.06996708325676
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 2702000458.6680694,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 8023.198142673498,
+          "predicted_over_measured_excess": 1.5898993851530565,
+          "excess_residual_v2": 2976.8422426734987,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 105.9314978779848,
+          "total_residual_kms": 15.131497877984799
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 22.104269189099416,
+        "rms": 89.80566417961907,
+        "worst_to_best": [
+          "NGC5055",
+          "NGC7331",
+          "NGC6946",
+          "DDO154",
+          "NGC2841",
+          "NGC2403",
+          "NGC7793",
+          "IC2574"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 8951.914818982907,
+        "rms": 48324.05589119524,
+        "worst_to_best": [
+          "NGC7331",
+          "NGC5055",
+          "NGC6946",
+          "NGC2841",
+          "NGC2403",
+          "NGC7793",
+          "DDO154",
+          "IC2574"
+        ]
+      }
+    },
+    "stars_atomic_molecular_finite": {
+      "gain": 3.351541313609767e-06,
+      "calibration_source": 5362903413.968127,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 75281674.80332561,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 252.30964326108122,
+          "predicted_over_measured_excess": 0.13970273151372795,
+          "excess_residual_v2": -1553.7369567389187,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 22.72692331269416,
+          "total_residual_kms": -22.77307668730584
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 476890220.6309944,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 1598.3172765012546,
+          "predicted_over_measured_excess": 0.45268355318881626,
+          "excess_residual_v2": -1932.4433734987456,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 51.22310637301544,
+          "total_residual_kms": -16.27689362698456
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 3088181487.7740316,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 10350.167840199543,
+          "predicted_over_measured_excess": 0.676050182933407,
+          "excess_residual_v2": -4959.594809800457,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 114.00177713614619,
+          "total_residual_kms": -19.99822286385381
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 27468874105.074886,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 92063.066401504,
+          "predicted_over_measured_excess": 1.2339880838261827,
+          "excess_residual_v2": 17456.943694024245,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 322.3242834383166,
+          "total_residual_kms": 28.324283438316627
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 32862662782.83431,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 110140.5719918953,
+          "predicted_over_measured_excess": 5.117664578910734,
+          "excess_residual_v2": 88618.92470657476,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 343.80652219900475,
+          "total_residual_kms": 171.80652219900475
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 16548391937.870316,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 55462.619253579156,
+          "predicted_over_measured_excess": 3.9243691477249567,
+          "excess_residual_v2": 41329.74409178861,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 255.0406714463178,
+          "total_residual_kms": 101.04067144631779
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 39534418331.65242,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 132501.2363480644,
+          "predicted_over_measured_excess": 3.5035524443797694,
+          "excess_residual_v2": 94682.12604457329,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 389.00658869044014,
+          "total_residual_kms": 151.00658869044014
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 1932186453.239,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 6475.802723627635,
+          "predicted_over_measured_excess": 1.283263180789059,
+          "excess_residual_v2": 1429.4468236276352,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 98.35693581861746,
+          "total_residual_kms": 7.556935818617461
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 25.548680062811233,
+        "rms": 89.84190259929305,
+        "worst_to_best": [
+          "NGC5055",
+          "NGC7331",
+          "NGC6946",
+          "NGC2841",
+          "DDO154",
+          "NGC2403",
+          "IC2574",
+          "NGC7793"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 11208.269251912352,
+        "rms": 48558.8570359731,
+        "worst_to_best": [
+          "NGC7331",
+          "NGC5055",
+          "NGC6946",
+          "NGC2841",
+          "NGC2403",
+          "IC2574",
+          "DDO154",
+          "NGC7793"
+        ]
+      }
+    },
+    "atomic_molecular_compact": {
+      "gain": 1.8850158000161834e-05,
+      "calibration_source": 953519453.3997396,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 63406059.84856542,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 1195.2142463131754,
+          "predicted_over_measured_excess": 0.6617848323034276,
+          "excess_residual_v2": -610.8323536868245,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 38.202325142760294,
+          "total_residual_kms": -7.297674857239706
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 591016839.2329898,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 11140.760800298103,
+          "predicted_over_measured_excess": 3.155342971293764,
+          "excess_residual_v2": 7610.000150298103,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 110.3007259735769,
+          "total_residual_kms": 42.8007259735769
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 466038975.77953434,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 8784.908327677816,
+          "predicted_over_measured_excess": 0.5738108766616193,
+          "excess_residual_v2": -6524.854322322184,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 106.91653603478657,
+          "total_residual_kms": -27.083463965213426
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 614416730.7515317,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 11581.852452609264,
+          "predicted_over_measured_excess": 0.1552399727033142,
+          "excess_residual_v2": -63024.270254870484,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 153.00892047566876,
+          "total_residual_kms": -140.99107952433124
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 2517663085.1773157,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 47458.3469467673,
+          "predicted_over_measured_excess": 2.2051447232451222,
+          "excess_residual_v2": 25936.699661446757,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 235.62830827692744,
+          "total_residual_kms": 63.62830827692744
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 3020770313.8422804,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 56941.99769812544,
+          "predicted_over_measured_excess": 4.029045544255077,
+          "excess_residual_v2": 42809.12253633489,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 257.92464507358517,
+          "total_residual_kms": 103.92464507358517
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 2475050157.181269,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 46655.08652119231,
+          "predicted_over_measured_excess": 1.2336378657983802,
+          "excess_residual_v2": 8835.976217701194,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 255.8905551553265,
+          "total_residual_kms": 17.890555155326496
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 361925500.1652288,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 6822.35286240216,
+          "predicted_over_measured_excess": 1.3519365256029923,
+          "excess_residual_v2": 1775.9969624021605,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 100.10313163134389,
+          "total_residual_kms": 9.303131631343888
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 34.942094969395164,
+        "rms": 68.69558793851753,
+        "worst_to_best": [
+          "NGC2841",
+          "NGC6946",
+          "NGC5055",
+          "IC2574",
+          "NGC2403",
+          "NGC7331",
+          "NGC7793",
+          "DDO154"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 8222.988183999649,
+        "rms": 28851.948777612055,
+        "worst_to_best": [
+          "NGC2841",
+          "NGC6946",
+          "NGC5055",
+          "NGC7331",
+          "IC2574",
+          "NGC2403",
+          "NGC7793",
+          "DDO154"
+        ]
+      }
+    },
+    "atomic_molecular_finite": {
+      "gain": 2.3088287629746125e-05,
+      "calibration_source": 778489623.8756136,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 53022796.080570124,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 1224.2055668415785,
+          "predicted_over_measured_excess": 0.6778371980222319,
+          "excess_residual_v2": -581.8410331584214,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 38.57990366553005,
+          "total_residual_kms": -6.920096334469953
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 311810512.2710587,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 7199.1707932926865,
+          "predicted_over_measured_excess": 2.0389857900145927,
+          "excess_residual_v2": 3668.4101432926864,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 90.68991202605,
+          "total_residual_kms": 23.189912026049996
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 354542875.20038277,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 8185.787879703622,
+          "predicted_over_measured_excess": 0.5346776476448916,
+          "excess_residual_v2": -7123.974770296379,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 104.0770158570259,
+          "total_residual_kms": -29.9229841429741
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 536721729.42148423,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 12391.985666018001,
+          "predicted_over_measured_excess": 0.16609877602948564,
+          "excess_residual_v2": -62214.13704146175,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 155.63374620736423,
+          "total_residual_kms": -138.36625379263577
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 2218355322.5229683,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 51218.02575138852,
+          "predicted_over_measured_excess": 2.3798376152332565,
+          "excess_residual_v2": 29696.37846606798,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 243.47562191329953,
+          "total_residual_kms": 71.47562191329953
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 2571776150.371014,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 59377.9074790872,
+          "predicted_over_measured_excess": 4.201403238855497,
+          "excess_residual_v2": 45245.03231729665,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 262.60432653956155,
+          "total_residual_kms": 108.60432653956155
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 1831050740.6682358,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 42275.82616520791,
+          "predicted_over_measured_excess": 1.1178429589155456,
+          "excess_residual_v2": 4456.715861716795,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 247.18558991518253,
+          "total_residual_kms": 9.185589915182533
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 198778763.39038903,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 4589.461263842551,
+          "predicted_over_measured_excess": 0.9094604809467661,
+          "excess_residual_v2": -456.894636157449,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 88.24820317628314,
+          "total_residual_kms": -2.551796823716856
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 26.55644808451205,
+        "rms": 68.57552034236338,
+        "worst_to_best": [
+          "NGC2841",
+          "NGC6946",
+          "NGC5055",
+          "NGC2403",
+          "IC2574",
+          "NGC7331",
+          "DDO154",
+          "NGC7793"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 5790.345316006587,
+        "rms": 29334.716098597823,
+        "worst_to_best": [
+          "NGC2841",
+          "NGC6946",
+          "NGC5055",
+          "NGC2403",
+          "NGC7331",
+          "IC2574",
+          "DDO154",
+          "NGC7793"
+        ]
+      }
+    },
+    "atomic_compact": {
+      "gain": 2.4297851199254058e-05,
+      "calibration_source": 739735880.5689304,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 63406059.84856542,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 1540.6310073314398,
+          "predicted_over_measured_excess": 0.8530405623705611,
+          "excess_residual_v2": -265.41559266856007,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 42.48334270430518,
+          "total_residual_kms": -3.01665729569482
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 591016839.2329898,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 14360.439215936643,
+          "predicted_over_measured_excess": 4.067236677721738,
+          "excess_residual_v2": 10829.678565936643,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 124.04002807939315,
+          "total_residual_kms": 56.54002807939315
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 466038975.77953434,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 11323.74568654389,
+          "predicted_over_measured_excess": 0.7396421450429141,
+          "excess_residual_v2": -3986.01696345611,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 118.19468277610414,
+          "total_residual_kms": -15.805317223895855
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 375188969.4472482,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 9116.285751230715,
+          "predicted_over_measured_excess": 0.12219219308547109,
+          "excess_residual_v2": -65489.83695624903,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 144.7278931089338,
+          "total_residual_kms": -149.2721068910662
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 914766753.7518746,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 22226.866464687726,
+          "predicted_over_measured_excess": 1.0327678996880596,
+          "excess_residual_v2": 705.2191793671846,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 174.03798200211122,
+          "total_residual_kms": 2.037982002111221
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 621809060.7928627,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 15108.624033492897,
+          "predicted_over_measured_excess": 1.0690410734215199,
+          "excess_residual_v2": 975.7488717023552,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 157.13608392632915,
+          "total_residual_kms": 3.1360839263291496
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 1334613608.7852376,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 32428.24287476317,
+          "predicted_over_measured_excess": 0.8574565243479483,
+          "excess_residual_v2": -5390.867428727943,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 226.39154704023747,
+          "total_residual_kms": -11.60845295976253
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 361925500.1652288,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 8794.011948230329,
+          "predicted_over_measured_excess": 1.7426460048587398,
+          "excess_residual_v2": 3747.6560482303294,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 109.50934228745203,
+          "total_residual_kms": 18.70934228745203
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 13.706885091829193,
+        "rms": 57.26760537892045,
+        "worst_to_best": [
+          "NGC2841",
+          "IC2574",
+          "NGC7793",
+          "NGC2403",
+          "NGC7331",
+          "NGC6946",
+          "DDO154",
+          "NGC5055"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 3866.8365058432196,
+        "rms": 23629.206653284284,
+        "worst_to_best": [
+          "NGC2841",
+          "IC2574",
+          "NGC7331",
+          "NGC2403",
+          "NGC7793",
+          "NGC6946",
+          "NGC5055",
+          "DDO154"
+        ]
+      }
+    },
+    "atomic_finite": {
+      "gain": 3.0689898331301095e-05,
+      "calibration_source": 585664773.430712,
+      "calibration_excess_v2": 17973.992352813042,
+      "held": {
+        "DDO154": {
+          "number_measured_CO_rings": 0,
+          "source": 53022796.080570124,
+          "measured_excess_v2": 1806.0466,
+          "predicted_excess_v2": 1627.2642209540072,
+          "predicted_over_measured_excess": 0.901008988889881,
+          "excess_residual_v2": -178.78237904599268,
+          "observed_kms": 45.5,
+          "predicted_total_kms": 43.4910062076518,
+          "total_residual_kms": -2.0089937923481997
+        },
+        "IC2574": {
+          "number_measured_CO_rings": 0,
+          "source": 311810512.2710587,
+          "measured_excess_v2": 3530.76065,
+          "predicted_excess_v2": 9569.432920229703,
+          "predicted_over_measured_excess": 2.710303492316791,
+          "excess_residual_v2": 6038.672270229703,
+          "observed_kms": 67.5,
+          "predicted_total_kms": 102.93163882028549,
+          "total_residual_kms": 35.431638820285485
+        },
+        "NGC2403": {
+          "number_measured_CO_rings": 0,
+          "source": 354542875.20038277,
+          "measured_excess_v2": 15309.76265,
+          "predicted_excess_v2": 10880.88479398692,
+          "predicted_over_measured_excess": 0.710715446263755,
+          "excess_residual_v2": -4428.877856013081,
+          "observed_kms": 134.0,
+          "predicted_total_kms": 116.3061569478887,
+          "total_residual_kms": -17.693843052111305
+        },
+        "NGC2841": {
+          "number_measured_CO_rings": 9,
+          "source": 317063452.7554651,
+          "measured_excess_v2": 74606.12270747975,
+          "predicted_excess_v2": 9730.645129636512,
+          "predicted_over_measured_excess": 0.13042689763934015,
+          "excess_residual_v2": -64875.47757784324,
+          "observed_kms": 294.0,
+          "predicted_total_kms": 146.8350176972672,
+          "total_residual_kms": -147.1649823027328
+        },
+        "NGC5055": {
+          "number_measured_CO_rings": 23,
+          "source": 744078935.5739765,
+          "measured_excess_v2": 21521.64728532054,
+          "predicted_excess_v2": 22835.70688322808,
+          "predicted_over_measured_excess": 1.061057575216551,
+          "excess_residual_v2": 1314.059597907537,
+          "observed_kms": 172.0,
+          "predicted_total_kms": 175.77843894490456,
+          "total_residual_kms": 3.778438944904565
+        },
+        "NGC6946": {
+          "number_measured_CO_rings": 27,
+          "source": 436776183.1497813,
+          "measured_excess_v2": 14132.875161790542,
+          "predicted_excess_v2": 13404.616654400534,
+          "predicted_over_measured_excess": 0.9484706049510069,
+          "excess_residual_v2": -728.2585073900082,
+          "observed_kms": 154.0,
+          "predicted_total_kms": 151.61708839246978,
+          "total_residual_kms": -2.382911607530218
+        },
+        "NGC7331": {
+          "number_measured_CO_rings": 16,
+          "source": 860575642.7126275,
+          "measured_excess_v2": 37819.110303491114,
+          "predicted_excess_v2": 26410.978981244636,
+          "predicted_over_measured_excess": 0.6983500872786692,
+          "excess_residual_v2": -11408.131322246478,
+          "observed_kms": 238.0,
+          "predicted_total_kms": 212.6872555602557,
+          "total_residual_kms": -25.312744439744307
+        },
+        "NGC7793": {
+          "number_measured_CO_rings": 0,
+          "source": 198778763.39038903,
+          "measured_excess_v2": 5046.3559,
+          "predicted_excess_v2": 6100.500038872795,
+          "predicted_over_measured_excess": 1.2088921510416646,
+          "excess_residual_v2": 1054.1441388727953,
+          "observed_kms": 90.8,
+          "predicted_total_kms": 96.43020345759307,
+          "total_residual_kms": 5.630203457593069
+        }
+      },
+      "total_residual_kms": {
+        "median_abs": 11.662023254852187,
+        "rms": 54.68367017938334,
+        "worst_to_best": [
+          "NGC2841",
+          "IC2574",
+          "NGC7331",
+          "NGC2403",
+          "NGC7793",
+          "NGC5055",
+          "NGC6946",
+          "DDO154"
+        ]
+      },
+      "excess_residual_v2": {
+        "median_abs": 2871.468726960309,
+        "rms": 23447.95798453088,
+        "worst_to_best": [
+          "NGC2841",
+          "NGC7331",
+          "IC2574",
+          "NGC2403",
+          "NGC5055",
+          "NGC7793",
+          "NGC6946",
+          "DDO154"
+        ]
+      }
+    }
+  }
+}

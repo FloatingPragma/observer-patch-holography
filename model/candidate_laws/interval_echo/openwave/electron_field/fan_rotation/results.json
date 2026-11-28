@@ -1,0 +1,3718 @@
+{
+  "source_and_receiver_geometry": {
+    "cells": 20,
+    "left": [
+      14,
+      18,
+      15,
+      16,
+      23,
+      22
+    ],
+    "right": [
+      24,
+      31,
+      25,
+      29,
+      35,
+      34
+    ]
+  },
+  "release_times": [
+    27.0625,
+    30.8125
+  ],
+  "supplied_phase_magnitude_in_pi_units": 0.5,
+  "proper_receiver_pose_census": {
+    "proper_turns": 60,
+    "move_gateway_aperture": 55,
+    "preserve_gateway_but_change_written_support": [
+      {
+        "permutation": [
+          0,
+          5,
+          6,
+          3,
+          2,
+          11,
+          8,
+          1,
+          9,
+          4,
+          7,
+          10
+        ],
+        "written_seams_still_at_same_address": 8
+      },
+      {
+        "permutation": [
+          0,
+          7,
+          4,
+          3,
+          9,
+          1,
+          2,
+          10,
+          6,
+          8,
+          11,
+          5
+        ],
+        "written_seams_still_at_same_address": 8
+      },
+      {
+        "permutation": [
+          0,
+          10,
+          9,
+          3,
+          8,
+          7,
+          4,
+          11,
+          2,
+          6,
+          5,
+          1
+        ],
+        "written_seams_still_at_same_address": 8
+      },
+      {
+        "permutation": [
+          0,
+          11,
+          8,
+          3,
+          6,
+          10,
+          9,
+          5,
+          4,
+          2,
+          1,
+          7
+        ],
+        "written_seams_still_at_same_address": 8
+      }
+    ],
+    "preserve_aperture_and_written_support": 1
+  },
+  "charge_conjugation_reverses_calibrated_flux": true,
+  "sectors": [
+    {
+      "charge_sign": 1,
+      "guide_dimension": 160,
+      "minimum_native_spectral_gap_between_levels": 8.45000365732318e-05,
+      "native_arrival": [
+        {
+          "first_ring_odd": 0.10619026907111836,
+          "last_ring_odd": 0.2966130701621759,
+          "circular_plus": 0.2155999354644784,
+          "circular_minus": 0.1872034037688158,
+          "equal_mixture": 0.20140166961664713
+        },
+        {
+          "first_ring_odd": 0.14205004623910916,
+          "last_ring_odd": 0.12112977439754818,
+          "circular_plus": 0.1333124727686861,
+          "circular_minus": 0.1298673478679712,
+          "equal_mixture": 0.13158991031832867
+        }
+      ],
+      "projected_currents": {
+        "bonds_tested_at_source_and_receiver_each": 9,
+        "receiving_doublet_includes_all_sender_words": true,
+        "incoming_projected_material_and_field_current_exact": 0,
+        "captured_projected_material_and_field_current_exact": 0
+      },
+      "phase_read": {
+        "receiver_outer_rim_chart_bonds": [
+          [
+            7,
+            8
+          ],
+          [
+            10,
+            11
+          ]
+        ],
+        "isolated_native_ring_duration_in_pi_units": 1,
+        "supplied_head_phase_in_pi_units_each": 1,
+        "native_ring_logical_action": [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "supplied_head_logical_action": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "launched_with_ideal_supplied_preparation": true,
+        "source_refusal_in_this_ensemble": 0,
+        "records": [
+          {
+            "time": 27.0625,
+            "includes_source_vacuum": false,
+            "banks": {
+              "repeat_native_ring_vs_hold": {
+                "bright": {
+                  "first_ring_odd": 0.10619026907111836,
+                  "last_ring_odd": 0.2966130701621759,
+                  "circular_plus": 0.2155999354644784,
+                  "circular_minus": 0.1872034037688158,
+                  "equal_mixture": 0.20140166961664713
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288816,
+                  "last_ring_odd": 0.7033869298378241,
+                  "circular_plus": 0.7844000645355214,
+                  "circular_minus": 0.812796596231184,
+                  "equal_mixture": 0.7985983303833528
+                }
+              },
+              "native_ring_and_supplied_heads_reverse_order": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.10619026907111835,
+                  "last_ring_odd": 0.2966130701621759,
+                  "circular_plus": 0.2155999354644784,
+                  "circular_minus": 0.1872034037688158,
+                  "equal_mixture": 0.20140166961664713
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288816,
+                  "last_ring_odd": 0.7033869298378241,
+                  "circular_plus": 0.7844000645355214,
+                  "circular_minus": 0.812796596231184,
+                  "equal_mixture": 0.7985983303833528
+                }
+              },
+              "phase_read_positive_control": {
+                "bright": {
+                  "first_ring_odd": 0.10619026907111836,
+                  "last_ring_odd": 0.2966130701621759,
+                  "circular_plus": 0.2155999354644784,
+                  "circular_minus": 0.1872034037688158,
+                  "equal_mixture": 0.20140166961664713
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288816,
+                  "last_ring_odd": 0.7033869298378241,
+                  "circular_plus": 0.7844000645355214,
+                  "circular_minus": 0.812796596231184,
+                  "equal_mixture": 0.7985983303833528
+                }
+              },
+              "phase_read_negative_control": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.10619026907111836,
+                  "last_ring_odd": 0.2966130701621759,
+                  "circular_plus": 0.2155999354644784,
+                  "circular_minus": 0.1872034037688158,
+                  "equal_mixture": 0.20140166961664713
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288816,
+                  "last_ring_odd": 0.7033869298378241,
+                  "circular_plus": 0.7844000645355214,
+                  "circular_minus": 0.812796596231184,
+                  "equal_mixture": 0.7985983303833528
+                }
+              }
+            }
+          },
+          {
+            "time": 30.8125,
+            "includes_source_vacuum": true,
+            "banks": {
+              "repeat_native_ring_vs_hold": {
+                "bright": {
+                  "first_ring_odd": 0.14205004623910916,
+                  "last_ring_odd": 0.12112977439754818,
+                  "circular_plus": 0.1333124727686861,
+                  "circular_minus": 0.1298673478679712,
+                  "equal_mixture": 0.13158991031832867
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608908,
+                  "last_ring_odd": 0.8788702256024519,
+                  "circular_plus": 0.8666875272313137,
+                  "circular_minus": 0.8701326521320286,
+                  "equal_mixture": 0.8684100896816713
+                }
+              },
+              "native_ring_and_supplied_heads_reverse_order": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.14205004623910916,
+                  "last_ring_odd": 0.12112977439754814,
+                  "circular_plus": 0.1333124727686861,
+                  "circular_minus": 0.12986734786797116,
+                  "equal_mixture": 0.13158991031832865
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608908,
+                  "last_ring_odd": 0.8788702256024519,
+                  "circular_plus": 0.8666875272313137,
+                  "circular_minus": 0.8701326521320286,
+                  "equal_mixture": 0.8684100896816713
+                }
+              },
+              "phase_read_positive_control": {
+                "bright": {
+                  "first_ring_odd": 0.14205004623910916,
+                  "last_ring_odd": 0.12112977439754818,
+                  "circular_plus": 0.1333124727686861,
+                  "circular_minus": 0.1298673478679712,
+                  "equal_mixture": 0.13158991031832867
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608908,
+                  "last_ring_odd": 0.8788702256024519,
+                  "circular_plus": 0.8666875272313137,
+                  "circular_minus": 0.8701326521320286,
+                  "equal_mixture": 0.8684100896816713
+                }
+              },
+              "phase_read_negative_control": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.14205004623910916,
+                  "last_ring_odd": 0.12112977439754818,
+                  "circular_plus": 0.1333124727686861,
+                  "circular_minus": 0.1298673478679712,
+                  "equal_mixture": 0.13158991031832867
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608908,
+                  "last_ring_odd": 0.8788702256024519,
+                  "circular_plus": 0.8666875272313137,
+                  "circular_minus": 0.8701326521320286,
+                  "equal_mixture": 0.8684100896816713
+                }
+              }
+            }
+          }
+        ]
+      },
+      "faces": [
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            18,
+            15
+          ],
+          "phase_link_in_orientation_order": [
+            18,
+            15
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.501405882426866e-08,
+                2.501405882426866e-08
+              ],
+              "field": [
+                2.501405527155498e-08,
+                2.501405527155498e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.05245828714606998,
+            "ground_material_curvature_from_finite_probe": 0.05245828349143267,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.05148388594284792,
+                  "last_ring_odd": 0.07423719503776219,
+                  "circular_plus": 0.04013184349875217,
+                  "circular_minus": 0.08558923748185791,
+                  "equal_mixture": 0.06286054049030505
+                },
+                {
+                  "first_ring_odd": 0.03941408577417234,
+                  "last_ring_odd": 0.03649400551421123,
+                  "circular_plus": 0.07356502311611507,
+                  "circular_minus": 0.0023430681722684875,
+                  "equal_mixture": 0.03795404564419179
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.04486299249349792,
+                  "last_ring_odd": 0.08600284175597175,
+                  "circular_plus": 0.1158303934721095,
+                  "circular_minus": 0.01503544077736016,
+                  "equal_mixture": 0.06543291712473484
+                },
+                {
+                  "first_ring_odd": 0.04047622626832318,
+                  "last_ring_odd": 0.041038900613772786,
+                  "circular_plus": 0.02575006019188007,
+                  "circular_minus": 0.055765066690215886,
+                  "equal_mixture": 0.040757563441047986
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.0556926587950613,
+                  "last_ring_odd": 0.09596570494747841,
+                  "circular_plus": 0.10830379452499134,
+                  "circular_minus": 0.04335456921754836,
+                  "equal_mixture": 0.07582918187126986
+                },
+                {
+                  "first_ring_odd": 0.016780119396733403,
+                  "last_ring_odd": 0.016879957796972194,
+                  "circular_plus": 0.011564258440976055,
+                  "circular_minus": 0.022095818752729538,
+                  "equal_mixture": 0.0168300385968528
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.08387600088640967,
+                  "last_ring_odd": 0.07259342899952173,
+                  "circular_plus": 0.05908611126746917,
+                  "circular_minus": 0.09738331861846222,
+                  "equal_mixture": 0.0782347149429657
+                },
+                {
+                  "first_ring_odd": 0.0382486705558275,
+                  "last_ring_odd": 0.01253411161666441,
+                  "circular_plus": 0.036187879873816026,
+                  "circular_minus": 0.014594902298675877,
+                  "equal_mixture": 0.025391391086245954
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.07979463993151442,
+                  "last_ring_odd": 0.21303130518045,
+                  "circular_plus": 0.1717029639915204,
+                  "circular_minus": 0.12112298112044395,
+                  "equal_mixture": 0.1464129725559822
+                },
+                {
+                  "first_ring_odd": 0.03293747610338737,
+                  "last_ring_odd": 0.01055138586307895,
+                  "circular_plus": 0.024455766438888506,
+                  "circular_minus": 0.019033095527577808,
+                  "equal_mixture": 0.02174443098323316
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.06739950587754509,
+                  "last_ring_odd": 0.1584629643687531,
+                  "circular_plus": 0.08256453528891294,
+                  "circular_minus": 0.14329793495738521,
+                  "equal_mixture": 0.11293123512314909
+                },
+                {
+                  "first_ring_odd": 0.04342706758094823,
+                  "last_ring_odd": 0.01367123868810759,
+                  "circular_plus": 0.02987409744999495,
+                  "circular_minus": 0.027224208819060854,
+                  "equal_mixture": 0.02854915313452791
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.40722176748579175,
+                "last_ring_odd": 0.26911515683276593,
+                "circular_plus": -0.06706750594576161,
+                "circular_minus": -0.07103910470726421
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.35350318146885257,
+                "last_ring_odd": -0.13610450806365085,
+                "circular_plus": 0.05706858252195257,
+                "circular_minus": 0.16033009088324912
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.05371858601693602,
+                "last_ring_odd": 0.13301064876911495,
+                "circular_plus": -0.009998923423805609,
+                "circular_minus": 0.08929098617598454
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.5672699338195405,
+                "last_ring_odd": 0.14062864447427767,
+                "circular_plus": -0.19467742919016678,
+                "circular_minus": -0.23196386015509596
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.5123861822112182,
+                "last_ring_odd": -0.13039828090368874,
+                "circular_plus": 0.0885914235697523,
+                "circular_minus": 0.2933964777377771
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.05488375160832426,
+                "last_ring_odd": 0.010230363570591816,
+                "circular_plus": -0.10608600562041415,
+                "circular_minus": 0.06143261758268172
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            15,
+            16
+          ],
+          "phase_link_in_orientation_order": [
+            15,
+            16
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.8652586969712956e-09,
+                2.8652586969712956e-09
+              ],
+              "field": [
+                2.865264026041814e-09,
+                2.865264026041814e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.006008875823062372,
+            "ground_material_curvature_from_finite_probe": 0.006008883006870747,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.12608646443588978,
+                  "last_ring_odd": 0.24447322527687104,
+                  "circular_plus": 0.19705093401369939,
+                  "circular_minus": 0.17350875569906132,
+                  "equal_mixture": 0.1852798448563804
+                },
+                {
+                  "first_ring_odd": 0.11436141286766623,
+                  "last_ring_odd": 0.09729154821513449,
+                  "circular_plus": 0.09927429721122158,
+                  "circular_minus": 0.1123786638715791,
+                  "equal_mixture": 0.10582648054140036
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.15142991619808063,
+                  "last_ring_odd": 0.24945316107765714,
+                  "circular_plus": 0.21564664475076012,
+                  "circular_minus": 0.1852364325249776,
+                  "equal_mixture": 0.2004415386378689
+                },
+                {
+                  "first_ring_odd": 0.09767272745314928,
+                  "last_ring_odd": 0.10748543432640935,
+                  "circular_plus": 0.08887411911624926,
+                  "circular_minus": 0.11628404266330933,
+                  "equal_mixture": 0.10257908088977932
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.15142991619811141,
+                  "last_ring_odd": 0.24945316107768223,
+                  "circular_plus": 0.21564664475079268,
+                  "circular_minus": 0.18523643252500088,
+                  "equal_mixture": 0.20044153863789682
+                },
+                {
+                  "first_ring_odd": 0.09767272745316877,
+                  "last_ring_odd": 0.10748543432649463,
+                  "circular_plus": 0.08887411911630068,
+                  "circular_minus": 0.11628404266336267,
+                  "equal_mixture": 0.1025790808898317
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.12608646443591365,
+                  "last_ring_odd": 0.24447322527689314,
+                  "circular_plus": 0.19705093401372697,
+                  "circular_minus": 0.17350875569907975,
+                  "equal_mixture": 0.1852798448564034
+                },
+                {
+                  "first_ring_odd": 0.11436141286770508,
+                  "last_ring_odd": 0.09729154821521625,
+                  "circular_plus": 0.09927429721128053,
+                  "circular_minus": 0.11237866387164075,
+                  "equal_mixture": 0.10582648054146067
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907117002,
+                  "last_ring_odd": 0.29661307016216804,
+                  "circular_plus": 0.21559993546449735,
+                  "circular_minus": 0.18720340376884062,
+                  "equal_mixture": 0.20140166961666903
+                },
+                {
+                  "first_ring_odd": 0.1420500462391322,
+                  "last_ring_odd": 0.12112977439751638,
+                  "circular_plus": 0.13331247276867744,
+                  "circular_minus": 0.12986734786797108,
+                  "equal_mixture": 0.1315899103183243
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.1061902690711683,
+                  "last_ring_odd": 0.2966130701621681,
+                  "circular_plus": 0.21559993546449624,
+                  "circular_minus": 0.1872034037688401,
+                  "equal_mixture": 0.2014016696166682
+                },
+                {
+                  "first_ring_odd": 0.1420500462391301,
+                  "last_ring_odd": 0.12112977439751597,
+                  "circular_plus": 0.13331247276867658,
+                  "circular_minus": 0.1298673478679694,
+                  "equal_mixture": 0.13158991031832304
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.033773453836051896,
+                "last_ring_odd": -0.014601684130004962,
+                "circular_plus": -0.033005871224180756,
+                "circular_minus": -0.015369266741876091
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.006861260165431705,
+                "last_ring_odd": -0.014602260832944969,
+                "circular_plus": -0.009212145883155227,
+                "circular_minus": -0.012251375115221442
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.04063471400148422,
+                "last_ring_odd": -0.029203944962950423,
+                "circular_plus": -0.04221801710733767,
+                "circular_minus": -0.02762064185709696
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.025322751887113037,
+                "last_ring_odd": -0.026998142775841196,
+                "circular_plus": -0.031631446696132305,
+                "circular_minus": -0.020689447966821917
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.011498206913047006,
+                "last_ring_odd": -0.015523874258443707,
+                "circular_plus": -0.006761343153033673,
+                "circular_minus": 0.0027356758076369746
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.013824544974068376,
+                "last_ring_odd": -0.0425220170342826,
+                "circular_plus": -0.03839278984916462,
+                "circular_minus": -0.01795377215918635
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            16,
+            23
+          ],
+          "phase_link_in_orientation_order": [
+            16,
+            23
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                3.5741165582692247e-09,
+                3.5741165582692247e-09
+              ],
+              "field": [
+                3.574112117377126e-09,
+                3.574112117377126e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.007495449548734781,
+            "ground_material_curvature_from_finite_probe": 0.007495465688407421,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.17070831788570903,
+                  "last_ring_odd": 0.2703260582796112,
+                  "circular_plus": 0.23448400199468544,
+                  "circular_minus": 0.2065503741706347,
+                  "equal_mixture": 0.22051718808266013
+                },
+                {
+                  "first_ring_odd": 0.08912822489015085,
+                  "last_ring_odd": 0.06314374540613713,
+                  "circular_plus": 0.059388237416545406,
+                  "circular_minus": 0.09288373287974253,
+                  "equal_mixture": 0.07613598514814399
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.16008238903978464,
+                  "last_ring_odd": 0.2660770899748672,
+                  "circular_plus": 0.22606953924307333,
+                  "circular_minus": 0.20008993977157838,
+                  "equal_mixture": 0.2130797395073259
+                },
+                {
+                  "first_ring_odd": 0.09338311531414559,
+                  "last_ring_odd": 0.05341787169488502,
+                  "circular_plus": 0.05750564947288317,
+                  "circular_minus": 0.0892953375361474,
+                  "equal_mixture": 0.0734004935045153
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.16008238903983268,
+                  "last_ring_odd": 0.2660770899748081,
+                  "circular_plus": 0.2260695392430644,
+                  "circular_minus": 0.2000899397715763,
+                  "equal_mixture": 0.2130797395073204
+                },
+                {
+                  "first_ring_odd": 0.09338311531417876,
+                  "last_ring_odd": 0.05341787169484974,
+                  "circular_plus": 0.05750564947287376,
+                  "circular_minus": 0.0892953375361547,
+                  "equal_mixture": 0.07340049350451425
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.1707083178857587,
+                  "last_ring_odd": 0.2703260582795524,
+                  "circular_plus": 0.23448400199467895,
+                  "circular_minus": 0.20655037417063213,
+                  "equal_mixture": 0.22051718808265555
+                },
+                {
+                  "first_ring_odd": 0.08912822489018166,
+                  "last_ring_odd": 0.06314374540609885,
+                  "circular_plus": 0.05938823741653439,
+                  "circular_minus": 0.0928837328797461,
+                  "equal_mixture": 0.07613598514814025
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907116384,
+                  "last_ring_odd": 0.2966130701621496,
+                  "circular_plus": 0.21559993546447703,
+                  "circular_minus": 0.18720340376883635,
+                  "equal_mixture": 0.20140166961665673
+                },
+                {
+                  "first_ring_odd": 0.14205004623910883,
+                  "last_ring_odd": 0.12112977439752473,
+                  "circular_plus": 0.13331247276867006,
+                  "circular_minus": 0.12986734786796347,
+                  "equal_mixture": 0.1315899103183168
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907116273,
+                  "last_ring_odd": 0.2966130701621491,
+                  "circular_plus": 0.21559993546447628,
+                  "circular_minus": 0.18720340376883549,
+                  "equal_mixture": 0.20140166961665593
+                },
+                {
+                  "first_ring_odd": 0.1420500462391068,
+                  "last_ring_odd": 0.1211297743975252,
+                  "circular_plus": 0.13331247276866995,
+                  "circular_minus": 0.12986734786796203,
+                  "equal_mixture": 0.13158991031831602
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.024978650258833807,
+                "last_ring_odd": 0.04545675683003648,
+                "circular_plus": 0.008331456744144492,
+                "circular_minus": 0.012146649827058176
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.0396593476496009,
+                "last_ring_odd": -0.012723085821195433,
+                "circular_plus": 0.019304338177515864,
+                "circular_minus": 0.007631923650889596
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.01468069739076712,
+                "last_ring_odd": 0.032733671008843654,
+                "circular_plus": 0.02763579492166235,
+                "circular_minus": 0.019778573477948418
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.02795154048193441,
+                "last_ring_odd": 0.023363443122250655,
+                "circular_plus": -0.0018673774462556383,
+                "circular_minus": -0.0027207199134281178
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.04415754519969157,
+                "last_ring_odd": 0.006364399828166327,
+                "circular_plus": 0.02478990505679369,
+                "circular_minus": 0.025732039971064196
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.016206004717757565,
+                "last_ring_odd": 0.029727842950419563,
+                "circular_plus": 0.022922527610539735,
+                "circular_minus": 0.023011320057637383
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            23,
+            22
+          ],
+          "phase_link_in_orientation_order": [
+            23,
+            22
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                4.667603059615999e-08,
+                4.667603059615999e-08
+              ],
+              "field": [
+                4.667602881980315e-08,
+                4.667602881980315e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.0978867371076676,
+            "ground_material_curvature_from_finite_probe": 0.09788673091679811,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.022870936112854408,
+                  "last_ring_odd": 0.06705639519249838,
+                  "circular_plus": 0.05031621492680693,
+                  "circular_minus": 0.03961111637854584,
+                  "equal_mixture": 0.0449636656526764
+                },
+                {
+                  "first_ring_odd": 0.029256111327497412,
+                  "last_ring_odd": 0.00461695965587788,
+                  "circular_plus": 0.019461648884903385,
+                  "circular_minus": 0.014411422098471904,
+                  "equal_mixture": 0.016936535491687645
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.033491718575592466,
+                  "last_ring_odd": 0.05778492309549603,
+                  "circular_plus": 0.027886225293540998,
+                  "circular_minus": 0.06339041637754748,
+                  "equal_mixture": 0.04563832083554425
+                },
+                {
+                  "first_ring_odd": 0.03302592172029414,
+                  "last_ring_odd": 0.006199351639098812,
+                  "circular_plus": 0.030314983962518312,
+                  "circular_minus": 0.008910289396874632,
+                  "equal_mixture": 0.019612636679696475
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.021012930413426875,
+                  "last_ring_odd": 0.10864862426259987,
+                  "circular_plus": 0.06308179651085269,
+                  "circular_minus": 0.06657975816517403,
+                  "equal_mixture": 0.06483077733801337
+                },
+                {
+                  "first_ring_odd": 0.02594891629286524,
+                  "last_ring_odd": 0.005886266193819464,
+                  "circular_plus": 0.026974077669904943,
+                  "circular_minus": 0.004861104816779758,
+                  "equal_mixture": 0.01591759124334235
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.035017519289075025,
+                  "last_ring_odd": 0.10671426812951736,
+                  "circular_plus": 0.07368174130691199,
+                  "circular_minus": 0.06805004611168038,
+                  "equal_mixture": 0.07086589370929619
+                },
+                {
+                  "first_ring_odd": 0.015211982335935978,
+                  "last_ring_odd": 0.004965260059124691,
+                  "circular_plus": 0.007565397688188502,
+                  "circular_minus": 0.012611844706872162,
+                  "equal_mixture": 0.010088621197530335
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.05230354184430227,
+                  "last_ring_odd": 0.1297532929355132,
+                  "circular_plus": 0.09925127063587716,
+                  "circular_minus": 0.08280556414393826,
+                  "equal_mixture": 0.09102841738990773
+                },
+                {
+                  "first_ring_odd": 0.056641120928063025,
+                  "last_ring_odd": 0.016709739406176392,
+                  "circular_plus": 0.0453334219895308,
+                  "circular_minus": 0.0280174383447086,
+                  "equal_mixture": 0.03667543016711971
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.12876792661385883,
+                  "last_ring_odd": 0.2078636539645745,
+                  "circular_plus": 0.1935661771376144,
+                  "circular_minus": 0.14306540344081886,
+                  "equal_mixture": 0.16831579028921667
+                },
+                {
+                  "first_ring_odd": 0.04656421706120965,
+                  "last_ring_odd": 0.019503008611619105,
+                  "circular_plus": 0.01715120446196295,
+                  "circular_minus": 0.0489160212108658,
+                  "equal_mixture": 0.03303361283641438
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.22822035575441413,
+                "last_ring_odd": 0.4191477321477249,
+                "circular_plus": 0.06576842201325964,
+                "circular_minus": 0.12515895438005106
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.19780934707283698,
+                "last_ring_odd": -0.4486946105721306,
+                "circular_plus": -0.08794417890754615,
+                "circular_minus": -0.16294108459174744
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.030411008681576535,
+                "last_ring_odd": -0.029546878424398404,
+                "circular_plus": -0.022175756894282708,
+                "circular_minus": -0.03778213021169222
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.2316297213795555,
+                "last_ring_odd": 0.19626501719915113,
+                "circular_plus": 0.009603793472472366,
+                "circular_minus": -0.044968497652876735
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.2867201675036443,
+                "last_ring_odd": -0.24070641866342657,
+                "circular_plus": 0.010392211706573257,
+                "circular_minus": 0.03562153713364448
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.05509044612409175,
+                "last_ring_odd": -0.044441401464268226,
+                "circular_plus": 0.01999600517904939,
+                "circular_minus": -0.009346960519225862
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            31,
+            25
+          ],
+          "phase_link_in_orientation_order": [
+            31,
+            25
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.501405527155498e-08,
+                2.501405527155498e-08
+              ],
+              "field": [
+                2.501405882426866e-08,
+                2.501405882426866e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.052458287146070204,
+            "ground_material_curvature_from_finite_probe": 0.05245827604085207,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.04243356921545306,
+                  "last_ring_odd": 0.07498352434594004,
+                  "circular_plus": 0.0607624620015782,
+                  "circular_minus": 0.05665463155981487,
+                  "equal_mixture": 0.05870854678069655
+                },
+                {
+                  "first_ring_odd": 0.021861659327760033,
+                  "last_ring_odd": 0.05965346755435305,
+                  "circular_plus": 0.04770347594663627,
+                  "circular_minus": 0.033811650935476806,
+                  "equal_mixture": 0.04075756344105654
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.033779025823867624,
+                  "last_ring_odd": 0.07804407039558549,
+                  "circular_plus": 0.05569143522699148,
+                  "circular_minus": 0.05613166099246161,
+                  "equal_mixture": 0.05591154810972655
+                },
+                {
+                  "first_ring_odd": 0.007600516780406744,
+                  "last_ring_odd": 0.06830757450799378,
+                  "circular_plus": 0.04443082657801585,
+                  "circular_minus": 0.03147726471038466,
+                  "equal_mixture": 0.03795404564420026
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.04048359628808881,
+                  "last_ring_odd": 0.11218001481283771,
+                  "circular_plus": 0.06652091124768794,
+                  "circular_minus": 0.08614269985323855,
+                  "equal_mixture": 0.07633180555046326
+                },
+                {
+                  "first_ring_odd": 0.008512381331155902,
+                  "last_ring_odd": 0.04227040084133306,
+                  "circular_plus": 0.023481382934590695,
+                  "circular_minus": 0.02730139923789826,
+                  "equal_mixture": 0.02539139108624448
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.03445944362484124,
+                  "last_ring_odd": 0.08210104935683796,
+                  "circular_plus": 0.049885558316148965,
+                  "circular_minus": 0.0666749346655302,
+                  "equal_mixture": 0.0582802464908396
+                },
+                {
+                  "first_ring_odd": 0.01422854710691169,
+                  "last_ring_odd": 0.019431530086795202,
+                  "circular_plus": 0.022563496816415028,
+                  "circular_minus": 0.01109658037729186,
+                  "equal_mixture": 0.016830038596853447
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.06631419120705777,
+                  "last_ring_odd": 0.15024711649550015,
+                  "circular_plus": 0.13429923187773615,
+                  "circular_minus": 0.08226207582482173,
+                  "equal_mixture": 0.10828065385127897
+                },
+                {
+                  "first_ring_odd": 0.04690123700388634,
+                  "last_ring_odd": 0.01019706926517187,
+                  "circular_plus": 0.03592783406619269,
+                  "circular_minus": 0.021170472202865515,
+                  "equal_mixture": 0.028549153134529104
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10269964469256149,
+                  "last_ring_odd": 0.13491910360054082,
+                  "circular_plus": 0.09826242754397561,
+                  "circular_minus": 0.13935632074912666,
+                  "equal_mixture": 0.11880937414655116
+                },
+                {
+                  "first_ring_odd": 0.035441535964806314,
+                  "last_ring_odd": 0.008047326001647667,
+                  "circular_plus": 0.019372620074219953,
+                  "circular_minus": 0.024116241892234023,
+                  "equal_mixture": 0.02174443098322699
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.44078087761053697,
+                "last_ring_odd": 0.16547675027781902,
+                "circular_plus": 0.34282709662008676,
+                "circular_minus": 0.26343053126826915
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.4882032735126031,
+                "last_ring_odd": -0.11393692179663217,
+                "circular_plus": -0.33473089989371474,
+                "circular_minus": -0.26740929541552044
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.047422395902068815,
+                "last_ring_odd": 0.05153982848118266,
+                "circular_plus": 0.008096196726365312,
+                "circular_minus": -0.003978764147251471
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.5076598882822746,
+                "last_ring_odd": 0.21306719441025335,
+                "circular_plus": 0.4010187668022349,
+                "circular_minus": 0.3197083158902929
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.5281136168686082,
+                "last_ring_odd": -0.13097292067532318,
+                "circular_plus": -0.38272406765456773,
+                "circular_minus": -0.2763624698893636
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.02045372858633676,
+                "last_ring_odd": 0.08209427373492917,
+                "circular_plus": 0.01829469914766754,
+                "circular_minus": 0.04334584600092485
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            25,
+            29
+          ],
+          "phase_link_in_orientation_order": [
+            25,
+            29
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.8652471506518395e-09,
+                2.8652471506518395e-09
+              ],
+              "field": [
+                2.8652533679007774e-09,
+                2.8652533679007774e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.00600887582306258,
+            "ground_material_curvature_from_finite_probe": 0.006008858792483807,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.14220977204548946,
+                  "last_ring_odd": 0.23944082121120042,
+                  "circular_plus": 0.19736179806039958,
+                  "circular_minus": 0.1842887951962902,
+                  "equal_mixture": 0.19082529662834494
+                },
+                {
+                  "first_ring_odd": 0.09520470912952503,
+                  "last_ring_odd": 0.10995345265000757,
+                  "circular_plus": 0.09441647213592397,
+                  "circular_minus": 0.11074168964360859,
+                  "equal_mixture": 0.1025790808897663
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.11739624722932301,
+                  "last_ring_odd": 0.23734299096210026,
+                  "circular_plus": 0.1888945650603531,
+                  "circular_minus": 0.16584467313107012,
+                  "equal_mixture": 0.17736961909571164
+                },
+                {
+                  "first_ring_odd": 0.11373023844586062,
+                  "last_ring_odd": 0.09792272263693395,
+                  "circular_plus": 0.09943976039678251,
+                  "circular_minus": 0.11221320068601205,
+                  "equal_mixture": 0.10582648054139729
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.11739624722932493,
+                  "last_ring_odd": 0.23734299096209716,
+                  "circular_plus": 0.18889456506036506,
+                  "circular_minus": 0.16584467313105697,
+                  "equal_mixture": 0.17736961909571103
+                },
+                {
+                  "first_ring_odd": 0.11373023844595234,
+                  "last_ring_odd": 0.09792272263698495,
+                  "circular_plus": 0.09943976039685862,
+                  "circular_minus": 0.11221320068607862,
+                  "equal_mixture": 0.10582648054146865
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.1422097720454915,
+                  "last_ring_odd": 0.23944082121119703,
+                  "circular_plus": 0.1973617980604075,
+                  "circular_minus": 0.18428879519628094,
+                  "equal_mixture": 0.19082529662834427
+                },
+                {
+                  "first_ring_odd": 0.09520470912961666,
+                  "last_ring_odd": 0.10995345265005683,
+                  "circular_plus": 0.09441647213599999,
+                  "circular_minus": 0.11074168964367348,
+                  "equal_mixture": 0.10257908088983675
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907110544,
+                  "last_ring_odd": 0.2966130701621409,
+                  "circular_plus": 0.2155999354644366,
+                  "circular_minus": 0.18720340376880967,
+                  "equal_mixture": 0.20140166961662317
+                },
+                {
+                  "first_ring_odd": 0.1420500462391398,
+                  "last_ring_odd": 0.1211297743975095,
+                  "circular_plus": 0.13331247276868355,
+                  "circular_minus": 0.1298673478679657,
+                  "equal_mixture": 0.13158991031832465
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907110571,
+                  "last_ring_odd": 0.2966130701621399,
+                  "circular_plus": 0.21559993546443607,
+                  "circular_minus": 0.1872034037688095,
+                  "equal_mixture": 0.2014016696166228
+                },
+                {
+                  "first_ring_odd": 0.1420500462391395,
+                  "last_ring_odd": 0.12112977439750881,
+                  "circular_plus": 0.13331247276868258,
+                  "circular_minus": 0.1298673478679657,
+                  "equal_mixture": 0.13158991031832415
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.003932658166281849,
+                "last_ring_odd": -0.036472178472624565,
+                "circular_plus": -0.00931764294357764,
+                "circular_minus": -0.02322187736276507
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.02471122902845728,
+                "last_ring_odd": -0.026101023505013147,
+                "circular_plus": -0.022961597657092013,
+                "circular_minus": -0.027850654876378406
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.020778570862180157,
+                "last_ring_odd": -0.06257320197763883,
+                "circular_plus": -0.032279240600674136,
+                "circular_minus": -0.051072532239144826
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.015620101789996448,
+                "last_ring_odd": 0.0013258564196282103,
+                "circular_plus": 0.01086198379328737,
+                "circular_minus": 0.006083974416337284
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.030071412383942498,
+                "last_ring_odd": -0.014464878258186153,
+                "circular_plus": -0.0201292859170445,
+                "circular_minus": -0.02440700472508415
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.014451310593951883,
+                "last_ring_odd": -0.013139021838556753,
+                "circular_plus": -0.009267302123758737,
+                "circular_minus": -0.018323030308749894
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            29,
+            35
+          ],
+          "phase_link_in_orientation_order": [
+            29,
+            35
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                3.574106788306608e-09,
+                3.574106788306608e-09
+              ],
+              "field": [
+                3.574106788306608e-09,
+                3.574106788306608e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.007495449548740624,
+            "ground_material_curvature_from_finite_probe": 0.00749544519931078,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.1495128152956346,
+                  "last_ring_odd": 0.2619340279082133,
+                  "circular_plus": 0.21244816910781092,
+                  "circular_minus": 0.19899867409603694,
+                  "equal_mixture": 0.20572342160192394
+                },
+                {
+                  "first_ring_odd": 0.0903849432319031,
+                  "last_ring_odd": 0.05641604377711353,
+                  "circular_plus": 0.05062146975747277,
+                  "circular_minus": 0.09617951725154383,
+                  "equal_mixture": 0.07340049350450832
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.15178977906440738,
+                  "last_ring_odd": 0.26568852895702366,
+                  "circular_plus": 0.21410800193290297,
+                  "circular_minus": 0.20337030608852796,
+                  "equal_mixture": 0.20873915401071552
+                },
+                {
+                  "first_ring_odd": 0.08815611879142782,
+                  "last_ring_odd": 0.06411585150484381,
+                  "circular_plus": 0.0523559889859885,
+                  "circular_minus": 0.0999159813102831,
+                  "equal_mixture": 0.07613598514813581
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.15178977906439098,
+                  "last_ring_odd": 0.2656885289571078,
+                  "circular_plus": 0.21410800193292787,
+                  "circular_minus": 0.20337030608857085,
+                  "equal_mixture": 0.20873915401074938
+                },
+                {
+                  "first_ring_odd": 0.08815611879139126,
+                  "last_ring_odd": 0.06411585150489699,
+                  "circular_plus": 0.052355988985998275,
+                  "circular_minus": 0.09991598131028995,
+                  "equal_mixture": 0.07613598514814413
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.14951281529561683,
+                  "last_ring_odd": 0.2619340279083001,
+                  "circular_plus": 0.21244816910784003,
+                  "circular_minus": 0.19899867409607683,
+                  "equal_mixture": 0.20572342160195847
+                },
+                {
+                  "first_ring_odd": 0.09038494323186458,
+                  "last_ring_odd": 0.05641604377715962,
+                  "circular_plus": 0.050621469757476875,
+                  "circular_minus": 0.09617951725154728,
+                  "equal_mixture": 0.0734004935045121
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907115298,
+                  "last_ring_odd": 0.2966130701621695,
+                  "circular_plus": 0.215599935464492,
+                  "circular_minus": 0.18720340376883038,
+                  "equal_mixture": 0.20140166961666123
+                },
+                {
+                  "first_ring_odd": 0.14205004623912268,
+                  "last_ring_odd": 0.1211297743975111,
+                  "circular_plus": 0.13331247276867675,
+                  "circular_minus": 0.129867347867957,
+                  "equal_mixture": 0.1315899103183169
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907115338,
+                  "last_ring_odd": 0.29661307016217014,
+                  "circular_plus": 0.21559993546449246,
+                  "circular_minus": 0.18720340376883096,
+                  "equal_mixture": 0.20140166961666175
+                },
+                {
+                  "first_ring_odd": 0.14205004623912315,
+                  "last_ring_odd": 0.12112977439751196,
+                  "circular_plus": 0.13331247276867714,
+                  "circular_minus": 0.12986734786795795,
+                  "equal_mixture": 0.13158991031831757
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.00013133917617146642,
+                "last_ring_odd": 0.02515052056321555,
+                "circular_plus": 0.01723090222586463,
+                "circular_minus": 0.00778827916117945
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.026112341102527928,
+                "last_ring_odd": 0.028587639038678624,
+                "circular_plus": 0.021327288823232055,
+                "circular_minus": 0.03337269131797449
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.025981001926356804,
+                "last_ring_odd": 0.053738159601893015,
+                "circular_plus": 0.03855819104909644,
+                "circular_minus": 0.04116097047915336
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.006245477237589287,
+                "last_ring_odd": 0.009936478713434251,
+                "circular_plus": 0.0060735255634740614,
+                "circular_minus": -0.0023825240876290976
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.028364897962002217,
+                "last_ring_odd": 0.009832709921272565,
+                "circular_plus": 0.017002385270636473,
+                "circular_minus": 0.0211952226126383
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.0221194207244136,
+                "last_ring_odd": 0.019769188634705986,
+                "circular_plus": 0.023075910834110605,
+                "circular_minus": 0.01881269852500897
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            35,
+            34
+          ],
+          "phase_link_in_orientation_order": [
+            35,
+            34
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                4.667602970798157e-08,
+                4.667602970798157e-08
+              ],
+              "field": [
+                4.667603148433841e-08,
+                4.667603148433841e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.09788673710767826,
+            "ground_material_curvature_from_finite_probe": 0.09788672905415297,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.032073521600726115,
+                  "last_ring_odd": 0.06962962840256741,
+                  "circular_plus": 0.051697255166789594,
+                  "circular_minus": 0.05000589483650391,
+                  "equal_mixture": 0.05085157500164676
+                },
+                {
+                  "first_ring_odd": 0.02223065175991046,
+                  "last_ring_odd": 0.016994621599467578,
+                  "circular_plus": 0.016744508139635204,
+                  "circular_minus": 0.022480765219742828,
+                  "equal_mixture": 0.01961263667968902
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.0325493501404158,
+                  "last_ring_odd": 0.07922810909553071,
+                  "circular_plus": 0.060203037515978636,
+                  "circular_minus": 0.05157442171996786,
+                  "equal_mixture": 0.055888729617973254
+                },
+                {
+                  "first_ring_odd": 0.017521609351605245,
+                  "last_ring_odd": 0.016351461631754608,
+                  "circular_plus": 0.01683373614577459,
+                  "circular_minus": 0.01703933483758526,
+                  "equal_mixture": 0.01693653549167993
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.04737519730065719,
+                  "last_ring_odd": 0.1632628452901742,
+                  "circular_plus": 0.0961545272309224,
+                  "circular_minus": 0.11448351535990897,
+                  "equal_mixture": 0.1053190212954157
+                },
+                {
+                  "first_ring_odd": 0.013113281759950631,
+                  "last_ring_odd": 0.0070639606351180825,
+                  "circular_plus": 0.01659694028544054,
+                  "circular_minus": 0.00358030210962817,
+                  "equal_mixture": 0.010088621197534356
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.051607232193530805,
+                  "last_ring_odd": 0.05714659670688649,
+                  "circular_plus": 0.058605835252447745,
+                  "circular_minus": 0.050147993647969534,
+                  "equal_mixture": 0.05437691445020865
+                },
+                {
+                  "first_ring_odd": 0.019002978066564983,
+                  "last_ring_odd": 0.012832204420114127,
+                  "circular_plus": 0.0275261180251467,
+                  "circular_minus": 0.0043090644615324065,
+                  "equal_mixture": 0.015917591243339555
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.07065491099784217,
+                  "last_ring_odd": 0.22109336478715064,
+                  "circular_plus": 0.12902967409241525,
+                  "circular_minus": 0.1627186016925775,
+                  "equal_mixture": 0.1458741378924964
+                },
+                {
+                  "first_ring_odd": 0.04667150752462214,
+                  "last_ring_odd": 0.019395718148205343,
+                  "circular_plus": 0.05222787122680363,
+                  "circular_minus": 0.01383935444602385,
+                  "equal_mixture": 0.03303361283641374
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.0607827161313577,
+                  "last_ring_odd": 0.1264245539418066,
+                  "circular_plus": 0.06522279308925814,
+                  "circular_minus": 0.12198447698390613,
+                  "equal_mixture": 0.09360363503658214
+                },
+                {
+                  "first_ring_odd": 0.05735348502962846,
+                  "last_ring_odd": 0.015997375304624823,
+                  "circular_plus": 0.03272262661671068,
+                  "circular_minus": 0.040628233717542594,
+                  "equal_mixture": 0.03667543016712664
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.17296380294624872,
+                "last_ring_odd": -0.41189675050021063,
+                "circular_plus": -0.23311030038374111,
+                "circular_minus": -0.3517502530627181
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.1671048923391174,
+                "last_ring_odd": 0.4609255249976223,
+                "circular_plus": 0.24665985692388728,
+                "circular_minus": 0.38137056041285233
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.005858910607134837,
+                "last_ring_odd": 0.04902877449740273,
+                "circular_plus": 0.01354955654014365,
+                "circular_minus": 0.02962030735012423
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.16943764325589664,
+                "last_ring_odd": -0.2347672952696968,
+                "circular_plus": -0.19445676340717166,
+                "circular_minus": -0.2097481751184217
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.15536936992814346,
+                "last_ring_odd": 0.33833284558529936,
+                "circular_plus": 0.22736646645344333,
+                "circular_minus": 0.2663357490599994
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.014068273327760783,
+                "last_ring_odd": 0.10356555031559989,
+                "circular_plus": 0.03290970304627326,
+                "circular_minus": 0.056587573941565834
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "charge_sign": -1,
+      "guide_dimension": 160,
+      "minimum_native_spectral_gap_between_levels": 8.450003657678451e-05,
+      "native_arrival": [
+        {
+          "first_ring_odd": 0.1061902690711318,
+          "last_ring_odd": 0.2966130701621328,
+          "circular_plus": 0.21559993546446476,
+          "circular_minus": 0.18720340376879974,
+          "equal_mixture": 0.2014016696166323
+        },
+        {
+          "first_ring_odd": 0.14205004623911513,
+          "last_ring_odd": 0.12112977439751878,
+          "circular_plus": 0.13331247276867306,
+          "circular_minus": 0.1298673478679608,
+          "equal_mixture": 0.13158991031831696
+        }
+      ],
+      "projected_currents": {
+        "bonds_tested_at_source_and_receiver_each": 9,
+        "receiving_doublet_includes_all_sender_words": true,
+        "incoming_projected_material_and_field_current_exact": 0,
+        "captured_projected_material_and_field_current_exact": 0
+      },
+      "phase_read": {
+        "receiver_outer_rim_chart_bonds": [
+          [
+            7,
+            8
+          ],
+          [
+            10,
+            11
+          ]
+        ],
+        "isolated_native_ring_duration_in_pi_units": 1,
+        "supplied_head_phase_in_pi_units_each": 1,
+        "native_ring_logical_action": [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "supplied_head_logical_action": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "launched_with_ideal_supplied_preparation": true,
+        "source_refusal_in_this_ensemble": 0,
+        "records": [
+          {
+            "time": 27.0625,
+            "includes_source_vacuum": false,
+            "banks": {
+              "repeat_native_ring_vs_hold": {
+                "bright": {
+                  "first_ring_odd": 0.1061902690711318,
+                  "last_ring_odd": 0.2966130701621328,
+                  "circular_plus": 0.21559993546446476,
+                  "circular_minus": 0.18720340376879974,
+                  "equal_mixture": 0.2014016696166323
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288682,
+                  "last_ring_odd": 0.7033869298378672,
+                  "circular_plus": 0.7844000645355351,
+                  "circular_minus": 0.8127965962312,
+                  "equal_mixture": 0.7985983303833677
+                }
+              },
+              "native_ring_and_supplied_heads_reverse_order": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.1061902690711318,
+                  "last_ring_odd": 0.29661307016213284,
+                  "circular_plus": 0.21559993546446476,
+                  "circular_minus": 0.1872034037687998,
+                  "equal_mixture": 0.2014016696166323
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288682,
+                  "last_ring_odd": 0.7033869298378672,
+                  "circular_plus": 0.7844000645355351,
+                  "circular_minus": 0.8127965962312,
+                  "equal_mixture": 0.7985983303833677
+                }
+              },
+              "phase_read_positive_control": {
+                "bright": {
+                  "first_ring_odd": 0.1061902690711318,
+                  "last_ring_odd": 0.2966130701621328,
+                  "circular_plus": 0.21559993546446476,
+                  "circular_minus": 0.18720340376879974,
+                  "equal_mixture": 0.2014016696166323
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288682,
+                  "last_ring_odd": 0.7033869298378672,
+                  "circular_plus": 0.7844000645355351,
+                  "circular_minus": 0.8127965962312,
+                  "equal_mixture": 0.7985983303833677
+                }
+              },
+              "phase_read_negative_control": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.1061902690711318,
+                  "last_ring_odd": 0.2966130701621328,
+                  "circular_plus": 0.21559993546446476,
+                  "circular_minus": 0.18720340376879974,
+                  "equal_mixture": 0.2014016696166323
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8938097309288682,
+                  "last_ring_odd": 0.7033869298378672,
+                  "circular_plus": 0.7844000645355351,
+                  "circular_minus": 0.8127965962312,
+                  "equal_mixture": 0.7985983303833677
+                }
+              }
+            }
+          },
+          {
+            "time": 30.8125,
+            "includes_source_vacuum": true,
+            "banks": {
+              "repeat_native_ring_vs_hold": {
+                "bright": {
+                  "first_ring_odd": 0.14205004623911513,
+                  "last_ring_odd": 0.12112977439751878,
+                  "circular_plus": 0.13331247276867306,
+                  "circular_minus": 0.1298673478679608,
+                  "equal_mixture": 0.13158991031831696
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608849,
+                  "last_ring_odd": 0.8788702256024812,
+                  "circular_plus": 0.8666875272313267,
+                  "circular_minus": 0.870132652132039,
+                  "equal_mixture": 0.8684100896816831
+                }
+              },
+              "native_ring_and_supplied_heads_reverse_order": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.14205004623911513,
+                  "last_ring_odd": 0.12112977439751876,
+                  "circular_plus": 0.13331247276867306,
+                  "circular_minus": 0.1298673478679608,
+                  "equal_mixture": 0.13158991031831696
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608849,
+                  "last_ring_odd": 0.8788702256024812,
+                  "circular_plus": 0.8666875272313267,
+                  "circular_minus": 0.870132652132039,
+                  "equal_mixture": 0.8684100896816831
+                }
+              },
+              "phase_read_positive_control": {
+                "bright": {
+                  "first_ring_odd": 0.14205004623911513,
+                  "last_ring_odd": 0.12112977439751878,
+                  "circular_plus": 0.13331247276867306,
+                  "circular_minus": 0.1298673478679608,
+                  "equal_mixture": 0.13158991031831696
+                },
+                "dark": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608849,
+                  "last_ring_odd": 0.8788702256024812,
+                  "circular_plus": 0.8666875272313267,
+                  "circular_minus": 0.870132652132039,
+                  "equal_mixture": 0.8684100896816831
+                }
+              },
+              "phase_read_negative_control": {
+                "bright": {
+                  "first_ring_odd": 0.0,
+                  "last_ring_odd": 0.0,
+                  "circular_plus": 0.0,
+                  "circular_minus": 0.0,
+                  "equal_mixture": 0.0
+                },
+                "dark": {
+                  "first_ring_odd": 0.14205004623911513,
+                  "last_ring_odd": 0.12112977439751878,
+                  "circular_plus": 0.13331247276867306,
+                  "circular_minus": 0.1298673478679608,
+                  "equal_mixture": 0.13158991031831696
+                },
+                "joint_detector_refused": {
+                  "first_ring_odd": 0.8579499537608849,
+                  "last_ring_odd": 0.8788702256024812,
+                  "circular_plus": 0.8666875272313267,
+                  "circular_minus": 0.870132652132039,
+                  "equal_mixture": 0.8684100896816831
+                }
+              }
+            }
+          }
+        ]
+      },
+      "faces": [
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            18,
+            15
+          ],
+          "phase_link_in_orientation_order": [
+            18,
+            15
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.5014065041517597e-08,
+                2.5014065041517597e-08
+              ],
+              "field": [
+                2.5014065041517597e-08,
+                2.5014065041517597e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.05245828714606959,
+            "ground_material_curvature_from_finite_probe": 0.05245829652994871,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.044862992493502,
+                  "last_ring_odd": 0.08600284175596926,
+                  "circular_plus": 0.11583039347211387,
+                  "circular_minus": 0.015035440777357363,
+                  "equal_mixture": 0.06543291712473563
+                },
+                {
+                  "first_ring_odd": 0.04047622626832791,
+                  "last_ring_odd": 0.04103890061377906,
+                  "circular_plus": 0.025750060191881766,
+                  "circular_minus": 0.05576506669022519,
+                  "equal_mixture": 0.04075756344105348
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.051483885942867263,
+                  "last_ring_odd": 0.07423719503774248,
+                  "circular_plus": 0.04013184349875003,
+                  "circular_minus": 0.08558923748185969,
+                  "equal_mixture": 0.06286054049030487
+                },
+                {
+                  "first_ring_odd": 0.03941408577417484,
+                  "last_ring_odd": 0.036494005514218705,
+                  "circular_plus": 0.07356502311612323,
+                  "circular_minus": 0.0023430681722703003,
+                  "equal_mixture": 0.03795404564419677
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.0838760008864196,
+                  "last_ring_odd": 0.07259342899952866,
+                  "circular_plus": 0.059086111267482574,
+                  "circular_minus": 0.09738331861846566,
+                  "equal_mixture": 0.07823471494297413
+                },
+                {
+                  "first_ring_odd": 0.03824867055582773,
+                  "last_ring_odd": 0.012534111616664779,
+                  "circular_plus": 0.03618787987381678,
+                  "circular_minus": 0.014594902298675718,
+                  "equal_mixture": 0.025391391086246252
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.055692658795073374,
+                  "last_ring_odd": 0.09596570494748202,
+                  "circular_plus": 0.10830379452499819,
+                  "circular_minus": 0.043354569217557176,
+                  "equal_mixture": 0.0758291818712777
+                },
+                {
+                  "first_ring_odd": 0.0167801193967407,
+                  "last_ring_odd": 0.016879957796973624,
+                  "circular_plus": 0.011564258440982304,
+                  "circular_minus": 0.022095818752732012,
+                  "equal_mixture": 0.01683003859685716
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.06739950587752994,
+                  "last_ring_odd": 0.15846296436874954,
+                  "circular_plus": 0.08256453528890975,
+                  "circular_minus": 0.1432979349573697,
+                  "equal_mixture": 0.11293123512313974
+                },
+                {
+                  "first_ring_odd": 0.043427067580942585,
+                  "last_ring_odd": 0.013671238688109141,
+                  "circular_plus": 0.02987409744998951,
+                  "circular_minus": 0.027224208819062203,
+                  "equal_mixture": 0.028549153134525863
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.07979463993151283,
+                  "last_ring_odd": 0.21303130518043129,
+                  "circular_plus": 0.17170296399149088,
+                  "circular_minus": 0.1211229811204532,
+                  "equal_mixture": 0.14641297255597205
+                },
+                {
+                  "first_ring_odd": 0.032937476103378244,
+                  "last_ring_odd": 0.01055138586308451,
+                  "circular_plus": 0.024455766438882993,
+                  "circular_minus": 0.01903309552757975,
+                  "equal_mixture": 0.021744430983231377
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.4072217674858381,
+                "last_ring_odd": -0.2691151568327884,
+                "circular_plus": 0.06706750594577698,
+                "circular_minus": 0.07103910470727262
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.35350318146891674,
+                "last_ring_odd": 0.13610450806366345,
+                "circular_plus": -0.057068582521985725,
+                "circular_minus": -0.16033009088326752
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.05371858601693291,
+                "last_ring_odd": -0.13301064876912894,
+                "circular_plus": 0.009998923423790461,
+                "circular_minus": -0.08929098617598645
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.5672699338195758,
+                "last_ring_odd": -0.14062864447425502,
+                "circular_plus": 0.19467742919020176,
+                "circular_minus": 0.23196386015511888
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.5123861822112469,
+                "last_ring_odd": 0.13039828090366234,
+                "circular_plus": -0.08859142356977111,
+                "circular_minus": -0.2933964777378134
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.05488375160833581,
+                "last_ring_odd": -0.010230363570593481,
+                "circular_plus": 0.10608600562042886,
+                "circular_minus": -0.06143261758268654
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            15,
+            16
+          ],
+          "phase_link_in_orientation_order": [
+            15,
+            16
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.865260473328135e-09,
+                2.865260473328135e-09
+              ],
+              "field": [
+                2.8652613615065547e-09,
+                2.8652613615065547e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.006008875823061956,
+            "ground_material_curvature_from_finite_probe": 0.006008886732161045,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.15142991619808902,
+                  "last_ring_odd": 0.24945316107769028,
+                  "circular_plus": 0.21564664475077877,
+                  "circular_minus": 0.18523643252500044,
+                  "equal_mixture": 0.20044153863788966
+                },
+                {
+                  "first_ring_odd": 0.09767272745316825,
+                  "last_ring_odd": 0.10748543432648563,
+                  "circular_plus": 0.08887411911628844,
+                  "circular_minus": 0.11628404266336542,
+                  "equal_mixture": 0.10257908088982695
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.12608646443589627,
+                  "last_ring_odd": 0.24447322527690868,
+                  "circular_plus": 0.1970509340137197,
+                  "circular_minus": 0.1735087556990852,
+                  "equal_mixture": 0.18527984485640248
+                },
+                {
+                  "first_ring_odd": 0.11436141286770217,
+                  "last_ring_odd": 0.0972915482152139,
+                  "circular_plus": 0.09927429721127302,
+                  "circular_minus": 0.11237866387164301,
+                  "equal_mixture": 0.10582648054145803
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.12608646443591898,
+                  "last_ring_odd": 0.2444732252769018,
+                  "circular_plus": 0.19705093401373464,
+                  "circular_minus": 0.17350875569908608,
+                  "equal_mixture": 0.1852798448564104
+                },
+                {
+                  "first_ring_odd": 0.11436141286770657,
+                  "last_ring_odd": 0.09729154821520027,
+                  "circular_plus": 0.09927429721126554,
+                  "circular_minus": 0.11237866387164125,
+                  "equal_mixture": 0.10582648054145341
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.15142991619811808,
+                  "last_ring_odd": 0.24945316107768517,
+                  "circular_plus": 0.21564664475079828,
+                  "circular_minus": 0.18523643252500488,
+                  "equal_mixture": 0.20044153863790162
+                },
+                {
+                  "first_ring_odd": 0.09767272745317612,
+                  "last_ring_odd": 0.10748543432647302,
+                  "circular_plus": 0.08887411911628508,
+                  "circular_minus": 0.11628404266336403,
+                  "equal_mixture": 0.10257908088982456
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907115169,
+                  "last_ring_odd": 0.2966130701621906,
+                  "circular_plus": 0.2155999354644977,
+                  "circular_minus": 0.18720340376884445,
+                  "equal_mixture": 0.20140166961667114
+                },
+                {
+                  "first_ring_odd": 0.14205004623910997,
+                  "last_ring_odd": 0.1211297743975691,
+                  "circular_plus": 0.1333124727687003,
+                  "circular_minus": 0.1298673478679787,
+                  "equal_mixture": 0.13158991031833953
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907115256,
+                  "last_ring_odd": 0.29661307016219085,
+                  "circular_plus": 0.2155999354644985,
+                  "circular_minus": 0.1872034037688448,
+                  "equal_mixture": 0.20140166961667172
+                },
+                {
+                  "first_ring_odd": 0.14205004623911105,
+                  "last_ring_odd": 0.1211297743975692,
+                  "circular_plus": 0.13331247276870076,
+                  "circular_minus": 0.12986734786797943,
+                  "equal_mixture": 0.1315899103183401
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.03377345383604498,
+                "last_ring_odd": 0.01460168412999975,
+                "circular_plus": 0.03300587122417667,
+                "circular_minus": 0.015369266741868053
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.006861260165425667,
+                "last_ring_odd": 0.014602260832946806,
+                "circular_plus": 0.00921214588315276,
+                "circular_minus": 0.012251375115219707
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.04063471400147185,
+                "last_ring_odd": 0.02920394496294638,
+                "circular_plus": 0.042218017107329864,
+                "circular_minus": 0.02762064185708836
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.025322751887117283,
+                "last_ring_odd": 0.02699814277584225,
+                "circular_plus": 0.03163144669613346,
+                "circular_minus": 0.020689447966826067
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.011498206913048611,
+                "last_ring_odd": 0.015523874258445248,
+                "circular_plus": 0.0067613431530350425,
+                "circular_minus": -0.0027356758076384075
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.01382454497406955,
+                "last_ring_odd": 0.04252201703428706,
+                "circular_plus": 0.03839278984916908,
+                "circular_minus": 0.017953772159187524
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            16,
+            23
+          ],
+          "phase_link_in_orientation_order": [
+            16,
+            23
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                3.574112117377126e-09,
+                3.574112117377126e-09
+              ],
+              "field": [
+                3.574113005555546e-09,
+                3.574113005555546e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.007495449548737612,
+            "ground_material_curvature_from_finite_probe": 0.007495456375181675,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.1600823890398396,
+                  "last_ring_odd": 0.26607708997478174,
+                  "circular_plus": 0.2260695392430629,
+                  "circular_minus": 0.20008993977155837,
+                  "equal_mixture": 0.21307973950731068
+                },
+                {
+                  "first_ring_odd": 0.09338311531419088,
+                  "last_ring_odd": 0.053417871694843355,
+                  "circular_plus": 0.057505649472875744,
+                  "circular_minus": 0.08929533753615848,
+                  "equal_mixture": 0.07340049350451712
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.1707083178857631,
+                  "last_ring_odd": 0.2703260582795311,
+                  "circular_plus": 0.2344840019946748,
+                  "circular_minus": 0.2065503741706193,
+                  "equal_mixture": 0.2205171880826471
+                },
+                {
+                  "first_ring_odd": 0.0891282248901969,
+                  "last_ring_odd": 0.06314374540610433,
+                  "circular_plus": 0.05938823741654258,
+                  "circular_minus": 0.09288373287975861,
+                  "equal_mixture": 0.07613598514815062
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.17070831788574248,
+                  "last_ring_odd": 0.27032605827949036,
+                  "circular_plus": 0.23448400199464733,
+                  "circular_minus": 0.20655037417058542,
+                  "equal_mixture": 0.22051718808261642
+                },
+                {
+                  "first_ring_odd": 0.08912822489018343,
+                  "last_ring_odd": 0.06314374540609814,
+                  "circular_plus": 0.05938823741653622,
+                  "circular_minus": 0.09288373287974533,
+                  "equal_mixture": 0.0761359851481408
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.16008238903981897,
+                  "last_ring_odd": 0.26607708997474716,
+                  "circular_plus": 0.22606953924303913,
+                  "circular_minus": 0.20008993977152695,
+                  "equal_mixture": 0.21307973950728307
+                },
+                {
+                  "first_ring_odd": 0.09338311531417881,
+                  "last_ring_odd": 0.053417871694841614,
+                  "circular_plus": 0.057505649472872414,
+                  "circular_minus": 0.08929533753614799,
+                  "equal_mixture": 0.07340049350451021
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907116161,
+                  "last_ring_odd": 0.2966130701621362,
+                  "circular_plus": 0.2155999354644809,
+                  "circular_minus": 0.1872034037688169,
+                  "equal_mixture": 0.2014016696166489
+                },
+                {
+                  "first_ring_odd": 0.14205004623915674,
+                  "last_ring_odd": 0.12112977439751402,
+                  "circular_plus": 0.13331247276869,
+                  "circular_minus": 0.12986734786798074,
+                  "equal_mixture": 0.1315899103183354
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907116053,
+                  "last_ring_odd": 0.29661307016213445,
+                  "circular_plus": 0.21559993546447842,
+                  "circular_minus": 0.18720340376881645,
+                  "equal_mixture": 0.2014016696166475
+                },
+                {
+                  "first_ring_odd": 0.14205004623915446,
+                  "last_ring_odd": 0.12112977439751282,
+                  "circular_plus": 0.133312472768689,
+                  "circular_minus": 0.12986734786797827,
+                  "equal_mixture": 0.13158991031833364
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.024978650258837387,
+                "last_ring_odd": -0.04545675683003386,
+                "circular_plus": -0.008331456744142209,
+                "circular_minus": -0.012146649827054268
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.039659347649601474,
+                "last_ring_odd": 0.012723085821194415,
+                "circular_plus": -0.019304338177515284,
+                "circular_minus": -0.00763192365089177
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.014680697390756503,
+                "last_ring_odd": -0.032733671008838394,
+                "circular_plus": -0.027635794921654057,
+                "circular_minus": -0.019778573477940833
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.027951540481939614,
+                "last_ring_odd": -0.023363443122248105,
+                "circular_plus": 0.001867377446258393,
+                "circular_minus": 0.0027207199134331155
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.04415754519969252,
+                "last_ring_odd": -0.0063643998281720645,
+                "circular_plus": -0.024789905056796777,
+                "circular_minus": -0.0257320399710678
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.016206004717746803,
+                "last_ring_odd": -0.029727842950420413,
+                "circular_plus": -0.02292252761053598,
+                "circular_minus": -0.023011320057631228
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            14,
+            23,
+            22
+          ],
+          "phase_link_in_orientation_order": [
+            23,
+            22
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                4.667603592523051e-08,
+                4.667603592523051e-08
+              ],
+              "field": [
+                4.667603237251683e-08,
+                4.667603237251683e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.09788673710767537,
+            "ground_material_curvature_from_finite_probe": 0.09788674209266901,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.0334917185756,
+                  "last_ring_odd": 0.057784923095494434,
+                  "circular_plus": 0.027886225293543378,
+                  "circular_minus": 0.06339041637755105,
+                  "equal_mixture": 0.04563832083554722
+                },
+                {
+                  "first_ring_odd": 0.03302592172029096,
+                  "last_ring_odd": 0.006199351639099583,
+                  "circular_plus": 0.03031498396251876,
+                  "circular_minus": 0.008910289396871777,
+                  "equal_mixture": 0.01961263667969527
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.02287093611286033,
+                  "last_ring_odd": 0.06705639519249011,
+                  "circular_plus": 0.05031621492680988,
+                  "circular_minus": 0.03961111637854055,
+                  "equal_mixture": 0.04496366565267522
+                },
+                {
+                  "first_ring_odd": 0.029256111327493384,
+                  "last_ring_odd": 0.004616959655877622,
+                  "circular_plus": 0.0194616488849019,
+                  "circular_minus": 0.014411422098469105,
+                  "equal_mixture": 0.016936535491685504
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.03501751928908208,
+                  "last_ring_odd": 0.10671426812951368,
+                  "circular_plus": 0.07368174130690922,
+                  "circular_minus": 0.06805004611168651,
+                  "equal_mixture": 0.07086589370929788
+                },
+                {
+                  "first_ring_odd": 0.01521198233594806,
+                  "last_ring_odd": 0.004965260059121193,
+                  "circular_plus": 0.007565397688192298,
+                  "circular_minus": 0.012611844706876952,
+                  "equal_mixture": 0.010088621197534627
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.02101293041342099,
+                  "last_ring_odd": 0.10864862426258678,
+                  "circular_plus": 0.06308179651084249,
+                  "circular_minus": 0.06657975816516526,
+                  "equal_mixture": 0.06483077733800388
+                },
+                {
+                  "first_ring_odd": 0.02594891629287709,
+                  "last_ring_odd": 0.005886266193817786,
+                  "circular_plus": 0.026974077669911077,
+                  "circular_minus": 0.004861104816783797,
+                  "equal_mixture": 0.015917591243347438
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.12876792661387573,
+                  "last_ring_odd": 0.20786365396458378,
+                  "circular_plus": 0.19356617713763496,
+                  "circular_minus": 0.14306540344082452,
+                  "equal_mixture": 0.16831579028922977
+                },
+                {
+                  "first_ring_odd": 0.04656421706123638,
+                  "last_ring_odd": 0.01950300861160259,
+                  "circular_plus": 0.017151204461973366,
+                  "circular_minus": 0.04891602121086559,
+                  "equal_mixture": 0.033033612836419486
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.05230354184429796,
+                  "last_ring_odd": 0.12975329293550306,
+                  "circular_plus": 0.0992512706358644,
+                  "circular_minus": 0.08280556414393657,
+                  "equal_mixture": 0.0910284173899005
+                },
+                {
+                  "first_ring_odd": 0.05664112092804197,
+                  "last_ring_odd": 0.016709739406180653,
+                  "circular_plus": 0.0453334219895276,
+                  "circular_minus": 0.028017438344695018,
+                  "equal_mixture": 0.03667543016711131
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.22822035575439834,
+                "last_ring_odd": -0.4191477321476929,
+                "circular_plus": -0.06576842201326175,
+                "circular_minus": -0.1251589543800328
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.19780934707279735,
+                "last_ring_odd": 0.44869461057208376,
+                "circular_plus": 0.08794417890753507,
+                "circular_minus": 0.16294108459175133
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.030411008681612506,
+                "last_ring_odd": 0.029546878424394518,
+                "circular_plus": 0.022175756894284658,
+                "circular_minus": 0.03778213021172236
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.23162972137953813,
+                "last_ring_odd": -0.196265017199104,
+                "circular_plus": -0.009603793472459654,
+                "circular_minus": 0.044968497652893805
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.2867201675036311,
+                "last_ring_odd": 0.24070641866334688,
+                "circular_plus": -0.010392211706603371,
+                "circular_minus": -0.035621537133680825
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.05509044612408065,
+                "last_ring_odd": 0.044441401464245134,
+                "circular_plus": -0.019996005179050487,
+                "circular_minus": 0.009346960519214971
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            31,
+            25
+          ],
+          "phase_link_in_orientation_order": [
+            31,
+            25
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.5014072146944955e-08,
+                2.5014072146944955e-08
+              ],
+              "field": [
+                2.5014063265160758e-08,
+                2.5014063265160758e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.05245828714606976,
+            "ground_material_curvature_from_finite_probe": 0.052458311431109905,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.03377902582386268,
+                  "last_ring_odd": 0.07804407039557881,
+                  "circular_plus": 0.055691435226994115,
+                  "circular_minus": 0.05613166099244735,
+                  "equal_mixture": 0.055911548109720745
+                },
+                {
+                  "first_ring_odd": 0.0076005167804086,
+                  "last_ring_odd": 0.06830757450799269,
+                  "circular_plus": 0.04443082657802135,
+                  "circular_minus": 0.031477264710379926,
+                  "equal_mixture": 0.03795404564420064
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.042433569215448566,
+                  "last_ring_odd": 0.07498352434593865,
+                  "circular_plus": 0.06076246200158614,
+                  "circular_minus": 0.056654631559801064,
+                  "equal_mixture": 0.05870854678069361
+                },
+                {
+                  "first_ring_odd": 0.021861659327754895,
+                  "last_ring_odd": 0.0596534675543535,
+                  "circular_plus": 0.04770347594662899,
+                  "circular_minus": 0.03381165093547939,
+                  "equal_mixture": 0.0407575634410542
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.034459443624856,
+                  "last_ring_odd": 0.0821010493568262,
+                  "circular_plus": 0.04988555831614779,
+                  "circular_minus": 0.0666749346655344,
+                  "equal_mixture": 0.0582802464908411
+                },
+                {
+                  "first_ring_odd": 0.014228547106907076,
+                  "last_ring_odd": 0.019431530086796597,
+                  "circular_plus": 0.022563496816409238,
+                  "circular_minus": 0.011096580377294428,
+                  "equal_mixture": 0.016830038596851837
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.04048359628809239,
+                  "last_ring_odd": 0.11218001481283855,
+                  "circular_plus": 0.06652091124768658,
+                  "circular_minus": 0.08614269985324433,
+                  "equal_mixture": 0.07633180555046547
+                },
+                {
+                  "first_ring_odd": 0.008512381331150613,
+                  "last_ring_odd": 0.042270400841332545,
+                  "circular_plus": 0.02348138293457952,
+                  "circular_minus": 0.027301399237903628,
+                  "equal_mixture": 0.02539139108624158
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10269964469256045,
+                  "last_ring_odd": 0.13491910360052756,
+                  "circular_plus": 0.09826242754395402,
+                  "circular_minus": 0.13935632074913396,
+                  "equal_mixture": 0.118809374146544
+                },
+                {
+                  "first_ring_odd": 0.03544153596480363,
+                  "last_ring_odd": 0.008047326001646744,
+                  "circular_plus": 0.019372620074227017,
+                  "circular_minus": 0.024116241892223347,
+                  "equal_mixture": 0.021744430983225187
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.066314191207065,
+                  "last_ring_odd": 0.15024711649548694,
+                  "circular_plus": 0.13429923187773432,
+                  "circular_minus": 0.08226207582481757,
+                  "equal_mixture": 0.10828065385127597
+                },
+                {
+                  "first_ring_odd": 0.04690123700387597,
+                  "last_ring_odd": 0.010197069265174342,
+                  "circular_plus": 0.035927834066186305,
+                  "circular_minus": 0.021170472202864,
+                  "equal_mixture": 0.028549153134525156
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.4407808776105704,
+                "last_ring_odd": -0.1654767502778504,
+                "circular_plus": -0.34282709662012195,
+                "circular_minus": -0.26343053126829874
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.4882032735126813,
+                "last_ring_odd": 0.11393692179663535,
+                "circular_plus": 0.33473089989375426,
+                "circular_minus": 0.2674092954155622
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.04742239590211084,
+                "last_ring_odd": -0.05153982848121069,
+                "circular_plus": -0.008096196726367015,
+                "circular_minus": 0.003978764147267156
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.5076598882822921,
+                "last_ring_odd": -0.21306719441024666,
+                "circular_plus": -0.40101876680223747,
+                "circular_minus": -0.3197083158903013
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.5281136168686353,
+                "last_ring_odd": 0.13097292067529234,
+                "circular_plus": 0.38272406765455863,
+                "circular_minus": 0.2763624698893689
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.020453728586339537,
+                "last_ring_odd": -0.0820942737349536,
+                "circular_plus": -0.01829469914768298,
+                "circular_minus": -0.04334584600093106
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            25,
+            29
+          ],
+          "phase_link_in_orientation_order": [
+            25,
+            29
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                2.8652586969712956e-09,
+                2.8652586969712956e-09
+              ],
+              "field": [
+                2.8652533679007774e-09,
+                2.8652533679007774e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.006008875823061782,
+            "ground_material_curvature_from_finite_probe": 0.006008883006870747,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.11739624722931158,
+                  "last_ring_odd": 0.2373429909621007,
+                  "circular_plus": 0.18889456506036165,
+                  "circular_minus": 0.1658446731310506,
+                  "equal_mixture": 0.17736961909570614
+                },
+                {
+                  "first_ring_odd": 0.11373023844589608,
+                  "last_ring_odd": 0.097922722636969,
+                  "circular_plus": 0.09943976039682342,
+                  "circular_minus": 0.11221320068604161,
+                  "equal_mixture": 0.10582648054143254
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.14220977204547133,
+                  "last_ring_odd": 0.23944082121119664,
+                  "circular_plus": 0.19736179806040033,
+                  "circular_minus": 0.18428879519626756,
+                  "equal_mixture": 0.19082529662833397
+                },
+                {
+                  "first_ring_odd": 0.0952047091295605,
+                  "last_ring_odd": 0.10995345265003902,
+                  "circular_plus": 0.0944164721359633,
+                  "circular_minus": 0.11074168964363618,
+                  "equal_mixture": 0.10257908088979975
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.14220977204547045,
+                  "last_ring_odd": 0.2394408212111923,
+                  "circular_plus": 0.1973617980603941,
+                  "circular_minus": 0.1842887951962686,
+                  "equal_mixture": 0.19082529662833136
+                },
+                {
+                  "first_ring_odd": 0.09520470912954761,
+                  "last_ring_odd": 0.10995345265002027,
+                  "circular_plus": 0.09441647213593954,
+                  "circular_minus": 0.11074168964362832,
+                  "equal_mixture": 0.10257908088978393
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.11739624722930696,
+                  "last_ring_odd": 0.2373429909620947,
+                  "circular_plus": 0.1888945650603524,
+                  "circular_minus": 0.16584467313104923,
+                  "equal_mixture": 0.17736961909570084
+                },
+                {
+                  "first_ring_odd": 0.11373023844588559,
+                  "last_ring_odd": 0.0979227226369485,
+                  "circular_plus": 0.09943976039679792,
+                  "circular_minus": 0.11221320068603613,
+                  "equal_mixture": 0.10582648054141705
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907111842,
+                  "last_ring_odd": 0.29661307016213834,
+                  "circular_plus": 0.21559993546444883,
+                  "circular_minus": 0.18720340376880784,
+                  "equal_mixture": 0.20140166961662836
+                },
+                {
+                  "first_ring_odd": 0.14205004623916048,
+                  "last_ring_odd": 0.12112977439752562,
+                  "circular_plus": 0.13331247276870092,
+                  "circular_minus": 0.12986734786798515,
+                  "equal_mixture": 0.13158991031834305
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907111861,
+                  "last_ring_odd": 0.29661307016213845,
+                  "circular_plus": 0.215599935464449,
+                  "circular_minus": 0.18720340376880798,
+                  "equal_mixture": 0.20140166961662853
+                },
+                {
+                  "first_ring_odd": 0.14205004623916168,
+                  "last_ring_odd": 0.12112977439752606,
+                  "circular_plus": 0.13331247276870217,
+                  "circular_minus": 0.12986734786798554,
+                  "equal_mixture": 0.13158991031834388
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.003932658166287175,
+                "last_ring_odd": 0.036472178472622976,
+                "circular_plus": 0.009317642943577321,
+                "circular_minus": 0.02322187736275847
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.024711229028464354,
+                "last_ring_odd": 0.026101023505015496,
+                "circular_plus": 0.022961597657098022,
+                "circular_minus": 0.027850654876381824
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.020778570862176257,
+                "last_ring_odd": 0.06257320197763558,
+                "circular_plus": 0.03227924060067315,
+                "circular_minus": 0.05107253223913867
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": -0.015620101789994555,
+                "last_ring_odd": -0.0013258564196262953,
+                "circular_plus": -0.010861983793286787,
+                "circular_minus": -0.00608397441633406
+              },
+              "integrated_field_current": {
+                "first_ring_odd": 0.030071412383947897,
+                "last_ring_odd": 0.014464878258185421,
+                "circular_plus": 0.020129285917046384,
+                "circular_minus": 0.024407004725086924
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.014451310593951862,
+                "last_ring_odd": 0.013139021838556456,
+                "circular_plus": 0.00926730212375694,
+                "circular_minus": 0.018323030308751372
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            29,
+            35
+          ],
+          "phase_link_in_orientation_order": [
+            29,
+            35
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                3.574110341020287e-09,
+                3.574110341020287e-09
+              ],
+              "field": [
+                3.574110341020287e-09,
+                3.574110341020287e-09
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.00749544954873925,
+            "ground_material_curvature_from_finite_probe": 0.0074954526498913765,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.15178977906441055,
+                  "last_ring_odd": 0.2656885289570682,
+                  "circular_plus": 0.21410800193292834,
+                  "circular_minus": 0.2033703060885503,
+                  "equal_mixture": 0.20873915401073936
+                },
+                {
+                  "first_ring_odd": 0.08815611879143521,
+                  "last_ring_odd": 0.06411585150489055,
+                  "circular_plus": 0.05235598898601098,
+                  "circular_minus": 0.09991598131031476,
+                  "equal_mixture": 0.07613598514816289
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.1495128152956373,
+                  "last_ring_odd": 0.2619340279082524,
+                  "circular_plus": 0.21244816910783454,
+                  "circular_minus": 0.19899867409605507,
+                  "equal_mixture": 0.20572342160194484
+                },
+                {
+                  "first_ring_odd": 0.09038494323190739,
+                  "last_ring_odd": 0.05641604377715503,
+                  "circular_plus": 0.05062146975749232,
+                  "circular_minus": 0.09617951725157006,
+                  "equal_mixture": 0.0734004935045312
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.1495128152956059,
+                  "last_ring_odd": 0.26193402790822845,
+                  "circular_plus": 0.2124481691078003,
+                  "circular_minus": 0.19899867409603397,
+                  "equal_mixture": 0.20572342160191717
+                },
+                {
+                  "first_ring_odd": 0.09038494323187757,
+                  "last_ring_odd": 0.056416043777125634,
+                  "circular_plus": 0.05062146975745979,
+                  "circular_minus": 0.09617951725154336,
+                  "equal_mixture": 0.0734004935045016
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.15178977906437924,
+                  "last_ring_odd": 0.2656885289570365,
+                  "circular_plus": 0.21410800193288765,
+                  "circular_minus": 0.20337030608852796,
+                  "equal_mixture": 0.20873915401070786
+                },
+                {
+                  "first_ring_odd": 0.08815611879140395,
+                  "last_ring_odd": 0.06411585150486272,
+                  "circular_plus": 0.052355988985979984,
+                  "circular_minus": 0.09991598131028666,
+                  "equal_mixture": 0.07613598514813333
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.10619026907114935,
+                  "last_ring_odd": 0.29661307016214644,
+                  "circular_plus": 0.2155999354644803,
+                  "circular_minus": 0.18720340376881545,
+                  "equal_mixture": 0.2014016696166479
+                },
+                {
+                  "first_ring_odd": 0.14205004623913256,
+                  "last_ring_odd": 0.12112977439753485,
+                  "circular_plus": 0.13331247276869226,
+                  "circular_minus": 0.12986734786797507,
+                  "equal_mixture": 0.1315899103183337
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.10619026907114903,
+                  "last_ring_odd": 0.29661307016214633,
+                  "circular_plus": 0.2155999354644799,
+                  "circular_minus": 0.1872034037688154,
+                  "equal_mixture": 0.20140166961664768
+                },
+                {
+                  "first_ring_odd": 0.1420500462391315,
+                  "last_ring_odd": 0.12112977439753451,
+                  "circular_plus": 0.13331247276869146,
+                  "circular_minus": 0.1298673478679745,
+                  "equal_mixture": 0.131589910318333
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.00013133917616874624,
+                "last_ring_odd": -0.02515052056322012,
+                "circular_plus": -0.01723090222586632,
+                "circular_minus": -0.007788279161185045
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.026112341102530332,
+                "last_ring_odd": -0.028587639038679648,
+                "circular_plus": -0.021327288823233335,
+                "circular_minus": -0.03337269131797664
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.025981001926353775,
+                "last_ring_odd": -0.05373815960189954,
+                "circular_plus": -0.0385581910490975,
+                "circular_minus": -0.041160970479155796
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.006245477237592081,
+                "last_ring_odd": -0.00993647871343205,
+                "circular_plus": -0.006073525563469976,
+                "circular_minus": 0.0023825240876300083
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.028364897962005746,
+                "last_ring_odd": -0.009832709921266603,
+                "circular_plus": -0.0170023852706347,
+                "circular_minus": -0.021195222612637645
+              },
+              "head_occupation_change": {
+                "first_ring_odd": -0.022119420724408534,
+                "last_ring_odd": -0.019769188634699786,
+                "circular_plus": -0.023075910834103826,
+                "circular_minus": -0.018812698525004487
+              }
+            }
+          ]
+        },
+        {
+          "physical_face_in_orientation_order": [
+            24,
+            35,
+            34
+          ],
+          "phase_link_in_orientation_order": [
+            35,
+            34
+          ],
+          "material_tour_and_closing_ring_controls": [
+            {
+              "sense": 1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": -1,
+              "closing_ring_phase_in_quarter_turns": 1
+            },
+            {
+              "sense": -1,
+              "number_of_closed_paths": 8,
+              "material_phase_in_quarter_turns": 1,
+              "closing_ring_phase_in_quarter_turns": -1
+            }
+          ],
+          "zero_flux_current_expectation": "zero for every real energy eigenvector",
+          "native_stationary_ground": {
+            "radian_step": 0.0009765625,
+            "ground_linear_slopes_at_zero_exact": {
+              "material": 0,
+              "field": 0,
+              "both": 0
+            },
+            "ground_energy_increases_at_plus_minus_finite_probe": {
+              "material": [
+                4.667603770158735e-08,
+                4.667603770158735e-08
+              ],
+              "field": [
+                4.667603503705209e-08,
+                4.667603503705209e-08
+              ]
+            },
+            "ground_material_curvature_from_variation": 0.0978867371076727,
+            "ground_material_curvature_from_finite_probe": 0.09788674581795931,
+            "opposite_material_and_field_probes_are_isospectral": true
+          },
+          "flux_arrival_probabilities": {
+            "matter": {
+              "1": [
+                {
+                  "first_ring_odd": 0.03254935014042035,
+                  "last_ring_odd": 0.0792281090955467,
+                  "circular_plus": 0.06020303751599218,
+                  "circular_minus": 0.05157442171997485,
+                  "equal_mixture": 0.055888729617983524
+                },
+                {
+                  "first_ring_odd": 0.017521609351608194,
+                  "last_ring_odd": 0.016351461631752835,
+                  "circular_plus": 0.01683373614578082,
+                  "circular_minus": 0.017039334837580203,
+                  "equal_mixture": 0.016936535491680515
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.032073521600735164,
+                  "last_ring_odd": 0.06962962840258215,
+                  "circular_plus": 0.05169725516680628,
+                  "circular_minus": 0.05000589483651101,
+                  "equal_mixture": 0.050851575001658655
+                },
+                {
+                  "first_ring_odd": 0.022230651759916897,
+                  "last_ring_odd": 0.016994621599462863,
+                  "circular_plus": 0.016744508139641092,
+                  "circular_minus": 0.022480765219738658,
+                  "equal_mixture": 0.01961263667968988
+                }
+              ]
+            },
+            "field": {
+              "1": [
+                {
+                  "first_ring_odd": 0.05160723219353594,
+                  "last_ring_odd": 0.05714659670690754,
+                  "circular_plus": 0.05860583525245579,
+                  "circular_minus": 0.05014799364798767,
+                  "equal_mixture": 0.05437691445022174
+                },
+                {
+                  "first_ring_odd": 0.01900297806656013,
+                  "last_ring_odd": 0.012832204420114159,
+                  "circular_plus": 0.027526118025141898,
+                  "circular_minus": 0.004309064461532383,
+                  "equal_mixture": 0.015917591243337144
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.047375197300653565,
+                  "last_ring_odd": 0.163262845290157,
+                  "circular_plus": 0.09615452723091306,
+                  "circular_minus": 0.11448351535989748,
+                  "equal_mixture": 0.10531902129540528
+                },
+                {
+                  "first_ring_odd": 0.01311328175994381,
+                  "last_ring_odd": 0.007063960635117876,
+                  "circular_plus": 0.016596940285437477,
+                  "circular_minus": 0.003580302109624205,
+                  "equal_mixture": 0.010088621197530843
+                }
+              ]
+            },
+            "both": {
+              "1": [
+                {
+                  "first_ring_odd": 0.06078271613133549,
+                  "last_ring_odd": 0.12642455394183189,
+                  "circular_plus": 0.06522279308926682,
+                  "circular_minus": 0.12198447698390052,
+                  "equal_mixture": 0.09360363503658369
+                },
+                {
+                  "first_ring_odd": 0.05735348502960906,
+                  "last_ring_odd": 0.015997375304597827,
+                  "circular_plus": 0.03272262661668827,
+                  "circular_minus": 0.040628233717518614,
+                  "equal_mixture": 0.036675430167103444
+                }
+              ],
+              "-1": [
+                {
+                  "first_ring_odd": 0.07065491099783222,
+                  "last_ring_odd": 0.2210933647871844,
+                  "circular_plus": 0.12902967409242877,
+                  "circular_minus": 0.16271860169258778,
+                  "equal_mixture": 0.1458741378925083
+                },
+                {
+                  "first_ring_odd": 0.04667150752463532,
+                  "last_ring_odd": 0.019395718148212907,
+                  "circular_plus": 0.052227871226818795,
+                  "circular_minus": 0.013839354446029429,
+                  "equal_mixture": 0.033033612836424114
+                }
+              ]
+            }
+          },
+          "native_head_balance": [
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.17296380294625546,
+                "last_ring_odd": 0.4118967505002089,
+                "circular_plus": 0.23311030038373706,
+                "circular_minus": 0.35175025306272717
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.167104892339137,
+                "last_ring_odd": -0.4609255249975936,
+                "circular_plus": -0.24665985692388323,
+                "circular_minus": -0.3813705604128473
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.005858910607114076,
+                "last_ring_odd": -0.04902877449738413,
+                "circular_plus": -0.013549556540147846,
+                "circular_minus": -0.029620307350122204
+              }
+            },
+            {
+              "integrated_matter_current": {
+                "first_ring_odd": 0.169437643255905,
+                "last_ring_odd": 0.23476729526963142,
+                "circular_plus": 0.1944567634071535,
+                "circular_minus": 0.20974817511838284
+              },
+              "integrated_field_current": {
+                "first_ring_odd": -0.15536936992813286,
+                "last_ring_odd": -0.33833284558520543,
+                "circular_plus": -0.22736646645340697,
+                "circular_minus": -0.2663357490599313
+              },
+              "head_occupation_change": {
+                "first_ring_odd": 0.014068273327765501,
+                "last_ring_odd": -0.10356555031557235,
+                "circular_plus": -0.032909703046258496,
+                "circular_minus": -0.05658757394154835
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

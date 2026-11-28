@@ -1,0 +1,573 @@
+{
+  "sha256": {
+    "RELAY_RANGE.md": "844e19b33fcab159e5472f60615e06e8897391b2af6f7ebfa2993b7c420db511",
+    "material_release.json": "1566ee147330acf905ee0ea25ceb7a1b7b03ddd673d7ef23d0a3fdc56d6a0766"
+  },
+  "shell_radius": 7,
+  "ordinary_blank_attempts": 1,
+  "shots_per_link_or_ordered_pair": 274877906944,
+  "arms": {
+    "original": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20366658,
+            227689359,
+            20379439
+          ],
+          "variance": "17/112",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "17/56",
+          "17/56"
+        ],
+        "third_attempts": [
+          "56/17",
+          "56/17"
+        ],
+        "twice_empty_target_transfer": [
+          "17/56",
+          "17/56"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          83445269673,
+          83445198454
+        ],
+        "local_range_interval": [
+          8.140047882395315,
+          8.140062185587505
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "2906/357",
+        "held_range": 8.140055977733383,
+        "simultaneous_99_halfwidth": 3.7529365219335187e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14385692,
+            239665922,
+            14383842
+          ],
+          "variance": "3/28",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "727/3360",
+          "727/3360"
+        ],
+        "third_attempts": [
+          "3360/727",
+          "3360/727"
+        ],
+        "twice_empty_target_transfer": [
+          "3/14",
+          "3/14"
+        ],
+        "occupied_target_correction": [
+          "1/480",
+          "1/480"
+        ],
+        "local_successes": [
+          59475051470,
+          59475062788
+        ],
+        "local_range_interval": [
+          8.3279738477861,
+          8.327994618383682
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "54490/6543",
+        "held_range": 8.327984052949255,
+        "simultaneous_99_halfwidth": 4.797288311492681e-06,
+        "shell_stations": 28
+      }
+    ],
+    "source": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20570374,
+            227289320,
+            20575762
+          ],
+          "variance": "3965/25872",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "3965/12936",
+          "3965/12936"
+        ],
+        "third_attempts": [
+          "12936/3965",
+          "12936/3965"
+        ],
+        "twice_empty_target_transfer": [
+          "3965/12936",
+          "3965/12936"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          84252807893,
+          84252391564
+        ],
+        "local_range_interval": [
+          8.134953967682373,
+          8.134967998062177
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "99938/12285",
+        "held_range": 8.134961453792647,
+        "simultaneous_99_halfwidth": 3.7091215292754935e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14660518,
+            239097900,
+            14677038
+          ],
+          "variance": "101/924",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "57137/258720",
+          "57137/258720"
+        ],
+        "third_attempts": [
+          "258720/57137",
+          "258720/57137"
+        ],
+        "twice_empty_target_transfer": [
+          "101/462",
+          "101/462"
+        ],
+        "occupied_target_correction": [
+          "577/258720",
+          "577/258720"
+        ],
+        "local_successes": [
+          60705512680,
+          60705528780
+        ],
+        "local_range_interval": [
+          8.316821917777592,
+          8.316841854894236
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "4276790/514233",
+        "held_range": 8.316832921508327,
+        "simultaneous_99_halfwidth": 4.686619357358796e-06,
+        "shell_stations": 28
+      }
+    ],
+    "single": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20374685,
+            227689912,
+            20370859
+          ],
+          "variance": "17/112",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "17/56",
+          "17/56"
+        ],
+        "third_attempts": [
+          "56/17",
+          "56/17"
+        ],
+        "twice_empty_target_transfer": [
+          "17/56",
+          "17/56"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          83445257297,
+          83445066966
+        ],
+        "local_range_interval": [
+          8.140048340628129,
+          8.140062643844976
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "2906/357",
+        "held_range": 8.140055989410216,
+        "simultaneous_99_halfwidth": 3.7529365219335187e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14381101,
+            239678350,
+            14376005
+          ],
+          "variance": "3/28",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "1459/6720",
+          "1459/6720"
+        ],
+        "third_attempts": [
+          "6720/1459",
+          "6720/1459"
+        ],
+        "twice_empty_target_transfer": [
+          "3/14",
+          "3/14"
+        ],
+        "occupied_target_correction": [
+          "19/6720",
+          "19/6720"
+        ],
+        "local_successes": [
+          59679862683,
+          59679576516
+        ],
+        "local_range_interval": [
+          8.32608707000961,
+          8.32610769839229
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "109330/13131",
+        "held_range": 8.326098671641015,
+        "simultaneous_99_halfwidth": 4.778577765253901e-06,
+        "shell_stations": 28
+      }
+    ],
+    "ordinary": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20374248,
+            227691700,
+            20369508
+          ],
+          "variance": "17/112",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "17/56",
+          "17/56"
+        ],
+        "third_attempts": [
+          "56/17",
+          "56/17"
+        ],
+        "twice_empty_target_transfer": [
+          "17/56",
+          "17/56"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          83445318562,
+          83445197250
+        ],
+        "local_range_interval": [
+          8.140047730510538,
+          8.140062033694552
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "2906/357",
+        "held_range": 8.1400560440659,
+        "simultaneous_99_halfwidth": 3.7529365219335187e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14372153,
+            239681810,
+            14381493
+          ],
+          "variance": "3/28",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "727/3360",
+          "727/3360"
+        ],
+        "third_attempts": [
+          "3360/727",
+          "3360/727"
+        ],
+        "twice_empty_target_transfer": [
+          "3/14",
+          "3/14"
+        ],
+        "occupied_target_correction": [
+          "1/480",
+          "1/480"
+        ],
+        "local_successes": [
+          59475084696,
+          59474734069
+        ],
+        "local_range_interval": [
+          8.327975214552257,
+          8.327995985253036
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "54490/6543",
+        "held_range": 8.327983983127222,
+        "simultaneous_99_halfwidth": 4.797288311492681e-06,
+        "shell_stations": 28
+      }
+    ],
+    "matched_positive": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20370030,
+            227696371,
+            20369055
+          ],
+          "variance": "17/112",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "17/56",
+          "17/56"
+        ],
+        "third_attempts": [
+          "56/17",
+          "56/17"
+        ],
+        "twice_empty_target_transfer": [
+          "17/56",
+          "17/56"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          83444898417,
+          83444841229
+        ],
+        "local_range_interval": [
+          8.1400502027439,
+          8.140064506060957
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "2906/357",
+        "held_range": 8.140056031088383,
+        "simultaneous_99_halfwidth": 3.7529365219335187e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14382556,
+            239675728,
+            14377172
+          ],
+          "variance": "3/28",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "2584182373693874939/11925263731753703520",
+          "2584182373693874939/11925263731753703520"
+        ],
+        "third_attempts": [
+          "11925263731753703520/2584182373693874939",
+          "11925263731753703520/2584182373693874939"
+        ],
+        "twice_empty_target_transfer": [
+          "3/14",
+          "3/14"
+        ],
+        "occupied_target_correction": [
+          "28768716889509899/11925263731753703520",
+          "28768716889509899/11925263731753703520"
+        ],
+        "local_successes": [
+          59565956339,
+          59565756965
+        ],
+        "local_range_interval": [
+          8.327135169356499,
+          8.32715587667881
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "193669834442593070930/23257641363244874451",
+        "held_range": 8.327148388545407,
+        "simultaneous_99_halfwidth": 4.788997122532391e-06,
+        "shell_stations": 28
+      }
+    ],
+    "matched_reference": [
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            20481408,
+            227473132,
+            20480916
+          ],
+          "variance": "1274065749498830999/8347684612227592464",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "1274065749498830999/4173842306113796232",
+          "1274065749498830999/4173842306113796232"
+        ],
+        "third_attempts": [
+          "4173842306113796232/1274065749498830999",
+          "4173842306113796232/1274065749498830999"
+        ],
+        "twice_empty_target_transfer": [
+          "1274065749498830999/4173842306113796232",
+          "1274065749498830999/4173842306113796232"
+        ],
+        "occupied_target_correction": [
+          "0",
+          "0"
+        ],
+        "local_successes": [
+          83906707475,
+          83906734878
+        ],
+        "local_range_interval": [
+          8.137124218076705,
+          8.1371383643664
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          61,
+          61
+        ],
+        "mean_range": "1959408738115789761638/240798426655279058811",
+        "held_range": 8.137132734120673,
+        "simultaneous_99_halfwidth": 3.727797114967058e-06,
+        "shell_stations": 28
+      },
+      {
+        "balanced_first_current": {
+          "signed_counts": [
+            14547981,
+            239339200,
+            14548275
+          ],
+          "variance": "32311432710054563/298131593293842588",
+          "halfwidth": 0.00012040508485693703
+        },
+        "third_acceptance": [
+          "6091772963906210041/27825615374091974880",
+          "6091772963906210041/27825615374091974880"
+        ],
+        "third_attempts": [
+          "27825615374091974880/6091772963906210041",
+          "27825615374091974880/6091772963906210041"
+        ],
+        "twice_empty_target_transfer": [
+          "32311432710054563/149065796646921294",
+          "32311432710054563/149065796646921294"
+        ],
+        "occupied_target_correction": [
+          "180916574088074843/83476846122275924640",
+          "180916574088074843/83476846122275924640"
+        ],
+        "local_successes": [
+          60177981746,
+          60177921406
+        ],
+        "local_range_interval": [
+          8.321547531535721,
+          8.321567819754824
+        ],
+        "ordered_shell_pairs": 756,
+        "crossing_pairs": [
+          45,
+          45
+        ],
+        "mean_range": "456237266802818961670/54825956675155890369",
+        "held_range": 8.321555841285024,
+        "simultaneous_99_halfwidth": 4.733496921999737e-06,
+        "shell_stations": 28
+      }
+    ]
+  },
+  "mean_range_changes": {
+    "source": [
+      "-152/29835",
+      "-463200/41538599"
+    ],
+    "single": [
+      "0",
+      "-2000/1060693"
+    ],
+    "ordinary": [
+      "0",
+      "0"
+    ],
+    "matched": [
+      "1709580632000000000/584796179019963428541",
+      "88039809718417842565707730775180000/15742252317871321806920077986920062499"
+    ]
+  },
+  "repair_per_ordinary_double": [
+    null,
+    null
+  ]
+}

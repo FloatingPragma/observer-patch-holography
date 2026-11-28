@@ -1,0 +1,97 @@
+{
+  "actual_ground_insertion_band_residue_lower": {
+    "root_spin_minus_and_opposite_spin_plus": "471856709162348281494140625/5070602400912917605986812821504",
+    "root_spin_plus_and_opposite_spin_minus": "2538008399918967571623718651689/20282409603651670423947251286016"
+  },
+  "actual_held_wait_in_m_inverse": "1",
+  "all_complete_record_failures_included": true,
+  "archive_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "archive_sha256": {
+    "model/field_record_addenda/native_orthogonal_wilson_bridge/research_reference.json": "75590a8e62090717d5b91ada6ac472498952c3b4ace19b15de815419ecdadc6c",
+    "model/field_record_addenda/native_orthogonal_wilson_bridge/retained/algebra.py.raw": "e55310879782edef4bc97ab094cffb031427689656460c3b0550f67e19719eee",
+    "model/field_record_addenda/native_orthogonal_wilson_charged_band/results.json": "39ca5cedc3f4df074b2b54c21a0fb683b91ca3e08e93881dd55f3de8a3ac7151",
+    "model/native_charged_cluster_minmax/results.json": "d87076f2825df6b26bd28c0bbdeb797cf6dc84506f1adf1d1cb50c215a54c4e7",
+    "model/native_wilson_maxwell/results.json": "eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72"
+  },
+  "autonomous_packet_speed_or_endpoint_mass_assigned": false,
+  "charged_clock": {
+    "acceptance_in_turns": [
+      "1/4",
+      "9/32"
+    ],
+    "alias_safe_margin_in_turns": "1/128",
+    "coherent_projection_error_upper": "163841/34359738368",
+    "dimension": 16777216
+  },
+  "charged_code_free_subspace_angle_upper": "10170799709439237723529458889970555901527404785156250000000000000000/96214797799524426379653245671369247916787725520144692826754198554529",
+  "combined_wavefunction_difference_upper": "523773430500127/4503599627370496",
+  "complete_finite_pump_clock_extraction_minimum_singular_value_lower": "77442449670363757737627744205173584763862463/45671926166590716193865151022383844364247891968",
+  "complete_orthogonal_source_matrix_or_clock_tape_executed": false,
+  "complete_receiver_spin_unread_probability_lower_per_original_start_either_sign": "2191275993483697623101783558270065248777828543791962800845821915239103918101813649793033725261769012021711543301822319287260247579429209/762145642166990290864647761179972242614403843424065222377723867096038022172794340849684107193235344521442121855812163792833978437326241529856",
+  "complete_signed_bell_rearrival_probability_lower_per_original_start": "4331228789593143827829924742175383700172972536956096812495360383265299194768970097983046779279707769577615108572978982367564046564968840257824238368126775131183956924757402576986488943723595494818006661949126655575899410667262507721354979937805914565937864299164546670193720066021416286096129873217139624311844052269923194074114856333436785889/166051428278905149170201390750034745860201852476100835299573613213387250864667627085645472751012812519399089845989218964757291235190390157438625230769918785062087633847367329985174040589925427689038630711946678235161646071808000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "each_clock_implementation_operator_error_allowance": "1/1048576",
+  "exact_free_orbital_checks": {
+    "corner_rotation_fixes_actual_root_and_opposite_site": true,
+    "free_corner_beta_weights": [
+      {
+        "exact_weight": "-sqrt(3)/32 - sqrt(15)/80 + sqrt(5)/40 + 1/16",
+        "relative_spin_axis_sign": -1,
+        "site_index": 0
+      },
+      {
+        "exact_weight": "sqrt(15)/80 + sqrt(3)/32 + sqrt(5)/40 + 1/16",
+        "relative_spin_axis_sign": 1,
+        "site_index": 0
+      },
+      {
+        "exact_weight": "sqrt(15)/80 + sqrt(3)/32 + sqrt(5)/40 + 1/16",
+        "relative_spin_axis_sign": -1,
+        "site_index": 7
+      },
+      {
+        "exact_weight": "-sqrt(3)/32 - sqrt(15)/80 + sqrt(5)/40 + 1/16",
+        "relative_spin_axis_sign": 1,
+        "site_index": 7
+      }
+    ],
+    "free_root_to_opposite_compressed_projector_scalar": "1/32 + sqrt(5)/80",
+    "local_charge_conjugate_hole_orbital": "i beta alpha_2 conjugate(v)",
+    "physical_incidence_and_photon_quadratic_covariance_checked": true,
+    "spin_lift_cubed": "-I"
+  },
+  "ideal_opposite_corner_on_band_minimum_singular_value_lower_for_any_wait": "34606015248973135814409796875/10141204801825835211973625643008",
+  "includes_explicit_half_amplitude_factor_from_complete_pump_and_extraction": true,
+  "neutral_clock": {
+    "acceptance_radius_in_turns": "1/8",
+    "alias_safe_margin_in_turns": "1/64",
+    "coherent_projection_error_upper": "393217/137438953472",
+    "dimension": 16777216
+  },
+  "neutral_ground_free_subspace_angle_upper": "180258312890715366449967405060306191444396972656250000000000000000000/17260778787815882579955766550083749326213529040205535319642814571126879",
+  "original_preparation_code_admission_lower": "365375074134452948672756655893596820506806790361/365375409332725729550921208179070754913983135744",
+  "source": {
+    "charged_minus_interacting_neutral_minus_reference_cost_four_over_m": [
+      "444538414363438153950057646107706457474004480906165491804014675754941/400000000000000000000000000000000000000000000000000000000000000000000",
+      "11227855903408023501674721042766071303589471514410859741900156582417987/10000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "completion": "21/2",
+    "coupling": "1/64",
+    "gap_above_full_charged_cluster_over_m_lower": "343503705147865845678365945551096915022559466396278143515909264023729/2000000000000000000000000000000000000000000000000000000000000000000000",
+    "isolated_rank_in_each_signed_charge_sector": 2,
+    "name": "orthogonal Wilson\u2013Maxwell finite open cube",
+    "reference_fixed_root": true,
+    "root_and_receiver_sites": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "total_photon_cap": 3
+  }
+}

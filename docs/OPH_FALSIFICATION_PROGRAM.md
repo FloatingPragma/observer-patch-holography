@@ -1,5 +1,7 @@
 # OPH Falsification Program
 
+For a theorem-backed prediction, specify which measured outcome would refute its experimentally accessible premise. Once that premise and every other hypothesis are established, the theorem proves the consequence within their scope. A separate observation of the consequence can test the model against nature. [Premise closure](../AGENTS.md#closing-a-physical-premise)
+
 The [executable-model hypothesis](OPH_EXECUTABLE_HYPOTHESIS.md) states the
 target: the agreed records of the observers of
 [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md), whose contrast-memory law

@@ -1,0 +1,2050 @@
+{
+  "pre_count_protocol_sha256": "b78fd1184dfbdf54a1c9f4706da20ef08da73162c9f3740f964371f2d2bce896",
+  "nominal_counted_times": [
+    27.3125,
+    31.0625
+  ],
+  "simulated_trials_per_bank": 4294967296,
+  "simultaneous_cohort_family_size": 4,
+  "witness_numerator_pauli_coefficients": [
+    [
+      262,
+      32,
+      44,
+      -62
+    ],
+    [
+      -62,
+      -32,
+      12,
+      254
+    ],
+    [
+      -32,
+      108,
+      -224,
+      32
+    ],
+    [
+      44,
+      224,
+      116,
+      12
+    ]
+  ],
+  "witness_denominator": 1048.0,
+  "cases": [
+    {
+      "signed_material": 1,
+      "ordered_1045_face_words": [
+        334,
+        365
+      ],
+      "uninterrupted_reads": [
+        {
+          "appointment": 27.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9792173610678986,
+              0.006759685133270181
+            ],
+            "target_port_probability_per_start": 0.02078263893210141,
+            "per_joint_probability_or_pauli_moment_error": 6.858581198127055e-10,
+            "conditional_fixed_witness": 0.11407451182795698,
+            "conditional_fixed_witness_enclosure": [
+              0.11407442065667303,
+              0.11407460299924094
+            ],
+            "reference_joint_success": 0.014022953798831228,
+            "partial_transpose_minimum_interval": [
+              3.547474443834815e-05,
+              3.547611615458778e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00030675994205024,
+            "receiver_reference_pauli_moments": [
+              [
+                0.014022953798831228,
+                0.0010826781424071634,
+                -0.00012347530929833586,
+                -0.008639529784571972
+              ],
+              [
+                0.012308317226417972,
+                0.0019370949225967504,
+                -0.0002497059055672616,
+                -0.008174574495795351
+              ],
+              [
+                -7.1684708968779e-05,
+                0.0003501502846500453,
+                0.0015721657035751627,
+                -0.0002340778213948295
+              ],
+              [
+                0.0020092235914063936,
+                0.00018434876775033556,
+                0.0005157474541956739,
+                -0.002316160576684918
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9798038520470395,
+              0.008531295027928454
+            ],
+            "target_port_probability_per_start": 0.020196147952960583,
+            "per_joint_probability_or_pauli_moment_error": 6.874189930688883e-10,
+            "conditional_fixed_witness": 0.1545671025252782,
+            "conditional_fixed_witness_enclosure": [
+              0.1545669902876284,
+              0.15456721476292798
+            ],
+            "reference_joint_success": 0.011664852925032129,
+            "partial_transpose_minimum_interval": [
+              0.00010127773380718174,
+              0.0001012791086451679
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003225238246829555,
+            "receiver_reference_pauli_moments": [
+              [
+                0.011664852925032129,
+                0.00032214326219898344,
+                0.0006762246425362371,
+                -0.006507842740426213
+              ],
+              [
+                0.009878207411456452,
+                0.00115633116211568,
+                0.0004359632023288808,
+                -0.006064208079527658
+              ],
+              [
+                0.0006996427086546273,
+                0.0003006530613803253,
+                0.0009013560965987859,
+                -0.0013323216193612674
+              ],
+              [
+                0.0009401661109751849,
+                0.0004951338698550723,
+                -0.0009320922557725369,
+                -0.0008616981137507
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.1875,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9775529002303791,
+              0.009881454214981409
+            ],
+            "target_port_probability_per_start": 0.022447099769620865,
+            "per_joint_probability_or_pauli_moment_error": 6.889798663250723e-10,
+            "conditional_fixed_witness": 0.2082064853288244,
+            "conditional_fixed_witness_enclosure": [
+              0.2082063779594966,
+              0.20820659269815223
+            ],
+            "reference_joint_success": 0.012565645554639456,
+            "partial_transpose_minimum_interval": [
+              0.00014897923934170993,
+              0.00014898061730144263
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003534788463731688,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012565645554639456,
+                -0.0004130671093779593,
+                0.001098398383034271,
+                -0.0063832839180025585
+              ],
+              [
+                0.01066802054510442,
+                0.00022864582127897016,
+                0.0007567506749145668,
+                -0.0059536991637970235
+              ],
+              [
+                0.0008415340672609283,
+                0.000580775113301412,
+                -0.0005661615680264726,
+                -0.0014068653925749684
+              ],
+              [
+                -0.00020322928586359156,
+                0.0007644087358315311,
+                -0.0015384608347132358,
+                0.0006432907093239697
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.3125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9782462025616094,
+              0.008061874055003469
+            ],
+            "target_port_probability_per_start": 0.02175379743839062,
+            "per_joint_probability_or_pauli_moment_error": 6.921016128374441e-10,
+            "conditional_fixed_witness": 0.21472677403256044,
+            "conditional_fixed_witness_enclosure": [
+              0.21472667471922072,
+              0.21472687334590015
+            ],
+            "reference_joint_success": 0.013691923383387152,
+            "partial_transpose_minimum_interval": [
+              0.0002919648543630521,
+              0.0002919662385662779
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00034500635112814573,
+            "receiver_reference_pauli_moments": [
+              [
+                0.013691923383387152,
+                -6.905178053344385e-05,
+                0.0007496650971951549,
+                -0.0073185146009540365
+              ],
+              [
+                0.01173975759223422,
+                2.791233594686359e-05,
+                0.0004244974865821637,
+                -0.006855141570362412
+              ],
+              [
+                -0.0005751300078594363,
+                0.0002091008249160884,
+                -0.0018884209638109055,
+                -0.0002375815521719368
+              ],
+              [
+                -0.00014959945010884455,
+                -0.00014690890560128597,
+                -0.00033496330453102764,
+                0.0007929530060620787
+              ]
+            ]
+          },
+          "simulated_followup_witness": {
+            "banks": [
+              {
+                "settings": "XX",
+                "counts": [
+                  0,
+                  4201538436,
+                  34624149,
+                  27267257,
+                  27344210,
+                  1993213,
+                  2200031
+                ]
+              },
+              {
+                "settings": "XY",
+                "counts": [
+                  0,
+                  4201548514,
+                  34625030,
+                  28566822,
+                  26034993,
+                  2444874,
+                  1747063
+                ]
+              },
+              {
+                "settings": "XZ",
+                "counts": [
+                  0,
+                  4201537425,
+                  34623362,
+                  12086571,
+                  42524849,
+                  1601885,
+                  2593204
+                ]
+              },
+              {
+                "settings": "YX",
+                "counts": [
+                  0,
+                  4201525087,
+                  34629017,
+                  14236693,
+                  13938879,
+                  15023242,
+                  15614378
+                ]
+              },
+              {
+                "settings": "YY",
+                "counts": [
+                  0,
+                  4201534944,
+                  34627525,
+                  12858315,
+                  15309208,
+                  18150468,
+                  12486836
+                ]
+              },
+              {
+                "settings": "YZ",
+                "counts": [
+                  0,
+                  4201538207,
+                  34631005,
+                  5967838,
+                  22201454,
+                  7719567,
+                  22909225
+                ]
+              },
+              {
+                "settings": "ZX",
+                "counts": [
+                  0,
+                  4201539862,
+                  34628905,
+                  14309692,
+                  14773355,
+                  14944403,
+                  14771079
+                ]
+              },
+              {
+                "settings": "ZY",
+                "counts": [
+                  0,
+                  4201541111,
+                  34622250,
+                  14989137,
+                  14095621,
+                  16020330,
+                  13698847
+                ]
+              },
+              {
+                "settings": "ZZ",
+                "counts": [
+                  0,
+                  4201551669,
+                  34627354,
+                  7531172,
+                  21542542,
+                  6152556,
+                  23562003
+                ]
+              }
+            ],
+            "fixed_witness_estimate": 0.13896234241763655,
+            "fixed_witness_simultaneous_99pct_interval": [
+              0.13874270078683337,
+              0.13918198404843973
+            ]
+          }
+        },
+        {
+          "appointment": 27.5625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9795991073668797,
+              0.010884503860667319
+            ],
+            "target_port_probability_per_start": 0.02040089263312024,
+            "per_joint_probability_or_pauli_moment_error": 6.983451058622022e-10,
+            "conditional_fixed_witness": 0.1805455080270404,
+            "conditional_fixed_witness_enclosure": [
+              0.18054536635700794,
+              0.18054564969707285
+            ],
+            "reference_joint_success": 0.009516388772452922,
+            "partial_transpose_minimum_interval": [
+              0.0001975614167857966,
+              0.00019756281347600837
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003996655002957334,
+            "receiver_reference_pauli_moments": [
+              [
+                0.009516388772452922,
+                0.0002385561157496269,
+                -0.00017886632518613596,
+                -0.003981063978562841
+              ],
+              [
+                0.0077296732925439815,
+                0.0007706977207655617,
+                -0.0006828747243224021,
+                -0.004030797983051466
+              ],
+              [
+                0.0006003391131684987,
+                0.0007670251550006877,
+                0.0003650195747198371,
+                0.0005261199921153803
+              ],
+              [
+                -0.00012799618194621245,
+                0.0004426172671956768,
+                0.00038609043931765616,
+                0.0008674049135923333
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 28.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9824975607871018,
+              0.011558144931231477
+            ],
+            "target_port_probability_per_start": 0.017502439212898152,
+            "per_joint_probability_or_pauli_moment_error": 7.10832091911777e-10,
+            "conditional_fixed_witness": 0.16041185309726483,
+            "conditional_fixed_witness_enclosure": [
+              0.1604116246458874,
+              0.16041208154864225
+            ],
+            "reference_joint_success": 0.005944294281666676,
+            "partial_transpose_minimum_interval": [
+              8.777350320638089e-05,
+              8.777492487056475e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00027774187524590437,
+            "receiver_reference_pauli_moments": [
+              [
+                0.005944294281666676,
+                0.00017722968606623238,
+                -0.00035017571059469424,
+                -0.002030827516785908
+              ],
+              [
+                0.004319829726027107,
+                0.0012138231391969519,
+                -0.0006401125221304723,
+                -0.001860089108358211
+              ],
+              [
+                -0.0005490127745924128,
+                0.0010612782585770642,
+                2.141615229924018e-05,
+                -0.0007644886405041771
+              ],
+              [
+                2.6976897426362993e-05,
+                -0.00028680068011080256,
+                -0.00016733382968300473,
+                0.0002530092637908804
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 29.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.98186049324849,
+              0.00983335634728362
+            ],
+            "target_port_probability_per_start": 0.01813950675151002,
+            "per_joint_probability_or_pauli_moment_error": 7.358060640111602e-10,
+            "conditional_fixed_witness": 0.40898402994875294,
+            "conditional_fixed_witness_enclosure": [
+              0.40898383869364613,
+              0.40898422120385974
+            ],
+            "reference_joint_success": 0.0083061504042264,
+            "partial_transpose_minimum_interval": [
+              4.194896588775274e-05,
+              4.195043749988078e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003208126614141566,
+            "receiver_reference_pauli_moments": [
+              [
+                0.0083061504042264,
+                -0.0025550832415105985,
+                0.0010808620675531694,
+                0.0028465787346931724
+              ],
+              [
+                0.006129402997229663,
+                -0.0015305852826899247,
+                0.0003559874141469869,
+                0.0030045417919466926
+              ],
+              [
+                -0.001382532464753154,
+                0.0006123462238827614,
+                -0.0016490249494314575,
+                -2.9254198681200982e-05
+              ],
+              [
+                0.00265355038981946,
+                -0.002008677358113684,
+                0.0009490321669864441,
+                0.0008083156870539413
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9781802348144462,
+              0.008812030895178166
+            ],
+            "target_port_probability_per_start": 0.021819765185553897,
+            "per_joint_probability_or_pauli_moment_error": 7.795105151858314e-10,
+            "conditional_fixed_witness": 0.10273056291179279,
+            "conditional_fixed_witness_enclosure": [
+              0.10273045188376823,
+              0.10273067393981736
+            ],
+            "reference_joint_success": 0.01300773429037573,
+            "partial_transpose_minimum_interval": [
+              1.0247293612616564e-05,
+              1.024885263364694e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00035746718718462336,
+            "receiver_reference_pauli_moments": [
+              [
+                0.01300773429037573,
+                -0.00034710257771604456,
+                0.00017396959204690374,
+                -0.010508155095061644
+              ],
+              [
+                0.010945093353047072,
+                0.0004619929657680912,
+                0.0003259178208825578,
+                -0.010446791368500666
+              ],
+              [
+                0.0022469673814907577,
+                -1.5565034334981707e-05,
+                -0.0011762860178037154,
+                -0.0013734965900355826
+              ],
+              [
+                0.0016136835173097544,
+                0.0004457015968975835,
+                0.00015593663638885412,
+                -0.0012489584863827003
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.875,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9780561767239531,
+              0.009141332389277397
+            ],
+            "target_port_probability_per_start": 0.021943823276046943,
+            "per_joint_probability_or_pauli_moment_error": 7.810713884420873e-10,
+            "conditional_fixed_witness": 0.07942085821373057,
+            "conditional_fixed_witness_enclosure": [
+              0.07942074660198331,
+              0.07942096982547783
+            ],
+            "reference_joint_success": 0.012802490886769546,
+            "partial_transpose_minimum_interval": [
+              -1.376743994985659e-05,
+              -1.3765877807079704e-05
+            ],
+            "conditional_negativity": 0.0010753109687970956,
+            "reference_dephased_minimum": 0.0002908559390427618,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012802490886769546,
+                -0.0003350738868337966,
+                0.0001319021694496102,
+                -0.010195275699044742
+              ],
+              [
+                0.01069270150855755,
+                0.00032739956587539464,
+                6.122861267205947e-05,
+                -0.010110019904639191
+              ],
+              [
+                0.0030575513631440274,
+                0.00040769204502552234,
+                -0.0006154733145342414,
+                -0.0017422563550949634
+              ],
+              [
+                0.0007491019664542711,
+                0.00029986684621699847,
+                0.000837314771426314,
+                -0.000871637218869183
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.9375,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9798129267940361,
+              0.008786379979136848
+            ],
+            "target_port_probability_per_start": 0.020187073205963947,
+            "per_joint_probability_or_pauli_moment_error": 7.826322616983445e-10,
+            "conditional_fixed_witness": 0.05961921330912304,
+            "conditional_fixed_witness_enclosure": [
+              0.05961908908277584,
+              0.05961933753547023
+            ],
+            "reference_joint_success": 0.011400693226827099,
+            "partial_transpose_minimum_interval": [
+              4.754024954928418e-06,
+              4.755590219451816e-06
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00026219975674689026,
+            "receiver_reference_pauli_moments": [
+              [
+                0.011400693226827099,
+                9.02850839823256e-05,
+                0.000491302222383799,
+                -0.008693475942884988
+              ],
+              [
+                0.00939432401778972,
+                0.0005155856720760468,
+                0.00016463121480891763,
+                -0.008567713152095934
+              ],
+              [
+                0.0030871229271976133,
+                0.0005954160379413146,
+                0.0005917958455925569,
+                -0.001733237576255081
+              ],
+              [
+                -8.658311435321645e-05,
+                -0.00021278786610060582,
+                0.0008145841517273661,
+                -0.00039721441377228803
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 31.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9831954876502795,
+              0.00739456710529296
+            ],
+            "target_port_probability_per_start": 0.01680451234972047,
+            "per_joint_probability_or_pauli_moment_error": 7.857540082108623e-10,
+            "conditional_fixed_witness": 0.06027865772746867,
+            "conditional_fixed_witness_enclosure": [
+              0.06027850656465176,
+              0.06027880889028558
+            ],
+            "reference_joint_success": 0.009409945244427509,
+            "partial_transpose_minimum_interval": [
+              -0.00019733555084700224,
+              -0.00019733397933898575
+            ],
+            "conditional_negativity": 0.02097087283370262,
+            "reference_dephased_minimum": 0.00026350149497515827,
+            "receiver_reference_pauli_moments": [
+              [
+                0.009409945244427509,
+                5.2758327756359785e-05,
+                0.0006115728635561557,
+                -0.007193359864833899
+              ],
+              [
+                0.007781962753183905,
+                0.0001293437648327777,
+                8.755494615498796e-05,
+                -0.006842345660445246
+              ],
+              [
+                0.0020188954380017023,
+                -0.00019744001283446532,
+                0.0016056319870566497,
+                -0.0014279587847047586
+              ],
+              [
+                -0.001133340301526723,
+                -0.0010705769979448129,
+                -0.0013027068625286104,
+                0.0007876461427475459
+              ]
+            ]
+          },
+          "simulated_followup_witness": {
+            "banks": [
+              {
+                "settings": "XX",
+                "counts": [
+                  0,
+                  4222789244,
+                  31760505,
+                  18654732,
+                  18269696,
+                  1665836,
+                  1827283
+                ]
+              },
+              {
+                "settings": "XY",
+                "counts": [
+                  0,
+                  4222796793,
+                  31754900,
+                  19206030,
+                  17710308,
+                  2313860,
+                  1185405
+                ]
+              },
+              {
+                "settings": "XZ",
+                "counts": [
+                  0,
+                  4222801812,
+                  31754233,
+                  3389303,
+                  33524563,
+                  1372202,
+                  2125183
+                ]
+              },
+              {
+                "settings": "YX",
+                "counts": [
+                  0,
+                  4222796154,
+                  31759795,
+                  12115674,
+                  12420191,
+                  8205556,
+                  7669926
+                ]
+              },
+              {
+                "settings": "YY",
+                "counts": [
+                  0,
+                  4222782972,
+                  31764779,
+                  14656035,
+                  9894308,
+                  6866804,
+                  9002398
+                ]
+              },
+              {
+                "settings": "YZ",
+                "counts": [
+                  0,
+                  4222786467,
+                  31763734,
+                  3014037,
+                  21535590,
+                  1748141,
+                  14119327
+                ]
+              },
+              {
+                "settings": "ZX",
+                "counts": [
+                  0,
+                  4222794296,
+                  31759800,
+                  7792139,
+                  9979116,
+                  12528233,
+                  10113712
+                ]
+              },
+              {
+                "settings": "ZY",
+                "counts": [
+                  0,
+                  4222785899,
+                  31761264,
+                  8148843,
+                  9627726,
+                  13380581,
+                  9262983
+                ]
+              },
+              {
+                "settings": "ZZ",
+                "counts": [
+                  0,
+                  4222800172,
+                  31758804,
+                  2008437,
+                  15762543,
+                  2751461,
+                  19885879
+                ]
+              }
+            ],
+            "fixed_witness_estimate": -0.020924778589725718,
+            "fixed_witness_simultaneous_99pct_interval": [
+              -0.021189743988982584,
+              -0.02065981319046885
+            ]
+          }
+        },
+        {
+          "appointment": 31.3125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9825013872630867,
+              0.008728719478215784
+            ],
+            "target_port_probability_per_start": 0.01749861273691328,
+            "per_joint_probability_or_pauli_moment_error": 7.919975012359129e-10,
+            "conditional_fixed_witness": 0.23372723026789854,
+            "conditional_fixed_witness_enclosure": [
+              0.2337270511200908,
+              0.2337274094157063
+            ],
+            "reference_joint_success": 0.008769893258697497,
+            "partial_transpose_minimum_interval": [
+              -0.00019088389980821216,
+              -0.00019088231581320962
+            ],
+            "conditional_negativity": 0.021765727606935643,
+            "reference_dephased_minimum": 0.00041041606660512217,
+            "receiver_reference_pauli_moments": [
+              [
+                0.008769893258697497,
+                -0.00019884430626771951,
+                0.0015510515838510278,
+                -0.0049136156830361715
+              ],
+              [
+                0.006571591912409618,
+                0.0009205310926354457,
+                0.0013305124702820519,
+                -0.005325130827141023
+              ],
+              [
+                -0.00036648620012210933,
+                0.00027573513946140677,
+                -0.0012552956673256782,
+                0.0012477927056820462
+              ],
+              [
+                0.00020317917555122238,
+                0.0009134489040047575,
+                0.0011006856272188829,
+                0.0011349059900751845
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 31.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.984228050036859,
+              0.008936998822084
+            ],
+            "target_port_probability_per_start": 0.01577194996314098,
+            "per_joint_probability_or_pauli_moment_error": 8.044844872860723e-10,
+            "conditional_fixed_witness": 0.14599059537214715,
+            "conditional_fixed_witness_enclosure": [
+              0.1459903722110491,
+              0.1459908185332452
+            ],
+            "reference_joint_success": 0.006834951141056982,
+            "partial_transpose_minimum_interval": [
+              0.00011355524125031583,
+              0.00011355685021929043
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00029218543322290713,
+            "receiver_reference_pauli_moments": [
+              [
+                0.006834951141056982,
+                -0.000757244545637743,
+                -0.0008578601256968655,
+                -0.004443003140238028
+              ],
+              [
+                0.004886756606777068,
+                -1.2140769713894648e-05,
+                -0.0010821008113634754,
+                -0.0041618395613848445
+              ],
+              [
+                -0.0008503829515732837,
+                0.00010056961013180327,
+                -4.6336525756058086e-05,
+                0.0015895830321896443
+              ],
+              [
+                0.0002697243868532099,
+                0.00034974716905836277,
+                2.559475161727551e-05,
+                0.0003816680386579188
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 32.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9796642208895233,
+              0.008042245095804399
+            ],
+            "target_port_probability_per_start": 0.020335779110476675,
+            "per_joint_probability_or_pauli_moment_error": 8.294584593866249e-10,
+            "conditional_fixed_witness": 0.36369187321772933,
+            "conditional_fixed_witness_enclosure": [
+              0.3636917306045701,
+              0.36369201583088856
+            ],
+            "reference_joint_success": 0.012293534014672276,
+            "partial_transpose_minimum_interval": [
+              0.00015750512340931283,
+              0.00015750678232623165
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00038455149678818883,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012293534014672276,
+                -0.0007099701634193856,
+                -0.00236196090380651,
+                0.00353661702131696
+              ],
+              [
+                0.010408176824623024,
+                -5.915646947720439e-07,
+                -0.0025273352462884652,
+                0.003529924804948234
+              ],
+              [
+                -0.0016353963113946153,
+                0.00037739189453996373,
+                -0.0007363759409356247,
+                0.00026133180311813846
+              ],
+              [
+                0.00046980550009923915,
+                -0.0008861184534897502,
+                -0.0016595193166901345,
+                0.0015660993496334772
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 34.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.980271512917525,
+              0.011005054287050592
+            ],
+            "target_port_probability_per_start": 0.019728487082474953,
+            "per_joint_probability_or_pauli_moment_error": 8.794064035886661e-10,
+            "conditional_fixed_witness": 0.15433148207415834,
+            "conditional_fixed_witness_enclosure": [
+              0.15433129009910582,
+              0.15433167404921086
+            ],
+            "reference_joint_success": 0.008723432795424362,
+            "partial_transpose_minimum_interval": [
+              0.00016931575312845127,
+              0.00016931751194125853
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.000409899053366009,
+            "receiver_reference_pauli_moments": [
+              [
+                0.008723432795424362,
+                -0.0012673703446654222,
+                0.00042824936103195966,
+                -0.0036773521779943485
+              ],
+              [
+                0.006367698397697423,
+                -0.0012236793463752012,
+                -0.00010854858929526523,
+                -0.0032744809558166565
+              ],
+              [
+                0.0025690890187759297,
+                -0.0013929180904579458,
+                0.0006145107433989421,
+                -0.002123687612118767
+              ],
+              [
+                -0.00026069874851527685,
+                -0.0010534448910073477,
+                0.0004937295997559847,
+                0.0006389724884208671
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        }
+      ]
+    },
+    {
+      "signed_material": -1,
+      "ordered_1045_face_words": [
+        177,
+        146
+      ],
+      "uninterrupted_reads": [
+        {
+          "appointment": 27.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9792173610678986,
+              0.0067596851332701845
+            ],
+            "target_port_probability_per_start": 0.02078263893210139,
+            "per_joint_probability_or_pauli_moment_error": 6.858581198127055e-10,
+            "conditional_fixed_witness": 0.1140745118279568,
+            "conditional_fixed_witness_enclosure": [
+              0.11407442065667285,
+              0.11407460299924076
+            ],
+            "reference_joint_success": 0.014022953798831207,
+            "partial_transpose_minimum_interval": [
+              3.5474744438351695e-05,
+              3.547611615459133e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00030675994205024454,
+            "receiver_reference_pauli_moments": [
+              [
+                0.014022953798831207,
+                0.001082678142407152,
+                -0.000123475309298342,
+                -0.008639529784571928
+              ],
+              [
+                0.012308317226417948,
+                0.0019370949225967337,
+                -0.0002497059055672769,
+                -0.008174574495795317
+              ],
+              [
+                -7.168470896874875e-05,
+                0.00035015028465006624,
+                0.0015721657035751681,
+                -0.00023407782139485303
+              ],
+              [
+                0.0020092235914063892,
+                0.00018434876775033545,
+                0.0005157474541956739,
+                -0.0023161605766849032
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9798038520470395,
+              0.00853129502792846
+            ],
+            "target_port_probability_per_start": 0.020196147952960562,
+            "per_joint_probability_or_pauli_moment_error": 6.874189930688883e-10,
+            "conditional_fixed_witness": 0.15456710252527822,
+            "conditional_fixed_witness_enclosure": [
+              0.15456699028762844,
+              0.154567214762928
+            ],
+            "reference_joint_success": 0.011664852925032103,
+            "partial_transpose_minimum_interval": [
+              0.00010127773380718277,
+              0.00010127910864516893
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00032252382468295844,
+            "receiver_reference_pauli_moments": [
+              [
+                0.011664852925032103,
+                0.0003221432621989691,
+                0.0006762246425362375,
+                -0.006507842740426175
+              ],
+              [
+                0.009878207411456424,
+                0.0011563311621156627,
+                0.00043596320232887543,
+                -0.006064208079527626
+              ],
+              [
+                0.0006996427086546379,
+                0.00030065306138033664,
+                0.0009013560965987975,
+                -0.0013323216193612732
+              ],
+              [
+                0.0009401661109751666,
+                0.0004951338698550645,
+                -0.000932092255772546,
+                -0.0008616981137506744
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.1875,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9775529002303791,
+              0.009881454214981416
+            ],
+            "target_port_probability_per_start": 0.02244709976962085,
+            "per_joint_probability_or_pauli_moment_error": 6.889798663250723e-10,
+            "conditional_fixed_witness": 0.20820648532882455,
+            "conditional_fixed_witness_enclosure": [
+              0.20820637795949673,
+              0.20820659269815237
+            ],
+            "reference_joint_success": 0.012565645554639435,
+            "partial_transpose_minimum_interval": [
+              0.0001489792393417111,
+              0.0001489806173014438
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00035347884637317007,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012565645554639435,
+                -0.00041306710937797026,
+                0.0010983983830342718,
+                -0.00638328391800254
+              ],
+              [
+                0.010668020545104396,
+                0.00022864582127895503,
+                0.0007567506749145689,
+                -0.005953699163797006
+              ],
+              [
+                0.0008415340672609315,
+                0.0005807751133014185,
+                -0.0005661615680264652,
+                -0.0014068653925749712
+              ],
+              [
+                -0.00020322928586360284,
+                0.000764408735831529,
+                -0.001538460834713251,
+                0.0006432907093239814
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 27.3125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9782462025616094,
+              0.008061874055003474
+            ],
+            "target_port_probability_per_start": 0.02175379743839061,
+            "per_joint_probability_or_pauli_moment_error": 6.921016128374441e-10,
+            "conditional_fixed_witness": 0.2147267740325603,
+            "conditional_fixed_witness_enclosure": [
+              0.21472667471922058,
+              0.21472687334590002
+            ],
+            "reference_joint_success": 0.013691923383387136,
+            "partial_transpose_minimum_interval": [
+              0.0002919648543630503,
+              0.00029196623856627606
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00034500635112814324,
+            "receiver_reference_pauli_moments": [
+              [
+                0.013691923383387136,
+                -6.905178053345231e-05,
+                0.0007496650971951656,
+                -0.007318514600954041
+              ],
+              [
+                0.011739757592234213,
+                2.7912335946844182e-05,
+                0.00042449748658218597,
+                -0.006855141570362413
+              ],
+              [
+                -0.0005751300078594222,
+                0.00020910082491609777,
+                -0.0018884209638108935,
+                -0.00023758155217194744
+              ],
+              [
+                -0.00014959945010884542,
+                -0.00014690890560128164,
+                -0.0003349633045310302,
+                0.0007929530060620743
+              ]
+            ]
+          },
+          "simulated_followup_witness": {
+            "banks": [
+              {
+                "settings": "XX",
+                "counts": [
+                  0,
+                  4201543452,
+                  34633775,
+                  27247220,
+                  27350024,
+                  1992393,
+                  2200432
+                ]
+              },
+              {
+                "settings": "XY",
+                "counts": [
+                  0,
+                  4201527526,
+                  34634406,
+                  28562040,
+                  26047566,
+                  2447515,
+                  1748243
+                ]
+              },
+              {
+                "settings": "XZ",
+                "counts": [
+                  0,
+                  4201548876,
+                  34618334,
+                  12087873,
+                  42520081,
+                  1598539,
+                  2593593
+                ]
+              },
+              {
+                "settings": "YX",
+                "counts": [
+                  0,
+                  4201532240,
+                  34628278,
+                  14237721,
+                  13926314,
+                  15018249,
+                  15624494
+                ]
+              },
+              {
+                "settings": "YY",
+                "counts": [
+                  0,
+                  4201531710,
+                  34618115,
+                  12860706,
+                  15311297,
+                  18153255,
+                  12492213
+                ]
+              },
+              {
+                "settings": "YZ",
+                "counts": [
+                  0,
+                  4201521591,
+                  34634033,
+                  5970470,
+                  22200249,
+                  7716825,
+                  22924128
+                ]
+              },
+              {
+                "settings": "ZX",
+                "counts": [
+                  0,
+                  4201546376,
+                  34620715,
+                  14308707,
+                  14772593,
+                  14935233,
+                  14783672
+                ]
+              },
+              {
+                "settings": "ZY",
+                "counts": [
+                  0,
+                  4201526540,
+                  34631779,
+                  14993679,
+                  14097193,
+                  16022285,
+                  13695820
+                ]
+              },
+              {
+                "settings": "ZZ",
+                "counts": [
+                  0,
+                  4201529793,
+                  34625516,
+                  7538168,
+                  21550268,
+                  6150642,
+                  23572909
+                ]
+              }
+            ],
+            "fixed_witness_estimate": 0.13911215972215318,
+            "fixed_witness_simultaneous_99pct_interval": [
+              0.13889252389012635,
+              0.13933179555418002
+            ]
+          }
+        },
+        {
+          "appointment": 27.5625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9795991073668798,
+              0.010884503860667302
+            ],
+            "target_port_probability_per_start": 0.020400892633120223,
+            "per_joint_probability_or_pauli_moment_error": 6.983451058622022e-10,
+            "conditional_fixed_witness": 0.1805455080270411,
+            "conditional_fixed_witness_enclosure": [
+              0.18054536635700866,
+              0.18054564969707357
+            ],
+            "reference_joint_success": 0.009516388772452922,
+            "partial_transpose_minimum_interval": [
+              0.00019756141678579822,
+              0.00019756281347601
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003996655002957369,
+            "receiver_reference_pauli_moments": [
+              [
+                0.009516388772452922,
+                0.00023855611574961794,
+                -0.000178866325186137,
+                -0.003981063978562832
+              ],
+              [
+                0.007729673292543977,
+                0.0007706977207655563,
+                -0.000682874724322406,
+                -0.004030797983051467
+              ],
+              [
+                0.0006003391131685106,
+                0.0007670251550006662,
+                0.000365019574719821,
+                0.0005261199921153707
+              ],
+              [
+                -0.00012799618194621852,
+                0.00044261726719567755,
+                0.0003860904393176227,
+                0.0008674049135923402
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 28.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9824975607871018,
+              0.011558144931231494
+            ],
+            "target_port_probability_per_start": 0.017502439212898162,
+            "per_joint_probability_or_pauli_moment_error": 7.10832091911777e-10,
+            "conditional_fixed_witness": 0.1604118530972655,
+            "conditional_fixed_witness_enclosure": [
+              0.16041162464588807,
+              0.16041208154864292
+            ],
+            "reference_joint_success": 0.0059442942816666676,
+            "partial_transpose_minimum_interval": [
+              8.777350320637873e-05,
+              8.77749248705626e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00027774187524590285,
+            "receiver_reference_pauli_moments": [
+              [
+                0.0059442942816666676,
+                0.0001772296860662345,
+                -0.0003501757105946913,
+                -0.0020308275167858964
+              ],
+              [
+                0.004319829726027097,
+                0.001213823139196962,
+                -0.0006401125221304734,
+                -0.0018600891083581988
+              ],
+              [
+                -0.0005490127745924196,
+                0.0010612782585770575,
+                2.1416152299232917e-05,
+                -0.0007644886405041824
+              ],
+              [
+                2.697689742636733e-05,
+                -0.00028680068011080625,
+                -0.00016733382968300983,
+                0.0002530092637908839
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 29.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.98186049324849,
+              0.009833356347283611
+            ],
+            "target_port_probability_per_start": 0.01813950675151003,
+            "per_joint_probability_or_pauli_moment_error": 7.358060640111602e-10,
+            "conditional_fixed_witness": 0.40898402994875377,
+            "conditional_fixed_witness_enclosure": [
+              0.40898383869364696,
+              0.4089842212038606
+            ],
+            "reference_joint_success": 0.00830615040422642,
+            "partial_transpose_minimum_interval": [
+              4.19489658877535e-05,
+              4.195043749988154e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00032081266141416044,
+            "receiver_reference_pauli_moments": [
+              [
+                0.00830615040422642,
+                -0.0025550832415106024,
+                0.001080862067553174,
+                0.0028465787346931906
+              ],
+              [
+                0.00612940299722968,
+                -0.0015305852826899315,
+                0.0003559874141469792,
+                0.0030045417919467078
+              ],
+              [
+                -0.0013825324647531588,
+                0.0006123462238827412,
+                -0.001649024949431473,
+                -2.92541986811909e-05
+              ],
+              [
+                0.0026535503898194404,
+                -0.0020086773581136784,
+                0.000949032166986462,
+                0.0008083156870539411
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9781802348144462,
+              0.008812030895178156
+            ],
+            "target_port_probability_per_start": 0.021819765185553883,
+            "per_joint_probability_or_pauli_moment_error": 7.795105151858314e-10,
+            "conditional_fixed_witness": 0.1027305629117922,
+            "conditional_fixed_witness_enclosure": [
+              0.10273045188376763,
+              0.10273067393981676
+            ],
+            "reference_joint_success": 0.013007734290375727,
+            "partial_transpose_minimum_interval": [
+              1.024729361262025e-05,
+              1.0248852633650626e-05
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00035746718718462293,
+            "receiver_reference_pauli_moments": [
+              [
+                0.013007734290375727,
+                -0.00034710257771606386,
+                0.0001739695920468788,
+                -0.010508155095061634
+              ],
+              [
+                0.010945093353047075,
+                0.0004619929657680644,
+                0.0003259178208825213,
+                -0.01044679136850066
+              ],
+              [
+                0.002246967381490753,
+                -1.5565034334984174e-05,
+                -0.0011762860178036985,
+                -0.0013734965900355767
+              ],
+              [
+                0.0016136835173097648,
+                0.0004457015968975744,
+                0.0001559366363888513,
+                -0.0012489584863827072
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.875,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9780561767239531,
+              0.009141332389277373
+            ],
+            "target_port_probability_per_start": 0.02194382327604691,
+            "per_joint_probability_or_pauli_moment_error": 7.810713884420873e-10,
+            "conditional_fixed_witness": 0.07942085821372982,
+            "conditional_fixed_witness_enclosure": [
+              0.07942074660198256,
+              0.07942096982547708
+            ],
+            "reference_joint_success": 0.012802490886769536,
+            "partial_transpose_minimum_interval": [
+              -1.37674399498535e-05,
+              -1.3765877807076614e-05
+            ],
+            "conditional_negativity": 0.0010753109687968551,
+            "reference_dephased_minimum": 0.00029085593904276257,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012802490886769536,
+                -0.00033507388683381637,
+                0.0001319021694495884,
+                -0.010195275699044729
+              ],
+              [
+                0.010692701508557546,
+                0.00032739956587537675,
+                6.122861267201794e-05,
+                -0.010110019904639174
+              ],
+              [
+                0.003057551363144026,
+                0.0004076920450255193,
+                -0.0006154733145342275,
+                -0.0017422563550949688
+              ],
+              [
+                0.0007491019664542919,
+                0.00029986684621698703,
+                0.0008373147714263056,
+                -0.0008716372188692003
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 30.9375,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9798129267940361,
+              0.008786379979136824
+            ],
+            "target_port_probability_per_start": 0.020187073205963912,
+            "per_joint_probability_or_pauli_moment_error": 7.826322616983445e-10,
+            "conditional_fixed_witness": 0.059619213309122294,
+            "conditional_fixed_witness_enclosure": [
+              0.0596190890827751,
+              0.05961933753546949
+            ],
+            "reference_joint_success": 0.011400693226827088,
+            "partial_transpose_minimum_interval": [
+              4.754024954926493e-06,
+              4.755590219449891e-06
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0002621997567468911,
+            "receiver_reference_pauli_moments": [
+              [
+                0.011400693226827088,
+                9.028508398230679e-05,
+                0.0004913022223837791,
+                -0.008693475942884981
+              ],
+              [
+                0.009394324017789715,
+                0.0005155856720760383,
+                0.00016463121480887787,
+                -0.008567713152095919
+              ],
+              [
+                0.0030871229271976224,
+                0.0005954160379413134,
+                0.0005917958455925584,
+                -0.001733237576255099
+              ],
+              [
+                -8.658311435320604e-05,
+                -0.0002127878661006101,
+                0.0008145841517273642,
+                -0.000397214413772295
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 31.0625,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9831954876502795,
+              0.007394567105292953
+            ],
+            "target_port_probability_per_start": 0.016804512349720455,
+            "per_joint_probability_or_pauli_moment_error": 7.857540082108623e-10,
+            "conditional_fixed_witness": 0.06027865772746791,
+            "conditional_fixed_witness_enclosure": [
+              0.060278506564651,
+              0.06027880889028482
+            ],
+            "reference_joint_success": 0.009409945244427502,
+            "partial_transpose_minimum_interval": [
+              -0.00019733555084700026,
+              -0.00019733397933898377
+            ],
+            "conditional_negativity": 0.020970872833702425,
+            "reference_dephased_minimum": 0.0002635014949751586,
+            "receiver_reference_pauli_moments": [
+              [
+                0.009409945244427502,
+                5.2758327756351e-05,
+                0.0006115728635561335,
+                -0.007193359864833894
+              ],
+              [
+                0.007781962753183895,
+                0.00012934376483277326,
+                8.755494615496191e-05,
+                -0.006842345660445236
+              ],
+              [
+                0.002018895438001692,
+                -0.0001974400128344468,
+                0.0016056319870566497,
+                -0.001427958784704754
+              ],
+              [
+                -0.0011333403015267333,
+                -0.0010705769979448138,
+                -0.0013027068625285805,
+                0.0007876461427475567
+              ]
+            ]
+          },
+          "simulated_followup_witness": {
+            "banks": [
+              {
+                "settings": "XX",
+                "counts": [
+                  0,
+                  4222787695,
+                  31763700,
+                  18651354,
+                  18266174,
+                  1666957,
+                  1831416
+                ]
+              },
+              {
+                "settings": "XY",
+                "counts": [
+                  0,
+                  4222783982,
+                  31760232,
+                  19214686,
+                  17711978,
+                  2310047,
+                  1186371
+                ]
+              },
+              {
+                "settings": "XZ",
+                "counts": [
+                  0,
+                  4222796547,
+                  31754150,
+                  3387742,
+                  33531652,
+                  1371009,
+                  2126196
+                ]
+              },
+              {
+                "settings": "YX",
+                "counts": [
+                  0,
+                  4222792503,
+                  31762030,
+                  12114600,
+                  12431405,
+                  8201490,
+                  7665268
+                ]
+              },
+              {
+                "settings": "YY",
+                "counts": [
+                  0,
+                  4222796092,
+                  31756618,
+                  14653654,
+                  9888067,
+                  6870596,
+                  9002269
+                ]
+              },
+              {
+                "settings": "YZ",
+                "counts": [
+                  0,
+                  4222792247,
+                  31758883,
+                  3012291,
+                  21529571,
+                  1744264,
+                  14130040
+                ]
+              },
+              {
+                "settings": "ZX",
+                "counts": [
+                  0,
+                  4222777928,
+                  31761613,
+                  7795254,
+                  9983800,
+                  12532931,
+                  10115770
+                ]
+              },
+              {
+                "settings": "ZY",
+                "counts": [
+                  0,
+                  4222801549,
+                  31755943,
+                  8141702,
+                  9631997,
+                  13370690,
+                  9265415
+                ]
+              },
+              {
+                "settings": "ZZ",
+                "counts": [
+                  0,
+                  4222775426,
+                  31771990,
+                  2007138,
+                  15770973,
+                  2754614,
+                  19887155
+                ]
+              }
+            ],
+            "fixed_witness_estimate": -0.020947099376632132,
+            "fixed_witness_simultaneous_99pct_interval": [
+              -0.021212054757608505,
+              -0.02068214399565576
+            ]
+          }
+        },
+        {
+          "appointment": 31.3125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9825013872630868,
+              0.008728719478215788
+            ],
+            "target_port_probability_per_start": 0.017498612736913274,
+            "per_joint_probability_or_pauli_moment_error": 7.919975012359129e-10,
+            "conditional_fixed_witness": 0.23372723026789857,
+            "conditional_fixed_witness_enclosure": [
+              0.23372705112009082,
+              0.23372740941570633
+            ],
+            "reference_joint_success": 0.008769893258697486,
+            "partial_transpose_minimum_interval": [
+              -0.00019088389980821335,
+              -0.0001908823158132108
+            ],
+            "conditional_negativity": 0.021765727606935806,
+            "reference_dephased_minimum": 0.00041041606660511843,
+            "receiver_reference_pauli_moments": [
+              [
+                0.008769893258697486,
+                -0.00019884430626770412,
+                0.0015510515838510317,
+                -0.0049136156830361585
+              ],
+              [
+                0.00657159191240961,
+                0.0009205310926354562,
+                0.0013305124702820454,
+                -0.005325130827141015
+              ],
+              [
+                -0.0003664862001221062,
+                0.0002757351394614126,
+                -0.0012552956673256778,
+                0.001247792705682041
+              ],
+              [
+                0.00020317917555121717,
+                0.0009134489040047645,
+                0.0011006856272188859,
+                0.0011349059900751853
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 31.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.984228050036859,
+              0.00893699882208401
+            ],
+            "target_port_probability_per_start": 0.01577194996314098,
+            "per_joint_probability_or_pauli_moment_error": 8.044844872860723e-10,
+            "conditional_fixed_witness": 0.1459905953721461,
+            "conditional_fixed_witness_enclosure": [
+              0.14599037221104805,
+              0.14599081853324414
+            ],
+            "reference_joint_success": 0.0068349511410569705,
+            "partial_transpose_minimum_interval": [
+              0.00011355524125031662,
+              0.00011355685021929122
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0002921854332229081,
+            "receiver_reference_pauli_moments": [
+              [
+                0.0068349511410569705,
+                -0.0007572445456377412,
+                -0.0008578601256968678,
+                -0.004443003140238016
+              ],
+              [
+                0.004886756606777064,
+                -1.2140769713895176e-05,
+                -0.0010821008113634854,
+                -0.004161839561384839
+              ],
+              [
+                -0.0008503829515732655,
+                0.00010056961013180544,
+                -4.633652575604658e-05,
+                0.0015895830321896196
+              ],
+              [
+                0.00026972438685321076,
+                0.00034974716905836005,
+                2.5594751617279143e-05,
+                0.0003816680386579171
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 32.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.9796642208895233,
+              0.008042245095804418
+            ],
+            "target_port_probability_per_start": 0.020335779110476675,
+            "per_joint_probability_or_pauli_moment_error": 8.294584593866249e-10,
+            "conditional_fixed_witness": 0.36369187321772994,
+            "conditional_fixed_witness_enclosure": [
+              0.3636917306045707,
+              0.36369201583088917
+            ],
+            "reference_joint_success": 0.012293534014672257,
+            "partial_transpose_minimum_interval": [
+              0.00015750512340931142,
+              0.00015750678232623024
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.0003845514967881895,
+            "receiver_reference_pauli_moments": [
+              [
+                0.012293534014672257,
+                -0.0007099701634193952,
+                -0.0023619609038065007,
+                0.0035366170213169575
+              ],
+              [
+                0.010408176824622997,
+                -5.915646947712849e-07,
+                -0.0025273352462884605,
+                0.003529924804948234
+              ],
+              [
+                -0.0016353963113946335,
+                0.0003773918945399648,
+                -0.0007363759409356387,
+                0.0002613318031181392
+              ],
+              [
+                0.0004698055000992591,
+                -0.0008861184534897528,
+                -0.0016595193166901376,
+                0.0015660993496334867
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        },
+        {
+          "appointment": 34.8125,
+          "terminal_record": {
+            "refusal_probabilities_per_start": [
+              0.0,
+              0.980271512917525,
+              0.011005054287050578
+            ],
+            "target_port_probability_per_start": 0.01972848708247494,
+            "per_joint_probability_or_pauli_moment_error": 8.794064035886661e-10,
+            "conditional_fixed_witness": 0.1543314820741577,
+            "conditional_fixed_witness_enclosure": [
+              0.15433129009910518,
+              0.15433167404921022
+            ],
+            "reference_joint_success": 0.008723432795424362,
+            "partial_transpose_minimum_interval": [
+              0.00016931575312844547,
+              0.00016931751194125273
+            ],
+            "conditional_negativity": 0.0,
+            "reference_dephased_minimum": 0.00040989905336600245,
+            "receiver_reference_pauli_moments": [
+              [
+                0.008723432795424362,
+                -0.0012673703446654148,
+                0.00042824936103195277,
+                -0.00367735217799435
+              ],
+              [
+                0.006367698397697431,
+                -0.001223679346375204,
+                -0.00010854858929527239,
+                -0.0032744809558166747
+              ],
+              [
+                0.002569089018775929,
+                -0.0013929180904579306,
+                0.0006145107433989537,
+                -0.002123687612118768
+              ],
+              [
+                -0.0002606987485152777,
+                -0.0010534448910073516,
+                0.0004937295997559819,
+                0.0006389724884208888
+              ]
+            ]
+          },
+          "simulated_followup_witness": null
+        }
+      ]
+    }
+  ]
+}

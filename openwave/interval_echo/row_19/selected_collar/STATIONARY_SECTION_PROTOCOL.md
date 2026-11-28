@@ -1,0 +1,3 @@
+# Does any entropy gradient remain invisible to the fixed clocks and forces?
+
+The prespecified direction left the sparse uniform schedule unresolved. As a follow-up on the same counts, project the entire observed joint entropy gradient onto the kernel of the calibrated fourteen readings. Use the existing rational right-inverse certificate to enclose a true direction through that center. The simultaneous head-coordinate enclosure covers every direction, including one selected from those counts. Retain the first test and the follow-up separately. Apply the same native-feasibility and finite entropy-gain bounds. Selection of this direction is retrospective and the resulting bound concerns the measured preparation domain.

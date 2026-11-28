@@ -1,0 +1,893 @@
+{
+  "protocol_sha256": "666d98f7d4250675e00a6bf0e25f90d1397c74bd5f063593f9e805c1adb5e6da",
+  "probability_denominator": 1000000000000,
+  "closed_boundary_probability": 0,
+  "exchange_off_probability": 0,
+  "panels": [
+    {
+      "cells": 20,
+      "ring_owners": 5,
+      "ports": {
+        "private": [
+          2,
+          4
+        ],
+        "gateway": [
+          3,
+          4
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15226762,
+              15245330
+            ],
+            "reversal": [
+              44,
+              74
+            ],
+            "vacancy": [
+              15159207,
+              15176410
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              60075410,
+              61260988
+            ],
+            "reversal": [
+              0,
+              3797
+            ],
+            "vacancy": [
+              58984875,
+              60075355
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              38,
+              82
+            ],
+            "reversal": [
+              15208072,
+              15226510
+            ],
+            "vacancy": [
+              15247539,
+              15264117
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              5674
+            ],
+            "reversal": [
+              59774201,
+              60949225
+            ],
+            "vacancy": [
+              60458049,
+              61518655
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0024531401621390413,
+            -1.4191607129534913e-05
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.02499084356774888,
+            0.014695368391655951
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 20,
+      "ring_owners": 6,
+      "refused": "registered circuit absent"
+    },
+    {
+      "cells": 20,
+      "open_dimers": 14,
+      "ports": {
+        "private": [
+          180,
+          185
+        ],
+        "gateway": [
+          190,
+          182
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15225163,
+              15246911
+            ],
+            "reversal": [
+              41,
+              78
+            ],
+            "vacancy": [
+              15157598,
+              15177978
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              59973873,
+              61362488
+            ],
+            "reversal": [
+              0,
+              4643
+            ],
+            "vacancy": [
+              58883582,
+              60175496
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              36,
+              85
+            ],
+            "reversal": [
+              15247598,
+              15268817
+            ],
+            "vacancy": [
+              15220476,
+              15240374
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              6638
+            ],
+            "reversal": [
+              60347914,
+              61705809
+            ],
+            "vacancy": [
+              59941241,
+              61210978
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            4.227710955544206e-05,
+            0.002876812121375716
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.017189001292635748,
+            0.029230031252829084
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "ring_owners": 5,
+      "ports": {
+        "private": [
+          2,
+          4
+        ],
+        "gateway": [
+          3,
+          4
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15226762,
+              15245330
+            ],
+            "reversal": [
+              44,
+              74
+            ],
+            "vacancy": [
+              15159207,
+              15176410
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              60075410,
+              61260988
+            ],
+            "reversal": [
+              0,
+              3797
+            ],
+            "vacancy": [
+              58984875,
+              60075355
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              38,
+              82
+            ],
+            "reversal": [
+              15208072,
+              15226510
+            ],
+            "vacancy": [
+              15247539,
+              15264117
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              5674
+            ],
+            "reversal": [
+              59774201,
+              60949225
+            ],
+            "vacancy": [
+              60458049,
+              61518655
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0024531401621390413,
+            -1.4191607129534913e-05
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.02499084356774888,
+            0.014695368391655951
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "ring_owners": 6,
+      "ports": {
+        "private": [
+          4,
+          2
+        ],
+        "gateway": [
+          3,
+          2
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15225282,
+              15246795
+            ],
+            "reversal": [
+              41,
+              78
+            ],
+            "vacancy": [
+              15157718,
+              15177869
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              59981429,
+              61355066
+            ],
+            "reversal": [
+              0,
+              4579
+            ],
+            "vacancy": [
+              58891170,
+              60168546
+            ],
+            "excess": [
+              0,
+              1592
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              36,
+              85
+            ],
+            "reversal": [
+              15206815,
+              15227764
+            ],
+            "vacancy": [
+              15246069,
+              15265583
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              6543
+            ],
+            "reversal": [
+              59694502,
+              61029542
+            ],
+            "vacancy": [
+              60364400,
+              61612867
+            ],
+            "excess": [
+              0,
+              1592
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0026328302632603316,
+            0.00016603197042946926
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.027959306407504502,
+            0.017654858494822904
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "open_dimers": 14,
+      "ports": {
+        "private": [
+          63,
+          64
+        ],
+        "gateway": [
+          62,
+          64
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15225163,
+              15246911
+            ],
+            "reversal": [
+              41,
+              78
+            ],
+            "vacancy": [
+              15157598,
+              15177978
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              59973880,
+              61362492
+            ],
+            "reversal": [
+              0,
+              4643
+            ],
+            "vacancy": [
+              58883610,
+              60175490
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              36,
+              85
+            ],
+            "reversal": [
+              15206704,
+              15227870
+            ],
+            "vacancy": [
+              15245952,
+              15265699
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              6622
+            ],
+            "reversal": [
+              59687472,
+              61036359
+            ],
+            "vacancy": [
+              60356970,
+              61620346
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0026477832552821304,
+            0.00018083416980374593
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.028206638659775313,
+            0.017899127555030588
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "ring_owners": 5,
+      "ports": {
+        "private": [
+          2,
+          4
+        ],
+        "gateway": [
+          3,
+          4
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15226762,
+              15245330
+            ],
+            "reversal": [
+              44,
+              74
+            ],
+            "vacancy": [
+              15159207,
+              15176410
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              60075410,
+              61260988
+            ],
+            "reversal": [
+              0,
+              3797
+            ],
+            "vacancy": [
+              58984875,
+              60075355
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              38,
+              82
+            ],
+            "reversal": [
+              15208072,
+              15226510
+            ],
+            "vacancy": [
+              15247539,
+              15264117
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              5674
+            ],
+            "reversal": [
+              59774201,
+              60949225
+            ],
+            "vacancy": [
+              60458049,
+              61518655
+            ],
+            "excess": [
+              0,
+              1149
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0024531401621390413,
+            -1.4191607129534913e-05
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.02499084356774888,
+            0.014695368391655951
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "ring_owners": 6,
+      "ports": {
+        "private": [
+          4,
+          2
+        ],
+        "gateway": [
+          3,
+          2
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15225282,
+              15246795
+            ],
+            "reversal": [
+              41,
+              78
+            ],
+            "vacancy": [
+              15157718,
+              15177869
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              59981429,
+              61355066
+            ],
+            "reversal": [
+              0,
+              4579
+            ],
+            "vacancy": [
+              58891170,
+              60168546
+            ],
+            "excess": [
+              0,
+              1592
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              36,
+              85
+            ],
+            "reversal": [
+              15206815,
+              15227764
+            ],
+            "vacancy": [
+              15246069,
+              15265583
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              6543
+            ],
+            "reversal": [
+              59694502,
+              61029542
+            ],
+            "vacancy": [
+              60364400,
+              61612867
+            ],
+            "excess": [
+              0,
+              1592
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0026328302632603316,
+            0.00016603197042946926
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.027959306407504502,
+            0.017654858494822904
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "open_dimers": 14,
+      "ports": {
+        "private": [
+          207,
+          208
+        ],
+        "gateway": [
+          206,
+          208
+        ]
+      },
+      "probability_bounds": {
+        "private": {
+          "128": {
+            "host": [
+              15225163,
+              15246911
+            ],
+            "reversal": [
+              41,
+              78
+            ],
+            "vacancy": [
+              15157597,
+              15177978
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              59973866,
+              61362483
+            ],
+            "reversal": [
+              0,
+              4643
+            ],
+            "vacancy": [
+              58883558,
+              60175497
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        },
+        "gateway": {
+          "128": {
+            "host": [
+              36,
+              85
+            ],
+            "reversal": [
+              15206704,
+              15227870
+            ],
+            "vacancy": [
+              15245952,
+              15265699
+            ],
+            "excess": [
+              0,
+              2
+            ]
+          },
+          "64": {
+            "host": [
+              0,
+              6622
+            ],
+            "reversal": [
+              59687501,
+              61036368
+            ],
+            "vacancy": [
+              60356977,
+              61620353
+            ],
+            "excess": [
+              0,
+              1630
+            ]
+          }
+        }
+      },
+      "comparison": {
+        "128": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.0026477833423701083,
+            0.00018083417575154477
+          ],
+          "reversal_within_five_percent": true
+        },
+        "64": {
+          "charged_bracket": true,
+          "reversal_charge_units": [
+            -0.02820601192034957,
+            0.017899520095540595
+          ],
+          "reversal_within_five_percent": true
+        }
+      }
+    }
+  ]
+}

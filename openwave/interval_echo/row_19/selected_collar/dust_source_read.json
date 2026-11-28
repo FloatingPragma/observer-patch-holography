@@ -1,0 +1,195 @@
+{
+ "source_classes": [
+  [
+   0,
+   4,
+   8
+  ],
+  [
+   1,
+   5,
+   6
+  ],
+  [
+   2,
+   3,
+   7
+  ]
+ ],
+ "sharp_counts": [
+  [
+   32,
+   48,
+   16
+  ],
+  [
+   48,
+   70,
+   26
+  ],
+  [
+   16,
+   26,
+   6
+  ]
+ ],
+ "sharp_minor": [
+  0.0016974212168521304,
+  0.0016974212168521308
+ ],
+ "observed_minor": [
+  0.001697401375991243,
+  0.0016974403738381153
+ ],
+ "tickets": 4294967296,
+ "thresholds": [
+  [
+   3176872967,
+   4294967296,
+   0
+  ],
+  [
+   934886171,
+   0,
+   4294967296
+  ]
+ ],
+ "gains": [
+  [
+   0.10821358464023273,
+   0.10821358464023276
+  ],
+  [
+   0.3677247801253173,
+   0.3677247801253174
+  ]
+ ],
+ "shots": 17592186044416,
+ "seed": 28122929,
+ "arms": {
+  "fresh": {
+   "arrival_pair_counts_per_2592": [
+    72,
+    360,
+    360,
+    1800
+   ],
+   "coincidence_counts": [
+    6566790372412,
+    701411745643
+   ],
+   "charge_from_two_counts": [
+    -4.5600805346579617e-07,
+    4.5600805346579617e-07
+   ],
+   "full_charge": [
+    -1.4314328875492135e-08,
+    1.4314328875492135e-08
+   ]
+  },
+  "shared": {
+   "arrival_pair_counts_per_2592": [
+    90,
+    342,
+    342,
+    1818
+   ],
+   "coincidence_counts": [
+    6688956729564,
+    823576191024
+   ],
+   "charge_from_two_counts": [
+    0.0033045882371540124,
+    0.003305500253260945
+   ],
+   "full_charge": [
+    0.003305112470780722,
+    0.003305142555796089
+   ]
+  },
+  "same_serial": {
+   "arrival_pair_counts_per_2592": [
+    72,
+    360,
+    360,
+    1800
+   ],
+   "coincidence_counts": [
+    6821216931968,
+    701411365418
+   ],
+   "charge_from_two_counts": [
+    0.0015645723601987569,
+    0.0015654843763056889
+   ],
+   "full_charge": [
+    0.0015650323495179407,
+    0.0015650649179968822
+   ]
+  },
+  "opposed_serial": {
+   "arrival_pair_counts_per_2592": [
+    54,
+    378,
+    378,
+    1782
+   ],
+   "coincidence_counts": [
+    7075647191131,
+    605834269024
+   ],
+   "charge_from_two_counts": [
+    0.0011318088393772606,
+    0.0011327208554841926
+   ],
+   "full_charge": [
+    0.0011322862944567827,
+    0.0011323242734661307
+   ]
+  }
+ },
+ "dust_address_reference_counts": [
+  12,
+  10,
+  3,
+  8
+ ],
+ "dust_log_odds_coefficient": [
+  -1.1631508098056809,
+  -1.1631508098056804
+ ],
+ "dust_charge_change": [
+  -0.2819759538922863,
+  -0.2819759538922862
+ ],
+ "dust_inferred_change_in_counted_mass": [
+  0.24242424242424238,
+  0.24242424242424243
+ ],
+ "dust_held_rod_comparison": [
+  {
+   "inverse_radius": 512,
+   "ordinary_gain": 0.2500000016556846,
+   "predicted_rest_component": 0.8636363693560012,
+   "maximum_component_difference": 2.0938529561476127e-05
+  },
+  {
+   "inverse_radius": 2048,
+   "ordinary_gain": 0.2500000001034803,
+   "predicted_rest_component": 0.8636363639938409,
+   "maximum_component_difference": 1.3086172934995144e-06
+  },
+  {
+   "inverse_radius": 8192,
+   "ordinary_gain": 0.2500000000064675,
+   "predicted_rest_component": 0.8636363636587058,
+   "maximum_component_difference": 8.178842136885578e-08
+  }
+ ],
+ "inputs": {
+  "reference_arrival.json": "e3ff141b479bcc8e7d47a6338830a89a03f44c06bd0384e44f39bf2c726cc4f6",
+  "pair_clock_information.json": "e27b9c045caf718f3e141832ea6abc03c7e319e62d433414556a7160059758c6",
+  "../../../../model/experiments/interval_echo_clock/publication.json": "c6fbb3f32c125d53f9ac5988d56db73ab613c30b48e3fe8fa3a1525cc1370909",
+  "../../../../model/candidate_laws/interval_echo_published_records/spherical_dust/results.json": "91d6b7b049112484b243f9ccedf0a97194e1105547eb6dc74e5610a57f032bbe"
+ }
+}

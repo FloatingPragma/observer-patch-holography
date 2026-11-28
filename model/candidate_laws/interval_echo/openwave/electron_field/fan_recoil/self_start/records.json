@@ -1,0 +1,3159 @@
+{
+  "source_filter_certificate_sha256": "0c8e91ba240ca120500c3cce4ddcc5b7b1360b3b8e0046e6a9bfe7584936a898",
+  "joint_confidence_lower": 0.99,
+  "receiver_shots_per_read": 17179869184,
+  "quadrature_shots_per_read": 1073741824,
+  "seed": 832018,
+  "charge_outcome_order": [
+    "first_energy_refused",
+    "local_charge_herald_refused",
+    "second_energy_refused",
+    "no_gateway_charge",
+    "terminal_gateway_charge"
+  ],
+  "current_outcome_order": [
+    "first_energy_refused",
+    "local_charge_herald_refused",
+    "second_energy_refused",
+    "outside_isolated_bridge",
+    "gateway_side",
+    "entry_side"
+  ],
+  "paths": [
+    {
+      "path_fans": 3,
+      "reproduced_filter_and_path_sha256": "e8addcacf0f5adbcd585e8e7045ba9f7f975cb9e0d63d0b868b7bd2883d27144",
+      "source_rim_word": [
+        98,
+        [
+          146,
+          146,
+          146
+        ]
+      ],
+      "source_and_receiving_hubs": [
+        98,
+        1011
+      ],
+      "reference_energy_line_centers": [
+        "3901674496547/1099511627776",
+        "2273037021431/549755813888"
+      ],
+      "reference_energy_line_radii": [
+        "16627/140737488355328",
+        "30751/281474976710656"
+      ],
+      "stationary_stock_before_herald_admission": 0.001436303937736234,
+      "stationary_stock_after_herald_after_filter_probability": 3.325646362022811e-05,
+      "full_no_phase_source_gateway_arrival_before_local_wait": 0.03500269913597316,
+      "stationary_stock_probability_margin": 3.688101978098496e-10,
+      "terminal_charge_clock_frequency_interval": [
+        0.5716919253099026,
+        0.6047937226999979
+      ],
+      "half_rate_control_frequency_interval": [
+        0.28538507265553825,
+        0.3025375437433923
+      ],
+      "independent_formation_line_separation_interval": [
+        0.5540130526283726,
+        0.6257131702772192
+      ],
+      "per_defect_control_formation_frequency_shift_intervals": [
+        [
+          0.9571868674770845,
+          1.038839756674359
+        ],
+        [
+          0.9676490205140702,
+          1.0305028614874008
+        ]
+      ],
+      "same_defect_flight_unchanged_by_uniform_defect_energy_offset": true,
+      "raw_count_banks": {
+        "sharp_arrival_native_unfiltered": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              0,
+              16578533210,
+              0,
+              0,
+              601335974
+            ],
+            "current_counts": [
+              0,
+              16578605687,
+              0,
+              0,
+              300623027,
+              300640470
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.03500269913597316,
+              0.01750134956798658,
+              0.01750134956798658
+            ],
+            "terminal_charge_probability_interval": [
+              0.03499595312730007,
+              0.035008768583725446
+            ],
+            "signed_current_port_difference_interval": [
+              -1.0158549098544106e-05,
+              8.127916647882732e-06
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              0,
+              16578562635,
+              0,
+              479739518,
+              121567031
+            ],
+            "current_counts": [
+              0,
+              16578505951,
+              0,
+              423527074,
+              24393339,
+              153442820
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.007076359794105153,
+              0.0014197810539875672,
+              0.008931691664723055
+            ],
+            "terminal_charge_probability_interval": [
+              0.007073210399716198,
+              0.007079055455719816
+            ],
+            "signed_current_port_difference_interval": [
+              -0.007516261677470578,
+              -0.007507075172257718
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              0,
+              16578496776,
+              0,
+              534698064,
+              66674344
+            ],
+            "current_counts": [
+              0,
+              16578522176,
+              0,
+              504044337,
+              49327407,
+              47975264
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0038808765770457286,
+              0.002871049660492171,
+              0.002792120163573664
+            ],
+            "terminal_charge_probability_interval": [
+              0.003878790142653515,
+              0.003883125895051232
+            ],
+            "signed_current_port_difference_interval": [
+              7.499951214127694e-05,
+              8.241065022956181e-05
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              0,
+              16578517244,
+              0,
+              549300958,
+              52050982
+            ],
+            "current_counts": [
+              0,
+              16578553723,
+              0,
+              510119841,
+              49242839,
+              41952781
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0030293990052468836,
+              0.0028664371801175067,
+              0.0024422241325249656
+            ],
+            "terminal_charge_probability_interval": [
+              0.003027850045175746,
+              0.0030316826005113676
+            ],
+            "signed_current_port_difference_interval": [
+              0.0004207522977659646,
+              0.0004279221497357922
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              0,
+              16578532333,
+              0,
+              550194595,
+              51142256
+            ],
+            "current_counts": [
+              0,
+              16578478321,
+              0,
+              528120713,
+              39437595,
+              33832555
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.002976554164935956,
+              0.0022953069777021827,
+              0.00196897331918551
+            ],
+            "terminal_charge_probability_interval": [
+              0.0029749719800403634,
+              0.0029787710359922776
+            ],
+            "signed_current_port_difference_interval": [
+              0.0003230418390929679,
+              0.0003294706958164779
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              0,
+              16578529782,
+              0,
+              549513317,
+              51826085
+            ],
+            "current_counts": [
+              0,
+              16578513897,
+              0,
+              525907939,
+              37324782,
+              38122566
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0030164616056947693,
+              0.0021720280487179293,
+              0.0022186530656803025
+            ],
+            "terminal_charge_probability_interval": [
+              0.0030147634483558296,
+              0.0030185877407200843
+            ],
+            "signed_current_port_difference_interval": [
+              -4.970122604014849e-05,
+              -4.31730549908119e-05
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              0,
+              16578528235,
+              0,
+              550492040,
+              50848909
+            ],
+            "current_counts": [
+              0,
+              16578535493,
+              0,
+              523553747,
+              32821759,
+              44958185
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.002959703992990663,
+              0.0019108059941303618,
+              0.002617138094005324
+            ],
+            "terminal_charge_probability_interval": [
+              0.002957902376348233,
+              0.002961690554301408
+            ],
+            "signed_current_port_difference_interval": [
+              -0.0007097368487068748,
+              -0.0007031290887360572
+            ]
+          }
+        ],
+        "sharp_arrival_same_two_line_filter": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              0,
+              16578533327,
+              600298364,
+              817722,
+              219771
+            ],
+            "current_counts": [
+              0,
+              16578533850,
+              600296529,
+              697520,
+              157467,
+              183818
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.281608332512202e-05,
+              9.183884409942887e-06,
+              1.0726468580617249e-05
+            ],
+            "terminal_charge_probability_interval": [
+              1.2636764612420629e-05,
+              1.2948777100826774e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -1.8160427443267897e-06,
+              -1.2516173738257617e-06
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              0,
+              16578546966,
+              600282262,
+              863347,
+              176609
+            ],
+            "current_counts": [
+              0,
+              16578496439,
+              600332563,
+              757526,
+              115899,
+              166757
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.0247560083283699e-05,
+              6.697019523760194e-06,
+              9.691207470423097e-06
+            ],
+            "terminal_charge_probability_interval": [
+              1.0137319011176594e-05,
+              1.0423504618086459e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -3.222119693181437e-06,
+              -2.698530674947777e-06
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              0,
+              16578539696,
+              600289799,
+              926366,
+              113323
+            ],
+            "current_counts": [
+              0,
+              16578552529,
+              600276764,
+              844155,
+              67930,
+              127806
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.601162245911153e-06,
+              3.970809816473712e-06,
+              7.417239485351918e-06
+            ],
+            "terminal_charge_probability_interval": [
+              6.475829536980297e-06,
+              6.71753411920899e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -3.7122806902943178e-06,
+              -3.2582029767954548e-06
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              0,
+              16578535830,
+              600291917,
+              988061,
+              53376
+            ],
+            "current_counts": [
+              0,
+              16578543899,
+              600286080,
+              926542,
+              32634,
+              80029
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.0939382069411574e-06,
+              1.915174966013763e-06,
+              4.663540800666233e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.0145442575170522e-06,
+              3.200070285437818e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -2.9446711304374057e-06,
+              -2.5728327806438607e-06
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              0,
+              16578495159,
+              600335091,
+              1023787,
+              15147
+            ],
+            "current_counts": [
+              0,
+              16578548052,
+              600282249,
+              977194,
+              21046,
+              40643
+            ],
+            "simulated_charge_and_port_probabilities": [
+              8.964846961261898e-07,
+              1.2162186848253429e-06,
+              2.3492060163116494e-06
+            ],
+            "terminal_charge_probability_interval": [
+              8.180397624643231e-07,
+              9.461339412216101e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2955285191771535e-06,
+              -9.858622884650293e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              0,
+              16578573746,
+              600256063,
+              993438,
+              45937
+            ],
+            "current_counts": [
+              0,
+              16578513626,
+              600314543,
+              937528,
+              73852,
+              29635
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.682685578592544e-06,
+              4.29081774272909e-06,
+              1.7239616928362772e-06
+            ],
+            "terminal_charge_probability_interval": [
+              2.5859804043568782e-06,
+              2.762620604480568e-06
+            ],
+            "signed_current_port_difference_interval": [
+              2.3930721724760527e-06,
+              2.754463829484588e-06
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              0,
+              16578543041,
+              600286450,
+              824208,
+              215485
+            ],
+            "current_counts": [
+              0,
+              16578530835,
+              600297661,
+              704776,
+              183027,
+              152885
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.255809795732551e-05,
+              1.0674163214883462e-05,
+              8.882423473001292e-06
+            ],
+            "terminal_charge_probability_interval": [
+              1.2388508475060499e-05,
+              1.2698077172037975e-05
+            ],
+            "signed_current_port_difference_interval": [
+              1.47407524739665e-06,
+              2.034915351154111e-06
+            ]
+          }
+        ],
+        "stationary_two_lines_herald_omitted": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17155194687,
+              0,
+              0,
+              22068555,
+              2605942
+            ],
+            "current_counts": [
+              17155195487,
+              0,
+              0,
+              20613448,
+              2029478,
+              2030771
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.00015125644362581596,
+              0.00015211596255556474
+            ],
+            "signed_current_port_difference_interval": [
+              -8.340063375982242e-07,
+              6.834813266311739e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17155190708,
+              0,
+              0,
+              22074990,
+              2603486
+            ],
+            "current_counts": [
+              17155187799,
+              0,
+              0,
+              20622814,
+              2028751,
+              2029820
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.0001511136879560324,
+              0.00015197280219522708
+            ],
+            "signed_current_port_difference_interval": [
+              -8.208112064869212e-07,
+              6.963632275805491e-07
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17155197993,
+              0,
+              0,
+              22065853,
+              2605338
+            ],
+            "current_counts": [
+              17155194144,
+              0,
+              0,
+              20616969,
+              2028049,
+              2030022
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.00015122133595225424,
+              0.00015208075537482708
+            ],
+            "signed_current_port_difference_interval": [
+              -8.733842417207063e-07,
+              6.436968119915578e-07
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17155193318,
+              0,
+              0,
+              22069634,
+              2606232
+            ],
+            "current_counts": [
+              17155192533,
+              0,
+              0,
+              20618034,
+              2027074,
+              2031543
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.00015127329996120082,
+              0.00015213286666348292
+            ],
+            "signed_current_port_difference_interval": [
+              -1.01872143898678e-06,
+              4.984613662682632e-07
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17155197326,
+              0,
+              0,
+              22070088,
+              2601770
+            ],
+            "current_counts": [
+              17155193340,
+              0,
+              0,
+              20617007,
+              2029462,
+              2029375
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.0001510139450447205,
+              0.00015187277641446153
+            ],
+            "signed_current_port_difference_interval": [
+              -7.535479866528514e-07,
+              7.636761196431617e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17155188495,
+              0,
+              0,
+              22072685,
+              2608004
+            ],
+            "current_counts": [
+              17155192362,
+              0,
+              0,
+              20615675,
+              2030127,
+              2031020
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947045,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.00015137629801180335,
+              0.0001522361565629502
+            ],
+            "signed_current_port_difference_interval": [
+              -8.10807080877323e-07,
+              7.068481985884493e-07
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17155194732,
+              0,
+              0,
+              22069216,
+              2605236
+            ],
+            "current_counts": [
+              17155190808,
+              0,
+              0,
+              20618981,
+              2031837,
+              2027558
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00015158438137947042,
+              0.00011816395839039888,
+              0.00011816395839039888
+            ],
+            "terminal_charge_probability_interval": [
+              0.0001512154071735038,
+              0.00015207480979074548
+            ],
+            "signed_current_port_difference_interval": [
+              -5.09593450583127e-07,
+              1.0077346121806826e-06
+            ]
+          }
+        ],
+        "stationary_two_lines_local_charge_herald": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17155194614,
+              22070783,
+              2032763,
+              442488,
+              128536
+            ],
+            "current_counts": [
+              17155193558,
+              22072496,
+              2032824,
+              369161,
+              100219,
+              100926
+            ],
+            "simulated_charge_and_port_probabilities": [
+              7.474177158710245e-06,
+              5.88833960116264e-06,
+              5.88833960116264e-06
+            ],
+            "terminal_charge_probability_interval": [
+              7.386432592933488e-06,
+              7.577957328839439e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -2.106598901580838e-07,
+              1.28354259154396e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17155199176,
+              22064615,
+              2034616,
+              452150,
+              118627
+            ],
+            "current_counts": [
+              17155194363,
+              22069307,
+              2034337,
+              381927,
+              85671,
+              103579
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.893006463625794e-06,
+              4.976610374408612e-06,
+              6.003129800795264e-06
+            ],
+            "terminal_charge_probability_interval": [
+              6.813402421261363e-06,
+              6.997428092533955e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2066420081058973e-06,
+              -8.781235327119273e-07
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17155195019,
+              22071469,
+              2031678,
+              479402,
+              91616
+            ],
+            "current_counts": [
+              17155197616,
+              22067160,
+              2032933,
+              418688,
+              61580,
+              91207
+            ],
+            "simulated_charge_and_port_probabilities": [
+              5.343470157374464e-06,
+              3.5722475311369055e-06,
+              5.282667757268806e-06
+            ],
+            "terminal_charge_probability_interval": [
+              5.252258145924816e-06,
+              5.414078165349593e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.871654421884766e-06,
+              -1.5773822205448927e-06
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17155196451,
+              22069448,
+              2032049,
+              513979,
+              57257
+            ],
+            "current_counts": [
+              17155184987,
+              22081487,
+              2031327,
+              466050,
+              36921,
+              68412
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.3427528031823e-06,
+              2.1439814784881443e-06,
+              3.967420148129925e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.2691642178714077e-06,
+              3.397258169131516e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.954497887483759e-06,
+              -1.711536828033696e-06
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17155192101,
+              22074451,
+              2032429,
+              543614,
+              26589
+            ],
+            "current_counts": [
+              17155193895,
+              22071224,
+              2033702,
+              507607,
+              19991,
+              42765
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.5586284485447604e-06,
+              1.1685207334745793e-06,
+              2.496373628626592e-06
+            ],
+            "terminal_charge_probability_interval": [
+              1.5043263459570152e-06,
+              1.5918712098563918e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.4190347807922304e-06,
+              -1.2322074643057073e-06
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17155183649,
+              22078702,
+              2035461,
+              558436,
+              12936
+            ],
+            "current_counts": [
+              17155185951,
+              22076141,
+              2035489,
+              527745,
+              27737,
+              16121
+            ],
+            "simulated_charge_and_port_probabilities": [
+              7.51044061613215e-07,
+              1.6185242606580573e-06,
+              9.389579055371611e-07
+            ],
+            "terminal_charge_probability_interval": [
+              7.227370075798635e-07,
+              7.840425061247076e-07
+            ],
+            "signed_current_port_difference_interval": [
+              5.972689842755207e-07,
+              7.550111494240419e-07
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17155191804,
+              22071983,
+              2033561,
+              471497,
+              100339
+            ],
+            "current_counts": [
+              17155193221,
+              22070634,
+              2034234,
+              407314,
+              95445,
+              68336
+            ],
+            "simulated_charge_and_port_probabilities": [
+              5.848356709610618e-06,
+              5.55871186322557e-06,
+              3.988536677955889e-06
+            ],
+            "terminal_charge_probability_interval": [
+              5.756257883913998e-06,
+              5.925569259476851e-06
+            ],
+            "signed_current_port_difference_interval": [
+              1.4254436106096557e-06,
+              1.7304592687656922e-06
+            ]
+          }
+        ],
+        "herald_then_fine_phase_erasure": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17155197494,
+              22071026,
+              2030418,
+              501625,
+              68621
+            ],
+            "current_counts": [
+              17155184827,
+              22078808,
+              2033272,
+              452322,
+              60006,
+              59949
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862338e-06,
+              3.5006311423285413e-06,
+              3.5006311423285413e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.924605571419442e-06,
+              4.064760484219962e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2776515243556348e-07,
+              1.344008255196228e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17155195795,
+              22068120,
+              2033310,
+              503291,
+              68668
+            ],
+            "current_counts": [
+              17155189966,
+              22074497,
+              2032437,
+              452341,
+              59647,
+              60296
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862339e-06,
+              3.5006311423285417e-06,
+              3.5006311423285417e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.927317473506825e-06,
+              4.067520102082135e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.6885276952208132e-07,
+              9.329922862047808e-08
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17155198618,
+              22065355,
+              2034455,
+              502267,
+              68489
+            ],
+            "current_counts": [
+              17155191628,
+              22076686,
+              2030121,
+              450765,
+              60060,
+              59924
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862338e-06,
+              3.5006311423285413e-06,
+              3.5006311423285413e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.916989209287902e-06,
+              4.057010024366342e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2318247775250387e-07,
+              1.3901496090081437e-07
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17155191286,
+              22072345,
+              2034448,
+              502426,
+              68679
+            ],
+            "current_counts": [
+              17155194044,
+              22070642,
+              2034787,
+              449568,
+              60132,
+              60011
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862339e-06,
+              3.5006311423285417e-06,
+              3.5006311423285417e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.9279521751746075e-06,
+              4.068165968913286e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2414190350202824e-07,
+              1.382281568927044e-07
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17155200047,
+              22065031,
+              2033587,
+              502130,
+              68389
+            ],
+            "current_counts": [
+              17155190370,
+              22076141,
+              2031432,
+              450808,
+              60324,
+              60109
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862339e-06,
+              3.5006311423285413e-06,
+              3.5006311423285413e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.911219281002419e-06,
+              4.051138420845686e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.1882761550308626e-07,
+              1.4385690871822208e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17155195271,
+              22071103,
+              2031201,
+              502775,
+              68834
+            ],
+            "current_counts": [
+              17155195387,
+              22069783,
+              2032260,
+              451555,
+              60274,
+              59925
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862338e-06,
+              3.5006311423285413e-06,
+              3.5006311423285413e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.936895746156345e-06,
+              4.077266772234812e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.1090082008315585e-07,
+              1.5152976581123016e-07
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17155193563,
+              22068740,
+              2034862,
+              503474,
+              68545
+            ],
+            "current_counts": [
+              17155189401,
+              22074212,
+              2035130,
+              449641,
+              60344,
+              60456
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.991686936862338e-06,
+              3.500631142328541e-06,
+              3.500631142328541e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.920220385338343e-06,
+              4.060298106127561e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.3806031124342342e-07,
+              1.250217957050436e-07
+            ]
+          }
+        ],
+        "herald_then_half_flight_generator": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17155198976,
+              22066165,
+              2033201,
+              442517,
+              128325
+            ],
+            "current_counts": [
+              17155188502,
+              22072887,
+              2035078,
+              369995,
+              101729,
+              100993
+            ],
+            "simulated_charge_and_port_probabilities": [
+              7.474177158710245e-06,
+              5.88833960116264e-06,
+              5.88833960116264e-06
+            ],
+            "terminal_charge_probability_interval": [
+              7.374229080832347e-06,
+              7.565597208357696e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2732627388437646e-07,
+              2.1300794917609672e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17155195668,
+              22068229,
+              2035008,
+              444736,
+              125543
+            ],
+            "current_counts": [
+              17155196164,
+              22068732,
+              2033742,
+              372132,
+              94537,
+              103877
+            ],
+            "simulated_charge_and_port_probabilities": [
+              7.325720157128478e-06,
+              5.51849564981066e-06,
+              6.054609663792062e-06
+            ],
+            "terminal_charge_probability_interval": [
+              7.2133338817882925e-06,
+              7.402624986403257e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -7.11971219931123e-07,
+              -3.753478653229075e-07
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17155197723,
+              22068490,
+              2032097,
+              452742,
+              118132
+            ],
+            "current_counts": [
+              17155192796,
+              22072688,
+              2033355,
+              381897,
+              85481,
+              102967
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.893006463625794e-06,
+              4.976610374408612e-06,
+              6.003129800795264e-06
+            ],
+            "terminal_charge_probability_interval": [
+              6.78478096874598e-06,
+              6.968423961593663e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.1817387183860057e-06,
+              -8.538995573770885e-07
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17155183268,
+              22078957,
+              2035347,
+              464920,
+              106692
+            ],
+            "current_counts": [
+              17155190355,
+              22074304,
+              2033126,
+              398655,
+              74144,
+              98600
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.2129288608884236e-06,
+              4.3088844291221876e-06,
+              5.738289139271239e-06
+            ],
+            "terminal_charge_probability_interval": [
+              6.123424726212792e-06,
+              6.297988943562947e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.5802761194653305e-06,
+              -1.2667769245811383e-06
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17155195008,
+              22069898,
+              2031434,
+              480477,
+              92367
+            ],
+            "current_counts": [
+              17155185920,
+              22078765,
+              2031317,
+              420862,
+              61664,
+              90656
+            ],
+            "simulated_charge_and_port_probabilities": [
+              5.343470157374464e-06,
+              3.5722475311369055e-06,
+              5.282667757268806e-06
+            ],
+            "terminal_charge_probability_interval": [
+              5.295642788955023e-06,
+              5.458121427167387e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.834494547351864e-06,
+              -1.5406183674621318e-06
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17155190606,
+              22072047,
+              2034871,
+              514203,
+              57457
+            ],
+            "current_counts": [
+              17155193202,
+              22072297,
+              2032152,
+              466308,
+              36907,
+              68318
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.3427528031823e-06,
+              2.1439814784881443e-06,
+              3.967420148129925e-06
+            ],
+            "terminal_charge_probability_interval": [
+              3.280694685497034e-06,
+              3.409010764894648e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.9497837705371978e-06,
+              -1.706937719458157e-06
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17155196399,
+              22070321,
+              2031352,
+              555062,
+              16050
+            ],
+            "current_counts": [
+              17155191944,
+              22073988,
+              2032182,
+              522481,
+              16491,
+              32098
+            ],
+            "simulated_charge_and_port_probabilities": [
+              9.426237631922079e-07,
+              9.617501049483242e-07,
+              1.8584385987304913e-06
+            ],
+            "terminal_charge_probability_interval": [
+              9.005505781385134e-07,
+              9.68746131001876e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -9.910586673378567e-07,
+              -8.258349717034614e-07
+            ]
+          }
+        ]
+      },
+      "independent_neutral_and_formation_counts": {
+        "ring_clock_counts": [
+          [
+            [
+              1073741824,
+              0,
+              0,
+              0
+            ],
+            [
+              536890066,
+              536851758,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              826930386,
+              246811438,
+              0,
+              0
+            ],
+            [
+              85110825,
+              988630999,
+              0,
+              0
+            ]
+          ]
+        ],
+        "ring_clock_angular_frequency_interval": [
+          0.9997760872637728,
+          1.00033395640502
+        ],
+        "formation_pointer_outcome_order": [
+          "filter_pass_plus",
+          "filter_pass_minus",
+          "filter_refused_plus",
+          "filter_refused_minus"
+        ],
+        "formation_lines": [
+          {
+            "per_defect_offset": 0,
+            "line": 0,
+            "coherent_arm_weight": 0.08168435643765208,
+            "quadrature_trial_counts": [
+              [
+                [
+                  334218084,
+                  246534472,
+                  246503946,
+                  246485322
+                ],
+                [
+                  290366243,
+                  290339713,
+                  246502159,
+                  246533709
+                ]
+              ],
+              [
+                [
+                  318081582,
+                  262636252,
+                  246507409,
+                  246516581
+                ],
+                [
+                  256339102,
+                  324358905,
+                  246537707,
+                  246506110
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              3.5262986823256597,
+              3.5668485716587006
+            ]
+          },
+          {
+            "per_defect_offset": 0,
+            "line": 1,
+            "coherent_arm_weight": 0.10910711110333246,
+            "quadrature_trial_counts": [
+              [
+                [
+                  356303915,
+                  239113308,
+                  239170168,
+                  239154433
+                ],
+                [
+                  297730034,
+                  297733831,
+                  239144121,
+                  239133838
+                ]
+              ],
+              [
+                [
+                  327677746,
+                  267777639,
+                  239125271,
+                  239161168
+                ],
+                [
+                  247388421,
+                  348013189,
+                  239170908,
+                  239169306
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              4.120861624287073,
+              4.152011852602879
+            ]
+          },
+          {
+            "per_defect_offset": 0.5,
+            "line": 0,
+            "coherent_arm_weight": 0.08168435643765208,
+            "quadrature_trial_counts": [
+              [
+                [
+                  334209701,
+                  246522033,
+                  246515896,
+                  246494194
+                ],
+                [
+                  290358868,
+                  290390308,
+                  246493531,
+                  246499117
+                ]
+              ],
+              [
+                [
+                  308787120,
+                  271925423,
+                  246536549,
+                  246492732
+                ],
+                [
+                  250581909,
+                  330164350,
+                  246492118,
+                  246503447
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              4.524035439135785,
+              4.565138439000019
+            ]
+          },
+          {
+            "per_defect_offset": 0.5,
+            "line": 1,
+            "coherent_arm_weight": 0.10910711110333246,
+            "quadrature_trial_counts": [
+              [
+                [
+                  356277413,
+                  239154927,
+                  239159452,
+                  239150032
+                ],
+                [
+                  297720301,
+                  297723957,
+                  239156927,
+                  239140639
+                ]
+              ],
+              [
+                [
+                  314307889,
+                  281130488,
+                  239147493,
+                  239155954
+                ],
+                [
+                  241529419,
+                  353921152,
+                  239142234,
+                  239149019
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              5.119660873116949,
+              5.151364485774474
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path_fans": 4,
+      "reproduced_filter_and_path_sha256": "9d7975a748312e36ac1b15df7b765a8ad088f35cc2bf8da02cdb63cf16bdba7a",
+      "source_rim_word": [
+        98,
+        [
+          146,
+          146,
+          146,
+          146
+        ]
+      ],
+      "source_and_receiving_hubs": [
+        98,
+        1045
+      ],
+      "reference_energy_line_centers": [
+        "3900145886437/1099511627776",
+        "4294105370239/1099511627776"
+      ],
+      "reference_energy_line_radii": [
+        "8675/35184372088832",
+        "68457/281474976710656"
+      ],
+      "stationary_stock_before_herald_admission": 0.0003088578461149051,
+      "stationary_stock_after_herald_after_filter_probability": 5.5937742358640265e-06,
+      "full_no_phase_source_gateway_arrival_before_local_wait": 0.016487671538801027,
+      "stationary_stock_probability_margin": 6.071577784667284e-10,
+      "terminal_charge_clock_frequency_interval": [
+        0.2700755227622561,
+        0.4120040237751957
+      ],
+      "half_rate_control_frequency_interval": [
+        0.13801470159622045,
+        0.20830151393661858
+      ],
+      "independent_formation_line_separation_interval": [
+        0.3160234538758977,
+        0.4100438132797133
+      ],
+      "per_defect_control_formation_frequency_shift_intervals": [
+        [
+          0.9376713123672946,
+          1.0741608448691973
+        ],
+        [
+          0.974493768724205,
+          1.0272009790322314
+        ]
+      ],
+      "same_defect_flight_unchanged_by_uniform_defect_energy_offset": true,
+      "raw_count_banks": {
+        "sharp_arrival_native_unfiltered": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              0,
+              16896628021,
+              0,
+              0,
+              283241163
+            ],
+            "current_counts": [
+              0,
+              16896612372,
+              0,
+              0,
+              141621304,
+              141635508
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.016487671538801027,
+              0.008243835769400513,
+              0.008243835769400513
+            ],
+            "terminal_charge_probability_interval": [
+              0.016482366264660982,
+              0.016491245683021735
+            ],
+            "signed_current_port_difference_interval": [
+              -7.131983962916852e-06,
+              5.478420736336129e-06
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              0,
+              16896624874,
+              0,
+              231537787,
+              51706523
+            ],
+            "current_counts": [
+              0,
+              16896641854,
+              0,
+              211105335,
+              14093168,
+              58028827
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.00300919675551899,
+              0.0008201745224783593,
+              0.003377553377644826
+            ],
+            "terminal_charge_probability_interval": [
+              0.0030078062241128117,
+              0.003011626116266684
+            ],
+            "signed_current_port_difference_interval": [
+              -0.00256041319281986,
+              -0.0025543706850830396
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              0,
+              16896579836,
+              0,
+              250277258,
+              33012090
+            ],
+            "current_counts": [
+              0,
+              16896610786,
+              0,
+              243048754,
+              21655381,
+              18554263
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0019214004329958596,
+              0.0012598530530826344,
+              0.001080041030564753
+            ],
+            "terminal_charge_probability_interval": [
+              0.0019200299886825186,
+              0.0019230839194399076
+            ],
+            "signed_current_port_difference_interval": [
+              0.00017812638381077073,
+              0.00018289126588081316
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              0,
+              16896617186,
+              0,
+              253603591,
+              29648407
+            ],
+            "current_counts": [
+              0,
+              16896632356,
+              0,
+              242437989,
+              19492428,
+              21306411
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0017258637786832156,
+              0.001134956620904569,
+              0.0012400223522574519
+            ],
+            "terminal_charge_probability_interval": [
+              0.0017243176033306712,
+              0.0017272120661493665
+            ],
+            "signed_current_port_difference_interval": [
+              -0.00010798871517372021,
+              -0.00010318669938311708
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              0,
+              16896616177,
+              0,
+              258763521,
+              24489486
+            ],
+            "current_counts": [
+              0,
+              16896600499,
+              0,
+              246862704,
+              20372637,
+              16033344
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0014252293289543734,
+              0.001185525215377033,
+              0.0009332487326769289
+            ],
+            "terminal_charge_probability_interval": [
+              0.0014241605941699475,
+              0.001426791627315775
+            ],
+            "signed_current_port_difference_interval": [
+              0.00025031536085571627,
+              0.0002548448298144222
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              0,
+              16896615959,
+              0,
+              263533900,
+              19719325
+            ],
+            "current_counts": [
+              0,
+              16896593320,
+              0,
+              255328476,
+              13787808,
+              14159580
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0011476268636697977,
+              0.0008022761829350838,
+              0.0008238359395350495
+            ],
+            "terminal_charge_probability_interval": [
+              0.0011466355562741502,
+              0.0011489968376941575
+            ],
+            "signed_current_port_difference_interval": [
+              -2.3628037798033947e-05,
+              -1.965191919208744e-05
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              0,
+              16896624298,
+              0,
+              266940470,
+              16304416
+            ],
+            "current_counts": [
+              0,
+              16896605001,
+              0,
+              259041311,
+              13619890,
+              10602982
+            ],
+            "simulated_charge_and_port_probabilities": [
+              0.0009492386057668188,
+              0.0007928605310516621,
+              0.0006174244083331452
+            ],
+            "terminal_charge_probability_interval": [
+              0.0009479686583726039,
+              0.0009501160056883464
+            ],
+            "signed_current_port_difference_interval": [
+              0.00017375975841680722,
+              0.00017745455702958192
+            ]
+          }
+        ],
+        "sharp_arrival_same_two_line_filter": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              0,
+              16896641340,
+              282966616,
+              207181,
+              54047
+            ],
+            "current_counts": [
+              0,
+              16896604299,
+              283004132,
+              167919,
+              46662,
+              46172
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.1418996758689924e-06,
+              2.7158336262744985e-06,
+              2.7071044040459445e-06
+            ],
+            "terminal_charge_probability_interval": [
+              2.96018039928433e-06,
+              3.332548821015188e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -3.3478447379062866e-07,
+              3.9182797822727276e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              0,
+              16896605369,
+              283001121,
+              210187,
+              52507
+            ],
+            "current_counts": [
+              0,
+              16896609640,
+              282997852,
+              171209,
+              43934,
+              46549
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.0580387866287526e-06,
+              2.568244546091177e-06,
+              2.7179244122468177e-06
+            ],
+            "terminal_charge_probability_interval": [
+              2.8714279631009215e-06,
+              3.242021669950178e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -5.140472505929973e-07,
+              2.0962120208350867e-07
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              0,
+              16896620845,
+              282985803,
+              214283,
+              48253
+            ],
+            "current_counts": [
+              0,
+              16896581789,
+              283026448,
+              177203,
+              39258,
+              44486
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7969929268637945e-06,
+              2.285675346740269e-06,
+              2.5747528365072867e-06
+            ],
+            "terminal_charge_probability_interval": [
+              2.6263337522098094e-06,
+              2.9918851268967997e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -6.61807367099544e-07,
+              5.318810514716702e-08
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              0,
+              16896633701,
+              282973402,
+              220843,
+              41238
+            ],
+            "current_counts": [
+              0,
+              16896592350,
+              283015747,
+              189505,
+              32247,
+              39335
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.391918621192139e-06,
+              1.9040163220690224e-06,
+              2.2957744964597423e-06
+            ],
+            "terminal_charge_probability_interval": [
+              2.222420941519143e-06,
+              2.5791445043943274e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -7.617884651679099e-07,
+              -6.336326637477613e-08
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              0,
+              16896606567,
+              283001447,
+              228629,
+              32541
+            ],
+            "current_counts": [
+              0,
+              16896604650,
+              283003686,
+              202758,
+              25116,
+              32974
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.894266048521898e-06,
+              1.4717435783776699e-06,
+              1.9164235959180627e-06
+            ],
+            "terminal_charge_probability_interval": [
+              1.7222216463755327e-06,
+              2.0668798274476813e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -7.965440416374405e-07,
+              -1.1824745169828365e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              0,
+              16896582669,
+              283025243,
+              246190,
+              15082
+            ],
+            "current_counts": [
+              0,
+              16896591546,
+              283016392,
+              231809,
+              11447,
+              17990
+            ],
+            "simulated_charge_and_port_probabilities": [
+              8.777921487616001e-07,
+              6.744309744708362e-07,
+              1.0559647020014948e-06
+            ],
+            "terminal_charge_probability_interval": [
+              7.212904418279759e-07,
+              1.0353162682122927e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -6.936815045440237e-07,
+              -6.802370064387212e-08
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              0,
+              16896619301,
+              282988489,
+              258280,
+              3114
+            ],
+            "current_counts": [
+              0,
+              16896617141,
+              282989895,
+              251799,
+              5396,
+              4953
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.869017490082249e-07,
+              3.1615155267697573e-07,
+              2.874681061316922e-07
+            ],
+            "terminal_charge_probability_interval": [
+              4.248326602034497e-08,
+              3.2086612080492884e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -2.611681820067342e-07,
+              3.127400937544356e-07
+            ]
+          }
+        ],
+        "stationary_two_lines_herald_omitted": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17174562898,
+              0,
+              0,
+              4838555,
+              467731
+            ],
+            "current_counts": [
+              17174565438,
+              0,
+              0,
+              4557746,
+              373413,
+              372587
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329638e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.7043392036134365e-05,
+              2.740849276464323e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -2.7809619143778324e-07,
+              3.7425524694745593e-07
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17174564197,
+              0,
+              0,
+              4838218,
+              466769
+            ],
+            "current_counts": [
+              17174566800,
+              0,
+              0,
+              4558105,
+              371418,
+              372861
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329638e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.6987583431973843e-05,
+              2.7352309829497035e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -4.0979429282051735e-07,
+              2.4180698398383425e-07
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17174560999,
+              0,
+              0,
+              4839514,
+              468671
+            ],
+            "current_counts": [
+              17174564680,
+              0,
+              0,
+              4558734,
+              372533,
+              373237
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329635e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.70979245378959e-05,
+              2.746339066511413e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -3.6710383772029786e-07,
+              2.8514745142702266e-07
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17174562766,
+              0,
+              0,
+              4839144,
+              467274
+            ],
+            "current_counts": [
+              17174562785,
+              0,
+              0,
+              4560774,
+              372881,
+              372744
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329638e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.7016880024477467e-05,
+              2.738180297436335e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -3.181196485427174e-07,
+              3.3406854757959357e-07
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17174561951,
+              0,
+              0,
+              4840036,
+              467197
+            ],
+            "current_counts": [
+              17174561055,
+              0,
+              0,
+              4561654,
+              373520,
+              372955
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329635e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.701241301585079e-05,
+              2.7377306003232596e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -2.9339183603918634e-07,
+              3.5916649265262606e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17174563327,
+              0,
+              0,
+              4837962,
+              467895
+            ],
+            "current_counts": [
+              17174562774,
+              0,
+              0,
+              4560526,
+              373162,
+              372722
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.721176513632964e-05,
+              2.16973289731957e-05,
+              2.16973289731957e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.705290620407957e-05,
+              2.7418070709427667e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -3.005391232141575e-07,
+              3.517618646475858e-07
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17174565781,
+              0,
+              0,
+              4836414,
+              466989
+            ],
+            "current_counts": [
+              17174562730,
+              0,
+              0,
+              4560380,
+              373515,
+              372559
+            ],
+            "simulated_charge_and_port_probabilities": [
+              2.7211765136329635e-05,
+              2.1697328973195696e-05,
+              2.1697328973195696e-05
+            ],
+            "terminal_charge_probability_interval": [
+              2.7000346297423218e-05,
+              2.7365158334783642e-05
+            ],
+            "signed_current_port_difference_interval": [
+              -2.705452923469775e-07,
+              3.818383396437634e-07
+            ]
+          }
+        ],
+        "stationary_two_lines_local_charge_herald": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17174563424,
+              4838785,
+              371324,
+              75912,
+              19739
+            ],
+            "current_counts": [
+              17174561664,
+              4838830,
+              372048,
+              62245,
+              17126,
+              17271
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.1543130096982535e-06,
+              9.986157968962165e-07,
+              9.986157968962165e-07
+            ],
+            "terminal_charge_probability_interval": [
+              1.111367795304862e-06,
+              1.1873849349496783e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -7.948183508596527e-08,
+              6.26016176084175e-08
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17174563242,
+              4838865,
+              371322,
+              76698,
+              19057
+            ],
+            "current_counts": [
+              17174563167,
+              4838865,
+              370552,
+              63418,
+              16186,
+              16996
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.1200816092158799e-06,
+              9.4193422039924e-07,
+              9.994692404095135e-07
+            ],
+            "terminal_charge_probability_interval": [
+              1.0723214341806884e-06,
+              1.1470360630674495e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.1694175964730667e-07,
+              2.2645373648763027e-08
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17174563343,
+              4839042,
+              371087,
+              78188,
+              17524
+            ],
+            "current_counts": [
+              17174563485,
+              4837764,
+              371805,
+              65709,
+              14170,
+              16251
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.0217352808736037e-06,
+              8.366238746173697e-07,
+              9.443861515150442e-07
+            ],
+            "terminal_charge_probability_interval": [
+              9.845969409367888e-07,
+              1.0562959084019416e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.87977715817713e-07,
+              -5.428249659552428e-08
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17174560941,
+              4840057,
+              372518,
+              80629,
+              15039
+            ],
+            "current_counts": [
+              17174562352,
+              4839004,
+              372163,
+              69267,
+              11769,
+              14629
+            ],
+            "simulated_charge_and_port_probabilities": [
+              8.717654024688295e-07,
+              6.960606662805285e-07,
+              8.403628633268847e-07
+            ],
+            "terminal_charge_probability_interval": [
+              8.425428652212993e-07,
+              9.090579874922485e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -2.2877800021443207e-07,
+              -1.0416969703752755e-07
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17174562316,
+              4839440,
+              371482,
+              84021,
+              11925
+            ],
+            "current_counts": [
+              17174565554,
+              4835487,
+              371960,
+              75080,
+              9173,
+              11930
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.89220274441053e-07,
+              5.380981153863318e-07,
+              7.00611808016009e-07
+            ],
+            "terminal_charge_probability_interval": [
+              6.648569336947237e-07,
+              7.242267369385355e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -2.1628333522643091e-07,
+              -1.0467354104139628e-07
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17174560569,
+              4841334,
+              371019,
+              90607,
+              5655
+            ],
+            "current_counts": [
+              17174563161,
+              4839688,
+              370555,
+              84861,
+              4283,
+              6636
+            ],
+            "simulated_charge_and_port_probabilities": [
+              3.203401359505327e-07,
+              2.498905348857336e-07,
+              3.872112411289166e-07
+            ],
+            "terminal_charge_probability_interval": [
+              3.089388009586643e-07,
+              3.502213337551631e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -1.7731595947398612e-07,
+              -9.660891024016161e-08
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17174559345,
+              4841901,
+              372143,
+              94407,
+              1388
+            ],
+            "current_counts": [
+              17174564590,
+              4837440,
+              371005,
+              91935,
+              2196,
+              2018
+            ],
+            "simulated_charge_and_port_probabilities": [
+              7.814100620336965e-08,
+              1.2786171042785544e-07,
+              1.1423650062840091e-07
+            ],
+            "terminal_charge_probability_interval": [
+              7.065814352484303e-08,
+              9.175950083898666e-08
+            ],
+            "signed_current_port_difference_interval": [
+              1.3307360973184748e-07,
+              3.605480101399384e-08
+            ]
+          }
+        ],
+        "herald_then_fine_phase_erasure": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17174563564,
+              4838125,
+              371172,
+              85725,
+              10598
+            ],
+            "current_counts": [
+              17174562230,
+              4839638,
+              371051,
+              77055,
+              9551,
+              9659
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568381e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.892791232093847e-07,
+              6.453214873050535e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -5.969992767912527e-08,
+              4.7127080318185936e-08
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17174562818,
+              4839134,
+              370909,
+              85680,
+              10643
+            ],
+            "current_counts": [
+              17174558665,
+              4843581,
+              370654,
+              76905,
+              9647,
+              9732
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568381e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.918403958645681e-07,
+              6.479989014766203e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -5.859005584431258e-08,
+              4.86947592353372e-08
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17174568394,
+              4832366,
+              372330,
+              85586,
+              10508
+            ],
+            "current_counts": [
+              17174562336,
+              4840156,
+              371080,
+              76563,
+              9631,
+              9418
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568381e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.841569489248137e-07,
+              6.399662879865725e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -4.079574470174415e-08,
+              6.559219347968154e-08
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17174562289,
+              4839819,
+              370956,
+              85547,
+              10573
+            ],
+            "current_counts": [
+              17174562487,
+              4838557,
+              371473,
+              77365,
+              9628,
+              9674
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568381e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.878562472322369e-07,
+              6.438339817190114e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -5.621591457179193e-08,
+              5.086081289591326e-08
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17174562674,
+              4838619,
+              372088,
+              85201,
+              10602
+            ],
+            "current_counts": [
+              17174561532,
+              4839896,
+              371513,
+              76986,
+              9671,
+              9586
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568381e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.895067869039727e-07,
+              6.455594846610507e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -4.85296725530996e-08,
+              5.842496910826308e-08
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17174562294,
+              4839536,
+              371232,
+              85587,
+              10535
+            ],
+            "current_counts": [
+              17174565603,
+              4836120,
+              371148,
+              77178,
+              9570,
+              9565
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568382e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.856935490007958e-07,
+              6.415728999843832e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -5.3020800147658196e-08,
+              5.360287641237805e-08
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17174560536,
+              4841238,
+              370964,
+              86028,
+              10418
+            ],
+            "current_counts": [
+              17174562533,
+              4839729,
+              370976,
+              76560,
+              9777,
+              9609
+            ],
+            "simulated_charge_and_port_probabilities": [
+              6.152960003568382e-07,
+              5.590732591395031e-07,
+              5.590732591395031e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.79035274651539e-07,
+              6.346105887252803e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -4.387261682964145e-08,
+              6.34303795450409e-08
+            ]
+          }
+        ],
+        "herald_then_half_flight_generator": [
+          {
+            "dwell": 0,
+            "charge_counts": [
+              17174563823,
+              4838117,
+              371232,
+              76230,
+              19782
+            ],
+            "current_counts": [
+              17174567299,
+              4833380,
+              371718,
+              62253,
+              17252,
+              17282
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.1543130096982535e-06,
+              9.986157968962165e-07,
+              9.986157968962165e-07
+            ],
+            "terminal_charge_probability_interval": [
+              1.1138300425792583e-06,
+              1.1899285455036502e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -7.292689802294287e-08,
+              6.943443922974182e-08
+            ]
+          },
+          {
+            "dwell": 1,
+            "charge_counts": [
+              17174563005,
+              4838399,
+              371764,
+              76208,
+              19808
+            ],
+            "current_counts": [
+              17174561918,
+              4839178,
+              371846,
+              62055,
+              16760,
+              17427
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.145686123570473e-06,
+              9.769632754786748e-07,
+              1.0061986939574657e-06
+            ],
+            "terminal_charge_probability_interval": [
+              1.115318864702781e-06,
+              1.1914665211375706e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.0964978448003278e-07,
+              3.200078426316928e-08
+            ]
+          },
+          {
+            "dwell": 2,
+            "charge_counts": [
+              17174561108,
+              4841106,
+              370721,
+              77177,
+              19072
+            ],
+            "current_counts": [
+              17174562316,
+              4840356,
+              370679,
+              62562,
+              16166,
+              17105
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.1200816092158799e-06,
+              9.4193422039924e-07,
+              9.994692404095135e-07
+            ],
+            "terminal_charge_probability_interval": [
+              1.0731801009336804e-06,
+              1.1479236257699122e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.2454064872253022e-07,
+              1.5226690029117944e-08
+            ]
+          },
+          {
+            "dwell": 3,
+            "charge_counts": [
+              17174562253,
+              4839312,
+              371628,
+              77487,
+              18504
+            ],
+            "current_counts": [
+              17174560357,
+              4840726,
+              371501,
+              64440,
+              15276,
+              16884
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.0783190594334625e-06,
+              8.946499011692511e-07,
+              9.786428440352466e-07
+            ],
+            "terminal_charge_probability_interval": [
+              1.04066927990615e-06,
+              1.114310558389355e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.623120017475837e-07,
+              -2.4883784366734148e-08
+            ]
+          },
+          {
+            "dwell": 4,
+            "charge_counts": [
+              17174559859,
+              4841441,
+              371736,
+              78742,
+              17406
+            ],
+            "current_counts": [
+              17174560960,
+              4840390,
+              372117,
+              65610,
+              14266,
+              15841
+            ],
+            "simulated_charge_and_port_probabilities": [
+              1.0217352808736037e-06,
+              8.366238746173697e-07,
+              9.443861515150442e-07
+            ],
+            "terminal_charge_probability_interval": [
+              9.778471863894622e-07,
+              1.0493086583047518e-06
+            ],
+            "signed_current_port_difference_interval": [
+              -1.5820125757500994e-07,
+              -2.5152818793874048e-08
+            ]
+          },
+          {
+            "dwell": 6,
+            "charge_counts": [
+              17174566372,
+              4834494,
+              372036,
+              81354,
+              14928
+            ],
+            "current_counts": [
+              17174563755,
+              4838700,
+              371156,
+              69018,
+              12045,
+              14510
+            ],
+            "simulated_charge_and_port_probabilities": [
+              8.717654024688295e-07,
+              6.960606662805285e-07,
+              8.403628633268847e-07
+            ],
+            "terminal_charge_probability_interval": [
+              8.362024152722726e-07,
+              9.024763406510427e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -2.059912529272935e-07,
+              -8.097241034679437e-08
+            ]
+          },
+          {
+            "dwell": 9,
+            "charge_counts": [
+              17174569359,
+              4833118,
+              371190,
+              85512,
+              10005
+            ],
+            "current_counts": [
+              17174564133,
+              4838462,
+              370975,
+              77240,
+              7769,
+              10605
+            ],
+            "simulated_charge_and_port_probabilities": [
+              5.92894461816423e-07,
+              4.58844768318976e-07,
+              6.227669878687947e-07
+            ],
+            "terminal_charge_probability_interval": [
+              5.555390788369151e-07,
+              6.100272824632265e-07
+            ],
+            "signed_current_port_difference_interval": [
+              -2.1719053947362048e-07,
+              -1.129631026946523e-07
+            ]
+          }
+        ]
+      },
+      "independent_neutral_and_formation_counts": {
+        "ring_clock_counts": [
+          [
+            [
+              1073741824,
+              0,
+              0,
+              0
+            ],
+            [
+              536841971,
+              536899853,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              826950796,
+              246791028,
+              0,
+              0
+            ],
+            [
+              85104026,
+              988637798,
+              0,
+              0
+            ]
+          ]
+        ],
+        "ring_clock_angular_frequency_interval": [
+          0.9996613644483039,
+          1.000219216187142
+        ],
+        "formation_pointer_outcome_order": [
+          "filter_pass_plus",
+          "filter_pass_minus",
+          "filter_refused_plus",
+          "filter_refused_minus"
+        ],
+        "formation_lines": [
+          {
+            "per_defect_offset": 0,
+            "line": 0,
+            "coherent_arm_weight": 0.047850239193848516,
+            "quadrature_trial_counts": [
+              [
+                [
+                  306962090,
+                  255598046,
+                  255605984,
+                  255575704
+                ],
+                [
+                  281276753,
+                  281291524,
+                  255583218,
+                  255590329
+                ]
+              ],
+              [
+                [
+                  297482543,
+                  265031336,
+                  255620651,
+                  255607294
+                ],
+                [
+                  261359839,
+                  301185645,
+                  255606417,
+                  255589923
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              3.511241767936838,
+              3.579188875572127
+            ]
+          },
+          {
+            "per_defect_offset": 0,
+            "line": 1,
+            "coherent_arm_weight": 0.1315976389041687,
+            "quadrature_trial_counts": [
+              [
+                [
+                  374381087,
+                  233107575,
+                  233125858,
+                  233127304
+                ],
+                [
+                  303753335,
+                  303744243,
+                  233137935,
+                  233106311
+                ]
+              ],
+              [
+                [
+                  343326220,
+                  264195829,
+                  233116750,
+                  233103025
+                ],
+                [
+                  245210726,
+                  362336798,
+                  233076852,
+                  233117448
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              3.8952123294480248,
+              3.9212855812165515
+            ]
+          },
+          {
+            "per_defect_offset": 0.5,
+            "line": 0,
+            "coherent_arm_weight": 0.047850239193848516,
+            "quadrature_trial_counts": [
+              [
+                [
+                  306940604,
+                  255602886,
+                  255593682,
+                  255604652
+                ],
+                [
+                  281296363,
+                  281289270,
+                  255574886,
+                  255581305
+                ]
+              ],
+              [
+                [
+                  292063232,
+                  270484631,
+                  255590003,
+                  255603958
+                ],
+                [
+                  257965782,
+                  304594461,
+                  255585681,
+                  255595900
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              4.516860187939422,
+              4.5854026128060354
+            ]
+          },
+          {
+            "per_defect_offset": 0.5,
+            "line": 1,
+            "coherent_arm_weight": 0.1315976389041687,
+            "quadrature_trial_counts": [
+              [
+                [
+                  374422985,
+                  233084238,
+                  233125545,
+                  233109056
+                ],
+                [
+                  303766442,
+                  303717426,
+                  233147937,
+                  233110019
+                ]
+              ],
+              [
+                [
+                  327605005,
+                  279913291,
+                  233103956,
+                  233119572
+                ],
+                [
+                  237264581,
+                  370264074,
+                  233109208,
+                  233103961
+                ]
+              ]
+            ],
+            "formation_frequency_in_neutral_clock_units": [
+              4.8957793499407565,
+              4.922413308480256
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

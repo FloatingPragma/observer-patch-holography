@@ -1,0 +1,291 @@
+{
+  "certificate_sha256": "58899f63dec80860d06c28e5fb0342f4f7feb8f5bff2f46dbe4738a3cabeb2b9",
+  "step": "1/16",
+  "degree": 26,
+  "cases": [
+    {
+      "fan_count": 3,
+      "signed_load": 1,
+      "physical_bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ]
+      ],
+      "exact_h_row_sum_maximum": "38",
+      "maximum_terms_per_row": 11,
+      "step_truncation_error_upper": 1.276247152087134e-18,
+      "step_roundoff_error_upper": 1.0593219859792266e-13,
+      "reads": [
+        {
+          "appointment": 27.0625,
+          "wave_frobenius_error_upper": 1.8347677843166946e-10,
+          "unrestricted": {
+            "success_by_input": [
+              [
+                0.014933293706547938,
+                0.014933294827408614
+              ],
+              [
+                0.030307388710287698,
+                0.030307389831148373
+              ]
+            ],
+            "worst_input_success": [
+              0.014722531780641266,
+              0.01472253290150194
+            ],
+            "best_input_success": [
+              0.030518150636194383,
+              0.030518151757055058
+            ],
+            "reference_joint_success": [
+              0.022620341208417816,
+              0.02262034232927849
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              0.0007712983705852102,
+              0.0007712991244923242
+            ]
+          },
+          "spectator_vacua_herald": {
+            "success_by_input": [
+              [
+                0.0005195768189450757,
+                0.0005195779398057465
+              ],
+              [
+                0.021821059955162262,
+                0.021821061076022937
+              ]
+            ],
+            "worst_input_success": [
+              0.0003175266499980136,
+              0.00031752777085868424
+            ],
+            "best_input_success": [
+              0.022023110124109326,
+              0.02202311124497
+            ],
+            "reference_joint_success": [
+              0.011170318387053669,
+              0.011170319507914344
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              -0.0013222084638877443,
+              -0.00132220770998063
+            ]
+          }
+        },
+        {
+          "appointment": 30.8125,
+          "wave_frobenius_error_upper": 2.089008123944874e-10,
+          "unrestricted": {
+            "success_by_input": [
+              [
+                0.014454959342238338,
+                0.014454960615643216
+              ],
+              [
+                0.025612923007288915,
+                0.025612924280693797
+              ]
+            ],
+            "worst_input_success": [
+              0.014399897113531521,
+              0.014399898386936399
+            ],
+            "best_input_success": [
+              0.025667985235995748,
+              0.02566798650940063
+            ],
+            "reference_joint_success": [
+              0.02003394117476362,
+              0.0200339424481685
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              0.0006143551646797501,
+              0.0006143560202829998
+            ]
+          },
+          "spectator_vacua_herald": {
+            "success_by_input": [
+              [
+                0.0004735615510358464,
+                0.0004735628244407209
+              ],
+              [
+                0.011469064592548709,
+                0.011469065865953587
+              ]
+            ],
+            "worst_input_success": [
+              0.00028448727158914743,
+              0.0002844885449940219
+            ],
+            "best_input_success": [
+              0.011658138871995407,
+              0.011658140145400285
+            ],
+            "reference_joint_success": [
+              0.005971313071792278,
+              0.005971314345197154
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              -0.0009105771301448339,
+              -0.0009105762745415842
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fan_count": 4,
+      "signed_load": 1,
+      "physical_bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ],
+        [
+          1010,
+          1045
+        ]
+      ],
+      "exact_h_row_sum_maximum": "40",
+      "maximum_terms_per_row": 13,
+      "step_truncation_error_upper": 5.097971968901243e-18,
+      "step_roundoff_error_upper": 1.3795790998380632e-13,
+      "reads": [
+        {
+          "appointment": 27.0625,
+          "wave_frobenius_error_upper": 2.3895192977940267e-10,
+          "unrestricted": {
+            "success_by_input": [
+              [
+                0.0070704265637970215,
+                0.0070704280175086015
+              ],
+              [
+                0.02208996177354895,
+                0.022089963227260537
+              ]
+            ],
+            "worst_input_success": [
+              0.006734312413347931,
+              0.006734313867059511
+            ],
+            "best_input_success": [
+              0.022426075923998038,
+              0.022426077377709627
+            ],
+            "reference_joint_success": [
+              0.01458019416867298,
+              0.014580195622384561
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              0.0007211251918681253,
+              0.0007211261676758447
+            ]
+          },
+          "spectator_vacua_herald": {
+            "success_by_input": [
+              [
+                0.0012519389341097433,
+                0.0012519403878213224
+              ],
+              [
+                0.0027637991522288866,
+                0.0027638006059404665
+              ]
+            ],
+            "worst_input_success": [
+              0.0007379611734193886,
+              0.0007379626271309675
+            ],
+            "best_input_success": [
+              0.0032777769129192415,
+              0.0032777783666308215
+            ],
+            "reference_joint_success": [
+              0.0020078690431693147,
+              0.0020078704968808946
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              -0.0007776371343731266,
+              -0.0007776361585654073
+            ]
+          }
+        },
+        {
+          "appointment": 30.8125,
+          "wave_frobenius_error_upper": 2.720630516887887e-10,
+          "unrestricted": {
+            "success_by_input": [
+              [
+                0.009110061941010128,
+                0.009110063593388442
+              ],
+              [
+                0.020168781576982653,
+                0.02016878322936097
+              ]
+            ],
+            "worst_input_success": [
+              0.008888868882081973,
+              0.008888870534460287
+            ],
+            "best_input_success": [
+              0.020389974635910794,
+              0.020389976288289112
+            ],
+            "reference_joint_success": [
+              0.01463942175899639,
+              0.014639423411374704
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              0.0007866375674181991,
+              0.0007866386756704061
+            ]
+          },
+          "spectator_vacua_herald": {
+            "success_by_input": [
+              [
+                0.0011875712948488956,
+                0.0011875729472272062
+              ],
+              [
+                0.0042378084549756475,
+                0.00423781010735396
+              ]
+            ],
+            "worst_input_success": [
+              0.00022931440789145842,
+              0.0002293160602697686
+            ],
+            "best_input_success": [
+              0.005196065341933085,
+              0.005196066994311397
+            ],
+            "reference_joint_success": [
+              0.002712689874912272,
+              0.0027126915272905824
+            ],
+            "reference_choi_partial_transpose_minimum": [
+              -0.0005457883172816429,
+              -0.0005457872090294358
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

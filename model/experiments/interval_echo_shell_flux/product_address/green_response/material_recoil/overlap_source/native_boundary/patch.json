@@ -1,0 +1,310 @@
+[
+  {
+    "level": 0,
+    "owners": 20,
+    "patches": {
+      "one face": {
+        "occupied_owners": 1,
+        "active_written_seams": 3,
+        "initial_whole_energy": "195/2",
+        "retained_whole_energy": "849/4",
+        "independent_whole_energy": "1749/8",
+        "degree_energy": "72",
+        "other_seam_energy_after_write": "255/2",
+        "loss_of_pairing_gain": "51/8",
+        "gain_relative_to_initial": "17/260"
+      },
+      "adjacent faces": {
+        "occupied_owners": 2,
+        "active_written_seams": 4,
+        "initial_whole_energy": "178",
+        "retained_whole_energy": "1307/4",
+        "independent_whole_energy": "1341/4",
+        "degree_energy": "144",
+        "other_seam_energy_after_write": "663/4",
+        "loss_of_pairing_gain": "17/2",
+        "gain_relative_to_initial": "17/356"
+      },
+      "separate faces": {
+        "occupied_owners": 2,
+        "active_written_seams": 6,
+        "initial_whole_energy": "195",
+        "retained_whole_energy": "1681/4",
+        "independent_whole_energy": "433",
+        "degree_energy": "144",
+        "other_seam_energy_after_write": "1003/4",
+        "loss_of_pairing_gain": "51/4",
+        "gain_relative_to_initial": "17/260"
+      },
+      "whole": {
+        "occupied_owners": 20,
+        "active_written_seams": 0,
+        "initial_whole_energy": "1440",
+        "retained_whole_energy": "1440",
+        "independent_whole_energy": "1440",
+        "degree_energy": "1440",
+        "other_seam_energy_after_write": "0",
+        "loss_of_pairing_gain": "0",
+        "gain_relative_to_initial": "0"
+      },
+      "half by owner index": {
+        "occupied_owners": 10,
+        "active_written_seams": 10,
+        "initial_whole_energy": "805",
+        "retained_whole_energy": "1179",
+        "independent_whole_energy": "4801/4",
+        "degree_energy": "720",
+        "other_seam_energy_after_write": "833/2",
+        "loss_of_pairing_gain": "85/4",
+        "gain_relative_to_initial": "17/644"
+      },
+      "single owner": {
+        "occupied_owners": 1,
+        "active_written_seams": 3,
+        "initial_whole_energy": "195/2",
+        "retained_whole_energy": "849/4",
+        "independent_whole_energy": "1749/8",
+        "degree_energy": "72",
+        "other_seam_energy_after_write": "255/2",
+        "loss_of_pairing_gain": "51/8",
+        "gain_relative_to_initial": "17/260"
+      }
+    },
+    "layers": {
+      "shared_expected_cut": "23/2",
+      "independent_expected_cut": "123/8",
+      "expected_occupied": "25/2"
+    }
+  },
+  {
+    "level": 1,
+    "owners": 80,
+    "patches": {
+      "one face": {
+        "occupied_owners": 4,
+        "active_written_seams": 6,
+        "initial_whole_energy": "339",
+        "retained_whole_energy": "1137/2",
+        "independent_whole_energy": "2325/4",
+        "degree_energy": "288",
+        "other_seam_energy_after_write": "255",
+        "loss_of_pairing_gain": "51/4",
+        "gain_relative_to_initial": "17/452"
+      },
+      "adjacent faces": {
+        "occupied_owners": 8,
+        "active_written_seams": 8,
+        "initial_whole_energy": "644",
+        "retained_whole_energy": "3783/4",
+        "independent_whole_energy": "3851/4",
+        "degree_energy": "576",
+        "other_seam_energy_after_write": "1343/4",
+        "loss_of_pairing_gain": "17",
+        "gain_relative_to_initial": "17/644"
+      },
+      "separate faces": {
+        "occupied_owners": 8,
+        "active_written_seams": 12,
+        "initial_whole_energy": "678",
+        "retained_whole_energy": "2257/2",
+        "independent_whole_energy": "1154",
+        "degree_energy": "576",
+        "other_seam_energy_after_write": "1003/2",
+        "loss_of_pairing_gain": "51/2",
+        "gain_relative_to_initial": "17/452"
+      },
+      "whole": {
+        "occupied_owners": 80,
+        "active_written_seams": 0,
+        "initial_whole_energy": "5760",
+        "retained_whole_energy": "5760",
+        "independent_whole_energy": "5760",
+        "degree_energy": "5760",
+        "other_seam_energy_after_write": "0",
+        "loss_of_pairing_gain": "0",
+        "gain_relative_to_initial": "0"
+      },
+      "half by owner index": {
+        "occupied_owners": 40,
+        "active_written_seams": 20,
+        "initial_whole_energy": "3050",
+        "retained_whole_energy": "7613/2",
+        "independent_whole_energy": "3849",
+        "degree_energy": "2880",
+        "other_seam_energy_after_write": "1683/2",
+        "loss_of_pairing_gain": "85/2",
+        "gain_relative_to_initial": "17/1220"
+      },
+      "single owner": {
+        "occupied_owners": 1,
+        "active_written_seams": 3,
+        "initial_whole_energy": "195/2",
+        "retained_whole_energy": "849/4",
+        "independent_whole_energy": "1749/8",
+        "degree_energy": "72",
+        "other_seam_energy_after_write": "255/2",
+        "loss_of_pairing_gain": "51/8",
+        "gain_relative_to_initial": "17/260"
+      }
+    },
+    "layers": {
+      "shared_expected_cut": "23",
+      "independent_expected_cut": "99/2",
+      "expected_occupied": "50"
+    }
+  },
+  {
+    "level": 2,
+    "owners": 320,
+    "patches": {
+      "one face": {
+        "occupied_owners": 16,
+        "active_written_seams": 12,
+        "initial_whole_energy": "1254",
+        "retained_whole_energy": "1713",
+        "independent_whole_energy": "3477/2",
+        "degree_energy": "1152",
+        "other_seam_energy_after_write": "510",
+        "loss_of_pairing_gain": "51/2",
+        "gain_relative_to_initial": "17/836"
+      },
+      "adjacent faces": {
+        "occupied_owners": 32,
+        "active_written_seams": 16,
+        "initial_whole_energy": "2440",
+        "retained_whole_energy": "12191/4",
+        "independent_whole_energy": "12327/4",
+        "degree_energy": "2304",
+        "other_seam_energy_after_write": "2703/4",
+        "loss_of_pairing_gain": "34",
+        "gain_relative_to_initial": "17/1220"
+      },
+      "separate faces": {
+        "occupied_owners": 32,
+        "active_written_seams": 24,
+        "initial_whole_energy": "2508",
+        "retained_whole_energy": "6835/2",
+        "independent_whole_energy": "6937/2",
+        "degree_energy": "2304",
+        "other_seam_energy_after_write": "2023/2",
+        "loss_of_pairing_gain": "51",
+        "gain_relative_to_initial": "17/836"
+      },
+      "whole": {
+        "occupied_owners": 320,
+        "active_written_seams": 0,
+        "initial_whole_energy": "23040",
+        "retained_whole_energy": "23040",
+        "independent_whole_energy": "23040",
+        "degree_energy": "23040",
+        "other_seam_energy_after_write": "0",
+        "loss_of_pairing_gain": "0",
+        "gain_relative_to_initial": "0"
+      },
+      "half by owner index": {
+        "occupied_owners": 160,
+        "active_written_seams": 40,
+        "initial_whole_energy": "11860",
+        "retained_whole_energy": "26763/2",
+        "independent_whole_energy": "26933/2",
+        "degree_energy": "11520",
+        "other_seam_energy_after_write": "3383/2",
+        "loss_of_pairing_gain": "85",
+        "gain_relative_to_initial": "17/2372"
+      },
+      "single owner": {
+        "occupied_owners": 1,
+        "active_written_seams": 3,
+        "initial_whole_energy": "195/2",
+        "retained_whole_energy": "849/4",
+        "independent_whole_energy": "1749/8",
+        "degree_energy": "72",
+        "other_seam_energy_after_write": "255/2",
+        "loss_of_pairing_gain": "51/8",
+        "gain_relative_to_initial": "17/260"
+      }
+    },
+    "layers": {
+      "shared_expected_cut": "46",
+      "independent_expected_cut": "174",
+      "expected_occupied": "200"
+    }
+  },
+  {
+    "level": 3,
+    "owners": 1280,
+    "patches": {
+      "one face": {
+        "occupied_owners": 64,
+        "active_written_seams": 24,
+        "initial_whole_energy": "4812",
+        "retained_whole_energy": "5730",
+        "independent_whole_energy": "5781",
+        "degree_energy": "4608",
+        "other_seam_energy_after_write": "1020",
+        "loss_of_pairing_gain": "51",
+        "gain_relative_to_initial": "17/1604"
+      },
+      "adjacent faces": {
+        "occupied_owners": 128,
+        "active_written_seams": 32,
+        "initial_whole_energy": "9488",
+        "retained_whole_energy": "42831/4",
+        "independent_whole_energy": "43103/4",
+        "degree_energy": "9216",
+        "other_seam_energy_after_write": "5423/4",
+        "loss_of_pairing_gain": "68",
+        "gain_relative_to_initial": "17/2372"
+      },
+      "separate faces": {
+        "occupied_owners": 128,
+        "active_written_seams": 48,
+        "initial_whole_energy": "9624",
+        "retained_whole_energy": "22903/2",
+        "independent_whole_energy": "23107/2",
+        "degree_energy": "9216",
+        "other_seam_energy_after_write": "4063/2",
+        "loss_of_pairing_gain": "102",
+        "gain_relative_to_initial": "17/1604"
+      },
+      "whole": {
+        "occupied_owners": 1280,
+        "active_written_seams": 0,
+        "initial_whole_energy": "92160",
+        "retained_whole_energy": "92160",
+        "independent_whole_energy": "92160",
+        "degree_energy": "92160",
+        "other_seam_energy_after_write": "0",
+        "loss_of_pairing_gain": "0",
+        "gain_relative_to_initial": "0"
+      },
+      "half by owner index": {
+        "occupied_owners": 640,
+        "active_written_seams": 80,
+        "initial_whole_energy": "46760",
+        "retained_whole_energy": "49820",
+        "independent_whole_energy": "49990",
+        "degree_energy": "46080",
+        "other_seam_energy_after_write": "3400",
+        "loss_of_pairing_gain": "170",
+        "gain_relative_to_initial": "17/4676"
+      },
+      "single owner": {
+        "occupied_owners": 1,
+        "active_written_seams": 3,
+        "initial_whole_energy": "195/2",
+        "retained_whole_energy": "849/4",
+        "independent_whole_energy": "1749/8",
+        "degree_energy": "72",
+        "other_seam_energy_after_write": "255/2",
+        "loss_of_pairing_gain": "51/8",
+        "gain_relative_to_initial": "17/260"
+      }
+    },
+    "layers": {
+      "shared_expected_cut": "92",
+      "independent_expected_cut": "648",
+      "expected_occupied": "800"
+    }
+  }
+]

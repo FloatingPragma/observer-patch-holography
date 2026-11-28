@@ -1,0 +1,453 @@
+{
+  "sha256": {
+    "dispersive_clock.json": "740cd56ff072685a44254822ecf2915d5af7338754c5f7cef72656f170d2a9fd",
+    "DISPERSIVE_CLOCK.md": "8c0077004b0fc450426c32ceb0b0a687c448991faff5359d36237c3b13406739",
+    "OCCUPIED_WORK.md": "44259d7aaaabc12be67248751d30e3de30bd1a0aef1eddf338e95a34a272911d"
+  },
+  "galaxy": "NGC2841",
+  "radii_kpc": [
+    20.57,
+    30.7,
+    40.99,
+    51.27,
+    61.56
+  ],
+  "orbital_work_km2_s2": [
+    [
+      23046.669979478873,
+      27786.337479973783
+    ],
+    [
+      17036.501907548038,
+      19394.22169435135
+    ],
+    [
+      12942.606376007128,
+      14814.275158356975
+    ],
+    [
+      11647.279097240335,
+      13764.813444678908
+    ]
+  ],
+  "required_outer_per_inner_lower": 0.5211868172734346,
+  "positive_mixture_upper": 1.8930551626192017e-05,
+  "results": {
+    "vacancy": {
+      "original": {
+        "1": {
+          "amplitude_intervals": [
+            [
+              22785283143.549694,
+              27471195082.290413
+            ],
+            [
+              2395531807826428.5,
+              2727054838427374.0
+            ],
+            [
+              2.4963803576200864e+16,
+              2.8573893420925284e+16
+            ],
+            [
+              1.7013240066567315e+17,
+              2.0106333303313955e+17
+            ]
+          ],
+          "common_amplitude": false
+        },
+        "1/4": {
+          "amplitude_intervals": [
+            [
+              392067314.6185296,
+              472697996.2206177
+            ],
+            [
+              27119125098121.4,
+              30872201767945.688
+            ],
+            [
+              103516866870742.83,
+              118486748712147.36
+            ],
+            [
+              376084706164563.06,
+              444458811069330.0
+            ]
+          ],
+          "common_amplitude": false
+        },
+        "1/16": {
+          "amplitude_intervals": [
+            [
+              35422511.63231031,
+              42707335.310484104
+            ],
+            [
+              1526074730691.6616,
+              1737271642370.9412
+            ],
+            [
+              3791794808227.543,
+              4340137527263.8013
+            ],
+            [
+              11283871151846.797,
+              13335336093711.916
+            ]
+          ],
+          "common_amplitude": false
+        }
+      },
+      "continuous": {
+        "ordinary_floor": "33303/1024",
+        "panels": [
+          {
+            "detuning_below_floor": [
+              "1/1024",
+              "1/512"
+            ],
+            "inner_floor": 0.0025412589043099123,
+            "outer_upper": 3.0286496387717873e-08,
+            "outer_per_inner_upper": 1.1917910582173555e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/512",
+              "1/256"
+            ],
+            "inner_floor": 0.0024074716091593315,
+            "outer_upper": 2.9183771108632834e-08,
+            "outer_per_inner_upper": 1.2122166258410649e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/256",
+              "1/128"
+            ],
+            "inner_floor": 0.0021663936158002827,
+            "outer_upper": 2.711290409076742e-08,
+            "outer_per_inner_upper": 1.251522525409202e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/128",
+              "1/64"
+            ],
+            "inner_floor": 0.0017715195224864632,
+            "outer_upper": 2.3469098789680685e-08,
+            "outer_per_inner_upper": 1.3248004603832992e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/64",
+              "1/32"
+            ],
+            "inner_floor": 0.001225328148403126,
+            "outer_upper": 1.7799890213166017e-08,
+            "outer_per_inner_upper": 1.4526631283516353e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/32",
+              "1/16"
+            ],
+            "inner_floor": 0.0006506270381172976,
+            "outer_upper": 1.0701336601799329e-08,
+            "outer_per_inner_upper": 1.644772807592735e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/16",
+              "1/8"
+            ],
+            "inner_floor": 0.00024080426329105178,
+            "outer_upper": 4.446135949636098e-09,
+            "outer_per_inner_upper": 1.8463692830314254e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/8",
+              "1/4"
+            ],
+            "inner_floor": 5.878210271301735e-05,
+            "outer_upper": 1.1127776301048966e-09,
+            "outer_per_inner_upper": 1.8930551626192017e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/4",
+              "1/2"
+            ],
+            "inner_floor": 9.441031384282212e-06,
+            "outer_upper": 1.5600315670114573e-10,
+            "outer_per_inner_upper": 1.652395277076038e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/2",
+              "1"
+            ],
+            "inner_floor": 1.0114670000848754e-06,
+            "outer_upper": 1.2438256544472712e-11,
+            "outer_per_inner_upper": 1.2297244045954026e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1",
+              "2"
+            ],
+            "inner_floor": 7.139924755850424e-08,
+            "outer_upper": 5.869183530129333e-13,
+            "outer_per_inner_upper": 8.22023162823971e-06
+          },
+          {
+            "detuning_below_floor": [
+              "2",
+              "4"
+            ],
+            "inner_floor": 3.1710970503481e-09,
+            "outer_upper": 1.6127028566067178e-14,
+            "outer_per_inner_upper": 5.085630717072147e-06
+          },
+          {
+            "detuning_below_floor": [
+              "4",
+              "8"
+            ],
+            "inner_floor": 8.392914203141146e-11,
+            "outer_upper": 2.347434371235619e-16,
+            "outer_per_inner_upper": 2.796924065251453e-06
+          },
+          {
+            "detuning_below_floor": [
+              "8",
+              "16"
+            ],
+            "inner_floor": 1.2830894460700573e-12,
+            "outer_upper": 1.5678225463917441e-18,
+            "outer_per_inner_upper": 1.221912120931077e-06
+          },
+          {
+            "detuning_below_floor": [
+              "16",
+              "32"
+            ],
+            "inner_floor": 1.1429713927035544e-14,
+            "outer_upper": 4.189475781994727e-21,
+            "outer_per_inner_upper": 3.665424881794331e-07
+          }
+        ],
+        "maximum_ratio": 1.8930551626192017e-05
+      }
+    },
+    "excess": {
+      "original": {
+        "1": {
+          "amplitude_intervals": [
+            [
+              24427139886971.758,
+              29450708200980.367
+            ],
+            [
+              5.986133732006964e+16,
+              6.814568232410511e+16
+            ],
+            [
+              1.275144462577534e+19,
+              1.4595468939160162e+19
+            ],
+            [
+              2.597518195291041e+21,
+              3.069760162767264e+21
+            ]
+          ],
+          "common_amplitude": false
+        },
+        "1/4": {
+          "amplitude_intervals": [
+            [
+              1196530797650.7527,
+              1442603576929.3313
+            ],
+            [
+              1864194984619837.2,
+              2122185118131364.2
+            ],
+            [
+              3.4152535656224275e+17,
+              3.909143536226368e+17
+            ],
+            [
+              6.1302711862377144e+19,
+              7.2447855451361034e+19
+            ]
+          ],
+          "common_amplitude": false
+        },
+        "1/16": {
+          "amplitude_intervals": [
+            [
+              79801363420.84882,
+              96212928694.17316
+            ],
+            [
+              79965939790130.73,
+              91032605913061.92
+            ],
+            [
+              1.4077072036120222e+16,
+              1.6112799269990156e+16
+            ],
+            [
+              2.4428496313188296e+18,
+              2.886972070281499e+18
+            ]
+          ],
+          "common_amplitude": false
+        }
+      },
+      "continuous": {
+        "ordinary_floor": "43443/1024",
+        "panels": [
+          {
+            "detuning_below_floor": [
+              "1/1024",
+              "1/512"
+            ],
+            "inner_floor": 1.5556216366915014e-05,
+            "outer_upper": 1.0716676700426543e-10,
+            "outer_per_inner_upper": 6.888999514829833e-06
+          },
+          {
+            "detuning_below_floor": [
+              "1/512",
+              "1/256"
+            ],
+            "inner_floor": 1.081024762050367e-05,
+            "outer_upper": 8.53409508077888e-11,
+            "outer_per_inner_upper": 7.894449211868528e-06
+          },
+          {
+            "detuning_below_floor": [
+              "1/256",
+              "1/128"
+            ],
+            "inner_floor": 6.094782945021556e-06,
+            "outer_upper": 5.7485951180344976e-11,
+            "outer_per_inner_upper": 9.4319931815294e-06
+          },
+          {
+            "detuning_below_floor": [
+              "1/128",
+              "1/64"
+            ],
+            "inner_floor": 2.7075220664457406e-06,
+            "outer_upper": 3.0612001418659246e-11,
+            "outer_per_inner_upper": 1.1306279567591743e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/64",
+              "1/32"
+            ],
+            "inner_floor": 9.632575787519298e-07,
+            "outer_upper": 1.2333026190689735e-11,
+            "outer_per_inner_upper": 1.2803456170746509e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/32",
+              "1/16"
+            ],
+            "inner_floor": 2.890106515678818e-07,
+            "outer_upper": 3.773510864156175e-12,
+            "outer_per_inner_upper": 1.30566497936491e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/16",
+              "1/8"
+            ],
+            "inner_floor": 7.747859046647056e-08,
+            "outer_upper": 9.241827441110092e-13,
+            "outer_per_inner_upper": 1.1928233832686415e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/8",
+              "1/4"
+            ],
+            "inner_floor": 1.9270223702928474e-08,
+            "outer_upper": 1.9578812937803847e-13,
+            "outer_per_inner_upper": 1.0160137858092681e-05
+          },
+          {
+            "detuning_below_floor": [
+              "1/4",
+              "1/2"
+            ],
+            "inner_floor": 4.474254199337466e-09,
+            "outer_upper": 3.80866498801391e-14,
+            "outer_per_inner_upper": 8.512401884939585e-06
+          },
+          {
+            "detuning_below_floor": [
+              "1/2",
+              "1"
+            ],
+            "inner_floor": 9.437650502193696e-10,
+            "outer_upper": 6.7928565756377865e-15,
+            "outer_per_inner_upper": 7.1976140397007175e-06
+          },
+          {
+            "detuning_below_floor": [
+              "1",
+              "2"
+            ],
+            "inner_floor": 1.696308317788306e-10,
+            "outer_upper": 1.019479551609915e-15,
+            "outer_per_inner_upper": 6.009989698919481e-06
+          },
+          {
+            "detuning_below_floor": [
+              "2",
+              "4"
+            ],
+            "inner_floor": 2.3346209785161583e-11,
+            "outer_upper": 1.078763462190536e-16,
+            "outer_per_inner_upper": 4.620722044895605e-06
+          },
+          {
+            "detuning_below_floor": [
+              "4",
+              "8"
+            ],
+            "inner_floor": 2.113404653173591e-12,
+            "outer_upper": 6.173875140197123e-18,
+            "outer_per_inner_upper": 2.921293435654234e-06
+          },
+          {
+            "detuning_below_floor": [
+              "8",
+              "16"
+            ],
+            "inner_floor": 1.0486489634011645e-13,
+            "outer_upper": 1.3976383308914759e-19,
+            "outer_per_inner_upper": 1.332799039211756e-06
+          },
+          {
+            "detuning_below_floor": [
+              "16",
+              "32"
+            ],
+            "inner_floor": 2.4505760837598905e-15,
+            "outer_upper": 9.652905015664923e-22,
+            "outer_per_inner_upper": 3.9390350210447595e-07
+          }
+        ],
+        "maximum_ratio": 1.30566497936491e-05
+      }
+    }
+  }
+}

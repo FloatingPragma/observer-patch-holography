@@ -1,0 +1,267 @@
+{
+  "finite_instrument": {
+    "phase_bits_per_register": 18,
+    "grid_points": 262144,
+    "controlled_base_exposure": "1/64",
+    "energy_window": [
+      "-1",
+      "9/2"
+    ],
+    "accepted_negative_of_signed_residue_from_to_inclusive": [
+      -651,
+      2933
+    ],
+    "actual_unsigned_accepted_bin_intervals_inclusive": [
+      [
+        0,
+        651
+      ],
+      [
+        259211,
+        262143
+      ]
+    ],
+    "guaranteed_energy_margin_to_incorrect_estimate": "1/32",
+    "minimum_whole_clock_bins_to_incorrect_estimate": 20,
+    "one_read_misclassification_probability_upper": "1/38",
+    "coherent_repeats": 41,
+    "majority_votes_required": 21,
+    "operator_error_upper_exact": "1048576/714209495693373205673756419",
+    "operator_error_upper": 1.4681630618506622e-21,
+    "resources": {
+      "phase_qubits": 738,
+      "vote_and_counter_and_two_binary_record_qubits": 49,
+      "controlled_forward_and_inverse_power_calls": 1476,
+      "longest_single_controlled_evolution": "2048",
+      "sum_of_absolute_controlled_evolution_exposures": "10747863/32",
+      "phase_circuit_hadamards": 2952,
+      "phase_circuit_controlled_phase_gates": 12546,
+      "phase_circuit_bit_reversal_swaps": 738,
+      "literal_vote_comparator_multi_controlled_X_upper": 293970,
+      "literal_vote_comparator_single_X_upper": 10582920,
+      "majority_compute_and_uncompute_controlled_X_upper": 535,
+      "clock_reset_binary_read_controlled_X": 1
+    }
+  },
+  "small_unitary_clock_check": [
+    {
+      "phase": 0.0,
+      "yes_and_reset_probability": 1.0,
+      "no_and_reset_probability": 2.3051243555647473e-126,
+      "reset_refusal_probability": 6.748919021978359e-32
+    },
+    {
+      "phase": 0.125,
+      "yes_and_reset_probability": 0.15284208918077483,
+      "no_and_reset_probability": 0.3709416116754213,
+      "reset_refusal_probability": 0.4762162991438032
+    },
+    {
+      "phase": 0.25,
+      "yes_and_reset_probability": 1.1116533350524434e-130,
+      "no_and_reset_probability": 1.0,
+      "reset_refusal_probability": 2.2496396739927864e-32
+    }
+  ],
+  "paths": [
+    {
+      "board_cells": 320,
+      "fan_count": 3,
+      "configurations_per_sign": 800,
+      "physical_hubs": [
+        98,
+        241,
+        1011
+      ],
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ]
+      ],
+      "operator_norm_bound_for_phase_unwrapping": "38",
+      "charge_conjugacy_source_and_receiver_gauges": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "absolute_energy_brackets_for_both_signs": [
+        {
+          "dyadic_cut": "17/4",
+          "count_below": 2,
+          "factor_error_infinity_upper": 2.3775604445313666e-07,
+          "inverse_residual_infinity_upper": 2.0007727373636194e-07,
+          "inverse_times_factor_error_upper": 6.0465740835627974e-06
+        },
+        {
+          "dyadic_cut": "145/32",
+          "count_below": 2,
+          "factor_error_infinity_upper": 1.1741893121428044e-06,
+          "inverse_residual_infinity_upper": 3.7354266178768274e-07,
+          "inverse_times_factor_error_upper": 5.625021502640043e-05
+        }
+      ],
+      "parked_separated_threshold_bracket": [
+        "4609/1024",
+        "2305/512"
+      ],
+      "ideal_transfer_and_separation_certificate": {
+        "dyadic_energy_centers": [
+          "3901674496547/1099511627776",
+          "2273037021431/549755813888"
+        ],
+        "eigenvalue_error_ceilings": [
+          "16627/140737488355328",
+          "30707/281474976710656"
+        ],
+        "eigenvector_frame_error_upper": 2.2943533493681596e-09,
+        "source_minimum_singular_value_lower": 4.77190246021753e-05,
+        "vacuum_and_receiver_minimum_singular_value_lower": 0.00036499696317900376,
+        "all_waits_joint_probability_lower_for_every_input": 3.033623067425765e-16,
+        "all_waits_receiver_only_negative_eigenvalue_magnitude_per_launch_lower": 3.7198595687781377e-14,
+        "all_states_separated_probability_upper_by_distance": [
+          0.054247055592924524,
+          0.014466194361319648
+        ]
+      },
+      "finite_coarse_filter_certificate": {
+        "coarse_yes_and_reset_probability_lower_all_source_inputs": 2.277105308983011e-09,
+        "joint_all_other_fans_vacuum_and_receiving_doublet_probability_lower_all_inputs_and_waits": 3.0336230674252515e-16,
+        "joint_receiver_probability_lower_conditioned_on_admission_all_inputs_and_waits": 1.3322278312985008e-07,
+        "joint_amplitude_error_fraction_of_ideal_worst_case": 8.429338305073103e-14,
+        "admitted_normalized_vector_error_upper_all_source_inputs_and_waits": 6.153365765920266e-17,
+        "admitted_separation_probability_upper_by_distance_all_source_inputs_and_waits": [
+          0.05424705559292612,
+          0.01446619436132047
+        ],
+        "receiver_only_unnormalized_choi_trace_norm_error_upper": 2.9363261237013245e-21,
+        "receiver_only_unnormalized_choi_partial_transpose_minimum_eigenvalue_shift_upper": 2.9363261237013245e-21,
+        "receiver_only_unnormalized_choi_negative_eigenvalue_magnitude_lower_all_waits": 3.7198592751455244e-14
+      }
+    },
+    {
+      "board_cells": 320,
+      "fan_count": 4,
+      "configurations_per_sign": 3520,
+      "physical_hubs": [
+        98,
+        241,
+        1011,
+        1045
+      ],
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ],
+        [
+          1010,
+          1045
+        ]
+      ],
+      "operator_norm_bound_for_phase_unwrapping": "40",
+      "charge_conjugacy_source_and_receiver_gauges": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "absolute_energy_brackets_for_both_signs": [
+        {
+          "dyadic_cut": "17/4",
+          "count_below": 2,
+          "factor_error_infinity_upper": 4.475669493637461e-06,
+          "inverse_residual_infinity_upper": 1.5043135137685839e-07,
+          "inverse_times_factor_error_upper": 8.07577160754255e-05
+        },
+        {
+          "dyadic_cut": "145/32",
+          "count_below": 2,
+          "factor_error_infinity_upper": 2.464066786797713e-06,
+          "inverse_residual_infinity_upper": 8.610830688790185e-07,
+          "inverse_times_factor_error_upper": 0.00025685233205017356
+        }
+      ],
+      "parked_separated_threshold_bracket": [
+        "4609/1024",
+        "2305/512"
+      ],
+      "ideal_transfer_and_separation_certificate": {
+        "dyadic_energy_centers": [
+          "3900145886437/1099511627776",
+          "4294105370239/1099511627776"
+        ],
+        "eigenvalue_error_ceilings": [
+          "8675/35184372088832",
+          "68457/281474976710656"
+        ],
+        "eigenvector_frame_error_upper": 2.7880613836690787e-09,
+        "source_minimum_singular_value_lower": 9.459456582331623e-05,
+        "vacuum_and_receiver_minimum_singular_value_lower": 3.482902705810561e-06,
+        "all_waits_joint_probability_lower_for_every_input": 1.0854630936292382e-19,
+        "all_waits_receiver_only_negative_eigenvalue_magnitude_per_launch_lower": 1.6876973545615914e-16,
+        "all_states_separated_probability_upper_by_distance": [
+          0.02660721571495254,
+          0.004219226048726266,
+          0.0007405054143175384
+        ]
+      },
+      "finite_coarse_filter_certificate": {
+        "coarse_yes_and_reset_probability_lower_all_source_inputs": 8.948131883301704e-09,
+        "joint_all_other_fans_vacuum_and_receiving_doublet_probability_lower_all_inputs_and_waits": 1.0854630936195635e-19,
+        "joint_receiver_probability_lower_conditioned_on_admission_all_inputs_and_waits": 1.21306112579263e-11,
+        "joint_amplitude_error_fraction_of_ideal_worst_case": 4.4562214253966e-12,
+        "admitted_normalized_vector_error_upper_all_source_inputs_and_waits": 3.1041171320409626e-17,
+        "admitted_separation_probability_upper_by_distance_all_source_inputs_and_waits": [
+          0.026607215714953118,
+          0.004219226048726495,
+          0.0007405054143176343
+        ],
+        "receiver_only_unnormalized_choi_trace_norm_error_upper": 2.9363261237013245e-21,
+        "receiver_only_unnormalized_choi_partial_transpose_minimum_eigenvalue_shift_upper": 2.9363261237013245e-21,
+        "receiver_only_unnormalized_choi_negative_eigenvalue_magnitude_lower_all_waits": 1.687667991300354e-16
+      }
+    }
+  ]
+}

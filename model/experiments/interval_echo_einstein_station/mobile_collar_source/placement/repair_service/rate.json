@@ -1,0 +1,289 @@
+{
+  "protocol_sha256": "079b293164eaef34c877ea2923583b5a37b3e60ac8524821e81c2fb427f4fcea",
+  "rows": {
+    "1": {
+      "owners": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "physical_seams": [
+        [
+          10,
+          20
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          32,
+          46
+        ]
+      ],
+      "stages": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ],
+        []
+      ],
+      "words": 2058,
+      "communicating_classes": 181,
+      "recurrent_size": 666,
+      "blank_patches_in_initial_class": 6,
+      "first_cycle_contrast_below_quarter": 8,
+      "exact_uniform_stationary": {
+        "near_minus_far": "0",
+        "signed_cut": "0",
+        "cut_current": "0",
+        "unit_heads": "54/37",
+        "absolute_cut_excess": "8/111",
+        "load_loss_inner": "1"
+      },
+      "stationary_cut_unit": 0.5345345345345343,
+      "stationary_cut_replica_product": 7.946341811558664e-34,
+      "stationary_birth_return_export": [
+        0.5225225225225223,
+        0.5225225225225223,
+        0.0
+      ],
+      "stationary": {
+        "near_minus_far": 1.0408340855860843e-17,
+        "signed_cut": -2.8189256484623115e-17,
+        "cut_current": -5.204170427930421e-18,
+        "unit_heads": 1.459459459459459,
+        "absolute_cut_excess": 0.07207207207207206,
+        "load_loss_inner": 0.9999999999999996
+      },
+      "cycle256": {
+        "near_minus_far": 0.0005932455291103624,
+        "signed_cut": 2.29916523352045e-05,
+        "cut_current": 0.00027333204121726424,
+        "unit_heads": 1.4594594599815656,
+        "absolute_cut_excess": 0.07207207192471819,
+        "load_loss_inner": 0.9994067544708896
+      },
+      "tv_to_stationary_cycle256": 0.00118651991996985
+    },
+    "2": {
+      "owners": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "physical_seams": [
+        [
+          10,
+          20
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          32,
+          46
+        ]
+      ],
+      "stages": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ],
+        []
+      ],
+      "words": 2058,
+      "communicating_classes": 181,
+      "recurrent_size": 666,
+      "blank_patches_in_initial_class": 6,
+      "first_cycle_contrast_below_quarter": 10,
+      "exact_uniform_stationary": {
+        "near_minus_far": "0",
+        "signed_cut": "0",
+        "cut_current": "0",
+        "unit_heads": "54/37",
+        "absolute_cut_excess": "8/111",
+        "load_loss_inner": "1"
+      },
+      "stationary_cut_unit": 0.5345345345345345,
+      "stationary_cut_replica_product": 1.4745401136714774e-34,
+      "stationary_birth_return_export": [
+        0.5225225225225225,
+        0.5225225225225224,
+        0.0
+      ],
+      "stationary": {
+        "near_minus_far": -3.122502256758253e-17,
+        "signed_cut": 1.214306433183765e-17,
+        "cut_current": -2.7755575615628914e-17,
+        "unit_heads": 1.4594594594594592,
+        "absolute_cut_excess": 0.07207207207207213,
+        "load_loss_inner": 0.9999999999999999
+      },
+      "cycle256": {
+        "near_minus_far": 0.0007965631795906272,
+        "signed_cut": 8.312686959645625e-05,
+        "cut_current": 0.0003889592132773796,
+        "unit_heads": 1.459459460069421,
+        "absolute_cut_excess": 0.07207207191795097,
+        "load_loss_inner": 0.9992034368204097
+      },
+      "tv_to_stationary_cycle256": 0.0015818888935625413
+    },
+    "8": {
+      "owners": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "physical_seams": [
+        [
+          10,
+          20
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          32,
+          46
+        ]
+      ],
+      "stages": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ],
+        []
+      ],
+      "words": 2058,
+      "communicating_classes": 181,
+      "recurrent_size": 666,
+      "blank_patches_in_initial_class": 6,
+      "first_cycle_contrast_below_quarter": 25,
+      "exact_uniform_stationary": {
+        "near_minus_far": "0",
+        "signed_cut": "0",
+        "cut_current": "0",
+        "unit_heads": "54/37",
+        "absolute_cut_excess": "8/111",
+        "load_loss_inner": "1"
+      },
+      "stationary_cut_unit": 0.5345345345345343,
+      "stationary_cut_replica_product": 1.4897745204581343e-33,
+      "stationary_birth_return_export": [
+        0.5225225225225224,
+        0.5225225225225224,
+        0.0
+      ],
+      "stationary": {
+        "near_minus_far": 9.71445146547012e-17,
+        "signed_cut": 3.859759734048396e-17,
+        "cut_current": 1.5959455978986625e-16,
+        "unit_heads": 1.459459459459459,
+        "absolute_cut_excess": 0.0720720720720719,
+        "load_loss_inner": 0.9999999999999996
+      },
+      "cycle256": {
+        "near_minus_far": 0.004905003802110654,
+        "signed_cut": 0.001921783221513704,
+        "cut_current": 0.002880226014936714,
+        "unit_heads": 1.4594594872738162,
+        "absolute_cut_excess": 0.07207208562952026,
+        "load_loss_inner": 0.9950949961978899
+      },
+      "tv_to_stationary_cycle256": 0.009037648137025915
+    },
+    "32": {
+      "owners": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "physical_seams": [
+        [
+          10,
+          20
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          32,
+          46
+        ]
+      ],
+      "stages": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ],
+        []
+      ],
+      "words": 2058,
+      "communicating_classes": 181,
+      "recurrent_size": 666,
+      "blank_patches_in_initial_class": 6,
+      "first_cycle_contrast_below_quarter": 84,
+      "exact_uniform_stationary": {
+        "near_minus_far": "0",
+        "signed_cut": "0",
+        "cut_current": "0",
+        "unit_heads": "54/37",
+        "absolute_cut_excess": "8/111",
+        "load_loss_inner": "1"
+      },
+      "stationary_cut_unit": 0.5345345345345347,
+      "stationary_cut_replica_product": 6.026242319151506e-33,
+      "stationary_birth_return_export": [
+        0.5225225225225225,
+        0.5225225225225225,
+        0.0
+      ],
+      "stationary": {
+        "near_minus_far": 0.0,
+        "signed_cut": 7.762887554996212e-17,
+        "cut_current": 3.469446951953614e-18,
+        "unit_heads": 1.4594594594594597,
+        "absolute_cut_excess": 0.07207207207207211,
+        "load_loss_inner": 1.0
+      },
+      "cycle256": {
+        "near_minus_far": 0.06599162876864748,
+        "signed_cut": 0.05467809436108354,
+        "cut_current": 0.048303931393671236,
+        "unit_heads": 1.4613243108454657,
+        "absolute_cut_excess": 0.07547023741283612,
+        "load_loss_inner": 0.9340083712313517
+      },
+      "tv_to_stationary_cycle256": 0.10618274719126003
+    }
+  }
+}

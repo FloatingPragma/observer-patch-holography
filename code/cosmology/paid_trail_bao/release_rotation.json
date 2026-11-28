@@ -1,0 +1,1472 @@
+{
+  "sha256": {
+    "material_release.json": "1566ee147330acf905ee0ea25ceb7a1b7b03ddd673d7ef23d0a3fdc56d6a0766",
+    "table1.dat": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c",
+    "table2.dat": "7d027e515441c6b4ebbf6aadee0327e6ad81156c4e8b151af2f6d62cb44c3962",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c"
+  },
+  "orientation_balanced_linear_excess": 0,
+  "catalogue_rows_total": 3391,
+  "all_catalogue": {
+    "rings": 3391,
+    "within_two": 452,
+    "individually_possible": 1914,
+    "nominal_whole": 4,
+    "shared_parameters_whole": 29,
+    "baryons_too_slow_even_at_upper_limit": 1472,
+    "galaxies": 175
+  },
+  "quality_1_2_inclination_at_least_30": {
+    "rings": 3168,
+    "within_two": 390,
+    "individually_possible": 1748,
+    "nominal_whole": 1,
+    "shared_parameters_whole": 20,
+    "baryons_too_slow_even_at_upper_limit": 1415,
+    "galaxies": 153
+  },
+  "previously_enrolled": {
+    "DDO154": {
+      "rings": 11,
+      "within_two": 0
+    },
+    "IC2574": {
+      "rings": 22,
+      "within_two": 0
+    },
+    "NGC7793": {
+      "rings": 26,
+      "within_two": 0
+    },
+    "NGC2403": {
+      "rings": 72,
+      "within_two": 0
+    },
+    "NGC3198": {
+      "rings": 37,
+      "within_two": 0
+    },
+    "NGC6946": {
+      "rings": 54,
+      "within_two": 6
+    },
+    "NGC3521": {
+      "rings": 34,
+      "within_two": 13
+    },
+    "NGC2841": {
+      "rings": 50,
+      "within_two": 0
+    },
+    "NGC5055": {
+      "rings": 27,
+      "within_two": 4
+    },
+    "NGC7331": {
+      "rings": 36,
+      "within_two": 3
+    }
+  },
+  "galaxies": {
+    "CamB": {
+      "rings": 9,
+      "within_two": 6,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "D512-2": {
+      "rings": 4,
+      "within_two": 0,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "D564-8": {
+      "rings": 6,
+      "within_two": 1,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "D631-7": {
+      "rings": 16,
+      "within_two": 3,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "DDO064": {
+      "rings": 14,
+      "within_two": 3,
+      "individually_possible": 14,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "DDO154": {
+      "rings": 12,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "DDO161": {
+      "rings": 31,
+      "within_two": 5,
+      "individually_possible": 16,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "DDO168": {
+      "rings": 10,
+      "within_two": 1,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "DDO170": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "ESO079-G014": {
+      "rings": 15,
+      "within_two": 3,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "ESO116-G012": {
+      "rings": 15,
+      "within_two": 0,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "ESO444-G084": {
+      "rings": 7,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "ESO563-G021": {
+      "rings": 30,
+      "within_two": 0,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 22
+    },
+    "F561-1": {
+      "rings": 6,
+      "within_two": 3,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "F563-1": {
+      "rings": 17,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "F563-V1": {
+      "rings": 6,
+      "within_two": 6,
+      "individually_possible": 6,
+      "nominal_whole": true,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "F563-V2": {
+      "rings": 10,
+      "within_two": 3,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "F565-V2": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "F567-2": {
+      "rings": 5,
+      "within_two": 2,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "F568-1": {
+      "rings": 12,
+      "within_two": 1,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "F568-3": {
+      "rings": 18,
+      "within_two": 2,
+      "individually_possible": 13,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "F568-V1": {
+      "rings": 15,
+      "within_two": 2,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "F571-8": {
+      "rings": 13,
+      "within_two": 2,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 6
+    },
+    "F571-V1": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "F574-1": {
+      "rings": 14,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 12
+    },
+    "F574-2": {
+      "rings": 5,
+      "within_two": 5,
+      "individually_possible": 5,
+      "nominal_whole": true,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "F579-V1": {
+      "rings": 14,
+      "within_two": 0,
+      "individually_possible": 14,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "F583-1": {
+      "rings": 25,
+      "within_two": 5,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 19
+    },
+    "F583-4": {
+      "rings": 12,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "IC2574": {
+      "rings": 34,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 28
+    },
+    "IC4202": {
+      "rings": 32,
+      "within_two": 1,
+      "individually_possible": 22,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "KK98-251": {
+      "rings": 15,
+      "within_two": 3,
+      "individually_possible": 15,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC0024": {
+      "rings": 29,
+      "within_two": 3,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 25
+    },
+    "NGC0055": {
+      "rings": 21,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "NGC0100": {
+      "rings": 21,
+      "within_two": 2,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 13
+    },
+    "NGC0247": {
+      "rings": 26,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 26
+    },
+    "NGC0289": {
+      "rings": 28,
+      "within_two": 6,
+      "individually_possible": 15,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 13
+    },
+    "NGC0300": {
+      "rings": 25,
+      "within_two": 0,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 16
+    },
+    "NGC0801": {
+      "rings": 13,
+      "within_two": 2,
+      "individually_possible": 10,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 3
+    },
+    "NGC0891": {
+      "rings": 18,
+      "within_two": 2,
+      "individually_possible": 16,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 2
+    },
+    "NGC1003": {
+      "rings": 36,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 29
+    },
+    "NGC1090": {
+      "rings": 24,
+      "within_two": 3,
+      "individually_possible": 17,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "NGC1705": {
+      "rings": 14,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 14
+    },
+    "NGC2366": {
+      "rings": 26,
+      "within_two": 2,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 17
+    },
+    "NGC2403": {
+      "rings": 73,
+      "within_two": 0,
+      "individually_possible": 35,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 38
+    },
+    "NGC2683": {
+      "rings": 11,
+      "within_two": 0,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "NGC2841": {
+      "rings": 50,
+      "within_two": 0,
+      "individually_possible": 14,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 36
+    },
+    "NGC2903": {
+      "rings": 34,
+      "within_two": 6,
+      "individually_possible": 24,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "NGC2915": {
+      "rings": 30,
+      "within_two": 4,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 25
+    },
+    "NGC2955": {
+      "rings": 24,
+      "within_two": 4,
+      "individually_possible": 24,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC2976": {
+      "rings": 27,
+      "within_two": 5,
+      "individually_possible": 27,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC2998": {
+      "rings": 13,
+      "within_two": 0,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 6
+    },
+    "NGC3109": {
+      "rings": 25,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 24
+    },
+    "NGC3198": {
+      "rings": 43,
+      "within_two": 6,
+      "individually_possible": 21,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 22
+    },
+    "NGC3521": {
+      "rings": 41,
+      "within_two": 20,
+      "individually_possible": 40,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "NGC3726": {
+      "rings": 12,
+      "within_two": 2,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 3
+    },
+    "NGC3741": {
+      "rings": 21,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 19
+    },
+    "NGC3769": {
+      "rings": 12,
+      "within_two": 2,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "NGC3877": {
+      "rings": 13,
+      "within_two": 1,
+      "individually_possible": 13,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC3893": {
+      "rings": 10,
+      "within_two": 1,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "NGC3917": {
+      "rings": 17,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "NGC3949": {
+      "rings": 7,
+      "within_two": 3,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC3953": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC3972": {
+      "rings": 10,
+      "within_two": 1,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "NGC3992": {
+      "rings": 9,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "NGC4010": {
+      "rings": 12,
+      "within_two": 2,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "NGC4013": {
+      "rings": 36,
+      "within_two": 0,
+      "individually_possible": 17,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 19
+    },
+    "NGC4051": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4068": {
+      "rings": 6,
+      "within_two": 2,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4085": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4088": {
+      "rings": 12,
+      "within_two": 7,
+      "individually_possible": 12,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4100": {
+      "rings": 24,
+      "within_two": 0,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "NGC4138": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4157": {
+      "rings": 17,
+      "within_two": 2,
+      "individually_possible": 12,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "NGC4183": {
+      "rings": 23,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 22
+    },
+    "NGC4214": {
+      "rings": 14,
+      "within_two": 0,
+      "individually_possible": 14,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4217": {
+      "rings": 19,
+      "within_two": 2,
+      "individually_possible": 17,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4389": {
+      "rings": 6,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC4559": {
+      "rings": 32,
+      "within_two": 4,
+      "individually_possible": 30,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 2
+    },
+    "NGC5005": {
+      "rings": 18,
+      "within_two": 15,
+      "individually_possible": 18,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC5033": {
+      "rings": 22,
+      "within_two": 1,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 13
+    },
+    "NGC5055": {
+      "rings": 28,
+      "within_two": 5,
+      "individually_possible": 18,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "NGC5371": {
+      "rings": 19,
+      "within_two": 0,
+      "individually_possible": 19,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC5585": {
+      "rings": 24,
+      "within_two": 3,
+      "individually_possible": 15,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "NGC5907": {
+      "rings": 19,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 19
+    },
+    "NGC5985": {
+      "rings": 33,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 33
+    },
+    "NGC6015": {
+      "rings": 44,
+      "within_two": 0,
+      "individually_possible": 24,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 20
+    },
+    "NGC6195": {
+      "rings": 23,
+      "within_two": 6,
+      "individually_possible": 23,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC6503": {
+      "rings": 31,
+      "within_two": 0,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 26
+    },
+    "NGC6674": {
+      "rings": 15,
+      "within_two": 1,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "NGC6789": {
+      "rings": 4,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 2
+    },
+    "NGC6946": {
+      "rings": 58,
+      "within_two": 6,
+      "individually_possible": 58,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC7331": {
+      "rings": 36,
+      "within_two": 3,
+      "individually_possible": 26,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "NGC7793": {
+      "rings": 46,
+      "within_two": 8,
+      "individually_possible": 46,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "NGC7814": {
+      "rings": 18,
+      "within_two": 3,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 12
+    },
+    "PGC51017": {
+      "rings": 6,
+      "within_two": 5,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC00128": {
+      "rings": 22,
+      "within_two": 1,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 21
+    },
+    "UGC00191": {
+      "rings": 9,
+      "within_two": 0,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 6
+    },
+    "UGC00634": {
+      "rings": 4,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 3
+    },
+    "UGC00731": {
+      "rings": 12,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 12
+    },
+    "UGC00891": {
+      "rings": 5,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC01230": {
+      "rings": 11,
+      "within_two": 1,
+      "individually_possible": 11,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC01281": {
+      "rings": 25,
+      "within_two": 4,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 19
+    },
+    "UGC02023": {
+      "rings": 5,
+      "within_two": 3,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC02259": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "UGC02455": {
+      "rings": 8,
+      "within_two": 2,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC02487": {
+      "rings": 17,
+      "within_two": 0,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "UGC02885": {
+      "rings": 19,
+      "within_two": 0,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 12
+    },
+    "UGC02916": {
+      "rings": 43,
+      "within_two": 7,
+      "individually_possible": 43,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC02953": {
+      "rings": 115,
+      "within_two": 29,
+      "individually_possible": 87,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 28
+    },
+    "UGC03205": {
+      "rings": 48,
+      "within_two": 5,
+      "individually_possible": 39,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "UGC03546": {
+      "rings": 30,
+      "within_two": 14,
+      "individually_possible": 30,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC03580": {
+      "rings": 47,
+      "within_two": 13,
+      "individually_possible": 36,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "UGC04278": {
+      "rings": 25,
+      "within_two": 2,
+      "individually_possible": 10,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "UGC04305": {
+      "rings": 22,
+      "within_two": 17,
+      "individually_possible": 22,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC04325": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "UGC04483": {
+      "rings": 8,
+      "within_two": 2,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC04499": {
+      "rings": 9,
+      "within_two": 1,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC05005": {
+      "rings": 11,
+      "within_two": 4,
+      "individually_possible": 11,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC05253": {
+      "rings": 73,
+      "within_two": 15,
+      "individually_possible": 69,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC05414": {
+      "rings": 6,
+      "within_two": 0,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC05716": {
+      "rings": 12,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 12
+    },
+    "UGC05721": {
+      "rings": 23,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 16
+    },
+    "UGC05750": {
+      "rings": 11,
+      "within_two": 4,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 3
+    },
+    "UGC05764": {
+      "rings": 10,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "UGC05829": {
+      "rings": 11,
+      "within_two": 1,
+      "individually_possible": 11,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC05918": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "UGC05986": {
+      "rings": 15,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 13
+    },
+    "UGC05999": {
+      "rings": 5,
+      "within_two": 0,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC06399": {
+      "rings": 9,
+      "within_two": 1,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "UGC06446": {
+      "rings": 17,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "UGC06614": {
+      "rings": 13,
+      "within_two": 5,
+      "individually_possible": 13,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC06628": {
+      "rings": 7,
+      "within_two": 7,
+      "individually_possible": 7,
+      "nominal_whole": true,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC06667": {
+      "rings": 9,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "UGC06786": {
+      "rings": 45,
+      "within_two": 7,
+      "individually_possible": 30,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 15
+    },
+    "UGC06787": {
+      "rings": 71,
+      "within_two": 15,
+      "individually_possible": 47,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 24
+    },
+    "UGC06818": {
+      "rings": 8,
+      "within_two": 3,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC06917": {
+      "rings": 11,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "UGC06923": {
+      "rings": 6,
+      "within_two": 2,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 2
+    },
+    "UGC06930": {
+      "rings": 10,
+      "within_two": 0,
+      "individually_possible": 10,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC06973": {
+      "rings": 9,
+      "within_two": 1,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC06983": {
+      "rings": 17,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 16
+    },
+    "UGC07089": {
+      "rings": 12,
+      "within_two": 1,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC07125": {
+      "rings": 13,
+      "within_two": 1,
+      "individually_possible": 9,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC07151": {
+      "rings": 11,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "UGC07232": {
+      "rings": 4,
+      "within_two": 1,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "UGC07261": {
+      "rings": 7,
+      "within_two": 0,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC07323": {
+      "rings": 10,
+      "within_two": 0,
+      "individually_possible": 10,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC07399": {
+      "rings": 10,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 10
+    },
+    "UGC07524": {
+      "rings": 31,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 29
+    },
+    "UGC07559": {
+      "rings": 7,
+      "within_two": 2,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 1
+    },
+    "UGC07577": {
+      "rings": 9,
+      "within_two": 9,
+      "individually_possible": 9,
+      "nominal_whole": true,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC07603": {
+      "rings": 12,
+      "within_two": 1,
+      "individually_possible": 3,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 9
+    },
+    "UGC07608": {
+      "rings": 8,
+      "within_two": 1,
+      "individually_possible": 8,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC07690": {
+      "rings": 7,
+      "within_two": 0,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC07866": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC08286": {
+      "rings": 17,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 17
+    },
+    "UGC08490": {
+      "rings": 30,
+      "within_two": 0,
+      "individually_possible": 1,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 29
+    },
+    "UGC08550": {
+      "rings": 11,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 11
+    },
+    "UGC08699": {
+      "rings": 41,
+      "within_two": 6,
+      "individually_possible": 34,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 7
+    },
+    "UGC08837": {
+      "rings": 8,
+      "within_two": 2,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 3
+    },
+    "UGC09037": {
+      "rings": 22,
+      "within_two": 2,
+      "individually_possible": 22,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC09133": {
+      "rings": 68,
+      "within_two": 14,
+      "individually_possible": 47,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 21
+    },
+    "UGC09992": {
+      "rings": 5,
+      "within_two": 3,
+      "individually_possible": 5,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC10310": {
+      "rings": 7,
+      "within_two": 0,
+      "individually_possible": 7,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC11455": {
+      "rings": 36,
+      "within_two": 2,
+      "individually_possible": 32,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC11557": {
+      "rings": 12,
+      "within_two": 10,
+      "individually_possible": 12,
+      "nominal_whole": false,
+      "shared_parameters_whole": true,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC11820": {
+      "rings": 10,
+      "within_two": 1,
+      "individually_possible": 6,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 4
+    },
+    "UGC11914": {
+      "rings": 65,
+      "within_two": 4,
+      "individually_possible": 65,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 0
+    },
+    "UGC12506": {
+      "rings": 31,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 31
+    },
+    "UGC12632": {
+      "rings": 15,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 13
+    },
+    "UGC12732": {
+      "rings": 16,
+      "within_two": 0,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 14
+    },
+    "UGCA281": {
+      "rings": 7,
+      "within_two": 1,
+      "individually_possible": 2,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 5
+    },
+    "UGCA442": {
+      "rings": 8,
+      "within_two": 0,
+      "individually_possible": 0,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 8
+    },
+    "UGCA444": {
+      "rings": 36,
+      "within_two": 1,
+      "individually_possible": 4,
+      "nominal_whole": false,
+      "shared_parameters_whole": false,
+      "baryons_too_slow_even_at_upper_limit": 32
+    }
+  }
+}

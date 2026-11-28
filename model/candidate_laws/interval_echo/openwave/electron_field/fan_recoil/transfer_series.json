@@ -1,0 +1,1587 @@
+{
+  "max_determinant_order_for_initial_prime": 72,
+  "first_prime": 1000003,
+  "archive_manifest_sha256": "7652de2dc86722587435cb2ea68616d056cea1c5a1dcac4df6662ecf4860d5f7",
+  "configurations": [
+    {
+      "native_board_cells": 20,
+      "path_fans": 2,
+      "bridges": [
+        [
+          14,
+          24
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": -1,
+      "configuration_count": 160,
+      "integer_matrix_maximum_abs_row_sum": 72,
+      "joint_source_and_receiver_squared_normalizers": [
+        16,
+        16
+      ],
+      "configuration_matrix_and_read_columns_sha256": "7e54e87bddd9b995b1a0d443eae6b353133d68f56465f1ac50e14187d200bbbb",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          745054,
+          250085,
+          640278,
+          345684,
+          7637,
+          250616,
+          135576,
+          239245,
+          285198,
+          859418,
+          217594,
+          157029,
+          464811,
+          798528,
+          452950,
+          632963,
+          255053,
+          564132,
+          367046,
+          817037,
+          235864,
+          552468,
+          769100,
+          408846,
+          560339,
+          920963,
+          599589,
+          809769,
+          372208,
+          828023,
+          360237,
+          734657,
+          655578,
+          567699,
+          371059,
+          590416,
+          939727,
+          25279,
+          676103,
+          231877,
+          65578,
+          206027,
+          846124,
+          761828,
+          576915,
+          805038,
+          132606,
+          312912,
+          744624,
+          192517,
+          136486,
+          754199,
+          8497,
+          476244,
+          110984,
+          904637,
+          493500
+        ],
+        "first_nonzero_at_first_prime": 16,
+        "coefficient_absolute_bound_at_certified_order": "17501280863829428281020847086656028672",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117
+        ],
+        "crt_modulus_product": "1000409066626525356292764592763270990723111",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-482564526373213306880"
+        ],
+        "first_exact_nonzero_order": 16,
+        "leading_taylor_factor_before_minus_i_power": "-1227664/893025",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "932640995/859535399874211295514329088"
+      }
+    },
+    {
+      "native_board_cells": 320,
+      "path_fans": 3,
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          98,
+          100,
+          107,
+          106,
+          102,
+          99
+        ],
+        [
+          241,
+          245,
+          249,
+          248,
+          247,
+          240
+        ],
+        [
+          1011,
+          1012,
+          1017,
+          1016,
+          1014,
+          1010
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": -1,
+      "configuration_count": 800,
+      "integer_matrix_maximum_abs_row_sum": 76,
+      "joint_source_and_receiver_squared_normalizers": [
+        64,
+        32
+      ],
+      "configuration_matrix_and_read_columns_sha256": "e8addcacf0f5adbcd585e8e7045ba9f7f975cb9e0d63d0b868b7bd2883d27144",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          155681,
+          207627,
+          702828,
+          843957,
+          799502,
+          233028,
+          223092,
+          127019,
+          432526,
+          887070,
+          518131,
+          407269,
+          790143,
+          932344,
+          268639,
+          42909,
+          555578,
+          913690,
+          483069,
+          745372,
+          494188,
+          628162,
+          987977,
+          140773,
+          327733,
+          440817,
+          912332,
+          272653,
+          378486,
+          924424,
+          371052,
+          650363,
+          635773,
+          874746,
+          770533,
+          610617,
+          103652,
+          112336,
+          600128,
+          489738,
+          385449,
+          757645,
+          606392,
+          557112,
+          789638,
+          466917,
+          577730,
+          402626,
+          580243,
+          609721,
+          944068,
+          990965,
+          969482
+        ],
+        "first_nonzero_at_first_prime": 20,
+        "coefficient_absolute_bound_at_certified_order": "177513630747874623447190288066167495718963511296",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117,
+          1000121
+        ],
+        "crt_modulus_product": "1000530116123587165860876017278995346512988496431",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-92863524204795955012173824"
+        ],
+        "first_exact_nonzero_order": 20,
+        "leading_taylor_factor_before_minus_i_power": "-39285248/2210236875",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "118699763/4926993001027463832319505334272"
+      }
+    },
+    {
+      "native_board_cells": 320,
+      "path_fans": 4,
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ],
+        [
+          1010,
+          1045
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          98,
+          100,
+          107,
+          106,
+          102,
+          99
+        ],
+        [
+          241,
+          245,
+          249,
+          248,
+          247,
+          240
+        ],
+        [
+          1011,
+          1012,
+          1017,
+          1016,
+          1014,
+          1010
+        ],
+        [
+          1045,
+          1049,
+          1053,
+          1052,
+          1051,
+          1044
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": -1,
+      "configuration_count": 3520,
+      "integer_matrix_maximum_abs_row_sum": 80,
+      "joint_source_and_receiver_squared_normalizers": [
+        256,
+        64
+      ],
+      "configuration_matrix_and_read_columns_sha256": "9d7975a748312e36ac1b15df7b765a8ad088f35cc2bf8da02cdb63cf16bdba7a",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          757400,
+          302767,
+          198156,
+          379528,
+          73644,
+          693567,
+          565365,
+          454764,
+          624498,
+          693699,
+          497147,
+          538534,
+          316284,
+          415385,
+          125167,
+          177795,
+          94503,
+          854801,
+          804511,
+          885920,
+          474585,
+          497340,
+          230326,
+          762393,
+          799596,
+          245136,
+          251600,
+          797676,
+          573011,
+          538933,
+          222207,
+          960777,
+          631596,
+          620436,
+          46276,
+          698704,
+          475583,
+          373674,
+          398484,
+          224130,
+          633156,
+          297098,
+          657533,
+          552046,
+          315022,
+          554054,
+          309133,
+          878376,
+          351590
+        ],
+        "first_nonzero_at_first_prime": 24,
+        "coefficient_absolute_bound_at_certified_order": "2596148429267413814265248164610048000000000000000000000000",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117,
+          1000121,
+          1000133,
+          1000151
+        ],
+        "crt_modulus_product": "1000814286770212586725981558051875636205461729184334377823773",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-18842894836307052710310185009152"
+        ],
+        "first_exact_nonzero_order": 24,
+        "leading_taylor_factor_before_minus_i_power": "-314281984/2844574858125",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "3990138187/10555311626649600000000000000000000000"
+      }
+    },
+    {
+      "native_board_cells": 20,
+      "path_fans": 3,
+      "bridges": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "prepared_charge_sign": -1,
+      "configuration_count": 800,
+      "integer_matrix_maximum_abs_row_sum": 76,
+      "joint_source_and_receiver_squared_normalizers": [
+        64,
+        32
+      ],
+      "configuration_matrix_and_read_columns_sha256": "703a3569b7fbe6b9659c47b31f0fff7d5e969a1285f133fa0d02a1a623631ff2",
+      "exact_reflection": {
+        "terminal_local_port_permutation": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "terminal_code_action": [
+          [
+            0,
+            -1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "invariant_sender": true,
+        "fixed_spectator_words_at_readout": true,
+        "each_accepted_receiver_image_dimension_at_most": 1,
+        "determinant_identically_zero": true
+      }
+    },
+    {
+      "native_board_cells": 20,
+      "path_fans": 4,
+      "bridges": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          68,
+          61,
+          67,
+          66,
+          63,
+          69
+        ],
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "prepared_charge_sign": -1,
+      "configuration_count": 3840,
+      "integer_matrix_maximum_abs_row_sum": 80,
+      "joint_source_and_receiver_squared_normalizers": [
+        128,
+        128
+      ],
+      "configuration_matrix_and_read_columns_sha256": "7ded135553072ece2023d22b79554a91d6a139ca48357ddbbe1e0c3a39d1ff99",
+      "exact_reflection": {
+        "terminal_local_port_permutation": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "terminal_code_action": [
+          [
+            0,
+            -1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "invariant_sender": true,
+        "fixed_spectator_words_at_readout": true,
+        "each_accepted_receiver_image_dimension_at_most": 1,
+        "determinant_identically_zero": true
+      }
+    },
+    {
+      "native_board_cells": 20,
+      "path_fans": 2,
+      "bridges": [
+        [
+          14,
+          24
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": 1,
+      "configuration_count": 160,
+      "integer_matrix_maximum_abs_row_sum": 72,
+      "joint_source_and_receiver_squared_normalizers": [
+        16,
+        16
+      ],
+      "configuration_matrix_and_read_columns_sha256": "5c52583454fe991b8550742bc52a25a81352373e55610c94ec69229e27e72b55",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          745054,
+          250085,
+          640278,
+          345684,
+          7637,
+          250616,
+          135576,
+          239245,
+          285198,
+          859418,
+          217594,
+          157029,
+          464811,
+          798528,
+          452950,
+          632963,
+          255053,
+          564132,
+          367046,
+          817037,
+          235864,
+          552468,
+          769100,
+          408846,
+          560339,
+          920963,
+          599589,
+          809769,
+          372208,
+          828023,
+          360237,
+          734657,
+          655578,
+          567699,
+          371059,
+          590416,
+          939727,
+          25279,
+          676103,
+          231877,
+          65578,
+          206027,
+          846124,
+          761828,
+          576915,
+          805038,
+          132606,
+          312912,
+          744624,
+          192517,
+          136486,
+          754199,
+          8497,
+          476244,
+          110984,
+          904637,
+          493500
+        ],
+        "first_nonzero_at_first_prime": 16,
+        "coefficient_absolute_bound_at_certified_order": "17501280863829428281020847086656028672",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117
+        ],
+        "crt_modulus_product": "1000409066626525356292764592763270990723111",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-482564526373213306880"
+        ],
+        "first_exact_nonzero_order": 16,
+        "leading_taylor_factor_before_minus_i_power": "-1227664/893025",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "932640995/859535399874211295514329088"
+      }
+    },
+    {
+      "native_board_cells": 320,
+      "path_fans": 3,
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          98,
+          100,
+          107,
+          106,
+          102,
+          99
+        ],
+        [
+          241,
+          245,
+          249,
+          248,
+          247,
+          240
+        ],
+        [
+          1011,
+          1012,
+          1017,
+          1016,
+          1014,
+          1010
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": 1,
+      "configuration_count": 800,
+      "integer_matrix_maximum_abs_row_sum": 76,
+      "joint_source_and_receiver_squared_normalizers": [
+        64,
+        32
+      ],
+      "configuration_matrix_and_read_columns_sha256": "b1de7c5c26902ed41301d7fc46eb2915b6fd258a6ee87dab6e96abd684d5e123",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          155681,
+          207627,
+          702828,
+          843957,
+          799502,
+          233028,
+          223092,
+          127019,
+          432526,
+          887070,
+          518131,
+          407269,
+          790143,
+          932344,
+          268639,
+          42909,
+          555578,
+          913690,
+          483069,
+          745372,
+          494188,
+          628162,
+          987977,
+          140773,
+          327733,
+          440817,
+          912332,
+          272653,
+          378486,
+          924424,
+          371052,
+          650363,
+          635773,
+          874746,
+          770533,
+          610617,
+          103652,
+          112336,
+          600128,
+          489738,
+          385449,
+          757645,
+          606392,
+          557112,
+          789638,
+          466917,
+          577730,
+          402626,
+          580243,
+          609721,
+          944068,
+          990965,
+          969482
+        ],
+        "first_nonzero_at_first_prime": 20,
+        "coefficient_absolute_bound_at_certified_order": "177513630747874623447190288066167495718963511296",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117,
+          1000121
+        ],
+        "crt_modulus_product": "1000530116123587165860876017278995346512988496431",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-92863524204795955012173824"
+        ],
+        "first_exact_nonzero_order": 20,
+        "leading_taylor_factor_before_minus_i_power": "-39285248/2210236875",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "118699763/4926993001027463832319505334272"
+      }
+    },
+    {
+      "native_board_cells": 320,
+      "path_fans": 4,
+      "bridges": [
+        [
+          98,
+          241
+        ],
+        [
+          240,
+          1011
+        ],
+        [
+          1010,
+          1045
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          98,
+          100,
+          107,
+          106,
+          102,
+          99
+        ],
+        [
+          241,
+          245,
+          249,
+          248,
+          247,
+          240
+        ],
+        [
+          1011,
+          1012,
+          1017,
+          1016,
+          1014,
+          1010
+        ],
+        [
+          1045,
+          1049,
+          1053,
+          1052,
+          1051,
+          1044
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "prepared_charge_sign": 1,
+      "configuration_count": 3520,
+      "integer_matrix_maximum_abs_row_sum": 80,
+      "joint_source_and_receiver_squared_normalizers": [
+        256,
+        64
+      ],
+      "configuration_matrix_and_read_columns_sha256": "33bfdcfae4957dd4a69dddfc214a7609913ffcc000cefd01b236097c288e3902",
+      "determinant_series": {
+        "determinant_residues_at_first_prime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          757400,
+          302767,
+          198156,
+          379528,
+          73644,
+          693567,
+          565365,
+          454764,
+          624498,
+          693699,
+          497147,
+          538534,
+          316284,
+          415385,
+          125167,
+          177795,
+          94503,
+          854801,
+          804511,
+          885920,
+          474585,
+          497340,
+          230326,
+          762393,
+          799596,
+          245136,
+          251600,
+          797676,
+          573011,
+          538933,
+          222207,
+          960777,
+          631596,
+          620436,
+          46276,
+          698704,
+          475583,
+          373674,
+          398484,
+          224130,
+          633156,
+          297098,
+          657533,
+          552046,
+          315022,
+          554054,
+          309133,
+          878376,
+          351590
+        ],
+        "first_nonzero_at_first_prime": 24,
+        "coefficient_absolute_bound_at_certified_order": "2596148429267413814265248164610048000000000000000000000000",
+        "crt_primes": [
+          1000003,
+          1000033,
+          1000037,
+          1000039,
+          1000081,
+          1000099,
+          1000117,
+          1000121,
+          1000133,
+          1000151
+        ],
+        "crt_modulus_product": "1000814286770212586725981558051875636205461729184334377823773",
+        "exact_integer_coefficients": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-18842894836307052710310185009152"
+        ],
+        "first_exact_nonzero_order": 24,
+        "leading_taylor_factor_before_minus_i_power": "-314281984/2844574858125",
+        "leading_taylor_minus_i_power": 0,
+        "certified_open_punctured_interval_radius": "3990138187/10555311626649600000000000000000000000"
+      }
+    },
+    {
+      "native_board_cells": 20,
+      "path_fans": 3,
+      "bridges": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "prepared_charge_sign": 1,
+      "configuration_count": 800,
+      "integer_matrix_maximum_abs_row_sum": 76,
+      "joint_source_and_receiver_squared_normalizers": [
+        64,
+        32
+      ],
+      "configuration_matrix_and_read_columns_sha256": "f9ab44e023e631e5bc25c7a6028f51174c3100471c0de19ae4778527c3b8d623",
+      "exact_reflection": {
+        "terminal_local_port_permutation": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "terminal_code_action": [
+          [
+            0,
+            -1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "invariant_sender": true,
+        "fixed_spectator_words_at_readout": true,
+        "each_accepted_receiver_image_dimension_at_most": 1,
+        "determinant_identically_zero": true
+      }
+    },
+    {
+      "native_board_cells": 20,
+      "path_fans": 4,
+      "bridges": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "ordered_fan_ports": [
+        [
+          68,
+          61,
+          67,
+          66,
+          63,
+          69
+        ],
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "fan_degrees": [
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          6,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "prepared_charge_sign": 1,
+      "configuration_count": 3840,
+      "integer_matrix_maximum_abs_row_sum": 80,
+      "joint_source_and_receiver_squared_normalizers": [
+        128,
+        128
+      ],
+      "configuration_matrix_and_read_columns_sha256": "3ecacd3759788f89bae827779a4001d5545c38d689e8be22df720f774b66e9e4",
+      "exact_reflection": {
+        "terminal_local_port_permutation": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "terminal_code_action": [
+          [
+            0,
+            -1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "invariant_sender": true,
+        "fixed_spectator_words_at_readout": true,
+        "each_accepted_receiver_image_dimension_at_most": 1,
+        "determinant_identically_zero": true
+      }
+    }
+  ]
+}

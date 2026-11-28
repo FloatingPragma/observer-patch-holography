@@ -2,6 +2,15 @@
 
 **Let's vibe our way to the theory of everything.**
 
+**IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.**
+
+A good experiment can measure the source of an effect too small for the
+instrument to see directly. If a finite theorem proves that the measured
+source entails the effect, establishing that exact source closes the open
+premise. Once every premise is established on the same construction, report
+what observers can infer and cite both the measurement and the theorem.
+[Research instructions](../AGENTS.md#closing-a-physical-premise)
+
 Observer Patch Holography (OPH) is an open collaboration to find the computation
 that outputs our Universe. Every observable it has to reproduce, and every
 premise its theorems wait on, has a row and a status on the
@@ -210,6 +219,10 @@ shown, so one demonstrated premise raises every observable that depends on it.
 Please continue to complete Observer Patch Holography (OPH) and the OpenWave
 challenges. First read AGENTS.md, docs/OPENWAVE_SUBMISSION_GUIDELINES.md and
 docs/registers/README.md in full; they bind this work.
+
+For a theorem-backed row, measure the exact premise in shared observer
+records. When all premises hold on this construction, credit the observable
+the theorem proves, even if the local detector cannot resolve it directly.
 
 Goal: raise the status of rows in the OPH register
 (docs/registers/OBSERVABLES.json, mirrored at https://status.floatingpragma.ai/)

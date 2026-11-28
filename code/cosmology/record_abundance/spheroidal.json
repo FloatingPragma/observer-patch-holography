@@ -1,0 +1,462 @@
+{
+  "protocol_sha256": "2b436daf76348bbad76eea698746d34cb6356d0e9257e5eab1312e93e601a48b",
+  "primary_tex": {
+    "0908.2995v3": "429edae10d5d9fd2673573ed72fbb2a803f28b5e016b7ca47ef4b0525f6f1a21",
+    "astro-ph/0301228v1": "6965673a5960b9ec35906cc55a88ac52624a57700ae0b60b00b6a796f9d42868",
+    "1410.0028v1": "dc6249c083df4ed9b73cbb78ea2a3ded5f5a073a6595ae74e309419d36ed24f4",
+    "2407.07769v1": "bb7cb4b6cc468fd748b2a3bb73d5f663efc145115e4b8d9438457743f0f49c03"
+  },
+  "lab_sha256": {
+    "85.5": "57cd8c0f2abcb597b06ee39a8e7dbab9e7250da7df8fedf6ebdc49e310c147d4",
+    "86.0": "b6c22ad2cf577952ae118e53b4b221b77b52cb8b30c01ef74300d544fe60b0ca",
+    "86.5": "32a80c3a9437de5babef9e7bc41538c1fbf3aedc83cdc5073fb87ef523f26e4b",
+    "87.0": "4a9931d8df8e51c9dbea594db60062dec48a700075ddca643bb5ccec655920b0",
+    "87.5": "68d4d235466df5e042bcfab3341355fe1903277c7d797e1ab6b3371da93dcc65"
+  },
+  "native_fixed_census": [
+    {
+      "cells": 80,
+      "fixed_ordinary_count": 8,
+      "p": 0.1,
+      "witness_counts": {
+        "11": 60,
+        "12": 60
+      },
+      "expected_failed_mismatches_per_ordinary": 0.8530067453488369
+    },
+    {
+      "cells": 320,
+      "fixed_ordinary_count": 8,
+      "p": 0.025,
+      "witness_counts": {
+        "11": 60,
+        "12": 420
+      },
+      "expected_failed_mismatches_per_ordinary": 2.2421754196357555
+    }
+  ],
+  "half_light": {
+    "radius_pc": 291,
+    "mass_proxy_msun": 21100000.0,
+    "light_used_for_inventory_lsun": 110000.0,
+    "light_known_inside_for_density_lsun": 110000.0,
+    "warm": {
+      "warm_mass_ceiling_msun": 107508.63719368835,
+      "minimum_spherical_shell_light_fraction_in_beam": 1
+    },
+    "neutral": {
+      "effective_beam_fwhm_deg": 0.6666666666666666,
+      "beams_lon_lat_deg": [
+        [
+          86.0,
+          34.5
+        ],
+        [
+          86.0,
+          35.0
+        ],
+        [
+          86.5,
+          34.5
+        ],
+        [
+          86.5,
+          35.0
+        ]
+      ],
+      "minimum_beam_sum": 1.4210690478358383,
+      "windows": {
+        "-274": {
+          "beam_sum_K_km_per_s": 1.3423199896221492,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 278450.648150943,
+          "hi_upper_fully_correlated_msun": 1078760.929387039
+        },
+        "-400": {
+          "beam_sum_K_km_per_s": 0.6003081719421698,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 271695.63874378405,
+          "hi_upper_fully_correlated_msun": 1072005.91997988
+        },
+        "-335": {
+          "beam_sum_K_km_per_s": -0.010305719690415273,
+          "width_km_per_s": 60.8037461709996,
+          "hi_upper_msun": 269269.6961940919,
+          "hi_upper_fully_correlated_msun": 1084929.5664498296
+        },
+        "-210": {
+          "beam_sum_K_km_per_s": -0.14428007566039505,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 266230.64849424514,
+          "hi_upper_fully_correlated_msun": 1066540.929730341
+        }
+      }
+    },
+    "allowed_atomic_plus_warm_msun": 477847.99923444254,
+    "proper_site_density_enhancement_minimum_from_stars_at_ml_1": 27402.436336924497,
+    "homogeneous_cosmic_baryon_mass_in_volume_msun": 0.642278656671275,
+    "limits": {
+      "constant": {
+        "maximum_dark_per_baryon": 6.336285629327557,
+        "minimum_baryon_msun": 2876114.8442272446,
+        "required_stellar_ml_after_allowed_gas": 21.802425863570928,
+        "extra_baryons_at_stellar_ml_3_msun": 2068266.844992802,
+        "required_stellar_ml_if_no_gas": 26.146498583884043
+      },
+      "one_step": {
+        "maximum_dark_per_baryon": 12.726752607998094,
+        "minimum_baryon_msun": 1537144.3343202511,
+        "required_stellar_ml_after_allowed_gas": 9.62996668259826,
+        "extra_baryons_at_stellar_ml_3_msun": 729296.3350858085,
+        "required_stellar_ml_if_no_gas": 13.974039402911375
+      },
+      "two_step": {
+        "maximum_dark_per_baryon": 46.8786150045451,
+        "minimum_baryon_msun": 440697.79374355305,
+        "required_stellar_ml_after_allowed_gas": 0.0,
+        "extra_baryons_at_stellar_ml_3_msun": 0,
+        "required_stellar_ml_if_no_gas": 4.006343579486846,
+        "maximum_ordinary_occupation_at_ml_3": 0.048714090500392535,
+        "required_site_density_ratio_from_stars_at_ml_3": 1687546.8302156038
+      }
+    }
+  },
+  "favorable_half_light_input_corner": {
+    "radius_pc": 305,
+    "mass_proxy_msun": 18000000.0,
+    "light_used_for_inventory_lsun": 145000.0,
+    "light_known_inside_for_density_lsun": 145000.0,
+    "warm": {
+      "warm_mass_ceiling_msun": 122949.0164292293,
+      "minimum_spherical_shell_light_fraction_in_beam": 1
+    },
+    "neutral": {
+      "effective_beam_fwhm_deg": 0.6666666666666666,
+      "beams_lon_lat_deg": [
+        [
+          86.0,
+          34.5
+        ],
+        [
+          86.0,
+          35.0
+        ],
+        [
+          86.5,
+          34.5
+        ],
+        [
+          86.5,
+          35.0
+        ]
+      ],
+      "minimum_beam_sum": 1.423555897680001,
+      "windows": {
+        "-274": {
+          "beam_sum_K_km_per_s": 1.3423199896221492,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 315741.5536410988,
+          "hi_upper_fully_correlated_msun": 1223231.6718018237
+        },
+        "-400": {
+          "beam_sum_K_km_per_s": 0.6003081719421698,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 308081.8940955393,
+          "hi_upper_fully_correlated_msun": 1215572.0122562642
+        },
+        "-335": {
+          "beam_sum_K_km_per_s": -0.010305719690415273,
+          "width_km_per_s": 60.8037461709996,
+          "hi_upper_msun": 305331.0623960253,
+          "hi_upper_fully_correlated_msun": 1230226.4303451679
+        },
+        "-210": {
+          "beam_sum_K_km_per_s": -0.14428007566039505,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 301885.0167548642,
+          "hi_upper_fully_correlated_msun": 1209375.134915589
+        }
+      }
+    },
+    "allowed_atomic_plus_warm_msun": 542885.2827718908,
+    "proper_site_density_enhancement_minimum_from_stars_at_ml_1": 31372.125482512733,
+    "homogeneous_cosmic_baryon_mass_in_volume_msun": 0.739509983565889,
+    "limits": {
+      "constant": {
+        "maximum_dark_per_baryon": 6.336285629327557,
+        "minimum_baryon_msun": 2453557.6870185025,
+        "required_stellar_ml_after_allowed_gas": 13.177051063769737,
+        "extra_baryons_at_stellar_ml_3_msun": 1475672.4042466118,
+        "required_stellar_ml_if_no_gas": 16.921087496679327
+      },
+      "one_step": {
+        "maximum_dark_per_baryon": 12.726752607998094,
+        "minimum_baryon_msun": 1311307.9629272283,
+        "required_stellar_ml_after_allowed_gas": 5.299466759691983,
+        "extra_baryons_at_stellar_ml_3_msun": 333422.68015533756,
+        "required_stellar_ml_if_no_gas": 9.043503192601575
+      },
+      "two_step": {
+        "maximum_dark_per_baryon": 46.8786150045451,
+        "minimum_baryon_msun": 375950.7245205666,
+        "required_stellar_ml_after_allowed_gas": 0.0,
+        "extra_baryons_at_stellar_ml_3_msun": 0,
+        "required_stellar_ml_if_no_gas": 2.5927636173832176,
+        "maximum_ordinary_occupation_at_ml_3": 0.07625361710244839,
+        "required_site_density_ratio_from_stars_at_ml_3": 1234254.5838985029
+      }
+    }
+  },
+  "outer": {
+    "radius_pc": 900,
+    "mass_proxy_msun": 122448619.01318559,
+    "light_used_for_inventory_lsun": 220000.0,
+    "light_known_inside_for_density_lsun": 110000.0,
+    "warm": {
+      "warm_mass_ceiling_msun": 1027236.3513931815,
+      "minimum_spherical_shell_light_fraction_in_beam": 0.32403693488139707
+    },
+    "neutral": {
+      "effective_beam_fwhm_deg": 0.6666666666666666,
+      "beams_lon_lat_deg": [
+        [
+          85.5,
+          34.5
+        ],
+        [
+          85.5,
+          35.0
+        ],
+        [
+          86.0,
+          34.0
+        ],
+        [
+          86.0,
+          34.5
+        ],
+        [
+          86.0,
+          35.0
+        ],
+        [
+          86.0,
+          35.5
+        ],
+        [
+          86.5,
+          34.0
+        ],
+        [
+          86.5,
+          34.5
+        ],
+        [
+          86.5,
+          35.0
+        ],
+        [
+          86.5,
+          35.5
+        ],
+        [
+          87.0,
+          34.0
+        ],
+        [
+          87.0,
+          34.5
+        ],
+        [
+          87.0,
+          35.0
+        ],
+        [
+          87.0,
+          35.5
+        ]
+      ],
+      "minimum_beam_sum": 1.312559465958979,
+      "windows": {
+        "-274": {
+          "beam_sum_K_km_per_s": 5.557359342831158,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1063614.6579221704,
+          "hi_upper_fully_correlated_msun": 4096267.041214144
+        },
+        "-400": {
+          "beam_sum_K_km_per_s": 1.7416666276086243,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1026006.2697476837,
+          "hi_upper_fully_correlated_msun": 4058658.6530396575
+        },
+        "-335": {
+          "beam_sum_K_km_per_s": 0.9610083610910631,
+          "width_km_per_s": 60.8037461709996,
+          "hi_upper_msun": 1029827.9160534733,
+          "hi_upper_fully_correlated_msun": 4120645.199652702
+        },
+        "-210": {
+          "beam_sum_K_km_per_s": -0.383888058453979,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1008839.9831805448,
+          "hi_upper_fully_correlated_msun": 4041492.3664725185
+        }
+      }
+    },
+    "allowed_atomic_plus_warm_msun": 2441843.846429668,
+    "proper_site_density_enhancement_minimum_from_stars_at_ml_1": 926.2764362566628,
+    "homogeneous_cosmic_baryon_mass_in_volume_msun": 19.00080722243829,
+    "limits": {
+      "constant": {
+        "maximum_dark_per_baryon": 6.336285629327557,
+        "minimum_baryon_msun": 16690819.469144525,
+        "required_stellar_ml_after_allowed_gas": 64.76807101234026,
+        "extra_baryons_at_stellar_ml_3_msun": 13588975.622714857,
+        "required_stellar_ml_if_no_gas": 75.86736122338421
+      },
+      "one_step": {
+        "maximum_dark_per_baryon": 12.726752607998094,
+        "minimum_baryon_msun": 8920436.064524038,
+        "required_stellar_ml_after_allowed_gas": 29.4481464458835,
+        "extra_baryons_at_stellar_ml_3_msun": 5818592.218094369,
+        "required_stellar_ml_if_no_gas": 40.547436656927445
+      },
+      "two_step": {
+        "maximum_dark_per_baryon": 46.8786150045451,
+        "minimum_baryon_msun": 2557480.3908083304,
+        "required_stellar_ml_after_allowed_gas": 0.5256206562666477,
+        "extra_baryons_at_stellar_ml_3_msun": 0,
+        "required_stellar_ml_if_no_gas": 11.624910867310593,
+        "maximum_ordinary_occupation_at_ml_3": 0.01568026150915562,
+        "required_site_density_ratio_from_stars_at_ml_3": 177218.30131132982
+      }
+    }
+  },
+  "outer_lower_velocity": {
+    "radius_pc": 900,
+    "mass_proxy_msun": 94226468.35204645,
+    "light_used_for_inventory_lsun": 220000.0,
+    "light_known_inside_for_density_lsun": 110000.0,
+    "warm": {
+      "warm_mass_ceiling_msun": 1027236.3513931815,
+      "minimum_spherical_shell_light_fraction_in_beam": 0.32403693488139707
+    },
+    "neutral": {
+      "effective_beam_fwhm_deg": 0.6666666666666666,
+      "beams_lon_lat_deg": [
+        [
+          85.5,
+          34.5
+        ],
+        [
+          85.5,
+          35.0
+        ],
+        [
+          86.0,
+          34.0
+        ],
+        [
+          86.0,
+          34.5
+        ],
+        [
+          86.0,
+          35.0
+        ],
+        [
+          86.0,
+          35.5
+        ],
+        [
+          86.5,
+          34.0
+        ],
+        [
+          86.5,
+          34.5
+        ],
+        [
+          86.5,
+          35.0
+        ],
+        [
+          86.5,
+          35.5
+        ],
+        [
+          87.0,
+          34.0
+        ],
+        [
+          87.0,
+          34.5
+        ],
+        [
+          87.0,
+          35.0
+        ],
+        [
+          87.0,
+          35.5
+        ]
+      ],
+      "minimum_beam_sum": 1.312559465958979,
+      "windows": {
+        "-274": {
+          "beam_sum_K_km_per_s": 5.557359342831158,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1063614.6579221704,
+          "hi_upper_fully_correlated_msun": 4096267.041214144
+        },
+        "-400": {
+          "beam_sum_K_km_per_s": 1.7416666276086243,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1026006.2697476837,
+          "hi_upper_fully_correlated_msun": 4058658.6530396575
+        },
+        "-335": {
+          "beam_sum_K_km_per_s": 0.9610083610910631,
+          "width_km_per_s": 60.8037461709996,
+          "hi_upper_msun": 1029827.9160534733,
+          "hi_upper_fully_correlated_msun": 4120645.199652702
+        },
+        "-210": {
+          "beam_sum_K_km_per_s": -0.383888058453979,
+          "width_km_per_s": 59.77317420199961,
+          "hi_upper_msun": 1008839.9831805448,
+          "hi_upper_fully_correlated_msun": 4041492.3664725185
+        }
+      }
+    },
+    "allowed_atomic_plus_warm_msun": 2441843.846429668,
+    "proper_site_density_enhancement_minimum_from_stars_at_ml_1": 926.2764362566628,
+    "homogeneous_cosmic_baryon_mass_in_volume_msun": 19.00080722243829,
+    "limits": {
+      "constant": {
+        "maximum_dark_per_baryon": 6.336285629327557,
+        "minimum_baryon_msun": 12843893.096987177,
+        "required_stellar_ml_after_allowed_gas": 47.282042047988675,
+        "extra_baryons_at_stellar_ml_3_msun": 9742049.250557508,
+        "required_stellar_ml_if_no_gas": 58.38133225903262
+      },
+      "one_step": {
+        "maximum_dark_per_baryon": 12.726752607998094,
+        "minimum_baryon_msun": 6864439.903808276,
+        "required_stellar_ml_after_allowed_gas": 20.10270935172095,
+        "extra_baryons_at_stellar_ml_3_msun": 3762596.0573786087,
+        "required_stellar_ml_if_no_gas": 31.201999562764893
+      },
+      "two_step": {
+        "maximum_dark_per_baryon": 46.8786150045451,
+        "minimum_baryon_msun": 1968028.28033145,
+        "required_stellar_ml_after_allowed_gas": 0.0,
+        "extra_baryons_at_stellar_ml_3_msun": 0,
+        "required_stellar_ml_if_no_gas": 8.945583092415681,
+        "maximum_ordinary_occupation_at_ml_3": 0.03670965059769621,
+        "required_site_density_ratio_from_stars_at_ml_3": 75697.51450983246
+      }
+    }
+  }
+}

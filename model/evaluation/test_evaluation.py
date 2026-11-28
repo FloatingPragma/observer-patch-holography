@@ -316,7 +316,8 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
         assert row['status'] == expected_grade
         assert ev.criterion(result, 'SM-e')['status'] == 'open'
         if key == 'OW-30':
-            assert measurement['source'].endswith('row_30_collective/sharp_growth/README.md')
+            assert measurement['source'].endswith('submission/row_30_confirmation/README.md')
+            assert any(path.endswith('row_30_collective/sharp_growth/README.md') for path in row['evidence'])
             assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
             assert any(path.endswith('polar_recoil/counts.json') for path in row['evidence'])
         if key == 'OW-19':
@@ -356,6 +357,12 @@ def test_written_field_comparison_is_scoped_to_the_separate_generator():
     assert study['finding'] in electron_entry
     assert ev.report.local_link(study['source']) in electron_entry
     assert ev.report.comparison_link(study) in ev.report.scorecard([result])
+
+    contact, = electron['additional_comparisons']
+    assert contact['law'] == 'Periodic repulsive Weyl contact ring'
+    assert contact['source'] not in electron['evidence']
+    assert contact['finding'] in electron_entry
+    assert ev.report.comparison_link(contact) in ev.report.scorecard([result])
 
 
 def test_pinned_dark_contact_control_uses_all_native_load_columns():

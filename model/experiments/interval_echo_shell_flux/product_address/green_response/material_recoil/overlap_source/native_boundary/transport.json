@@ -1,0 +1,2028 @@
+{
+  "charts": [
+    {
+      "n": 10,
+      "patch_side": 1,
+      "origins": [
+        [
+          4,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          4
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 2.9879141461633854,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.4928190032569173,
+          "collision_per_write": 0.001720670375206024,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.0036564245473128007,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.454284071201485e-06,
+              "outward_flux": 1.4542840712014839e-06,
+              "inward_recoil_per_edge": 9.695227141343225e-08,
+              "radius_times_inward_recoil": 9.695227141343225e-08
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.6803430845668785e-05,
+              "outward_flux": 1.680343084566879e-05,
+              "inward_recoil_per_edge": 2.800571807611465e-07,
+              "radius_times_inward_recoil": 5.60114361522293e-07
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.1238605758134783e-05,
+              "outward_flux": 2.1238605758134783e-05,
+              "inward_recoil_per_edge": 8.849419065889494e-08,
+              "radius_times_inward_recoil": 3.5397676263557975e-07
+            },
+            {
+              "k": 5,
+              "edges": 600,
+              "enclosed_tickets": 2.142436258191094e-05,
+              "outward_flux": 2.1424362581910924e-05,
+              "inward_recoil_per_edge": 5.713163355176246e-08,
+              "radius_times_inward_recoil": 2.856581677588123e-07
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.09135966789222653,
+          "collision_per_write": 3.824366813602212e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 8.1267794789047e-05,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 3.4491718158220406e-08,
+              "outward_flux": 3.4491718158220446e-08,
+              "inward_recoil_per_edge": 2.2994478772146964e-09,
+              "radius_times_inward_recoil": 2.2994478772146964e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 3.3615584466969906e-07,
+              "outward_flux": 3.3615584466969906e-07,
+              "inward_recoil_per_edge": 5.6025974111616514e-09,
+              "radius_times_inward_recoil": 1.1205194822323303e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 4.685156025014625e-07,
+              "outward_flux": 4.6851560250146256e-07,
+              "inward_recoil_per_edge": 1.952148343756094e-09,
+              "radius_times_inward_recoil": 7.808593375024377e-09
+            },
+            {
+              "k": 5,
+              "edges": 600,
+              "enclosed_tickets": 4.7617848509207225e-07,
+              "outward_flux": 4.761784850920719e-07,
+              "inward_recoil_per_edge": 1.2698092935788585e-09,
+              "radius_times_inward_recoil": 6.349046467894292e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.012122351720682758,
+          "collision_per_write": 6.344359599472157e-07,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 1.3481764148878333e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 5.752642672414581e-10,
+              "outward_flux": 5.752642672414568e-10,
+              "inward_recoil_per_edge": 3.835095114943046e-11,
+              "radius_times_inward_recoil": 3.835095114943046e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 5.474823497451269e-09,
+              "outward_flux": 5.47482349745127e-09,
+              "inward_recoil_per_edge": 9.12470582908545e-11,
+              "radius_times_inward_recoil": 1.82494116581709e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 7.761437253181084e-09,
+              "outward_flux": 7.761437253181082e-09,
+              "inward_recoil_per_edge": 3.233932188825451e-11,
+              "radius_times_inward_recoil": 1.2935728755301803e-10
+            },
+            {
+              "k": 5,
+              "edges": 600,
+              "enclosed_tickets": 7.8994711809834e-09,
+              "outward_flux": 7.89947118098339e-09,
+              "inward_recoil_per_edge": 2.1065256482622376e-11,
+              "radius_times_inward_recoil": 1.0532628241311187e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 34,
+      "patch_side": 1,
+      "origins": [
+        [
+          16,
+          16,
+          15
+        ],
+        [
+          16,
+          15,
+          16
+        ],
+        [
+          15,
+          16,
+          16
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 8.79137681239488,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9879814711745997,
+          "collision_per_write": 0.0019098696128578496,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.004058472927322931,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.519933034132197e-06,
+              "outward_flux": 1.5199330341321937e-06,
+              "inward_recoil_per_edge": 1.0132886894214625e-07,
+              "radius_times_inward_recoil": 1.0132886894214625e-07
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.7293828930198772e-05,
+              "outward_flux": 1.7293828930198783e-05,
+              "inward_recoil_per_edge": 2.8823048216997975e-07,
+              "radius_times_inward_recoil": 5.764609643399595e-07
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.2733464362043783e-05,
+              "outward_flux": 2.2733464362043806e-05,
+              "inward_recoil_per_edge": 9.472276817518253e-08,
+              "radius_times_inward_recoil": 3.7889107270073013e-07
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 2.3741927496149167e-05,
+              "outward_flux": 2.3741927496149275e-05,
+              "inward_recoil_per_edge": 2.4731174475155497e-08,
+              "radius_times_inward_recoil": 1.9784939580124398e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 2.3780103439989853e-05,
+              "outward_flux": 2.37801034399903e-05,
+              "inward_recoil_per_edge": 6.192735270830808e-09,
+              "radius_times_inward_recoil": 9.908376433329293e-08
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 2.3780114808532797e-05,
+              "outward_flux": 2.378011480853324e-05,
+              "inward_recoil_per_edge": 5.485608952372144e-09,
+              "radius_times_inward_recoil": 9.325535219032645e-08
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.5939674513531612,
+          "collision_per_write": 7.606105453445538e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.00016162974088571768,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 4.3903998449438607e-08,
+              "outward_flux": 4.390399844943865e-08,
+              "inward_recoil_per_edge": 2.9269332299625768e-09,
+              "radius_times_inward_recoil": 2.9269332299625768e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 4.0062469564803005e-07,
+              "outward_flux": 4.006246956480305e-07,
+              "inward_recoil_per_edge": 6.677078260800508e-09,
+              "radius_times_inward_recoil": 1.3354156521601016e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 6.84644440127053e-07,
+              "outward_flux": 6.846444401270541e-07,
+              "inward_recoil_per_edge": 2.8526851671960593e-09,
+              "radius_times_inward_recoil": 1.1410740668784237e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 8.891127805739215e-07,
+              "outward_flux": 8.891127805739261e-07,
+              "inward_recoil_per_edge": 9.261591464311732e-10,
+              "radius_times_inward_recoil": 7.409273171449385e-09
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 9.469229160048012e-07,
+              "outward_flux": 9.469229160048178e-07,
+              "inward_recoil_per_edge": 2.4659450937625464e-10,
+              "radius_times_inward_recoil": 3.945512150020074e-09
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 9.470492630022519e-07,
+              "outward_flux": 9.470492630022693e-07,
+              "inward_recoil_per_edge": 2.1846580461413363e-10,
+              "radius_times_inward_recoil": 3.7139186784402722e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.1219281521659849,
+          "collision_per_write": 1.8742568690891563e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 3.982795846814457e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 8.209497200208401e-10,
+              "outward_flux": 8.209497200208409e-10,
+              "inward_recoil_per_edge": 5.472998133472273e-11,
+              "radius_times_inward_recoil": 5.472998133472273e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 7.144999191033873e-09,
+              "outward_flux": 7.144999191033879e-09,
+              "inward_recoil_per_edge": 1.1908331985056465e-10,
+              "radius_times_inward_recoil": 2.381666397011293e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.3614809694395961e-08,
+              "outward_flux": 1.3614809694395979e-08,
+              "inward_recoil_per_edge": 5.672837372664992e-11,
+              "radius_times_inward_recoil": 2.2691349490659968e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 2.0370732776399308e-08,
+              "outward_flux": 2.0370732776399407e-08,
+              "inward_recoil_per_edge": 2.1219513308749382e-11,
+              "radius_times_inward_recoil": 1.6975610646999506e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 2.33280826009615e-08,
+              "outward_flux": 2.332808260096189e-08,
+              "inward_recoil_per_edge": 6.075021510667159e-12,
+              "radius_times_inward_recoil": 9.720034417067454e-11
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 2.333669441492846e-08,
+              "outward_flux": 2.3336694414928838e-08,
+              "inward_recoil_per_edge": 5.383320510940909e-12,
+              "radius_times_inward_recoil": 9.151644868599545e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 34,
+      "patch_side": 2,
+      "origins": [
+        [
+          16,
+          18,
+          15
+        ],
+        [
+          18,
+          16,
+          15
+        ],
+        [
+          16,
+          15,
+          18
+        ],
+        [
+          18,
+          15,
+          16
+        ],
+        [
+          15,
+          16,
+          18
+        ],
+        [
+          15,
+          18,
+          16
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 8.758818629823121,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9874949408264536,
+          "collision_per_write": 0.0019098616023741789,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.00405845590504513,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.0432088260364028e-06,
+              "outward_flux": 1.0432088260364038e-06,
+              "inward_recoil_per_edge": 6.95472550690936e-08,
+              "radius_times_inward_recoil": 6.95472550690936e-08
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 3.113299560215715e-05,
+              "outward_flux": 3.113299560215717e-05,
+              "inward_recoil_per_edge": 5.188832600359528e-07,
+              "radius_times_inward_recoil": 1.0377665200719056e-06
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 4.500378242556015e-05,
+              "outward_flux": 4.500378242556022e-05,
+              "inward_recoil_per_edge": 1.8751576010650092e-07,
+              "radius_times_inward_recoil": 7.500630404260037e-07
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 4.746919393550604e-05,
+              "outward_flux": 4.746919393550626e-05,
+              "inward_recoil_per_edge": 4.9447077016152357e-08,
+              "radius_times_inward_recoil": 3.9557661612921885e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 4.75600034520619e-05,
+              "outward_flux": 4.756000345206277e-05,
+              "inward_recoil_per_edge": 1.2385417565641348e-08,
+              "radius_times_inward_recoil": 1.9816668105026157e-07
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 4.756003013724761e-05,
+              "outward_flux": 4.75600301372485e-05,
+              "inward_recoil_per_edge": 1.0971171888638641e-08,
+              "radius_times_inward_recoil": 1.865099221068569e-07
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.591872407310264,
+          "collision_per_write": 7.596641282845192e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.00016142862726046034,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 3.983741090463658e-08,
+              "outward_flux": 3.983741090463661e-08,
+              "inward_recoil_per_edge": 2.6558273936424407e-09,
+              "radius_times_inward_recoil": 2.6558273936424407e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 7.053738965385958e-07,
+              "outward_flux": 7.053738965385964e-07,
+              "inward_recoil_per_edge": 1.1756231608976608e-08,
+              "radius_times_inward_recoil": 2.3512463217953215e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.3366698508399117e-06,
+              "outward_flux": 1.3366698508399136e-06,
+              "inward_recoil_per_edge": 5.569457711832974e-09,
+              "radius_times_inward_recoil": 2.2277830847331895e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 1.7709156034990233e-06,
+              "outward_flux": 1.770915603499031e-06,
+              "inward_recoil_per_edge": 1.8447037536448241e-09,
+              "radius_times_inward_recoil": 1.4757630029158593e-08
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 1.8914796334986878e-06,
+              "outward_flux": 1.8914796334987196e-06,
+              "inward_recoil_per_edge": 4.92572821223625e-10,
+              "radius_times_inward_recoil": 7.881165139578e-09
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 1.8917417257085194e-06,
+              "outward_flux": 1.8917417257085535e-06,
+              "inward_recoil_per_edge": 4.363879413399201e-10,
+              "radius_times_inward_recoil": 7.418595002778643e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.12136054331115588,
+          "collision_per_write": 1.8680005855202015e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 3.969501244230428e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 8.028823831769138e-10,
+              "outward_flux": 8.028823831769151e-10,
+              "inward_recoil_per_edge": 5.3525492211794345e-11,
+              "radius_times_inward_recoil": 5.3525492211794345e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.2544788476886302e-08,
+              "outward_flux": 1.2544788476886313e-08,
+              "inward_recoil_per_edge": 2.0907980794810523e-10,
+              "radius_times_inward_recoil": 4.1815961589621046e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.6479733748225502e-08,
+              "outward_flux": 2.6479733748225542e-08,
+              "inward_recoil_per_edge": 1.1033222395093976e-10,
+              "radius_times_inward_recoil": 4.4132889580375905e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 4.0460884127752755e-08,
+              "outward_flux": 4.046088412775295e-08,
+              "inward_recoil_per_edge": 4.214675429974265e-11,
+              "radius_times_inward_recoil": 3.371740343979412e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 4.650006576410762e-08,
+              "outward_flux": 4.650006576410836e-08,
+              "inward_recoil_per_edge": 1.2109392126069887e-11,
+              "radius_times_inward_recoil": 1.9375027401711819e-10
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 4.651759270582534e-08,
+              "outward_flux": 4.6517592705826105e-08,
+              "inward_recoil_per_edge": 1.073070189292413e-11,
+              "radius_times_inward_recoil": 1.8242193217971024e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 34,
+      "patch_side": 4,
+      "origins": [
+        [
+          14,
+          20,
+          13
+        ],
+        [
+          16,
+          18,
+          13
+        ],
+        [
+          18,
+          16,
+          13
+        ],
+        [
+          20,
+          14,
+          13
+        ],
+        [
+          14,
+          13,
+          20
+        ],
+        [
+          16,
+          13,
+          18
+        ],
+        [
+          18,
+          13,
+          16
+        ],
+        [
+          20,
+          13,
+          14
+        ],
+        [
+          13,
+          14,
+          20
+        ],
+        [
+          13,
+          16,
+          18
+        ],
+        [
+          13,
+          18,
+          16
+        ],
+        [
+          13,
+          20,
+          14
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 8.468587006399993,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9826328084604073,
+          "collision_per_write": 0.001909752822534351,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.004058224747885496,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.1518051692451195e-07,
+              "outward_flux": 1.1518051692450917e-07,
+              "inward_recoil_per_edge": 7.678701128300611e-09,
+              "radius_times_inward_recoil": 7.678701128300611e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.4372287748794527e-06,
+              "outward_flux": 1.437228774879453e-06,
+              "inward_recoil_per_edge": 2.3953812914657553e-08,
+              "radius_times_inward_recoil": 4.7907625829315107e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 6.97705178472119e-05,
+              "outward_flux": 6.977051784721197e-05,
+              "inward_recoil_per_edge": 2.907104910300499e-07,
+              "radius_times_inward_recoil": 1.1628419641201996e-06
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 9.446810940162695e-05,
+              "outward_flux": 9.446810940162734e-05,
+              "inward_recoil_per_edge": 9.840428062669516e-08,
+              "radius_times_inward_recoil": 7.872342450135613e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 9.511447179439875e-05,
+              "outward_flux": 9.511447179440037e-05,
+              "inward_recoil_per_edge": 2.476939369645843e-08,
+              "radius_times_inward_recoil": 3.9631029914333487e-07
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 9.51146425285663e-05,
+              "outward_flux": 9.511464252856801e-05,
+              "inward_recoil_per_edge": 2.194109400889689e-08,
+              "radius_times_inward_recoil": 3.7299859815124717e-07
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.5729213328748323,
+          "collision_per_write": 7.507406989290488e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.00015953239852242287,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.0680577982719865e-08,
+              "outward_flux": 1.0680577982719753e-08,
+              "inward_recoil_per_edge": 7.120385321813169e-10,
+              "radius_times_inward_recoil": 7.120385321813169e-10
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 9.947460911913724e-08,
+              "outward_flux": 9.947460911913781e-08,
+              "inward_recoil_per_edge": 1.6579101519856305e-09,
+              "radius_times_inward_recoil": 3.315820303971261e-09
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.8595621787796578e-06,
+              "outward_flux": 1.8595621787796608e-06,
+              "inward_recoil_per_edge": 7.748175744915253e-09,
+              "radius_times_inward_recoil": 3.099270297966101e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 3.3938702135733397e-06,
+              "outward_flux": 3.3938702135733575e-06,
+              "inward_recoil_per_edge": 3.535281472472248e-09,
+              "radius_times_inward_recoil": 2.8282251779777984e-08
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 3.7383272605853146e-06,
+              "outward_flux": 3.738327260585375e-06,
+              "inward_recoil_per_edge": 9.735227241107748e-10,
+              "radius_times_inward_recoil": 1.5576363585772398e-08
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 3.7390405903692854e-06,
+              "outward_flux": 3.7390405903693447e-06,
+              "inward_recoil_per_edge": 8.625237809387185e-10,
+              "radius_times_inward_recoil": 1.4662904275958215e-08
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.11629219021787779,
+          "collision_per_write": 1.811836962075203e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 3.8501535444098064e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 2.756827252104188e-10,
+              "outward_flux": 2.756827252104126e-10,
+              "inward_recoil_per_edge": 1.837884834736084e-11,
+              "radius_times_inward_recoil": 1.837884834736084e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 2.435751813154246e-09,
+              "outward_flux": 2.4357518131542597e-09,
+              "inward_recoil_per_edge": 4.059586355257099e-11,
+              "radius_times_inward_recoil": 8.119172710514199e-11
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 3.616772049758251e-08,
+              "outward_flux": 3.6167720497582576e-08,
+              "inward_recoil_per_edge": 1.5069883540659408e-10,
+              "radius_times_inward_recoil": 6.027953416263763e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 7.565764151042717e-08,
+              "outward_flux": 7.565764151042756e-08,
+              "inward_recoil_per_edge": 7.88100432400287e-11,
+              "radius_times_inward_recoil": 6.304803459202296e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 9.019711250552726e-08,
+              "outward_flux": 9.019711250552858e-08,
+              "inward_recoil_per_edge": 2.348883138164807e-11,
+              "radius_times_inward_recoil": 3.758213021063691e-10
+            },
+            {
+              "k": 17,
+              "edges": 6936,
+              "enclosed_tickets": 9.023797369710483e-08,
+              "outward_flux": 9.023797369710631e-08,
+              "inward_recoil_per_edge": 2.0816141567959936e-11,
+              "radius_times_inward_recoil": 3.5387440665531896e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 82,
+      "patch_side": 1,
+      "origins": [
+        [
+          40,
+          40,
+          39
+        ],
+        [
+          40,
+          39,
+          40
+        ],
+        [
+          39,
+          40,
+          40
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 20.249086386133364,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9999974099320333,
+          "collision_per_write": 0.0019099235031811818,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.004058587444260011,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.5199383327072644e-06,
+              "outward_flux": 1.5199383327072712e-06,
+              "inward_recoil_per_edge": 1.0132922218048477e-07,
+              "radius_times_inward_recoil": 1.0132922218048477e-07
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.7293866977155423e-05,
+              "outward_flux": 1.7293866977155437e-05,
+              "inward_recoil_per_edge": 2.8823111628592397e-07,
+              "radius_times_inward_recoil": 5.764622325718479e-07
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.273358700912593e-05,
+              "outward_flux": 2.2733587009125946e-05,
+              "inward_recoil_per_edge": 9.472327920469145e-08,
+              "radius_times_inward_recoil": 3.788931168187658e-07
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 2.3742227463145007e-05,
+              "outward_flux": 2.3742227463145125e-05,
+              "inward_recoil_per_edge": 2.4731486940776176e-08,
+              "radius_times_inward_recoil": 1.978518955262094e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 2.3780711018298603e-05,
+              "outward_flux": 2.378071101829909e-05,
+              "inward_recoil_per_edge": 6.1928934943487215e-09,
+              "radius_times_inward_recoil": 9.908629590957954e-08
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 2.3780785805747948e-05,
+              "outward_flux": 2.3780785805749246e-05,
+              "inward_recoil_per_edge": 1.5482282425618e-09,
+              "radius_times_inward_recoil": 4.95433037619776e-08
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 2.3780785806211e-05,
+              "outward_flux": 2.3780785806212522e-05,
+              "inward_recoil_per_edge": 9.431205951303798e-10,
+              "radius_times_inward_recoil": 3.866794440034557e-08
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.969833661113296,
+          "collision_per_write": 8.044509985735003e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.0001709458371968688,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 4.417063124614597e-08,
+              "outward_flux": 4.417063124614614e-08,
+              "inward_recoil_per_edge": 2.944708749743076e-09,
+              "radius_times_inward_recoil": 2.944708749743076e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 4.0242867074084146e-07,
+              "outward_flux": 4.024286707408419e-07,
+              "inward_recoil_per_edge": 6.707144512347365e-09,
+              "radius_times_inward_recoil": 1.341428902469473e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 6.914313666227985e-07,
+              "outward_flux": 6.914313666228001e-07,
+              "inward_recoil_per_edge": 2.880964027595e-09,
+              "radius_times_inward_recoil": 1.152385611038e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 9.094675846103106e-07,
+              "outward_flux": 9.094675846103151e-07,
+              "inward_recoil_per_edge": 9.473620673024115e-10,
+              "radius_times_inward_recoil": 7.578896538419292e-09
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 9.92801317477846e-07,
+              "outward_flux": 9.928013174778673e-07,
+              "inward_recoil_per_edge": 2.585420097598613e-10,
+              "radius_times_inward_recoil": 4.1366721561577804e-09
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 1.0015750593952225e-06,
+              "outward_flux": 1.001575059395277e-06,
+              "inward_recoil_per_edge": 6.520670959604667e-11,
+              "radius_times_inward_recoil": 2.0866147070734935e-09
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 1.0016357648254035e-06,
+              "outward_flux": 1.0016357648254666e-06,
+              "inward_recoil_per_edge": 3.9723805862600304e-11,
+              "radius_times_inward_recoil": 1.6286760403666128e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.48613384381495955,
+          "collision_per_write": 3.135705802282574e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 6.66337482985047e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 8.660228686774634e-10,
+              "outward_flux": 8.660228686774619e-10,
+              "inward_recoil_per_edge": 5.77348579118308e-11,
+              "radius_times_inward_recoil": 5.77348579118308e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 7.451075812056465e-09,
+              "outward_flux": 7.451075812056481e-09,
+              "inward_recoil_per_edge": 1.2418459686760803e-10,
+              "radius_times_inward_recoil": 2.4836919373521605e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.486062477561002e-08,
+              "outward_flux": 1.4860624775610066e-08,
+              "inward_recoil_per_edge": 6.191926989837527e-11,
+              "radius_times_inward_recoil": 2.476770795935011e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 2.460801902308794e-08,
+              "outward_flux": 2.460801902308813e-08,
+              "inward_recoil_per_edge": 2.5633353149050136e-11,
+              "radius_times_inward_recoil": 2.050668251924011e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 3.4313632041346114e-08,
+              "outward_flux": 3.4313632041346756e-08,
+              "inward_recoil_per_edge": 8.935841677434051e-12,
+              "radius_times_inward_recoil": 1.4297346683894482e-10
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 3.887967942724651e-08,
+              "outward_flux": 3.88796794272485e-08,
+              "inward_recoil_per_edge": 2.5312291293781577e-12,
+              "radius_times_inward_recoil": 8.099933214010105e-11
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 3.9043211893655095e-08,
+              "outward_flux": 3.904321189365741e-08,
+              "inward_recoil_per_edge": 1.548412131416118e-12,
+              "radius_times_inward_recoil": 6.348489738806084e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 82,
+      "patch_side": 2,
+      "origins": [
+        [
+          40,
+          42,
+          39
+        ],
+        [
+          42,
+          40,
+          39
+        ],
+        [
+          40,
+          39,
+          42
+        ],
+        [
+          42,
+          39,
+          40
+        ],
+        [
+          39,
+          40,
+          42
+        ],
+        [
+          39,
+          42,
+          40
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 20.23522866160157,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9999973047570124,
+          "collision_per_write": 0.0019099235031808527,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.004058587444259312,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.0432155596099239e-06,
+              "outward_flux": 1.0432155596099292e-06,
+              "inward_recoil_per_edge": 6.954770397399527e-08,
+              "radius_times_inward_recoil": 6.954770397399527e-08
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 3.113306617180481e-05,
+              "outward_flux": 3.1133066171804826e-05,
+              "inward_recoil_per_edge": 5.188844361967471e-07,
+              "radius_times_inward_recoil": 1.0377688723934942e-06
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 4.5004044886232e-05,
+              "outward_flux": 4.500404488623208e-05,
+              "inward_recoil_per_edge": 1.8751685369263368e-07,
+              "radius_times_inward_recoil": 7.500674147705347e-07
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 4.746986776889803e-05,
+              "outward_flux": 4.746986776889823e-05,
+              "inward_recoil_per_edge": 4.944777892593566e-08,
+              "radius_times_inward_recoil": 3.9558223140748526e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 4.7561396568615004e-05,
+              "outward_flux": 4.7561396568615986e-05,
+              "inward_recoil_per_edge": 1.2385780356410414e-08,
+              "radius_times_inward_recoil": 1.9817248570256663e-07
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 4.756157161133961e-05,
+              "outward_flux": 4.7561571611342204e-05,
+              "inward_recoil_per_edge": 3.0964564851134253e-09,
+              "radius_times_inward_recoil": 9.908660752362961e-08
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 4.7561571612413816e-05,
+              "outward_flux": 4.7561571612416824e-05,
+              "inward_recoil_per_edge": 1.8862411902604333e-09,
+              "radius_times_inward_recoil": 7.733588880067777e-08
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.9696771643198959,
+          "collision_per_write": 8.044480083871954e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.00017094520178227902,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 4.021022681569863e-08,
+              "outward_flux": 4.021022681569859e-08,
+              "inward_recoil_per_edge": 2.6806817877132396e-09,
+              "radius_times_inward_recoil": 2.6806817877132396e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 7.085679636802249e-07,
+              "outward_flux": 7.085679636802255e-07,
+              "inward_recoil_per_edge": 1.1809466061337092e-08,
+              "radius_times_inward_recoil": 2.3618932122674183e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.3499733113643462e-06,
+              "outward_flux": 1.3499733113643487e-06,
+              "inward_recoil_per_edge": 5.624888797351454e-09,
+              "radius_times_inward_recoil": 2.2499555189405815e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 1.8120052384941837e-06,
+              "outward_flux": 1.8120052384941924e-06,
+              "inward_recoil_per_edge": 1.887505456764784e-09,
+              "radius_times_inward_recoil": 1.5100043654118272e-08
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 1.9850748572223064e-06,
+              "outward_flux": 1.985074857222344e-06,
+              "inward_recoil_per_edge": 5.169465774016521e-10,
+              "radius_times_inward_recoil": 8.271145238426434e-09
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 2.003139558109209e-06,
+              "outward_flux": 2.0031395581093148e-06,
+              "inward_recoil_per_edge": 1.3041273164774185e-10,
+              "radius_times_inward_recoil": 4.173207412727739e-09
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 2.003264083386082e-06,
+              "outward_flux": 2.003264083386208e-06,
+              "inward_recoil_per_edge": 7.944731641428546e-11,
+              "radius_times_inward_recoil": 3.257339972985704e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.4857998065969034,
+          "collision_per_write": 3.134731718822045e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 6.661304902496845e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 8.681588644273332e-10,
+              "outward_flux": 8.681588644273361e-10,
+              "inward_recoil_per_edge": 5.787725762848908e-11,
+              "radius_times_inward_recoil": 5.787725762848908e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.3088480103506697e-08,
+              "outward_flux": 1.3088480103506713e-08,
+              "inward_recoil_per_edge": 2.1814133505844523e-10,
+              "radius_times_inward_recoil": 4.3628267011689046e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.8902422238385444e-08,
+              "outward_flux": 2.8902422238385487e-08,
+              "inward_recoil_per_edge": 1.204267593266062e-10,
+              "radius_times_inward_recoil": 4.817070373064248e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 4.8901230359079696e-08,
+              "outward_flux": 4.890123035908e-08,
+              "inward_recoil_per_edge": 5.093878162404167e-11,
+              "radius_times_inward_recoil": 4.0751025299233336e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 6.853749006834814e-08,
+              "outward_flux": 6.853749006834942e-08,
+              "inward_recoil_per_edge": 1.784830470529933e-11,
+              "radius_times_inward_recoil": 2.855728752847893e-10
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 7.773324926202132e-08,
+              "outward_flux": 7.77332492620253e-08,
+              "inward_recoil_per_edge": 5.060758415496439e-12,
+              "radius_times_inward_recoil": 1.6194426929588606e-10
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 7.806216682613492e-08,
+              "outward_flux": 7.806216682613954e-08,
+              "inward_recoil_per_edge": 3.095862257629964e-12,
+              "radius_times_inward_recoil": 1.2693035256282854e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 82,
+      "patch_side": 4,
+      "origins": [
+        [
+          38,
+          44,
+          37
+        ],
+        [
+          40,
+          42,
+          37
+        ],
+        [
+          42,
+          40,
+          37
+        ],
+        [
+          44,
+          38,
+          37
+        ],
+        [
+          38,
+          37,
+          44
+        ],
+        [
+          40,
+          37,
+          42
+        ],
+        [
+          42,
+          37,
+          40
+        ],
+        [
+          44,
+          37,
+          38
+        ],
+        [
+          37,
+          38,
+          44
+        ],
+        [
+          37,
+          40,
+          42
+        ],
+        [
+          37,
+          42,
+          40
+        ],
+        [
+          37,
+          44,
+          38
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 20.11073439746599,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9999962488739734,
+          "collision_per_write": 0.0019099235031763671,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.00405858744424978,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.1518443459089767e-07,
+              "outward_flux": 1.1518443459090061e-07,
+              "inward_recoil_per_edge": 7.678962306060041e-09,
+              "radius_times_inward_recoil": 7.678962306060041e-09
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.4372680426423507e-06,
+              "outward_flux": 1.437268042642378e-06,
+              "inward_recoil_per_edge": 2.3954467377372968e-08,
+              "radius_times_inward_recoil": 4.7908934754745936e-08
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 6.977117410131229e-05,
+              "outward_flux": 6.977117410131241e-05,
+              "inward_recoil_per_edge": 2.9071322542213506e-07,
+              "radius_times_inward_recoil": 1.1628529016885402e-06
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 9.447118666448951e-05,
+              "outward_flux": 9.447118666448988e-05,
+              "inward_recoil_per_edge": 9.840748610884362e-08,
+              "radius_times_inward_recoil": 7.87259888870749e-07
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 9.512204571108008e-05,
+              "outward_flux": 9.512204571108183e-05,
+              "inward_recoil_per_edge": 2.4771366070594225e-08,
+              "radius_times_inward_recoil": 3.963418571295076e-07
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 9.512314321827935e-05,
+              "outward_flux": 9.512314321828438e-05,
+              "inward_recoil_per_edge": 6.19291296994039e-09,
+              "radius_times_inward_recoil": 1.9817321503809247e-07
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 9.512314322460423e-05,
+              "outward_flux": 9.512314322461022e-05,
+              "inward_recoil_per_edge": 3.772482380512006e-09,
+              "radius_times_inward_recoil": 1.5467177760099225e-07
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.9682504841235348,
+          "collision_per_write": 8.044195920851685e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.0001709391633180983,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.0962383431714084e-08,
+              "outward_flux": 1.0962383431714484e-08,
+              "inward_recoil_per_edge": 7.30825562114299e-10,
+              "radius_times_inward_recoil": 7.30825562114299e-10
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.0179765563897298e-07,
+              "outward_flux": 1.0179765563897438e-07,
+              "inward_recoil_per_edge": 1.6966275939829063e-09,
+              "radius_times_inward_recoil": 3.3932551879658125e-09
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.8798885921980409e-06,
+              "outward_flux": 1.8798885921980464e-06,
+              "inward_recoil_per_edge": 7.832869134158527e-09,
+              "radius_times_inward_recoil": 3.133147653663411e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 3.481745531820071e-06,
+              "outward_flux": 3.48174553182009e-06,
+              "inward_recoil_per_edge": 3.6268182623125937e-09,
+              "radius_times_inward_recoil": 2.901454609850075e-08
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 3.9597883860280645e-06,
+              "outward_flux": 3.959788386028141e-06,
+              "inward_recoil_per_edge": 1.0311948921948283e-09,
+              "radius_times_inward_recoil": 1.6499118275117253e-08
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 4.0060773695425975e-06,
+              "outward_flux": 4.006077369542817e-06,
+              "inward_recoil_per_edge": 2.6081232874627713e-10,
+              "radius_times_inward_recoil": 8.345994519880868e-09
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 4.006386640267929e-06,
+              "outward_flux": 4.0063866402681775e-06,
+              "inward_recoil_per_edge": 1.588890200383969e-10,
+              "radius_times_inward_recoil": 6.514449821574272e-09
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.4827931213352359,
+          "collision_per_write": 3.125918644071592e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 6.642577118652133e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 3.314171314486498e-10,
+              "outward_flux": 3.3141713144866117e-10,
+              "inward_recoil_per_edge": 2.2094475429910748e-11,
+              "radius_times_inward_recoil": 2.2094475429910748e-11
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 2.8842036835388696e-09,
+              "outward_flux": 2.884203683538892e-09,
+              "inward_recoil_per_edge": 4.8070061392314864e-11,
+              "radius_times_inward_recoil": 9.614012278462973e-11
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 3.976090804672818e-08,
+              "outward_flux": 3.9760908046728285e-08,
+              "inward_recoil_per_edge": 1.656704501947012e-10,
+              "radius_times_inward_recoil": 6.626818007788048e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 9.184488249869524e-08,
+              "outward_flux": 9.184488249869582e-08,
+              "inward_recoil_per_edge": 9.567175260280815e-11,
+              "radius_times_inward_recoil": 7.653740208224652e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 1.3542678990995954e-07,
+              "outward_flux": 1.3542678990996232e-07,
+              "inward_recoil_per_edge": 3.526739320571936e-11,
+              "radius_times_inward_recoil": 5.642782912915097e-10
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 1.5499363923444877e-07,
+              "outward_flux": 1.549936392344568e-07,
+              "inward_recoil_per_edge": 1.0090731720993282e-11,
+              "radius_times_inward_recoil": 3.22903415071785e-10
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 1.5568540121840938e-07,
+              "outward_flux": 1.5568540121841854e-07,
+              "inward_recoil_per_edge": 6.174316923197246e-12,
+              "radius_times_inward_recoil": 2.531469938510871e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 82,
+      "patch_side": 8,
+      "origins": [
+        [
+          36,
+          50,
+          35
+        ],
+        [
+          38,
+          48,
+          35
+        ],
+        [
+          40,
+          46,
+          35
+        ],
+        [
+          42,
+          44,
+          35
+        ],
+        [
+          44,
+          42,
+          35
+        ],
+        [
+          46,
+          40,
+          35
+        ],
+        [
+          48,
+          38,
+          35
+        ],
+        [
+          50,
+          36,
+          35
+        ],
+        [
+          36,
+          35,
+          50
+        ],
+        [
+          38,
+          35,
+          48
+        ],
+        [
+          40,
+          35,
+          46
+        ],
+        [
+          42,
+          35,
+          44
+        ],
+        [
+          44,
+          35,
+          42
+        ],
+        [
+          46,
+          35,
+          40
+        ],
+        [
+          48,
+          35,
+          38
+        ],
+        [
+          50,
+          35,
+          36
+        ],
+        [
+          35,
+          36,
+          50
+        ],
+        [
+          35,
+          38,
+          48
+        ],
+        [
+          35,
+          40,
+          46
+        ],
+        [
+          35,
+          42,
+          44
+        ],
+        [
+          35,
+          44,
+          42
+        ],
+        [
+          35,
+          46,
+          40
+        ],
+        [
+          35,
+          48,
+          38
+        ],
+        [
+          35,
+          50,
+          36
+        ]
+      ],
+      "separate_first_passage_queries_per_write": 19.68291753896769,
+      "panels": [
+        {
+          "stop_probability": 0.015625,
+          "deposited_per_route": 0.9999902905366606,
+          "collision_per_write": 0.0019099235030842672,
+          "whole_space_upper_bound": 0.006978208278887489,
+          "extra_energy_per_write": 0.004058587444054068,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 5.81563490593073e-09,
+              "outward_flux": 5.8156349059374975e-09,
+              "inward_recoil_per_edge": 3.877089937291665e-10,
+              "radius_times_inward_recoil": 3.877089937291665e-10
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 6.757150372467617e-08,
+              "outward_flux": 6.757150372470663e-08,
+              "inward_recoil_per_edge": 1.1261917287451106e-09,
+              "radius_times_inward_recoil": 2.2523834574902213e-09
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.1965500891743193e-06,
+              "outward_flux": 2.1965500891744735e-06,
+              "inward_recoil_per_edge": 9.152292038226974e-09,
+              "radius_times_inward_recoil": 3.66091681529079e-08
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 0.00013263630407308604,
+              "outward_flux": 0.00013263630407308658,
+              "inward_recoil_per_edge": 1.3816281674279854e-07,
+              "radius_times_inward_recoil": 1.1053025339423883e-06
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 0.000190198315650961,
+              "outward_flux": 0.00019019831565096447,
+              "inward_recoil_per_edge": 4.953081136743866e-08,
+              "radius_times_inward_recoil": 7.924929818790186e-07
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 0.00019024628622560117,
+              "outward_flux": 0.0001902462862256113,
+              "inward_recoil_per_edge": 1.238582592614657e-08,
+              "radius_times_inward_recoil": 3.9634642963669025e-07
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 0.00019024628644003443,
+              "outward_flux": 0.00019024628644004593,
+              "inward_recoil_per_edge": 7.544964760660161e-09,
+              "radius_times_inward_recoil": 3.0934355518706656e-07
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.001953125,
+          "deposited_per_route": 0.9630258703054224,
+          "collision_per_write": 8.042939279560131e-05,
+          "whole_space_upper_bound": 0.00030208099401414035,
+          "extra_energy_per_write": 0.0001709124596906528,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 2.4664650937551116e-09,
+              "outward_flux": 2.466465093755294e-09,
+              "inward_recoil_per_edge": 1.6443100625035293e-10,
+              "radius_times_inward_recoil": 1.6443100625035293e-10
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 2.1552758639581483e-08,
+              "outward_flux": 2.1552758639582618e-08,
+              "inward_recoil_per_edge": 3.592126439930436e-10,
+              "radius_times_inward_recoil": 7.184252879860872e-10
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 2.577634971302143e-07,
+              "outward_flux": 2.5776349713021684e-07,
+              "inward_recoil_per_edge": 1.0740145713759035e-09,
+              "radius_times_inward_recoil": 4.296058285503614e-09
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 4.5706684665107845e-06,
+              "outward_flux": 4.570668466510812e-06,
+              "inward_recoil_per_edge": 4.761112985948763e-09,
+              "radius_times_inward_recoil": 3.8088903887590106e-08
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 7.810182884172985e-06,
+              "outward_flux": 7.810182884173137e-06,
+              "inward_recoil_per_edge": 2.0339017927534213e-09,
+              "radius_times_inward_recoil": 3.254242868405474e-08
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 8.010325029221063e-06,
+              "outward_flux": 8.010325029221473e-06,
+              "inward_recoil_per_edge": 5.215055357566063e-10,
+              "radius_times_inward_recoil": 1.6688177144211403e-08
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 8.011521547999353e-06,
+              "outward_flux": 8.011521547999834e-06,
+              "inward_recoil_per_edge": 3.1772839769977533e-10,
+              "radius_times_inward_recoil": 1.3026864305690787e-08
+            }
+          ]
+        },
+        {
+          "stop_probability": 0.000244140625,
+          "deposited_per_route": 0.47239686097180106,
+          "collision_per_write": 3.094659465894103e-06,
+          "whole_space_upper_bound": 1.3316003258154262e-05,
+          "extra_energy_per_write": 6.576151365024969e-06,
+          "shells": [
+            {
+              "k": 1,
+              "edges": 24,
+              "enclosed_tickets": 1.299513276366097e-10,
+              "outward_flux": 1.2995132763662534e-10,
+              "inward_recoil_per_edge": 8.663421842441689e-12,
+              "radius_times_inward_recoil": 8.663421842441689e-12
+            },
+            {
+              "k": 2,
+              "edges": 96,
+              "enclosed_tickets": 1.0781709822954494e-09,
+              "outward_flux": 1.0781709822954825e-09,
+              "inward_recoil_per_edge": 1.7969516371591376e-11,
+              "radius_times_inward_recoil": 3.593903274318275e-11
+            },
+            {
+              "k": 4,
+              "edges": 384,
+              "enclosed_tickets": 1.0311292755184515e-08,
+              "outward_flux": 1.0311292755184722e-08,
+              "inward_recoil_per_edge": 4.296371981326967e-11,
+              "radius_times_inward_recoil": 1.7185487925307869e-10
+            },
+            {
+              "k": 8,
+              "edges": 1536,
+              "enclosed_tickets": 1.199778084924075e-07,
+              "outward_flux": 1.1997780849240835e-07,
+              "inward_recoil_per_edge": 1.249768838462587e-10,
+              "radius_times_inward_recoil": 9.998150707700695e-10
+            },
+            {
+              "k": 16,
+              "edges": 6144,
+              "enclosed_tickets": 2.581572798949259e-07,
+              "outward_flux": 2.5815727989493087e-07,
+              "inward_recoil_per_edge": 6.722845830597159e-11,
+              "radius_times_inward_recoil": 1.0756553328955454e-09
+            },
+            {
+              "k": 32,
+              "edges": 24576,
+              "enclosed_tickets": 3.0661845599532585e-07,
+              "outward_flux": 3.066184559953408e-07,
+              "inward_recoil_per_edge": 1.9962139062196665e-11,
+              "radius_times_inward_recoil": 6.387884499902933e-10
+            },
+            {
+              "k": 41,
+              "edges": 40344,
+              "enclosed_tickets": 3.0825709523554544e-07,
+              "outward_flux": 3.082570952355629e-07,
+              "inward_recoil_per_edge": 1.2225147540573583e-11,
+              "radius_times_inward_recoil": 5.012310491635171e-10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "short_guide_acquisition": {
+    "trials_per_origin": 67108864,
+    "origins": [
+      {
+        "origin": [
+          4,
+          4,
+          3
+        ],
+        "coincident": 115593,
+        "distinct": 16183782,
+        "one_lost": 33547470,
+        "both_lost": 17262019,
+        "expected_coincident": 115472.23419853003,
+        "probability_half_width": 1.9138179924048593e-05,
+        "excess_tickets": 482
+      },
+      {
+        "origin": [
+          4,
+          3,
+          4
+        ],
+        "coincident": 115525,
+        "distinct": 16184973,
+        "one_lost": 33542013,
+        "both_lost": 17266353,
+        "expected_coincident": 115472.23419853002,
+        "probability_half_width": 1.9138179924048593e-05,
+        "excess_tickets": 468
+      },
+      {
+        "origin": [
+          3,
+          4,
+          4
+        ],
+        "coincident": 115221,
+        "distinct": 16179854,
+        "one_lost": 33550644,
+        "both_lost": 17263145,
+        "expected_coincident": 115472.23419853002,
+        "probability_half_width": 1.9138179924048593e-05,
+        "excess_tickets": 505
+      }
+    ],
+    "unmatched_launches": 1455,
+    "measured_appointments": 69757,
+    "panels": [
+      {
+        "probe": 1,
+        "arms": [
+          {
+            "starts": [
+              19364,
+              4737,
+              4623,
+              1350,
+              3227,
+              818,
+              740,
+              208
+            ],
+            "right": [
+              9738,
+              2376,
+              2313,
+              688,
+              1633,
+              426,
+              368,
+              13
+            ]
+          },
+          {
+            "starts": [
+              20029,
+              5035,
+              4837,
+              1415,
+              2307,
+              509,
+              464,
+              94
+            ],
+            "right": [
+              10186,
+              2491,
+              2428,
+              707,
+              1127,
+              245,
+              240,
+              81
+            ]
+          }
+        ],
+        "signed_endpoints": 181.5,
+        "expected_signed_endpoints": -33.84614799828876
+      },
+      {
+        "probe": 2,
+        "arms": [
+          {
+            "starts": [
+              19327,
+              4722,
+              4614,
+              1355,
+              3188,
+              796,
+              732,
+              213
+            ],
+            "right": [
+              9800,
+              2358,
+              2275,
+              710,
+              1597,
+              387,
+              374,
+              21
+            ]
+          },
+          {
+            "starts": [
+              20062,
+              5075,
+              4858,
+              1392,
+              2350,
+              506,
+              460,
+              107
+            ],
+            "right": [
+              10075,
+              2594,
+              2510,
+              726,
+              1169,
+              291,
+              231,
+              93
+            ]
+          }
+        ],
+        "signed_endpoints": 332.5,
+        "expected_signed_endpoints": -33.84614799828876
+      }
+    ]
+  },
+  "equal_stock_displacement": [
+    {
+      "placement": "same origin",
+      "origins": [
+        [
+          40,
+          40,
+          40
+        ],
+        [
+          40,
+          40,
+          40
+        ]
+      ],
+      "stop_probability": 0.001953125,
+      "total_collision_per_write": 8.04453990232456e-05,
+      "fraction_within_central_eight": 0.7075611554162107
+    },
+    {
+      "placement": "separated origins",
+      "origins": [
+        [
+          32,
+          40,
+          40
+        ],
+        [
+          48,
+          40,
+          40
+        ]
+      ],
+      "stop_probability": 0.001953125,
+      "total_collision_per_write": 8.043217615560645e-05,
+      "fraction_within_central_eight": 0.028342446975796038
+    }
+  ]
+}

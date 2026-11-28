@@ -1,7 +1,15 @@
 # Repository guidance for agents
 
+**IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.**
+
+## Closing a physical premise
+
+Write the finite implication in the language of observers. Identify the hypothesized effect, the preparations and shared readings that establish it, and the records that the theorem says must follow. A measurement of that exact effect **closes the premise** when it establishes the theorem's statement on the same construction, at the stated resolution and throughout the claimed domain. Once every premise is discharged, the chain proves its observable conclusion. A separate direct detection of the conclusion is an independent test. It is unnecessary for that inference, including when the conclusion is too weak to measure locally.
+
+For gravity, two observers might establish a signed overlap correlation by comparing local readings. To close a gravity claim, the theorem must take that very correlation, with its reference and normalization, and imply the extra attraction macroscopic observers infer from their clocks and trajectories. An unproved identification with stress is itself a premise. Apply the same rule to every OPH field, force and particle. Carry finite-count uncertainty through the theorem. Distinguish a proof on the executable model from a measurement in a physical laboratory by identifying where the records were obtained.
+
 Research results belong in the papers, the Lean library and the code. The
-[writing style guide](docs/policies/STYLE_GUIDE.md) binds all prose.
+[writing style guide](docs/policies/STYLE_GUIDE.md) binds all prose. When a calculation is corrected, replace its claims in the active papers, summaries and evaluation. Present the strongest supported result, its uncertainty and the controls that distinguish competing explanations.
 
 ## Construction before uniqueness
 

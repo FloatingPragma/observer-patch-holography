@@ -1,0 +1,213 @@
+{
+  "profiles": {
+    "NGC3521": {
+      "ordinary_disk_force": {
+        "mapped_all": {
+          "0.2": {
+            "baryonic_v2": 12768.105748217195,
+            "excess_v2": 29667.894251782804
+          },
+          "0.4": {
+            "baryonic_v2": 12725.301538532149,
+            "excess_v2": 29710.69846146785
+          },
+          "0.8": {
+            "baryonic_v2": 12638.978739125183,
+            "excess_v2": 29797.02126087482
+          }
+        },
+        "mapped_all_global_HI": {
+          "0.2": {
+            "baryonic_v2": 12768.86135268028,
+            "excess_v2": 29667.13864731972
+          },
+          "0.4": {
+            "baryonic_v2": 12726.04662189309,
+            "excess_v2": 29709.95337810691
+          },
+          "0.8": {
+            "baryonic_v2": 12639.70470570169,
+            "excess_v2": 29796.29529429831
+          }
+        }
+      },
+      "grids": {
+        "0.8kpc_0offset": {
+          "mapped_all": 42865489280.8225,
+          "mapped_all_detector_SIP": 42765630547.466545,
+          "mapped_all_global_HI": 42866169997.72945,
+          "leroy_ring_stellar_mass": 55153665070.327515,
+          "mapped_all_5sigma_CO": 42809329397.94912,
+          "mapped_stars": 39732691995.52301,
+          "mapped_both_gases": 5702494667.248834,
+          "mapped_all_finite": 35492186555.58285
+        },
+        "0.8kpc_0.4offset": {
+          "mapped_all": 44467605839.9151,
+          "mapped_all_detector_SIP": 44383760249.5084,
+          "mapped_all_global_HI": 44468292448.38357,
+          "leroy_ring_stellar_mass": 58115589971.25106,
+          "mapped_all_5sigma_CO": 44441688160.88605,
+          "mapped_stars": 41312935162.80832,
+          "mapped_both_gases": 5734101413.833116,
+          "mapped_all_finite": 37084591886.02295
+        },
+        "1.6kpc_0offset": {
+          "mapped_all": 32628439678.807896,
+          "mapped_all_detector_SIP": 32606268451.82263,
+          "mapped_all_global_HI": 32628987749.11,
+          "leroy_ring_stellar_mass": 41441936843.72912,
+          "mapped_all_5sigma_CO": 32599358862.85634,
+          "mapped_stars": 29327513489.81729,
+          "mapped_both_gases": 4336422938.221879,
+          "mapped_all_finite": 26608413092.174965
+        },
+        "1.6kpc_0.8offset": {
+          "mapped_all": 35722319947.278404,
+          "mapped_all_detector_SIP": 35674696407.30868,
+          "mapped_all_global_HI": 35722868352.85977,
+          "leroy_ring_stellar_mass": 46218379629.45213,
+          "mapped_all_5sigma_CO": 35688978521.92613,
+          "mapped_stars": 32483668358.453644,
+          "mapped_both_gases": 4471279987.327292,
+          "mapped_all_finite": 29584912638.402416
+        }
+      },
+      "stellar_msun": 51901467492.05102,
+      "ring_mass_scaled_stellar_msun": 67040941000.00005,
+      "CO_3sigma_msun_with_He": 3845278241.915621
+    },
+    "NGC3198": {
+      "ordinary_disk_force": {
+        "mapped_all": {
+          "0.2": {
+            "baryonic_v2": 2941.833677512225,
+            "excess_v2": 19259.166322487774
+          },
+          "0.4": {
+            "baryonic_v2": 2938.568940671377,
+            "excess_v2": 19262.431059328625
+          },
+          "0.8": {
+            "baryonic_v2": 2929.692603750241,
+            "excess_v2": 19271.30739624976
+          }
+        },
+        "mapped_all_global_HI": {
+          "0.2": {
+            "baryonic_v2": 3653.9631258786712,
+            "excess_v2": 18547.036874121328
+          },
+          "0.4": {
+            "baryonic_v2": 3648.9789694089586,
+            "excess_v2": 18552.02103059104
+          },
+          "0.8": {
+            "baryonic_v2": 3635.547422456498,
+            "excess_v2": 18565.452577543503
+          }
+        }
+      },
+      "grids": {
+        "0.8kpc_0offset": {
+          "mapped_all": 10489408856.420414,
+          "mapped_all_detector_SIP": 10448521123.854246,
+          "mapped_all_global_HI": 12008720880.48291,
+          "leroy_ring_stellar_mass": 11019503005.532198,
+          "mapped_all_5sigma_CO": 10464944225.102709,
+          "mapped_stars": 7536317875.433582,
+          "mapped_both_gases": 3654527485.290551,
+          "mapped_all_finite": 8376445938.718207
+        },
+        "0.8kpc_0.4offset": {
+          "mapped_all": 10633353036.45661,
+          "mapped_all_detector_SIP": 10604786903.651506,
+          "mapped_all_global_HI": 12157141635.362112,
+          "leroy_ring_stellar_mass": 11515598089.15995,
+          "mapped_all_5sigma_CO": 10613748903.347845,
+          "mapped_stars": 7611455587.61452,
+          "mapped_both_gases": 3706019991.969408,
+          "mapped_all_finite": 8514296661.4165745
+        },
+        "1.6kpc_0offset": {
+          "mapped_all": 8244050863.409945,
+          "mapped_all_detector_SIP": 8226143113.785127,
+          "mapped_all_global_HI": 9311476267.85997,
+          "leroy_ring_stellar_mass": 8410785650.405573,
+          "mapped_all_5sigma_CO": 8204465158.374193,
+          "mapped_stars": 6117160735.978039,
+          "mapped_both_gases": 2531223819.8390036,
+          "mapped_all_finite": 6605942292.974751
+        },
+        "1.6kpc_0.8offset": {
+          "mapped_all": 8483361943.726467,
+          "mapped_all_detector_SIP": 8471014209.68108,
+          "mapped_all_global_HI": 9542966718.61733,
+          "leroy_ring_stellar_mass": 9042357613.460384,
+          "mapped_all_5sigma_CO": 8453808456.839761,
+          "mapped_stars": 6345634245.5656595,
+          "mapped_both_gases": 2541926160.631026,
+          "mapped_all_finite": 6836944171.005788
+        }
+      },
+      "stellar_msun": 16136394442.326578,
+      "ring_mass_scaled_stellar_msun": 14865278000.000038,
+      "CO_3sigma_msun_with_He": 502376713.27856463
+    }
+  },
+  "ratios": {
+    "0.8kpc_0offset": {
+      "mapped_all": 4.086549572770744,
+      "mapped_all_detector_SIP": 4.092984073107868,
+      "mapped_all_global_HI": 3.5695866715827655,
+      "leroy_ring_stellar_mass": 5.005095514982694,
+      "mapped_all_5sigma_CO": 4.090736508204272,
+      "mapped_stars": 5.272162434262646,
+      "mapped_both_gases": 1.5603917853132414,
+      "mapped_all_finite": 4.237141481631049
+    },
+    "0.8kpc_0.4offset": {
+      "mapped_all": 4.181898756437151,
+      "mapped_all_detector_SIP": 4.185257153467734,
+      "mapped_all_global_HI": 3.657791755838093,
+      "leroy_ring_stellar_mass": 5.0466844640885276,
+      "mapped_all_5sigma_CO": 4.187181039007623,
+      "mapped_stars": 5.42773122529065,
+      "mapped_both_gases": 1.5472397413555152,
+      "mapped_all_finite": 4.355567272406146
+    },
+    "1.6kpc_0offset": {
+      "mapped_all": 3.9578163962603163,
+      "mapped_all_detector_SIP": 3.963737075906449,
+      "mapped_all_global_HI": 3.5041691360728806,
+      "leroy_ring_stellar_mass": 4.927237307697975,
+      "mapped_all_5sigma_CO": 3.973367944598142,
+      "mapped_stars": 4.794301597688569,
+      "mapped_both_gases": 1.7131724599911886,
+      "mapped_all_finite": 4.027951185778949
+    },
+    "1.6kpc_0.8offset": {
+      "mapped_all": 4.210868307192224,
+      "mapped_all_detector_SIP": 4.211384318838461,
+      "mapped_all_global_HI": 3.743371365129901,
+      "leroy_ring_stellar_mass": 5.111319592210311,
+      "mapped_all_5sigma_CO": 4.221645037752315,
+      "mapped_stars": 5.119057780733784,
+      "mapped_both_gases": 1.7590125380421398,
+      "mapped_all_finite": 4.327212845157716
+    }
+  },
+  "observed_excess_ratio": 1.2913349143931367,
+  "excess_ratio_using_mapped_baryons": {
+    "mapped_all": {
+      "0.2": 1.5404557889476962,
+      "0.4": 1.5424168616078822,
+      "0.8": 1.5461857697663723
+    },
+    "mapped_all_global_HI": {
+      "0.2": 1.5995621752774032,
+      "0.4": 1.6014402597494466,
+      "0.8": 1.604932342470308
+    }
+  }
+}

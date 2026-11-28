@@ -1,0 +1,590 @@
+{
+  "design_sha256": "69de73c5864c241319ffbc47cc956e4cceab9422ce6e52f677740bcc52144a79",
+  "two_cell_receipt_sha256": "bf7783067ab4c959e4b920513bf703f91397e7f3fcc13706244b438f9c772085",
+  "cases": [
+    {
+      "physical_fans_hub_first": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          14,
+          24
+        ]
+      ],
+      "sign": 1,
+      "active_head_stock": 19,
+      "neutral_background_summed_heads": 18,
+      "reached_joint_records": 160,
+      "compact_chart_records": 160,
+      "directed_steps_checked": {
+        "in_fan": 320,
+        "bridge": 32,
+        "ring": 608
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.33930521992911783,
+            0.5243679670616963
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1
+          ],
+          "signed_suffix_head_changes": [
+            1
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.6606947800702156,
+            0.4756320329377593
+          ]
+        }
+      ]
+    },
+    {
+      "physical_fans_hub_first": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          14,
+          24
+        ]
+      ],
+      "sign": -1,
+      "active_head_stock": 19,
+      "neutral_background_summed_heads": 20,
+      "reached_joint_records": 160,
+      "compact_chart_records": 160,
+      "directed_steps_checked": {
+        "in_fan": 320,
+        "bridge": 32,
+        "ring": 608
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.33930521992909346,
+            0.5243679670616697
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1
+          ],
+          "signed_suffix_head_changes": [
+            -1
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.6606947800702262,
+            0.4756320329377787
+          ]
+        }
+      ]
+    },
+    {
+      "physical_fans_hub_first": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "sign": 1,
+      "active_head_stock": 29,
+      "neutral_background_summed_heads": 28,
+      "reached_joint_records": 800,
+      "compact_chart_records": 800,
+      "directed_steps_checked": {
+        "in_fan": 1600,
+        "bridge": 192,
+        "ring": 4480
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0,
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.49128397724799666,
+            0.3983621920119575
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            1,
+            0
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.4015408319657462,
+            0.44845618952998834
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1
+          ],
+          "signed_suffix_head_changes": [
+            1,
+            1
+          ],
+          "occupied_cell": 2,
+          "probability_by_input": [
+            0.10717519078647059,
+            0.15318161845813194
+          ]
+        }
+      ]
+    },
+    {
+      "physical_fans_hub_first": [
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "sign": -1,
+      "active_head_stock": 29,
+      "neutral_background_summed_heads": 30,
+      "reached_joint_records": 800,
+      "compact_chart_records": 800,
+      "directed_steps_checked": {
+        "in_fan": 1600,
+        "bridge": 192,
+        "ring": 4480
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0,
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.4912839772479916,
+            0.3983621920119569
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            -1,
+            0
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.4015408319657419,
+            0.4484561895299922
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1
+          ],
+          "signed_suffix_head_changes": [
+            -1,
+            -1
+          ],
+          "occupied_cell": 2,
+          "probability_by_input": [
+            0.10717519078646964,
+            0.15318161845813294
+          ]
+        }
+      ]
+    },
+    {
+      "physical_fans_hub_first": [
+        [
+          68,
+          61,
+          67,
+          66,
+          63,
+          69
+        ],
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "sign": 1,
+      "active_head_stock": 39,
+      "neutral_background_summed_heads": 38,
+      "reached_joint_records": 3840,
+      "compact_chart_records": 3840,
+      "directed_steps_checked": {
+        "in_fan": 7680,
+        "bridge": 1024,
+        "ring": 28672
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0,
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0,
+            0,
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.19618500340102699,
+            0.196185003401025
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            1,
+            0,
+            0
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.4094850395171634,
+            0.40948503951716364
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            1,
+            1,
+            0
+          ],
+          "occupied_cell": 2,
+          "probability_by_input": [
+            0.3101537815578409,
+            0.31015378155784024
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1,
+            1
+          ],
+          "signed_suffix_head_changes": [
+            1,
+            1,
+            1
+          ],
+          "occupied_cell": 3,
+          "probability_by_input": [
+            0.0841761755238213,
+            0.0841761755238236
+          ]
+        }
+      ]
+    },
+    {
+      "physical_fans_hub_first": [
+        [
+          68,
+          61,
+          67,
+          66,
+          63,
+          69
+        ],
+        [
+          14,
+          18,
+          15,
+          16,
+          23,
+          22
+        ],
+        [
+          24,
+          31,
+          25,
+          29,
+          35,
+          34
+        ],
+        [
+          116,
+          109,
+          115,
+          114,
+          111,
+          117
+        ]
+      ],
+      "physical_bridges_source_to_receiver": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "sign": -1,
+      "active_head_stock": 39,
+      "neutral_background_summed_heads": 40,
+      "reached_joint_records": 3840,
+      "compact_chart_records": 3840,
+      "directed_steps_checked": {
+        "in_fan": 7680,
+        "bridge": 1024,
+        "ring": 28672
+      },
+      "once_read_exposure": 30.8125,
+      "all_start_joint_pattern_probabilities": [
+        {
+          "bridge_head_flips": [
+            0,
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            0,
+            0,
+            0
+          ],
+          "occupied_cell": 0,
+          "probability_by_input": [
+            0.19618500340102057,
+            0.19618500340102601
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            0,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            -1,
+            0,
+            0
+          ],
+          "occupied_cell": 1,
+          "probability_by_input": [
+            0.4094850395171645,
+            0.4094850395171626
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1,
+            0
+          ],
+          "signed_suffix_head_changes": [
+            -1,
+            -1,
+            0
+          ],
+          "occupied_cell": 2,
+          "probability_by_input": [
+            0.31015378155784395,
+            0.31015378155784395
+          ]
+        },
+        {
+          "bridge_head_flips": [
+            1,
+            1,
+            1
+          ],
+          "signed_suffix_head_changes": [
+            -1,
+            -1,
+            -1
+          ],
+          "occupied_cell": 3,
+          "probability_by_input": [
+            0.08417617552382217,
+            0.08417617552382314
+          ]
+        }
+      ]
+    }
+  ]
+}

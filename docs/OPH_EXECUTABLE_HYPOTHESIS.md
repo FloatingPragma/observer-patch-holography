@@ -1,12 +1,16 @@
 # OPH and the executable-model hypothesis
 
+The model also makes predictions through finite implications. An experiment establishes the precursor from records that observers can compare. If a theorem on that construction takes precisely this precursor and all other hypotheses are satisfied, the resulting observable is proved within the theorem's domain. [Premise closure](../AGENTS.md#closing-a-physical-premise)
+
 The main candidate law of the [executable model](../model/README.md) is
 [Interval Echo](../model/candidate_laws/interval_echo/README.md). It runs the contrast-memory law, a simple
 local rule by which neighbouring observers settle their disagreements. A finite observer patch carries a
 material clock. Its closing filter implements the special-relativistic rate for reciprocal relay journeys and reproduces the calibration within the stated precision. The contrast-memory law alone is the reference
 candidate, A-contrast-memory-spherical-v1, and the
 [scalar channel](../model/candidate_laws/scalar_channel/README.md) is a further candidate on the same carrier.
-In the experimental written-field extension the freely moving signed load and a separate boundary-flux reader agree at each transfer. A distant probe also detects the field from a confined source. These records give an explicit candidate for the charge and field part of the electron hypothesis. The four-face orbital states change the load’s motion and can separate from it during exchange. The three prepared bands belong to a written-field extension. A separate first-order generator takes its hierarchy from an installed mass operator. One added degree-five port strongly compresses the ratios. Electron identification needs a medium-independent mass, a spin and a calibrated rest energy measured on the same mobile excitation. [Charged excitation and its controls](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+In the written-field extension, a boundary-flux reader follows the freely moving signed load, and a distant probe detects a confined source. Four-face orbital preparations change the motion and can stay behind when two loads exchange. A separate first-order generator takes its three-band hierarchy from an installed mass operator. Adding one degree-five port compresses the ratios. [Written-field experiment](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+
+On a separate interacting ring, a sender adds or removes one unit and keeps a spin reference. After selecting two accessible energies together and waiting half their beat period, receivers halfway around the ring record the material sign and recover spin entangled with that reference on the same trial. Doubling the ring changes the lower formation energy from 0.417546 to 0.395474 in reservoir-corrected units. Physical identification requires an electric response, a calibrated rest mass and a charged-lepton family assignment on the same propagating branch. [Translation, formation and recoil](../model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/README.md) · [Independent eight-site receivers](../model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/README.md)
 
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
@@ -20,8 +24,7 @@ state the laws and what their observers read.
 The model produces a bound pair that persists in free evolution and can be
 detected on the observers' agreed records. Under the scalar channel an object on four seams is kept for
 every interval and carries a prepared clock, which an observer reads from
-counts in units of its own reference. The couplings are supplied. The other
-observables of the theory on this model are work in progress.
+counts in units of its own reference. The clock and binding results use the specified couplings.
 
 The following outputs meet specific premises of the finite theorems.
 Its cell is the twelve-port carrier whose slow response has

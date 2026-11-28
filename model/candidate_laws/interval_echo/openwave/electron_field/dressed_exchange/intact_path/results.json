@@ -1,0 +1,1154 @@
+{
+  "geometry": [
+    {
+      "board_cells": 20,
+      "cells_with_adjacent_external_pair": 8,
+      "links_for_external_hub_transit_charts": 4,
+      "external_hub_transit_component_sizes": {
+        "2": 4
+      },
+      "external_hub_transit_cycles": 0,
+      "any_hub_four_face_support_can_enroll_three_external_ports": [
+        [
+          18,
+          14,
+          20,
+          22
+        ],
+        [
+          31,
+          24,
+          32,
+          34
+        ],
+        [
+          79,
+          72,
+          80,
+          82
+        ],
+        [
+          103,
+          96,
+          104,
+          106
+        ],
+        [
+          138,
+          134,
+          140,
+          142
+        ],
+        [
+          151,
+          144,
+          152,
+          154
+        ],
+        [
+          186,
+          182,
+          188,
+          190
+        ],
+        [
+          222,
+          218,
+          224,
+          226
+        ]
+      ]
+    },
+    {
+      "board_cells": 80,
+      "cells_with_adjacent_external_pair": 24,
+      "links_for_external_hub_transit_charts": 4,
+      "external_hub_transit_component_sizes": {
+        "1": 16,
+        "2": 4
+      },
+      "external_hub_transit_cycles": 0,
+      "any_hub_four_face_support_can_enroll_three_external_ports": []
+    },
+    {
+      "board_cells": 320,
+      "cells_with_adjacent_external_pair": 104,
+      "links_for_external_hub_transit_charts": 68,
+      "external_hub_transit_component_sizes": {
+        "5": 12,
+        "3": 8,
+        "2": 4,
+        "1": 12
+      },
+      "external_hub_transit_cycles": 0,
+      "any_hub_four_face_support_can_enroll_three_external_ports": []
+    }
+  ],
+  "ordering_gauge_on_actual_320_routes": [
+    {
+      "fan_hubs": [
+        98,
+        241,
+        1011
+      ],
+      "distinct_cell_position_pairs": 108,
+      "tested_guarded_directed_material_hops": 672
+    },
+    {
+      "fan_hubs": [
+        98,
+        241,
+        1011,
+        1045
+      ],
+      "distinct_cell_position_pairs": 216,
+      "tested_guarded_directed_material_hops": 1368
+    }
+  ],
+  "physical_cycle_bridge_which_way_control": {
+    "physical_fans": [
+      [
+        1585,
+        1584,
+        1589,
+        1593,
+        1592,
+        1591
+      ],
+      [
+        634,
+        624,
+        631,
+        630,
+        626,
+        635
+      ],
+      [
+        482,
+        483,
+        484,
+        491,
+        490,
+        486
+      ],
+      [
+        1736,
+        1729,
+        1735,
+        1734,
+        1731,
+        1737
+      ],
+      [
+        3555,
+        3554,
+        3556,
+        3561,
+        3560,
+        3558
+      ]
+    ],
+    "physical_bridge_order": [
+      [
+        1592,
+        626
+      ],
+      [
+        624,
+        483
+      ],
+      [
+        482,
+        1729
+      ],
+      [
+        1731,
+        3560
+      ],
+      [
+        3554,
+        1584
+      ]
+    ],
+    "geometric_guarded_crossings": [
+      [
+        52,
+        40
+      ],
+      [
+        40,
+        144
+      ],
+      [
+        144,
+        296
+      ],
+      [
+        132,
+        52
+      ],
+      [
+        296,
+        132
+      ]
+    ],
+    "exchange_and_park_final_bridge_word_xor": 31,
+    "complete_position_and_bridge_outputs_in_exhaustive_geometric_lift": 20,
+    "outputs_with_both_assignments_of_material_origins": 0,
+    "topology_and_head_tag_control_only": true
+  },
+  "physical_three_arm_junction_geometry_control": {
+    "central_ordinary_hub_fan": [
+      18,
+      14,
+      15,
+      20,
+      19,
+      22
+    ],
+    "external_contacts": [
+      [
+        14,
+        24
+      ],
+      [
+        20,
+        10
+      ],
+      [
+        22,
+        68
+      ]
+    ],
+    "geometric_exchange_and_reference_return_every_bridge_head": true,
+    "terminal_gateways_with_adjacent_second_gateway": [
+      24
+    ],
+    "symmetric_terminal_fans": [
+      [
+        10,
+        0,
+        7,
+        6,
+        2,
+        11
+      ],
+      [
+        68,
+        61,
+        67,
+        66,
+        63,
+        69
+      ]
+    ],
+    "symmetric_leaf_vacuum_reflection_and_doublet_action_both_charge_signs": [
+      1,
+      [
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
+    ],
+    "topology_only_field_code_transport_untested": true
+  },
+  "matched_two_fan_collision_controls": [
+    {
+      "sign": 1,
+      "bridge_initial_head_at_left_before_conjugation": true,
+      "source_refusal_in_ideal_prepared_ensemble": 0,
+      "records": [
+        {
+          "material_origins_exchanged": false,
+          "physical_pulses": [
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ],
+            [
+              24,
+              29
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        },
+        {
+          "material_origins_exchanged": true,
+          "physical_pulses": [
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ],
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            16,
+            16,
+            16,
+            16,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              -1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              -1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        }
+      ],
+      "matched_fringe": {
+        "native_code_amplitude": {
+          "bright_probability_all_inputs": 1,
+          "dark_probability_all_inputs": 0,
+          "both_doublets_refused_probability": 0
+        },
+        "odd_worldline_comparator_code_amplitude": {
+          "bright_probability_all_inputs": 0,
+          "dark_probability_all_inputs": 1,
+          "both_doublets_refused_probability": 0
+        }
+      }
+    },
+    {
+      "sign": 1,
+      "bridge_initial_head_at_left_before_conjugation": false,
+      "source_refusal_in_ideal_prepared_ensemble": 0,
+      "records": [
+        {
+          "material_origins_exchanged": false,
+          "physical_pulses": [
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              16
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        },
+        {
+          "material_origins_exchanged": true,
+          "physical_pulses": [
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            16,
+            16,
+            16,
+            16,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              -1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              -1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        }
+      ],
+      "matched_fringe": {
+        "native_code_amplitude": {
+          "bright_probability_all_inputs": 1,
+          "dark_probability_all_inputs": 0,
+          "both_doublets_refused_probability": 0
+        },
+        "odd_worldline_comparator_code_amplitude": {
+          "bright_probability_all_inputs": 0,
+          "dark_probability_all_inputs": 1,
+          "both_doublets_refused_probability": 0
+        }
+      }
+    },
+    {
+      "sign": -1,
+      "bridge_initial_head_at_left_before_conjugation": true,
+      "source_refusal_in_ideal_prepared_ensemble": 0,
+      "records": [
+        {
+          "material_origins_exchanged": false,
+          "physical_pulses": [
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ],
+            [
+              24,
+              29
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        },
+        {
+          "material_origins_exchanged": true,
+          "physical_pulses": [
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ],
+            [
+              24,
+              35
+            ],
+            [
+              24,
+              34
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              24,
+              29
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            16,
+            16,
+            16,
+            16,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              -1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              -1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        }
+      ],
+      "matched_fringe": {
+        "native_code_amplitude": {
+          "bright_probability_all_inputs": 1,
+          "dark_probability_all_inputs": 0,
+          "both_doublets_refused_probability": 0
+        },
+        "odd_worldline_comparator_code_amplitude": {
+          "bright_probability_all_inputs": 0,
+          "dark_probability_all_inputs": 1,
+          "both_doublets_refused_probability": 0
+        }
+      }
+    },
+    {
+      "sign": -1,
+      "bridge_initial_head_at_left_before_conjugation": false,
+      "source_refusal_in_ideal_prepared_ensemble": 0,
+      "records": [
+        {
+          "material_origins_exchanged": false,
+          "physical_pulses": [
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              16
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        },
+        {
+          "material_origins_exchanged": true,
+          "physical_pulses": [
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              14,
+              23
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              14,
+              24
+            ],
+            [
+              14,
+              16
+            ]
+          ],
+          "collocated_charge_word_count_out_of_16_by_prefix": [
+            0,
+            0,
+            16,
+            16,
+            16,
+            16,
+            0,
+            0
+          ],
+          "both_gateways_and_complete_word_return_probability": "1",
+          "native_code_amplitude": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "odd_worldline_comparator_code_amplitude": [
+            [
+              -1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              -1
+            ]
+          ],
+          "two_original_reference_bell_pass_probability": "1",
+          "two_crossed_reference_bell_pass_probability": "1/4"
+        }
+      ],
+      "matched_fringe": {
+        "native_code_amplitude": {
+          "bright_probability_all_inputs": 1,
+          "dark_probability_all_inputs": 0,
+          "both_doublets_refused_probability": 0
+        },
+        "odd_worldline_comparator_code_amplitude": {
+          "bright_probability_all_inputs": 0,
+          "dark_probability_all_inputs": 1,
+          "both_doublets_refused_probability": 0
+        }
+      }
+    }
+  ]
+}

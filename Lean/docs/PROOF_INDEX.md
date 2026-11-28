@@ -9,6 +9,16 @@ arithmetic. Finite matter representation and interaction calculations
 outside this module are not Lean theorems, and the full Einstein antecedents
 are separate.
 
+The [charged-spin transport module](../ObserverPatchHolography/ChargedSpinTransport.lean)
+proves equality of all receiver outcome weights at the half beat, preserves
+the total accepted weight, and propagates an amplitude allowance to a raw
+record bound. Its finite separability theorem bounds the sum of the three
+signed Pauli numerators by the common admission probability. The
+[contact-ring replay](../../model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/README.md)
+establishes these premises on the specified periodic Weyl/contact source.
+The preparation, energy window, spin analyzers, and source calibration are
+hypotheses of the formal interface.
+
 For the typed Einstein composition theorem (GitHub #578), see the
 statement-by-statement and premise audit in
 [`EINSTEIN_BRANCH_INDEX.md`](EINSTEIN_BRANCH_INDEX.md). That development is

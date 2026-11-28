@@ -1,5 +1,7 @@
 # Established mathematics for observer agreement
 
+**IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.**
+
 This guide governs theorem reuse in the
 [executable model](../model/candidate_laws/contrast_memory_spherical_v1/README.md) and its
 [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md). The target is one physical
@@ -14,6 +16,13 @@ For each proposed result, identify the nearest theorem below, map its objects
 and hypotheses to the actual candidate, and isolate the remaining obligation.
 Reuse the conclusion once those hypotheses hold. A renamed consensus result
 or a longer simulation of it is not an independent theoretical contribution.
+
+If a finite theorem entails an observable from a precursor, a measurement
+that establishes the exact precursor can close the open premise. Once every
+premise is met on the same construction, credit the resulting observer
+records within the theorem's bounds, even if the measuring apparatus cannot
+detect them directly. Distinguish records produced by the model from records
+obtained in a laboratory. [Research instructions](../AGENTS.md#closing-a-physical-premise)
 
 The executable model requires source-specific mappings for these theorems.
 Its contrast-memory law is a candidate native repair law; its seam memory is

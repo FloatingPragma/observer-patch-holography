@@ -1,0 +1,859 @@
+{
+  "source_word_reads_sha256": "107372c630fe0508205bb26d1917e61834ee9b05ffface9eab7c9a6644eb6273",
+  "written_words_and_waits": {
+    "rim_side": [
+      1053,
+      1052
+    ],
+    "outside_face": [
+      1045,
+      1052,
+      1053
+    ],
+    "read_head": [
+      1045,
+      1052
+    ],
+    "space_before_pulse": 30,
+    "space_with_outside_face": 46,
+    "eligible_outside_inputs": 15,
+    "active_material_pairs": 5,
+    "charge_conjugate_words_checked": 30,
+    "material_rate": 4,
+    "short_long_and_idle_in_units_of_pi": [
+      0.0625,
+      0.1875,
+      0.125
+    ],
+    "outside_full_wait_in_units_of_pi": 1,
+    "closed_face_click": 0,
+    "no_quadrature_arm_contrast": 0
+  },
+  "reference_report_axis": [
+    -0.06237169365256178,
+    0.9382057360347684,
+    -0.34041117593635123
+  ],
+  "current_scale_times_twice_agreement_probability_minus_one": 4,
+  "wheel_energy_filter_rejection_waits": 17,
+  "half_face_rate_same_wait_contrast_factor": 0.5,
+  "tomography": {
+    "outside_settings": [
+      "identity",
+      "bare",
+      "preceding_then_shared",
+      "agreement"
+    ],
+    "calibration_operator_norm_guard": 5.756854249492381e-10,
+    "smallest_singular_lower": 0.011797739162304286,
+    "condition_number_upper": 84.76414928183495,
+    "closed_aperture_span_dimension_including_identity": 1
+  },
+  "witness_coefficients_outside_by_reference": [
+    [
+      0.2577569146597242,
+      0.09021086955920196,
+      -0.013993322452340515,
+      -0.11931514289834189
+    ],
+    [
+      0.6745928033763083,
+      -1.1293488772301836,
+      -3.4285654237581022,
+      -13.218986829110982
+    ],
+    [
+      -1.105270434632739,
+      -0.13557335457780098,
+      4.227690430525661,
+      13.51719501705412
+    ],
+    [
+      1.726499641395033,
+      3.452999282790067,
+      5.179498924185099,
+      -1.726499641395033
+    ]
+  ],
+  "appointments": [
+    {
+      "arrival_appointment": 27.0625,
+      "energy_heralded": {
+        "originals_per_apparatus": 4398046511104,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          874184576,
+          808842341,
+          881231037,
+          801780095,
+          499321199,
+          472289162,
+          507376134,
+          464223150,
+          58743460004,
+          4333993803406
+        ],
+        "independent_material_counts": [
+          506930284,
+          492756447,
+          2366301917,
+          300089381,
+          283924474,
+          1359256252,
+          58743688811,
+          4333993563538
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 0.0007653376703357789,
+            "short_long_outside_flip_given_gate": [
+              0.5193966792271938,
+              0.5236058044348888
+            ],
+            "agreement_probability_given_gate": 0.4978954373961525,
+            "outward_current_native": -0.016836500830780095,
+            "outside_current_simultaneous_99pct": [
+              -0.01718478,
+              -0.01634713
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.01717142,
+              -0.01651577
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 0.00044184888036180505,
+            "short_long_outside_flip_given_gate": [
+              0.5139021217245477,
+              0.522221168235236
+            ],
+            "agreement_probability_given_gate": 0.49584047674465587,
+            "outward_current_native": -0.03327618604275311,
+            "outside_current_simultaneous_99pct": [
+              -0.03377855,
+              -0.03258978
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.03374965,
+              -0.03279758
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 0.0012071865506975842,
+            "short_long_outside_flip_given_gate": [
+              0.5173855865098131,
+              0.5230990062485013
+            ],
+            "agreement_probability_given_gate": 0.497143290130656,
+            "outward_current_native": -0.022853678954752158,
+            "outside_current_simultaneous_99pct": [
+              -0.02309174,
+              -0.02245845
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.02310174,
+              -0.02261273
+            ]
+          }
+        }
+      },
+      "without_energy_selection": {
+        "originals_per_apparatus": 4398046511104,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          4568911591,
+          15306856817,
+          4568912543,
+          15307069183,
+          2819716755,
+          9330778873,
+          2819772801,
+          9330704284,
+          0,
+          4333993788257
+        ],
+        "independent_material_counts": [
+          9137839826,
+          9137814884,
+          21476363023,
+          5639406910,
+          5639574687,
+          13022154357,
+          0,
+          4333993357417
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 0.009038539264245592,
+            "short_long_outside_flip_given_gate": [
+              0.22987122285337191,
+              0.22987122285337191
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -7.92e-05,
+              0.00012174
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -8.845e-05,
+              8.343e-05
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 0.005525409039271466,
+            "short_long_outside_flip_given_gate": [
+              0.23206796253769366,
+              0.23206796253769366
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -0.00015314,
+              0.00011013
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -8.576e-05,
+              0.00014099
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 0.014563948303517059,
+            "short_long_outside_flip_given_gate": [
+              0.23070464281997166,
+              0.23070464281997166
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -7.264e-05,
+              8.273e-05
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -5.739e-05,
+              7.523e-05
+            ]
+          }
+        }
+      },
+      "source_and_outside": {
+        "originals_per_setting": 35184372088832,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0012071865506975842,
+        "expected_witness": 0.09675095075965742,
+        "count_score": 0.09683141062343859,
+        "count_radius": 0.000368819909909604,
+        "model_and_dyadic_radius": 0.000819041986799395,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          0.09564351,
+          0.09801931
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              10517621466,
+              11580473515,
+              9359541222,
+              11016610108,
+              469949450027,
+              34671948392494
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              11599006477,
+              10499062692,
+              10732406025,
+              9643841714,
+              469948409435,
+              34671949362489
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              3864563087,
+              18233520088,
+              3919367228,
+              16456558348,
+              469948925594,
+              34671949154487
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              10690205170,
+              11774015710,
+              9186868978,
+              10823054233,
+              469949565488,
+              34671948379253
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              11793945479,
+              10670273462,
+              10536983444,
+              9472592514,
+              469949534092,
+              34671948759841
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              3921379811,
+              18542896443,
+              3862605842,
+              16147447619,
+              469949725287,
+              34671948033830
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              9876996574,
+              11238947377,
+              10000218057,
+              11358062020,
+              469948089649,
+              34671949775155
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              11127664719,
+              9988001826,
+              11203496546,
+              10155097596,
+              469949398194,
+              34671948429951
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              3882555340,
+              17233403963,
+              3901388810,
+              17456754821,
+              469949816757,
+              34671948169141
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "arrival_appointment": 30.8125,
+      "energy_heralded": {
+        "originals_per_apparatus": 4398046511104,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          822087998,
+          757595708,
+          841247310,
+          738495011,
+          682043718,
+          609987236,
+          678411630,
+          613692569,
+          63937882855,
+          4328365067069
+        ],
+        "independent_material_counts": [
+          492734263,
+          454423009,
+          2212436789,
+          383651528,
+          390996207,
+          1809415687,
+          63937507617,
+          4328365346004
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 0.0007183796202752198,
+            "short_long_outside_flip_given_gate": [
+              0.5203977174013884,
+              0.5325198246545624
+            ],
+            "agreement_probability_given_gate": 0.493938946373413,
+            "outward_current_native": -0.04848842901269601,
+            "outside_current_simultaneous_99pct": [
+              -0.04888671,
+              -0.04799166
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.04885593,
+              -0.04814704
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 0.0005875735303126804,
+            "short_long_outside_flip_given_gate": [
+              0.5278733248844646,
+              0.5250442171714861
+            ],
+            "agreement_probability_given_gate": 0.5014145538564893,
+            "outward_current_native": 0.011316430851913974,
+            "outside_current_simultaneous_99pct": [
+              0.01084848,
+              0.01186681
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              0.01096289,
+              0.01177549
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 0.0013059531505879005,
+            "short_long_outside_flip_given_gate": [
+              0.5237611375042347,
+              0.5291564045517158
+            ],
+            "agreement_probability_given_gate": 0.49730236647625947,
+            "outward_current_native": -0.0215810681899244,
+            "outside_current_simultaneous_99pct": [
+              -0.02184397,
+              -0.02122699
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.02180524,
+              -0.02132627
+            ]
+          }
+        }
+      },
+      "without_energy_selection": {
+        "originals_per_apparatus": 4398046511104,
+        "outside_bins_per_report": [
+          "short_changed",
+          "short_preserved",
+          "long_changed",
+          "long_preserved"
+        ],
+        "material_bins_per_report": [
+          "source",
+          "destination",
+          "neither"
+        ],
+        "bin_order": [
+          "plus_report",
+          "minus_report",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "outside_counts": [
+          4943135541,
+          14222214269,
+          4943013617,
+          14222231859,
+          4042884693,
+          11632456132,
+          4042905593,
+          11632721674,
+          0,
+          4328364947726
+        ],
+        "independent_material_counts": [
+          9886144452,
+          9886218063,
+          18557995787,
+          8086022589,
+          8086023796,
+          15179168726,
+          0,
+          4328364937691
+        ],
+        "reports": {
+          "plus": {
+            "source_gate_per_original": 0.00871531328384114,
+            "short_long_outside_flip_given_gate": [
+              0.2579195150715748,
+              0.2579195150715748
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -8.889e-05,
+              0.00011801
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -8.41e-05,
+              9.946e-05
+            ]
+          },
+          "minus": {
+            "source_gate_per_original": 0.0071283862312319845,
+            "short_long_outside_flip_given_gate": [
+              0.2579195150715748,
+              0.2579195150715748
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -8.436e-05,
+              0.00014678
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -0.00010251,
+              0.00010282
+            ]
+          },
+          "unread": {
+            "source_gate_per_original": 0.015843699515073126,
+            "short_long_outside_flip_given_gate": [
+              0.25791951507157485,
+              0.25791951507157485
+            ],
+            "agreement_probability_given_gate": 0.5,
+            "outward_current_native": 0.0,
+            "outside_current_simultaneous_99pct": [
+              -5.275e-05,
+              9.685e-05
+            ],
+            "independent_material_current_simultaneous_99pct": [
+              -6.185e-05,
+              7.044e-05
+            ]
+          }
+        }
+      },
+      "source_and_outside": {
+        "originals_per_setting": 35184372088832,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0013059531505879005,
+        "expected_witness": -0.00899852997056385,
+        "count_score": -0.008996508256128445,
+        "count_radius": 0.0003545996916163948,
+        "model_and_dyadic_radius": 0.000838239570580343,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          -0.01018938,
+          -0.00780364
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              11334042686,
+              12858079253,
+              9547890864,
+              12209074482,
+              511502025228,
+              34626920976319
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              10342043082,
+              13850475089,
+              9364109284,
+              12393016374,
+              511500024212,
+              34626922420791
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              3841751486,
+              20350412227,
+              3747270071,
+              18009795105,
+              511501126921,
+              34626921733022
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              11482816389,
+              13081638061,
+              9399143920,
+              11985839930,
+              511502008551,
+              34626920641981
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              10494181111,
+              14070065359,
+              9211459825,
+              12173206155,
+              511502596772,
+              34626920579610
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              3886931276,
+              20677250052,
+              3701901182,
+              17682827330,
+              511501881539,
+              34626921297453
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              10331336026,
+              12519378617,
+              10550544946,
+              12547873924,
+              511501448431,
+              34626921506888
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              9719141511,
+              13131335660,
+              9986512033,
+              13112088911,
+              511501414620,
+              34626921596097
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              3811597496,
+              19039136624,
+              3777318695,
+              19321107816,
+              511501633554,
+              34626921294647
+            ]
+          }
+        ]
+      },
+      "reference_randomized": {
+        "originals_per_setting": 35184372088832,
+        "bins": [
+          "++",
+          "+-",
+          "-+",
+          "--",
+          "energy_refused",
+          "capture_refused"
+        ],
+        "source_gate_per_original": 0.0013059531505879005,
+        "expected_witness": 0.20771684400591509,
+        "count_score": 0.2076850057173601,
+        "count_radius": 0.00035459986323713773,
+        "model_and_dyadic_radius": 0.000838239570580343,
+        "apparatus_witness_norm_guard": 2.8806572210063893e-08,
+        "simultaneous_99pct": [
+          0.20649213,
+          0.20887788
+        ],
+        "settings": [
+          {
+            "outside_setting": 1,
+            "reference_axis": "X",
+            "counts": [
+              12095962829,
+              12096219458,
+              10878558307,
+              10878514581,
+              511501949736,
+              34626920883921
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Y",
+            "counts": [
+              12096087214,
+              12095981254,
+              10878291147,
+              10878512560,
+              511501505616,
+              34626921711041
+            ]
+          },
+          {
+            "outside_setting": 1,
+            "reference_axis": "Z",
+            "counts": [
+              12096164901,
+              12096081044,
+              10878473014,
+              10878414822,
+              511501391577,
+              34626921563474
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "X",
+            "counts": [
+              12281972741,
+              12282036946,
+              10692434321,
+              10692513084,
+              511500966684,
+              34626922165056
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Y",
+            "counts": [
+              12281985171,
+              12282187696,
+              10692423091,
+              10692287518,
+              511500299747,
+              34626922905609
+            ]
+          },
+          {
+            "outside_setting": 2,
+            "reference_axis": "Z",
+            "counts": [
+              12282130797,
+              12281993472,
+              10692467632,
+              10692310586,
+              511499256538,
+              34626923929807
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "X",
+            "counts": [
+              11425173880,
+              11425222567,
+              11549267571,
+              11549548622,
+              511501656659,
+              34626921219533
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Y",
+            "counts": [
+              11425445124,
+              11425265115,
+              11549193255,
+              11549234827,
+              511500659391,
+              34626922291120
+            ]
+          },
+          {
+            "outside_setting": 3,
+            "reference_axis": "Z",
+            "counts": [
+              11425390082,
+              11425370665,
+              11549354799,
+              11549437234,
+              511500509599,
+              34626922026453
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

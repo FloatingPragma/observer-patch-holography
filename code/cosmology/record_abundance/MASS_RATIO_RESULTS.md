@@ -1,0 +1,57 @@
+# How much gravitating mass can three seams supply per baryon?
+
+For the stationary moving-double source at occupation $p=0.16$, compression, uneven proper cell volumes and rearrangement can increase the number of mismatched seams per occupied cell by at most **19.05% over the cosmic preparation**. The observed stars and neutral gas of NGC 3741 could then source at most **30.11% of its inferred nonbaryonic mass**, given the Planck 2018 cold-to-baryonic normalization and an isolated, local mass interpretation. The outer rotation data would require at least **$3.67\times10^8\,M_\odot$** more ordinary matter inside the measured radius. The inventory leaves room for unobserved phases. [Original protocol](MASS_RATIO.md) · [Inputs and results](mass_ratio.json)
+
+## Sharp count and its mass interpretation
+
+Let $A_i\in\{0,1\}$ flag a material double. Each disagreeing seam on the cubic graph has exactly one occupied endpoint. In the full graph, $B=3K-2E_{11}$, where $K$ counts doubles and $E_{11}$ counts seams with two occupied ends. In an aperture $S$, attribute each disagreeing seam to its occupied end. Its count is
+$$
+ B_{\rm own}(S)=\sum_{i\in S} A_i\sum_{j\sim i}(1-A_j)\le 3K_S.
+$$
+A lone double, or any set of mutually nonadjacent doubles, attains equality. In the independent stationary preparation the ratio of **expectations** is $\mathbb E B/\mathbb E K=3(1-p)=2.52$. Thus the maximum relative enhancement is $3/2.52=25/21$. This remains true snapshot by snapshot for the numerator bound at arbitrary local occupancy. Integrating each cell's density over its own proper volume recovers its count for any positive volumes. [Stationary source law](STATIONARY.md) · [Enumeration and unequal-volume checks](test_mass_ratio.py)
+
+Suppose every double represents the same ordinary mass $m_b$ and the fixed recorded response of each mismatch represents the same gravitating mass $m_e$. The model then has a cosmic dark-to-baryon ratio $R=3(1-p)m_e/m_b$. Its own counts fix the dimensionless enhancement but leave $m_e/m_b$ undetermined. Requiring these two components to supply all cold dark matter and baryons at the externally inferred cosmic ratio gives
+$$
+ M_d(S)\le C M_b(S),\qquad C=R/(1-p),\qquad f_b(S)\ge 1/(1+C).
+$$
+For Planck 2018 TT,TE,EE+lowE+lensing+BAO, $R=0.11933/0.02242=5.32248$, $C=6.33629$, and the baryon-fraction floor is 0.13631. Additional gravitating components, a different identification of the ordinary sources, transport away from source owners or changes in response per cut require separate physics. [Planck Collaboration VI, Table 2](https://arxiv.org/pdf/1807.06209#page=16)
+
+If a seam deposits half of its charge at each end, let $n_o,n_i$ count disagreeing boundary seams whose occupied end lies outside and inside, respectively. Then $2B_{\rm sym}=2B_{\rm own}+n_o-n_i$. Since $n_o\le \min(|\partial S|,3K_{\rm outer})$, where the outer shell contains the distinct neighbours of $S$ lying one edge outside, $M_{d,\rm sym}\le C M_{b,S}+C M_{b,\rm outer}/2$. The outer term vanishes for an isolated finite source with an empty exterior. A small aperture with zero interior doubles can contain half-seam charge from outside. Applying the inequality to a measured aperture therefore requires knowing the edge assignment or bounding that exterior population. Native incidence supplies no physical length for an edge. [Boundary implementation](mass_ratio.py)
+
+Subtracting a homogeneous background whose masses obey $M_{d,0}=R M_{b,0}$ gives $\Delta M_d\le C\Delta M_b+(C-R)M_{b,0}$ for the owned count. For the equal split the measured boundary correction still applies. At the present cosmic baryon density and a conservative 7.6 kpc spherical radius in NGC 3741, the reference contains $1.14\times10^4\,M_\odot$ of baryons. The positive correction to the excess-mass bound is $1.16\times10^4\,M_\odot$. An external gravitational field requires separate modelling of its force; it is distinct from charge deposited across boundary seams. [Numerical budget](mass_ratio.json)
+
+## NGC 3741's outer rotation measurement
+
+Begum et al. combined 21-cm data from GMRT, WSRT and DRAO. The integrated flux was 59.6 Jy km/s. In Table 1 they inferred $1.30\times10^8\,M_\odot$ of H I, $1.69\times10^8\,M_\odot$ of gas after their helium correction, $1.38\times10^7\,M_\odot$ of stars from their colour-based mass-to-light ratio, and $4.03\times10^9\,M_\odot$ of dynamical mass at the last rotation point. The $1.828\times10^8\,M_\odot$ inventory assigns *all* catalogued stars and gas to the aperture. This favors the source if part of that inventory lies farther out. It is a proxy for all baryons. H I and starlight leave molecular, diffuse ionized, hot and otherwise uncatalogued matter open. [Begum et al., §§3.1–3.2 and Table 1](https://arxiv.org/html/0711.1588)
+
+| Central-value comparison | Required value |
+| --- | ---: |
+| Inferred nonbaryonic mass / catalogued baryons | 21.046 |
+| Minimum total interior baryons | $5.493\times10^8\,M_\odot$ |
+| Minimum additional interior baryons | $3.665\times10^8\,M_\odot$ |
+| If all extra matter is ionized gas with the same helium factor, hydrogen alone | $2.819\times10^8\,M_\odot$ |
+| Exterior baryons within one native edge if boundary deposition supplies the entire shortfall | $\ge8.487\times10^8\,M_\odot$ |
+| Maximum velocity / observed rotation velocity with the catalogued mass and the spherical estimate | 0.577 |
+
+In the boundary-only alternative the sufficient *capacity* condition is $M_{\rm dyn}\le(1+C)M_{b,S}+C M_{b,\rm outer}/2$; reaching the tabulated minimum also requires favorable occupations and seam directions. A general census can test the tradeoff between hidden interior and exterior mass. The velocity column uses $M_{\rm sph}=RV_c^2/G$. The data measure projected H I velocities and require inclination, circular-motion and dynamical assumptions to infer enclosed mass. A disk's nonlocal field, a warp, a tidal field, or a different gravity law can change the interpretation. The authors left the observed noncircular motions uncorrected in their hybrid curve. A separate kinematic model treating them gave rotation points consistent within quoted errors. [Begum et al.](https://arxiv.org/html/0711.1588) · [Gentile et al., kinematic analysis](https://academic.oup.com/mnras/article/375/1/199/986751)
+
+The adopted TRGB distance is $3.03\pm0.33$ Mpc. At fixed flux, angular radius, rotation speed and stellar mass-to-light ratio, $M_{\rm dyn}\propto D$ and the inventoried mass scales as $D^2$. At the quoted distance endpoints the additional baryon requirement is $3.44$ and $3.84\times10^8\,M_\odot$. Closing the gap with distance alone takes 9.11 Mpc. Moving both 2018 Planck densities to their favorable individual 68% error endpoints still requires $3.60\times10^8\,M_\odot$ at 3.03 Mpc. These are sensitivity calculations. Table 1 does not give joint uncertainties for its masses. The earlier, less extended GMRT analysis reported $M_{\rm dyn}=(3.0\pm0.4)\times10^9\,M_\odot$, $M_{\rm HI}=(1.6\pm0.4)\times10^8\,M_\odot$ and an approximate dynamical-to-baryonic ratio of eight. Its aperture, flux and adopted stellar and gas conversions differ. [Original TRGB measurements](https://www.aanda.org/articles/aa/pdf/2003/05/aa2998.pdf) · [Begum et al., earlier GMRT analysis](https://arxiv.org/abs/astro-ph/0502307) · [Planck densities](https://arxiv.org/pdf/1807.06209#page=16)
+
+### A follow-up on undetected ionized gas
+
+If all the missing gas is inside a sphere of radius 7.6 kpc, the extra hydrogen alone requires an average projected column of at least $1.94\times10^{20}\,{\rm cm}^{-2}$. The authors place the last rotation point just inside this radius. At $10^4$ K in case-B recombination, using $j_{\rm H\alpha}=3.54\times10^{-25} n_e n_p$ in ${\rm erg\,s^{-1}\,cm^{-3}}$, $n_e\ge n_p$, and $\int n_p^2\,dV\ge N_p^2/V$ gives $L_{\rm H\alpha}\ge7.36\times10^{38}\,{\rm erg\,s^{-1}}$. Concentrating the gas raises the minimum intrinsic luminosity. Begum et al. reported about $4.3\times10^{38}\,{\rm erg\,s^{-1}}$. If that were the entire intrinsic luminosity of this aperture, even assigning all of it to the warm hidden phase would allow at most $2.80\times10^8\,M_\odot$ of warm gas including helium. [Hydrogen recombination emissivity](https://doi.org/10.1051/0004-6361/202243858) · [Measured line luminosity, §2.2](https://arxiv.org/html/0711.1588)
+
+A uniformly filled sphere at the minimum emits only $8.0\times10^{-19}\,{\rm erg\,s^{-1}\,cm^{-2}\,arcsec^{-2}}$ on average, below the 11HUGS team's typical imaging surface-brightness limit of $\sim4\times10^{-18}$ in the same units. Recovery of light across an entire low-brightness aperture, sky subtraction, extinction and gas temperature therefore matter. The published integrated flux supplies no unconditional upper bound on all ionized matter. Aperture-matched deeper emission or absorption measurements could test the explicit column or the warm phase; hotter, molecular, and compact components require other tracers. This calculation was added after the initial mass budget. [11HUGS team's survey depths](https://doi.org/10.1088/0004-637X/706/1/599) · [Recombination check](test_mass_ratio.py)
+
+## Cluster inventories with hot gas and intracluster stars
+
+Gonzalez et al. measured X-ray gas and deprojected stellar mass, including diffuse stars, inside $r_{500}$. They estimated total mass using a calibrated X-ray temperature–mass relation. Their fiducial WMAP7 analysis gives the weighted mean $f_b=0.136\pm0.005$ for systems above $2\times10^{14}\,M_\odot$ with both gas and stellar estimates. Reanalyzing those systems with **Planck 2013** geometry gives **$0.144\pm0.005$**. We compare the Planck reanalysis in Appendix Table 6 with the first-release Planck+WP ratio $0.1199/0.02205$. Its predicted floor is **0.13381**, which the high-mass weighted mean satisfies. Using the authors' rounded statement that the mean is 7% below the universal all-matter fraction implies a nearly identical floor, about 0.1334, if every nonbaryonic mass is assigned to this source. [Gonzalez et al., §V and Appendix Tables 6–7](https://arxiv.org/html/1309.3565) · [Planck 2013 XVI, Table 2](https://arxiv.org/abs/1303.5076)
+
+Five of the twelve systems with both inventories fall below 0.13381 at their central values. Abell 2955 ($0.103\pm0.011$) and S0296 ($0.101\pm0.014$) still do so after adding twice each quoted error. With central total masses fixed, they need additional baryons equal to 3.08% and 3.28% of $M_{500}$, about 30% and 32% of their respective catalogued baryons. Temperature–mass calibration, stellar mass-to-light conversion, unobserved phases and aperture systematics limit the conclusion. These comparisons use the whole measured sample and the authors' own weighted high-mass mean. The three additional gas-only rows have no total baryon inventory. No independent cosmological likelihood is inferred from counting groups. [All twelve mass budgets](mass_ratio.json) · [Cluster measurements and systematic uncertainties](https://arxiv.org/html/1309.3565)
+
+From the repository root, use the project Python environment and run the following commands. Adding *--fetch* checks the dwarf, cluster and cosmic values against the five versioned primary-source manuscripts. The default replay uses the deposited numerical inputs.
+
+~~~sh
+PYTHONPATH=code:. python -Bm cosmology.record_abundance.mass_ratio --fetch --warm-gas
+PYTHONPATH=code:. python -Bm pytest -q code/cosmology/record_abundance/test_mass_ratio.py
+~~~

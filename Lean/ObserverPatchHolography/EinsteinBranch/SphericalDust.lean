@@ -246,6 +246,29 @@ theorem transported_dust_stress (a density gamma : ℝ) (ha : 0 < a) :
     (density/a^3)*(gamma/a)^2 = density*gamma^2/a^5 := by
   field_simp [ha.ne']
 
+/-- A constant vacuum offset and a comoving pressureless source have unique
+coefficients in two unit timelike contractions with distinct squared boosts.
+The contractions and the dust form of the stress are physical premises. -/
+theorem two_observer_dust_vacuum (x y m n l k : ℝ) (hxy : x ≠ y)
+    (hx : m*x + l = n*x + k) (hy : m*y + l = n*y + k) :
+    m = n ∧ l = k := by
+  have h : (m-n)*(x-y) = 0 := by linear_combination hx - hy
+  have hmn := sub_eq_zero.mp ((mul_eq_zero.mp h).resolve_right (sub_ne_zero.mpr hxy))
+  exact ⟨hmn, by simpa [hmn] using hx⟩
+
+/-- In the one-unit coincidence mechanism every extra mass ticket requires
+an ordinary traveller ticket. Any common nonnegative aggregation retains
+the ceiling, even across regions with different posting frequencies. -/
+theorem coincidence_mass_le_ordinary {ι : Type*} (sites : Finset ι)
+    (weight left right : ι → ℝ) (hw : ∀ i ∈ sites, 0 ≤ weight i)
+    (hl : ∀ i ∈ sites, 0 ≤ left i) (hr : ∀ i ∈ sites, right i ≤ 1) :
+    ∑ i ∈ sites, weight i * left i * right i ≤ ∑ i ∈ sites, weight i * left i := by
+  apply Finset.sum_le_sum
+  intro i hi
+  exact mul_le_of_le_one_right (mul_nonneg (hw i hi) (hl i hi)) (hr i hi)
+
+assert_no_sorry coincidence_mass_le_ordinary
+assert_no_sorry two_observer_dust_vacuum
 assert_no_sorry RegularShell.energy_slope
 assert_no_sorry RegularShell.force_slope
 assert_no_sorry RegularShell.curvature_entries

@@ -1,0 +1,1160 @@
+{
+  "source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "source_sha256": {
+    "model/particle_common_contract/contract.json": "7617133bb473e37250f31491d5fadf3c4275d7b97a4e8342321d9e108988ed31",
+    "model/particle_primary_charged_string/results.json": "d2b43d798437761904974f1ca622f55ec22e4c1cb0769b2dd0ddcac8a1205a41",
+    "model/particle_primary_charged_readout/results.json": "b70d0f1fb7497619ddea0f73246f8b2d09cc664cdfaa6d94109b6202b1d9d8b6",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4"
+  },
+  "source_identity": {
+    "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+    "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+    "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+    "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+    "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+  },
+  "local_dirac_and_Wilson_checks": {
+    "both_beta_spin_casimirs": [
+      3,
+      4
+    ],
+    "axes_with_half_turn_squared_minus_identity": 3,
+    "opposite_half_turn_orders_on_each_endpoint_have_minus_sign": true,
+    "dimension_of_native_singlet": 1,
+    "position_hopping_coefficient_after_projection": "-1/2",
+    "same_quasiparticle_hopping_coefficient_on_both_charge_signs": true
+  },
+  "unchanged_polynomial_source_local_turn": {
+    "named_observer_chosen_before_probe": {
+      "number": 8,
+      "choice": "uniform"
+    },
+    "archived_successful_probe_labels": 48,
+    "success_labels_times_choices_by_charge_and_phase_disposition": [
+      [
+        -6,
+        "dark",
+        48
+      ],
+      [
+        0,
+        "bright",
+        288
+      ],
+      [
+        6,
+        "dark",
+        48
+      ]
+    ],
+    "charge_and_dark_joint_original_weight_lower_by_sign": 0.09930831868773064,
+    "total_dark_original_weight_lower": 0.19861663737546129,
+    "same_energy_bank_interval": [
+      "77/8",
+      "271/8"
+    ],
+    "dark_in_energy_bank_original_weight_lower_by_sign": "30783131183/916330926080",
+    "all_dark_in_energy_bank_original_weight_lower": "30783131183/458165463040",
+    "failure_reference_port": "bright",
+    "global_spatial_central_turn_port_on_each_success": "bright",
+    "local_four_pi_turn_port_on_each_success": "bright",
+    "charge_meter_and_energy_outcomes_preserved_after_phase_label_is_traced": true,
+    "full_source_histogram_executed": false
+  },
+  "physical_exchange_on_heralded_beta_stock": {
+    "stock_projection": "filled negative-beta sea and complete constant-link bank",
+    "original_stock_admission_dyadic_lower": {
+      "base": 2,
+      "negative_exponent": 1073742520
+    },
+    "both_arms_use_each_addressed_bond_twice": true,
+    "compensator_addresses": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "exchanged_route": [
+      [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ]
+    ],
+    "uncrossed_route": [
+      [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ]
+    ],
+    "link_character_word_order": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    ],
+    "results_by_sign": [
+      {
+        "native_signed_charge": 6,
+        "exchange_relative_to_uncrossed_real_matrix": [
+          [
+            -1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            -1
+          ]
+        ],
+        "unsigned_relative_to_uncrossed_matrix": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "native_bright_dark": {
+          "equal_sharp_spins": [
+            0.0,
+            1.0
+          ],
+          "antisymmetric_pair": [
+            1.0,
+            0.0
+          ],
+          "unresolved_independent_spin_references": [
+            0.25,
+            0.75
+          ]
+        },
+        "unsigned_control_bright_dark": {
+          "equal_sharp_spins": [
+            1.0,
+            0.0
+          ],
+          "antisymmetric_pair": [
+            0.0,
+            1.0
+          ],
+          "unresolved_independent_spin_references": [
+            0.75,
+            0.25
+          ]
+        },
+        "two_spin_reference_joint_Bell_matches_after_exchange": {
+          "original_endpoint_assignment": [
+            1,
+            4
+          ],
+          "crossed_endpoint_assignment": 1
+        },
+        "matched_reference_bright_dark_from_self_comparison": [
+          1,
+          0
+        ],
+        "outcome_other_than_declared_terminal_records_given_stock": 0,
+        "single_hop_receiver_increment_at_half_transfer": 3,
+        "single_hop_incoming_current_at_half_transfer": 3,
+        "exchange_single_codeword_route_log": [
+          {
+            "directed_link": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              0,
+              0,
+              0,
+              -6,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "link_character_word": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "link_character_word": [
+              1,
+              0,
+              -1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              0,
+              -6,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "link_character_word": [
+              1,
+              1,
+              -1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              0,
+              0,
+              0,
+              6,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              1,
+              -1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              -6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              0,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "original_fixed_compensator_characters": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "native_signed_charge": -6,
+        "exchange_relative_to_uncrossed_real_matrix": [
+          [
+            -1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            -1
+          ]
+        ],
+        "unsigned_relative_to_uncrossed_matrix": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "native_bright_dark": {
+          "equal_sharp_spins": [
+            0.0,
+            1.0
+          ],
+          "antisymmetric_pair": [
+            1.0,
+            0.0
+          ],
+          "unresolved_independent_spin_references": [
+            0.25,
+            0.75
+          ]
+        },
+        "unsigned_control_bright_dark": {
+          "equal_sharp_spins": [
+            1.0,
+            0.0
+          ],
+          "antisymmetric_pair": [
+            0.0,
+            1.0
+          ],
+          "unresolved_independent_spin_references": [
+            0.75,
+            0.25
+          ]
+        },
+        "two_spin_reference_joint_Bell_matches_after_exchange": {
+          "original_endpoint_assignment": [
+            1,
+            4
+          ],
+          "crossed_endpoint_assignment": 1
+        },
+        "matched_reference_bright_dark_from_self_comparison": [
+          1,
+          0
+        ],
+        "outcome_other_than_declared_terminal_records_given_stock": 0,
+        "single_hop_receiver_increment_at_half_transfer": -3,
+        "single_hop_incoming_current_at_half_transfer": -3,
+        "exchange_single_codeword_route_log": [
+          {
+            "directed_link": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              0,
+              0,
+              0,
+              6,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "link_character_word": [
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              -6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "link_character_word": [
+              -1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              0,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "link_character_word": [
+              -1,
+              -1,
+              1,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              0,
+              0,
+              0,
+              -6,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              -1,
+              1,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              -6,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "directed_link": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "native_charge_transfer_by_cell": [
+              6,
+              0,
+              -6,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "occupied_mobile_addresses": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "link_character_word": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1,
+              0,
+              0,
+              -1,
+              0,
+              0
+            ]
+          }
+        ],
+        "original_fixed_compensator_characters": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ]
+      }
+    ],
+    "projected_hop_pulse_exposure_in_pi_units": 1,
+    "all_unaddressed_and_electric_terms_shuttered_during_hops": true,
+    "autonomous_interacting_exchange_executed": false
+  }
+}

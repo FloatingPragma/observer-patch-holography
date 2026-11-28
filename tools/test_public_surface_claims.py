@@ -543,6 +543,12 @@ def test_declared_comparison_surface_must_exist(tmp_path) -> None:
     )
 
 
+def test_lattice_data_acronym_differs_from_an_apparatus_flag() -> None:
+    template = "| Channel | {} |\n| --- | ---: |\n| Accepted | 0.75 |\n"
+    assert claims.comparison_tables(template.format("Neutral-composite flag")) == []
+    assert len(claims.comparison_tables(template.format("FLAG 2024"))) == 1
+
+
 def test_governed_table_heading_must_stay_in_place(tmp_path) -> None:
     root = _table_fixture_root(tmp_path)
     _edit_surface_text(root, TABLE_README, TABLE_HEADING, "## Values")

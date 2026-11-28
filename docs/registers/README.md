@@ -42,10 +42,7 @@ states the same thing as an observable is not listed separately.
 
 ## Statuses
 
-- **Demonstrated**: the current material shows the whole observable. Either a theorem or derivation chain
-  (Lean or paper proof) whose premises need no confirmation from the executable model, or a committed
-  executable result of the model whose observer records exhibit the observable. A premise is Demonstrated
-  when the executable model satisfies it, or when it is established mathematics.
+- **Demonstrated**: the whole observable follows from a finite theorem chain with every premise established for the claimed construction and domain, or a committed executable result exhibits the observable in the observers' records. An experiment establishing the exact measured antecedent discharges that premise. When the last premise closes, credit the derived observable and link the theorem and its supporting records. Propagate uncertainty into the conclusion. An additional measurement of the final effect is optional for this proof route. [Research instructions](../../AGENTS.md#closing-a-physical-premise)
 - **Conditional**: proved, with at least one premise that needs confirmation from the executable model
   that the current material does not supply. The row lists those premises.
 - **Partial**: part of the observable is shown: some clauses, a restricted domain or preparation, a

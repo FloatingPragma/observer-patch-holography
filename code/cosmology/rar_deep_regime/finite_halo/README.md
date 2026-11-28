@@ -4,6 +4,10 @@ Consider the OPH conditional exterior density proportional to 1/r² and compact 
 
 This static exterior is an effective constitutive example. The registered collar records supply no radial pressure law, outer edge, inner matching mass or cosmological evolution. On a scale-free annulus with p_r=wρ, the radial Einstein equation instead gives (v_circ/c)²=h(1+w)/(1−2h). The enclosed mass alone cannot resolve w. Zero radial pressure is closely related to an Einstein cluster at the level of the stress tensor. No constituent particle population is assigned in this comparison. [Lake](https://arxiv.org/abs/gr-qc/0607057) · [Faber and Visser](https://arxiv.org/abs/astro-ph/0512213) · [Checked source identities](../../../../Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean)
 
+## Which radial distributions do the measured orbits allow?
+
+The source-counted pressureless sphere has eight joint records per eleven ordinary ones. Applying its total factor of 19/11 at every measured tracer radius fails in 40 of 136 SPARC galaxies at five quoted speed errors. Even if each galaxy chooses independent nonnegative weights for gas, disk and bulge, their three radial shapes fail in 23 galaxies. Widening each ring's speed interval by another 5 km/s leaves seven exclusions. At 10 km/s NGC 1003 still requires at least 2.36% of its outer radial acceleration beyond these templates, compared with 34.51% at the original five-error widths. These are catalogue interval tests conditional on the supplied tracer templates and geometry. They locate a deficit a record-derived source would have to supply. [Catalogue reader](tracer_shapes.py) · [Exact witnesses for all 2,176 comparisons](orbit_certificates.json)
+
 ## How much can a finite outer edge change the shear?
 
 For the weak-field projection of a sharply truncated excess A/r², with y=R/R_t, the ratio of differential surface density to the infinite-profile value πA/R is

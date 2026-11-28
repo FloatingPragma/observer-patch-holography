@@ -1,0 +1,846 @@
+{
+  "sectors": [
+    {
+      "cell_count": 3,
+      "charge_sign": 1,
+      "gateways": [
+        14,
+        24,
+        116
+      ],
+      "bridges": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "enumerated_configurations": 800,
+      "terminal_reflections": [
+        {
+          "hub": 116,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        }
+      ],
+      "archived_receiver_vacuum_all_time_output_odd_probability_exact": 0,
+      "odd_receiver_preload_all_time_output_even_probability_exact": 0,
+      "conditioned_receiver_code_output_dimension_upper_bound": 1,
+      "vacuum_environment_odd_source_probability_exact": null,
+      "nonzero_witnesses": [
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 3,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -4096
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 3,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -4096
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 6,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -1179648
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 6,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -9437184
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 6,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -1179648
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 6,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": 26214400
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 9,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -2717908992
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 9,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": 7549747200
+        }
+      ],
+      "permitted_branches_without_witness_through_power_32": [],
+      "source_span_across_all_times_witnesses": [
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 6,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -1179648,
+                -1179648
+              ]
+            },
+            {
+              "power": 6,
+              "row": 2,
+              "source_amplitude_integer_row": [
+                1179648,
+                -1179648
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 9,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -2717908992,
+                7549747200
+              ]
+            },
+            {
+              "power": 10,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -917445279744,
+                2399745867776
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 3,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -4096,
+                -4096
+              ]
+            },
+            {
+              "power": 3,
+              "row": 2,
+              "source_amplitude_integer_row": [
+                4096,
+                -4096
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 6,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -9437184,
+                26214400
+              ]
+            },
+            {
+              "power": 7,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -2253389824,
+                5743050752
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cell_count": 3,
+      "charge_sign": -1,
+      "gateways": [
+        14,
+        24,
+        116
+      ],
+      "bridges": [
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "enumerated_configurations": 800,
+      "terminal_reflections": [
+        {
+          "hub": 116,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        }
+      ],
+      "archived_receiver_vacuum_all_time_output_odd_probability_exact": 0,
+      "odd_receiver_preload_all_time_output_even_probability_exact": 0,
+      "conditioned_receiver_code_output_dimension_upper_bound": 1,
+      "vacuum_environment_odd_source_probability_exact": null,
+      "nonzero_witnesses": [
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 3,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -4096
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 3,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -4096
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 6,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": 1179648
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 6,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": 9437184
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 6,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": 1179648
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 6,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -26214400
+        },
+        {
+          "preparation": "source_first_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 9,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -2717908992
+        },
+        {
+          "preparation": "source_last_outer_ring_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 9,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": 7549747200
+        }
+      ],
+      "permitted_branches_without_witness_through_power_32": [],
+      "source_span_across_all_times_witnesses": [
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 6,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                1179648,
+                1179648
+              ]
+            },
+            {
+              "power": 6,
+              "row": 2,
+              "source_amplitude_integer_row": [
+                -1179648,
+                1179648
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 9,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -2717908992,
+                7549747200
+              ]
+            },
+            {
+              "power": 10,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -917445279744,
+                2399745867776
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 3,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -4096,
+                -4096
+              ]
+            },
+            {
+              "power": 3,
+              "row": 2,
+              "source_amplitude_integer_row": [
+                4096,
+                -4096
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 6,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                9437184,
+                -26214400
+              ]
+            },
+            {
+              "power": 7,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                2253389824,
+                -5743050752
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cell_count": 4,
+      "charge_sign": 1,
+      "gateways": [
+        68,
+        14,
+        24,
+        116
+      ],
+      "bridges": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "enumerated_configurations": 3840,
+      "terminal_reflections": [
+        {
+          "hub": 68,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        },
+        {
+          "hub": 116,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        }
+      ],
+      "archived_receiver_vacuum_all_time_output_odd_probability_exact": 0,
+      "odd_receiver_preload_all_time_output_even_probability_exact": 0,
+      "conditioned_receiver_code_output_dimension_upper_bound": 1,
+      "vacuum_environment_odd_source_probability_exact": 0,
+      "nonzero_witnesses": [
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 5,
+          "example_environment_row": 8,
+          "nonzero_integer_numerator": 524288
+        },
+        {
+          "preparation": "source_reflection_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 5,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -524288
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 8,
+          "example_environment_row": 8,
+          "nonzero_integer_numerator": 150994944
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 8,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -2415919104
+        },
+        {
+          "preparation": "source_reflection_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 8,
+          "example_environment_row": 0,
+          "nonzero_integer_numerator": -150994944
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 11,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -695784701952
+        }
+      ],
+      "permitted_branches_without_witness_through_power_32": [],
+      "source_span_across_all_times_witnesses": [
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 8,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                0,
+                -150994944
+              ]
+            },
+            {
+              "power": 8,
+              "row": 8,
+              "source_amplitude_integer_row": [
+                150994944,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 1,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 11,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -695784701952,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 5,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                0,
+                -524288
+              ]
+            },
+            {
+              "power": 5,
+              "row": 8,
+              "source_amplitude_integer_row": [
+                524288,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 1,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 8,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -2415919104,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cell_count": 4,
+      "charge_sign": -1,
+      "gateways": [
+        68,
+        14,
+        24,
+        116
+      ],
+      "bridges": [
+        [
+          68,
+          22
+        ],
+        [
+          14,
+          24
+        ],
+        [
+          34,
+          116
+        ]
+      ],
+      "enumerated_configurations": 3840,
+      "terminal_reflections": [
+        {
+          "hub": 68,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        },
+        {
+          "hub": 116,
+          "local_neutral_head_permutation": [
+            3,
+            1,
+            2,
+            0
+          ],
+          "ring_code_action": [
+            [
+              0,
+              -1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "commutes_with_all_local_and_bridge_terms_in_aggregate": true
+        }
+      ],
+      "archived_receiver_vacuum_all_time_output_odd_probability_exact": 0,
+      "odd_receiver_preload_all_time_output_even_probability_exact": 0,
+      "conditioned_receiver_code_output_dimension_upper_bound": 1,
+      "vacuum_environment_odd_source_probability_exact": 0,
+      "nonzero_witnesses": [
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 5,
+          "example_environment_row": 12,
+          "nonzero_integer_numerator": 524288
+        },
+        {
+          "preparation": "source_reflection_odd",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 5,
+          "example_environment_row": 4,
+          "nonzero_integer_numerator": -524288
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 8,
+          "example_environment_row": 12,
+          "nonzero_integer_numerator": -150994944
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": -1,
+          "required_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 8,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": 2415919104
+        },
+        {
+          "preparation": "source_reflection_odd",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "first_nonzero_power": 8,
+          "example_environment_row": 4,
+          "nonzero_integer_numerator": 150994944
+        },
+        {
+          "preparation": "source_reflection_even",
+          "initial_receiver_reflection_parity": 1,
+          "required_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "first_nonzero_power": 11,
+          "example_environment_row": null,
+          "nonzero_integer_numerator": -695784701952
+        }
+      ],
+      "permitted_branches_without_witness_through_power_32": [],
+      "source_span_across_all_times_witnesses": [
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 8,
+              "row": 4,
+              "source_amplitude_integer_row": [
+                0,
+                150994944
+              ]
+            },
+            {
+              "power": 8,
+              "row": 12,
+              "source_amplitude_integer_row": [
+                -150994944,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": 1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 1,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 11,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                -695784701952,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": false,
+          "stacked_moment_source_rank_lower_bound": 2,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 5,
+              "row": 4,
+              "source_amplitude_integer_row": [
+                0,
+                -524288
+              ]
+            },
+            {
+              "power": 5,
+              "row": 12,
+              "source_amplitude_integer_row": [
+                524288,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_receiver_reflection_parity": -1,
+          "requires_uniform_environment_vacuum": true,
+          "stacked_moment_source_rank_lower_bound": 1,
+          "independent_integer_row_witnesses": [
+            {
+              "power": 8,
+              "row": 0,
+              "source_amplitude_integer_row": [
+                2415919104,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -23,16 +23,18 @@ BEAM = measure.jacobi.beam
 iv.dps = 40
 
 
-def pixel_image(rows):
+def pixel_image(rows, shots=N_CAMERA, *, stock_count=4):
     # Union bound over all camera settings, launch choices and pixels.
-    tail = iv.ln(iv.mpf(2 * 3 * 2 * 4 * 5 * 5) / iv.mpf(".003"))
+    if len(rows) != 5:
+        raise ValueError("Incomplete camera sender set")
+    tail = iv.ln(iv.mpf(2 * 3 * 2 * stock_count * 5 * 5) / iv.mpf(".003"))
     pixels = np.empty((5, 5), dtype=object)
     for i, rec in enumerate(rows):
-        if len(rec) != 6 or min(rec) < 0 or sum(rec) != N_CAMERA:
+        if len(rec) != 6 or min(rec) < 0 or sum(rec) != shots:
             raise ValueError("Incomplete camera launch record")
         for j, n in enumerate(rec[:5]):
             r = iv.sqrt(2 * iv.mpf(n) * tail) + 2 * tail
-            pixels[j, i] = (iv.mpf(n) + iv.mpf([-1, 1]) * r) / N_CAMERA
+            pixels[j, i] = (iv.mpf(n) + iv.mpf([-1, 1]) * r) / shots
     b = np.array(
         [[iv.mpf(int(t)) / BEAM.UNIT for t in row] for row in BEAM.PIXELS], dtype=object
     )
@@ -89,29 +91,30 @@ def focusing(images, clocks):
     )
 
 
-def recorded_clocks(counts):
+def recorded_clocks(counts, shots=N_CLOCK):
     # p=sin(t/2)^2 on the monotone branch pi < t < 2 pi.
-    rad = iv.sqrt(iv.ln(iv.mpf(2 * 3) / iv.mpf(".003")) / (2 * N_CLOCK))
+    rad = iv.sqrt(iv.ln(iv.mpf(2 * 3) / iv.mpf(".003")) / (2 * shots))
     clock = []
     for n in counts:
-        p = iv.mpf(n) / N_CLOCK + iv.mpf([-1, 1]) * rad
+        p = iv.mpf(n) / shots + iv.mpf([-1, 1]) * rad
         clock.append(2 * iv.pi - 2 * iv.atan2(iv.sqrt(p), iv.sqrt(1 - p)))
     return clock
 
 
 def decode(record):
     flux_shots = record["shots_per_flux_setting"]
-    if record["shots_per_sender"] != N_CAMERA or record["shots_per_clock"] != N_CLOCK:
-        raise ValueError(
-            "Clock or reception counts differ from the registered experiment"
-        )
-    if flux_shots not in (N_FLUX, 2**78):
-        raise ValueError("Unregistered phase-kick trial count")
+    camera_shots, clock_shots = record["shots_per_sender"], record["shots_per_clock"]
+    if (camera_shots, clock_shots, flux_shots) not in (
+        (N_CAMERA, N_CLOCK, N_FLUX),
+        (N_CAMERA, N_CLOCK, 2**78),
+        (2**78, 2**68, 2**78),
+    ):
+        raise ValueError("Unregistered camera, clock or phase-kick budget")
     if len(record["clock_plus_counts"]) != 3 or any(
-        n < 0 or n > N_CLOCK for n in record["clock_plus_counts"]
+        n < 0 or n > clock_shots for n in record["clock_plus_counts"]
     ):
         raise ValueError("Invalid clock count")
-    clocks = recorded_clocks(record["clock_plus_counts"])
+    clocks = recorded_clocks(record["clock_plus_counts"], clock_shots)
     fs, js = {}, {}
     nsettings = 19 * 4
     magnitude = 5376
@@ -130,7 +133,9 @@ def decode(record):
             raise ValueError("Invalid phase-kick count")
         f = {}
         for tag in ("forward", "reverse"):
-            f[tag] = focusing([pixel_image(rows) for rows in data[tag]], clocks)
+            f[tag] = focusing(
+                [pixel_image(rows, camera_shots) for rows in data[tag]], clocks
+            )
         fs[name] = f["forward"] - f["reverse"]
         js[name] = sum(
             w * (magnitude * (2 * iv.mpf(n) / flux_shots - 1) + iv.mpf([-1, 1]) * err)
@@ -158,7 +163,24 @@ def decode(record):
     )
 
 
-def collect(selected=None, step=None, time=4, seed=190813):
+def precision_draw(rng, shots, probabilities):
+    # Each binomial or multinomial batch fits in a signed 64-bit integer.
+    batch = 2**62
+    if shots % batch:
+        raise ValueError("Incomplete precision batch")
+    if np.ndim(probabilities) == 0:
+        return sum(map(int, rng.binomial(batch, probabilities, size=shots // batch)))
+    rows = []
+    for hits in probabilities.T:
+        outcomes = np.r_[hits, 1 - hits.sum()]
+        if outcomes.min() < 0:
+            raise ValueError("Invalid joint reception probabilities")
+        counts = rng.multinomial(batch, outcomes, size=shots // batch)
+        rows.append(counts.sum(axis=0, dtype=object).tolist())
+    return rows
+
+
+def collect(selected=None, step=None, time=4, seed=190813, *, precision=False):
     ref, prior, *_ = BEAM.aperture.source_and_changes()
     if selected is None:
         selected, _, _, _, source = measure.select_source(ref)
@@ -181,27 +203,44 @@ def collect(selected=None, step=None, time=4, seed=190813):
     route = f.region(board)
     rings = BEAM.screens(board, route)
     rng = np.random.default_rng(seed)
+    camera_shots, clock_shots, flux_shots = (
+        (2**78, 2**68, 2**78) if precision else (N_CAMERA, N_CLOCK, N_FLUX)
+    )
+    camera_draw = precision_draw if precision else draw
     stocks = {k: {"forward": [], "reverse": []} for k in states}
     clocks = []
     for t in (time - OFFSET, time, time + OFFSET):
         clock = expm(-1j * t * blank_clock(1, 8))
-        clocks.append(int(rng.binomial(N_CLOCK, abs(clock[1, 0]) ** 2)))
+        clock_probability = abs(clock[1, 0]) ** 2
+        clocks.append(
+            precision_draw(rng, clock_shots, clock_probability)
+            if precision
+            else int(rng.binomial(clock_shots, clock_probability))
+        )
         for tag, screen in [("forward", rings), ("reverse", rings[::-1])]:
             table = BEAM.effects(board, route, screen, Q, t)
             for k, x in states.items():
-                stocks[k][tag].append(draw(rng, N_CAMERA, BEAM.probabilities(table, x)))
+                stocks[k][tag].append(
+                    camera_draw(rng, camera_shots, BEAM.probabilities(table, x))
+                )
     _, masks = phase_read.sums_for_charge(board, route, rings, Q, time)
     for key, x in states.items():
         energy = np.einsum("btij,bji->t", np.array(masks["active"]), x).real
-        stocks[key]["flux_plus_counts"] = rng.binomial(
-            N_FLUX, (1 + energy / 5376) / 2
-        ).tolist()
+        probabilities = (1 + energy / 5376) / 2
+        if precision:
+            stocks[key]["flux_plus_counts"] = [
+                precision_draw(rng, flux_shots, p) for p in probabilities
+            ]
+        else:
+            stocks[key]["flux_plus_counts"] = rng.binomial(
+                flux_shots, probabilities
+            ).tolist()
     return dict(
         vacancy_charge=Q,
         seed=seed,
-        shots_per_sender=N_CAMERA,
-        shots_per_clock=N_CLOCK,
-        shots_per_flux_setting=N_FLUX,
+        shots_per_sender=camera_shots,
+        shots_per_clock=clock_shots,
+        shots_per_flux_setting=flux_shots,
         half_steps=steps,
         clock_plus_counts=clocks,
         stocks=stocks,

@@ -1,0 +1,107 @@
+{
+  "ports": [
+    34,
+    116
+  ],
+  "order": [
+    "near_return",
+    "near_to_far",
+    "far_return"
+  ],
+  "sharp_configurations": 486,
+  "word_order_from": "parked_energy_charge.json:meter_order",
+  "tests": {
+    "plus": {
+      "first_changed_time_power": 14,
+      "blank_slopes_in_squared_time": [
+        "-5/4",
+        "1/4",
+        "-5/4"
+      ],
+      "first_changes": [
+        "127/3417442234033766400",
+        "0",
+        "0"
+      ],
+      "implied_squared_time_shift_coefficients": [
+        "-127/4271802792542208000",
+        "0",
+        "0"
+      ],
+      "residual_after_matching_near_return": [
+        "0",
+        "127/17087211170168832000",
+        "-127/3417442234033766400"
+      ]
+    },
+    "minus": {
+      "first_changed_time_power": 14,
+      "blank_slopes_in_squared_time": [
+        "-5/4",
+        "1/4",
+        "-5/4"
+      ],
+      "first_changes": [
+        "-127/3417442234033766400",
+        "0",
+        "0"
+      ],
+      "implied_squared_time_shift_coefficients": [
+        "127/4271802792542208000",
+        "0",
+        "0"
+      ],
+      "residual_after_matching_near_return": [
+        "0",
+        "-127/17087211170168832000",
+        "127/3417442234033766400"
+      ]
+    },
+    "fourth_order": {
+      "first_changed_time_power": 14,
+      "blank_slopes_in_squared_time": [
+        "-5/4",
+        "1/4",
+        "-5/4"
+      ],
+      "first_changes": [
+        "1/99166850541158400",
+        "0",
+        "0"
+      ],
+      "implied_squared_time_shift_coefficients": [
+        "-1/123958563176448000",
+        "0",
+        "0"
+      ],
+      "residual_after_matching_near_return": [
+        "0",
+        "1/495834252705792000",
+        "-1/99166850541158400"
+      ]
+    },
+    "shared": {
+      "first_changed_time_power": 14,
+      "blank_slopes_in_squared_time": [
+        "-5/4",
+        "1/4",
+        "-5/4"
+      ],
+      "first_changes": [
+        "1/231389317929369600",
+        "0",
+        "0"
+      ],
+      "implied_squared_time_shift_coefficients": [
+        "-1/289236647411712000",
+        "0",
+        "0"
+      ],
+      "residual_after_matching_near_return": [
+        "0",
+        "1/1156946589646848000",
+        "-1/231389317929369600"
+      ]
+    }
+  }
+}

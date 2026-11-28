@@ -1,0 +1,206 @@
+{
+  "sha256": {
+    "PEER_RETURN.md": "89ec94bea98bcfa84d4f58f0088e8055a5cb25435ab3652961e4c071642ccb8f",
+    "landmark_returns.json": "d34a4f9856d73e5926835a185b80b465e39e7664595b63c67683b2bb8e087b4d"
+  },
+  "paired_report_law": [
+    "5/28",
+    "9/28",
+    "5/28",
+    "9/28"
+  ],
+  "paired_report_counts": [
+    46647,
+    84637,
+    46494,
+    84366
+  ],
+  "paired_report_error": 0.00408853335820883,
+  "first_agreement": "53/196",
+  "expected_material_attempts_per_pair": "148/33",
+  "total_material_attempts": 1172168,
+  "declined_material_attempts": 910024,
+  "total_reporter_returns": 524288,
+  "maximum_renewals_including_first": 85,
+  "maximum_sweeps_for_one_return": 1038,
+  "unresolved": 0,
+  "joint_coverage": 0.99,
+  "arms": {
+    "ledger_only": {
+      "trials": 262144,
+      "simultaneous_error": 0.00408853335820883,
+      "readings": {
+        "blank": {
+          "count": 56104,
+          "exact": "3/14"
+        },
+        "selective": {
+          "count": 93674,
+          "exact": "5/14"
+        },
+        "signed_square": {
+          "count": 28237,
+          "exact": "3/28"
+        },
+        "head_cell_0": {
+          "count": 28237,
+          "exact": "3/28"
+        },
+        "head_cell_1": {
+          "count": 102810,
+          "exact": "11/28"
+        },
+        "head_cell_2": {
+          "count": 65535,
+          "exact": "1/4"
+        },
+        "head_cell_3": {
+          "count": 65562,
+          "exact": "1/4"
+        }
+      },
+      "ordinary_home_and_energy": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "65/2",
+        "715/14",
+        "40",
+        "32705/28"
+      ]
+    },
+    "first_matches": {
+      "trials": 71125,
+      "simultaneous_error": 0.007849217560032939,
+      "readings": {
+        "blank": {
+          "count": 15465,
+          "exact": "23/106"
+        },
+        "selective": {
+          "count": 27519,
+          "exact": "41/106"
+        },
+        "signed_square": {
+          "count": 5062,
+          "exact": "15/212"
+        },
+        "head_cell_0": {
+          "count": 5062,
+          "exact": "15/212"
+        },
+        "head_cell_1": {
+          "count": 33150,
+          "exact": "99/212"
+        },
+        "head_cell_2": {
+          "count": 11707,
+          "exact": "35/212"
+        },
+        "head_cell_3": {
+          "count": 21206,
+          "exact": "63/212"
+        }
+      },
+      "ordinary_home_and_energy": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "3185/106",
+        "6435/106",
+        "1932/53",
+        "4637/4"
+      ]
+    },
+    "first_declines": {
+      "trials": 191019,
+      "simultaneous_error": 0.004789599754629516,
+      "readings": {
+        "blank": {
+          "count": 40639,
+          "exact": "61/286"
+        },
+        "selective": {
+          "count": 66155,
+          "exact": "9/26"
+        },
+        "signed_square": {
+          "count": 23175,
+          "exact": "69/572"
+        },
+        "head_cell_0": {
+          "count": 23175,
+          "exact": "69/572"
+        },
+        "head_cell_1": {
+          "count": 69660,
+          "exact": "19/52"
+        },
+        "head_cell_2": {
+          "count": 53828,
+          "exact": "161/572"
+        },
+        "head_cell_3": {
+          "count": 44356,
+          "exact": "133/572"
+        }
+      },
+      "ordinary_home_and_energy": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "735/22",
+        "95/2",
+        "5908/143",
+        "669979/572"
+      ]
+    },
+    "renewed_material": {
+      "trials": 262144,
+      "simultaneous_error": 0.00408853335820883,
+      "readings": {
+        "blank": {
+          "count": 57022,
+          "exact": "101/462"
+        },
+        "selective": {
+          "count": 92282,
+          "exact": "379/1078"
+        },
+        "signed_square": {
+          "count": 46647,
+          "exact": "5/28"
+        },
+        "head_cell_0": {
+          "count": 46647,
+          "exact": "5/28"
+        },
+        "head_cell_1": {
+          "count": 84637,
+          "exact": "9/28"
+        },
+        "head_cell_2": {
+          "count": 46494,
+          "exact": "5/28"
+        },
+        "head_cell_3": {
+          "count": 84366,
+          "exact": "9/28"
+        }
+      },
+      "ordinary_home_and_energy": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "65/2",
+        "7605/154",
+        "6124/147",
+        "1075279/924"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2695 @@
+{
+  "capacities_nats": {
+    "rc_load": 3.3029401e+122,
+    "finite_presence": 3.29209788e+122,
+    "poisson_projective_limit": 3.30007223e+122
+  },
+  "r_drag_Mpc": 147.09,
+  "horizon_crossing": {
+    "native": {
+      "seams": 25,
+      "launches_per_bit": 204800,
+      "zero_clicks": 0,
+      "one_clicks": 204551,
+      "exact_zero_click_probability": 0.0,
+      "ideal_one_click_probability": 0.998796182
+    },
+    "exchange_only": {
+      "seams": 25,
+      "launches_per_bit": 204800,
+      "zero_clicks": 0,
+      "one_clicks": 242,
+      "exact_zero_click_probability": 0.0,
+      "ideal_one_click_probability": 0.00120381833
+    }
+  },
+  "finite_source_attachment": {
+    "finite_dimension": 24,
+    "measured_correctable_messages": 24,
+    "cosmic_value_selected": false,
+    "direct_source_verdict": "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT",
+    "horizon_verdict": "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT"
+  },
+  "models": {
+    "rc_load": {
+      "B": 0.000750061371,
+      "C": 0.0,
+      "A_full": 0.000354252505,
+      "A_anchor": 0.00034317553,
+      "chi2_full": 17.2707093,
+      "chi2_at_anchor": 31.3404388,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.139694751,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.05705379,
+        13.5017846,
+        22.7531556,
+        17.7050531,
+        20.1865877,
+        22.0033847,
+        17.5884662,
+        28.098037,
+        14.0846529,
+        30.2951705,
+        12.8993243,
+        8.63154567,
+        39.2169002
+      ],
+      "forecast_at_profile": [
+        8.00090585,
+        13.4019261,
+        22.5318088,
+        17.5615331,
+        19.9641078,
+        21.8099585,
+        17.374443,
+        27.8263105,
+        13.8950624,
+        29.9934519,
+        12.7208965,
+        8.50295793,
+        38.7865349
+      ],
+      "omega_m_profile": 0.320789689,
+      "H0_profile": 67.7304279,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.00034317553,
+          "p_repeating_anchor": 0.135880425
+        },
+        {
+          "A_assumed_true": 0.000354252505,
+          "p_repeating_anchor": 0.139947374
+        },
+        {
+          "A_assumed_true": 0.000322204007,
+          "p_repeating_anchor": 0.127905153
+        },
+        {
+          "A_assumed_true": 0.000333186448,
+          "p_repeating_anchor": 0.13212706
+        },
+        {
+          "A_assumed_true": 0.00034416889,
+          "p_repeating_anchor": 0.136249205
+        },
+        {
+          "A_assumed_true": 0.000355151331,
+          "p_repeating_anchor": 0.140273038
+        },
+        {
+          "A_assumed_true": 0.000366133773,
+          "p_repeating_anchor": 0.144200255
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.00034317553,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000322204007,
+            0.000366133773
+          ],
+          "conditional_residuals": [
+            -0.115377402,
+            0.0857997211,
+            -0.890208768,
+            -0.354362112,
+            -0.731238559,
+            -0.427745102,
+            0.0530284555,
+            -0.497180838,
+            0.0913686242,
+            0.21673014,
+            -0.0823246337,
+            -0.227926192
+          ],
+          "predictive_sigmas_linear": [
+            0.0877021167,
+            0.185398938,
+            0.462298253,
+            0.211785633,
+            0.376410712,
+            0.221118992,
+            0.261683977,
+            0.387704639,
+            0.269312699,
+            0.799081698,
+            0.536598464,
+            0.741736609
+          ],
+          "fixed_A_chi2": 31.3404388,
+          "predictive_chi2_linear": 17.3383224,
+          "predictive_p_linear": 0.137307815,
+          "conservative_Q_min_bounds": [
+            15.2470651,
+            15.444379
+          ],
+          "conservative_predictive_p_upper": 0.23820247
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000357205162,
+          "A_sigma_linear": 3.43507321e-06,
+          "A_training_interval_99": [
+            0.000347970622,
+            0.000366547658
+          ],
+          "conditional_residuals": [
+            0.187657838
+          ],
+          "predictive_sigmas_linear": [
+            0.103618458
+          ],
+          "fixed_A_chi2": 4.23287659,
+          "predictive_chi2_linear": 3.27988916,
+          "predictive_p_linear": 0.0701336654,
+          "conservative_Q_min_bounds": [
+            0.339204442,
+            0.339204443
+          ],
+          "conservative_predictive_p_upper": 0.570288794
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000353771309,
+          "A_sigma_linear": 3.0524546e-06,
+          "A_training_interval_99": [
+            0.00034638255,
+            0.000362805647
+          ],
+          "conditional_residuals": [
+            -0.0616438488
+          ],
+          "predictive_sigmas_linear": [
+            0.0776193929
+          ],
+          "fixed_A_chi2": 0.65629926,
+          "predictive_chi2_linear": 0.630723496,
+          "predictive_p_linear": 0.427090055,
+          "conservative_Q_min_bounds": [
+            0.0480608354,
+            0.0480608359
+          ],
+          "conservative_predictive_p_upper": 0.836472588
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000353911741,
+          "A_sigma_linear": 3.12130311e-06,
+          "A_training_interval_99": [
+            0.00034651319,
+            0.000363518173
+          ],
+          "conditional_residuals": [
+            0.182620394,
+            -0.675575201
+          ],
+          "predictive_sigmas_linear": [
+            0.170652326,
+            0.43325823
+          ],
+          "fixed_A_chi2": 2.65649084,
+          "predictive_chi2_linear": 2.64367038,
+          "predictive_p_linear": 0.266645507,
+          "conservative_Q_min_bounds": [
+            2.4878028,
+            2.49691312
+          ],
+          "conservative_predictive_p_upper": 0.298257413
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000351285261,
+          "A_sigma_linear": 3.17675211e-06,
+          "A_training_interval_99": [
+            0.000343422945,
+            0.000360828505
+          ],
+          "conditional_residuals": [
+            -0.248928933,
+            -0.567633213
+          ],
+          "predictive_sigmas_linear": [
+            0.18452445,
+            0.33981971
+          ],
+          "fixed_A_chi2": 7.89777698,
+          "predictive_chi2_linear": 6.91786379,
+          "predictive_p_linear": 0.0314633503,
+          "conservative_Q_min_bounds": [
+            2.88476776,
+            2.88476776
+          ],
+          "conservative_predictive_p_upper": 0.246363625
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000353866255,
+          "A_sigma_linear": 3.52218959e-06,
+          "A_training_interval_99": [
+            0.000346007523,
+            0.000365245939
+          ],
+          "conditional_residuals": [
+            -0.240973105,
+            0.259719722
+          ],
+          "predictive_sigmas_linear": [
+            0.172796979,
+            0.211882446
+          ],
+          "fixed_A_chi2": 2.90096696,
+          "predictive_chi2_linear": 2.8844931,
+          "predictive_p_linear": 0.236396087,
+          "conservative_Q_min_bounds": [
+            2.82015994,
+            2.84151269
+          ],
+          "conservative_predictive_p_upper": 0.25412376
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000355001755,
+          "A_sigma_linear": 3.2887723e-06,
+          "A_training_interval_99": [
+            0.000347392231,
+            0.000365474509
+          ],
+          "conditional_residuals": [
+            -0.207377086,
+            0.293508313
+          ],
+          "predictive_sigmas_linear": [
+            0.334095323,
+            0.231191038
+          ],
+          "fixed_A_chi2": 1.72510998,
+          "predictive_chi2_linear": 1.66333481,
+          "predictive_p_linear": 0.435322821,
+          "conservative_Q_min_bounds": [
+            1.34151941,
+            1.35185166
+          ],
+          "conservative_predictive_p_upper": 0.521319978
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000354785156,
+          "A_sigma_linear": 3.06061428e-06,
+          "A_training_interval_99": [
+            0.00034833184,
+            0.000364827564
+          ],
+          "conditional_residuals": [
+            0.532715369,
+            0.104497565
+          ],
+          "predictive_sigmas_linear": [
+            0.767938902,
+            0.520248156
+          ],
+          "fixed_A_chi2": 0.880969582,
+          "predictive_chi2_linear": 0.849728031,
+          "predictive_p_linear": 0.653858694,
+          "conservative_Q_min_bounds": [
+            0.29322733,
+            0.293227331
+          ],
+          "conservative_predictive_p_upper": 0.873627562
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000357735361,
+          "A_sigma_linear": 3.54763989e-06,
+          "A_training_interval_99": [
+            0.000348526097,
+            0.000367670848
+          ],
+          "conditional_residuals": [
+            0.167846131,
+            0.334645794
+          ],
+          "predictive_sigmas_linear": [
+            0.108584856,
+            0.548290622
+          ],
+          "fixed_A_chi2": 4.97794304,
+          "predictive_chi2_linear": 3.65409895,
+          "predictive_p_linear": 0.160887571,
+          "conservative_Q_min_bounds": [
+            0.453591197,
+            0.453591199
+          ],
+          "conservative_predictive_p_upper": 0.807083691
+        }
+      }
+    },
+    "rc_low_B": {
+      "B": 0.000747395412,
+      "C": 0.0,
+      "A_full": 0.000354890617,
+      "A_anchor": 0.000343247727,
+      "chi2_full": 17.9555816,
+      "chi2_at_anchor": 33.509615,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.117045886,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.06476464,
+        13.5140146,
+        22.7674067,
+        17.7195819,
+        20.1960851,
+        22.0196295,
+        17.5943011,
+        28.1158019,
+        14.0871169,
+        30.3132691,
+        12.9009981,
+        8.63154567,
+        39.2355185
+      ],
+      "forecast_at_profile": [
+        8.00561422,
+        13.4088421,
+        22.5344915,
+        17.5684795,
+        19.9621093,
+        21.8160558,
+        17.3693314,
+        27.8299479,
+        13.8879417,
+        29.9959094,
+        12.7135804,
+        8.49654182,
+        38.7830653
+      ],
+      "omega_m_profile": 0.321958736,
+      "H0_profile": 67.7880366,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000343247727,
+          "p_repeating_anchor": 0.115633604
+        },
+        {
+          "A_assumed_true": 0.000354890617,
+          "p_repeating_anchor": 0.119632805
+        },
+        {
+          "A_assumed_true": 0.000322276204,
+          "p_repeating_anchor": 0.10819591
+        },
+        {
+          "A_assumed_true": 0.000333258646,
+          "p_repeating_anchor": 0.112128563
+        },
+        {
+          "A_assumed_true": 0.000344241087,
+          "p_repeating_anchor": 0.115978423
+        },
+        {
+          "A_assumed_true": 0.000355223529,
+          "p_repeating_anchor": 0.119745799
+        },
+        {
+          "A_assumed_true": 0.00036620597,
+          "p_repeating_anchor": 0.123431325
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000343247727,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000322276204,
+            0.00036620597
+          ],
+          "conditional_residuals": [
+            -0.123088254,
+            0.0735697193,
+            -0.904459887,
+            -0.368890925,
+            -0.740735942,
+            -0.443989949,
+            0.0471935625,
+            -0.514945753,
+            0.0889046449,
+            0.198631549,
+            -0.083998467,
+            -0.246544552
+          ],
+          "predictive_sigmas_linear": [
+            0.0877635993,
+            0.185484435,
+            0.462419515,
+            0.211922758,
+            0.37652413,
+            0.221327966,
+            0.261790761,
+            0.387897333,
+            0.269355793,
+            0.799188736,
+            0.536612689,
+            0.742026557
+          ],
+          "fixed_A_chi2": 33.509615,
+          "predictive_chi2_linear": 18.0333714,
+          "predictive_p_linear": 0.114681001,
+          "conservative_Q_min_bounds": [
+            15.7424511,
+            15.9431659
+          ],
+          "conservative_predictive_p_upper": 0.213319076
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000357974678,
+          "A_sigma_linear": 3.43637598e-06,
+          "A_training_interval_99": [
+            0.000348754786,
+            0.000367338976
+          ],
+          "conditional_residuals": [
+            0.196153447
+          ],
+          "predictive_sigmas_linear": [
+            0.103571329
+          ],
+          "fixed_A_chi2": 4.62481195,
+          "predictive_chi2_linear": 3.58684646,
+          "predictive_p_linear": 0.0582386612,
+          "conservative_Q_min_bounds": [
+            0.464466682,
+            0.464466684
+          ],
+          "conservative_predictive_p_upper": 0.505543829
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000354369675,
+          "A_sigma_linear": 3.05371517e-06,
+          "A_training_interval_99": [
+            0.000347006491,
+            0.000363435885
+          ],
+          "conditional_residuals": [
+            -0.0665562031
+          ],
+          "predictive_sigmas_linear": [
+            0.0776260516
+          ],
+          "fixed_A_chi2": 0.765067049,
+          "predictive_chi2_linear": 0.735126507,
+          "predictive_p_linear": 0.391226518,
+          "conservative_Q_min_bounds": [
+            0.0787735143,
+            0.078773515
+          ],
+          "conservative_predictive_p_upper": 0.788966438
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000354506821,
+          "A_sigma_linear": 3.12266117e-06,
+          "A_training_interval_99": [
+            0.000347154658,
+            0.000364166913
+          ],
+          "conditional_residuals": [
+            0.175315753,
+            -0.679108852
+          ],
+          "predictive_sigmas_linear": [
+            0.170661167,
+            0.433266146
+          ],
+          "fixed_A_chi2": 2.64112337,
+          "predictive_chi2_linear": 2.62487916,
+          "predictive_p_linear": 0.269162611,
+          "conservative_Q_min_bounds": [
+            2.43045525,
+            2.43947159
+          ],
+          "conservative_predictive_p_upper": 0.306642484
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000351880318,
+          "A_sigma_linear": 3.17818104e-06,
+          "A_training_interval_99": [
+            0.000344082308,
+            0.000361495814
+          ],
+          "conditional_residuals": [
+            -0.256468299,
+            -0.566474844
+          ],
+          "predictive_sigmas_linear": [
+            0.184538484,
+            0.339822968
+          ],
+          "fixed_A_chi2": 8.08540466,
+          "predictive_chi2_linear": 7.07801393,
+          "predictive_p_linear": 0.0290421527,
+          "conservative_Q_min_bounds": [
+            2.95975888,
+            2.95975889
+          ],
+          "conservative_predictive_p_upper": 0.237665134
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000354474804,
+          "A_sigma_linear": 3.523935e-06,
+          "A_training_interval_99": [
+            0.0003466999,
+            0.000365947487
+          ],
+          "conditional_residuals": [
+            -0.247584186,
+            0.264276741
+          ],
+          "predictive_sigmas_linear": [
+            0.172821582,
+            0.211876296
+          ],
+          "fixed_A_chi2": 3.03938775,
+          "predictive_chi2_linear": 3.02031839,
+          "predictive_p_linear": 0.220874812,
+          "conservative_Q_min_bounds": [
+            2.94875194,
+            2.97062552
+          ],
+          "conservative_predictive_p_upper": 0.238921536
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000355666747,
+          "A_sigma_linear": 3.29030772e-06,
+          "A_training_interval_99": [
+            0.000348125414,
+            0.000366215764
+          ],
+          "conditional_residuals": [
+            -0.210365462,
+            0.301058616
+          ],
+          "predictive_sigmas_linear": [
+            0.334103886,
+            0.231175803
+          ],
+          "fixed_A_chi2": 1.81298312,
+          "predictive_chi2_linear": 1.74678582,
+          "predictive_p_linear": 0.417532492,
+          "conservative_Q_min_bounds": [
+            1.40218558,
+            1.41273807
+          ],
+          "conservative_predictive_p_upper": 0.506042936
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000355429835,
+          "A_sigma_linear": 3.06198963e-06,
+          "A_training_interval_99": [
+            0.000349044051,
+            0.000365546941
+          ],
+          "conditional_residuals": [
+            0.530432144,
+            0.111902446
+          ],
+          "predictive_sigmas_linear": [
+            0.767941748,
+            0.520242367
+          ],
+          "fixed_A_chi2": 0.895531954,
+          "predictive_chi2_linear": 0.863556823,
+          "predictive_p_linear": 0.64935325,
+          "conservative_Q_min_bounds": [
+            0.303299049,
+            0.303299049
+          ],
+          "conservative_predictive_p_upper": 0.869289388
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000358518811,
+          "A_sigma_linear": 3.54896012e-06,
+          "A_training_interval_99": [
+            0.000349334725,
+            0.000368486642
+          ],
+          "conditional_residuals": [
+            0.175796642,
+            0.343508428
+          ],
+          "predictive_sigmas_linear": [
+            0.108549393,
+            0.548266088
+          ],
+          "fixed_A_chi2": 5.41546019,
+          "predictive_chi2_linear": 3.9812698,
+          "predictive_p_linear": 0.136608665,
+          "conservative_Q_min_bounds": [
+            0.601565295,
+            0.601565297
+          ],
+          "conservative_predictive_p_upper": 0.750238648
+        }
+      }
+    },
+    "rc_high_B": {
+      "B": 0.000752732135,
+      "C": 0.0,
+      "A_full": 0.000353614846,
+      "A_anchor": 0.000343103202,
+      "chi2_full": 16.6167206,
+      "chi2_at_anchor": 29.278881,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.164592566,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.04935145,
+        13.4895669,
+        22.7389056,
+        17.6905362,
+        20.1770867,
+        21.9871507,
+        17.5826266,
+        28.0802814,
+        14.0821858,
+        30.2770808,
+        12.8976481,
+        8.63154567,
+        39.1982899
+      ],
+      "forecast_at_profile": [
+        7.99618985,
+        13.3949962,
+        22.5290906,
+        17.5545667,
+        19.9660788,
+        21.803836,
+        17.3795379,
+        27.8226445,
+        13.90218,
+        29.9909656,
+        12.7282132,
+        8.50938197,
+        38.7899802
+      ],
+      "omega_m_profile": 0.319623818,
+      "H0_profile": 67.6731263,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000343103202,
+          "p_repeating_anchor": 0.15911654
+        },
+        {
+          "A_assumed_true": 0.000353614846,
+          "p_repeating_anchor": 0.163201269
+        },
+        {
+          "A_assumed_true": 0.00032213168,
+          "p_repeating_anchor": 0.150651735
+        },
+        {
+          "A_assumed_true": 0.000333114121,
+          "p_repeating_anchor": 0.155137792
+        },
+        {
+          "A_assumed_true": 0.000344096562,
+          "p_repeating_anchor": 0.159506996
+        },
+        {
+          "A_assumed_true": 0.000355079004,
+          "p_repeating_anchor": 0.163762051
+        },
+        {
+          "A_assumed_true": 0.000366061445,
+          "p_repeating_anchor": 0.167905805
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000343103202,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.00032213168,
+            0.000366061445
+          ],
+          "conditional_residuals": [
+            -0.107675057,
+            0.0980174556,
+            -0.875958758,
+            -0.339845224,
+            -0.721737478,
+            -0.411511165,
+            0.0588680498,
+            -0.479425271,
+            0.0938357493,
+            0.234819832,
+            -0.0806484362,
+            -0.209315922
+          ],
+          "predictive_sigmas_linear": [
+            0.0876409466,
+            0.185313858,
+            0.462177348,
+            0.211649057,
+            0.376297483,
+            0.220910665,
+            0.261577239,
+            0.387512494,
+            0.26926958,
+            0.798974982,
+            0.536584228,
+            0.741447167
+          ],
+          "fixed_A_chi2": 29.278881,
+          "predictive_chi2_linear": 16.6750711,
+          "predictive_p_linear": 0.162234205,
+          "conservative_Q_min_bounds": [
+            14.77435,
+            14.9680189
+          ],
+          "conservative_predictive_p_upper": 0.264009211
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000356435574,
+          "A_sigma_linear": 3.43376848e-06,
+          "A_training_interval_99": [
+            0.000347185847,
+            0.000365755701
+          ],
+          "conditional_residuals": [
+            0.179140881
+          ],
+          "predictive_sigmas_linear": [
+            0.103665851
+          ],
+          "fixed_A_chi2": 3.85737271,
+          "predictive_chi2_linear": 2.98619374,
+          "predictive_p_linear": 0.0839773448,
+          "conservative_Q_min_bounds": [
+            0.233247901,
+            0.233247902
+          ],
+          "conservative_predictive_p_upper": 0.639125947
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000353173236,
+          "A_sigma_linear": 3.05119278e-06,
+          "A_training_interval_99": [
+            0.000345758217,
+            0.000362174993
+          ],
+          "conditional_residuals": [
+            -0.0567253502
+          ],
+          "predictive_sigmas_linear": [
+            0.0776127508
+          ],
+          "fixed_A_chi2": 0.555746573,
+          "predictive_chi2_linear": 0.534180733,
+          "predictive_p_linear": 0.464854477,
+          "conservative_Q_min_bounds": [
+            0.0248842986,
+            0.0248842991
+          ],
+          "conservative_predictive_p_upper": 0.884655707
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000353317064,
+          "A_sigma_linear": 3.11994429e-06,
+          "A_training_interval_99": [
+            0.000345871391,
+            0.000362869075
+          ],
+          "conditional_residuals": [
+            0.189937303,
+            -0.672007776
+          ],
+          "predictive_sigmas_linear": [
+            0.170643502,
+            0.433250285
+          ],
+          "fixed_A_chi2": 2.67743652,
+          "predictive_chi2_linear": 2.66763503,
+          "predictive_p_linear": 0.26346954,
+          "conservative_Q_min_bounds": [
+            2.54589439,
+            2.55510773
+          ],
+          "conservative_predictive_p_upper": 0.290005175
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000350690726,
+          "A_sigma_linear": 3.1753227e-06,
+          "A_training_interval_99": [
+            0.000342763279,
+            0.000360160862
+          ],
+          "conditional_residuals": [
+            -0.241369688,
+            -0.568762092
+          ],
+          "predictive_sigmas_linear": [
+            0.184510423,
+            0.339816397
+          ],
+          "fixed_A_chi2": 7.7130717,
+          "predictive_chi2_linear": 6.76032922,
+          "predictive_p_linear": 0.0340418506,
+          "conservative_Q_min_bounds": [
+            2.81221833,
+            2.81221833
+          ],
+          "conservative_predictive_p_upper": 0.255095055
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000353258461,
+          "A_sigma_linear": 3.52044387e-06,
+          "A_training_interval_99": [
+            0.000345314847,
+            0.000364544054
+          ],
+          "conditional_residuals": [
+            -0.234332342,
+            0.255186114
+          ],
+          "predictive_sigmas_linear": [
+            0.172772341,
+            0.211888502
+          ],
+          "fixed_A_chi2": 2.76583179,
+          "predictive_chi2_linear": 2.75179028,
+          "predictive_p_linear": 0.25261337,
+          "conservative_Q_min_bounds": [
+            2.69427899,
+            2.71512629
+          ],
+          "conservative_predictive_p_upper": 0.26998288
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000354337325,
+          "A_sigma_linear": 3.28723552e-06,
+          "A_training_interval_99": [
+            0.000346658635,
+            0.000364732806
+          ],
+          "conditional_residuals": [
+            -0.204357412,
+            0.285961526
+          ],
+          "predictive_sigmas_linear": [
+            0.334086709,
+            0.231206278
+          ],
+          "fixed_A_chi2": 1.63954964,
+          "predictive_chi2_linear": 1.58203176,
+          "predictive_p_linear": 0.453383977,
+          "conservative_Q_min_bounds": [
+            1.28214985,
+            1.29224201
+          ],
+          "conservative_predictive_p_upper": 0.536725929
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000354140948,
+          "A_sigma_linear": 3.05923786e-06,
+          "A_training_interval_99": [
+            0.00034761922,
+            0.000364107747
+          ],
+          "conditional_residuals": [
+            0.535027854,
+            0.0970920806
+          ],
+          "predictive_sigmas_linear": [
+            0.767936036,
+            0.520253953
+          ],
+          "fixed_A_chi2": 0.866938314,
+          "predictive_chi2_linear": 0.836420578,
+          "predictive_p_linear": 0.658223796,
+          "conservative_Q_min_bounds": [
+            0.283859747,
+            0.283859747
+          ],
+          "conservative_predictive_p_upper": 0.877682102
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000356951807,
+          "A_sigma_linear": 3.54631761e-06,
+          "A_training_interval_99": [
+            0.000347716803,
+            0.000366854359
+          ],
+          "conditional_residuals": [
+            0.159873443,
+            0.325776614
+          ],
+          "predictive_sigmas_linear": [
+            0.108620547,
+            0.548315246
+          ],
+          "fixed_A_chi2": 4.55804334,
+          "predictive_chi2_linear": 3.34070482,
+          "predictive_p_linear": 0.188180737,
+          "conservative_Q_min_bounds": [
+            0.327085855,
+            0.327085856
+          ],
+          "conservative_predictive_p_upper": 0.859130047
+        }
+      }
+    },
+    "rc_radiation": {
+      "B": 0.000750061371,
+      "C": 1.00623906e-07,
+      "A_full": 0.00035405106,
+      "A_anchor": 0.000342840452,
+      "chi2_full": 17.3810191,
+      "chi2_at_anchor": 31.796173,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.135817983,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.05814785,
+        13.5036751,
+        22.7568702,
+        17.7076374,
+        20.1899258,
+        22.0066662,
+        17.5912313,
+        28.1021936,
+        14.0864267,
+        30.2995854,
+        12.9007247,
+        8.63154567,
+        39.2218479
+      ],
+      "forecast_at_profile": [
+        8.00130656,
+        13.4025827,
+        22.5327836,
+        17.5623436,
+        19.9646961,
+        21.8108504,
+        17.3745728,
+        27.8271176,
+        13.894524,
+        29.9941524,
+        12.7201314,
+        8.50144154,
+        38.7862273
+      ],
+      "omega_m_profile": 0.320636546,
+      "H0_profile": 67.7273361,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000342840452,
+          "p_repeating_anchor": 0.131331931
+        },
+        {
+          "A_assumed_true": 0.00035405106,
+          "p_repeating_anchor": 0.135391892
+        },
+        {
+          "A_assumed_true": 0.000321868929,
+          "p_repeating_anchor": 0.123470212
+        },
+        {
+          "A_assumed_true": 0.000332851371,
+          "p_repeating_anchor": 0.127630981
+        },
+        {
+          "A_assumed_true": 0.000343833812,
+          "p_repeating_anchor": 0.131695657
+        },
+        {
+          "A_assumed_true": 0.000354816254,
+          "p_repeating_anchor": 0.135665437
+        },
+        {
+          "A_assumed_true": 0.000365798695,
+          "p_repeating_anchor": 0.139541784
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000342840452,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000321868929,
+            0.000365798695
+          ],
+          "conditional_residuals": [
+            -0.116471459,
+            0.0839092605,
+            -0.893923304,
+            -0.356946489,
+            -0.734576593,
+            -0.431026656,
+            0.0502633461,
+            -0.501337491,
+            0.0895948095,
+            0.212315247,
+            -0.0837250847,
+            -0.232873912
+          ],
+          "predictive_sigmas_linear": [
+            0.0877110563,
+            0.185412896,
+            0.462329827,
+            0.211812123,
+            0.376450548,
+            0.221166171,
+            0.261734564,
+            0.387756933,
+            0.26934372,
+            0.799112332,
+            0.536610365,
+            0.741829472
+          ],
+          "fixed_A_chi2": 31.796173,
+          "predictive_chi2_linear": 17.4507275,
+          "predictive_p_linear": 0.133414485,
+          "conservative_Q_min_bounds": [
+            15.3139318,
+            15.5114501
+          ],
+          "conservative_predictive_p_upper": 0.234715733
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000357033592,
+          "A_sigma_linear": 3.43517085e-06,
+          "A_training_interval_99": [
+            0.000347798154,
+            0.000366375734
+          ],
+          "conditional_residuals": [
+            0.189608409
+          ],
+          "predictive_sigmas_linear": [
+            0.103606434
+          ],
+          "fixed_A_chi2": 4.32132948,
+          "predictive_chi2_linear": 3.34920506,
+          "predictive_p_linear": 0.0672374767,
+          "conservative_Q_min_bounds": [
+            0.365377927,
+            0.365377928
+          ],
+          "conservative_predictive_p_upper": 0.555534537
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000353566463,
+          "A_sigma_linear": 3.05261818e-06,
+          "A_training_interval_99": [
+            0.000346183819,
+            0.000362607649
+          ],
+          "conditional_residuals": [
+            -0.0620619911
+          ],
+          "predictive_sigmas_linear": [
+            0.077620031
+          ],
+          "fixed_A_chi2": 0.66523307,
+          "predictive_chi2_linear": 0.639298647,
+          "predictive_p_linear": 0.423964881,
+          "conservative_Q_min_bounds": [
+            0.0502595932,
+            0.0502595938
+          ],
+          "conservative_predictive_p_upper": 0.832612177
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000353704704,
+          "A_sigma_linear": 3.12147552e-06,
+          "A_training_interval_99": [
+            0.000346313427,
+            0.000363319221
+          ],
+          "conditional_residuals": [
+            0.181913387,
+            -0.676661188
+          ],
+          "predictive_sigmas_linear": [
+            0.170653296,
+            0.433259976
+          ],
+          "fixed_A_chi2": 2.65949991,
+          "predictive_chi2_linear": 2.64625718,
+          "predictive_p_linear": 0.266300851,
+          "conservative_Q_min_bounds": [
+            2.48561924,
+            2.4947276
+          ],
+          "conservative_predictive_p_upper": 0.298572299
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.00035107589,
+          "A_sigma_linear": 3.17693317e-06,
+          "A_training_interval_99": [
+            0.000343222957,
+            0.00036062941
+          ],
+          "conditional_residuals": [
+            -0.249846714,
+            -0.568384737
+          ],
+          "predictive_sigmas_linear": [
+            0.18452637,
+            0.339821711
+          ],
+          "fixed_A_chi2": 7.93466453,
+          "predictive_chi2_linear": 6.94965356,
+          "predictive_p_linear": 0.0309671974,
+          "conservative_Q_min_bounds": [
+            2.90188745,
+            2.90188745
+          ],
+          "conservative_predictive_p_upper": 0.244349022
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000353652461,
+          "A_sigma_linear": 3.52242448e-06,
+          "A_training_interval_99": [
+            0.000345807993,
+            0.000365047476
+          ],
+          "conditional_residuals": [
+            -0.24207864,
+            0.259355273
+          ],
+          "predictive_sigmas_linear": [
+            0.172801527,
+            0.211885183
+          ],
+          "fixed_A_chi2": 2.91401663,
+          "predictive_chi2_linear": 2.89647489,
+          "predictive_p_linear": 0.234984096,
+          "conservative_Q_min_bounds": [
+            2.82931877,
+            2.8507587
+          ],
+          "conservative_predictive_p_upper": 0.253008371
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000354800191,
+          "A_sigma_linear": 3.28897335e-06,
+          "A_training_interval_99": [
+            0.000347200787,
+            0.000365283986
+          ],
+          "conditional_residuals": [
+            -0.208185799,
+            0.294043259
+          ],
+          "predictive_sigmas_linear": [
+            0.334097792,
+            0.231190325
+          ],
+          "fixed_A_chi2": 1.73178004,
+          "predictive_chi2_linear": 1.67003493,
+          "predictive_p_linear": 0.433866903,
+          "conservative_Q_min_bounds": [
+            1.34836709,
+            1.3587188
+          ],
+          "conservative_predictive_p_upper": 0.519572294
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000354584073,
+          "A_sigma_linear": 3.06078678e-06,
+          "A_training_interval_99": [
+            0.000348140203,
+            0.000364636717
+          ],
+          "conditional_residuals": [
+            0.532025293,
+            0.105266849
+          ],
+          "predictive_sigmas_linear": [
+            0.767939807,
+            0.520247597
+          ],
+          "fixed_A_chi2": 0.881210938,
+          "predictive_chi2_linear": 0.849932332,
+          "predictive_p_linear": 0.653791905,
+          "conservative_Q_min_bounds": [
+            0.293639395,
+            0.293639396
+          ],
+          "conservative_predictive_p_upper": 0.873449645
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000357566156,
+          "A_sigma_linear": 3.54773361e-06,
+          "A_training_interval_99": [
+            0.000348357425,
+            0.000367502678
+          ],
+          "conditional_residuals": [
+            0.169702286,
+            0.336161337
+          ],
+          "predictive_sigmas_linear": [
+            0.108575689,
+            0.548285954
+          ],
+          "fixed_A_chi2": 5.0749523,
+          "predictive_chi2_linear": 3.72684396,
+          "predictive_p_linear": 0.155140832,
+          "conservative_Q_min_bounds": [
+            0.484333481,
+            0.484333483
+          ],
+          "conservative_predictive_p_upper": 0.794925288
+        }
+      }
+    },
+    "finite_presence": {
+      "B": 0.000752531628,
+      "C": 0.0,
+      "A_full": 0.000353662662,
+      "A_anchor": 0.000343108632,
+      "chi2_full": 16.6647028,
+      "chi2_at_anchor": 29.4297943,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.162651259,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.04992892,
+        13.4904829,
+        22.7399745,
+        17.6916247,
+        20.1777995,
+        21.9883681,
+        17.5830648,
+        28.081613,
+        14.082371,
+        30.2784374,
+        12.8977739,
+        8.63154567,
+        39.1996856
+      ],
+      "forecast_at_profile": [
+        7.99654387,
+        13.3955165,
+        22.5292957,
+        17.55509,
+        19.9659319,
+        21.8042962,
+        17.3791563,
+        27.8229205,
+        13.9016462,
+        29.9911532,
+        12.7276643,
+        8.50889982,
+        38.7897226
+      ],
+      "omega_m_profile": 0.319711162,
+      "H0_profile": 67.7880687,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000343108632,
+          "p_repeating_anchor": 0.15726232
+        },
+        {
+          "A_assumed_true": 0.000353662662,
+          "p_repeating_anchor": 0.161347572
+        },
+        {
+          "A_assumed_true": 0.000322137109,
+          "p_repeating_anchor": 0.148832121
+        },
+        {
+          "A_assumed_true": 0.000333119551,
+          "p_repeating_anchor": 0.153299476
+        },
+        {
+          "A_assumed_true": 0.000344101992,
+          "p_repeating_anchor": 0.15765125
+        },
+        {
+          "A_assumed_true": 0.000355084434,
+          "p_repeating_anchor": 0.161890051
+        },
+        {
+          "A_assumed_true": 0.000366066875,
+          "p_repeating_anchor": 0.166018637
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000343108632,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000322137109,
+            0.000366066875
+          ],
+          "conditional_residuals": [
+            -0.108252533,
+            0.0971014004,
+            -0.877027646,
+            -0.340933756,
+            -0.722450304,
+            -0.412728531,
+            0.0584298454,
+            -0.480756833,
+            0.0936505754,
+            0.233463191,
+            -0.0807742537,
+            -0.210711641
+          ],
+          "predictive_sigmas_linear": [
+            0.0876455243,
+            0.185320225,
+            0.462186405,
+            0.211659283,
+            0.37630597,
+            0.22092627,
+            0.261585244,
+            0.387526888,
+            0.269272816,
+            0.798982976,
+            0.536585296,
+            0.741468861
+          ],
+          "fixed_A_chi2": 29.4297943,
+          "predictive_chi2_linear": 16.7237173,
+          "predictive_p_linear": 0.160289005,
+          "conservative_Q_min_bounds": [
+            14.809423,
+            15.0025011
+          ],
+          "conservative_predictive_p_upper": 0.262024435
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.00035649331,
+          "A_sigma_linear": 3.43386647e-06,
+          "A_training_interval_99": [
+            0.000347244736,
+            0.00036581513
+          ],
+          "conditional_residuals": [
+            0.179780566
+          ],
+          "predictive_sigmas_linear": [
+            0.103662286
+          ],
+          "fixed_A_chi2": 3.88497006,
+          "predictive_chi2_linear": 3.00776512,
+          "predictive_p_linear": 0.0828664714,
+          "conservative_Q_min_bounds": [
+            0.240521574,
+            0.240521575
+          ],
+          "conservative_predictive_p_upper": 0.63382966
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000353218089,
+          "A_sigma_linear": 3.05128748e-06,
+          "A_training_interval_99": [
+            0.000345805063,
+            0.000362222314
+          ],
+          "conditional_residuals": [
+            -0.057094511
+          ],
+          "predictive_sigmas_linear": [
+            0.0776132485
+          ],
+          "fixed_A_chi2": 0.563003554,
+          "predictive_chi2_linear": 0.541149165,
+          "predictive_p_linear": 0.461956865,
+          "conservative_Q_min_bounds": [
+            0.0263610302,
+            0.0263610307
+          ],
+          "conservative_predictive_p_upper": 0.881021736
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000353361658,
+          "A_sigma_linear": 3.12004624e-06,
+          "A_training_interval_99": [
+            0.000345919545,
+            0.000362917777
+          ],
+          "conditional_residuals": [
+            0.18938802,
+            -0.672276549
+          ],
+          "predictive_sigmas_linear": [
+            0.170644163,
+            0.433250882
+          ],
+          "fixed_A_chi2": 2.67567087,
+          "predictive_chi2_linear": 2.66565697,
+          "predictive_p_linear": 0.263730248,
+          "conservative_Q_min_bounds": [
+            2.54150545,
+            2.55072195
+          ],
+          "conservative_predictive_p_upper": 0.290620313
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000350735305,
+          "A_sigma_linear": 3.17542994e-06,
+          "A_training_interval_99": [
+            0.000342812773,
+            0.000360210955
+          ],
+          "conditional_residuals": [
+            -0.241937414,
+            -0.568678438
+          ],
+          "predictive_sigmas_linear": [
+            0.184511475,
+            0.339816648
+          ],
+          "fixed_A_chi2": 7.72682462,
+          "predictive_chi2_linear": 6.77205473,
+          "predictive_p_linear": 0.0338428556,
+          "conservative_Q_min_bounds": [
+            2.81757539,
+            2.81757539
+          ],
+          "conservative_predictive_p_upper": 0.254439439
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000353304027,
+          "A_sigma_linear": 3.52057483e-06,
+          "A_training_interval_99": [
+            0.000345366817,
+            0.000364596716
+          ],
+          "conditional_residuals": [
+            -0.234831511,
+            0.255525375
+          ],
+          "predictive_sigmas_linear": [
+            0.172774191,
+            0.211888051
+          ],
+          "fixed_A_chi2": 2.7758538,
+          "predictive_chi2_linear": 2.76163565,
+          "predictive_p_linear": 0.251372891,
+          "conservative_Q_min_bounds": [
+            2.70363151,
+            2.72451198
+          ],
+          "conservative_predictive_p_upper": 0.268769971
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000354387146,
+          "A_sigma_linear": 3.28735084e-06,
+          "A_training_interval_99": [
+            0.000346713678,
+            0.000364788459
+          ],
+          "conditional_residuals": [
+            -0.204585014,
+            0.286527503
+          ],
+          "predictive_sigmas_linear": [
+            0.334087357,
+            0.231205134
+          ],
+          "fixed_A_chi2": 1.64588759,
+          "predictive_chi2_linear": 1.58805605,
+          "predictive_p_linear": 0.452020373,
+          "conservative_Q_min_bounds": [
+            1.28655127,
+            1.29666693
+          ],
+          "conservative_predictive_p_upper": 0.535568033
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000354189255,
+          "A_sigma_linear": 3.05934114e-06,
+          "A_training_interval_99": [
+            0.00034767269,
+            0.000364161757
+          ],
+          "conditional_residuals": [
+            0.534853371,
+            0.0976476017
+          ],
+          "predictive_sigmas_linear": [
+            0.767936252,
+            0.520253518
+          ],
+          "fixed_A_chi2": 0.867972418,
+          "predictive_chi2_linear": 0.837400726,
+          "predictive_p_linear": 0.657901297,
+          "conservative_Q_min_bounds": [
+            0.284537902,
+            0.284537903
+          ],
+          "conservative_predictive_p_upper": 0.87738794
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000357010587,
+          "A_sigma_linear": 3.54641687e-06,
+          "A_training_interval_99": [
+            0.000347777533,
+            0.00036691563
+          ],
+          "conditional_residuals": [
+            0.160472264,
+            0.326442138
+          ],
+          "predictive_sigmas_linear": [
+            0.108617862,
+            0.548313395
+          ],
+          "fixed_A_chi2": 4.58892665,
+          "predictive_chi2_linear": 3.36373373,
+          "predictive_p_linear": 0.186026366,
+          "conservative_Q_min_bounds": [
+            0.33582519,
+            0.335825191
+          ],
+          "conservative_predictive_p_upper": 0.855427726
+        }
+      }
+    },
+    "poisson_projective_limit": {
+      "B": 0.000750713198,
+      "C": 0.0,
+      "A_full": 0.00035409673,
+      "A_anchor": 0.000343157877,
+      "chi2_full": 17.1081315,
+      "chi2_at_anchor": 30.8270277,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 0.145574841,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        8.05517189,
+        13.4987996,
+        22.7496753,
+        17.7015065,
+        20.1842677,
+        21.9994189,
+        17.5870404,
+        28.0936997,
+        14.0840507,
+        30.2907517,
+        12.8989151,
+        8.63154567,
+        39.2123543
+      ],
+      "forecast_at_profile": [
+        7.99975478,
+        13.4002349,
+        22.5311482,
+        17.5598336,
+        19.9645917,
+        21.8084655,
+        17.3756889,
+        27.8254178,
+        13.896801,
+        29.9928474,
+        12.7226834,
+        8.50452612,
+        38.7873786
+      ],
+      "omega_m_profile": 0.32050466,
+      "H0_profile": 67.7456383,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000343157877,
+          "p_repeating_anchor": 0.141266534
+        },
+        {
+          "A_assumed_true": 0.00035409673,
+          "p_repeating_anchor": 0.145342655
+        },
+        {
+          "A_assumed_true": 0.000322186355,
+          "p_repeating_anchor": 0.133166511
+        },
+        {
+          "A_assumed_true": 0.000333168796,
+          "p_repeating_anchor": 0.137455656
+        },
+        {
+          "A_assumed_true": 0.000344151238,
+          "p_repeating_anchor": 0.141640853
+        },
+        {
+          "A_assumed_true": 0.000355133679,
+          "p_repeating_anchor": 0.14572385
+        },
+        {
+          "A_assumed_true": 0.000366116121,
+          "p_repeating_anchor": 0.149706615
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000343157877,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000322186355,
+            0.000366116121
+          ],
+          "conditional_residuals": [
+            -0.1134955,
+            0.0887847476,
+            -0.886728434,
+            -0.350815603,
+            -0.728918484,
+            -0.423779337,
+            0.0544542057,
+            -0.492843595,
+            0.0919708713,
+            0.221148944,
+            -0.08191548,
+            -0.223380324
+          ],
+          "predictive_sigmas_linear": [
+            0.0876871486,
+            0.185378121,
+            0.462268692,
+            0.211752227,
+            0.376383041,
+            0.221068053,
+            0.261657904,
+            0.387657662,
+            0.269302171,
+            0.799055605,
+            0.536594988,
+            0.741665873
+          ],
+          "fixed_A_chi2": 30.8270277,
+          "predictive_chi2_linear": 17.1733995,
+          "predictive_p_linear": 0.143190203,
+          "conservative_Q_min_bounds": [
+            15.1295043,
+            15.3260441
+          ],
+          "conservative_predictive_p_upper": 0.244430528
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000357017208,
+          "A_sigma_linear": 3.43475468e-06,
+          "A_training_interval_99": [
+            0.000347779015,
+            0.0003663543
+          ],
+          "conditional_residuals": [
+            0.185579652
+          ],
+          "predictive_sigmas_linear": [
+            0.103630008
+          ],
+          "fixed_A_chi2": 4.13964312,
+          "predictive_chi2_linear": 3.20693123,
+          "predictive_p_linear": 0.0733268927,
+          "conservative_Q_min_bounds": [
+            0.311537417,
+            0.311537418
+          ],
+          "conservative_predictive_p_upper": 0.586738294
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000353625217,
+          "A_sigma_linear": 3.05214655e-06,
+          "A_training_interval_99": [
+            0.000346230108,
+            0.000362651663
+          ],
+          "conditional_residuals": [
+            -0.0604431874
+          ],
+          "predictive_sigmas_linear": [
+            0.0776177692
+          ],
+          "fixed_A_chi2": 0.630982244,
+          "predictive_chi2_linear": 0.606418446,
+          "predictive_p_linear": 0.436139524,
+          "conservative_Q_min_bounds": [
+            0.041704407,
+            0.0417044075
+          ],
+          "conservative_predictive_p_upper": 0.848184264
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000353766468,
+          "A_sigma_linear": 3.12097132e-06,
+          "A_training_interval_99": [
+            0.000346356476,
+            0.000363359679
+          ],
+          "conditional_residuals": [
+            0.184406246,
+            -0.67470706
+          ],
+          "predictive_sigmas_linear": [
+            0.17065017,
+            0.433256293
+          ],
+          "fixed_A_chi2": 2.66108991,
+          "predictive_chi2_linear": 2.64904413,
+          "predictive_p_linear": 0.265930027,
+          "conservative_Q_min_bounds": [
+            2.50191452,
+            2.51106343
+          ],
+          "conservative_predictive_p_upper": 0.296230668
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000351140012,
+          "A_sigma_linear": 3.17640305e-06,
+          "A_training_interval_99": [
+            0.000343261865,
+            0.000360665479
+          ],
+          "conditional_residuals": [
+            -0.247084599,
+            -0.567911641
+          ],
+          "predictive_sigmas_linear": [
+            0.184521024,
+            0.339818906
+          ],
+          "fixed_A_chi2": 7.85239585,
+          "predictive_chi2_linear": 6.87914692,
+          "predictive_p_linear": 0.0320783651,
+          "conservative_Q_min_bounds": [
+            2.86682335,
+            2.86682335
+          ],
+          "conservative_predictive_p_upper": 0.248493869
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000353717745,
+          "A_sigma_linear": 3.52176326e-06,
+          "A_training_interval_99": [
+            0.000345838381,
+            0.000365074551
+          ],
+          "conditional_residuals": [
+            -0.239353994,
+            0.258610329
+          ],
+          "predictive_sigmas_linear": [
+            0.172790965,
+            0.211883933
+          ],
+          "fixed_A_chi2": 2.86765876,
+          "predictive_chi2_linear": 2.85179425,
+          "predictive_p_linear": 0.240292793,
+          "conservative_Q_min_bounds": [
+            2.78916822,
+            2.81039371
+          ],
+          "conservative_predictive_p_upper": 0.257936129
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000354839431,
+          "A_sigma_linear": 3.2883971e-06,
+          "A_training_interval_99": [
+            0.000347213105,
+            0.000365293407
+          ],
+          "conditional_residuals": [
+            -0.206642495,
+            0.291664858
+          ],
+          "predictive_sigmas_linear": [
+            0.334093224,
+            0.23119476
+          ],
+          "fixed_A_chi2": 1.70400061,
+          "predictive_chi2_linear": 1.64328035,
+          "predictive_p_linear": 0.439709861,
+          "conservative_Q_min_bounds": [
+            1.32690241,
+            1.3371653
+          ],
+          "conservative_predictive_p_upper": 0.52507065
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.00035462778,
+          "A_sigma_linear": 3.06027822e-06,
+          "A_training_interval_99": [
+            0.000348157837,
+            0.000364651806
+          ],
+          "conditional_residuals": [
+            0.533277434,
+            0.102689001
+          ],
+          "predictive_sigmas_linear": [
+            0.767938203,
+            0.520249571
+          ],
+          "fixed_A_chi2": 0.877493778,
+          "predictive_chi2_linear": 0.846429903,
+          "predictive_p_linear": 0.654937838,
+          "conservative_Q_min_bounds": [
+            0.290874361,
+            0.290874362
+          ],
+          "conservative_predictive_p_upper": 0.874644205
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000357544006,
+          "A_sigma_linear": 3.54731715e-06,
+          "A_training_interval_99": [
+            0.000348328508,
+            0.000367471504
+          ],
+          "conditional_residuals": [
+            0.165901038,
+            0.332480308
+          ],
+          "predictive_sigmas_linear": [
+            0.108593552,
+            0.548296628
+          ],
+          "fixed_A_chi2": 4.8737611,
+          "predictive_chi2_linear": 3.57628565,
+          "predictive_p_linear": 0.167270532,
+          "conservative_Q_min_bounds": [
+            0.420704767,
+            0.420704769
+          ],
+          "conservative_predictive_p_upper": 0.82029866
+        }
+      }
+    },
+    "dust_only": {
+      "B": 0.0,
+      "C": 0.0,
+      "A_full": 0.000604885044,
+      "A_anchor": 0.000363488063,
+      "chi2_full": 1420.18328,
+      "chi2_at_anchor": 12262.9675,
+      "nominal_profile_dof": 12,
+      "nominal_profile_p": 6.18834178e-297,
+      "original_order": [
+        "DV_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DM_over_rs",
+        "DH_over_rs",
+        "DH_over_rs",
+        "DM_over_rs"
+      ],
+      "measurements": [
+        7.94167639,
+        13.5875843,
+        21.8629469,
+        17.3506909,
+        19.4553492,
+        21.5756396,
+        17.6414946,
+        27.6008561,
+        14.1760215,
+        30.5119006,
+        12.8169996,
+        8.63154567,
+        38.988974
+      ],
+      "forecast_at_anchor": [
+        11.9317171,
+        19.5340149,
+        28.2676368,
+        24.5875106,
+        23.5389119,
+        29.4700936,
+        19.5015988,
+        36.0453966,
+        14.8334514,
+        38.3429201,
+        13.3976163,
+        8.63154567,
+        47.4161837
+      ],
+      "forecast_at_profile": [
+        9.24935823,
+        15.1425901,
+        21.9128142,
+        19.0600139,
+        18.2471498,
+        22.8449477,
+        15.1174615,
+        27.9420626,
+        11.4987562,
+        29.7230819,
+        10.3857099,
+        6.69109547,
+        36.7565931
+      ],
+      "omega_m_profile": 1.0,
+      "H0_profile": 50.1272614,
+      "repeated_anchor_tail": [
+        {
+          "A_assumed_true": 0.000363488063,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000604885044,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000342516541,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000353498982,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000364481424,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000375463865,
+          "p_repeating_anchor": 0.0
+        },
+        {
+          "A_assumed_true": 0.000386446307,
+          "p_repeating_anchor": 0.0
+        }
+      ],
+      "checks": {
+        "high_radial_forecasts_other_12": {
+          "held_coordinates": [
+            "0.295 DV_over_rs",
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs",
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs",
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs",
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs",
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000363488063,
+          "A_sigma_linear": 8.51180001e-06,
+          "A_training_interval_99": [
+            0.000342516541,
+            0.000386446307
+          ],
+          "conditional_residuals": [
+            -3.99004068,
+            -5.94643051,
+            -6.40468992,
+            -7.23681967,
+            -4.0835627,
+            -7.89445403,
+            -1.86010421,
+            -8.44454049,
+            -0.657429834,
+            -7.83101948,
+            -0.58061667,
+            -8.42720978
+          ],
+          "predictive_sigmas_linear": [
+            0.159081043,
+            0.284002596,
+            0.541728952,
+            0.339487541,
+            0.432928987,
+            0.38109473,
+            0.304228563,
+            0.532402283,
+            0.283878797,
+            0.885757122,
+            0.541242212,
+            0.919309298
+          ],
+          "fixed_A_chi2": 12262.9675,
+          "predictive_chi2_linear": 1420.18328,
+          "predictive_p_linear": 6.18834177e-297,
+          "conservative_Q_min_bounds": [
+            9542.26299,
+            9542.26299
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "other_12_forecast_high_radial": {
+          "held_coordinates": [
+            "2.33 DH_over_rs"
+          ],
+          "A_training": 0.000631174459,
+          "A_sigma_linear": 3.76000649e-06,
+          "A_training_interval_99": [
+            0.000604492622,
+            0.000624211588
+          ],
+          "conditional_residuals": [
+            2.32733928
+          ],
+          "predictive_sigmas_linear": [
+            0.0954959501
+          ],
+          "fixed_A_chi2": 651.060865,
+          "predictive_chi2_linear": 593.949461,
+          "predictive_p_linear": 3.46617396e-131,
+          "conservative_Q_min_bounds": [
+            540.24239,
+            540.24239
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_0.295": {
+          "held_coordinates": [
+            "0.295 DV_over_rs"
+          ],
+          "A_training": 0.000583338542,
+          "A_sigma_linear": 3.39110827e-06,
+          "A_training_interval_99": [
+            0.00055636742,
+            0.000573848043
+          ],
+          "conditional_residuals": [
+            -1.47695255
+          ],
+          "predictive_sigmas_linear": [
+            0.0808669414
+          ],
+          "fixed_A_chi2": 376.751948,
+          "predictive_chi2_linear": 333.573123,
+          "predictive_p_linear": 1.60165495e-74,
+          "conservative_Q_min_bounds": [
+            417.36269,
+            417.36269
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_0.51": {
+          "held_coordinates": [
+            "0.51 DM_over_rs",
+            "0.51 DH_over_rs"
+          ],
+          "A_training": 0.000590611768,
+          "A_sigma_linear": 3.51494623e-06,
+          "A_training_interval_99": [
+            0.000565541347,
+            0.000583759046
+          ],
+          "conditional_residuals": [
+            -1.73688845,
+            -0.313069384
+          ],
+          "predictive_sigmas_linear": [
+            0.174432807,
+            0.433915383
+          ],
+          "fixed_A_chi2": 142.893396,
+          "predictive_chi2_linear": 124.293409,
+          "predictive_p_linear": 1.02336157e-27,
+          "conservative_Q_min_bounds": [
+            161.890584,
+            161.890584
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_0.706": {
+          "held_coordinates": [
+            "0.706 DM_over_rs",
+            "0.706 DH_over_rs"
+          ],
+          "A_training": 0.000593458976,
+          "A_sigma_linear": 3.59979994e-06,
+          "A_training_interval_99": [
+            0.000569417137,
+            0.000588119816
+          ],
+          "conditional_residuals": [
+            -1.89193271,
+            1.03337758
+          ],
+          "predictive_sigmas_linear": [
+            0.189159294,
+            0.338512735
+          ],
+          "fixed_A_chi2": 111.893945,
+          "predictive_chi2_linear": 100.059945,
+          "predictive_p_linear": 1.87179835e-22,
+          "conservative_Q_min_bounds": [
+            123.654643,
+            123.654643
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_0.934": {
+          "held_coordinates": [
+            "0.934 DM_over_rs",
+            "0.934 DH_over_rs"
+          ],
+          "A_training": 0.000608616548,
+          "A_sigma_linear": 4.03787935e-06,
+          "A_training_interval_99": [
+            0.000582711616,
+            0.000603396539
+          ],
+          "conditional_residuals": [
+            -1.19916788,
+            2.57044788
+          ],
+          "predictive_sigmas_linear": [
+            0.178552736,
+            0.20716623
+          ],
+          "fixed_A_chi2": 173.51868,
+          "predictive_chi2_linear": 172.303372,
+          "predictive_p_linear": 3.84413151e-38,
+          "conservative_Q_min_bounds": [
+            169.167495,
+            169.339228
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_1.321": {
+          "held_coordinates": [
+            "1.321 DM_over_rs",
+            "1.321 DH_over_rs"
+          ],
+          "A_training": 0.000616618862,
+          "A_sigma_linear": 3.70700183e-06,
+          "A_training_interval_99": [
+            0.000593282074,
+            0.00061262278
+          ],
+          "conditional_residuals": [
+            -0.0740707753,
+            2.78719742
+          ],
+          "predictive_sigmas_linear": [
+            0.335047484,
+            0.227145903
+          ],
+          "fixed_A_chi2": 180.50142,
+          "predictive_chi2_linear": 168.717826,
+          "predictive_p_linear": 2.30881746e-37,
+          "conservative_Q_min_bounds": [
+            138.917238,
+            138.938117
+          ],
+          "conservative_predictive_p_upper": 0.01
+        },
+        "omit_1.484": {
+          "held_coordinates": [
+            "1.484 DM_over_rs",
+            "1.484 DH_over_rs"
+          ],
+          "A_training": 0.000607890469,
+          "A_sigma_linear": 3.44219284e-06,
+          "A_training_interval_99": [
+            0.000587557418,
+            0.000605192533
+          ],
+          "conditional_residuals": [
+            0.862385587,
+            2.4569951
+          ],
+          "predictive_sigmas_linear": [
+            0.768158268,
+            0.518841548
+          ],
+          "fixed_A_chi2": 38.4195716,
+          "predictive_chi2_linear": 37.6297893,
+          "predictive_p_linear": 6.74209825e-09,
+          "conservative_Q_min_bounds": [
+            28.5386216,
+            28.5386216
+          ],
+          "conservative_predictive_p_upper": 0.0100006352
+        },
+        "omit_2.33": {
+          "held_coordinates": [
+            "2.33 DH_over_rs",
+            "2.33 DM_over_rs"
+          ],
+          "A_training": 0.000635665086,
+          "A_sigma_linear": 3.87985274e-06,
+          "A_training_interval_99": [
+            0.000611276173,
+            0.000631560732
+          ],
+          "conditional_residuals": [
+            2.10445764,
+            3.13333264
+          ],
+          "predictive_sigmas_linear": [
+            0.103006806,
+            0.542825469
+          ],
+          "fixed_A_chi2": 704.725959,
+          "predictive_chi2_linear": 627.268499,
+          "predictive_p_linear": 6.17129327e-137,
+          "conservative_Q_min_bounds": [
+            588.911792,
+            588.911792
+          ],
+          "conservative_predictive_p_upper": 0.01
+        }
+      }
+    }
+  }
+}

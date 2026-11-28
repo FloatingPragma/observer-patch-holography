@@ -1,0 +1,42 @@
+{
+  "sha256": {
+    "CLOSED_STEERING.md": "61f881ec76d055fda3ed0cd4392977edb173320c1584380a48da537f0b354a93",
+    "closed_energy.json": "e601be4b5739a689b589bf00cc686d17405b1feaf9447527858144773d411c10"
+  },
+  "trials": 32768,
+  "source_rejects": 25797,
+  "accepted": 6971,
+  "retained_without_move": 5956,
+  "steered": 1015,
+  "mean_appointments_per_move": 23.439408866995073,
+  "longest_realized_path": 50,
+  "visits_outside_accepted_set": 16141,
+  "total_appointments": 23791,
+  "appointments_by_action": [
+    3925,
+    2227,
+    5059,
+    5451,
+    3682,
+    3447
+  ],
+  "graph_diameter": 18,
+  "trace_sha256": "40be7d1b272f5dffd77a0e103592112c874ada92ffe44cc6fbfb0d503dd8d912",
+  "original_cells": [
+    754,
+    2838,
+    1679,
+    1700
+  ],
+  "final_cells": [
+    1263,
+    2339,
+    1163,
+    2206
+  ],
+  "middle_nonunit_increment": 509,
+  "mean_load_change": 0.0015779658585568786,
+  "bond_increment_accepted": 0.5915220197962989,
+  "accepted_half_echo_change": -0.03571940898006025,
+  "identity_violations": 0
+}

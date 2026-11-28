@@ -1,0 +1,72 @@
+{
+  "sha256": {
+    "PAIR_PRESSURE.md": "b8185691991988aee3da4824b62fe4ee3284daa17214105be64b31e4b05b6646",
+    "closed_inventory.json": "bb8fef854fc8390535e2d1103556fe1a455e36591cad9ab2d81d30f65ab9a80b",
+    "desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509"
+  },
+  "radial_redshifts": [
+    0.51,
+    2.33
+  ],
+  "observed_DH_over_rd": [
+    21.86294686,
+    8.631545674846294
+  ],
+  "quoted_sigma": [
+    0.42886832478046216,
+    0.10106245296844917
+  ],
+  "scale_factor_ratio": 2.205298013245033,
+  "planck_base_cold_ratio": 5.364327223960662,
+  "populations": {
+    "four_owners": {
+      "energy_cap": 0.008679138732992026,
+      "maximum_mean_active_per_baryon": 0.023080786520704066,
+      "maximum_scale_factor_ratio_at_target": 1.0032411161431356,
+      "endpoints": {
+        "distance_intervals_99": [
+          [
+            20.659098990168204,
+            23.0667947298318
+          ],
+          [
+            8.347859956652199,
+            8.915231393040388
+          ]
+        ],
+        "largest_ruler_Mpc": 165,
+        "minimum_delta_H_squared_over_100_squared": 3.3799602383374934,
+        "maximum_known_difference": 0.79039694734,
+        "minimum_constant_cold_equivalent_per_baryon": 3.40252728049809,
+        "minimum_absolute_endpoint_density_per_baryon": 2.822144403279658,
+        "minimum_open_curvature_omega_k": 0.29307050055409856,
+        "minimum_flat_ruler_Mpc": 339.5002777885795
+      }
+    },
+    "all_eligible": {
+      "energy_cap": 0.09197368556892778,
+      "maximum_mean_active_per_baryon": 0.24458936162286288,
+      "maximum_scale_factor_ratio_at_target": 1.034889043346279,
+      "endpoints": {
+        "distance_intervals_99": [
+          [
+            20.659098990168204,
+            23.0667947298318
+          ],
+          [
+            8.347859956652199,
+            8.915231393040388
+          ]
+        ],
+        "largest_ruler_Mpc": 165,
+        "minimum_delta_H_squared_over_100_squared": 3.3799602383374934,
+        "maximum_known_difference": 0.79039694734,
+        "minimum_constant_cold_equivalent_per_baryon": 3.40252728049809,
+        "minimum_absolute_endpoint_density_per_baryon": 2.822144403279658,
+        "minimum_open_curvature_omega_k": 0.28439394966781356,
+        "minimum_flat_ruler_Mpc": 324.3303813832154
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+ "works_at": {
+  "uniform": {
+   "sparse": {
+    "reference_HS_radius": 1.0820609841245015e-08,
+    "native_weight_margin": 0.011056257528364519,
+    "entropy_slope_in_frozen_direction": [
+     -1.308162908130215e-07,
+     1.0984228794456975e-06
+    ],
+    "followup": {
+     "center_even_then_odd": [
+      0.3015064450205533,
+      -0.4084447690466902,
+      -0.018942841183304217,
+      0.02595459575577338,
+      -0.4098421156722263,
+      0.006329409442465811,
+      -0.014811682395517032,
+      -0.01245549869342307,
+      4.8463571673256286e-05,
+      -0.2828996150909663,
+      0.6318794230856853,
+      0.01612772862584885,
+      0.2672201736314014,
+      -0.14564493686123944,
+      -0.01284898890727312,
+      0.01402200072004159,
+      0.017447859769296817,
+      -4.706427402067293e-05
+     ],
+     "direction_HS_correction": 5.675807901717578e-07,
+     "entropy_slope": [
+      3.2002398298564323e-06,
+      4.429479000117422e-06
+     ]
+    },
+    "sign": 1,
+    "step": 2.384185791015625e-07,
+    "minimum_finite_entropy_gain": 1.920682874520606e-13
+   },
+   "dense": {
+    "reference_HS_radius": 1.0820609841244997e-08,
+    "native_weight_margin": 0.010461364851327884,
+    "entropy_slope_in_frozen_direction": [
+     1.532349186363765e-05,
+     1.683836729137689e-05
+    ],
+    "sign": 1,
+    "step": 9.5367431640625e-07,
+    "minimum_finite_entropy_gain": 4.993794012030116e-12
+   }
+  },
+  "4": {
+   "sparse": {
+    "reference_HS_radius": 1.082060984124501e-08,
+    "native_weight_margin": 0.010857304813150184,
+    "entropy_slope_in_frozen_direction": [
+     1.287357083072223e-05,
+     1.4138036689570702e-05
+    ],
+    "sign": 1,
+    "step": 9.5367431640625e-07,
+    "minimum_finite_entropy_gain": 2.9996522357620965e-12
+   },
+   "dense": {
+    "reference_HS_radius": 1.0820609841245018e-08,
+    "native_weight_margin": 0.009337233477814857,
+    "entropy_slope_in_frozen_direction": [
+     -3.715385867008754e-05,
+     -3.549228372410207e-05
+    ],
+    "sign": -1,
+    "step": 1.9073486328125e-06,
+    "minimum_finite_entropy_gain": 2.4533621022719793e-11
+   }
+  },
+  "8": {
+   "sparse": {
+    "reference_HS_radius": 1.0820609841244998e-08,
+    "native_weight_margin": 0.010947317362678002,
+    "entropy_slope_in_frozen_direction": [
+     3.859083301251746e-06,
+     5.101877813927175e-06
+    ],
+    "sign": 1,
+    "step": 2.384185791015625e-07,
+    "minimum_finite_entropy_gain": 3.43622668972159e-13
+   },
+   "dense": {
+    "reference_HS_radius": 1.082060984124501e-08,
+    "native_weight_margin": 0.008810016273993443,
+    "entropy_slope_in_frozen_direction": [
+     3.544546669597432e-05,
+     3.7476690927199905e-05
+    ],
+    "sign": 1,
+    "step": 1.9073486328125e-06,
+    "minimum_finite_entropy_gain": 2.204803028812661e-11
+   }
+  },
+  "12": {
+   "sparse": {
+    "reference_HS_radius": 1.082060984124501e-08,
+    "native_weight_margin": 0.011031175515075993,
+    "entropy_slope_in_frozen_direction": [
+     -7.240943771762928e-06,
+     -6.003870201971271e-06
+    ],
+    "sign": -1,
+    "step": 4.76837158203125e-07,
+    "minimum_finite_entropy_gain": 5.767912362156091e-13
+   },
+   "dense": {
+    "reference_HS_radius": 1.0820609841244987e-08,
+    "native_weight_margin": 0.010497171334589082,
+    "entropy_slope_in_frozen_direction": [
+     -1.7046836733933281e-06,
+     -3.371018107848095e-07
+    ],
+    "sign": -1,
+    "step": 1.4901161193847656e-08,
+    "minimum_finite_entropy_gain": 1.6802994767251483e-15
+   }
+  }
+ },
+ "true_HS_correction_upper": 5.675807901707837e-07,
+ "inputs": {
+  "persistent_density.json": "a78d45e1441264d6d9e9f21fb1ea6272e265b209392ff0233990c6fa80ce0978",
+  "../../../../code/matched_einstein_limit/source_implication/directional_stress/connection/force_entropy.json": "212e4e23719e7e7ab335c8954d2ac128523501c9f9c69e4909896d8385b25365",
+  "STATIONARY_SOURCE_TEST.md": "01dff3588f709d89d3e95e1eaf5a823d1d7a52b9ab352cd347df99696c6189b3",
+  "STATIONARY_SECTION_PROTOCOL.md": "e0aaa3440bde3faa01cbbcc0fdfba7ce57048e50f3f1c7e79f469f853071184e"
+ }
+}

@@ -1,0 +1,536 @@
+diff --git a/openwave/xperiments/m10_oph/research/data/m10_5_author_preflight.json b/openwave/xperiments/m10_oph/research/data/m10_5_author_preflight.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..aa26b27ac4ca032d8aa34d4e81f895ff19f2a7ea
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/data/m10_5_author_preflight.json
+@@ -0,0 +1,30 @@
++{
++  "task": "M10.5 (proposed)",
++  "execution": "author rehearsal before platform registration, using the OpenWave checkout",
++  "openwave_base": "c9b5707ac03285eb4c885115245ac2cd5e90273d",
++  "candidate_source": "e2810645c67ca634a05ea005f84bf95dc922d66d",
++  "public_replay_inputs": "9ade2801a7d0b5ebe16a9fc01923b93926246833",
++  "environment": {
++    "python": "3.12.6",
++    "numpy": "2.3.5",
++    "scipy": "1.18.1",
++    "system": "Darwin arm64"
++  },
++  "result": {
++    "source_columns": [
++      14,
++      15
++    ],
++    "resolved_releases": 32,
++    "unresolved_strengths": [
++      0
++    ],
++    "commissioning_exhaustion": 7.964339699111335e-27,
++    "minimum_calculated_signed_weight": 0.999999500949,
++    "minimum_calculated_click_probability": 0.124999937619,
++    "minimum_signed_weight_after_allowance": 0.999999498949,
++    "maximum_observed_swap_weight": 0.410438892525,
++    "largest_signed_weight_drift_below": 2e-10,
++    "commuting_control_maximum_two_port_probability": 0.366307750126
++  }
++}
+diff --git a/openwave/xperiments/m10_oph/research/data/m10_5_reference_control.json b/openwave/xperiments/m10_oph/research/data/m10_5_reference_control.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..102d6f5f969a294b525c3ea0637ff127f0a264cf
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/data/m10_5_reference_control.json
+@@ -0,0 +1 @@
++{"scope":"target-aware coherent flight-only control on the archived preparation","headline_sha256":"b39cc85d5198989dd45c5b05e516a5144b832caf5ee76d551200bf36b404415d","physical_tip":9,"physical_degrees_of_two_tips":[5,5],"physical_reference_count_removed":1,"squared_contrast_term":"kappa * n_9**2 with a blank reference at load zero","eligible_history_count":6,"eligible_histories":[[0,1,9],[0,5,9],[0,1,5,9],[0,1,8,9],[0,7,8,9],[0,1,7,8,9]],"original_detector_and_prefix":[{"column":14,"two_tip_histories":[[0,5,9],[0,5,11]]},{"column":15,"two_tip_histories":[[0,1,5,9],[0,1,5,11]]}],"ideal_prepared_ray_energy_variance_over_kappa_squared":[1,4],"resolved_releases":32,"unresolved_strengths":[0],"records_per_arm":["signed_weight","raw_signed_click","two_tip_occupancy"],"preparation_exhaustion_per_original":7.964339699111335e-27,"failure_gate":0.98,"probability_allowance":2e-09,"summary_by_exposure":{"0":{"signed_weight":{"observed_minimum":0.999999500949,"observed_maximum":0.999999999999,"launches_rejecting_0p98":0},"two_tip_occupancy":{"observed_minimum":0.999999604709,"observed_maximum":1.0,"launches_rejecting_0p98":0}},"1":{"signed_weight":{"observed_minimum":0.097793118308,"observed_maximum":0.939428874976,"launches_rejecting_0p98":32},"two_tip_occupancy":{"observed_minimum":0.275400025654,"observed_maximum":0.998123226244,"launches_rejecting_0p98":28}},"7":{"signed_weight":{"observed_minimum":0.089687218151,"observed_maximum":0.820877712991,"launches_rejecting_0p98":32},"two_tip_occupancy":{"observed_minimum":0.248499766145,"observed_maximum":0.945295278644,"launches_rejecting_0p98":32}},"37":{"signed_weight":{"observed_minimum":0.021882839306,"observed_maximum":0.514993370987,"launches_rejecting_0p98":32},"two_tip_occupancy":{"observed_minimum":0.414087435669,"observed_maximum":0.744749531062,"launches_rejecting_0p98":32}},"150":{"signed_weight":{"observed_minimum":0.023389551273,"observed_maximum":0.56703670427,"launches_rejecting_0p98":32},"two_tip_occupancy":{"observed_minimum":0.380882844709,"observed_maximum":0.701845431525,"launches_rejecting_0p98":32}}},"full_release_records":[{"strength_in_simulator":0.5,"original_clock_record":[0.5000003132142348,0.4999966204532024,0.5000040059577556],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999992665,0.124999999083,0.99999999372],"reference_9_removed":[0.999999992665,0.124999999083,0.99999999372]},{"exposure":1,"native":[0.999999992665,0.124999999083,0.999999993959],"reference_9_removed":[0.939419637267,0.117427454658,0.998118266525]},{"exposure":7,"native":[0.999999992665,0.124999999083,0.999999993846],"reference_9_removed":[0.089717729903,0.011214716238,0.249657240969]},{"exposure":37,"native":[0.999999992665,0.124999999083,0.999999993815],"reference_9_removed":[0.153826893837,0.01922836173,0.47774215721]},{"exposure":150,"native":[0.999999992665,0.124999999083,0.999999993621],"reference_9_removed":[0.058729596927,0.007341199616,0.463056065866]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999984291,0.124999998036,0.999999987566],"reference_9_removed":[0.999999984291,0.124999998036,0.999999987566]},{"exposure":1,"native":[0.999999984291,0.124999998036,0.999999987502],"reference_9_removed":[0.939406804428,0.117425850554,0.998118957739]},{"exposure":7,"native":[0.999999984291,0.124999998036,0.999999988232],"reference_9_removed":[0.100290807657,0.012536350957,0.248499766145]},{"exposure":37,"native":[0.999999984291,0.124999998036,0.999999987924],"reference_9_removed":[0.088705942556,0.01108824282,0.41409708068]},{"exposure":150,"native":[0.999999984291,0.124999998036,0.999999987834],"reference_9_removed":[0.059510679756,0.00743883497,0.456588630208]}]}]},{"strength_in_simulator":-0.5,"original_clock_record":[0.4999993965306852,0.49999570376530567,0.5000030892785531],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999972816,0.124999996602,0.99999997671],"reference_9_removed":[0.999999972816,0.124999996602,0.99999997671]},{"exposure":1,"native":[0.999999972816,0.124999996602,0.999999977565],"reference_9_removed":[0.939404064859,0.117425508107,0.998123226244]},{"exposure":7,"native":[0.999999972816,0.124999996602,0.99999997717],"reference_9_removed":[0.089687218151,0.011210902269,0.249574182284]},{"exposure":37,"native":[0.999999972816,0.124999996602,0.999999977049],"reference_9_removed":[0.15381456192,0.01922682024,0.477713965855]},{"exposure":150,"native":[0.999999972816,0.124999996602,0.999999976323],"reference_9_removed":[0.058758361347,0.007344795168,0.463066795111]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999941736,0.124999992717,0.999999953818],"reference_9_removed":[0.999999941736,0.124999992717,0.999999953818]},{"exposure":1,"native":[0.999999941736,0.124999992717,0.99999995356],"reference_9_removed":[0.939428874976,0.117428609372,0.998120886513]},{"exposure":7,"native":[0.999999941736,0.124999992717,0.999999956328],"reference_9_removed":[0.100275374814,0.012534421852,0.248521407718]},{"exposure":37,"native":[0.999999941736,0.124999992717,0.999999955212],"reference_9_removed":[0.088683348755,0.011085418594,0.414087435669]},{"exposure":150,"native":[0.999999941736,0.124999992717,0.999999954781],"reference_9_removed":[0.059509212112,0.007438651514,0.456614932801]}]}]},{"strength_in_simulator":1,"original_clock_record":[1.0000035314735332,0.9999961459652446,1.0000109169467988],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.99999976715,0.124999970894,0.999999800561],"reference_9_removed":[0.99999976715,0.124999970894,0.999999800561]},{"exposure":1,"native":[0.99999976715,0.124999970894,0.999999814471],"reference_9_removed":[0.778948213234,0.097368526654,0.973123357517]},{"exposure":7,"native":[0.99999976715,0.124999970894,0.999999791577],"reference_9_removed":[0.697791047406,0.087223880926,0.880854317559]},{"exposure":37,"native":[0.99999976715,0.124999970894,0.99999979697],"reference_9_removed":[0.239503277946,0.029937909743,0.62555777049]},{"exposure":150,"native":[0.99999976715,0.124999970894,0.999999815741],"reference_9_removed":[0.236895974721,0.02961199684,0.380995299137]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999500949,0.124999937619,0.999999604709],"reference_9_removed":[0.999999500949,0.124999937619,0.999999604709]},{"exposure":1,"native":[0.999999500949,0.124999937619,0.999999574889],"reference_9_removed":[0.778815894079,0.09735198676,0.973072403502]},{"exposure":7,"native":[0.999999500949,0.124999937619,0.999999606376],"reference_9_removed":[0.820877712991,0.102609714124,0.945295278644]},{"exposure":37,"native":[0.999999500949,0.124999937619,0.999999628581],"reference_9_removed":[0.514993370987,0.064374171373,0.744731327761]},{"exposure":150,"native":[0.999999500949,0.124999937619,0.999999581248],"reference_9_removed":[0.567027318383,0.070878414798,0.701829939779]}]}]},{"strength_in_simulator":-1,"original_clock_record":[1.00000152571188,0.9999941401940796,1.000008911194657],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999956526,0.124999994566,0.999999962767],"reference_9_removed":[0.999999956526,0.124999994566,0.999999962767]},{"exposure":1,"native":[0.999999956526,0.124999994566,0.999999965365],"reference_9_removed":[0.778907745865,0.097363468233,0.973142605513]},{"exposure":7,"native":[0.999999956526,0.124999994566,0.999999961085],"reference_9_removed":[0.697798637142,0.087224829643,0.880828028494]},{"exposure":37,"native":[0.999999956526,0.124999994566,0.999999962101],"reference_9_removed":[0.23949726637,0.029937158296,0.625581624755]},{"exposure":150,"native":[0.999999956526,0.124999994566,0.999999965593],"reference_9_removed":[0.236808067358,0.02960100842,0.380882844709]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999906844,0.124999988355,0.999999926227],"reference_9_removed":[0.999999906844,0.124999988355,0.999999926227]},{"exposure":1,"native":[0.999999906844,0.124999988355,0.99999992067],"reference_9_removed":[0.778856013942,0.097357001743,0.973083898953]},{"exposure":7,"native":[0.999999906844,0.124999988355,0.999999926531],"reference_9_removed":[0.820876962398,0.1026096203,0.945271816265]},{"exposure":37,"native":[0.999999906844,0.124999988355,0.999999930668],"reference_9_removed":[0.514970409135,0.064371301142,0.744749531062]},{"exposure":150,"native":[0.999999906844,0.124999988355,0.999999921834],"reference_9_removed":[0.56703670427,0.070879588034,0.701845431525]}]}]},{"strength_in_simulator":2,"original_clock_record":[1.9999996529473265,1.9999848818956094,2.0000144239289965],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999999437,0.12499999993,0.999999999517],"reference_9_removed":[0.999999999437,0.12499999993,0.999999999517]},{"exposure":1,"native":[0.999999999437,0.12499999993,0.999999999523],"reference_9_removed":[0.371178422053,0.046397302757,0.726118094916]},{"exposure":7,"native":[0.999999999437,0.12499999993,0.999999999476],"reference_9_removed":[0.343009090372,0.042876136297,0.714709354309]},{"exposure":37,"native":[0.999999999437,0.12499999993,0.999999999515],"reference_9_removed":[0.021888990224,0.002736123778,0.470308254193]},{"exposure":150,"native":[0.999999999437,0.12499999993,0.999999999479],"reference_9_removed":[0.155710285672,0.019463785709,0.634616429404]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999998797,0.12499999985,0.999999999044],"reference_9_removed":[0.999999998797,0.12499999985,0.999999999044]},{"exposure":1,"native":[0.999999998797,0.12499999985,0.999999999004],"reference_9_removed":[0.372102996673,0.046512874584,0.720619813079]},{"exposure":7,"native":[0.999999998797,0.12499999985,0.999999999114],"reference_9_removed":[0.625077608891,0.078134701111,0.845943566932]},{"exposure":37,"native":[0.999999998797,0.12499999985,0.999999999119],"reference_9_removed":[0.117166944835,0.014645868104,0.60034640295]},{"exposure":150,"native":[0.999999998797,0.12499999985,0.999999999027],"reference_9_removed":[0.376481743114,0.047060217889,0.683173317842]}]}]},{"strength_in_simulator":-2,"original_clock_record":[2.0000021199055578,1.9999873488655395,2.000016890875529],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999979012,0.124999997377,0.999999982027],"reference_9_removed":[0.999999979012,0.124999997377,0.999999982027]},{"exposure":1,"native":[0.999999979012,0.124999997377,0.999999982223],"reference_9_removed":[0.371223052234,0.046402881529,0.72610985279]},{"exposure":7,"native":[0.999999979012,0.124999997377,0.99999998055],"reference_9_removed":[0.343016786697,0.042877098337,0.714706915078]},{"exposure":37,"native":[0.999999979012,0.124999997377,0.999999981818],"reference_9_removed":[0.021882839306,0.002735354913,0.470304857171]},{"exposure":150,"native":[0.999999979012,0.124999997377,0.999999980517],"reference_9_removed":[0.155685256919,0.019460657115,0.634576286995]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999955034,0.124999994379,0.999999964396],"reference_9_removed":[0.999999955034,0.124999994379,0.999999964396]},{"exposure":1,"native":[0.999999955034,0.124999994379,0.999999962866],"reference_9_removed":[0.372089282235,0.046511160279,0.720568279031]},{"exposure":7,"native":[0.999999955034,0.124999994379,0.999999966793],"reference_9_removed":[0.625069030547,0.078133628818,0.845958313354]},{"exposure":37,"native":[0.999999955034,0.124999994379,0.999999967237],"reference_9_removed":[0.117167106486,0.014645888311,0.600344363656]},{"exposure":150,"native":[0.999999955034,0.124999994379,0.999999963649],"reference_9_removed":[0.376459119657,0.047057389957,0.683147041041]}]}]},{"strength_in_simulator":4,"original_clock_record":[3.9999920167455945,3.9999624746075932,4.000021558743501],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999925658,0.124999990707,0.999999936309],"reference_9_removed":[0.999999925658,0.124999990707,0.999999936309]},{"exposure":1,"native":[0.999999925658,0.124999990707,0.999999942517],"reference_9_removed":[0.097793118308,0.012224139788,0.275400025654]},{"exposure":7,"native":[0.999999925658,0.124999990707,0.999999938088],"reference_9_removed":[0.461141802885,0.057642725361,0.759113523062]},{"exposure":37,"native":[0.999999925658,0.124999990707,0.999999934018],"reference_9_removed":[0.390501189187,0.048812648648,0.57423657037]},{"exposure":150,"native":[0.999999925658,0.124999990707,0.999999938737],"reference_9_removed":[0.023393731038,0.00292421638,0.500296403557]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999840667,0.124999980083,0.99999987373],"reference_9_removed":[0.999999840667,0.124999980083,0.99999987373]},{"exposure":1,"native":[0.999999840667,0.124999980083,0.999999873139],"reference_9_removed":[0.118551934525,0.014818991816,0.310493336635]},{"exposure":7,"native":[0.999999840667,0.124999980083,0.999999875923],"reference_9_removed":[0.543448975313,0.067931121914,0.780236758786]},{"exposure":37,"native":[0.999999840667,0.124999980083,0.999999884735],"reference_9_removed":[0.387920967779,0.048490120972,0.553618948457]},{"exposure":150,"native":[0.999999840667,0.124999980083,0.999999864724],"reference_9_removed":[0.172986345439,0.02162329318,0.544967668145]}]}]},{"strength_in_simulator":-4,"original_clock_record":[3.999998965560005,3.999969423454957,4.000028507524959],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999998751,0.124999999844,0.99999999893],"reference_9_removed":[0.999999998751,0.124999999844,0.99999999893]},{"exposure":1,"native":[0.999999998751,0.124999999844,0.999999999035],"reference_9_removed":[0.097812620336,0.012226577542,0.275472740981]},{"exposure":7,"native":[0.999999998751,0.124999999844,0.999999998958],"reference_9_removed":[0.461176209266,0.057647026158,0.759149046255]},{"exposure":37,"native":[0.999999998751,0.124999999844,0.999999998888],"reference_9_removed":[0.390521735142,0.048815216893,0.574252439405]},{"exposure":150,"native":[0.999999998751,0.124999999844,0.999999998973],"reference_9_removed":[0.023389551273,0.002923693909,0.500296444227]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999997327,0.124999999666,0.999999997878],"reference_9_removed":[0.999999997327,0.124999999666,0.999999997878]},{"exposure":1,"native":[0.999999997327,0.124999999666,0.999999997872],"reference_9_removed":[0.118572412725,0.014821551591,0.310521133651]},{"exposure":7,"native":[0.999999997327,0.124999999666,0.99999999792],"reference_9_removed":[0.543488084273,0.067936010534,0.780228671154]},{"exposure":37,"native":[0.999999997327,0.124999999666,0.999999998062],"reference_9_removed":[0.387880913617,0.048485114202,0.553585365654]},{"exposure":150,"native":[0.999999997327,0.124999999666,0.999999997725],"reference_9_removed":[0.173009620487,0.021626202561,0.5449586789]}]}]},{"strength_in_simulator":8,"original_clock_record":[8.000010642751324,7.999951558601509,8.000069726620952],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999966944,0.124999995868,0.99999997169],"reference_9_removed":[0.999999966944,0.124999995868,0.99999997169]},{"exposure":1,"native":[0.999999966944,0.124999995868,0.999999972655],"reference_9_removed":[0.621835518218,0.077729439777,0.851470056937]},{"exposure":7,"native":[0.999999966944,0.124999995868,0.999999971723],"reference_9_removed":[0.293804745567,0.036725593196,0.724166817434]},{"exposure":37,"native":[0.999999966944,0.124999995868,0.99999997203],"reference_9_removed":[0.208954702797,0.02611933785,0.621520213219]},{"exposure":150,"native":[0.999999966944,0.124999995868,0.999999974579],"reference_9_removed":[0.545802047014,0.068225255877,0.670544225628]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999929171,0.124999991146,0.999999943912],"reference_9_removed":[0.999999929171,0.124999991146,0.999999943912]},{"exposure":1,"native":[0.999999929171,0.124999991146,0.999999944372],"reference_9_removed":[0.630286401059,0.078785800132,0.908440247781]},{"exposure":7,"native":[0.999999929171,0.124999991146,0.999999940715],"reference_9_removed":[0.254539756248,0.031817469531,0.737928749332]},{"exposure":37,"native":[0.999999929171,0.124999991146,0.999999946549],"reference_9_removed":[0.103909314025,0.012988664253,0.451355591742]},{"exposure":150,"native":[0.999999929171,0.124999991146,0.999999944374],"reference_9_removed":[0.160217582106,0.020027197763,0.449287728259]}]}]},{"strength_in_simulator":-8,"original_clock_record":[7.99999542070203,7.9999363364800296,8.000054504643844],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999993887,0.124999999236,0.999999994761],"reference_9_removed":[0.999999993887,0.124999999236,0.999999994761]},{"exposure":1,"native":[0.999999993887,0.124999999236,0.999999994946],"reference_9_removed":[0.621819378532,0.077727422316,0.851473402707]},{"exposure":7,"native":[0.999999993887,0.124999999236,0.99999999478],"reference_9_removed":[0.293791221262,0.036723902658,0.724141644237]},{"exposure":37,"native":[0.999999993887,0.124999999236,0.999999994829],"reference_9_removed":[0.208895734384,0.026111966798,0.621461793208]},{"exposure":150,"native":[0.999999993887,0.124999999236,0.999999995301],"reference_9_removed":[0.545817414538,0.068227176817,0.670570736976]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999986898,0.124999998362,0.99999998961],"reference_9_removed":[0.999999986898,0.124999998362,0.99999998961]},{"exposure":1,"native":[0.999999986898,0.124999998362,0.999999989689],"reference_9_removed":[0.630319215047,0.078789901881,0.908464614962]},{"exposure":7,"native":[0.999999986898,0.124999998362,0.999999989021],"reference_9_removed":[0.254524960049,0.031815620006,0.737914963617]},{"exposure":37,"native":[0.999999986898,0.124999998362,0.9999999901],"reference_9_removed":[0.103904819022,0.012988102378,0.451388466037]},{"exposure":150,"native":[0.999999986898,0.124999998362,0.9999999897],"reference_9_removed":[0.160213732849,0.020026716606,0.44932184414]}]}]},{"strength_in_simulator":16,"original_clock_record":[15.999988660909812,15.999870492455472,16.000106828803776],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999990629,0.124999998829,0.99999999197],"reference_9_removed":[0.999999990629,0.124999998829,0.99999999197]},{"exposure":1,"native":[0.999999990629,0.124999998829,0.999999992699],"reference_9_removed":[0.23247632498,0.029059540623,0.459338559591]},{"exposure":7,"native":[0.999999990629,0.124999998829,0.999999992382],"reference_9_removed":[0.244165653103,0.030520706638,0.642104216265]},{"exposure":37,"native":[0.999999990629,0.124999998829,0.999999992251],"reference_9_removed":[0.094540259911,0.011817532489,0.631928760645]},{"exposure":150,"native":[0.999999990629,0.124999998829,0.999999991956],"reference_9_removed":[0.272006092294,0.034000761537,0.491420289907]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999979915,0.124999997489,0.999999984075],"reference_9_removed":[0.999999979915,0.124999997489,0.999999984075]},{"exposure":1,"native":[0.999999979915,0.124999997489,0.999999983654],"reference_9_removed":[0.280328908136,0.035041113517,0.648847803158]},{"exposure":7,"native":[0.999999979915,0.124999997489,0.999999984087],"reference_9_removed":[0.221451520298,0.027681440037,0.623724876132]},{"exposure":37,"native":[0.999999979915,0.124999997489,0.999999983769],"reference_9_removed":[0.225189836315,0.028148729539,0.614078034239]},{"exposure":150,"native":[0.999999979915,0.124999997489,0.999999984194],"reference_9_removed":[0.441470952892,0.055183869111,0.697351432422]}]}]},{"strength_in_simulator":-16,"original_clock_record":[15.999988883856744,15.999870715403462,16.000107051749655],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999990994,0.124999998874,0.999999992283],"reference_9_removed":[0.999999990994,0.124999998874,0.999999992283]},{"exposure":1,"native":[0.999999990994,0.124999998874,0.999999992983],"reference_9_removed":[0.2324766058,0.029059575725,0.459339023611]},{"exposure":7,"native":[0.999999990994,0.124999998874,0.999999992679],"reference_9_removed":[0.244165552976,0.030520694122,0.642103956701]},{"exposure":37,"native":[0.999999990994,0.124999998874,0.999999992552],"reference_9_removed":[0.094540275191,0.011817534399,0.631928765673]},{"exposure":150,"native":[0.999999990994,0.124999998874,0.999999992269],"reference_9_removed":[0.272006164507,0.034000770563,0.491420281963]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999980697,0.124999997587,0.999999984695],"reference_9_removed":[0.999999980697,0.124999997587,0.999999984695]},{"exposure":1,"native":[0.999999980697,0.124999997587,0.99999998429],"reference_9_removed":[0.280328660646,0.035041082581,0.648847582374]},{"exposure":7,"native":[0.999999980697,0.124999997587,0.999999984706],"reference_9_removed":[0.221451294134,0.027681411767,0.62372451293]},{"exposure":37,"native":[0.999999980697,0.124999997587,0.999999984402],"reference_9_removed":[0.22519008957,0.028148761196,0.614077857633]},{"exposure":150,"native":[0.999999980697,0.124999997587,0.999999984809],"reference_9_removed":[0.441470887252,0.055183860907,0.697351334122]}]}]},{"strength_in_simulator":64,"original_clock_record":[64.00000613295414,63.99953345938095,64.00047880428583],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999999825,0.124999999978,0.999999999851],"reference_9_removed":[0.999999999825,0.124999999978,0.999999999851]},{"exposure":1,"native":[0.999999999825,0.124999999978,0.999999999846],"reference_9_removed":[0.288662622211,0.036082827776,0.705097248364]},{"exposure":7,"native":[0.999999999825,0.124999999978,0.999999999865],"reference_9_removed":[0.109344043934,0.013668005492,0.511411614642]},{"exposure":37,"native":[0.999999999825,0.124999999978,0.999999999858],"reference_9_removed":[0.283412754532,0.035426594316,0.630315052722]},{"exposure":150,"native":[0.999999999825,0.124999999978,0.999999999863],"reference_9_removed":[0.361161661159,0.045145207645,0.582420909292]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999999631,0.124999999954,0.999999999709],"reference_9_removed":[0.999999999631,0.124999999954,0.999999999709]},{"exposure":1,"native":[0.999999999631,0.124999999954,0.999999999712],"reference_9_removed":[0.379368476732,0.047421059592,0.831922401474]},{"exposure":7,"native":[0.999999999631,0.124999999954,0.999999999696],"reference_9_removed":[0.355644686512,0.044455585814,0.717345969487]},{"exposure":37,"native":[0.999999999631,0.124999999954,0.999999999726],"reference_9_removed":[0.151352771506,0.018919096438,0.433321041352]},{"exposure":150,"native":[0.999999999631,0.124999999954,0.999999999691],"reference_9_removed":[0.320717724022,0.040089715503,0.569106817243]}]}]},{"strength_in_simulator":-64,"original_clock_record":[63.999862582768635,63.99938990851469,64.00033525478106],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999913955,0.124999989244,0.999999926284],"reference_9_removed":[0.999999913955,0.124999989244,0.999999926284]},{"exposure":1,"native":[0.999999913955,0.124999989244,0.999999923474],"reference_9_removed":[0.288646415752,0.036080801969,0.705049234384]},{"exposure":7,"native":[0.999999913955,0.124999989244,0.999999932864],"reference_9_removed":[0.109379078979,0.013672384872,0.5114228163]},{"exposure":37,"native":[0.999999913955,0.124999989244,0.999999929033],"reference_9_removed":[0.283362761806,0.035420345226,0.630272858271]},{"exposure":150,"native":[0.999999913955,0.124999989244,0.999999932337],"reference_9_removed":[0.361096483686,0.045137060461,0.582337428714]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999815587,0.124999976948,0.999999853857],"reference_9_removed":[0.999999815587,0.124999976948,0.999999853857]},{"exposure":1,"native":[0.999999815587,0.124999976948,0.999999855426],"reference_9_removed":[0.379322576671,0.047415322084,0.831917509629]},{"exposure":7,"native":[0.999999815587,0.124999976948,0.999999847842],"reference_9_removed":[0.355667621508,0.044458452688,0.717317880848]},{"exposure":37,"native":[0.999999815587,0.124999976948,0.999999861673],"reference_9_removed":[0.151362435871,0.018920304484,0.433376008783]},{"exposure":150,"native":[0.999999815587,0.124999976948,0.99999984495],"reference_9_removed":[0.320724815623,0.040090601953,0.569157732407]}]}]},{"strength_in_simulator":128,"original_clock_record":[127.99987121239324,127.99892586457796,128.0],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999981109,0.124999997639,0.999999983815],"reference_9_removed":[0.999999981109,0.124999997639,0.999999983815]},{"exposure":1,"native":[0.999999981109,0.124999997639,0.999999984085],"reference_9_removed":[0.346266126984,0.043283265873,0.642296279391]},{"exposure":7,"native":[0.999999981109,0.124999997639,0.999999983367],"reference_9_removed":[0.116659440552,0.014582430069,0.425847998588]},{"exposure":37,"native":[0.999999981109,0.124999997639,0.999999986138],"reference_9_removed":[0.111362762587,0.013920345323,0.447931781716]},{"exposure":150,"native":[0.999999981109,0.124999997639,0.999999985204],"reference_9_removed":[0.170908235108,0.021363529388,0.609131061962]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999959511,0.124999994939,0.999999967904],"reference_9_removed":[0.999999959511,0.124999994939,0.999999967904]},{"exposure":1,"native":[0.999999959511,0.124999994939,0.999999966897],"reference_9_removed":[0.509236553688,0.063654569211,0.804882041316]},{"exposure":7,"native":[0.999999959511,0.124999994939,0.999999966532],"reference_9_removed":[0.316162212736,0.039520276592,0.562855837602]},{"exposure":37,"native":[0.999999959511,0.124999994939,0.999999970296],"reference_9_removed":[0.37600397637,0.047000497046,0.632441025189]},{"exposure":150,"native":[0.999999959511,0.124999994939,0.999999965135],"reference_9_removed":[0.063304006308,0.007913000789,0.551722819016]}]}]},{"strength_in_simulator":-128,"original_clock_record":[128.0,127.99917308979128,128.0],"disposition":"calibrated","launches":[{"column":14,"outcomes":[{"exposure":0,"native":[0.999999999997,0.125,0.999999999998],"reference_9_removed":[0.999999999997,0.125,0.999999999998]},{"exposure":1,"native":[0.999999999997,0.125,0.999999999998],"reference_9_removed":[0.346301417722,0.043287677215,0.642346480397]},{"exposure":7,"native":[0.999999999997,0.125,0.999999999998],"reference_9_removed":[0.116657628778,0.014582203597,0.425861160295]},{"exposure":37,"native":[0.999999999997,0.125,0.999999999998],"reference_9_removed":[0.11137524304,0.01392190538,0.447950054944]},{"exposure":150,"native":[0.999999999997,0.125,0.999999999998],"reference_9_removed":[0.170916744637,0.02136459308,0.609144705236]}]},{"column":15,"outcomes":[{"exposure":0,"native":[0.999999999999,0.125,1.0],"reference_9_removed":[0.999999999999,0.125,1.0]},{"exposure":1,"native":[0.999999999999,0.125,1.0],"reference_9_removed":[0.509215292861,0.063651911608,0.804863078155]},{"exposure":7,"native":[0.999999999999,0.125,1.0],"reference_9_removed":[0.316161022329,0.039520127791,0.562870940366]},{"exposure":37,"native":[0.999999999999,0.125,1.0],"reference_9_removed":[0.375982076912,0.046997759614,0.632425467141]},{"exposure":150,"native":[0.999999999999,0.125,1.0],"reference_9_removed":[0.063320256875,0.007915032109,0.551726806285]}]}]},{"strength_in_simulator":0,"original_clock_record":null,"disposition":"inconclusive_clock"}]}
+diff --git a/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md b/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..4ddf612b6285f0527ec4c0a79f832516da475752
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md
+@@ -0,0 +1,39 @@
++# M10.5 · Signed return of one spectroscopy excitation
++
++$$
++L=D-A,\quad M=2F-D-A,\quad H_\kappa=\kappa M/2,\quad
++b=(|u\rangle-|v\rangle)/\sqrt{2},\quad E=|b\rangle\langle b|/8 .
++$$
++
++On accessible joint histories, $A$ joins a load hop and the corresponding reversal of one seam record, $D_{ii}=\sum_j A_{ij}$ and $F_{ii}=6-d_i$ uses the physical degree at the terminal port. An overall energy shift drops out of the detector probabilities. For each of the earlier donor's two spatial words, the tips reach ports 9 and 11 with a distinct common prefix. Integer multiplication gives $Mb=Lb=b$. At any freely chosen exposure $U_t^\dagger E U_t=E$. Thus each launch click probability $p$ predicts the same later click rate and a lower bound $8p$ on the probability of a two-tip reading on a fresh copy. [Physical graph construction](../scripts/m10_5_spectroscopy.py#L25) · [Joint selector and integer identities](../scripts/m10_5_spectroscopy.py#L52) · [Published native detector](https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/phase_reader.py#L18)
++
++The material and both spatial words were selected for a frequency-and-wavelength experiment. Its pilot knew the spectrum. It checked every primary overlap, including the zero mode, and archived a later staggered alternative. Applying its primary rule to all three original arrow orders admits only the ascending two-dimensional match at energy 4 and squared wave number 1. The reversed-local material has no primary match in 2,730 histories, and the descending material gives only the parked zero mode. Reusing the donor for persistence was retrospective. The eleven writes around the earlier pair still have their original, target-aware provenance. [Original donor protocol](https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_selective/PROTOCOL.md) · [Earlier decision](m10_4_maintainer_review.md)
++
++The rising-fringe contact meter observes $\sin^2(|\kappa|t/2)$ on twelve appointments. It supplies a magnitude for pulse timing independently of the signed reader. At the sixteen resolved signed strengths run both archived pulses from the port-zero load. Zero supplies no resolved clock. The cap of 96 and 631 fair contacts give an original-start commissioning loss of $1-(1-2^{-96})^{631}$. On the same prepared object, sharp dephasing limits its signed weight to one half. A diagonal rate-matched swap process has the same bound. Switching the phase at just one tip tests readout sensitivity with both site populations fixed. [Clock inversion](../scripts/m10_5_spectroscopy.py#L79) · [Pulse, flight and comparison](../scripts/m10_5_spectroscopy.py#L97)
++
++| Comparison | Gate | Known author result |
++| --- | --- | --- |
++| Minimum native signed weight $8p$ | Above 0.98 | 0.999999500949, or 0.999999498949 after the declared numerical allowance. The minimum raw click is 0.124999937619. |
++| Launch counts through the identity | Simultaneous 99% lower bound above 0.98 | Above 0.99419. This uses simulated launch counts. The terminal banks are calculated probabilities. |
++| Four flight appointments | Absolute weight change below $2\times10^{-10}$ | All 32 preparations pass at 1, 7, 37 and 150 exchange-time units. |
++| Rate-matched swaps | Signed weight below 0.98 at 37 | Maximum 0.410439 across all four appointments. |
++
++**Adversarial check.** A separate calculation using spectral propagation obtained a minimum raw click of 0.124999937619 and a maximum phase-flipped raw click below $2.33\times10^{-9}$. On the same accessible graph, every mode of $4L$ passes the spectroscopic rule. Its first positive mode places only 0.366308 probability on even its two most occupied ports. This challenges the inference from selection to spatial confinement. The two enrolled signed modes persist under $4L$ as well. The rate-matched swap is one same-object changed-law comparison. The author preflight uses Python 3.12.6, NumPy 2.3.5 and SciPy 1.18.1. It imports standard Python, NumPy and SciPy only. From the OpenWave checkout run the following with an OPH checkout containing the three hashes in the task.
++
++~~~sh
++OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
++python -B -W error openwave/xperiments/m10_oph/research/scripts/m10_5_spectroscopy.py /path/to/oph
++~~~
++
++**Coherent changed-law comparison.** Port 9 has physical degree five and one blank degree reference. Remove that single reference during free flight on all six eligible joint histories. The Hamiltonian becomes $H'_\kappa=H_\kappa-\kappa P_9$ up to the common energy. Each launch retains its original coherent wavefunction and the two readouts agree at exposure zero. For either ideal signed ray the changed generator has energy variance $\kappa^2/4$. At exposure 37 all 32 original-start signed weights lie between 0.0218828 and 0.514994. Even the phase-insensitive two-port probability lies between 0.414087 and 0.744750. Both fall below the 0.98 gate on every preparation. The check is a target-aware perturbation of the flight law. [Control driver](../scripts/m10_5_reference_control.py) · [All altered and original readings](../data/m10_5_reference_control.json)
++
++~~~sh
++OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
++python -B -W error openwave/xperiments/m10_oph/research/scripts/m10_5_reference_control.py /path/to/oph \
++  --headline openwave/xperiments/m10_oph/research/scripts/m10_5_spectroscopy.py \
++  --check openwave/xperiments/m10_oph/research/data/m10_5_reference_control.json
++~~~
++
++The attached JSON is a local author preflight, before this proposed task was filed. The registered run and maintainer decision are outstanding. The public pair replay shows the M10.4 ancestor's home probability under eleven writes. [Preflight receipt](../data/m10_5_author_preflight.json) · [Task and input hashes](../tasks/m10_5_task_details.md) · [Pair replay](https://floatingpragma.ai/oph/simulation/openwave/row-4/)
++
++**Scope**: Free persistence of a prepared load with its signed history on the declared finite material. The free propagator and native detector identity support this inference on the stated domain. The observation assigns neither an electron identity nor a physical lifetime.
+diff --git a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+index 35e0adeddf4cb735458fdc2686d91b437eeb5548..f40b39a4b1ddb983d973dc688471886dc481c476 100644
+--- a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
++++ b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+@@ -96,6 +96,18 @@ M10.4 proposes replacing the M10.3 pin with Interval Echo at [`09f062f77f7f540f2
+ 
+ [Protocol and controls](tasks/m10_4_task_details.md) · [Derivation and replay](findings/m10_4_method_note.md)
+ 
++## 1.4 Proposed spectroscopy candidate for M10.5
++
++The authors propose Interval Echo at `e2810645c67ca634a05ea005f84bf95dc922d66d` for the registered comparison. The M10.4 pin and its partial mark remain the standing decision pending review. The earlier eleven-write test and the coupling sweep on blank material remain in their own sections. [Task](tasks/m10_5_task_details.md) · [Author method and scope](findings/m10_5_method_note.md)
++
++| Element | Proposed declaration |
++| --- | --- |
++| Carrier and addressing | The original 20 cells, 240 ports and 630 native contacts, with port-zero launch. Physical degree references supply addressed source phases. |
++| Law and memories | Native local echo and contrast terms. Commission every seam into the uniform earlier-port orientation from the spectroscopy task. Its reversed-local and descending orders are comparison materials. The free law runs without queries or shutters until the terminal read. |
++| Preparation | One load, two archived 96-layer spectroscopy source words, and a separate local transfer clock. All commissioning refusals count. |
++| Observable | A prefix and five native query outcomes followed by a central occupancy read. The signed hit has effect one eighth of the signed-history projector. Independent samples give the terminal physical port. |
++| Calibration and interpretation | Finite exchange times and source phases are supplied. The observed launch click probability determines the terminal signed click probability. One dressed load is enrolled. Species, binding, translational motion in blank space and physical lifetime would require further evidence. |
++
+ ## 2. Arena
+ 
+ A holographic screen of twelve-port icosahedral carriers. Each carrier holds integer
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_5_reference_control.py b/openwave/xperiments/m10_oph/research/scripts/m10_5_reference_control.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..3f8847c74e293cf543e8d38f76a9b7678f3908d8
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_5_reference_control.py
+@@ -0,0 +1,249 @@
++"""Keep the two archived preparations and remove one tip reference in flight.
++
++Run with the OPH checkout containing the three frozen inputs as the positional
++argument. The frozen author headline may be next to this file, in its ordinary
++checkout path, or supplied by --headline. This control uses no OPH modules.
++"""
++
++import argparse
++from fractions import Fraction
++import hashlib
++import json
++from math import isclose
++from pathlib import Path
++from runpy import run_path
++
++import numpy as np
++from scipy.linalg import eigh
++
++
++HERE = Path(__file__).resolve().parent
++HEADLINE = "openwave/interval_echo/row_04/spectroscopy_release/headline.py"
++HEADLINE_SHA256 = "b39cc85d5198989dd45c5b05e516a5144b832caf5ee76d551200bf36b404415d"
++TIP = 9
++APERTURE = (9, 11)
++WAITS = (0, 1, 7, 37, 150)
++GATE = 0.98
++ALLOWANCE = 2e-9
++RECORDS = ("signed_weight", "raw_signed_click", "two_tip_occupancy")
++
++
++def digests(root, author):
++    for relative, expected in author["DIGESTS"].items():
++        if hashlib.sha256((root / relative).read_bytes()).hexdigest() != expected:
++            raise ValueError(f"Input digest mismatch for {relative}")
++
++
++def native_and_controlled(raw, author):
++    paths, positions, laplacian, native = author["physical_histories"](raw)
++    physical_degree = raw["degree"]
++    assert tuple(int(physical_degree[p]) for p in APERTURE) == (5, 5)
++    tip = (positions == TIP).astype(int)
++    assert np.count_nonzero(tip) == 6
++    # A blank zero-load reference contributes κ n_p². There is exactly one
++    # such reference at a degree-five port. M is expressed in units κ/2.
++    altered = native - 2 * np.diag(tip)
++    np.testing.assert_array_equal(np.diag(native - altered), 2 * tip)
++    selected = author["select"](paths, laplacian, native)
++    geometry = []
++    for column, ray in selected:
++        indices = np.flatnonzero(ray)
++        assert tuple(sorted(positions[indices])) == APERTURE
++        direction = np.sign(ray).astype(int)
++        twist = altered @ direction
++        assert int(direction @ twist) == 0 and int(twist @ twist) == 2
++        # On the ideal signed ray, the exact variance of the altered M/2
++        # is 1/4. This obstruction concerns the coherent law itself.
++        geometry.append(
++            {"column": column, "two_tip_histories": [paths[i] for i in indices]}
++        )
++    return paths, positions, selected, native, altered, geometry
++
++
++def evolve(mode, scale, vector):
++    # At zero duration both arms use the same supplied vector exactly,
++    # without a distinct round trip through approximate bases.
++    if scale == 0:
++        return vector
++    levels, basis = mode
++    return basis @ (np.exp(-1j * scale * levels) * (basis.T @ vector))
++
++
++def recorded(vector, ray, aperture_mask, commission):
++    assert abs(float(np.vdot(vector, vector).real) - 1) < ALLOWANCE
++    weight = commission * abs(ray @ vector) ** 2
++    pocket = commission * float(np.sum(abs(vector[aperture_mask]) ** 2))
++    assert 0 <= weight <= pocket + ALLOWANCE and pocket <= commission + ALLOWANCE
++    return [round(float(weight), 12), round(float(weight / 8), 12), round(pocket, 12)]
++
++
++def record(root, headline):
++    if not __debug__:
++        raise RuntimeError("Replay requires Python without -O")
++    headline_sha256 = hashlib.sha256(headline.read_bytes()).hexdigest()
++    if headline_sha256 != HEADLINE_SHA256:
++        raise ValueError("The author headline does not match the archived SHA-256")
++    author = run_path(str(headline))
++    digests(root, author)
++    boards = root / author["BOARD"]
++    with np.load(boards, allow_pickle=False) as board:
++        paths, positions, selected, native, altered, geometry = native_and_controlled(
++            board, author
++        )
++        stations = len(board["edges"]) + 1
++    assert stations == 631 and len(paths) == 32
++    spectra = (eigh(native), eigh(altered))
++    mask = np.isin(positions, APERTURE)
++    clock = json.loads((root / author["CLOCK"]).read_bytes())
++    words = json.loads((root / author["WORDS"]).read_bytes())
++    commission_exact = (1 - Fraction(1, 2**96)) ** stations
++    commission = float(commission_exact)
++    source_refusal = float(1 - commission_exact)
++    arms = []
++    for bank in clock["runs"]:
++        strength = bank["strength_in_simulator"]
++        calibrated = author["read_clock"](
++            bank["counts"],
++            clock["appointments"],
++            clock["shots_per_appointment"],
++            len(clock["runs"]),
++        )
++        row = {"strength_in_simulator": strength, "original_clock_record": calibrated}
++        arms.append(row)
++        if calibrated is None:
++            assert strength == 0
++            row["disposition"] = "inconclusive_clock"
++            continue
++        estimate, lower, upper = calibrated
++        assert lower <= abs(strength) <= upper
++        ratio = strength / estimate
++        pulse = evolve_matrix(spectra[0], 4 * ratio * words["step"])
++        row["disposition"] = "calibrated"
++        row["launches"] = []
++        for column, ray in selected:
++            source = np.eye(len(paths), dtype=complex)[0]
++            for angles in words["pulses"][column]["angles"]:
++                source = pulse @ source
++                for port, angle in zip(words["ports"], angles, strict=True):
++                    source[positions == port] *= np.exp(-1j * ratio * angle)
++            observed = []
++            for time in WAITS:
++                phase = 0.5 * strength * time
++                base, cut = (
++                    recorded(evolve(mode, phase, source), ray, mask, commission)
++                    for mode in spectra
++                )
++                if time == 0:
++                    assert base == cut
++                if base[0] - ALLOWANCE <= GATE or base[2] - ALLOWANCE <= GATE:
++                    raise ArithmeticError(
++                        "The native reference did not retain the excitation"
++                    )
++                observed.append(
++                    {"exposure": time, "native": base, "reference_9_removed": cut}
++                )
++            row["launches"].append({"column": column, "outcomes": observed})
++
++    calibrated_rows = [row for row in arms if row["disposition"] == "calibrated"]
++    unresolved = [
++        row["strength_in_simulator"] for row in arms if row not in calibrated_rows
++    ]
++    runs = [run for row in calibrated_rows for run in row["launches"]]
++    assert len(runs) == 32 and unresolved == [0]
++    contrasts = {}
++    for time in WAITS:
++        outcomes = [run["outcomes"][WAITS.index(time)] for run in runs]
++        contrasts[str(time)] = {}
++        for j, reading in ((0, "signed_weight"), (2, "two_tip_occupancy")):
++            altered_weights = [entry["reference_9_removed"][j] for entry in outcomes]
++            contrasts[str(time)][reading] = {
++                "observed_minimum": min(altered_weights),
++                "observed_maximum": max(altered_weights),
++                "launches_rejecting_0p98": sum(
++                    weight + ALLOWANCE < GATE for weight in altered_weights
++                ),
++            }
++    if (
++        any(
++            contrasts[str(time)]["signed_weight"]["launches_rejecting_0p98"]
++            != len(runs)
++            for time in WAITS[1:]
++        )
++        or contrasts["0"]["signed_weight"]["launches_rejecting_0p98"]
++    ):
++        raise ArithmeticError(
++            "The coherent intervention failed its distinction control"
++        )
++    return {
++        "scope": "target-aware coherent flight-only control on the archived preparation",
++        "headline_sha256": headline_sha256,
++        "physical_tip": TIP,
++        "physical_degrees_of_two_tips": [5, 5],
++        "physical_reference_count_removed": 1,
++        "squared_contrast_term": "kappa * n_9**2 with a blank reference at load zero",
++        "eligible_history_count": 6,
++        "eligible_histories": [path for path in paths if path[-1] == TIP],
++        "original_detector_and_prefix": geometry,
++        "ideal_prepared_ray_energy_variance_over_kappa_squared": [1, 4],
++        "resolved_releases": len(runs),
++        "unresolved_strengths": unresolved,
++        "records_per_arm": RECORDS,
++        "preparation_exhaustion_per_original": source_refusal,
++        "failure_gate": GATE,
++        "probability_allowance": ALLOWANCE,
++        "summary_by_exposure": contrasts,
++        "full_release_records": arms,
++    }
++
++
++def evolve_matrix(mode, scale):
++    levels, basis = mode
++    return (basis * np.exp(-1j * scale * levels)) @ basis.T
++
++
++def check_receipt(actual, saved, field="receipt"):
++    if type(actual) is not type(saved):
++        raise ArithmeticError(f"Different types at {field}")
++    if isinstance(actual, dict) and actual.keys() == saved.keys():
++        for key in actual:
++            check_receipt(actual[key], saved[key], f"{field}.{key}")
++        return
++    if isinstance(actual, list) and len(actual) == len(saved):
++        for i, (read, expected) in enumerate(zip(actual, saved, strict=True)):
++            check_receipt(read, expected, f"{field}[{i}]")
++        return
++    if isinstance(actual, float) and isclose(
++        actual, saved, abs_tol=2e-10, rel_tol=2e-13
++    ):
++        return
++    if actual != saved:
++        raise ArithmeticError(
++            f"The coherent reference-control replay differs at {field}"
++        )
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("oph_root", type=Path)
++    parser.add_argument(
++        "--headline", type=Path, help="Path to the frozen author headline"
++    )
++    group = parser.add_mutually_exclusive_group()
++    group.add_argument("--record", type=Path, help="Create a new evidence file")
++    group.add_argument("--check", type=Path, help="Verify a saved evidence file")
++    args = parser.parse_args()
++    headline = args.headline
++    if headline is None:
++        adjacent = HERE / "headline.py"
++        headline = adjacent if adjacent.is_file() else args.oph_root / HEADLINE
++    data = json.loads(json.dumps(record(args.oph_root, headline), allow_nan=False))
++    if args.record:
++        with args.record.open("x") as output:
++            output.write(json.dumps(data, separators=(",", ":")) + "\n")
++    if args.check:
++        check_receipt(data, json.loads(args.check.read_text()))
++    print(json.dumps(data["summary_by_exposure"], indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_5_spectroscopy.py b/openwave/xperiments/m10_oph/research/scripts/m10_5_spectroscopy.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e9253d2663b216c1ff85ba2799095db72d4ac35d
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_5_spectroscopy.py
+@@ -0,0 +1,164 @@
++"""Replay free signed-history survival from three public binary inputs."""
++
++import argparse
++import hashlib
++import json
++from itertools import combinations
++from math import asin, expm1, log, log1p, pi, sqrt
++from pathlib import Path
++
++import numpy as np
++from scipy.linalg import expm
++
++
++BOARD = "openwave/interval_echo/row_04/FEDERATION_LEVEL0.npz"
++SOURCE = "model/candidate_laws/interval_echo/openwave"
++WORDS = f"{SOURCE}/row_30_selective/analyzers.json"
++CLOCK = f"{SOURCE}/row_04_spectral/clock.json"
++DIGESTS = {
++    BOARD: "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
++    WORDS: "bca73380e3f4960b8b4aa1268023573845e9f40463c8545af35ed550e7f17a69",
++    CLOCK: "0259cd71489f34564d6ef4e2edb91b8f420de947911ebfe35ec733f7336a398d",
++}
++
++
++def physical_histories(board):
++    edges = [tuple(sorted(map(int, row))) for row in board["edges"]]
++    adjacent = [set() for _ in board["degree"]]
++    for left, right in edges:
++        adjacent[left].add(right)
++        adjacent[right].add(left)
++    degree = np.array([len(ports) for ports in adjacent])
++    np.testing.assert_array_equal(degree, board["degree"])
++    paths = [(0,)]
++    joins = []
++    for i, path in enumerate(paths):
++        for port in sorted(adjacent[path[-1]]):
++            if port > path[-1]:
++                joins.append((i, len(paths)))
++                paths.append((*path, port))
++    a = np.zeros((len(paths), len(paths)), dtype=int)
++    for parent, child in joins:
++        a[parent, child] = a[child, parent] = 1
++    ends = np.array([path[-1] for path in paths])
++    graph_degree = np.diag(a.sum(axis=1))
++    return paths, ends, graph_degree - a, 2 * np.diag(6 - degree[ends]) - graph_degree - a
++
++
++def eigenspaces(eigenvalues):
++    return np.split(np.arange(len(eigenvalues)), np.flatnonzero(np.diff(eigenvalues) > 1e-8) + 1)
++
++
++def select(paths, laplacian, flight):
++    frequency, v = np.linalg.eigh(4 * flight)
++    wavelength, w = np.linalg.eigh(laplacian)
++    matches = []
++    for energy in eigenspaces(frequency):
++        for wave in eigenspaces(wavelength):
++            overlap = np.linalg.norm(v[:, energy].T @ w[:, wave], ord=2)
++            if overlap**2 >= 0.9:
++                matches.append((energy, wave))
++    [(energy, wave)] = matches
++    np.testing.assert_allclose(frequency[energy], [4, 4], atol=1e-12, rtol=0)
++    np.testing.assert_allclose(wavelength[wave], [1, 1], atol=1e-12, rtol=0)
++    # The donor chart orthogonalizes successive projected coordinate vectors.
++    # For disjoint signed sibling pairs this orders the rays by first support.
++    rays = []
++    for i, j in combinations(range(len(paths)), 2):
++        if paths[i][:-1] == paths[j][:-1]:
++            ray = np.zeros(len(paths), dtype=int)
++            ray[[i, j]] = [1, -1]
++            if np.array_equal(flight @ ray, ray) and np.array_equal(laplacian @ ray, ray):
++                rays.append(ray)
++    normalized = np.array(rays) / sqrt(2)
++    np.testing.assert_allclose(normalized.T @ normalized, w[:, wave] @ w[:, wave].T,
++                               atol=2e-13, rtol=0)
++    return list(zip(map(int, wave), normalized, strict=True))
++
++
++def read_clock(counts, times, shots, settings):
++    if len(times) != len(counts) or any(type(k) is not int or not 0 <= k <= shots for k in counts):
++        raise ValueError("Malformed clock record")
++    error = sqrt(log(2 * len(times) * settings / 0.01) / (2 * shots)) + 5.1e-14
++    lower, upper = 0.0, 128.0
++    for t, k in zip(times, counts, strict=True):
++        if t * upper > pi:
++            return None
++        p = k / shots
++        lower = max(lower, 2 / t * asin(sqrt(max(0.0, p - error))))
++        upper = min(upper, 2 / t * asin(sqrt(min(1.0, p + error))))
++        if lower > upper:
++            return None
++        if p > 1 / 8:
++            return min(upper, max(lower, 2 / t * asin(sqrt(p)))), lower, upper
++    return None
++
++
++def replay(root):
++    for name, digest in DIGESTS.items():
++        if hashlib.sha256((root / name).read_bytes()).hexdigest() != digest:
++            raise ValueError(f"Input digest mismatch for {name}")
++    with np.load(root / BOARD, allow_pickle=False) as data:
++        paths, ends, lap, flight = physical_histories(data)
++        stations = len(data["edges"]) + 1
++    rays = select(paths, lap, flight)
++    clock = json.loads((root / CLOCK).read_bytes())
++    words = json.loads((root / WORDS).read_bytes())
++    exhaustion = -expm1(stations * log1p(-2.0**-96))
++    lowest, highest_swap, max_drift = 1.0, 0.0, 0.0
++    unresolved, releases = [], 0
++    for bank in clock["runs"]:
++        strength = bank["strength_in_simulator"]
++        read = read_clock(bank["counts"], clock["appointments"],
++                          clock["shots_per_appointment"], len(clock["runs"]))
++        if read is None:
++            unresolved.append(strength)
++            continue
++        estimate, lower, upper = read
++        if not lower <= abs(strength) <= upper:
++            raise ArithmeticError("The exposure calibration missed this simulated strength")
++        ratio = strength / estimate
++        pulse = expm(-4j * ratio * words["step"] * flight)
++        for column, ray in rays:
++            psi = np.eye(len(paths), dtype=complex)[0]
++            for angles in words["pulses"][column]["angles"]:
++                psi = pulse @ psi
++                for port, angle in zip(words["ports"], angles, strict=True):
++                    psi[ends == port] *= np.exp(-1j * ratio * angle)
++            launch = (1 - exhaustion) * abs(ray @ psi)**2
++            lowest = min(lowest, launch)
++            for wait in (1, 7, 37, 150):
++                terminal = (1 - exhaustion) * abs(ray @ (expm(-0.5j * strength * wait * flight) @ psi))**2
++                swap = expm(-0.5 * abs(strength) * wait * lap) @ (abs(psi)**2)
++                highest_swap = max(highest_swap, (1 - exhaustion) * (ray**2 @ swap))
++                max_drift = max(max_drift, abs(launch - terminal))
++            releases += 1
++
++    # A commuting control on the same graph passes the donor's spectroscopic
++    # selection exactly. Its first nonconstant wave can still spread over ports.
++    k2, guides = np.linalg.eigh(lap)
++    first = eigenspaces(k2)[1]
++    if len(first) != 1:
++        raise ArithmeticError("The commuting-control wave needs a degenerate-space read")
++    mass = np.bincount(ends, weights=guides[:, first[0]]**2)
++    aperture = sum(sorted(mass)[-2:])
++    # The allowance covers propagation roundoff and the sub-ulp difference
++    # between unity and the original-start commissioning success probability.
++    lower_weight = lowest - 2e-9
++    if (unresolved != [0] or releases != 32 or lower_weight <= 0.9999994989
++            or highest_swap > 0.5 + 2e-12 or max_drift > 2e-10 or aperture >= 0.98):
++        raise ArithmeticError("A signed-return, clock or spatial-control gate failed")
++    return {"source_columns": [col for col, _ in rays], "resolved_releases": releases,
++            "unresolved_strengths": unresolved, "commissioning_exhaustion": exhaustion,
++            "minimum_calculated_signed_weight": round(float(lowest), 12),
++            "minimum_calculated_click_probability": round(float(lowest / 8), 12),
++            "minimum_signed_weight_after_allowance": round(float(lower_weight), 12),
++            "maximum_observed_swap_weight": round(float(highest_swap), 12),
++            "largest_signed_weight_drift_below": 2e-10,
++            "commuting_control_maximum_two_port_probability": round(float(aperture), 12)}
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("oph_root", type=Path, help="Directory containing the three pinned inputs")
++    print(json.dumps(replay(parser.parse_args().oph_root), indent=2, allow_nan=False))

@@ -1,0 +1,264 @@
+{
+  "seed": 27111942,
+  "proposals": 2097152,
+  "panels": [
+    {
+      "design": "ordinary energy",
+      "ordinary_inputs": [
+        522826,
+        525080,
+        524971,
+        524275
+      ],
+      "stops_by_gate": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          65906,
+          57226,
+          49792,
+          44031,
+          38372,
+          33835,
+          29458,
+          25679,
+          0
+        ],
+        [
+          65889,
+          57252,
+          50216,
+          44224,
+          38849,
+          33796,
+          29221,
+          25373,
+          22348
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "survivors": [
+        522826,
+        180781,
+        157803,
+        524275
+      ],
+      "weights": [
+        "134217728/354907471",
+        "46118408/354907471",
+        "40353607/354907471",
+        "134217728/354907471"
+      ],
+      "probability_of_acceptance": 0.6610666792839766,
+      "full_generator_residual": 2.7755575615628914e-16,
+      "matched_banks_modular": -5.967448757360216e-16,
+      "source": [
+        {
+          "source_sign": -1,
+          "modular": 0.030530724177772983,
+          "ordinary_measured_energy": 0.22864079807526924,
+          "modular_over_ordinary_pilot": 0.22864079807526935
+        },
+        {
+          "source_sign": 1,
+          "modular": 0.0395017535984226,
+          "ordinary_measured_energy": 0.2958237222126313,
+          "modular_over_ordinary_pilot": 0.2958237222126314
+        }
+      ]
+    },
+    {
+      "design": "one mismatch",
+      "ordinary_inputs": [
+        522826,
+        525080,
+        524971,
+        524275
+      ],
+      "stops_by_gate": [
+        [
+          0,
+          0
+        ],
+        [
+          65618,
+          0
+        ],
+        [
+          65530,
+          57378
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "survivors": [
+        522826,
+        459462,
+        402063,
+        524275
+      ],
+      "weights": [
+        "64/233",
+        "56/233",
+        "49/233",
+        "64/233"
+      ],
+      "probability_of_acceptance": 0.91015625,
+      "full_generator_residual": 0.934719748371658,
+      "matched_banks_modular": -0.10385774981907317,
+      "source": [
+        {
+          "source_sign": -1,
+          "modular": 0.00538777485490112,
+          "ordinary_measured_energy": 0.22864079807526924,
+          "modular_over_ordinary_pilot": 0.322787009047438
+        },
+        {
+          "source_sign": 1,
+          "modular": 0.006970897693839295,
+          "ordinary_measured_energy": 0.2958237222126313,
+          "modular_over_ordinary_pilot": 0.4176334901825375
+        }
+      ]
+    },
+    {
+      "design": "parity disabled",
+      "ordinary_inputs": [
+        522826,
+        525080,
+        524971,
+        524275
+      ],
+      "stops_by_gate": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          65261,
+          57644,
+          50340,
+          43881,
+          38454,
+          33772,
+          29427,
+          25845
+        ],
+        [
+          66152,
+          57551,
+          49977,
+          43743,
+          38493,
+          33563,
+          29217,
+          25709
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "survivors": [
+        522826,
+        180456,
+        180566,
+        524275
+      ],
+      "weights": [
+        "8388608/22542017",
+        "5764801/45084034",
+        "5764801/45084034",
+        "8388608/22542017"
+      ],
+      "probability_of_acceptance": 0.6718044579029083,
+      "full_generator_residual": 0.13353139262452246,
+      "matched_banks_modular": 0.11869457122179777,
+      "source": [
+        {
+          "source_sign": -1,
+          "modular": 0.028734799226139265,
+          "ordinary_measured_energy": 0.22864079807526924,
+          "modular_over_ordinary_pilot": 0.21519133936495935
+        },
+        {
+          "source_sign": 1,
+          "modular": 0.03717812103380949,
+          "ordinary_measured_energy": 0.2958237222126313,
+          "modular_over_ordinary_pilot": 0.278422326788359
+        }
+      ]
+    }
+  ],
+  "microcanonical_selection": [
+    {
+      "contacts": 16,
+      "probability_totals_given_accepted_contacts": 0.004103145498321168
+    },
+    {
+      "contacts": 32,
+      "probability_totals_given_accepted_contacts": 0.00016932629738643302
+    },
+    {
+      "contacts": 64,
+      "probability_totals_given_accepted_contacts": 5.583161570475356e-07
+    },
+    {
+      "contacts": 128,
+      "probability_totals_given_accepted_contacts": 0.0007176470174357346
+    },
+    {
+      "contacts": 256,
+      "probability_totals_given_accepted_contacts": 0.00019108179319377047
+    },
+    {
+      "contacts": 512,
+      "probability_totals_given_accepted_contacts": 6.853999084905157e-05
+    },
+    {
+      "contacts": 1024,
+      "probability_totals_given_accepted_contacts": 4.3585425410112644e-05
+    },
+    {
+      "contacts": 2048,
+      "probability_totals_given_accepted_contacts": 1.8148508990318893e-05
+    },
+    {
+      "contacts": 4096,
+      "probability_totals_given_accepted_contacts": 6.672356918836439e-06
+    }
+  ]
+}

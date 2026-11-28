@@ -1,0 +1,1051 @@
+{
+  "counts_and_spectra_sha256": "e84d17a3b4135437904dcd12f2135e8ef96a6acacdffadd9dc83a8d7ad666439",
+  "integer_blank": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      68,
+      -4,
+      0
+    ],
+    [
+      0,
+      -4,
+      68,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "integer_marked": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -32,
+      0,
+      0,
+      -32,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -32,
+      0,
+      0,
+      -32,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "protocol_sha256": "ae830d040298b5b078225d12e7931c738cb69e6a334f457df1db204887b3e6ce",
+  "rings": [
+    {
+      "component_counts": [
+        4,
+        4,
+        5,
+        4,
+        4
+      ],
+      "equilibrium": [
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            12.25774127766445,
+            12.25774127766445
+          ],
+          "exact_filling": 0.4999999999999999,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            12.244807551119036,
+            12.229044180136139
+          ],
+          "measured_filling": 0.4999801516532898,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            12.25774127766445,
+            12.25774127766445
+          ],
+          "exact_filling": 0.5381812349064605,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            12.271202128529278,
+            12.27243290340713
+          ],
+          "measured_filling": 0.5380517840385437,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            7.307852759216743,
+            7.307852759216743
+          ],
+          "exact_filling": 0.5,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            7.33771049408381,
+            7.339439469919454
+          ],
+          "measured_filling": 0.49992555379867554,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            7.307852759216743,
+            7.307852759216743
+          ],
+          "exact_filling": 0.579674307553895,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            7.314113286865155,
+            7.2743732250536635
+          ],
+          "measured_filling": 0.579727292060852,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            7.307852759216743,
+            7.307852759216743
+          ],
+          "exact_filling": 0.6391055468060414,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            7.311141627789663,
+            7.308416332652975
+          ],
+          "measured_filling": 0.6392846703529358,
+          "mu": 8.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            5.557852759216743,
+            9.057852759216743
+          ],
+          "exact_filling": 0.4687917305198047,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            5.558036880029838,
+            9.02573786074452
+          ],
+          "measured_filling": 0.46876800060272217,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            5.557852759216743,
+            9.057852759216743
+          ],
+          "exact_filling": 0.5,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            5.5609323873908005,
+            9.037047970852823
+          ],
+          "measured_filling": 0.5001125931739807,
+          "mu": 1.75,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            6.825017815836254,
+            6.825017815836254
+          ],
+          "exact_filling": 0.5,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            6.823326146944969,
+            6.821405596922911
+          ],
+          "measured_filling": 0.5000472068786621,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            6.825017815836254,
+            6.825017815836254
+          ],
+          "exact_filling": 0.6552369890503308,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            6.813752832409353,
+            6.825284823436515
+          ],
+          "measured_filling": 0.6552301049232483,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        }
+      ],
+      "ground_cost_remove_or_add": [
+        11.403030474090679,
+        11.403030474090679
+      ],
+      "half_ground_degeneracy": 1,
+      "largest_component": [
+        1,
+        6,
+        10,
+        6,
+        1
+      ],
+      "local_transfer_spectra": [],
+      "n": 4,
+      "ports": [
+        0,
+        1,
+        8,
+        7
+      ],
+      "sector_minima": [
+        0.0,
+        0.22799812734123584,
+        -11.175032346749443,
+        0.22799812734123584,
+        0.0
+      ],
+      "stock": {
+        "compensator": 2497,
+        "minimum_distance": 63,
+        "off_route_phase": 2,
+        "qualified": true,
+        "size": 4
+      },
+      "words": [
+        4,
+        16,
+        24,
+        16,
+        4
+      ]
+    },
+    {
+      "component_counts": [
+        8,
+        12,
+        18,
+        19,
+        18,
+        12,
+        8
+      ],
+      "equilibrium": [
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            8.235357490005867,
+            8.235357490005867
+          ],
+          "exact_filling": 0.5000000000000001,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            8.248040049009072,
+            8.221027898670492
+          ],
+          "measured_filling": 0.49998557567596436,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            8.235357490005867,
+            8.235357490005867
+          ],
+          "exact_filling": 0.5381826735018755,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            8.31504417246755,
+            8.29526180572256
+          ],
+          "measured_filling": 0.5382765928904215,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            3.680975830097296,
+            3.680975830097296
+          ],
+          "exact_filling": 0.5000000000000002,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            3.641407062193148,
+            3.6496807846907084
+          ],
+          "measured_filling": 0.5000669956207275,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            3.680975830097296,
+            3.680975830097296
+          ],
+          "exact_filling": 0.579723001541436,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            3.6694190339514403,
+            3.6349021223260465
+          ],
+          "measured_filling": 0.5798105398813883,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            3.680975830097296,
+            3.680975830097296
+          ],
+          "exact_filling": 0.6391752438100894,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            3.6974709096460163,
+            3.669720329247565
+          ],
+          "measured_filling": 0.6391545931498209,
+          "mu": 8.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            1.930975830097296,
+            5.430975830097296
+          ],
+          "exact_filling": 0.4687710884879599,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            1.9399303174037634,
+            5.428759446838602
+          ],
+          "measured_filling": 0.468761682510376,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            1.930975830097296,
+            5.430975830097296
+          ],
+          "exact_filling": 0.5000000000000002,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            1.9668014948153854,
+            5.453661886789021
+          ],
+          "measured_filling": 0.5000884135564169,
+          "mu": 1.75,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            0.9028792926064995,
+            0.9028792926064995
+          ],
+          "exact_filling": 0.5000000000000001,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            0.899399052548478,
+            0.8979276998775519
+          ],
+          "measured_filling": 0.5001033147176107,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            0.9028792926064995,
+            0.9028792926064995
+          ],
+          "exact_filling": 0.6564890989504919,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            0.8876025398128942,
+            0.9061155922992037
+          ],
+          "measured_filling": 0.6563454071680704,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        }
+      ],
+      "ground_cost_remove_or_add": [
+        3.420741494596676,
+        3.4207414945966796
+      ],
+      "half_ground_degeneracy": 1,
+      "largest_component": [
+        1,
+        8,
+        18,
+        28,
+        18,
+        8,
+        1
+      ],
+      "local_transfer_spectra": [],
+      "n": 6,
+      "ports": [
+        0,
+        1,
+        8,
+        3,
+        2,
+        10
+      ],
+      "sector_minima": [
+        0.0,
+        0.13211411266890005,
+        -9.887151747225198,
+        -13.307893241821874,
+        -9.887151747225195,
+        0.13211411266890005,
+        0.0
+      ],
+      "stock": {
+        "compensator": 2501,
+        "minimum_distance": 63,
+        "off_route_phase": 4,
+        "qualified": true,
+        "size": 6
+      },
+      "words": [
+        8,
+        48,
+        120,
+        160,
+        120,
+        48,
+        8
+      ]
+    },
+    {
+      "component_counts": [
+        32,
+        80,
+        160,
+        240,
+        310,
+        331,
+        310,
+        240,
+        160,
+        80,
+        32
+      ],
+      "equilibrium": [
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            5.291876452355723,
+            5.291876452355723
+          ],
+          "exact_filling": 0.5,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            5.236685246781386,
+            5.269229348635327
+          ],
+          "measured_filling": 0.5000587701797485,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.03125,
+          "exact_canonical_work_remove_add": [
+            5.291876452355723,
+            5.291876452355723
+          ],
+          "exact_filling": 0.5381826673572293,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            5.280426788254633,
+            5.28815924427069
+          ],
+          "measured_filling": 0.5381262540817261,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            2.508912908703138,
+            2.508912908703138
+          ],
+          "exact_filling": 0.4999999999999997,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            2.4954316929367946,
+            2.528012418964608
+          ],
+          "measured_filling": 0.49992945194244387,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            2.508912908703138,
+            2.508912908703138
+          ],
+          "exact_filling": 0.5797221867026805,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            2.5009478640265153,
+            2.503135636107176
+          ],
+          "measured_filling": 0.5798265218734742,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            2.508912908703138,
+            2.508912908703138
+          ],
+          "exact_filling": 0.6391741862712774,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            2.4832858782738523,
+            2.485440341438345
+          ],
+          "measured_filling": 0.6391857385635376,
+          "mu": 8.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            0.7589129087031381,
+            4.258912908703138
+          ],
+          "exact_filling": 0.4687714475961898,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            0.8036519594449901,
+            4.21513481221547
+          ],
+          "measured_filling": 0.4689837217330933,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.0625,
+          "exact_canonical_work_remove_add": [
+            0.7589129087031381,
+            4.258912908703138
+          ],
+          "exact_filling": 0.4999999999999997,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            0.7320151012877267,
+            4.264979601369657
+          ],
+          "measured_filling": 0.49988369941711425,
+          "mu": 1.75,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 1.75
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            1.036723074712306,
+            1.036723074712306
+          ],
+          "exact_filling": 0.5000000000000001,
+          "half_within_bound": true,
+          "measured_canonical_work_remove_add": [
+            1.0327146547049213,
+            1.038691004931878
+          ],
+          "measured_filling": 0.5000557899475098,
+          "mu": 0.0,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        },
+        {
+          "beta": 0.125,
+          "exact_canonical_work_remove_add": [
+            1.036723074712306,
+            1.036723074712306
+          ],
+          "exact_filling": 0.6564188587975066,
+          "half_within_bound": false,
+          "measured_canonical_work_remove_add": [
+            1.056076380064443,
+            1.0206395248352491
+          ],
+          "measured_filling": 0.6563420295715332,
+          "mu": 4.5,
+          "simultaneous_filling_radius": 0.0010865485332983691,
+          "uniform_onsite": 0.0
+        }
+      ],
+      "ground_cost_remove_or_add": [
+        4.042727610859071,
+        4.042727610859071
+      ],
+      "half_ground_degeneracy": 1,
+      "largest_component": [
+        1,
+        12,
+        42,
+        96,
+        162,
+        244,
+        162,
+        96,
+        42,
+        12,
+        1
+      ],
+      "local_transfer_spectra": [
+        {
+          "accepted": 0.09999999999999905,
+          "dominant_fraction": 0.23024045926985873,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 0.0,
+          "kg_frequency": 4.5,
+          "parity": 0,
+          "q": 3.141592653589793,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637303
+        },
+        {
+          "accepted": 0.10000000000000075,
+          "dominant_fraction": 0.23024045926869435,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 0.0,
+          "kg_frequency": 4.5,
+          "parity": 1,
+          "q": 3.141592653589793,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637362
+        },
+        {
+          "accepted": 0.09999999999999906,
+          "dominant_fraction": 0.23024045926985875,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 1.2566370614359172,
+          "kg_frequency": 4.181634605928618,
+          "parity": 0,
+          "q": 1.884955592153876,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637301
+        },
+        {
+          "accepted": 0.10000000000000073,
+          "dominant_fraction": 0.23024045926869435,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 1.2566370614359172,
+          "kg_frequency": 4.181634605928618,
+          "parity": 1,
+          "q": 1.884955592153876,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637365
+        },
+        {
+          "accepted": 0.09999999999999906,
+          "dominant_fraction": 0.23024045926985875,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 2.5132741228718345,
+          "kg_frequency": 3.607482782010222,
+          "parity": 0,
+          "q": 0.6283185307179588,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637301
+        },
+        {
+          "accepted": 0.10000000000000074,
+          "dominant_fraction": 0.23024045926869438,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 2.5132741228718345,
+          "kg_frequency": 3.607482782010222,
+          "parity": 1,
+          "q": 0.6283185307179588,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637364
+        },
+        {
+          "accepted": 0.09999999999999905,
+          "dominant_fraction": 0.2302404592698588,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 3.7699111843077517,
+          "kg_frequency": 3.607482782010222,
+          "parity": 0,
+          "q": 0.6283185307179585,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637303
+        },
+        {
+          "accepted": 0.10000000000000073,
+          "dominant_fraction": 0.2302404592686944,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 3.7699111843077517,
+          "kg_frequency": 3.607482782010222,
+          "parity": 1,
+          "q": 0.6283185307179585,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637365
+        },
+        {
+          "accepted": 0.09999999999999905,
+          "dominant_fraction": 0.23024045926985878,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 5.026548245743669,
+          "kg_frequency": 4.181634605928618,
+          "parity": 0,
+          "q": 1.8849555921538756,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637303
+        },
+        {
+          "accepted": 0.10000000000000075,
+          "dominant_fraction": 0.23024045926869435,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 5.026548245743669,
+          "kg_frequency": 4.181634605928618,
+          "parity": 1,
+          "q": 1.8849555921538756,
+          "sign": -1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637362
+        },
+        {
+          "accepted": 0.09999999999999956,
+          "dominant_fraction": 0.23024045926865816,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 0.0,
+          "kg_frequency": 4.5,
+          "parity": 0,
+          "q": 3.141592653589793,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637335
+        },
+        {
+          "accepted": 0.10000000000000013,
+          "dominant_fraction": 0.23024045926989478,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 0.0,
+          "kg_frequency": 4.5,
+          "parity": 1,
+          "q": 3.141592653589793,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637324
+        },
+        {
+          "accepted": 0.09999999999999956,
+          "dominant_fraction": 0.23024045926865816,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 1.2566370614359172,
+          "kg_frequency": 4.181634605928618,
+          "parity": 0,
+          "q": 1.884955592153876,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637335
+        },
+        {
+          "accepted": 0.10000000000000013,
+          "dominant_fraction": 0.23024045926989484,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 1.2566370614359172,
+          "kg_frequency": 4.181634605928618,
+          "parity": 1,
+          "q": 1.884955592153876,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637324
+        },
+        {
+          "accepted": 0.09999999999999956,
+          "dominant_fraction": 0.23024045926865827,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 2.5132741228718345,
+          "kg_frequency": 3.607482782010222,
+          "parity": 0,
+          "q": 0.6283185307179588,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637333
+        },
+        {
+          "accepted": 0.10000000000000014,
+          "dominant_fraction": 0.2302404592698948,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 2.5132741228718345,
+          "kg_frequency": 3.607482782010222,
+          "parity": 1,
+          "q": 0.6283185307179588,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637323
+        },
+        {
+          "accepted": 0.09999999999999956,
+          "dominant_fraction": 0.23024045926865824,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 3.7699111843077517,
+          "kg_frequency": 3.607482782010222,
+          "parity": 0,
+          "q": 0.6283185307179585,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637335
+        },
+        {
+          "accepted": 0.10000000000000014,
+          "dominant_fraction": 0.23024045926989486,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 3.7699111843077517,
+          "kg_frequency": 3.607482782010222,
+          "parity": 1,
+          "q": 0.6283185307179585,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637326
+        },
+        {
+          "accepted": 0.09999999999999956,
+          "dominant_fraction": 0.23024045926865822,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 5.026548245743669,
+          "kg_frequency": 4.181634605928618,
+          "parity": 0,
+          "q": 1.8849555921538756,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637335
+        },
+        {
+          "accepted": 0.10000000000000014,
+          "dominant_fraction": 0.23024045926989484,
+          "dominant_line": 4.042727611,
+          "first_visible": 4.042727611,
+          "fraction_within_KG": 0.0,
+          "k": 5.026548245743669,
+          "kg_frequency": 4.181634605928618,
+          "parity": 1,
+          "q": 1.8849555921538756,
+          "sign": 1,
+          "visible_lines": 90,
+          "work_centroid": 10.859000017637323
+        }
+      ],
+      "n": 10,
+      "ports": [
+        1,
+        8,
+        7,
+        6,
+        10,
+        2,
+        11,
+        4,
+        5,
+        9
+      ],
+      "sector_minima": [
+        0.0,
+        0.05994351216814447,
+        -9.866866531961348,
+        -11.711850031676782,
+        -19.87650186769348,
+        -23.919229478552552,
+        -19.87650186769348,
+        -11.71185003167676,
+        -9.866866531961344,
+        0.05994351216814447,
+        0.0
+      ],
+      "stock": {
+        "compensator": 2501,
+        "minimum_distance": 63,
+        "off_route_phase": 0,
+        "qualified": true,
+        "size": 10
+      },
+      "words": [
+        32,
+        320,
+        1440,
+        3840,
+        6720,
+        8064,
+        6720,
+        3840,
+        1440,
+        320,
+        32
+      ]
+    }
+  ],
+  "trials": 4194304
+}

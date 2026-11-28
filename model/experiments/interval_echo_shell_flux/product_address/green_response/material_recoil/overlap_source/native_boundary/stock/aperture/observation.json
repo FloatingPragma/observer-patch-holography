@@ -1,0 +1,75 @@
+{
+  "trials": 262144,
+  "reference_partition": 4.340807823163125,
+  "thinning": [
+    {
+      "retained": 0.0,
+      "flagged_increment": 0.0,
+      "missing_as_blank_increment": -0.0,
+      "relative_entropy_contrast_missing_as_blank": 0.0
+    },
+    {
+      "retained": 0.25,
+      "flagged_increment": 0.2837542093271105,
+      "missing_as_blank_increment": 0.9439186405000379,
+      "relative_entropy_contrast_missing_as_blank": 0.38158349588122964
+    },
+    {
+      "retained": 0.5,
+      "flagged_increment": 0.567508418654221,
+      "missing_as_blank_increment": 1.4051968782925621,
+      "relative_entropy_contrast_missing_as_blank": 0.7120496977326168
+    },
+    {
+      "retained": 0.75,
+      "flagged_increment": 0.8512626279813313,
+      "missing_as_blank_increment": 1.5223900821468819,
+      "relative_entropy_contrast_missing_as_blank": 0.9600549375280736
+    },
+    {
+      "retained": 1.0,
+      "flagged_increment": 1.135016837308442,
+      "missing_as_blank_increment": 1.1350168373084417,
+      "relative_entropy_contrast_missing_as_blank": 1.1350168373084417
+    }
+  ],
+  "physical_observations": [
+    {
+      "read_intervals": 1,
+      "native_sign_same": 7.703719777548923e-34,
+      "sampled_sign_same": 0,
+      "sampled_energy_9": 130970,
+      "energy": 8.50000000000001
+    },
+    {
+      "read_intervals": 2,
+      "native_sign_same": 0.5000000000000008,
+      "sampled_sign_same": 131654,
+      "sampled_energy_9": 130954,
+      "energy": 8.500000000000012
+    },
+    {
+      "read_intervals": 4,
+      "native_sign_same": 0.6250000000000007,
+      "sampled_sign_same": 164449,
+      "sampled_energy_9": 131049,
+      "energy": 8.500000000000009
+    },
+    {
+      "read_intervals": 16,
+      "native_sign_same": 0.8665667202736574,
+      "sampled_sign_same": 227179,
+      "sampled_energy_9": 130898,
+      "energy": 8.499999999999961
+    },
+    {
+      "read_intervals": 64,
+      "native_sign_same": 0.962881382802014,
+      "sampled_sign_same": 252451,
+      "sampled_energy_9": 130930,
+      "energy": 8.500000000000016
+    }
+  ],
+  "max_ordinary_density_difference": 9.381933164367296e-14,
+  "sign_branches_verified": 8
+}

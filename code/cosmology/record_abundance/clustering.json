@@ -1,0 +1,348 @@
+{
+  "protocol_sha256": "009bfdd939108a6a1edbaaa42488776110539251b109883f5874599d19d2c854",
+  "samples_per_occupation": 8192,
+  "seed": 24031128,
+  "cells": 320,
+  "distance_bin_sizes": [
+    1,
+    3,
+    14,
+    302
+  ],
+  "primary_teX_sha256": {
+    "0711.3908v2": "f8ff2e8010de97281ebada5fb157abe0ed7488fe992d2dfe1f31aa899afdbf0a",
+    "1309.3565v1": "340533654ea063293528070903ba3524701de8b0cbff97f41cd4b34a50c2958e"
+  },
+  "equilibrium_perturbations": [
+    {
+      "occupation": 0.16,
+      "long_wavelength_fractional_response": 0.8095238095238095,
+      "appointments": {
+        "0": {
+          "tracer_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "predicted_charge_change_in_seam_units": [
+            1.02,
+            1.02,
+            0.0,
+            0.0
+          ],
+          "sample_mean": [
+            1.0157470703125,
+            1.0157470703125,
+            0.0,
+            0.0
+          ],
+          "sample_se": [
+            0.006965890945340895,
+            0.006965890945340895,
+            0.0,
+            0.0
+          ],
+          "total_sample_mean": 2.031494140625,
+          "total_sample_se": 0.01393178189068179
+        },
+        "11": {
+          "tracer_probability": [
+            0.0703125,
+            0.1640625,
+            0.51171875,
+            0.25390625
+          ],
+          "predicted_charge_change_in_seam_units": [
+            0.1275,
+            0.32671875,
+            0.9894531249999998,
+            0.5963281249999999
+          ],
+          "sample_mean": [
+            0.1258544921875,
+            0.32965087890625,
+            0.98004150390625,
+            0.60205078125
+          ],
+          "sample_se": [
+            0.0038926233038594662,
+            0.005996774636707443,
+            0.011222185125256981,
+            0.01088663018912523
+          ],
+          "total_sample_mean": 2.03759765625,
+          "total_sample_se": 0.013831157383610376
+        },
+        "64": {
+          "tracer_probability": [
+            0.012848994577048245,
+            0.03891165210732339,
+            0.1634656988308123,
+            0.7847736544848161
+          ],
+          "predicted_charge_change_in_seam_units": [
+            0.026335936185079158,
+            0.07807056485860314,
+            0.33162673316384816,
+            1.6039667657924692
+          ],
+          "sample_mean": [
+            0.0267333984375,
+            0.0816650390625,
+            0.3367919921875,
+            1.6124267578125
+          ],
+          "sample_se": [
+            0.0018398758743119969,
+            0.0033003155911674096,
+            0.0082158343116602,
+            0.014840084961031218
+          ],
+          "total_sample_mean": 2.0576171875,
+          "total_sample_se": 0.014142488793754739
+        }
+      }
+    },
+    {
+      "occupation": 0.5,
+      "long_wavelength_fractional_response": 0.0,
+      "appointments": {
+        "0": {
+          "tracer_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "predicted_charge_change_in_seam_units": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_mean": [
+            0.0048828125,
+            0.0048828125,
+            0.0,
+            0.0
+          ],
+          "sample_se": [
+            0.009602954337586834,
+            0.009602954337586834,
+            0.0,
+            0.0
+          ],
+          "total_sample_mean": 0.009765625,
+          "total_sample_se": 0.019205908675173668
+        },
+        "11": {
+          "tracer_probability": [
+            0.0703125,
+            0.1640625,
+            0.51171875,
+            0.25390625
+          ],
+          "predicted_charge_change_in_seam_units": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_mean": [
+            0.00469970703125,
+            0.00384521484375,
+            0.02703857421875,
+            -0.00042724609375
+          ],
+          "sample_se": [
+            0.003344505346547823,
+            0.00540134286783709,
+            0.012022807324853798,
+            0.009338149806642914
+          ],
+          "total_sample_mean": 0.03515625,
+          "total_sample_se": 0.019161883215221703
+        },
+        "64": {
+          "tracer_probability": [
+            0.012848994577048245,
+            0.03891165210732339,
+            0.1634656988308123,
+            0.7847736544848161
+          ],
+          "predicted_charge_change_in_seam_units": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_mean": [
+            0.00042724609375,
+            -0.00091552734375,
+            -0.00079345703125,
+            -0.01580810546875
+          ],
+          "sample_se": [
+            0.0015597721839513594,
+            0.0026075625552003726,
+            0.0067725601570453224,
+            0.016637413549976273
+          ],
+          "total_sample_mean": -0.01708984375,
+          "total_sample_se": 0.019093214922869972
+        }
+      }
+    },
+    {
+      "occupation": 0.84,
+      "long_wavelength_fractional_response": -4.249999999999999,
+      "appointments": {
+        "0": {
+          "tracer_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "predicted_charge_change_in_seam_units": [
+            -1.02,
+            -1.02,
+            0.0,
+            0.0
+          ],
+          "sample_mean": [
+            -1.026611328125,
+            -1.026611328125,
+            0.0,
+            0.0
+          ],
+          "sample_se": [
+            0.006963997409189817,
+            0.006963997409189817,
+            0.0,
+            0.0
+          ],
+          "total_sample_mean": -2.05322265625,
+          "total_sample_se": 0.013927994818379634
+        },
+        "11": {
+          "tracer_probability": [
+            0.0703125,
+            0.1640625,
+            0.51171875,
+            0.25390625
+          ],
+          "predicted_charge_change_in_seam_units": [
+            -0.1275,
+            -0.32671875,
+            -0.9894531249999998,
+            -0.5963281249999999
+          ],
+          "sample_mean": [
+            -0.124267578125,
+            -0.324462890625,
+            -1.00079345703125,
+            -0.60028076171875
+          ],
+          "sample_se": [
+            0.0039036178056809775,
+            0.005929986448960711,
+            0.011356673866545652,
+            0.010801205261080313
+          ],
+          "total_sample_mean": -2.0498046875,
+          "total_sample_se": 0.013916693563367178
+        },
+        "64": {
+          "tracer_probability": [
+            0.012848994577048245,
+            0.03891165210732339,
+            0.1634656988308123,
+            0.7847736544848161
+          ],
+          "predicted_charge_change_in_seam_units": [
+            -0.026335936185079158,
+            -0.07807056485860314,
+            -0.33162673316384816,
+            -1.6039667657924692
+          ],
+          "sample_mean": [
+            -0.02838134765625,
+            -0.08013916015625,
+            -0.3349609375,
+            -1.5853271484375
+          ],
+          "sample_se": [
+            0.0019035964924111201,
+            0.0033267896116805,
+            0.008164043150346625,
+            0.014780162281230864
+          ],
+          "total_sample_mean": -2.02880859375,
+          "total_sample_se": 0.014102598043252368
+        }
+      }
+    }
+  ],
+  "observational_comparison": {
+    "dark_density_cap": 3.7202380952380953,
+    "occupied_mass_cap": 6.25,
+    "total_density_cap": 6.25,
+    "a1689_redshift": 0.183,
+    "fixed_apertures": [
+      {
+        "radius_kpc_h_inverse": 10.1,
+        "mass_1e12_msun_h_inverse": 0.91,
+        "quoted_mass_error": 0.68,
+        "density_over_maximum_cosmic_mean": 458895.84127290134,
+        "using_lower_mass": 115984.66317886516,
+        "lower_over_total_model_cap": 18557.546108618426
+      },
+      {
+        "radius_kpc_h_inverse": 27.7,
+        "mass_1e12_msun_h_inverse": 7.3,
+        "quoted_mass_error": 2.5,
+        "density_over_maximum_cosmic_mean": 178451.58261384626,
+        "using_lower_mass": 117338.02692417288,
+        "lower_over_total_model_cap": 18774.084307867663
+      },
+      {
+        "radius_kpc_h_inverse": 75.9,
+        "mass_1e12_msun_h_inverse": 48.3,
+        "quoted_mass_error": 3.9,
+        "density_over_maximum_cosmic_mean": 57392.96400168853,
+        "using_lower_mass": 52758.74951708014,
+        "lower_over_total_model_cap": 8441.399922732822
+      },
+      {
+        "radius_kpc_h_inverse": 208,
+        "mass_1e12_msun_h_inverse": 252,
+        "quoted_mass_error": 15,
+        "density_over_maximum_cosmic_mean": 14549.477151951782,
+        "using_lower_mass": 13683.436845287986,
+        "lower_over_total_model_cap": 2189.3498952460777
+      },
+      {
+        "radius_kpc_h_inverse": 568,
+        "mass_1e12_msun_h_inverse": 679,
+        "quoted_mass_error": 82,
+        "density_over_maximum_cosmic_mean": 1925.1368986363725,
+        "using_lower_mass": 1692.646139154513,
+        "lower_over_total_model_cap": 270.8233822647221
+      },
+      {
+        "radius_kpc_h_inverse": 1554,
+        "mass_1e12_msun_h_inverse": 956,
+        "quoted_mass_error": 180,
+        "density_over_maximum_cosmic_mean": 132.3554106538036,
+        "using_lower_mass": 107.43493584451004,
+        "lower_over_total_model_cap": 17.189589735121604
+      }
+    ],
+    "massive_cluster_baryon_fraction": 0.136,
+    "massive_cluster_baryon_fraction_error": 0.005,
+    "r500_nonbaryonic_density_over_critical_at_upper_baryon_fraction": 429.5,
+    "maximum_local_fraction_of_cluster_nonbaryonic_mass": 0.008661788347469373
+  }
+}

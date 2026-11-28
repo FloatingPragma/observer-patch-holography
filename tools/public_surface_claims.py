@@ -63,9 +63,10 @@ COMPARISON_TABLE_SURFACE_RULE = (
 # A table is a governed comparison table when its header names a comparison or
 # external-reference column and the table carries a numeral. Prose numerals,
 # issue numbers, and structural tables stay outside this gate.
+# FLAG names the lattice-data collaboration. An ordinary flag is an outcome.
 COMPARISON_COLUMN_TERMS = re.compile(
     r"\b(?:comparison|comparaison|measured|measurement|external|experimental"
-    r"|reference|référence|PDG|CODATA|NIST|FLAG)\b",
+    r"|reference|référence|PDG|CODATA|NIST|(?-i:FLAG))\b",
     re.IGNORECASE,
 )
 

@@ -1,0 +1,114 @@
+{
+  "conjugated_local_columns": 99,
+  "counts_sha256": "855a3db828da830f3a43aacbe6b5eca1c3fcda26aaf5ee99e0e3e962dbf58a93",
+  "gateway_dimension": 16,
+  "guide_dimension": 146,
+  "max_positive_phase_error": 0.0018011666751039227,
+  "native_generator_max_integer_error": 0,
+  "passive_negative_short_slope_max_sampled_error": 0.061895886957042734,
+  "positive_modes": [
+    {
+      "formation": 8.0,
+      "label": "upper_rest",
+      "short_measured_phase": 0.05448554272824961,
+      "worst_phase_residual": 0.0016179870418331062
+    },
+    {
+      "formation": 9.0,
+      "label": "upper_top",
+      "short_measured_phase": 0.06955317925056642,
+      "worst_phase_residual": 0.0015932885127486985
+    },
+    {
+      "formation": 0.9915645120686956,
+      "label": "lower_69",
+      "short_measured_phase": -0.05613683749878326,
+      "worst_phase_residual": 0.0013619807481445646
+    },
+    {
+      "formation": 8.008435487931303,
+      "label": "upper_69",
+      "short_measured_phase": 0.05512334491252242,
+      "worst_phase_residual": 0.0014350305321495403
+    },
+    {
+      "formation": 0.9579242115357546,
+      "label": "lower_64",
+      "short_measured_phase": -0.05476556947251697,
+      "worst_phase_residual": 0.001481835298617139
+    },
+    {
+      "formation": 8.042075788464242,
+      "label": "upper_64",
+      "short_measured_phase": 0.055577069368494554,
+      "worst_phase_residual": 0.001632597249924058
+    },
+    {
+      "formation": 0.872139244402653,
+      "label": "lower_57",
+      "short_measured_phase": -0.05757225258872921,
+      "worst_phase_residual": 0.0018011666751039227
+    },
+    {
+      "formation": 8.127860755597338,
+      "label": "upper_57",
+      "short_measured_phase": 0.05674419727471721,
+      "worst_phase_residual": 0.0013198646200552825
+    },
+    {
+      "formation": 0.7316430169785768,
+      "label": "lower_49",
+      "short_measured_phase": -0.058684381856203734,
+      "worst_phase_residual": 0.001546924211578554
+    },
+    {
+      "formation": 8.268356983021416,
+      "label": "upper_49",
+      "short_measured_phase": 0.058779991680700125,
+      "worst_phase_residual": 0.00145959245919624
+    },
+    {
+      "formation": 0.45821024919097225,
+      "label": "lower_36",
+      "short_measured_phase": -0.06329053547716396,
+      "worst_phase_residual": 0.0015418395649265506
+    },
+    {
+      "formation": 8.54178975080902,
+      "label": "upper_36",
+      "short_measured_phase": 0.06331930447580797,
+      "worst_phase_residual": 0.0015809977087876737
+    },
+    {
+      "formation": 0.17279702197250646,
+      "label": "lower_21",
+      "short_measured_phase": -0.06699460012777869,
+      "worst_phase_residual": 0.0013306928082731226
+    },
+    {
+      "formation": 8.82720297802749,
+      "label": "upper_21",
+      "short_measured_phase": 0.06779556992291466,
+      "worst_phase_residual": 0.0012689272917761512
+    }
+  ],
+  "protocol_sha256": "7db0688f2b1edbcfb9b56066df43e5ab172c77522c1f026e29038fc2d66d4e52",
+  "timer": {
+    "compensator": 1369,
+    "dimer": [
+      12,
+      13
+    ],
+    "measured_step": 0.015625767676029693,
+    "native_probability": 0.015543789144677609,
+    "quadrature": "vacancy swap",
+    "shots": 16777216,
+    "source_meter_counts": [
+      65275,
+      4129029
+    ],
+    "source_meter_step": 0.01563458852128363,
+    "stays": 16516409,
+    "swaps": 260807
+  }
+}

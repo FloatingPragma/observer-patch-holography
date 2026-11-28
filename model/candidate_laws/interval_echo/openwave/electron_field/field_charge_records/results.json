@@ -1,0 +1,524 @@
+{
+  "design_sha256": "378f7aef66e9afcfa6abca3d146ad14d671bce07654cd4a57cfa885ce5b93b02",
+  "archived_search_sha256": "06c85b04550c2b713188f506d84a1d021b08fcc5067c8ceb233728788bd8c29c",
+  "archived_result_sha256": "21911de502fb808c534ccab8ff1097b670b2387e19656c0b3a68f3f1feff2c48",
+  "physical_ports_by_cell": {
+    "cells": 20,
+    "left": [
+      14,
+      18,
+      15,
+      16,
+      23,
+      22
+    ],
+    "right": [
+      24,
+      31,
+      25,
+      29,
+      35,
+      34
+    ]
+  },
+  "port_regions_local_order": {
+    "left_fan": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "right_fan": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "receiving_gateway": [
+      6
+    ],
+    "receiving_rim": [
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "complete_active_fixture": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "sectors": [
+    {
+      "sign": 1,
+      "word_count": 160,
+      "local_step_counts_directed": {
+        "material_steps": 352,
+        "gateway_material_steps": 32,
+        "ring_steps": 608
+      },
+      "cut_count": 4096,
+      "active_head_stock": 19,
+      "putative_neutral_background_head_total": 18,
+      "reference_region_loads": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "reference_region_inward_heads": [
+        1,
+        0,
+        3,
+        2,
+        0
+      ],
+      "half_contact_exact": [
+        {
+          "receiver_signed_load": 0,
+          "receiver_signed_inward_head_change": 0,
+          "coupled_probability_by_input": [
+            "1/2",
+            "1/2"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": 0,
+          "receiver_signed_inward_head_change": 1,
+          "coupled_probability_by_input": [
+            "0",
+            "0"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": 1,
+          "receiver_signed_inward_head_change": 0,
+          "coupled_probability_by_input": [
+            "0",
+            "0"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": 1,
+          "receiver_signed_inward_head_change": 1,
+          "coupled_probability_by_input": [
+            "1/2",
+            "1/2"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        }
+      ],
+      "parked_right_charge_and_flux_probability_both_inputs_all_times": [
+        0,
+        0
+      ],
+      "release": [
+        {
+          "archived_exposure": 27.0625,
+          "all_starts_joint_load_and_flux": [
+            {
+              "signed_loads": [
+                0,
+                1,
+                0,
+                1,
+                1
+              ],
+              "signed_inward_head_changes": [
+                -1,
+                1,
+                0,
+                1,
+                0
+              ],
+              "probability_by_input": [
+                0.40974345083098795,
+                0.3150467064719352
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                1,
+                1,
+                0,
+                1
+              ],
+              "signed_inward_head_changes": [
+                -1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.12625722393426103,
+                0.38264343153896146
+              ]
+            },
+            {
+              "signed_loads": [
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "signed_inward_head_changes": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.4639993252347485,
+                0.30230986198910315
+              ]
+            }
+          ],
+          "right_cell_load_and_signed_flux_probability_by_input": [
+            0.5360006747652492,
+            0.6976901380108967
+          ],
+          "right_cell_flux_and_gateway_load_and_receiver_doublet_probability_by_input": [
+            0.10619026907111835,
+            0.29661307016217586
+          ]
+        },
+        {
+          "archived_exposure": 30.8125,
+          "all_starts_joint_load_and_flux": [
+            {
+              "signed_loads": [
+                0,
+                1,
+                0,
+                1,
+                1
+              ],
+              "signed_inward_head_changes": [
+                -1,
+                1,
+                0,
+                1,
+                0
+              ],
+              "probability_by_input": [
+                0.41041355127012397,
+                0.2626958715351671
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                1,
+                1,
+                0,
+                1
+              ],
+              "signed_inward_head_changes": [
+                -1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.25028122880050546,
+                0.21293616140297003
+              ]
+            },
+            {
+              "signed_loads": [
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "signed_inward_head_changes": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.3393052199293669,
+                0.5243679670618642
+              ]
+            }
+          ],
+          "right_cell_load_and_signed_flux_probability_by_input": [
+            0.6606947800706297,
+            0.4756320329381371
+          ],
+          "right_cell_flux_and_gateway_load_and_receiver_doublet_probability_by_input": [
+            0.15425146415387495,
+            0.15007108810144046
+          ]
+        }
+      ]
+    },
+    {
+      "sign": -1,
+      "word_count": 160,
+      "local_step_counts_directed": {
+        "material_steps": 352,
+        "gateway_material_steps": 32,
+        "ring_steps": 608
+      },
+      "cut_count": 4096,
+      "active_head_stock": 19,
+      "putative_neutral_background_head_total": 20,
+      "reference_region_loads": [
+        -1,
+        0,
+        0,
+        0,
+        -1
+      ],
+      "reference_region_inward_heads": [
+        0,
+        1,
+        3,
+        3,
+        0
+      ],
+      "half_contact_exact": [
+        {
+          "receiver_signed_load": 0,
+          "receiver_signed_inward_head_change": 0,
+          "coupled_probability_by_input": [
+            "1/2",
+            "1/2"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": 0,
+          "receiver_signed_inward_head_change": -1,
+          "coupled_probability_by_input": [
+            "0",
+            "0"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": -1,
+          "receiver_signed_inward_head_change": 0,
+          "coupled_probability_by_input": [
+            "0",
+            "0"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        },
+        {
+          "receiver_signed_load": -1,
+          "receiver_signed_inward_head_change": -1,
+          "coupled_probability_by_input": [
+            "1/2",
+            "1/2"
+          ],
+          "independent_probability_by_input": [
+            "1/4",
+            "1/4"
+          ]
+        }
+      ],
+      "parked_right_charge_and_flux_probability_both_inputs_all_times": [
+        0,
+        0
+      ],
+      "release": [
+        {
+          "archived_exposure": 27.0625,
+          "all_starts_joint_load_and_flux": [
+            {
+              "signed_loads": [
+                -1,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.46399932523473963,
+                0.3023098619891227
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                -1,
+                -1,
+                0,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                1,
+                -1,
+                -1,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.12625722393427988,
+                0.3826434315389357
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                -1,
+                0,
+                -1,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                1,
+                -1,
+                0,
+                -1,
+                0
+              ],
+              "probability_by_input": [
+                0.40974345083098707,
+                0.3150467064719434
+              ]
+            }
+          ],
+          "right_cell_load_and_signed_flux_probability_by_input": [
+            0.5360006747652668,
+            0.6976901380108791
+          ],
+          "right_cell_flux_and_gateway_load_and_receiver_doublet_probability_by_input": [
+            0.1061902690711318,
+            0.29661307016213284
+          ]
+        },
+        {
+          "archived_exposure": 30.8125,
+          "all_starts_joint_load_and_flux": [
+            {
+              "signed_loads": [
+                -1,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.3393052199293611,
+                0.5243679670619276
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                -1,
+                -1,
+                0,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                1,
+                -1,
+                -1,
+                0,
+                0
+              ],
+              "probability_by_input": [
+                0.25028122880049675,
+                0.2129361614029607
+              ]
+            },
+            {
+              "signed_loads": [
+                0,
+                -1,
+                0,
+                -1,
+                -1
+              ],
+              "signed_inward_head_changes": [
+                1,
+                -1,
+                0,
+                -1,
+                0
+              ],
+              "probability_by_input": [
+                0.410413551270147,
+                0.26269587153511265
+              ]
+            }
+          ],
+          "right_cell_load_and_signed_flux_probability_by_input": [
+            0.6606947800706436,
+            0.4756320329380732
+          ],
+          "right_cell_flux_and_gateway_load_and_receiver_doublet_probability_by_input": [
+            0.15425146415387778,
+            0.15007108810140948
+          ]
+        }
+      ]
+    }
+  ]
+}

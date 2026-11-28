@@ -1,0 +1,103 @@
+{
+  "model_change": "imposed nonlocal potential g times squared seam distance times the sharp-head mismatch projector",
+  "formation_shots_per_endpoint": 4398046511104,
+  "source_counts_sha256": "26f78fe157dfd00329fb293722886fd46203d3e02e16c3f8324c5e4a31cfca92",
+  "paths": [
+    [
+      1,
+      0,
+      10,
+      2
+    ],
+    [
+      38,
+      39,
+      44,
+      22
+    ]
+  ],
+  "formed": {
+    "-1": {
+      "mismatch_change_population": 0.02689891742061993,
+      "mismatch_change_observed": {
+        "mismatch_counts_formed_product": [
+          471631669222,
+          589934417179
+        ],
+        "product_minus_formed": 0.026898930618017403,
+        "simultaneous_99_radius": 1.7435049397296182e-06
+      },
+      "relative_acceleration_change_by_probe_and_coupling": {
+        "-1": {
+          "0": [
+            7.105427357601002e-15,
+            -1.7763568394002505e-15
+          ],
+          "1": [
+            -0.02689891741974293,
+            -0.026898917420616897
+          ],
+          "-1": [
+            0.026898917421007695,
+            0.026898917420423274
+          ]
+        },
+        "1": {
+          "0": [
+            0.0,
+            -3.552713678800501e-15
+          ],
+          "1": [
+            -0.026898917420622226,
+            -0.026898917420231427
+          ],
+          "-1": [
+            0.026898917421501523,
+            0.02689891742032202
+          ]
+        }
+      }
+    },
+    "1": {
+      "mismatch_change_population": 0.03480279084854488,
+      "mismatch_change_observed": {
+        "mismatch_counts_formed_product": [
+          502890590837,
+          655954659108
+        ],
+        "product_minus_formed": 0.03480273978107107,
+        "simultaneous_99_radius": 1.7435049397296182e-06
+      },
+      "relative_acceleration_change_by_probe_and_coupling": {
+        "-1": {
+          "0": [
+            -3.552713678800501e-15,
+            0.0
+          ],
+          "1": [
+            -0.03480279084740445,
+            -0.034802790848548426
+          ],
+          "-1": [
+            0.03480279084904936,
+            0.03480279084829263
+          ]
+        },
+        "1": {
+          "0": [
+            0.0,
+            0.0
+          ],
+          "1": [
+            -0.03480279084854487,
+            -0.03480279084803817
+          ],
+          "-1": [
+            0.03480279084968352,
+            0.03480279084816518
+          ]
+        }
+      }
+    }
+  }
+}

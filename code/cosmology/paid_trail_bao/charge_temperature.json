@@ -1,0 +1,1054 @@
+{
+  "sha256": {
+    "EQUILIBRIUM_ODDS.md": "c8eb24a0bb4bbc2f9f99c7e01acdd80d5f4e0f106a08871074f8e67233a90ea7",
+    "record_density.json": "ab8803e00af9d45d102af19a55c84bad0baef42a55b7097db60a0f185dfcfb89",
+    "equilibrium_odds.json": "69f4601ed4a0d4373464f23a2e3e09b73dd18dc5f33c62e3cda6503353e8b663",
+    "record_profile_maps.json": "59e4afaf85305135c0254f8b76d7ef861ae6fd84d9f5d47fb8fc3a5727e71247",
+    "occupied_mass.json": "c26cc336a839171ec8d1d5db1980c828cb255a423f2e01df56ddcb08f2d78a10",
+    "thermal_mass.json": "935a87aefc7797568d37698395006465234598c2785da51738954f82a7f8fbaf"
+  },
+  "ordinary_owners_per_full_cell": 4,
+  "filling_intervals": 1024,
+  "nats_per_loaded_owner_ceiling": 0.05267367488811099,
+  "galaxies": 10,
+  "rings": 369,
+  "cosmic_benchmark": 5.364327223960661,
+  "minimum_cosmic_shortfall": 441.95923721567283,
+  "baryons_within_two": 26,
+  "results": {
+    "vacancy": {
+      "ordinary_energy": [
+        32.499538495962646,
+        32.50109887870131
+      ],
+      "mass_per_nat_in_ordinary_units": [
+        0.2304191534374932,
+        0.2304302164275025
+      ],
+      "mass_ratio_ceiling": 0.012137606304499319,
+      "forecasts": {
+        "atomic/1/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.016162204469154062,
+          "median_abs_kms": 40.26816453155672,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/1/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.025699301598500313,
+          "median_abs_kms": 40.26584877415411,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/2/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.005461774987143286,
+          "median_abs_kms": 40.271839434601986,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/2/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.015032802432699555,
+          "median_abs_kms": 40.26863048686991,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/4/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0004369229309837408,
+          "median_abs_kms": 40.27369538342977,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/4/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.004208477934398047,
+          "median_abs_kms": 40.272387242350106,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/8/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 7.617789928460184e-05,
+          "median_abs_kms": 40.2737891685054,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/8/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.006101897902226483,
+          "median_abs_kms": 40.27469144438413,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/16/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.00010941642397099827,
+          "median_abs_kms": 40.27377001946721,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/16/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.009295210883227156,
+          "median_abs_kms": 40.27606883385333,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/64/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 5.427968164894992e-05,
+          "median_abs_kms": 40.273784373011125,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/64/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.01301585785469328,
+          "median_abs_kms": 40.27723751992403,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/256/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 1.5712699891423654e-05,
+          "median_abs_kms": 40.273796252762395,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/256/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.01401757046808072,
+          "median_abs_kms": 40.27755069177579,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/1/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.11371060485029716,
+          "median_abs_kms": 40.27364758825409,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/1/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.16338020175990664,
+          "median_abs_kms": 40.28880471994492,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/2/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.08940763021226417,
+          "median_abs_kms": 40.2736607942809,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/2/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.18020088412717428,
+          "median_abs_kms": 40.29317371456298,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/4/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.013579465167197213,
+          "median_abs_kms": 40.27370801139077,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/4/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.062378341282936844,
+          "median_abs_kms": 40.29550917422205,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/8/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0009160408711750279,
+          "median_abs_kms": 40.27374793986678,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/8/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.05261886909110558,
+          "median_abs_kms": 40.296718580332254,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/16/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0007942738440078756,
+          "median_abs_kms": 40.273772774508984,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/16/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.06253018458303927,
+          "median_abs_kms": 40.297334216106194,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/64/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0005279847460997189,
+          "median_abs_kms": 40.27379371837074,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/64/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.08974925619773444,
+          "median_abs_kms": 40.29780084932952,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/256/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.00015900461778528552,
+          "median_abs_kms": 40.273799277766585,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/256/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.09994949864514524,
+          "median_abs_kms": 40.29791817338578,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        }
+      }
+    },
+    "excess": {
+      "ordinary_energy": [
+        42.40890985080894,
+        42.41050790590577
+      ],
+      "mass_per_nat_in_ordinary_units": [
+        0.17658066500957353,
+        0.17658731893283441
+      ],
+      "mass_ratio_ceiling": 0.009301503026831286,
+      "forecasts": {
+        "atomic/1/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.012386576807642768,
+          "median_abs_kms": 40.2694815382695,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/1/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.019696546126450443,
+          "median_abs_kms": 40.26770683805927,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/2/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.004185674053967858,
+          "median_abs_kms": 40.27229780372687,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/2/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.01152095590687452,
+          "median_abs_kms": 40.26983862543477,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/4/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0003348311426378814,
+          "median_abs_kms": 40.273720099070985,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/4/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.003225090770470729,
+          "median_abs_kms": 40.27271761383051,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/8/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 5.837799970365154e-05,
+          "median_abs_kms": 40.273791970477575,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/8/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.004676063685806753,
+          "median_abs_kms": 40.274483420912404,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/16/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 8.384995024712794e-05,
+          "median_abs_kms": 40.27377729577445,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/16/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.007122996534608461,
+          "median_abs_kms": 40.27553896615453,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/64/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 4.1596566084933784e-05,
+          "median_abs_kms": 40.27378829549127,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/64/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.00997397332555039,
+          "median_abs_kms": 40.27643457043551,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/256/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 1.2041232178461314e-05,
+          "median_abs_kms": 40.273797399437655,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "atomic/256/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.010741532657739583,
+          "median_abs_kms": 40.2766745642038,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/1/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.087148375131477,
+          "median_abs_kms": 40.27368347163028,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/1/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.12522021377921533,
+          "median_abs_kms": 40.28529872922242,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/2/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.06852116521520202,
+          "median_abs_kms": 40.27369359196112,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/2/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.13811396071315585,
+          "median_abs_kms": 40.28864668346108,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/4/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.010406519079737109,
+          "median_abs_kms": 40.27372977640432,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/4/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.047805172560345,
+          "median_abs_kms": 40.290436323253715,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/8/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0007019967810037997,
+          "median_abs_kms": 40.27376037525866,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/8/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.040322065245334215,
+          "median_abs_kms": 40.29136307391941,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/16/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.0006086822166935235,
+          "median_abs_kms": 40.27377940707741,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/16/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.04791743809568061,
+          "median_abs_kms": 40.2918348254354,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/64/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.00040461468265107214,
+          "median_abs_kms": 40.273795457228175,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/64/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.06877343683902382,
+          "median_abs_kms": 40.29219239812926,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/256/none": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.00012185121832430923,
+          "median_abs_kms": 40.27379971762383,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        },
+        "mapped_baryons/256/third_head": {
+          "within_two": 26,
+          "complete": 0,
+          "maximum_speed_change_kms": 0.07658911551126835,
+          "median_abs_kms": 40.29228230136981,
+          "by_galaxy": {
+            "DDO154": 0,
+            "IC2574": 0,
+            "NGC7793": 0,
+            "NGC2403": 0,
+            "NGC3198": 0,
+            "NGC6946": 6,
+            "NGC3521": 13,
+            "NGC2841": 0,
+            "NGC5055": 4,
+            "NGC7331": 3
+          }
+        }
+      }
+    }
+  }
+}

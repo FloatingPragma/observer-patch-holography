@@ -6,6 +6,8 @@ Reversing the source and receiver gives the same freely propagating channel in f
 
 ## How would an observer identify a lepton?
 
+The [electron identification audit](ELECTRON_IDENTITY.md) puts the charge, recoil, magnetic, angular and exchange records on their shared native chart and states which observations still distinguish its mobile vacancy from an electron.
+
 Use the same labeled preparation across the following measurements. Freeze the source, receiving apertures, physical clock, host reference and rejection accounting before comparing with laboratory masses. The two signs have independent stock preparations. A reversal of source and receiver tests reciprocity. Independent sources and analyzers should also agree at a third setting that was held out of the fit.
 
 | Observable | Recorded on this material | What distinguishes a particle assignment |

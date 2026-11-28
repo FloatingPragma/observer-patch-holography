@@ -1,0 +1,351 @@
+{
+  "common_baseline_equal_mean_charge": {
+    "target_increase_nats": 5e-05,
+    "deadline": 256,
+    "interventions": {
+      "controlled": {
+        "source_charge_nats": [
+          0.022506437408417845,
+          0.051107517165161376
+        ],
+        "fraction_of_its_own_half": [
+          0.0019566593242406095,
+          0.004443173221302367
+        ],
+        "exit_change_at_equal_charge": [
+          5.49367623073443e-12,
+          1.2475067478288746e-11
+        ]
+      },
+      "distinct_native": {
+        "source_charge_nats": [
+          0.0001036371328268634,
+          0.00012537452980116185
+        ],
+        "fraction_of_its_own_half": [
+          0.7976101697736799,
+          0.9649051191628429
+        ],
+        "exit_change_at_equal_charge": [
+          -1.2137705781954327e-08,
+          -1.0033216829357819e-08
+        ]
+      }
+    }
+  },
+  "input_sha256": {
+    "SECTOR_REGISTER_ESCAPE.md": "748e3b933b2fda5724f1339af7bdfea112e43c9f4bef4a3817e2cc752d1acc97",
+    "sector_register_balls.json": "46cbd90aeb032b6a9cda3fc7895a951e48ac0699c699e99a8343738ec6fa2775"
+  },
+  "center": 231,
+  "volume": 197,
+  "exterior_first_entry_identical_killed_kernel": true,
+  "count_intervals": {
+    "interior_exit": [
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 1,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 2,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -1.0069388939039073e-15,
+          9.930611060960928e-16
+        ],
+        "deadline": 4,
+        "ordinary_change": [
+          -1.0360343422949175e-15,
+          1.0360343422949175e-15
+        ],
+        "source_change": [
+          -9.061391701907622e-09,
+          -9.061335885042375e-09
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -1e-15,
+          1e-15
+        ],
+        "deadline": 8,
+        "ordinary_change": [
+          -1.0948705479165453e-15,
+          1.0949112054980135e-15
+        ],
+        "source_change": [
+          -1.8659399157878504e-08,
+          -1.8659255439473238e-08
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -1.3461625147673305e-15,
+          1.3461625147673305e-15
+        ],
+        "deadline": 16,
+        "ordinary_change": [
+          -1.4696671968262455e-15,
+          1.4696671968262455e-15
+        ],
+        "source_change": [
+          -2.5830381576132543e-08,
+          -2.5830195123035145e-08
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -2.0662431199176205e-15,
+          2.0107319686863627e-15
+        ],
+        "deadline": 32,
+        "ordinary_change": [
+          -1.0103566739539229e-14,
+          -5.783532296961145e-15
+        ],
+        "source_change": [
+          -3.033417663904582e-08,
+          -3.033399313497262e-08
+        ],
+        "ordinary_entropy_coefficient": [
+          -368618627454230.0,
+          -211006448722142.44
+        ],
+        "source_entropy_residual_nats": [
+          6400668.166611205,
+          11181742.557278024
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -5.662229443614788e-13,
+          -5.593766691547362e-13
+        ],
+        "deadline": 64,
+        "ordinary_change": [
+          -4.453829643411832e-11,
+          -4.453121141153328e-11
+        ],
+        "source_change": [
+          -3.151311270656488e-08,
+          -3.151293242118892e-08
+        ],
+        "ordinary_entropy_coefficient": [
+          -47874685407.52241,
+          -47867069641.7608
+        ],
+        "source_entropy_residual_nats": [
+          1508.4313696050162,
+          1508.6799958235858
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -1.743160645296038e-10,
+          -1.7430367965416081e-10
+        ],
+        "deadline": 128,
+        "ordinary_change": [
+          -9.862410666802601e-09,
+          -9.862398061249525e-09
+        ],
+        "source_change": [
+          -2.9185329724393848e-08,
+          -2.918516293000351e-08
+        ],
+        "ordinary_entropy_coefficient": [
+          -216166263.40804198,
+          -216165987.11646402
+        ],
+        "source_entropy_residual_nats": [
+          6.308478337783505,
+          6.3085224578490715
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          -5.615386507317893e-09,
+          -5.615363045241978e-09
+        ],
+        "deadline": 256,
+        "ordinary_change": [
+          -3.5126050227798473e-07,
+          -3.5126047862619237e-07
+        ],
+        "source_change": [
+          -2.5158340526755766e-08,
+          -2.515819684747681e-08
+        ],
+        "ordinary_entropy_coefficient": [
+          -6069335.626601453,
+          -6069335.217912276
+        ],
+        "source_entropy_residual_nats": [
+          0.15233231401002403,
+          0.15233319746040364
+        ]
+      }
+    ],
+    "exterior_entry": [
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 1,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 2,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 4,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 8,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 16,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 32,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 64,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 128,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "matched_together_minus_crossed_change": [
+          0.0,
+          0.0
+        ],
+        "deadline": 256,
+        "ordinary_change": [
+          0.0,
+          0.0
+        ],
+        "source_change": [
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

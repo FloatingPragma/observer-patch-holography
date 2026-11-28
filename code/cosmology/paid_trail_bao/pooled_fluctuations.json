@@ -1,0 +1,335 @@
+{
+  "sha256": {
+    "pooled_ordinary.json": "9633fc03e72bb4727af066881b59ed94e75ca06e2e6cbf14236ce8d92f8023fa",
+    "collective_relay_lab.json": "b8cedfa03212c03d9b318d19293a9459b866ec5d2c3eed6257ffdf453f5c89b1",
+    "POOLED_FLUCTUATIONS.md": "3f1ed2322a6f2fa2d2918e8575613b0da37e0e74998b6780737cb5eabd781b39"
+  },
+  "planck_h": 0.6736,
+  "planck_omega_m": 0.143,
+  "planck_sigma8": 0.8111,
+  "planck_sigma8_error": 0.006,
+  "tests": {
+    "atomic/1": {
+      "activation_probability": 1.1948538401946486e-05,
+      "pooled_relative_rms": 289.29439109928234,
+      "predicted_sigma8": 0.8696587777430098,
+      "quadrature_difference": 4.544364884395691e-12,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 179255790,
+          "sigma8_lower": 0.8690827636394609,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 191494393,
+          "sigma8_lower": 0.8296983529874288,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 204618417,
+          "sigma8_lower": 0.7921850339142302,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/2": {
+      "activation_probability": 5.974269183237421e-06,
+      "pooled_relative_rms": 409.1252741397476,
+      "predicted_sigma8": 1.7349732807809461,
+      "quadrature_difference": 1.1481926520673369e-11,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 358510425,
+          "sigma8_lower": 1.733521893292718,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 382987516,
+          "sigma8_lower": 1.6548258747376798,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 409235436,
+          "sigma8_lower": 1.5798702585588624,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/4": {
+      "activation_probability": 2.987134591322494e-06,
+      "pooled_relative_rms": 578.5913755951123,
+      "predicted_sigma8": 3.4589667772403123,
+      "quadrature_difference": 2.901767715002279e-11,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 717019696,
+          "sigma8_lower": 3.4553009090131757,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 765973762,
+          "sigma8_lower": 3.298091418481731,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 818469475,
+          "sigma8_lower": 3.148358212462402,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/8": {
+      "activation_probability": 1.4935672945421512e-06,
+      "pooled_relative_rms": 818.2523818039017,
+      "predicted_sigma8": 6.890170381963177,
+      "quadrature_difference": 7.346478980707616e-11,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 1434038237,
+          "sigma8_lower": 6.880896196251561,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 1531946253,
+          "sigma8_lower": 6.566935286687237,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 1636937554,
+          "sigma8_lower": 6.267915498055528,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/16": {
+      "activation_probability": 7.467836469908593e-07,
+      "pooled_relative_rms": 1157.1840480917367,
+      "predicted_sigma8": 13.710088269736712,
+      "quadrature_difference": 1.8599344286940322e-10,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 2868075319,
+          "sigma8_lower": 13.686589858992788,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 3063891237,
+          "sigma8_lower": 13.059817201240064,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 3273873710,
+          "sigma8_lower": 12.46289780260328,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/64": {
+      "activation_probability": 1.8669591174394678e-07,
+      "pooled_relative_rms": 2314.368744331815,
+      "predicted_sigma8": 54.0332464015457,
+      "quadrature_difference": 1.198472432406561e-09,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 11472297814,
+          "sigma8_lower": 53.88150978961188,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 12255561137,
+          "sigma8_lower": 51.38739234207644,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 13095490647,
+          "sigma8_lower": 49.012354996994944,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "atomic/256": {
+      "activation_probability": 4.6673977933715375e-08,
+      "pooled_relative_rms": 4628.737812838691,
+      "predicted_sigma8": 210.92632799481552,
+      "quadrature_difference": 7.797240186846466e-09,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 45889187792,
+          "sigma8_lower": 209.934326217591,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 49022240739,
+          "sigma8_lower": 200.03889198928627,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 52381958397,
+          "sigma8_lower": 190.61763241442085,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/1": {
+      "activation_probability": 7.903179688137496e-08,
+      "pooled_relative_rms": 3557.124408890185,
+      "predicted_sigma8": 125.91226110535675,
+      "quadrature_difference": 3.821824634542281e-09,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 27100876613,
+          "sigma8_lower": 125.42711615318835,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 28951170465,
+          "sigma8_lower": 119.56244206877224,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 30935326186,
+          "sigma8_lower": 113.9783564359271,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/2": {
+      "activation_probability": 3.95158984399017e-08,
+      "pooled_relative_rms": 5030.53368154393,
+      "predicted_sigma8": 248.17588494205467,
+      "quadrature_difference": 9.772577413968975e-09,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 54201752071,
+          "sigma8_lower": 246.93141579359047,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 57902339660,
+          "sigma8_lower": 235.25807206912424,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 61870650975,
+          "sigma8_lower": 224.1444023129524,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/4": {
+      "activation_probability": 1.97579492197544e-08,
+      "pooled_relative_rms": 7114.249028730935,
+      "predicted_sigma8": 487.0480259052928,
+      "quadrature_difference": 2.5096198896790156e-08,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 108403502987,
+          "sigma8_lower": 483.83630952634365,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 115804678049,
+          "sigma8_lower": 460.6289138971917,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 123741300552,
+          "sigma8_lower": 438.5370375526749,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/8": {
+      "activation_probability": 9.878974609873652e-09,
+      "pooled_relative_rms": 10061.06751222923,
+      "predicted_sigma8": 950.3215967756564,
+      "quadrature_difference": 6.482400749519002e-08,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 216807004821,
+          "sigma8_lower": 941.9618595909791,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 231609354828,
+          "sigma8_lower": 895.8924245466757,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 247482599707,
+          "sigma8_lower": 852.0442563706181,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/16": {
+      "activation_probability": 4.939487304947331e-09,
+      "pooled_relative_rms": 14228.498162871525,
+      "predicted_sigma8": 1839.7635365283243,
+      "quadrature_difference": 1.687412805040367e-07,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 433614008487,
+          "sigma8_lower": 1817.7385164167847,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 463218708387,
+          "sigma8_lower": 1726.4526563067034,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 494965198016,
+          "sigma8_lower": 1639.5843409591657,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/64": {
+      "activation_probability": 1.2348718262345305e-09,
+      "pooled_relative_rms": 28456.996378480697,
+      "predicted_sigma8": 6646.174214042588,
+      "quadrature_difference": 1.1863894542329945e-06,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 1734456030483,
+          "sigma8_lower": 6483.721026684841,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 1852874829737,
+          "sigma8_lower": 6127.900392280762,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 1979860787872,
+          "sigma8_lower": 5789.457544673161,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    },
+    "mapped_baryons/256": {
+      "activation_probability": 3.0871795655862214e-10,
+      "pooled_relative_rms": 56913.99278331792,
+      "predicted_sigma8": 21950.33611439016,
+      "quadrature_difference": 9.73402347881347e-06,
+      "sensitivity": {
+        "0": {
+          "pool_tiles_upper": 6937824118470,
+          "sigma8_lower": 20544.478596783247,
+          "planck_sigma8_upper": 0.8111
+        },
+        "1": {
+          "pool_tiles_upper": 7411499315137,
+          "sigma8_lower": 19176.169779421733,
+          "planck_sigma8_upper": 0.8171
+        },
+        "2": {
+          "pool_tiles_upper": 7919443147296,
+          "sigma8_lower": 17875.441008102945,
+          "planck_sigma8_upper": 0.8231
+        }
+      }
+    }
+  }
+}

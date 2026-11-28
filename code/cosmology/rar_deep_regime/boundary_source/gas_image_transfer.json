@@ -1,0 +1,1413 @@
+{
+  "protocol_sha256": "bf8d6f68389b3ccac030e4148f80e86736090296ce0b904df3858b0e5f34d1ee",
+  "predictions": {
+    "0.8_atomic_compact": {
+      "calibration": "NGC3198",
+      "gain": 5.5509544055455955e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 1648.213337027662,
+          "predicted_over_observed_excess": 0.912608421636331,
+          "observed_kms": 45.5,
+          "total_residual_kms": -1.7688127644850908
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 7966.6028753723485,
+          "predicted_over_observed_excess": 2.2563418099078305,
+          "observed_kms": 67.5,
+          "total_residual_kms": 27.32664301435726
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 12395.200102846542,
+          "predicted_over_observed_excess": 0.8096271892788972,
+          "observed_kms": 134.0,
+          "total_residual_kms": -11.356461838193283
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 25392.061340018707,
+          "predicted_over_observed_excess": 0.3403482236917398,
+          "observed_kms": 294.0,
+          "total_residual_kms": -101.07011990741569
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 42009.64865666749,
+          "predicted_over_observed_excess": 1.951971803074822,
+          "observed_kms": 172.0,
+          "total_residual_kms": 51.767739791389374
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 22466.967367861496,
+          "predicted_over_observed_excess": 1.5896954519631574,
+          "observed_kms": 154.0,
+          "total_residual_kms": 25.025395422188524
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 39606.03802376591,
+          "predicted_over_observed_excess": 1.0472493325711538,
+          "observed_kms": 238.0,
+          "total_residual_kms": 3.724900910673256
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 4312.067230719852,
+          "predicted_over_observed_excess": 0.8544913034611475,
+          "observed_kms": 90.8,
+          "total_residual_kms": -4.137716792598567
+        }
+      },
+      "median_abs_kms": 18.190928630190903,
+      "rms_kms": 42.472310637060396
+    },
+    "0.8_atomic_finite": {
+      "calibration": "NGC3198",
+      "gain": 8.743892859634276e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 1149.5630060284918,
+          "predicted_over_observed_excess": 0.6365079428340841,
+          "observed_kms": 45.5,
+          "total_residual_kms": -7.899914813547404
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 7000.963057161053,
+          "predicted_over_observed_excess": 1.9828483862708317,
+          "observed_kms": 67.5,
+          "total_residual_kms": 22.090470515345842
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 12917.955819948851,
+          "predicted_over_observed_excess": 0.843772442151404,
+          "observed_kms": 134.0,
+          "total_residual_kms": -9.243464419899624
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 24074.070567884315,
+          "predicted_over_observed_excess": 0.3226822369830879,
+          "observed_kms": 294.0,
+          "total_residual_kms": -104.51662906628303
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 41141.63437945641,
+          "predicted_over_observed_excess": 1.911639654438452,
+          "observed_kms": 172.0,
+          "total_residual_kms": 49.819717550392426
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 20837.252695730418,
+          "predicted_over_observed_excess": 1.4743817133590584,
+          "observed_kms": 154.0,
+          "total_residual_kms": 20.414384538488918
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 39798.58652198868,
+          "predicted_over_observed_excess": 1.0523406342088073,
+          "observed_kms": 238.0,
+          "total_residual_kms": 4.122853565080817
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 3736.9266110704616,
+          "predicted_over_observed_excess": 0.7405198295804825,
+          "observed_kms": 90.8,
+          "total_residual_kms": -7.522087495720314
+        }
+      },
+      "median_abs_kms": 14.82892447919427,
+      "rms_kms": 42.620265136156426
+    },
+    "0.8_both_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 4.9182807969452254e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 1460.3571588830937,
+          "predicted_over_observed_excess": 0.8085932881704679,
+          "observed_kms": 45.5,
+          "total_residual_kms": -3.972171271747257
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 7061.428167265064,
+          "predicted_over_observed_excess": 1.9999736224728413,
+          "observed_kms": 67.5,
+          "total_residual_kms": 22.42729016969801
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 11575.998636148366,
+          "predicted_over_observed_excess": 0.7561187525104033,
+          "observed_kms": 134.0,
+          "total_residual_kms": -14.742983493010499
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 26210.595735092273,
+          "predicted_over_observed_excess": 0.351319634152017,
+          "observed_kms": 294.0,
+          "total_residual_kms": -98.96032960545557
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 54718.78034985141,
+          "predicted_over_observed_excess": 2.5424996341787427,
+          "observed_kms": 172.0,
+          "total_residual_kms": 78.56163526072956
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 43217.3430902665,
+          "predicted_over_observed_excess": 3.0579300103851725,
+          "observed_kms": 154.0,
+          "total_residual_kms": 75.78352405791838
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 41945.13254675917,
+          "predicted_over_observed_excess": 1.1090988711833123,
+          "observed_kms": 238.0,
+          "total_residual_kms": 8.515764695217939
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3820.5965869218344,
+          "predicted_over_observed_excess": 0.7571001060234048,
+          "observed_kms": 90.8,
+          "total_residual_kms": -7.021239643201724
+        }
+      },
+      "median_abs_kms": 18.585136831354255,
+      "rms_kms": 53.11091342042154
+    },
+    "0.8_both_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 7.459610593581596e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 980.7179153975034,
+          "predicted_over_observed_excess": 0.543019164288177,
+          "observed_kms": 45.5,
+          "total_residual_kms": -10.21655748941859
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 5976.131443460963,
+          "predicted_over_observed_excess": 1.692590361077283,
+          "observed_kms": 67.5,
+          "total_residual_kms": 16.175688186360105
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 11789.690918395796,
+          "predicted_over_observed_excess": 0.7700766620569258,
+          "observed_kms": 134.0,
+          "total_residual_kms": -13.850392142147228
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 25255.732686144824,
+          "predicted_over_observed_excess": 0.33852091181804267,
+          "observed_kms": 294.0,
+          "total_residual_kms": -101.42375541447205
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 58168.881980785074,
+          "predicted_over_observed_excess": 2.702808070851567,
+          "observed_kms": 172.0,
+          "total_residual_kms": 85.3542979929897
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 47885.21154310129,
+          "predicted_over_observed_excess": 3.3882144287641576,
+          "observed_kms": 154.0,
+          "total_residual_kms": 85.72554386487633
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 42389.74140018559,
+          "predicted_over_observed_excess": 1.1208550666585235,
+          "observed_kms": 238.0,
+          "total_residual_kms": 9.415907121378268
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 3188.055684449928,
+          "predicted_over_observed_excess": 0.6317540315477804,
+          "observed_kms": 90.8,
+          "total_residual_kms": -10.88542195287566
+        }
+      },
+      "median_abs_kms": 15.013040164253667,
+      "rms_kms": 56.66350151874478
+    },
+    "0.8_radial_stars_plus_mapped_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 1.92408270445108e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 609.5377680028951,
+          "predicted_over_observed_excess": 0.3374983613395663,
+          "observed_kms": 45.5,
+          "total_residual_kms": -15.940886887409913
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3207.3101858487107,
+          "predicted_over_observed_excess": 0.9083907134426432,
+          "observed_kms": 67.5,
+          "total_residual_kms": -2.4400312338784573
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 10891.873687320789,
+          "predicted_over_observed_excess": 0.7114332165901206,
+          "observed_kms": 134.0,
+          "total_residual_kms": -17.64661140593803
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 76982.08944383032,
+          "predicted_over_observed_excess": 1.0318468062690567,
+          "observed_kms": 294.0,
+          "total_residual_kms": 4.013366707519651
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 93975.64391226016,
+          "predicted_over_observed_excess": 4.366563705202944,
+          "observed_kms": 172.0,
+          "total_residual_kms": 147.4338689415066
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 52952.80493922742,
+          "predicted_over_observed_excess": 3.746782189259687,
+          "observed_kms": 154.0,
+          "total_residual_kms": 96.07184923024997
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 109029.64149641387,
+          "predicted_over_observed_excess": 2.8829245485013235,
+          "observed_kms": 238.0,
+          "total_residual_kms": 119.56751976783738
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 6540.414113593995,
+          "predicted_over_observed_excess": 1.296066754545393,
+          "observed_kms": 90.8,
+          "total_residual_kms": 7.88484287667481
+        }
+      },
+      "median_abs_kms": 16.793749146673974,
+      "rms_kms": 75.75675224841676
+    },
+    "0.8_radial_stars_plus_mapped_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 2.4193828280690095e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 354.38426443877887,
+          "predicted_over_observed_excess": 0.19622099697692125,
+          "observed_kms": 45.5,
+          "total_residual_kms": -20.628577353943363
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 2258.6605261385293,
+          "predicted_over_observed_excess": 0.6397093289624516,
+          "observed_kms": 67.5,
+          "total_residual_kms": -10.192497209016956
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 10804.816651471605,
+          "predicted_over_observed_excess": 0.7057468426182038,
+          "observed_kms": 134.0,
+          "total_residual_kms": -18.02132091857743
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 85066.35569112553,
+          "predicted_over_observed_excess": 1.140206093066368,
+          "observed_kms": 294.0,
+          "total_residual_kms": 17.281597566649907
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 101911.4672902304,
+          "predicted_over_observed_excess": 4.735300506469226,
+          "observed_kms": 172.0,
+          "total_residual_kms": 159.62300885932189
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 52416.56026460264,
+          "predicted_over_observed_excess": 3.7088391190431915,
+          "observed_kms": 154.0,
+          "total_residual_kms": 94.99735963020188
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 117344.33697501647,
+          "predicted_over_observed_excess": 3.1027788870058193,
+          "observed_kms": 238.0,
+          "total_residual_kms": 131.01114708301884
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 5707.369218633002,
+          "predicted_over_observed_excess": 1.1309882481005753,
+          "observed_kms": 90.8,
+          "total_residual_kms": 3.56976909282443
+        }
+      },
+      "median_abs_kms": 19.324949136260397,
+      "rms_kms": 81.26616303119874
+    },
+    "0.8_global_HI_both_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 3.3238280954029736e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 858.7618998274273,
+          "predicted_over_observed_excess": 0.47549265884248354,
+          "observed_kms": 45.5,
+          "total_residual_kms": -11.989325583816921
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3542.5899377277797,
+          "predicted_over_observed_excess": 1.0033503510717385,
+          "observed_kms": 67.5,
+          "total_residual_kms": 0.08756755297368102
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 9868.250850860471,
+          "predicted_over_observed_excess": 0.6445724258736611,
+          "observed_kms": 134.0,
+          "total_residual_kms": -22.13182668488561
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 19768.403001196166,
+          "predicted_over_observed_excess": 0.2649702502126445,
+          "observed_kms": 294.0,
+          "total_residual_kms": -116.2409487713314
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 45067.21722149189,
+          "predicted_over_observed_excess": 2.0940412517693887,
+          "observed_kms": 172.0,
+          "total_residual_kms": 58.4985248025925
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 36439.068534287886,
+          "predicted_over_observed_excess": 2.5783195646420256,
+          "observed_kms": 154.0,
+          "total_residual_kms": 60.52783822268228
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 32989.60457734588,
+          "predicted_over_observed_excess": 0.8722998587912467,
+          "observed_kms": 238.0,
+          "total_residual_kms": -10.372026600738792
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 2933.5753468906773,
+          "predicted_over_observed_excess": 0.5813254960655228,
+          "observed_kms": 90.8,
+          "total_residual_kms": -12.493809651530881
+        }
+      },
+      "median_abs_kms": 17.312818168208246,
+      "rms_kms": 51.8349524200443
+    },
+    "0.8_global_HI_both_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 5.118466439954068e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 585.5395865162519,
+          "predicted_over_observed_excess": 0.3242106745840622,
+          "observed_kms": 45.5,
+          "total_residual_kms": -16.349648603897553
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3044.2430655626013,
+          "predicted_over_observed_excess": 0.8622060137558747,
+          "observed_kms": 67.5,
+          "total_residual_kms": -3.7055455735954936
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 10165.26011406104,
+          "predicted_over_observed_excess": 0.6639724172380321,
+          "observed_kms": 134.0,
+          "total_residual_kms": -20.812114322861206
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 19198.182336479185,
+          "predicted_over_observed_excess": 0.2573271688672603,
+          "observed_kms": 294.0,
+          "total_residual_kms": -117.85216541495765
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 47434.144048661125,
+          "predicted_over_observed_excess": 2.20402013934198,
+          "observed_kms": 172.0,
+          "total_residual_kms": 63.57694446473445
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 39075.55692953454,
+          "predicted_over_observed_excess": 2.764869602413153,
+          "observed_kms": 154.0,
+          "total_residual_kms": 66.58712965117434
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 33531.242395503905,
+          "predicted_over_observed_excess": 0.8866216610179909,
+          "observed_kms": 238.0,
+          "total_residual_kms": -9.185376140394396
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 2485.366447052697,
+          "predicted_over_observed_excess": 0.49250716681570106,
+          "observed_kms": 90.8,
+          "total_residual_kms": -15.410010299425707
+        }
+      },
+      "median_abs_kms": 18.580881463379377,
+      "rms_kms": 54.08446210324005
+    },
+    "1.6_atomic_compact": {
+      "calibration": "NGC3198",
+      "gain": 7.85206156648164e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 1818.3400464525919,
+          "predicted_over_observed_excess": 1.006806826829713,
+          "observed_kms": 45.5,
+          "total_residual_kms": 0.13489286119330757
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 7435.606038799331,
+          "predicted_over_observed_excess": 2.1059501835105507,
+          "observed_kms": 67.5,
+          "total_residual_kms": 24.484212715005242
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 9863.558148610513,
+          "predicted_over_observed_excess": 0.6442659088911814,
+          "observed_kms": 134.0,
+          "total_residual_kms": -22.152802902305538
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 24334.527289716923,
+          "predicted_over_observed_excess": 0.3261733274242012,
+          "observed_kms": 294.0,
+          "total_residual_kms": -103.83058978311684
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 35638.99645634749,
+          "predicted_over_observed_excess": 1.655960437594203,
+          "observed_kms": 172.0,
+          "total_residual_kms": 37.04867655889848
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 17059.314389158604,
+          "predicted_over_observed_excess": 1.2070660919216174,
+          "observed_kms": 154.0,
+          "total_residual_kms": 9.225118248902078
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 30959.19950384419,
+          "predicted_over_observed_excess": 0.8186125811898415,
+          "observed_kms": 238.0,
+          "total_residual_kms": -14.876515802676948
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3994.443017213073,
+          "predicted_over_observed_excess": 0.7915500009052222,
+          "observed_kms": 90.8,
+          "total_residual_kms": -5.990052958317008
+        }
+      },
+      "median_abs_kms": 18.514659352491243,
+      "rms_kms": 41.209725214199665
+    },
+    "1.6_atomic_finite": {
+      "calibration": "NGC3198",
+      "gain": 1.2473999967559996e-05,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 1210.1569678107867,
+          "predicted_over_observed_excess": 0.670058550986883,
+          "observed_kms": 45.5,
+          "total_residual_kms": -7.102599465448357
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 6094.585692965336,
+          "predicted_over_observed_excess": 1.726139576457933,
+          "observed_kms": 67.5,
+          "total_residual_kms": 16.880537109960002
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 9952.762445260078,
+          "predicted_over_observed_excess": 0.6500925372125268,
+          "observed_kms": 134.0,
+          "total_residual_kms": -21.754733751217472
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 23361.137574407552,
+          "predicted_over_observed_excess": 0.3131262787372469,
+          "observed_kms": 294.0,
+          "total_residual_kms": -106.40731659542845
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 35742.95894598877,
+          "predicted_over_observed_excess": 1.6607910385358042,
+          "observed_kms": 172.0,
+          "total_residual_kms": 37.29718502805582
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 15405.057289414788,
+          "predicted_over_observed_excess": 1.0900158045026607,
+          "observed_kms": 154.0,
+          "total_residual_kms": 4.076507197066604
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 31011.875788343514,
+          "predicted_over_observed_excess": 0.8200054295164311,
+          "observed_kms": 238.0,
+          "total_residual_kms": -14.758504115268948
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 3205.1000018349846,
+          "predicted_over_observed_excess": 0.6351315811544297,
+          "observed_kms": 90.8,
+          "total_residual_kms": -10.77885215872628
+        }
+      },
+      "median_abs_kms": 15.819520612614475,
+      "rms_kms": 41.64264631576367
+    },
+    "1.6_both_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 7.100909928208665e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 1644.3922120824864,
+          "predicted_over_observed_excess": 0.910492681685227,
+          "observed_kms": 45.5,
+          "total_residual_kms": -1.812523395342616
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 6732.018173491145,
+          "predicted_over_observed_excess": 1.9066764476065927,
+          "observed_kms": 67.5,
+          "total_residual_kms": 20.576713854974997
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 9384.43083461746,
+          "predicted_over_observed_excess": 0.6129703672850513,
+          "observed_kms": 134.0,
+          "total_residual_kms": -24.315597350318498
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 24932.74120019306,
+          "predicted_over_observed_excess": 0.334191622555576,
+          "observed_kms": 294.0,
+          "total_residual_kms": -102.26419611164607
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 47738.57925683177,
+          "predicted_over_observed_excess": 2.2181656740278073,
+          "observed_kms": 172.0,
+          "total_residual_kms": 64.22220888712226
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 34754.34786935471,
+          "predicted_over_observed_excess": 2.4591137664129454,
+          "observed_kms": 154.0,
+          "total_residual_kms": 56.56465208473185
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 37695.20584236866,
+          "predicted_over_observed_excess": 0.9967237605504693,
+          "observed_kms": 238.0,
+          "total_residual_kms": -0.2604459941981929
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 3612.3226796477525,
+          "predicted_over_observed_excess": 0.7158279660076596,
+          "observed_kms": 90.8,
+          "total_residual_kms": -8.27359949902241
+        }
+      },
+      "median_abs_kms": 22.446155602646748,
+      "rms_kms": 48.56499863016863
+    },
+    "1.6_both_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 1.0925587266657712e-05,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 1059.9387199418834,
+          "predicted_over_observed_excess": 0.5868833727445811,
+          "observed_kms": 45.5,
+          "total_residual_kms": -9.111236350462754
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 5345.7626122409,
+          "predicted_over_observed_excess": 1.5140540926332404,
+          "observed_kms": 67.5,
+          "total_residual_kms": 12.320122539625928
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 9319.32763214175,
+          "predicted_over_observed_excess": 0.6087179693894046,
+          "observed_kms": 134.0,
+          "total_residual_kms": -24.612775050549203
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 24230.928005073336,
+          "predicted_over_observed_excess": 0.32478471103610945,
+          "observed_kms": 294.0,
+          "total_residual_kms": -104.10317196542331
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 52189.71883011923,
+          "predicted_over_observed_excess": 2.4249871832866963,
+          "observed_kms": 172.0,
+          "total_residual_kms": 73.46297387752534
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 38522.238193517245,
+          "predicted_over_observed_excess": 2.7257184226508606,
+          "observed_kms": 154.0,
+          "total_residual_kms": 65.32934831373274
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 39312.49317755963,
+          "predicted_over_observed_excess": 1.0394875199888205,
+          "observed_kms": 238.0,
+          "total_residual_kms": 3.1169485417159706
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 2807.247062648711,
+          "predicted_over_observed_excess": 0.5562919299149534,
+          "observed_kms": 90.8,
+          "total_residual_kms": -13.304637799099794
+        }
+      },
+      "median_abs_kms": 18.9587064248245,
+      "rms_kms": 51.876680928646486
+    },
+    "1.6_radial_stars_plus_mapped_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 2.3324720433619008e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 584.6418738536628,
+          "predicted_over_observed_excess": 0.3237136150604657,
+          "observed_kms": 45.5,
+          "total_residual_kms": -16.365050646111246
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 2827.0822315143105,
+          "predicted_over_observed_excess": 0.8007006171642675,
+          "observed_kms": 67.5,
+          "total_residual_kms": -5.430912834855462
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 10503.99311946404,
+          "predicted_over_observed_excess": 0.6860977116104435,
+          "observed_kms": 134.0,
+          "total_residual_kms": -19.325545697988872
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 71931.85880933431,
+          "predicted_over_observed_excess": 0.9641549004143956,
+          "observed_kms": 294.0,
+          "total_residual_kms": -4.583801244894801
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 86684.44460524766,
+          "predicted_over_observed_excess": 4.027779261319521,
+          "observed_kms": 172.0,
+          "total_residual_kms": 135.80967710571923
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 46547.284882787884,
+          "predicted_over_observed_excess": 3.2935467376540988,
+          "observed_kms": 154.0,
+          "total_residual_kms": 82.91857192081278
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 108283.66406661444,
+          "predicted_over_observed_excess": 2.863199668042394,
+          "observed_kms": 238.0,
+          "total_residual_kms": 118.52286569464701
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 6735.204958018533,
+          "predicted_over_observed_excess": 1.3346670531142153,
+          "observed_kms": 90.8,
+          "total_residual_kms": 8.866890480332202
+        }
+      },
+      "median_abs_kms": 17.845298172050057,
+      "rms_kms": 70.83241405904467
+    },
+    "1.6_radial_stars_plus_mapped_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 2.9112310687183308e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 322.1869694910238,
+          "predicted_over_observed_excess": 0.1783934974274882,
+          "observed_kms": 45.5,
+          "total_residual_kms": -21.28450146102658
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 1853.9699877551293,
+          "predicted_over_observed_excess": 0.5250908151350132,
+          "observed_kms": 67.5,
+          "total_residual_kms": -13.839406099492997
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 10428.123521964673,
+          "predicted_over_observed_excess": 0.6811420764883428,
+          "observed_kms": 134.0,
+          "total_residual_kms": -19.65682848562983
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 79173.95006314007,
+          "predicted_over_observed_excess": 1.0612259046562458,
+          "observed_kms": 294.0,
+          "total_residual_kms": 7.6684062935001975
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 94641.26838793296,
+          "predicted_over_observed_excess": 4.3974918431306955,
+          "observed_kms": 172.0,
+          "total_residual_kms": 148.4740568323939
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 45758.36023521528,
+          "predicted_over_observed_excess": 3.237724787870977,
+          "observed_kms": 154.0,
+          "total_residual_kms": 81.24771002801438
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 115354.08346801509,
+          "predicted_over_observed_excess": 3.0501532834146725,
+          "observed_kms": 238.0,
+          "total_residual_kms": 128.30448149664232
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 5608.758544864726,
+          "predicted_over_observed_excess": 1.1114472811687195,
+          "observed_kms": 90.8,
+          "total_residual_kms": 3.0458451124221426
+        }
+      },
+      "median_abs_kms": 20.470664973328205,
+      "rms_kms": 75.99901940688373
+    },
+    "1.6_global_HI_both_gases_compact": {
+      "calibration": "NGC3198",
+      "gain": 4.769085120173036e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 960.9812875555031,
+          "predicted_over_observed_excess": 0.5320910809031745,
+          "observed_kms": 45.5,
+          "total_residual_kms": -10.497361705787043
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 3357.0281342855264,
+          "predicted_over_observed_excess": 0.9507945927418009,
+          "observed_kms": 67.5,
+          "total_residual_kms": -1.2994147738441342
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 7958.632342806829,
+          "predicted_over_observed_excess": 0.5198403479368655,
+          "observed_kms": 134.0,
+          "total_residual_kms": -31.020051986773524
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 18754.21627025688,
+          "predicted_over_observed_excess": 0.25137636952116593,
+          "observed_kms": 294.0,
+          "total_residual_kms": -119.1169145892687
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 38962.145862985315,
+          "predicted_over_observed_excess": 1.8103700588737262,
+          "observed_kms": 172.0,
+          "total_residual_kms": 44.851328281993176
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 28720.329598884364,
+          "predicted_over_observed_excess": 2.0321646706773633,
+          "observed_kms": 154.0,
+          "total_residual_kms": 41.71268338330509
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 28882.031024870354,
+          "predicted_over_observed_excess": 0.763688801589926,
+          "observed_kms": 238.0,
+          "total_residual_kms": -19.58085999304174
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 2756.4393259772933,
+          "predicted_over_observed_excess": 0.5462237267049067,
+          "observed_kms": 90.8,
+          "total_residual_kms": -13.63314554825179
+        }
+      },
+      "median_abs_kms": 25.300455989907633,
+      "rms_kms": 49.47705072476503
+    },
+    "1.6_global_HI_both_gases_finite": {
+      "calibration": "NGC3198",
+      "gain": 7.438747956870067e-06,
+      "held": {
+        "DDO154": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 627.9488375869673,
+          "predicted_over_observed_excess": 0.3476924889905761,
+          "observed_kms": 45.5,
+          "total_residual_kms": -15.631082416884144
+        },
+        "IC2574": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": true,
+            "2": true
+          },
+          "predicted_excess_v2": 2702.6990492950595,
+          "predicted_over_observed_excess": 0.765472179286653,
+          "observed_kms": 67.5,
+          "total_residual_kms": -6.441107123572408
+        },
+        "NGC2403": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 7980.626414524933,
+          "predicted_over_observed_excess": 0.5212769522932437,
+          "observed_kms": 134.0,
+          "total_residual_kms": -30.91331917010359
+        },
+        "NGC2841": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 18362.04669503773,
+          "predicted_over_observed_excess": 0.24611983612970703,
+          "observed_kms": 294.0,
+          "total_residual_kms": -120.24176569854887
+        },
+        "NGC5055": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 42106.5155673878,
+          "predicted_over_observed_excess": 1.9564727090434086,
+          "observed_kms": 172.0,
+          "total_residual_kms": 51.98408042105862
+        },
+        "NGC6946": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 30619.43182270131,
+          "predicted_over_observed_excess": 2.1665394671767575,
+          "observed_kms": 154.0,
+          "total_residual_kms": 46.505752189085
+        },
+        "NGC7331": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": true
+          },
+          "predicted_excess_v2": 30128.67613409814,
+          "predicted_over_observed_excess": 0.7966521658579825,
+          "observed_kms": 238.0,
+          "total_residual_kms": -16.745472745511876
+        },
+        "NGC7793": {
+          "common_gain_possible_with_quoted_speed_errors": {
+            "1": false,
+            "2": false
+          },
+          "predicted_excess_v2": 2171.5834306375386,
+          "predicted_over_observed_excess": 0.4303270466194306,
+          "observed_kms": 90.8,
+          "total_residual_kms": -17.520620017377738
+        }
+      },
+      "median_abs_kms": 24.216969593740664,
+      "rms_kms": 51.41989729919474
+    }
+  }
+}

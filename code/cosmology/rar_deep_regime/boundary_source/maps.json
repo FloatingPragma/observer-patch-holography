@@ -1,0 +1,141 @@
+{
+  "profiles": {
+    "NGC3521": {
+      "atomic_He_msun": 12163632856.346672,
+      "fraction_total_sparc_atomic": 0.9997294042519546,
+      "atomic_mass_fraction_beyond_orbit": 0.07904745978009234,
+      "atomic_mass_fraction_beyond_optical_aperture": 0.39519419186592225,
+      "angular_field_stellar_molecular_msun": 71098407000.00002,
+      "grids": {
+        "0.8kpc_0offset": {
+          "baryon_TV": 43092743095.36386,
+          "baryon_TV_interior_seams": 42552295238.234314,
+          "baryon_TV_finite_shell": 36013811678.552635,
+          "atomic_TV": 3726815841.567474,
+          "stellar_molecular_TV": 40787350000.000015,
+          "max_surface_msun_pc2": 2787.4694572216863,
+          "baryon_TV_with_global_THINGS_flux": 43090272877.42223,
+          "baryon_TV_with_global_SPARC_HI": 43093409773.71653
+        },
+        "0.8kpc_0.4offset": {
+          "baryon_TV": 48596926955.35296,
+          "baryon_TV_interior_seams": 48055703081.356544,
+          "baryon_TV_finite_shell": 41307729676.719604,
+          "atomic_TV": 3709421630.2802515,
+          "stellar_molecular_TV": 46310880000.00001,
+          "max_surface_msun_pc2": 4575.85827608095,
+          "baryon_TV_with_global_THINGS_flux": 48594478489.56465,
+          "baryon_TV_with_global_SPARC_HI": 48597587763.09418
+        },
+        "1.6kpc_0offset": {
+          "baryon_TV": 35697836845.27371,
+          "baryon_TV_interior_seams": 35294080977.879906,
+          "baryon_TV_finite_shell": 29232945541.617317,
+          "atomic_TV": 2875810838.707943,
+          "stellar_molecular_TV": 33822937500.0,
+          "max_surface_msun_pc2": 1432.6342643942173,
+          "baryon_TV_with_global_THINGS_flux": 35695880379.845,
+          "baryon_TV_with_global_SPARC_HI": 35698364868.78415
+        },
+        "1.6kpc_0.8offset": {
+          "baryon_TV": 42630285964.361626,
+          "baryon_TV_interior_seams": 42213328629.38864,
+          "baryon_TV_finite_shell": 35851503788.75892,
+          "atomic_TV": 2899402016.0673018,
+          "stellar_molecular_TV": 40787350000.000015,
+          "max_surface_msun_pc2": 2787.2968000865762,
+          "baryon_TV_with_global_THINGS_flux": 42628379149.61038,
+          "baryon_TV_with_global_SPARC_HI": 42630800587.82694
+        }
+      }
+    },
+    "NGC3198": {
+      "atomic_He_msun": 9504122943.514503,
+      "fraction_total_sparc_atomic": 0.6429593977146623,
+      "atomic_mass_fraction_beyond_orbit": 0.003674591372387932,
+      "atomic_mass_fraction_beyond_optical_aperture": 0.665236448717945,
+      "angular_field_stellar_molecular_msun": 15267631000.000004,
+      "grids": {
+        "0.8kpc_0offset": {
+          "baryon_TV": 9240100531.32911,
+          "baryon_TV_interior_seams": 9191698251.57027,
+          "baryon_TV_finite_shell": 7337649021.211654,
+          "atomic_TV": 3238000358.0747128,
+          "stellar_molecular_TV": 6692222500.000001,
+          "max_surface_msun_pc2": 359.955973586095,
+          "baryon_TV_with_global_THINGS_flux": 10464016864.822838,
+          "baryon_TV_with_global_SPARC_HI": 10728710917.242245
+        },
+        "0.8kpc_0.4offset": {
+          "baryon_TV": 9816755420.664253,
+          "baryon_TV_interior_seams": 9770145048.813667,
+          "baryon_TV_finite_shell": 7888881273.002065,
+          "atomic_TV": 3222214431.3887014,
+          "stellar_molecular_TV": 7280410000.000001,
+          "max_surface_msun_pc2": 526.6792595895225,
+          "baryon_TV_with_global_THINGS_flux": 11042346443.924492,
+          "baryon_TV_with_global_SPARC_HI": 11308561411.525608
+        },
+        "1.6kpc_0offset": {
+          "baryon_TV": 7626459097.278907,
+          "baryon_TV_interior_seams": 7595302509.042978,
+          "baryon_TV_finite_shell": 6102434526.757798,
+          "atomic_TV": 2289079396.618492,
+          "stellar_molecular_TV": 5829577500.000002,
+          "max_surface_msun_pc2": 191.86723313673332,
+          "baryon_TV_with_global_THINGS_flux": 8476947602.625311,
+          "baryon_TV_with_global_SPARC_HI": 8660363508.808886
+        },
+        "1.6kpc_0.8offset": {
+          "baryon_TV": 8459953594.48613,
+          "baryon_TV_interior_seams": 8429330698.482179,
+          "baryon_TV_finite_shell": 6898450934.617867,
+          "atomic_TV": 2267669678.0846257,
+          "stellar_molecular_TV": 6687552500.000002,
+          "max_surface_msun_pc2": 359.7553025648704,
+          "baryon_TV_with_global_THINGS_flux": 9302647608.523918,
+          "baryon_TV_with_global_SPARC_HI": 9485478397.373426
+        }
+      }
+    }
+  },
+  "source_ratios": {
+    "0.8kpc_0offset": {
+      "baryon_TV": 4.66366604446081,
+      "baryon_TV_interior_seams": 4.629426910415043,
+      "baryon_TV_finite_shell": 4.908085897055585,
+      "atomic_TV": 1.1509621462127961,
+      "stellar_molecular_TV": 6.094739079580814,
+      "baryon_TV_with_global_THINGS_flux": 4.117947575398119,
+      "baryon_TV_with_global_SPARC_HI": 4.016643761410383
+    },
+    "0.8kpc_0.4offset": {
+      "baryon_TV": 4.9504062058077265,
+      "baryon_TV_interior_seams": 4.918627394092954,
+      "baryon_TV_finite_shell": 5.236196140774243,
+      "atomic_TV": 1.1512025997231894,
+      "stellar_molecular_TV": 6.361026370767581,
+      "baryon_TV_with_global_THINGS_flux": 4.400738442353561,
+      "baryon_TV_with_global_SPARC_HI": 4.297415559291552
+    },
+    "1.6kpc_0offset": {
+      "baryon_TV": 4.680787819082459,
+      "baryon_TV_interior_seams": 4.646830186929187,
+      "baryon_TV_finite_shell": 4.7903743028192185,
+      "atomic_TV": 1.2563176458432115,
+      "stellar_molecular_TV": 5.801953486337559,
+      "baryon_TV_with_global_THINGS_flux": 4.210935592994581,
+      "baryon_TV_with_global_SPARC_HI": 4.1220400081905995
+    },
+    "1.6kpc_0.8offset": {
+      "baryon_TV": 5.039068534861278,
+      "baryon_TV_interior_seams": 5.007909896925714,
+      "baryon_TV_finite_shell": 5.197036860673834,
+      "atomic_TV": 1.278582169214462,
+      "stellar_molecular_TV": 6.09899511069259,
+      "baryon_TV_with_global_THINGS_flux": 4.582392125715957,
+      "baryon_TV_with_global_SPARC_HI": 4.494322669021271
+    }
+  },
+  "observed_excess_ratio": 1.2913349143931367
+}

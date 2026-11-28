@@ -1,0 +1,44 @@
+diff --git a/openwave/xperiments/m10_oph/research/m10_roadmap.md b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+index 245d49d772bcc26a060133013fa2a91a871eee5e..69bd7d9f643bae191fb0d981f12789a962572674 100644
+--- a/openwave/xperiments/m10_oph/research/m10_roadmap.md
++++ b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+@@ -17,6 +17,7 @@
+ 
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
++| 🚧 [M10.5](tasks/m10_5_task_details.md) | Free return of a signed spectroscopy excitation | Replay the independently specified source and compare signed detector records across free exposures. | Registered terms and pinned source |
+ 
+ ## STATUS AT A GLANCE (2026-11-25)
+ 
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..5ca03572ac2df8ce4ddc657707d27d92a275b9e9
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+@@ -0,0 +1,26 @@
++# M10.5 · Free return of a signed spectroscopy excitation
++
++**Proposed task.** Test the particle-stability criterion on one load dressed by a written path. The official mark on the two-load candidate at `09f062f77f7f540f2783f128ae6314c5d8b818ea` is partial. A second observer will read the signed history and the port after free flight. The proposed OPH source is `e2810645c67ca634a05ea005f84bf95dc922d66d`, a child of the public tag r2074. This task registers a historical reproduction. The original author knew the spectra, the release results and the control outcomes before proposing it. [Official criterion](../../../../../MODELS.md#simplest-test-per-criterion) · [Recorded review of M10.4](../findings/m10_4_maintainer_review.md)
++
++## Inputs and prior choices
++
++Use the original 20-cell, 240-port, 630-contact board and its native echo and degree-reference generator. Replace the eleven written contacts around two loads with the transport study's full-board arrow ordering and a single sharp load at port zero. The source prepares a geometric mode using a compiled spectroscopy word, calibrated against an isolated contact. After launch all allowed contacts act freely. Longer or reversed pulses, in-flight reset, filtering of terminal outcomes and a second load are outside the declared experiment. [Public board](https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/openwave/interval_echo/row_04/FEDERATION_LEVEL0.npz) · [Native source declaration](https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/CANDIDATE.md)
++
++The earlier transport task specified ascending, reversed-local and descending arrows. The spectroscopy study compiled all 32 spatial words on the short ascending material after inspecting its spectrum. It used squared eigenspace overlap at least 0.90 for its primary positive-Laplacian convention, including zero wave number. Its staggered convention was a separate follow-up. Evaluate every original ordering before selecting the primary match at nonzero wave number. Count every admissible column and include every original start in its denominator. The original choice of eleven writes remains part of the earlier candidate's record. [Arrow alternatives](https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_arrows/PROTOCOL.md) · [Original operating terms](https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_selective/PROTOCOL.md)
++
++| Required input | SHA-256 |
++| --- | --- |
++| Federation level zero | `99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b` |
++| [Archived pulse bank](https://github.com/FloatingPragma/observer-patch-holography/blob/44f7680df55b4e68b89c301896df3e10237f046d/model/candidate_laws/interval_echo/openwave/row_30_selective/analyzers.json) | `bca73380e3f4960b8b4aa1268023573845e9f40463c8545af35ed550e7f17a69` |
++| [Contact-clock counts](https://github.com/FloatingPragma/observer-patch-holography/blob/9ade2801a7d0b5ebe16a9fc01923b93926246833/model/candidate_laws/interval_echo/openwave/row_04_spectral/clock.json) | `0259cd71489f34564d6ef4e2edb91b8f420de947911ebfe35ec733f7336a398d` |
++
++## Reproduction gates
++
++1. Build the reachable histories from physical edges. Tabulate every primary frequency/wavelength match and both archived alternative conventions separately. Check both integer signed vectors, the two physical tip ports and the distinct material prefixes.
++2. Check the complete signed detector from the finite seam queries. Apply all seventeen clock settings. Preserve unresolved, malformed and failed settings with their reasons. Reproduce all 32 launches at the sixteen resolved signed settings and the unresolved zero setting. Include the commissioning cap of 96 on all 631 fair operations. Record the launch click, its factor of eight to obtain signed weight, every terminal refusal and the physical port probabilities.
++3. The launch witness must give signed weight above the original 0.98 benchmark. Verify its exact conservation in free evolution and compare launch and return at exposures 1, 7, 37 and 150 to absolute tolerance $2\times10^{-10}$. State a separate simultaneous 99% lower bound from simulated launch counts and the conservative tolerance on the calculated probability.
++4. On the same two preparations, random swaps at the matched hopping rate and sharp-history dephasing must each fall below 0.98 at exposure 37. Test a phase flip at one tip with the two initial occupancies held fixed. Also test whether a commuting dispersion can pass the spectral rule while giving a delocalized positive mode.
++5. In a separate coherent changed-law comparison, retain the actual compiled source and terminal queries. Remove only the degree-five port 9 blank reference during flight. Check that both launch readings agree at zero and that the native and changed-law readings separate at 37. This target-aware adverse comparison was also known before registration.
++6. State whether the independent material and source prescription addresses the selection objection in the M10.4 decision. Report the parked material, the secondary matches and the inconclusive clock. The observable is finite persistence of one dressed load. This task makes no mass, charge, spin, binding or electron-species assignment.
++
++The owner’s public simulation shows how the two-load ancestor’s home probability depends on its eleven records. The present task uses the separate one-load headless read. [Public pair replay](https://floatingpragma.ai/oph/simulation/openwave/row-4/)

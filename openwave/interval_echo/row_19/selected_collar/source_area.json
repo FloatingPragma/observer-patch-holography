@@ -1,0 +1,83 @@
+{
+  "reader_sha256": "14e4d45dfcbb07ec0231e644631cf3290ab8a592909950b2f7b00388b26c06ec",
+  "propagation_bank_sha256": "04a5bd221833c1016dc78a56f9b05d53a08a8bda1ba858d79fa4f4e775b38bb5",
+  "equilibrium_certificate_sha256": "447083323e4a29af6ad65d988350c15dc73c104b50276d6c306927040fe903ab",
+  "derivative_direction": "from lower to upper source endpoint, full displacement",
+  "volume_derivative": [
+    -2.9006989826637917e-15,
+    2.9387952414683648e-15
+  ],
+  "ordinary_gain": [
+    23.104236099999998,
+    23.104236300000004
+  ],
+  "stationarity_plus_volume_error": 1.2501528173525564e-09,
+  "area_derivative_from_source": [
+    -1.3460706259068203e-05,
+    -6.406730708409269e-06
+  ],
+  "area_derivative_from_radar": [
+    -9.931577544326872e-06,
+    -9.931577524348569e-06
+  ],
+  "finite_endpoint_area_change": [
+    -9.931577716160438e-06,
+    -9.93157734652873e-06
+  ],
+  "flat_realizations_of_symmetric_ranges": [
+    {
+      "stations": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.6788697947528743,
+          0.0,
+          0.0
+        ],
+        [
+          1.4141860727696154,
+          2.643365988925721,
+          0.0
+        ],
+        [
+          1.3293196297705703,
+          1.2988707406958977,
+          2.341517403430992
+        ]
+      ],
+      "smallest_gram_eigenvalue": 3.6269745161471265,
+      "maximum_symmetric_range_residual": 8.881784197001252e-16,
+      "directed_log_error_floor": 0.0025463277844426737
+    },
+    {
+      "stations": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.678881658322584,
+          0.0,
+          0.0
+        ],
+        [
+          1.4142425108794985,
+          2.643350761096197,
+          0.0
+        ],
+        [
+          1.3293411086638303,
+          1.2988424656989548,
+          2.341520522863336
+        ]
+      ],
+      "smallest_gram_eigenvalue": 3.626986140650734,
+      "maximum_symmetric_range_residual": 4.440892098500626e-16,
+      "directed_log_error_floor": 0.0025430356334421957
+    }
+  ]
+}

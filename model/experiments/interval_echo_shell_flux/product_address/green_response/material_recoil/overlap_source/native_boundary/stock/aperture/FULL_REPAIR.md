@@ -1,0 +1,3 @@
+# What does the same service do when the recorded contact stays connected?
+
+The four long, shortened-pulse source results are known. Reuse the archived active ticks, the same blank spectral preparation, the same native release and both previously enrolled age windows. Connect the full written generator throughout every tick on which the repair seam reads magnitude two. Keep all inactive ticks blank. Compare separate ordinary position and fringe counts to blank, reporting all four cut signs in all eight ensembles. This directly tests whether lengthening the run makes the unattenuated repair signal attractive under the supplied relay. No weak duty or per-run parameter enters this control.

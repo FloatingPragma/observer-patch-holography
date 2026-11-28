@@ -1,5 +1,9 @@
 # OpenWave Submission Guidelines
 
+**IT'S NEVER ABOUT THE STATE, IT'S ALWAYS ABOUT WHAT OBSERVERS MEASURE, COMPARE AND RECORD AS SHARED AGREED-ON CONSENSUS FACTS.**
+
+A finite theorem can establish a row's observable consequence from an experimentally accessible precursor. Name what each observer records, how their comparison establishes the exact premise, and which theorem forces the claimed shared records to follow. When every premise on that construction and domain is established, the chain is complete even if the final effect is below the local detector's sensitivity. Include the propagated uncertainty and address the actual published criterion, including any explicitly requested platform experiment. [Research instructions](../AGENTS.md#closing-a-physical-premise)
+
 These guidelines bind every contributor and agent who works toward a row of the OpenWave comparison table from this
 repository: research aimed at a row, a row packet, an audit, and any pull request to [OpenWave][ow], where OPH is
 admitted as column M10. Read the whole page before such work; the repository [agent guidance](../AGENTS.md) makes it
@@ -22,9 +26,10 @@ representation must not exclude it by definition. If every record the apparatus 
 construction, the run supplies no test of the claimed emergence. A corrupted file or an out-of-domain signal is no
 substitute. Distinguish an exact counterexample from statistical rejection and from an inconclusive timeout.
 
-A second failure cost two filings of one row. The outcome of the row turned on a choice made with the row's
-criterion in view: first a value of the law, then a pattern of written memory put in its place. Each time every
-number reproduced, the pin was adopted and the row was held at ⚠️ (section 8).
+Row 4 illustrates how the same error can survive a change of candidate. On blank memories, persistence depended on the
+chosen coupling. On written memories, it held at every coupling but depended on the chosen layout. Both choices
+answered to the persistence target. The maintainers adopted both pins and awarded partial credit in each case.
+Apply the [choice test](#the-forced-or-chosen-test) at design time. [Row 4 decisions](#row-4)
 
 **Do not request full credit on a row whose outcome turns on a choice made with that row's target in view.**
 
@@ -135,11 +140,12 @@ hold together:
 
 1. **It is a choice, and the row's outcome turns on it.** The [parameter-count test][paramcount], step 2: "Count a
    choice as free if the model's own framework admits an inequivalent alternative". The matched control, with the
-   alternative in place and every other piece held fixed, gives another outcome on the row's observable.
-2. **It answers to this row.** The record shows that the row's criterion or target was known when the piece was
-   chosen, or that the piece was selected for the property. The reply on the M10.2 thread: "Where a choice answers
-   to a target, the row is a calibration of that choice." The M10.3 review: "What makes it a supplied piece here is
-   that it answers to this row's target".
+   alternative in place and other inputs held fixed, shows that the choice matters to the claimed
+   property. Report the readings and what each implies for the same criterion.
+2. **It answers to this row.** Trace what fixed the piece. Did the target, a successful layout or a pilot result
+   guide the selection? A public criterion can be known while another task independently fixes the setting.
+   The M10.2 reply calls a choice that answers to the target a calibration of that row. Both row 4 decisions
+   apply that test. [M10.3 decision][review3] · [M10.4 decision][review4]
 
 How the two reviews applied the points:
 
@@ -165,22 +171,30 @@ fixed by something independent of the target being reproduced."
 
 | Counts as fixed independently | Counts for nothing |
 | --- | --- |
-| A proof that the candidate's structure admits no inequivalent alternative | A sweep of values or layouts with the row's criterion as the selection |
-| A value or pattern fixed by another row's task, on record before this row's target was in view | A rule, requirement or registration written after the criterion and its solution were known |
+| A proof that independently specified constraints fix the piece | A sweep of values or layouts with the row's criterion as the selection |
+| Another task whose recorded requirements fix the value or pattern independently of this row | A second use devised to recover the winning setting after inspecting it |
 | A requirement written before the layout or state of this row was in view; the piece it returns may differ from the one filed | A selection task formulated with the filed layout known, whatever it selects |
-| A source derived from the carrier, the case the [admission reply][admission] puts at the bar for ✅ | A requirement whose wording fixes every free setting, reported as the result of a search |
+| A source derived from the carrier, the case the [admission reply][admission] puts at the bar for ✅ | Constraints written around a known solution, with enumeration presented as evidence of its independent origin |
 
-For every row, the design record carries a **choice ledger** with one line per piece of the law, the memory, the
-state, the preparation, the schedule and the reader on which the row's observable depends:
+Start the **choice ledger** in the existing `DESIGN.md` at G0. Give each relevant choice of law, memory, state,
+preparation, schedule or reader a line. Cite the design evidence before the run and fill in the measured or
+proved dependence when the evidence is available.
 
-- the alternatives the framework admits;
-- the row's observable under each alternative, with every other piece held fixed;
-- what was known about the row's target when the piece was chosen, with the commit that shows it;
-- the reason for the choice, as the record held it before the outcome was known.
+| Piece and alternatives tried or set aside | What fixed it | Effect on the row | A6 finding |
+| --- | --- | --- | --- |
+| Setting, allowed alternatives and any selection among them | Source commit and passage, reason for the choice, target and pilot results known at selection | Matched readings with other inputs fixed, or proof covering the stated alternatives | Reason this choice clears A6, or the blocker and evidence needed |
 
-A line whose piece is a choice, turns the outcome and answers to the row puts the expected mark at ⚠️, and the row
-stays on HOLD (section 4). Log the reason for every choice in the task plan before the run. A reason written after
-the outcome carries no weight, and a piece chosen with the target in view keeps that history for the row.
+If another task supplies the piece, give the reviewer its original specification and inputs. Can they recover
+the setting from those alone? Record any choices left to the author, including ties and the choice among several
+source tasks. Use the setting the frozen rule returns and report the row's outcome even if it misses. Choosing
+among outputs by the destination row's score is calibration. In M10.4 the earlier experiment fixed the source
+port. The one-load delivery constraints that fixed the seam pattern came from a different design decision.
+[M10.4 routing specification][routing4]
+
+If the row's conclusion holds across the admitted choices, cite the domain and evidence for that claim. If it
+turns on a choice selected for the target, record `FAIL` on A6 and expect ⚠️ for a property otherwise demonstrated
+on the process. If the origin of a deciding choice cannot be established, record `OPEN` and name the missing
+evidence. Both findings put the full-credit request on **HOLD**. Research can proceed on either finding.
 
 ## 4. What may be filed
 
@@ -215,14 +229,11 @@ the outcome carries no weight, and a piece chosen with the target in view keeps 
 - A row whose expected mark is ⚠️ is never filed for ✅. The expected mark is ⚠️ whenever a line of the choice ledger
   fails the forced-or-chosen test of section 3, however exact the result. The M10.3 and M10.4 filings each requested
   ✅ on row 4 with such a line on record, and each returned ⚠️.
-- A row returns after a decision by a route that decision names, with the record that route asks for. The M10.3
-  decision named one route for row 4: the coupling fixed by something independent of the row's target. The M10.4
-  filing took another, a changed candidate whose written records were designed with the criterion known, and the
-  same ground held it. A route that the decision does not name passes the forced-or-chosen test in the Codex audit
-  before the owner considers it.
-- A candidate change made to answer a row decision is a choice that answers to that row. A changed law, memory,
-  state or preparation moves the question to the changed piece, and the pin move that carries it is audited as part
-  of the row.
+- For a returning row, put the maintainer's reason beside the evidence that resolves it on the proposed candidate.
+  Name the route the decision describes or explain how a different route resolves the same objection. Trace each
+  changed piece and the choices used to select it through section 3. For interacting choices, compare the old
+  and proposed settings in combination where admissible. A successful test at one setting can hide dependence
+  on the other. Record the resulting disposition under D6 before requesting full credit.
 - A filing never hands its deciding question to the reviewers. The M10.4 filing asked the review to decide whether
   the written records belong to the localized candidate or count as a supplied trap, and the review answered that
   the mark holds on either reading. A packet with an open question whose answer decides the mark is on HOLD.
@@ -351,8 +362,8 @@ memory, origin. The rules of every test:
 ## 7. Research cautions
 
 These cautions bind research and submissions alike. Each one records a mistake that cost a filing or a day of work.
-Cautions 7.33 to 7.46 record the two filings of row 4, which reproduced in every number and returned ⚠️
-([M10.3][review3], [M10.4][review4]).
+Cautions 7.33 to 7.46 apply the two row 4 decisions. The maintainers independently reproduced the persistence
+results on both candidates. [M10.3][review3] · [M10.4][review4]
 
 ### 7.1 Do not build in the answer and call it emergence
 
@@ -675,13 +686,17 @@ as one.
 
 ### 7.33 Do not move the answer from one supplied piece into another
 
-The M10.3 filing rested on a coupling chosen from a sweep with the persistence criterion known. The M10.4 filing
-removed that dependence with a proof at every coupling, zero included, and placed eleven written seam records around
-the launch, designed with the same criterion known. The row then turned on the records: with the same accepted state
-and detector at exposure 37, the home probability at coupling ½ is 0.996 on the eleven writes and 0.441 on blank
-memories, and at coupling 0 it is 0.995 on the eleven writes and 0.527 on ten writes. Removing a dependence does not
-finish the audit. Find the piece the outcome turns on next, with matched controls, and put it through the
-forced-or-chosen test of section 3.
+The M10.4 proof established persistence at every coupling on the board with eleven written seams. To test what
+the writes supplied, the maintainers kept the accepted load state, detector and exposure (37) fixed and compared
+the home probabilities. [Maintainers' comparison][review4]
+
+| Coupling | Eleven written seams | Blank memories |
+| --- | ---: | ---: |
+| 8 | 0.996 | 0.970 |
+| ½ | 0.996 | 0.441 |
+
+At the original coupling of 8, both boards clear the authors' 0.94 benchmark. At ½, only the written board
+clears it. Checking the layout at 8 alone would have missed the dependence that decided the mark.
 
 ### 7.34 Do not exempt a structure from the calibration rule
 
@@ -783,9 +798,10 @@ filing claims no prospective test from it.
 The checklist of the M10.3 filing recorded full credit as the expected mark. The grounds that held both filings were
 published beforehand: the sentence on choices that answer to a target, the parameter-count test, and for M10.4 the
 M10.3 decision itself. Before a row is marked SUBMITTABLE, the auditor writes the strongest case for ⚠️ from the
-published sentences, applies it to every line of the choice ledger, and sets the row beside every cell that carries
-a mark on the same row in another column. A reason for ✅ that would also move another column's cell, or a ground for
-⚠️ that the packet cannot answer from its record, is a blocking finding.
+published sentences and applies it to every line of the choice ledger. When extending a precedent, read the
+whole reason and state which conditions carry over. Test it against the comparable choices in the other marked
+cells using their design records. For row 4 those include M5's seed and box. A ground for ⚠️ that the packet
+cannot answer from its record blocks the full-credit request. [OpenWave review lessons][lessons]
 
 ## 8. Rows 1, 2, 4 and 7
 
@@ -822,24 +838,28 @@ interpreted or left unresolved.
 
 ### Row 4
 
-The [M10.3][review3] and [M10.4][review4] reviews recomputed every number of two row 4 filings by routes that share
-no code with ours, adopted both pins and held the row at ⚠️.
+OpenWave tests whether “the particle state persists in free evolution.” The 0.94 probability floor was the
+authors' benchmark. M10.3 earned ⚠️ on pin `4fe10f9a`. In #749 the maintainers approved M10.4 and retained ⚠️.
+Their close-out in #754 recorded pin `09f062f7` and both routes to full credit in the cell. Their independent
+M10.4 computation checked the floor and all 72 home-probability sums. The 1,116 per-address probabilities were
+part of the authors' replay. [Official criterion][simplest] · [M10.3 decision][review3] ·
+[M10.4 decision and verification scope][review4] · [Official M10 cell][cell4]
 
 | Filing | What came out of the process | What held the row at ⚠️ | What would move it |
 | --- | --- | --- | --- |
-| M10.3: the pair on blank memories | A unit-load pair launched on one seam stays in its launch cell with probability 0.980 at exposure 37 and at least 0.94 over the window. With the coupling removed the probability is 0.203. | The coupling 8. The framework admits other values, the outcome turns on the value (0.47 or less at coupling 1 and below), and the design swept nine strengths and holds no selection of 8 independent of persistence. | The coupling fixed by something independent of the row's target, shown by what was known beforehand for the row and by the values and laws set aside. |
-| M10.4: the pair beside eleven written seam records | The accepted pair stays in its launch cell with probability at least 0.99477 at every exposure and every coupling, failures counted, by an exact eigenvector identity. | The pattern of records. The framework admits other patterns (0.441 on blank memories at coupling ½, 0.527 on ten writes at coupling 0), and the specification says: "The 94% criterion and the interference solution were known when the eleven-record source was chosen." | The pattern fixed without reference to this layout, by another row's task or by a requirement written before the layout was in view; or the blank-memory route. A rule registered after the fact does not count. |
+| M10.3, pair on blank memories | A unit-load pair launched on one seam has home-cell pair probability 0.980 at exposure 37 and at least 0.94 over the window. | The design swept nine coupling strengths and recorded no reason independent of persistence for choosing 8. At exposure 37, couplings 0, ½ and 1 give 0.203, 0.417 and 0.467 respectively. | A source independent of the persistence target fixes the coupling. Show what was known at selection and which values and laws were set aside. |
+| M10.4, pair with eleven written seam records | The probability of detecting the pair on a launch-cell seam is at least 0.99477 at every exposure and every real coupling, counting exhausted preparations. | The record pattern was selected with the interference solution and persistence benchmark known. At exposure 37 and zero coupling, the home probability is 0.995 with eleven writes, 0.527 with ten and 0.271 with blank memory. | A requirement independent of this layout fixes the pattern. It may produce this pattern or a different one. The one-load routing task inherited the port selector alone. Its delivery constraints were written with the layout known and specified all fifteen contacts. [Routing specification][routing4] |
 
 The checks that follow from the two reviews:
 
-- **Every piece the persistence turns on.** List each one with its matched control and pass it through the
-  forced-or-chosen test of section 3. A coupling, a record pattern, a filter or a launch chosen with the persistence
-  criterion known keeps the row at ⚠️, whether the declaration calls it law, memory, particle or apparatus.
+- **Every piece the persistence turns on.** Apply section 3 to each one. A choice selected for persistence that
+  changes whether the state persists keeps the row at ⚠️, whether it is called law, memory, particle or apparatus.
 - **The property.** State whether the row claims binding by an energy level below the separated loads, or
   persistence of the prepared configuration. The reversed coupling keeps the pair as well as the filed sign does, so
   persistence is no evidence of binding.
-- **The object.** State what the particle is made of. A second load that does not interact with the first is beside
-  the object unless a test shows that the result needs it.
+- **The object.** One load alone also has a persistent mode on the written board. Say what the second load
+  contributes to the claimed observation. The reviewers raised this to clarify the cell's description. The
+  ground for partial credit was the choice of writes. [M10.4 decision][review4]
 - **The preparation.** Written records that switch seams off change the board on which the loads move. The free law
   preserves blank memory, so no free evolution writes them. They are a preparation by addressed operations, and each
   operation is shown as an operation of the law or named as outside the claim.
@@ -859,7 +879,7 @@ clause of the official criterion and a Codex finding that full credit is expecte
 
 | Gate | Evidence | Record | Confirmation |
 | --- | --- | --- | --- |
-| G0 design | Every clause of the row's simplest test is listed. For each: the observers, the records they hold, the observable as a function of the records, the description to be fitted, the control. The candidate is registered, everything supplied is listed, and the sentence of the theory that says the records should show the clause is quoted with file and line. The choice ledger of section 3 has a line for every piece the row's observable depends on. | `DESIGN.md` | independent design reviewer |
+| G0 design | List each clause of the row's simplest test, its observers, their records, the observable computed from those records, the interpretation and the control. Register the candidate, list supplied inputs and quote the theory's prediction with file and line. Start the section 3 ledger with the sources that fixed the choices. For a returning row, identify the reason for the standing mark and the evidence that would resolve it. | `DESIGN.md` | independent design reviewer |
 | G1 terms before the run | Gates with numbers, inputs, seeds (development apart from held-out) and controls are written and hashed, and the hashes are pushed to this repository before the run. A result that will claim a cell files its upstream task document with its gates and inputs before the run. | `PREREG.json`, the upstream task document | reviewer checks the order from the pushed history |
 | G2 execution | The run uses the filed inputs, and the law's implementation is byte-identical to the registered source. The record states whether execution uses literal events, full matrix or column actions, enumeration or justified compression, and proves any reduction. Every outcome is kept, failures and timeouts included. | `RECEIPT.json`, logs | reviewer replays a subset |
 | G3 controls | (a) A changed-law control fails on the row's own object for the stated reason; (b) the instrument detects a planted effect; (c) no gate is an identity of the alphabet, the graph or the decoder, and none can only pass; (d) every statistical statement names its interval, its selection and its power. | `RECEIPT.json`, `CONTROLS.md` | reviewer runs own changed laws |
@@ -923,6 +943,8 @@ than the row run, identify both sources and what each establishes.
 
 ### A. The claim meets the actual criterion
 
+For a theorem-backed claim, trace each published clause to the conclusion it requires. Record which hypothesis the experiment discharges and what establishes the other hypotheses. Credit a complete chain and identify the first unsupported implication of an incomplete one.
+
 - [ ] **A1. Terms read together.** The exact row clauses, the M10 admission terms and every applicable maintainer
   decision are cited with their versions. "Static" and another column's precedent do not waive the own-process
   rule.
@@ -943,12 +965,11 @@ than the row run, identify both sources and what each establishes.
   and dependencies are read and cited. Neither positive nor negative conclusions exceed the tested domain. The search
   of this repository and of earlier studies for the same question is recorded with paths and commit, and every
   quotation was checked at its source.
-- [ ] **A6. Every outcome-deciding choice is forced or independent.** The choice ledger lists each piece of the law,
-  memory, state, preparation, schedule and reader on which the row's observable depends, with the alternatives the
-  framework admits, the observable under each, what was known about the row's target when the piece was chosen and
-  the commit that shows it. No piece is at once a choice the outcome turns on and a choice that answers to the row.
-  A sweep with the row's criterion as its selection is recorded as a calibration, and a rule or registration written
-  after the solution was known is recorded as such and counts for nothing.
+- [ ] **A6. Every outcome-deciding choice is forced or independent.** For each line of the section 3 ledger,
+  check the control or proof. Where the row turns on the choice, cite the passage that fixed it. For a selection
+  rule, trace its inputs, constraints and tie-breaks to their sources and check what they actually fix. Record
+  `FAIL` for a deciding choice selected for the target. Record `OPEN` if dependence is unresolved or the origin
+  of a deciding choice is unknown. Either finding puts the full-credit request on HOLD.
 - [ ] **A7. The object and the property are named.** For a composite or prepared object, each part and each piece of
   the preparation was removed in turn, and the record says which the result needs. The claim names the smallest
   object and the exact property. No question whose answer decides the mark is left to the reviewers.
@@ -1037,9 +1058,10 @@ than the row run, identify both sources and what each establishes.
   without the required proof. Composed instruments retain upstream as well as terminal failures. Numerical comparison
   centres and trace drift are distinguished from positive physical outcome laws, with gain and conditioning bounds
   where required.
-- [ ] **D6. A returning row takes a named route.** A row that returns after a decision follows a route that decision
-  names and carries the record it asks for; any other route has passed A6 in the audit. A candidate change that
-  answers a row decision is audited as a choice that answers to the row.
+- [ ] **D6. A returning row resolves the recorded objection.** Cite the decision, the route taken and the
+  evidence that meets the stated objection. For a choice that held the mark, show what fixes it independently
+  or what removes the dependence. Give the A6 finding for each replacement. Where one setting can mask another,
+  give the matched comparison across both. An unresolved replacement keeps the row on HOLD.
 
 ### E. A reviewer can inspect and reproduce the submitted evidence
 
@@ -1194,9 +1216,8 @@ What the maintainers do with a filing shapes it:
   review vocabulary that a reader can take for a row status, titles stronger than their own boundary lines, and
   results of an open pull request stated in the present tense. Upstream text uses the platform's words for marks
   and criteria, keeps every title within its boundary, and states a result under review as under review.
-- **They find what the outcome turns on.** Both row 4 reviews ran the result across the couplings and the memory
-  patterns with their own script and printed the table. A dependence that the filing leaves out is found, and it
-  decides the mark.
+- **They find what the outcome turns on.** The M10.3 review varied the coupling. The M10.4 review varied the
+  coupling on written and blank boards while holding the load state and detector fixed. [M10.3][review3] · [M10.4][review4]
 - **They read our record for what was known.** The grounds of both ⚠️ marks quote our specification, design file and
   method note: the sweep of couplings, the sentence that the criterion and the solution were known, the sentence
   that the routing requirement was formulated with the layout known. The review called that statement what the rule
@@ -1285,8 +1306,8 @@ What the maintainers do with a filing shapes it:
 | Charge and electron cells of [M4 and M8][results] | The M10.2 review cited them as the bar applied elsewhere: M4's charge row is ❌ with its sign "imposed", M8's charge row is 🚧 on an assignment, and M8's electron row is 🚧 with the mass as a "calibration anchor (benchmark input, not a prediction)". |
 | [M10.1][m10_1] | A clean-room recomputation confirmed seven frozen coefficients on the declared twelve-direction operator. Arithmetic on a declared object closed the task with no cell moved. |
 | [M10.2][m10_2] and its [maintainer review][review] | The author filed a method note, scripts and receipts. The maintainers recomputed the headline numbers from one data file and the method note's formulas without executing the author's package, adopted the pin, and kept rows 1, 2 and 7 at 🚧 because the integer, the anchored value and the half-turn return came from declarations. The review names what would move each row. |
-| [M10.3][m10_3] and its [maintainer review][review3] | The author filed a freely evolving pair of unit loads on blank memories and asked for ✅ on row 4. The maintainers recomputed every number by their own route and adopted the pin. The row moved to ⚠️: the persistence comes out of the process and is lost with the coupling removed, and the coupling is a choice that answers to the row. |
-| [M10.4][m10_4] and its [maintainer review][review4] | The filing removed the dependence on the coupling with a proof at every coupling and added eleven written seam records designed with the criterion known. Every number reproduced and the pin moved. The row stayed at ⚠️ on the pattern of records, the first time the reading was applied to pinned memory. The review tested the same reading on M5's ✅ cell from M5's [task plan][m5_21_10] and left it in place. |
+| [M10.3][m10_3] and its [maintainer review][review3] | The author filed a freely evolving pair of unit loads on blank memories and asked for ✅ on row 4. The maintainers independently reproduced the pair probabilities and adopted the pin. The row earned ⚠️ because the observed persistence depended on a coupling selected with that target in view. |
+| [M10.4][m10_4] and its [maintainer review][review4] | The all-coupling proof removed the dependence on coupling strength. The pin moved and the mark stayed at ⚠️ because persistence depended on the selection of eleven written seams. The review tested the same reasoning on M5's ✅ cell using its [task plan][m5_21_10]. |
 | [Lessons log][lessons], the rows on the M10.3 and M10.4 reviews | The maintainers' drafts first grounded the ⚠️ in reasons that hold for every column, and an independent audit caught it before posting. A reason for a mark has to leave the other columns' marked cells where they are, and a way forward has to avoid the defect the review names. |
 
 [ow]: https://github.com/openwave-labs/openwave
@@ -1303,6 +1324,8 @@ What the maintainers do with a filing shapes it:
 [review]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_2_maintainer_review.md
 [review3]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_3_maintainer_review.md
 [review4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_4_maintainer_review.md
+[routing4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_4_method_note.md#can-a-one-load-task-select-the-eleven-memories
+[cell4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md#L438
 [m10_3]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
 [m10_4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_4_task_details.md
 [m5_21_10]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m5_liquid_crystal/research/tasks/m5_21_10_task_details.md

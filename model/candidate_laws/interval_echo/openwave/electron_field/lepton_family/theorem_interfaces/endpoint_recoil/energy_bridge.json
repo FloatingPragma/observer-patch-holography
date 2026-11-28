@@ -1,0 +1,267 @@
+{
+  "complete_ghost_links_reduced_by_Gauss": true,
+  "distinct_active_energy_labels_upper": 132787983820442343625756177238060670500838412421275884054318282939115028880654285045759900553886015548348437587715945979876383302610123465833614385401377309660000000,
+  "distinct_exact_energy_gap_lower_computed": false,
+  "endpoint_recoil_receipt_sha256": "cb805dd855890a1bc953e0f76fc26ba1a49578b951cfb26ca14dc5ff92644f30",
+  "exact_charge_conjugate_comparison": [
+    {
+      "paired_columns": [
+        {
+          "holder_positive_spin_in_negative_source": 1,
+          "negative_mobile_hole_spin_with_same_idle_reference": 1,
+          "original_positive_spin": 0,
+          "receiver_CAR_phase": -1,
+          "source_CAR_phase": -1
+        },
+        {
+          "holder_positive_spin_in_negative_source": 1,
+          "negative_mobile_hole_spin_with_same_idle_reference": 0,
+          "original_positive_spin": 1,
+          "receiver_CAR_phase": -1,
+          "source_CAR_phase": -1
+        }
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "paired_columns": [
+        {
+          "holder_positive_spin_in_negative_source": 1,
+          "negative_mobile_hole_spin_with_same_idle_reference": 1,
+          "original_positive_spin": 0,
+          "receiver_CAR_phase": -1,
+          "source_CAR_phase": -1
+        },
+        {
+          "holder_positive_spin_in_negative_source": 1,
+          "negative_mobile_hole_spin_with_same_idle_reference": 0,
+          "original_positive_spin": 1,
+          "receiver_CAR_phase": -1,
+          "source_CAR_phase": -1
+        }
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "ideal_sharp_energy_labels_compiled": false,
+  "mass_shell_certified": false,
+  "minimum_required_relation": "full H, sender-to-receiver offdiagonal \u22121/2",
+  "one_original_stock_acceptance_required": {
+    "base": 2,
+    "negative_exponent": 1073742520
+  },
+  "original_source": {
+    "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+    "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+    "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+    "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+    "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+  },
+  "rows_conditioned_on_that_stock": [
+    {
+      "absolute_energy_times_wait_upper": "9149355/7340032",
+      "absolute_wait_error_upper": "1/4194304",
+      "each_outcome_Kraus_operator_norm_error_upper": "1/4194304",
+      "native_moving_and_holder_hypercharge": [
+        6,
+        -6
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_Lueders": [
+        "294871024865622259533944279056096969/713623846352979940529142984724747568191373312",
+        "1485828628616915748764693550591905169/2854495385411919762116571938898990272765493248"
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_with_common_wait": [
+        "4965878416090421298706481102049/5444517870735015415413993718908291383296",
+        "5186312351549763681186369977569/5444517870735015415413993718908291383296"
+      ],
+      "receiver_energy_in_shared_set_lower": "7350/5001707",
+      "sender_energy_in_shared_set_lower": "525/334952",
+      "shared_absolute_amplitude_lower": "3920/3556681",
+      "sharp_energy_then_matched_receiver_lower": "1/109314172771836941722789898064070712946056486092373636504576665073480943323802775949341042833851562923522094051684985591032564652345140185204699266883022917246607394884375",
+      "unread_Lueders_half_trace_disturbance_on_source_upper": "3593/4194304",
+      "vacuum_or_particle_energy_assigned": false,
+      "wait": "1/8192"
+    },
+    {
+      "absolute_energy_times_wait_upper": "9149355/7340032",
+      "absolute_wait_error_upper": "1/4194304",
+      "each_outcome_Kraus_operator_norm_error_upper": "1/4194304",
+      "native_moving_and_holder_hypercharge": [
+        6,
+        -6
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_Lueders": [
+        "74031710474110579785218392272706801/178405961588244985132285746181186892047843328",
+        "1480405975431101464912278358981959225/2854495385411919762116571938898990272765493248"
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_with_common_wait": [
+        "4965878416090421298706481102049/5444517870735015415413993718908291383296",
+        "5186312351549763681186369977569/5444517870735015415413993718908291383296"
+      ],
+      "receiver_energy_in_shared_set_lower": "1225/731329",
+      "sender_energy_in_shared_set_lower": "525/334952",
+      "shared_absolute_amplitude_lower": "58800/50895283",
+      "sharp_energy_then_matched_receiver_lower": "1/99485363672185535518532922786106469205740974082191275695119131743392722444233792448171113303321930977773146208614634373703952336773208246839405218553677604207164387905375",
+      "unread_Lueders_half_trace_disturbance_on_source_upper": "3593/4194304",
+      "vacuum_or_particle_energy_assigned": false,
+      "wait": "1/8192"
+    },
+    {
+      "absolute_energy_times_wait_upper": "9149355/7340032",
+      "absolute_wait_error_upper": "1/4194304",
+      "each_outcome_Kraus_operator_norm_error_upper": "1/4194304",
+      "native_moving_and_holder_hypercharge": [
+        -6,
+        6
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_Lueders": [
+        "294871024865622259533944279056096969/713623846352979940529142984724747568191373312",
+        "1485828628616915748764693550591905169/2854495385411919762116571938898990272765493248"
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_with_common_wait": [
+        "4965878416090421298706481102049/5444517870735015415413993718908291383296",
+        "5186312351549763681186369977569/5444517870735015415413993718908291383296"
+      ],
+      "receiver_energy_in_shared_set_lower": "7350/5001707",
+      "sender_energy_in_shared_set_lower": "525/334952",
+      "shared_absolute_amplitude_lower": "3920/3556681",
+      "sharp_energy_then_matched_receiver_lower": "1/109314172771836941722789898064070712946056486092373636504576665073480943323802775949341042833851562923522094051684985591032564652345140185204699266883022917246607394884375",
+      "unread_Lueders_half_trace_disturbance_on_source_upper": "3593/4194304",
+      "vacuum_or_particle_energy_assigned": false,
+      "wait": "1/8192"
+    },
+    {
+      "absolute_energy_times_wait_upper": "9149355/7340032",
+      "absolute_wait_error_upper": "1/4194304",
+      "each_outcome_Kraus_operator_norm_error_upper": "1/4194304",
+      "native_moving_and_holder_hypercharge": [
+        -6,
+        6
+      ],
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_Lueders": [
+        "74031710474110579785218392272706801/178405961588244985132285746181186892047843328",
+        "1480405975431101464912278358981959225/2854495385411919762116571938898990272765493248"
+      ],
+      "per_pointer_and_signed_gauge_and_Bell_probability_with_common_wait": [
+        "4965878416090421298706481102049/5444517870735015415413993718908291383296",
+        "5186312351549763681186369977569/5444517870735015415413993718908291383296"
+      ],
+      "receiver_energy_in_shared_set_lower": "1225/731329",
+      "sender_energy_in_shared_set_lower": "525/334952",
+      "shared_absolute_amplitude_lower": "58800/50895283",
+      "sharp_energy_then_matched_receiver_lower": "1/99485363672185535518532922786106469205740974082191275695119131743392722444233792448171113303321930977773146208614634373703952336773208246839405218553677604207164387905375",
+      "unread_Lueders_half_trace_disturbance_on_source_upper": "3593/4194304",
+      "vacuum_or_particle_energy_assigned": false,
+      "wait": "1/8192"
+    }
+  ],
+  "source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "source_sha256": {
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/particle_common_contract/contract.json": "7617133bb473e37250f31491d5fadf3c4275d7b97a4e8342321d9e108988ed31",
+    "model/particle_primary_charge_conjugation/PROOF.md": "e4048ac1c10f6c2cfe8da64fa3ad599571ca7235a00a178bf9f416845ffc7003",
+    "model/particle_primary_spectral_scale/results.json": "a5675b8119c8346a271b01ae408e1ecda55fa13490c3204061beee759f268c34"
+  },
+  "stationary_idle_spin_reference": true
+}

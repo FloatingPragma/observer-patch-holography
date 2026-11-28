@@ -1074,8 +1074,8 @@ the same effect $H$. Separate readers measure $H$ and $2H$.
 For $2{,}932{,}736$ simulated launches of the same prepared mixture
 per reader, the first two branches return $733{,}955$ and $732{,}421$,
 the independent $H$ reader returns $732{,}852$, and the $2H$ reader
-returns $1{,}468{,}130$. A transverse cubic rule consistent with the
-earlier finite menu predicts probabilities $143/512$ and $35/64$.
+returns $1{,}468{,}130$. A transverse cubic rule that fits the calibration menu predicts
+probabilities $143/512$ and $35/64$.
 These records distinguish that rule from the specified quantum
 instrument. On a rotated mixture, readings along three axes reconstruct
 a state with lower eigenvalue at least $0.37441$. It predicts a held
@@ -1512,31 +1512,39 @@ changes of the law, the emitter and the control, on one cell and on $20$
 cells. The law passes the four checks, and each check fails under at least
 one change.
 
-\paragraph{Two modes on a written material.}
-A separate one-load preparation uses arrows on all seams, oriented by
-ascending port address as in an independent wavelength measurement. The
-two selected waves end on the same two ports, 9 and 11. Each is the
-normalized difference between two terminal load-and-arrow configurations.
-Their paths reach the common parent directly from port 0 or via port 1,
-so their preceding arrow records distinguish the two waves. The two exit
-amplitudes from each difference cancel at its parent. On the 20-, 80-
-and 320-cell boards, after removing a common energy, the free generator
-acts as \(\kappa/2\) times the identity on their span. A matched fuel
-reference and a cap of 96 on preparation retries give two-port detection
-probability above \(0.999997291223\) at every exposure for every real
-constant \(\kappa\), counting every refusal. Reversing the relative sign
-within each wave gives \(0.461707\) and \(0.398056\) at strength 8 and
-exposure 37 on the 20-cell board.
+\paragraph{Persistence of a signed one-load history.}
+On a written material specified by a transport test, a frequency and
+wavelength analyzer selects two one-load histories with squared wave
+number one. Each is a signed difference of two configurations in
+which the load occupies ports 9 and 11. The load can exit either
+tip, and their two exit amplitudes cancel at a common parent. The
+preceding head records distinguish the two paths to that parent.
+After a common energy shift, the native free generator is
+\(\kappa/2\) times the identity on their span on 20, 80 and 320 cells.
+It gives every superposition in that span the same phase for any
+strength shared by the seams, including a time-dependent strength
+with finite time integral. The one-load experiment uses its own
+written stock and receiver.
 
-The common eigenvalue also fixes the relative phase between these two
-modes. For fixed material and a locally integrable real strength
-\(\kappa(t)\) common to all seams, the propagator on their span multiplies
-every amplitude by \(\exp[-(i/2)\int_0^t\kappa(s)\,ds]\) in the same
-energy convention. Thus any coherent superposition supplied in that
-span retains its density matrix. The verified source prepares the two
-individual modes, and its terminal measurements resolve their prefix
-and the sign within each mode.%
-\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_04_spectral}{Material preparation, all source outcomes, free generator and phase measurements}.}
+Let \(P_D\) project onto the signed history at a specified prefix and
+let \(P_T\) accept either physical tip. The native reversed-query click
+has effect \(P_D/8\). The free evolution commutes with \(P_D\), and
+\(P_T\succeq P_D\). A raw launch click probability \(p\) therefore gives
+a first two-tip probability of at least \(8p\) at every free exposure.
+A marked contact calibrates the launch clock. Across 32 preparations
+at sixteen nonzero signed strengths, the simulated launch banks
+give a simultaneous \(99\%\) lower bound of \(0.9941931\) on the first
+two-tip probability, including every preparation refusal. The raw
+click probability is about \(0.125\). Removing one degree-reference
+term at a tip only during flight bounds the signed weight by \(0.5150\)
+and the two-tip occupancy by \(0.7448\) at exposure 37, with the same
+source and reader. At zero contrast the launch clock gives no
+frequency.%
+\footnote{The material, preparation, all outcome banks and receiver
+calibration are in
+\nolinkurl{model/candidate_laws/interval_echo/openwave/row_04_spectral/}.
+The flight control is in
+\nolinkurl{openwave/interval_echo/preparation/acceptance_review/reference_control.json}.}
 
 \subsection{The face object}
 
@@ -2158,7 +2166,7 @@ first-shell half-difference of $-0.000245$ at time one on the larger
 board. These are native-law calculations with seeded Monte Carlo
 readouts. The source read captures its address before probing. Its
 spatial spread accounts for the static energy curve in this protocol,
-and a running gauge interaction remains open
+and identifying a running gauge interaction requires a scale-dependent probe
 (\path{row_23_coupling/free_bath/}).
 
 The result changes when the mobile vacancy relaxes separately around each
@@ -2580,8 +2588,8 @@ prediction. This factor equals one exactly when $p=q$, independently of
 the idle probability, and is $(9/8)^8$ for $p=2q$ in the protected cell.
 Keeping the symmetric source while admitting odd parity by an independent fair coin gives
 $\kappa\simeq4$. The common comparator and the use of the protected cell
-as a standard for every seam are design choices made after the earlier
-pair experiments. Counting neighbors on the deployed sphere instead gives
+as a standard for every seam were selected with the binding target known.
+Counting neighbors on the deployed sphere gives
 $m=8,9,10$ according to the seam address.
 
 An exact preparation follows by requiring the initial weights $(a,b,a)$
@@ -2597,14 +2605,13 @@ spectator-load and blank-memory actions, the full $99$-state seam generator.
 
 \subsection{Relation to the dark-sector carrier of the theory}
 
-The dark-sector paper of the theory takes a recovery defect on an overlap
-collar as the carrier of its non-luminous source: the defect carries the
-charge of the collar's generator, has no electromagnetic readout, and its
-stress vanishes at full recovery \cite{ophdarkmatter}. The unrecovered
-collar of A-contrast-memory-spherical-v1 has the corresponding properties inside the model.
-It is conserved, it holds no load, its generator vanishes on the recovered
-seam, and its level above the recovered seam is set by $\kappa$. This paper
-establishes no physical reading of the collar as that carrier.
+The dark-sector hypothesis assigns a conserved gravitational stress to
+recovery defects on overlap collars \cite{ophdarkmatter}. In the
+contrast-memory law, an unrecovered collar is a conserved, zero-load
+memory with agreement energy $\kappa$ above the recovered seam.
+Identifying its level with gravitating stress requires an ordinary-matter
+calibration of the same defect and a prediction of its spatial distribution.
+Electromagnetic neutrality requires an independent charge measurement.
 
 An isolated seam gives a material probe of this distinction. With
 opposite coin amplitudes on a contrast-two record, the native write
@@ -2992,7 +2999,7 @@ tested spatial preparation does not emerge from this local band splitting.
 \subsection{A traveling domain wall in paired material}
 \label{sec:collective-wall}
 
-A local phase impulse distinguishes the earlier eleven-contact pair from a
+A local phase impulse distinguishes the eleven-contact pair from a
 traveling wall. Its accepted words are $-13X+14Z$ up to normalization,
 and $(X-Z)/\sqrt{2}$ has one exact free energy. The patch exchanges
 one tip onto a private phase reference and back before release.
@@ -3044,27 +3051,31 @@ $\omega_1=(\Omega_{12}+\Omega_{13}-\Omega_{23})/2$. Further pair sums
 test that assignment. A local reversal also changes the load-product
 counts several bonds away in a different cell.
 
-Separate exchange and conditional-phase instruments predict a bulk
-rest frequency of $15.00051$ and a squared speed of $16.00156$ in
-these units. The simulated counting-only $95\%$ intervals are
-$[14.99679,15.00458]$ and $[15.99361,16.00977]$. Each finite open
-strand has a positive lowest measured $k$. With one held material seed
-used across three board sizes, 19 modes on strands of 20, 26 and 29 dimers give a maximum
-frequency discrepancy of $0.000585$ from the lattice prediction.
-Replacing $2\sin(k/2)$ by $k$ gives the long-wavelength
-Klein--Gordon equation and a maximum discrepancy of $0.01667$ in
-this sample. All eleven lines with $0<k\leq 0.50$ agree with the ordinary-$k$
-continuum relation within $0.002262$ clock units. This wavelength range
-was examined after the local validation. A tangent parabola also passes
-the ordinary-$k$ tolerance of $0.0048$ on these eleven lines. For the
-lattice increments above the lowest measured frequency of
-each strand, the square root has 21 to 44 times smaller root-mean-square
-error than its matched tangent parabola. With the flight coupling
-changed to $J=h$, a wall signal also reaches distant cells. Broadband
-observers then see low-frequency peaks in place of the massive pair
-line near 30. The measurement describes one-dimensional collective
-matter in a commissioned material. The mass scale is a frequency in
-that material's clock units.
+Separate exchange and conditional-phase instruments predict
+\(m=15.00051\) and \(c^2=16.00156\), the bulk rest frequency and
+quadratic coefficient in the strand's clock and spacing units. The
+spatial instrument fits the wave numbers on even holds and uses
+them to predict the pair profiles at odd holds. Each held scan fits
+only the two amplitudes of the prescribed standing waves
+\(\sin[(M-x)k]\), with the end node at \(x=M\). The measured wave
+numbers pass on all three prepared 23-, 36- and 30-dimer strands.
+Using the launch wavelengths fails the same spatial test on every
+board.
+
+The 22 constituent frequencies agree with the independently metered
+lattice relation within \(0.000575\). In the specified range
+\(0<k\leq0.50\), fourteen lines agree with
+\(\sqrt{m^2+c^2k^2}\) within \(0.003165\). The difference between the
+continuum and lattice forecasts is at most \(c^2 k^4/(24m)\). At
+larger measured \(k\) the error of the continuum relation reaches
+\(0.01664\). Setting the flight coupling to \(J=h\) retains remote
+transmission while moving the measured pair peaks from near 30 to
+below one. The mass here is the bulk frequency of a collective mode
+on a prepared strand.%
+\footnote{Independent coupling measurements and held spatial profiles are in
+\nolinkurl{model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/}.
+The transmitting control is in
+\nolinkurl{model/candidate_laws/interval_echo/openwave/row_30_collective/propagating_control.json}.}
 
 The coefficient of \(k^2\) and the largest group velocity can be measured
 separately. For strand couplings \(J,h>0\) the former is \(c^2=4Jh\).
@@ -3146,38 +3157,34 @@ $1.87\times10^{-9}$, and both orientations produced zero recorded turns.
 The relative phase reaches the remote observer through a dynamics that
 permits several walls at the junction.
 
-A spatial test distinguishes the measured wave numbers from the sine
-templates used to launch the waves. We fit each wave number using
-even-numbered clock holds and predict the pair profiles on the odd holds.
-At each pair and receiver scan only two amplitudes are fitted on the test
-records. The two wave numbers enter the two standing waves
-$\sin[(M-x)k]$, where the supplied end node is at $x=M$ and the
-receivers occupy $x=0,\ldots,M-1$. The sum of squared residuals uses
-binomial noise weights. With the full-record interior-recurrence wave numbers,
-two of three reserved boards failed this spatial test even though their
-dispersion estimates passed. A separately frozen detector uses the
-even-hold wave numbers throughout, including in the dispersion forecast.
-
-On three further boards selected before their measurements, the strands
-had 23, 36 and 30 dimers. The odd-hold residuals were 423, 860 and 787,
-against fixed upper limits of 554, 1138 and 963. Substituting the launch
-wavelengths on the same records gave residuals between $7.92\times10^5$
-and $2.79\times10^6$. All 22 constituent frequencies on these three boards
-agreed with the independently calibrated lattice relation within 0.000575
-in dimer-clock units. The ordinary-$k$ prediction agreed within 0.003165
-on the fourteen lines with $0<k\leq0.50$.
-
 Sharp repairs can also commission these strands. A local pointer resolves
 two connector energies. The first outcome fixes the material standard,
 and subsequent links are retried against it. On three board sizes the
 independently measured gaps are $15.00062$ and $15.49947$ in the two
 materials. Across both outcomes all 34 held frequencies agree with the
 corresponding lattice dispersion to within $0.000708$ exchange units.
-On a six-dimer control using all 32 untreated sharp histories, the
-same spatial decoder rejects a common wavelength assignment. Its
-held residual is $83{,}988$ against a limit of $121.01$. The two
-uniform materials give $79.30$ and $55.05$. Thus selecting the
-medium changes what wavelengths the receiver can identify.
+On a six-dimer control the spatial decoder passes the two uniform
+first-write histories and rejects all 30 mixed histories, even
+with the sharp connector word supplied. The uniform contacts determine
+which wavelengths this receiver can identify.%
+\footnote{The conditioned physical word census is in
+\nolinkurl{model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/conditional_profiles.json}.}
+
+On an inherited electric-response route, observers remove the internal
+dimer guards and leave every contact within the route open. An opposite
+source phase changes a remote equal-neighbour record by
+\([0.3172179,0.3172212]\) per original launch after four native time
+units. A cut between dimers has contrast below \(2.8\times 10^{-6}\)
+in magnitude. The full 44-dimer route supports an isolated 45-mode
+wall band. On the four-, six- and eight-dimer prefixes, all fifteen
+held interior frequency intervals miss the endpoint-calibrated exact
+continuum, lattice square-root and ordinary hopping predictions.
+The native degree references produce a periodic longitudinal field,
+so the homogeneous interior dispersion does not carry over. These
+comparisons establish transmission on this material and leave its
+long-wavelength dispersion undetermined.%
+\footnote{The count reader and spectral band bound are in
+\nolinkurl{model/candidate_laws/interval_echo/openwave/row_30_native_wall/}.}
 
 An independent comparison uses the freely traveling neutral island
 of the polar ring. The rest clock and first recoil on ten dimers
@@ -3230,20 +3237,16 @@ every excited-to-excited line differs from its formation frequency by
 at least $0.19393$ exchange units. The 256 disconnected histories
 reproduce it on independent dimers. Across the joined five-dimer
 assembly the lowest gap is $1.263631$ and the minimum detuning for
-excited pairs exceeds $0.0064484$. A clock internal to a moving
-excitation remains open.%
+excited pairs exceeds $0.0064484$. An internal clock requires a measured line whose reference travels with the excitation.%
 \footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island}{Complete joint counts, level enclosures and finite-band proof} and \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material}{exact root enclosures for the emission experiment}.}
 
-Two of the twelve surveyed boards contain closed strands crossing several
-cells, with 17 and 20 dimers. In the dimer-flip sector $F=f$, where
+Two surveyed boards contain closed strands of 17 and 20 dimers
+crossing several cells. In the dimer-flip sector $F=f$, where
 $F=\prod_j X_j$ and $f=-(-1)^n$ for $n$ dimers, the wall has periodic
-boundary conditions and admits a spatially uniform mode. An original
-simulation retained this sector across the first Pauli-string measurement.
-Reading the constituent Paulis separately erases the sector. On five
-dimers at exposure 2.15 these two instruments give correlations 0.126453
-and 0.163145 for the same source and terminal strings.
+boundary conditions and admits a spatially uniform mode. Reading
+the constituent Paulis separately erases the sector. Two ensembles
+recover its correlation using local measurements.
 
-Two ensembles of local measurements recover the desired correlation.
 Start the dimers maximally mixed. Measure the local factors of the source
 string $O$ in one ensemble and of $fOF$ in the other. Both are physical
 Pauli products since $[O,F]=0$. After flight, measure the same terminal
@@ -3475,6 +3478,10 @@ simultaneous 99\% interval $[0.61951,0.64710]$.
 
 \paragraph{Detecting energy after pair conversion.}
 A source releases an excess and a vacancy three links apart.
+Between observations the registered free action exchanges loads and
+adds diagonal energies. It preserves the numbers of vacancies and
+excesses separately, giving exactly zero probability for free
+conversion to the filled host on this preparation.
 At coincidence a local detector can apply the registered repair to
 both ports. In 1801 of 33,554,432 initial trials the pair was removed
 and two neutral material wings were both excited. The wings can absorb
@@ -3528,65 +3535,37 @@ far dimers, giving a double-click excess of \(0.00583\)--\(0.00585\).
 This comparison uses calibrated field couplings and two prepared field
 excitations. The native record identifies energy transfer mediated by
 the polarizable guides (\path{row_08_annihilation/material_separator/}).
+The two-sign occupation obstruction, the serviced repair, and the
+loss of opposite phase walls concern different source readings. An
+electron--positron annihilation claim requires a joint charge and
+energy budget on identified incident particles and an outgoing
+radiation detector.
 
-\paragraph{A soft line after the source is disconnected.}
-Read the first excited line of a six-port wing after the opposite-wall
-source has relaxed, and repeat with its ordered sham. With the source
-attachment retained the gap is $31.80076$ on a parent energy scale
-independently measured as $65.00001\pm0.00015$. Cutting the
-attachment while preserving three dimer guards gives a resolved gap
-of $0.000945849$. The conditional line probability is $22.0\%$
-for the wall preparation and $50.0\%$ for the sham. Removing the
-guards as well gives a first gap of $32.49358$; positive exchange
-and the twenty legal words give a lower bound of $31.5$.
-These measurements distinguish a soft line of the detached receiver
-from a light neutral excitation produced by the source. They measure
-material loads and gaps in exchange units.
+\paragraph{Distinguishing a released product from a receiver mode.}
+A six-port wing reads a gap of \(31.80076\) when attached to the
+opposite-wall source. Disconnecting it with its dimer guards in
+place gives a soft line at \(0.000945849\). The ordered sham populates
+the soft line more often than the wall preparation. Removing the
+guards gives a first gap above \(31.5\), by positivity of exchange
+and the twenty allowed load words. A soft frequency by itself
+does not identify a product of decay.
 
-\paragraph{A light neutral excitation after a heavy source relaxes.}
-On a passive four-dimer material an observer reads a surviving lower
-source level together with the first excitation of a disjoint receiver
-on $1{,}236{,}356$ of $4{,}194{,}304$ launches ($29.48\%$). Separate
-return measurements price the parent at 33.6060 and the receiver
-excitation at 1.0486 in exchange units. The cold-source and disconnected
-controls each give zero joint events. Retaining all 512 outcomes of nine
-independent collar writes gives $634{,}703$ joint events in the same
-number of original launches ($15.13\%$).
-
-A second trial leaves the entire material connected. A local pulse on the
-source excites its joined ground and a probe at the far end resolves
-energy removed from the material. With initial delay 16 it counts
-$291{,}568$ positive-loss outcomes in $4{,}194{,}304$ starts, against
-349 in the idle control and 320 with the attachment cut. Deleting all
-transitions that lower the material energy by less than one tenth of
-the parent formation energy bounds this detection probability by
-$0.00031116$ for every input. The coherent timing aperture spans about
-804 exchange units after the initial delay. This records low-energy
-absorption at the far dimer over the aperture.
-
-A three-dimer receiver crosses from owner 0, which contains the whole
-source, to owner 6. Native gate sequences prepare the joined and cut
-cold materials and implement the local source pulse. Both rails of
-the last dimer are four physical seams from the source. At delay 16 its local exchange sign was negative on
-$1{,}181{,}301$ of $4{,}194{,}304$ launches with the pulse and on
-$545{,}792$ with the cold source. On fresh copies an energy probe with
-an aperture of about $3{,}217$ exchange units registered $535{,}299$
-positive losses in the light band, against 84 with the idle source and
-zero with the final receiver link cut. The cut leaves the source attached.
-Removing the light lowering transitions bounds the acceptance of any input
-by $0.00020093$. A fresh instrument reads the surviving core after the
-same absorption aperture. It records both a light loss at owner 6 and
-one of the two lower heavy levels at owner 0 on $498{,}456$ of
-$4{,}194{,}304$ launches ($11.88\%$), with zero joint events in both
-controls. Removing contrast reversal from the flight generator gives
-$547{,}113$ far losses with the native pulse and $548{,}214$ without it
-on equal banks. The receiver formation energy is $1.26372$ on a parent
-scale of $33.60603$. A four-receiver route folded back into one owner
-missed the one-percentage-point local-sign threshold. These comparisons
-demonstrate release and distant absorption of a light, charge-neutral
-material excitation in this finite system. Identifying a neutrino species
-requires independent weak-response and rest-dispersion measurements.%
-\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_09_neutral}{Native materials, source controls and calibrated receiver records}.}
+On a continuously joined material, observers record positive
+low-band energy loss at a receiver in a different owner and a
+surviving lower source level on \(498{,}456\) of \(4{,}194{,}304\)
+simulated launches. The cold and cut controls give zero joint
+events. Separate formation clocks give \(1.26372\) for the receiver
+and \(33.60603\) for the parent in the same native units. The counts
+compare light energy deposition and source relaxation on the
+prepared neutral material. On an independently qualified transmission
+path, capturing a known neutral input changes the remote light
+read by at least 1.79 percentage points. The heavy-source change is
+below 0.076 points at either clock setting, and its joint contrast
+with a lower remnant is negative at both settings. This failure
+limits the in-flight identity inferred from the source and receiver
+coincidence. A separate driven guide resolves a specific low mode
+on the parent-ground and distal-vacuum records.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_09_neutral}{Native material, energy comparisons and the in-flight intervention}.}
 
 A source spanning the seam between owners 0 and 6 contains a single vacancy.
 Each owner holds a separate cold neutral dimer. Sixteen exchange units
@@ -3900,6 +3879,28 @@ medium is at least $4$. A different written preparation on the same
 320-cell federation admits a trial pair at least 55 port links apart
 with combined energy at most $0.126165$ above the neutral ground.
 The band edge therefore prices the end in a particular medium.
+
+On a late vacancy arriving from a reference-tagged preparation,
+successive observers test that guide line and its later angular read
+on the same trial. An inverse preparation followed by a sharp origin
+read selects the calibrated spatial mode of the 144-port guide.
+The mode frequency is in
+\([1.75378873136,1.75378876373]\) neutral-clock units. On the two
+admitted arrival words the collector multiplies the word and reference
+amplitudes by a common scalar. A return occurs on about
+142.56 per million original starts. After the recorded change of
+shutters and four aligning face reversals, about 11.75 per million also
+pass the stationary wheel read. Comparing a single exterior head with
+the retained source reference gives a witness in
+\([-0.01175134,-0.00594249]\), with simultaneous \(99\%\) coverage
+under the finite-model sampling law. Separable records give a
+nonnegative witness. The ordered heralds establish guide-line
+selection followed by a signed material current and retention of
+the reference correlation. The guide clock and wheel use distinct
+generators, and the reference-sensitive face degrees of freedom
+are spectators of the guide.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/exterior_meter}{Guide calibration, joint count banks and replay}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/SourceLaw/ExteriorHeadCurrent.lean}{Finite collector and exterior current identities}.}
 
 On the registered interaction with one load per port, a sharp vacancy
 in an isolated cell survives 1,024 consecutive gateway checks with
@@ -4766,18 +4767,18 @@ record carries a prepared clock that an observer reads in units of its own
 reference. All three laws are candidate native repair laws, and their
 couplings are supplied.
 
-The written-field extension identifies a candidate for the charge and
-field response of an electron. Its signed material load carries the
-change in boundary flux, alters a distant material probe and responds
-to an orbital magnetic twist. The four-face field doublet changes how
-that charge moves, yet an addressed exchange carries the material
-origins past one another while leaving the doublet labels at their
-original gateways. Physical spin attached to the travelling charge,
-fermionic exchange of the whole excitation and its rest energy in keV
-are distinct, unverified identifications. On the original Interval Echo
-law the long-wave dispersion measured on a prepared four-port route
-depends on how the same gateways are connected inside each cell
-(Section~\ref{sec:written-route}).
+In the written-field extension, signed material transport changes
+boundary flux and a distant probe's response. Its orbital record affects
+motion, and an addressed route can move the two loads with their field
+correlations or leave the fields at the original stations. The
+reference correlation that survives guide-line collection concerns the
+written field. On a separate interacting contact ring, neighbouring
+detectors recover a signed material unit and a source-correlated spin
+on the same trial. On the original
+Interval Echo law the long-wave dispersion measured on a prepared
+four-port route depends on how the same gateways are connected inside
+each cell (Section~\ref{sec:written-route}).%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain}{Contact-ring protocol and receiver checks}.}
 
 
 \section{Reproducibility}

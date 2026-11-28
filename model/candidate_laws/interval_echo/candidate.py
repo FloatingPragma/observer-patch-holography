@@ -70,6 +70,17 @@ PARTICLE_IDENTIFICATIONS = {
                        "A spinless orbital realization gives identical charge and flux histories.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
         },
+        "additional_comparisons": [{
+            "law": "Periodic repulsive Weyl contact ring",
+            "label": "Signed material arrival and local spin on the same trial",
+            "finding": "After free flight on eight sites, a common two-site gate reads one added or missing unit "
+                       "and recovers spin entangled with the source reference. For either sign and one fixed "
+                       "neighbor the gate accepts about 0.099872% of original starts. The conditional Bell "
+                       "overlap is 0.7348755 to 0.7349713, compared with 0.18035 parked and 0.47919 "
+                       "with the two energies resolved. The source supplies spinors and fermionic occupation. "
+                       "Electric charge, calibrated rest mass and lepton family require measurements on this branch.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/README.md",
+        }],
     },
     "mu": {
         "status": "open",

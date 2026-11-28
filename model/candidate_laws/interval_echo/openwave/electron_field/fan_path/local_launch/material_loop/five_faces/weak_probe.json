@@ -1,0 +1,172 @@
+{
+  "archived_late_reference": {
+    "conditional_reference_runs": [
+      {
+        "conditional_reference_plus_minus_outside_probability": [
+          -4.5887356899512514e-10,
+          1.485922677240388e-10
+        ],
+        "exterior_face_rate": 0.001,
+        "source_calibration_allowance": 3.03732133564499e-10
+      },
+      {
+        "conditional_reference_plus_minus_outside_probability": [
+          -1.8816459408167216e-07,
+          -1.2741646543787048e-07
+        ],
+        "exterior_face_rate": 0.01,
+        "source_calibration_allowance": 3.037321335644991e-08
+      },
+      {
+        "conditional_reference_plus_minus_outside_probability": [
+          -2.72190465582354e-06,
+          -2.3422076011986035e-06
+        ],
+        "exterior_face_rate": 0.025,
+        "source_calibration_allowance": 1.8983258347781192e-07
+      },
+      {
+        "conditional_reference_plus_minus_outside_probability": [
+          -2.184589184184289e-05,
+          -2.0325039980073515e-05
+        ],
+        "exterior_face_rate": 0.05,
+        "source_calibration_allowance": 7.593303339112477e-07
+      }
+    ],
+    "doublet_admission_per_original_start": {
+      "minus": [
+        0.0005875727633596141,
+        0.0005875742972657468
+      ],
+      "plus": [
+        0.0007183788533221535,
+        0.0007183803872282862
+      ]
+    },
+    "nominal_k_conjugate_contrast_multiplier": 0.20083584781450659,
+    "source_density_trace_norm_allowance_in_contrast": 4.7458135869452976e-06,
+    "source_wait": 30.8125,
+    "source_word_reads_sha256": "107372c630fe0508205bb26d1917e61834ee9b05ffface9eab7c9a6644eb6273"
+  },
+  "coefficient_scale": 8,
+  "conditional_angular_character_runs": [
+    {
+      "absolute_tail_beyond_tenth_order": 8.826195290819055e-28,
+      "exterior_face_rate": 0.001,
+      "k_plus_one_minus_k_minus_one_outside_probability": [
+        -7.724788035546114e-10,
+        -7.72470988265743e-10
+      ],
+      "source_disturbance_upper": 6.4e-05
+    },
+    {
+      "absolute_tail_beyond_tenth_order": 8.93354090922091e-17,
+      "exterior_face_rate": 0.01,
+      "k_plus_one_minus_k_minus_one_outside_probability": [
+        -7.85673386710123e-07,
+        -7.85664912471483e-07
+      ],
+      "source_disturbance_upper": 0.0064
+    },
+    {
+      "absolute_tail_beyond_tenth_order": 2.1739894843343118e-12,
+      "exterior_face_rate": 0.025,
+      "k_plus_one_minus_k_minus_one_outside_probability": [
+        -1.2607669895089482e-05,
+        -1.2607511120300724e-05
+      ],
+      "source_disturbance_upper": 0.04
+    },
+    {
+      "absolute_tail_beyond_tenth_order": 4.611342266199409e-09,
+      "exterior_face_rate": 0.05,
+      "k_plus_one_minus_k_minus_one_outside_probability": [
+        -0.00010499401246040168,
+        -0.0001049831020877231
+      ],
+      "source_disturbance_upper": 0.16
+    }
+  ],
+  "enrolled_configurations": 46,
+  "k_plus_one_minus_k_minus_one_cubic_coefficient_in_face_rate": [
+    -0.7709922398961978,
+    -0.7709845138509753
+  ],
+  "polynomial_coefficients_in_eight_times_rate": [
+    {
+      "contrast": [
+        0.0,
+        0.0
+      ],
+      "order": 2
+    },
+    {
+      "contrast": [
+        -0.0015058442185472613,
+        -0.0015058291286151862
+      ],
+      "order": 3
+    },
+    {
+      "contrast": [
+        -0.00036341836553962207,
+        -0.00036340159895286735
+      ],
+      "order": 4
+    },
+    {
+      "contrast": [
+        6.115290578911163e-05,
+        6.117009153954099e-05
+      ],
+      "order": 5
+    },
+    {
+      "contrast": [
+        1.568265962266669e-05,
+        1.5699929205836024e-05
+      ],
+      "order": 6
+    },
+    {
+      "contrast": [
+        -1.2826936390939983e-06,
+        -1.2654100837960638e-06
+      ],
+      "order": 7
+    },
+    {
+      "contrast": [
+        -3.0994632365628975e-07,
+        -2.9266077233456173e-07
+      ],
+      "order": 8
+    },
+    {
+      "contrast": [
+        8.894259284832413e-09,
+        2.6180060115069002e-08
+      ],
+      "order": 9
+    },
+    {
+      "contrast": [
+        -5.171557552241118e-09,
+        1.2114271006785444e-08
+      ],
+      "order": 10
+    }
+  ],
+  "quadratic_outside_coefficient_per_character": [
+    [
+      7.030649289823842,
+      7.03064961174282
+    ],
+    [
+      7.0306492898238355,
+      7.030649611742814
+    ]
+  ],
+  "wait": 4
+}

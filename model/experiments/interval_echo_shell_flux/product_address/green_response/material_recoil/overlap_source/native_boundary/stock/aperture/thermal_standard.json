@@ -1,0 +1,36 @@
+{
+  "double": {
+    "ports": 240,
+    "uniform_energy": 192.0,
+    "ticks": 0.00390625,
+    "energy_band": [
+      191.97066955382462,
+      192.03018609969956
+    ],
+    "counts": [
+      3718756345,
+      3611280635
+    ],
+    "shots": 4294967296,
+    "spectral_bound": 198.0
+  },
+  "single": {
+    "ports": 240,
+    "uniform_energy": 48.0,
+    "ticks": 0.00390625,
+    "energy_band": [
+      47.969823382693974,
+      48.02933952395216
+    ],
+    "counts": [
+      4257324231,
+      2547777197
+    ],
+    "shots": 4294967296,
+    "spectral_bound": 54.0
+  },
+  "ordinary_rail": "disconnected storage at the same conserved load",
+  "sha256": {
+    "thermal_energy.json": "3b17c9e9b88ef2ef4c3cad148ebda91cda449ba0c8f11365f1108cee03fa6f05"
+  }
+}

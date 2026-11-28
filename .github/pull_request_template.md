@@ -6,6 +6,8 @@ Row ID from docs/registers/OBSERVABLES.json or model/evaluation/SCORECARD.md, or
 
 What the change shows and which files hold the evidence (code, Lean, paper text):
 
+For a theorem-backed observable, identify the shared record, the exact premise it closes, the theorem and its remaining hypotheses. State the consequence established on this construction, with the measurement bounds. [Premise closure](../AGENTS.md#closing-a-physical-premise)
+
 ## Replay
 
 Exact commands that reproduce the result from a clean clone:

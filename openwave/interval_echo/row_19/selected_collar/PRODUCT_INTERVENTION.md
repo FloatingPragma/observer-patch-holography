@@ -1,0 +1,3 @@
+# Erasing the original pairing
+
+The incoming independent reference also supplies a distinct ordinary entropy term, the score of its parity and individual heads. Calibrate its sum with the lost connected score on the ordinary and rotation arms. As a follow-up using the same prepared control, compare the geometry on the straight intervention toward the independent reference. The separate head marginals stay fixed along that line. For every physical observation channel the sign of the lost-score variation on that line follows by data processing in both directions. Check whether the two different held directions can represent the same positive coupling and finite-volume stationarity. This follow-up was specified after acquiring the product control and before decoding it.

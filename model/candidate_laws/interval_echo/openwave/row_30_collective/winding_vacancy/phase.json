@@ -1,0 +1,169 @@
+{
+  "calibration": {
+    "centred_rest": 3.50364874679157,
+    "clock_minus_mean_work": 4.503650511393115,
+    "clock_minus_stationary_rest_line": 1.000001764601545
+  },
+  "counts_sha256": "9b5dd394d667094f9b89d34dad29d406ea67821d791a74de5c95198aaefaa086",
+  "fitted_hopping": [
+    3.509246729171156,
+    0.5111520481883326
+  ],
+  "max_hopping_error": 0.014175198160403468,
+  "max_lattice_error": 0.00728544554310373,
+  "max_long_wave_continuum_error": 0.007767322651309083,
+  "passed": true,
+  "protocol_sha256": "ed16b145cf2679923ff5c0f3d7c8571f0dd4ae1077c176755a3a671716509527",
+  "rows": [
+    {
+      "held_spatial_rms": 0.0002313137570005514,
+      "lines": [
+        {
+          "clock_minus_line": 0.9908568596318016,
+          "continuum_residual": 0.0006338968059176331,
+          "host_energy_from_clock": 8.009143140368199,
+          "lattice_residual": 0.0006550254234718444,
+          "measured_k": 2.968804338831234,
+          "measured_q": 0.17278831475855894,
+          "signed_centred_frequency": 3.512793651761313
+        },
+        {
+          "clock_minus_line": 8.008439710444504,
+          "continuum_residual": -0.0073062562735755066,
+          "host_energy_from_clock": 0.9915602895554958,
+          "lattice_residual": -0.00728544554310373,
+          "measured_k": 2.969459062416933,
+          "measured_q": 0.1721335911728601,
+          "signed_centred_frequency": -3.5047891990513893
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 69
+    },
+    {
+      "held_spatial_rms": 0.00022641528027232184,
+      "lines": [
+        {
+          "clock_minus_line": 0.9574870866309321,
+          "continuum_residual": -2.610648626966139e-05,
+          "host_energy_from_clock": 8.042512913369068,
+          "lattice_residual": 0.0004997023912025611,
+          "measured_k": 2.754355226006934,
+          "measured_q": 0.3872374275828592,
+          "signed_centred_frequency": 3.5461634247621827
+        },
+        {
+          "clock_minus_line": 8.042094117269569,
+          "continuum_residual": -0.007767322651309083,
+          "host_energy_from_clock": 0.9579058827304312,
+          "lattice_residual": -0.007240985967939206,
+          "measured_k": 2.7542572635751457,
+          "measured_q": 0.38733539001464745,
+          "signed_centred_frequency": -3.538443605876454
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 64
+    },
+    {
+      "held_spatial_rms": 0.0002266087813181921,
+      "lines": [
+        {
+          "clock_minus_line": 0.8721045633372336,
+          "continuum_residual": -0.005109122997879911,
+          "host_energy_from_clock": 8.127895436662767,
+          "lattice_residual": -1.9702373254215644e-05,
+          "measured_k": 2.4524970270883264,
+          "measured_q": 0.6890956265014667,
+          "signed_centred_frequency": 3.6315459480558814
+        },
+        {
+          "clock_minus_line": 8.12786992281423,
+          "continuum_residual": -0.012239548304139092,
+          "host_energy_from_clock": 0.8721300771857692,
+          "lattice_residual": -0.007165019625543945,
+          "measured_k": 2.453014689640922,
+          "measured_q": 0.6885779639488709,
+          "signed_centred_frequency": -3.624219411421116
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 57
+    },
+    {
+      "held_spatial_rms": 0.0002271555978890886,
+      "lines": [
+        {
+          "clock_minus_line": 0.7317352400975309,
+          "continuum_residual": -0.02389856457692696,
+          "host_energy_from_clock": 8.268264759902468,
+          "lattice_residual": 0.000270540081727777,
+          "measured_k": 2.108962967858493,
+          "measured_q": 1.0326296857313002,
+          "signed_centred_frequency": 3.771915271295584
+        },
+        {
+          "clock_minus_line": 8.268354049453608,
+          "continuum_residual": -0.031231239389750254,
+          "host_energy_from_clock": 0.7316459505463921,
+          "lattice_residual": -0.0070423987206180705,
+          "measured_k": 2.108740705399229,
+          "measured_q": 1.0328519481905643,
+          "signed_centred_frequency": -3.764703538060493
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 49
+    },
+    {
+      "held_spatial_rms": 0.00022404733325077718,
+      "lines": [
+        {
+          "clock_minus_line": 0.4581912378840301,
+          "continuum_residual": -0.11928301207497327,
+          "host_energy_from_clock": 8.54180876211597,
+          "lattice_residual": 0.0006184846921994946,
+          "measured_k": 1.5494991003653316,
+          "measured_q": 1.5920935532244616,
+          "signed_centred_frequency": 4.045459273509085
+        },
+        {
+          "clock_minus_line": 8.541803799257979,
+          "continuum_residual": -0.12674652820615862,
+          "host_energy_from_clock": 0.4581962007420213,
+          "lattice_residual": -0.0067893502225340185,
+          "measured_k": 1.5492930685533755,
+          "measured_q": 1.5922995850364177,
+          "signed_centred_frequency": -4.038153287864864
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 36
+    },
+    {
+      "held_spatial_rms": 0.0002294436948119223,
+      "lines": [
+        {
+          "clock_minus_line": 0.17304387940916816,
+          "continuum_residual": -0.390886706203017,
+          "host_energy_from_clock": 8.826956120590832,
+          "lattice_residual": 0.00041021210352987225,
+          "measured_k": 0.9036309915354875,
+          "measured_q": 2.2379616620543055,
+          "signed_centred_frequency": 4.3306066319839465
+        },
+        {
+          "clock_minus_line": 8.82719972008532,
+          "continuum_residual": -0.3978225341558579,
+          "host_energy_from_clock": 0.1728002799146804,
+          "lattice_residual": -0.006600667912052494,
+          "measured_k": 0.9037592601855825,
+          "measured_q": 2.2378333934042107,
+          "signed_centred_frequency": -4.323549208692205
+        }
+      ],
+      "passed_spatial": true,
+      "source_mode": 21
+    }
+  ]
+}

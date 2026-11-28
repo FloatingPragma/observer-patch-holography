@@ -2,6 +2,8 @@ import ObserverPatchHolography.EinsteinBranch.Consensus
 import ObserverPatchHolography.EinsteinBranch.Entropy
 import ObserverPatchHolography.EinsteinBranch.SmallBall
 import ObserverPatchHolography.EinsteinBranch.TileCapacity
+import ObserverPatchHolography.EinsteinBranch.GravityCalibration
+import ObserverPatchHolography.EinsteinBranch.TwoFrequencyClock
 import ObserverPatchHolography.EinsteinBranch.QuantitativeSmallBall
 import ObserverPatchHolography.EinsteinBranch.RayPairBalance
 import ObserverPatchHolography.EinsteinBranch.BisectedDiamonds
@@ -37,6 +39,17 @@ import ObserverPatchHolography.EinsteinBranch.RegionalForce
 import ObserverPatchHolography.EinsteinBranch.NestedVolumes
 import ObserverPatchHolography.EinsteinBranch.StationarityReadout
 import ObserverPatchHolography.EinsteinBranch.AreaReadoutSpread
+import ObserverPatchHolography.EinsteinBranch.OverlapRecoil
+import ObserverPatchHolography.EinsteinBranch.ClosedOverlap
+import ObserverPatchHolography.EinsteinBranch.NativeBoundary
+import ObserverPatchHolography.EinsteinBranch.WrittenPopulation
+import ObserverPatchHolography.EinsteinBranch.TrailAperture
+import ObserverPatchHolography.EinsteinBranch.SourceApertures
+import ObserverPatchHolography.EinsteinBranch.JointClockFlight
+import ObserverPatchHolography.EinsteinBranch.RecordMass
+import ObserverPatchHolography.EinsteinBranch.ReceiverGravity
+import ObserverPatchHolography.EinsteinBranch.ContactCensus
+import ObserverPatchHolography.EinsteinBranch.ReferenceArrival
 
 /-!
 # Einstein-branch formalisation (GitHub #578)

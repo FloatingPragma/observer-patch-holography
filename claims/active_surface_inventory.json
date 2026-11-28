@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1561,
+  "surface_count": 1909,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1021,12 +1021,97 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/ELECTRON_POSITRON_ROUTES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/binding_audit/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/binding_audit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/BRIDGE_ERASER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/face_turn/FRAME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/face_turn/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/face_turn/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/marker_transfer/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/marker_transfer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/marker_transfer/native_lift/METHOD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/marker_transfer/native_lift/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction/marker_transfer/native_lift/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction_flight/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/intact_path/junction_flight/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1042,6 +1127,306 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/TERMINAL_CONTROL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/ENERGY_ORDER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/RECEIVER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/WITNESS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/face_current/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/COUNT_TEST.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/PROBE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/exterior_meter/COLLECTOR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/exterior_meter/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/exterior_meter/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/material_loop/five_faces/exterior_meter/pole_handoff/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/DIRECT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/fresh_port/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/fresh_port/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/fresh_port/low_branch/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_path/local_launch/separated_read/fresh_port/low_branch/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/BEAT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/TRANSFER_SERIES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/propagation/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/propagation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/propagation/pole_clock/LONG_WAVE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/propagation/pole_clock/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/fresh_kick/propagation/pole_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/pair_collar/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/pair_collar/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_recoil/self_start/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/COHERENT_FILTER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/ENERGY_ORDER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/TERMINAL_CHANNELS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/fan_rotation/TERMINAL_CHANNELS_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/ASYMMETRIC_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/CAPTURE_CONDITIONING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/PATH_DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/cycle_flux/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/cycle_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/fresh_arrival/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/radial_probe/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/radial_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/radial_probe/finite_pin/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/field_charge_records/electric_collar/radial_probe/finite_pin/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1182,6 +1567,116 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/charged_endpoints/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/charged_endpoints/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/compiled_light_branch/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/compiled_light_branch/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_arrival/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_current_probe/METHOD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_current_probe/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_current_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_recoil/ENERGY_BRIDGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_recoil/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_recoil/low_branch/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_weak_partner/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/endpoint_weak_partner/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/flux_continuation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/material_spin_band/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/material_spin_band/low_window/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/material_spin_band/low_window/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/orthogonal_low_cluster/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1671,7 +2166,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/DONOR_CLOCK_GATE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/DONOR_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/paired_material/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/prefix_location/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/provenance/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_spectral/provenance/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1821,6 +2346,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/bare_neutral_bound/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/bare_neutral_bound/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1841,12 +2376,77 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/cycle_energy/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/cycle_energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/cycle_energy/interface_tag/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/cycle_energy/interface_tag/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/COLD_PORTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/CROSSING.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/EARLY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/FILLED_OUTLET.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/JOINED_OUTLET.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/JOINT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/JOINT_EXTERIOR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/LARGER_TRANSITION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/OPEN_PORTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/OUTLET.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/OUTLET_CLOCK.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1862,6 +2462,71 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/STATIC_EDGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/STRAND_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/STRAND_EXTERIOR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/STRAND_LINES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/STRAND_RECOIL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/TICKS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/TRANSMISSION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/WEAK_RING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/WEAK_STRAND.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/WING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/WING_CAPTURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/WING_TRACER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/DETUNING.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2706,6 +3371,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_26_newton/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2747,6 +3417,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/degenerate_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/dust_exterior/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/dust_exterior/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2797,6 +3477,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/parked_signals/COMMON_DELAY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/parked_signals/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/parked_signals/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3031,6 +3726,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/belt_recoil/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/belt_recoil/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3071,12 +3776,57 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confinement_route/CENTRE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confinement_route/IMPULSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confinement_route/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confinement_route/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confinement_route/SUBCHAIN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/electric_guide/LOCAL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/electric_guide/PASSIVE_NETWORK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/electric_guide/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/electric_guide/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3191,6 +3941,96 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/AUDIT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/CONJUGATE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/COPIES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/COPIES_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/COPIES_SOURCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/DENSITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/GEOMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/HARMONICS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/HOST.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/MOMENTUM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/NEUTRAL_RESPONSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/PHASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/RESERVOIR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/RESERVOIR_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/TRANSFER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/winding_vacancy/TRANSFER_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_formed/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3227,6 +4067,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_memory/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_native_wall/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_native_wall/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_native_wall/SUBMISSION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3826,6 +4681,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ELECTRON_IDENTITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3851,6 +4711,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/charge_probe/threshold_records/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/charge_probe/threshold_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3871,12 +4741,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/echo_turn/intact_exchange/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/echo_turn/intact_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/PASSIVE_LOOPS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/magnetic_response/FINITE_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/magnetic_response/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/magnetic_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3892,6 +4787,16 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/THRESHOLD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/electron_identity/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/electron_identity/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5026,6 +5931,51 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/COMMON_HEADS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/FOLLOWUP.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/repair_service/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/repair_service/RATE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/repair_service/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/repair_service/REPLICAS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/mobile_collar_source/placement/repair_service/SUPPLY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/native_rate_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5726,6 +6676,721 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/closed_region/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/closed_region/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/FREE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/free_probe/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/free_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/free_probe/SHARP_READ.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/free_probe/TIME_MEAN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/COMMON_BASELINE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/NEUTRAL_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/SHARP_READS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/SOURCE_TOMOGRAPHY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/TIME_FOUR_CERTIFICATE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/signal_time/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/signal_time/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/matched_probe/signal_time/SAME_BOARD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/population/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/population/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/TWO_READS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/CHECKS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/COINCIDENCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/EQUIPPED_MASS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/INWARD_CHECK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/JOINT_RECORDS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/JOINT_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/MOBILE_STANDARD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/PORT_CLOCK_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/PORT_ENCLOSURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/regional_reference/recovery/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/PARKED.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/TRAIL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOCK_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOCK_SOURCE_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOCK_TO_FLIGHT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOSED_INSERTION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOSED_PAIRING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOSED_PASSAGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOSED_SOURCE_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CLOSED_STEERING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COHERENT_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COHERENT_TIDE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COHERENT_VOLUME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COLD_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COLLECTIVE_RELAY_LAB.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COLLECTIVE_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COLLECTIVE_SWITCH.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/COLLECTIVE_TIDE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CONTACT_TIMING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/CORRELATED_CLOCKS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/DISPERSIVE_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/DRIVEN_MEDIUM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/EQUILIBRIUM_ODDS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/EQUILIBRIUM_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/EXTERIOR_TIDE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FLIGHT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FLUCTUATION_BALLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FLUCTUATION_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FLUCTUATION_RETURN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FULL_PAIR_REFERENCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/FULL_REPAIR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/ISOLATED_MEDIUM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/LANDMARK_ARRIVAL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/LANDMARK_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/LANDMARK_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MATERIAL_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MEDIATED_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MEDIUM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MIXED_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MOVING_RECORDS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/MOVING_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/NESTED_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/NESTED_SOURCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OBSERVATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_FIELD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_MASS_EXCHANGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_RADAR_SHELL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/OCCUPIED_TRANSFER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/ORDINARY_MASS_CROSSING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIRED_ODDS_COUNTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_CONTACT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_FIELD.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_FIELD_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_METER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_PROBE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PAIR_WORK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PEER_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PEER_RETURN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PHASE_RECEIPTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/POISSON_FLIGHT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/POISSON_PRECISION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/POISSON_RESPONSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/RECORD_DENSITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/RELAY_RANGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/RENEWAL_CLOCK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/RENEWAL_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/REPAIR_EXPOSURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/REST_LIMIT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_BALLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_BALL_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_CALORIMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_FRONTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_FRONT_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_HOME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_NEIGHBOR_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_NEIGHBOR_TICKS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_PASSAGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_PASSAGE_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_REGISTER_BALLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_REGISTER_ESCAPE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_REGISTER_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_RETURN_CLOCKS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_RETURN_LAPSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SECTOR_RETURN_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SOURCE_DWELL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/SOURCE_TEST.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_ENERGY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_ORDINARY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_PAIR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_PHASE_SURVEY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_RADAR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/THERMAL_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/TIDAL_RELEASE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/TIDAL_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/UNDISTURBED_MEDIUM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/WEAK_SOURCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/aperture/WEAK_TIMING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/supply/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/overlap_source/native_boundary/stock/supply/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_shell_flux/stirred_product/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5882,6 +7547,11 @@
     },
     {
       "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/EXTERIOR.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6976,6 +8646,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/ChargedSpinTransport.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/ClebschRatio.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -7066,6 +8741,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/ClosedOverlap.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -7087,6 +8767,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/Consensus.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/ContactCensus.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -7131,7 +8816,17 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/GravityCalibration.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/JointClockFlight.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -7146,12 +8841,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/NativeBoundary.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapRecoil.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -7172,6 +8877,21 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/ReceiverGravity.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/RecordMass.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/ReferenceArrival.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -7197,6 +8917,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/SourceApertures.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -7237,6 +8962,21 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/TrailAperture.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/TwoFrequencyClock.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/WrittenPopulation.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

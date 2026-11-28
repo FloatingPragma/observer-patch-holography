@@ -1,0 +1,284 @@
+{
+  "boards": [
+    {
+      "all_blank_one_load_path_upper": 18,
+      "excess_vs_terminal_ordinary": "425/4",
+      "initial_energy": "101/2",
+      "live_seams": 14,
+      "net_work": "425/4",
+      "one_unretried_success_probability": "1/16384",
+      "owners": 20,
+      "passive_excess_vs_any_one_load_blank": 78,
+      "passive_path_lower_bound": 96,
+      "path": [
+        0,
+        1,
+        82,
+        72,
+        182,
+        183,
+        188,
+        121,
+        128,
+        123,
+        168,
+        178,
+        170,
+        157,
+        156
+      ],
+      "path_floor_over_initial": "192/101",
+      "ports": 240,
+      "replica_memory_swap_gain": 0,
+      "simultaneous_terminal_energy": "627/4",
+      "supplied_mean_echoes": "35",
+      "terminal_matched_blank": "101/2",
+      "terminal_path_energy": "459/4",
+      "work_from_addressed_echoes": "187/4",
+      "work_from_sharp_reads": "119/2"
+    },
+    {
+      "all_blank_one_load_path_upper": 18,
+      "excess_vs_terminal_ordinary": "1037/4",
+      "initial_energy": "101/2",
+      "live_seams": 32,
+      "net_work": "1037/4",
+      "one_unretried_success_probability": "1/4294967296",
+      "owners": 80,
+      "passive_excess_vs_any_one_load_blank": 222,
+      "passive_path_lower_bound": 240,
+      "path": [
+        0,
+        1,
+        38,
+        39,
+        44,
+        22,
+        12,
+        13,
+        302,
+        303,
+        792,
+        793,
+        800,
+        814,
+        806,
+        807,
+        768,
+        769,
+        776,
+        562,
+        552,
+        553,
+        566,
+        567,
+        528,
+        538,
+        530,
+        576,
+        577,
+        584,
+        634,
+        624,
+        629
+      ],
+      "path_floor_over_initial": "480/101",
+      "ports": 960,
+      "replica_memory_swap_gain": 0,
+      "simultaneous_terminal_energy": "1239/4",
+      "supplied_mean_echoes": "80",
+      "terminal_matched_blank": "101/2",
+      "terminal_path_energy": "1071/4",
+      "work_from_addressed_echoes": "493/4",
+      "work_from_sharp_reads": "136"
+    },
+    {
+      "all_blank_one_load_path_upper": 18,
+      "excess_vs_terminal_ordinary": "2125/4",
+      "initial_energy": "101/2",
+      "live_seams": 64,
+      "net_work": "2125/4",
+      "one_unretried_success_probability": "1/18446744073709551616",
+      "owners": 320,
+      "passive_excess_vs_any_one_load_blank": 478,
+      "passive_path_lower_bound": 496,
+      "path": [
+        0,
+        1,
+        38,
+        39,
+        44,
+        22,
+        12,
+        13,
+        146,
+        147,
+        152,
+        82,
+        72,
+        73,
+        86,
+        87,
+        92,
+        58,
+        48,
+        49,
+        1202,
+        1203,
+        3168,
+        3169,
+        3176,
+        3214,
+        3206,
+        3207,
+        3180,
+        3181,
+        3188,
+        3250,
+        3242,
+        3243,
+        3096,
+        3097,
+        3104,
+        3118,
+        3110,
+        3111,
+        3072,
+        3073,
+        3080,
+        2218,
+        2208,
+        2209,
+        2246,
+        2247,
+        2220,
+        2221,
+        2282,
+        2283,
+        2136,
+        2137,
+        2150,
+        2151,
+        2112,
+        2122,
+        2114,
+        2304,
+        2305,
+        2312,
+        2506,
+        2496,
+        2501
+      ],
+      "path_floor_over_initial": "992/101",
+      "ports": 3840,
+      "replica_memory_swap_gain": 0,
+      "simultaneous_terminal_energy": "2327/4",
+      "supplied_mean_echoes": "160",
+      "terminal_matched_blank": "101/2",
+      "terminal_path_energy": "2159/4",
+      "work_from_addressed_echoes": "1037/4",
+      "work_from_sharp_reads": "272"
+    }
+  ],
+  "empty_unit_block_4H": [
+    [
+      34,
+      -2,
+      0,
+      0
+    ],
+    [
+      -2,
+      34,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      34,
+      -2
+    ],
+    [
+      0,
+      0,
+      -2,
+      34
+    ]
+  ],
+  "forward": {
+    "basis": [
+      3,
+      84,
+      37
+    ],
+    "eventual_success": 1,
+    "geometric_failure_bound_per_attempt": "3/4",
+    "kernel_times64": [
+      [
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        16,
+        16
+      ],
+      [
+        32,
+        16,
+        16
+      ]
+    ],
+    "mean_echoes": "5/2",
+    "mean_read_work": "17/4",
+    "one_echo_success": "1/2",
+    "read_work_per_visit": [
+      "17/4",
+      "-17/8"
+    ],
+    "visits": [
+      "3/2",
+      "1"
+    ]
+  },
+  "protocol_sha256": "b90cb41f5a0bcc401f914265fd859f72d512972266934b065e2de9474d231cf5",
+  "reverse": {
+    "basis": [
+      1,
+      19,
+      66
+    ],
+    "eventual_success": 1,
+    "geometric_failure_bound_per_attempt": "3/4",
+    "kernel_times64": [
+      [
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        16,
+        16
+      ],
+      [
+        32,
+        16,
+        16
+      ]
+    ],
+    "mean_echoes": "5/2",
+    "mean_read_work": "17/4",
+    "one_echo_success": "1/2",
+    "read_work_per_visit": [
+      "17/4",
+      "-17/8"
+    ],
+    "visits": [
+      "3/2",
+      "1"
+    ]
+  }
+}

@@ -1,0 +1,719 @@
+{
+  "protocol_sha256": "4d12815cc605ebed8ed067cae4c995b5490c9fb3eb3300816a6aa46ff1f4ac94",
+  "source_sha256": {
+    "0909.3846v1": "d0f9414303f906e55820e5dc2fec2b032cf188a945b33d529b6a6d752b3f0cd1",
+    "0912.4133v1": "c3eff6565a80820c27d6110c466485f72a39b7c5703bb78057a1ef2d582d60eb"
+  },
+  "dr_kpc": 0.05,
+  "SPARC_scale_m_per_s2": 8.750402247718735e-11,
+  "SPARC_scale_95_bootstrap_m_per_s2": [
+    7.390242699918679e-11,
+    1.037927571023286e-10
+  ],
+  "external_halo_dark_to_baryon_mass": 5.322479928635148,
+  "mu_per_kpc": 0.005866089619999738,
+  "point_source_density_efold_kpc": 85.23565652582415,
+  "total_baryonic_injector_mass_msun": 140959974470.03024,
+  "gas_mass_msun": 5959974470.030241,
+  "lossless_outer_mass_slope_msun_kpc": 9407127066.100964,
+  "surveys": {
+    "Chemin": {
+      "rows": [
+        {
+          "r_kpc": 28.17,
+          "observed_kms": 230.4,
+          "quoted_error_kms": 5.2,
+          "inclination_deg": 74.0,
+          "cosmic_share": 224.92418369965486,
+          "lossless": 237.23589187188642,
+          "all_radial_injectors_speed_ceiling": 254.03838274007768,
+          "ordinary_speed": 155.16537318399978,
+          "hybrid_cosmic_share_kms": 195.42734655936155,
+          "spherical_cosmic_share_kms": 218.18708541157363,
+          "enclosed_baryons": 0.979011229421701,
+          "finite_sensitivity_kms": [
+            178.31686462898875,
+            249.22755491266446
+          ],
+          "upper_sensitivity_kms": 280.74530149215343
+        },
+        {
+          "r_kpc": 28.56,
+          "observed_kms": 230.9,
+          "quoted_error_kms": 2.9,
+          "inclination_deg": 73.5,
+          "cosmic_share": 224.21989955654053,
+          "lossless": 236.7323255487751,
+          "all_radial_injectors_speed_ceiling": 253.3529653870362,
+          "ordinary_speed": 154.0406381463686,
+          "hybrid_cosmic_share_kms": 194.85270181885815,
+          "spherical_cosmic_share_kms": 217.66001096597668,
+          "enclosed_baryons": 0.980275338855968,
+          "finite_sensitivity_kms": [
+            177.79262708188298,
+            248.44221176976504
+          ],
+          "upper_sensitivity_kms": 279.97963200112713
+        },
+        {
+          "r_kpc": 28.94,
+          "observed_kms": 229.8,
+          "quoted_error_kms": 2.1,
+          "inclination_deg": 72.5,
+          "cosmic_share": 223.5462913434264,
+          "lossless": 236.25403940414233,
+          "all_radial_injectors_speed_ceiling": 252.70099094822586,
+          "ordinary_speed": 152.96595685429827,
+          "hybrid_cosmic_share_kms": 194.30240023650128,
+          "spherical_cosmic_share_kms": 217.15220532805213,
+          "enclosed_baryons": 0.9814397624804709,
+          "finite_sensitivity_kms": [
+            177.29154183338065,
+            247.69046485422854
+          ],
+          "upper_sensitivity_kms": 279.25065901898205
+        },
+        {
+          "r_kpc": 29.32,
+          "observed_kms": 228.8,
+          "quoted_error_kms": 1.8,
+          "inclination_deg": 71.3,
+          "cosmic_share": 222.86106737476283,
+          "lossless": 235.76517838283792,
+          "all_radial_injectors_speed_ceiling": 252.04325298862645,
+          "ordinary_speed": 151.876905773144,
+          "hybrid_cosmic_share_kms": 193.7340631308511,
+          "spherical_cosmic_share_kms": 216.64862832946733,
+          "enclosed_baryons": 0.9825125644597984,
+          "finite_sensitivity_kms": [
+            176.7698284404047,
+            246.93026522846316
+          ],
+          "upper_sensitivity_kms": 278.51910207513293
+        },
+        {
+          "r_kpc": 29.7,
+          "observed_kms": 238.3,
+          "quoted_error_kms": 3.3,
+          "inclination_deg": 69.3,
+          "cosmic_share": 222.165777263331,
+          "lossless": 235.26723159743787,
+          "all_radial_injectors_speed_ceiling": 251.38100275268582,
+          "ordinary_speed": 150.77533510187118,
+          "hybrid_cosmic_share_kms": 193.14964171766223,
+          "spherical_cosmic_share_kms": 216.14952852616278,
+          "enclosed_baryons": 0.983502824347441,
+          "finite_sensitivity_kms": [
+            176.22957663854183,
+            246.16299734900272
+          ],
+          "upper_sensitivity_kms": 277.786054374521
+        },
+        {
+          "r_kpc": 30.08,
+          "observed_kms": 243.6,
+          "quoted_error_kms": 1.4,
+          "inclination_deg": 67.2,
+          "cosmic_share": 221.4773741401584,
+          "lossless": 234.77625065683307,
+          "all_radial_injectors_speed_ceiling": 250.7291312791217,
+          "ordinary_speed": 149.685972629765,
+          "hybrid_cosmic_share_kms": 192.56879608127616,
+          "spherical_cosmic_share_kms": 215.6557552041511,
+          "enclosed_baryons": 0.9844333643657792,
+          "finite_sensitivity_kms": [
+            175.6922965358326,
+            245.4039402122289
+          ],
+          "upper_sensitivity_kms": 277.0649520890822
+        },
+        {
+          "r_kpc": 30.46,
+          "observed_kms": 247.3,
+          "quoted_error_kms": 3.1,
+          "inclination_deg": 65.7,
+          "cosmic_share": 220.80602427971863,
+          "lossless": 234.30177777206052,
+          "all_radial_injectors_speed_ceiling": 250.09647127618808,
+          "ordinary_speed": 148.62381395636734,
+          "hybrid_cosmic_share_kms": 192.0033608224486,
+          "spherical_cosmic_share_kms": 215.16757022491458,
+          "enclosed_baryons": 0.9853139905600292,
+          "finite_sensitivity_kms": [
+            175.17092151842618,
+            244.66225343307374
+          ],
+          "upper_sensitivity_kms": 276.36374843653203
+        },
+        {
+          "r_kpc": 30.84,
+          "observed_kms": 247.8,
+          "quoted_error_kms": 1.3,
+          "inclination_deg": 64.8,
+          "cosmic_share": 220.1620337339506,
+          "lossless": 233.85348419864567,
+          "all_radial_injectors_speed_ceiling": 249.49199451718872,
+          "ordinary_speed": 147.60436463160784,
+          "hybrid_cosmic_share_kms": 191.4653242576516,
+          "spherical_cosmic_share_kms": 214.68551328146032,
+          "enclosed_baryons": 0.9861614923845786,
+          "finite_sensitivity_kms": [
+            174.6785655675,
+            243.9472149642771
+          ],
+          "upper_sensitivity_kms": 275.6905221267954
+        },
+        {
+          "r_kpc": 31.22,
+          "observed_kms": 248.4,
+          "quoted_error_kms": 2.0,
+          "inclination_deg": 64.8,
+          "cosmic_share": 219.538187238905,
+          "lossless": 233.42451102909922,
+          "all_radial_injectors_speed_ceiling": 248.909194316542,
+          "ordinary_speed": 146.61712091514337,
+          "hybrid_cosmic_share_kms": 190.94651652557252,
+          "spherical_cosmic_share_kms": 214.20913253482547,
+          "enclosed_baryons": 0.986970953086987,
+          "finite_sensitivity_kms": [
+            174.20624950986496,
+            243.25229081913272
+          ],
+          "upper_sensitivity_kms": 275.0393443072883
+        },
+        {
+          "r_kpc": 31.61,
+          "observed_kms": 248.1,
+          "quoted_error_kms": 1.5,
+          "inclination_deg": 66.6,
+          "cosmic_share": 218.90466413509208,
+          "lossless": 232.99093007721902,
+          "all_radial_injectors_speed_ceiling": 248.32093189552518,
+          "ordinary_speed": 145.6162022152678,
+          "hybrid_cosmic_share_kms": 190.41784744536469,
+          "spherical_cosmic_share_kms": 213.72532569251294,
+          "enclosed_baryons": 0.9877492782797495,
+          "finite_sensitivity_kms": [
+            173.7245590296338,
+            242.5471501933205
+          ],
+          "upper_sensitivity_kms": 274.3824515972082
+        },
+        {
+          "r_kpc": 31.99,
+          "observed_kms": 244.5,
+          "quoted_error_kms": 1.6,
+          "inclination_deg": 68.7,
+          "cosmic_share": 218.29445001124486,
+          "lossless": 232.57543577935962,
+          "all_radial_injectors_speed_ceiling": 247.75770780844107,
+          "ordinary_speed": 144.65363773036808,
+          "hybrid_cosmic_share_kms": 189.90712593663304,
+          "spherical_cosmic_share_kms": 213.2589557387388,
+          "enclosed_baryons": 0.9884621040816709,
+          "finite_sensitivity_kms": [
+            173.25894498685864,
+            241.86837633972996
+          ],
+          "upper_sensitivity_kms": 273.75378938619167
+        },
+        {
+          "r_kpc": 32.37,
+          "observed_kms": 244.4,
+          "quoted_error_kms": 3.0,
+          "inclination_deg": 70.1,
+          "cosmic_share": 217.69529067678513,
+          "lossless": 232.17063220110228,
+          "all_radial_injectors_speed_ceiling": 247.20779704699078,
+          "ordinary_speed": 143.70973540773738,
+          "hybrid_cosmic_share_kms": 189.40554890766632,
+          "spherical_cosmic_share_kms": 212.7976145112875,
+          "enclosed_baryons": 0.9891355473316731,
+          "finite_sensitivity_kms": [
+            172.80226642996388,
+            241.20143902202344
+          ],
+          "upper_sensitivity_kms": 273.13948049702265
+        },
+        {
+          "r_kpc": 32.75,
+          "observed_kms": 241.7,
+          "quoted_error_kms": 4.3,
+          "inclination_deg": 72.1,
+          "cosmic_share": 217.10799736059525,
+          "lossless": 231.77724166766728,
+          "all_radial_injectors_speed_ceiling": 246.67179594451235,
+          "ordinary_speed": 142.78574174134775,
+          "hybrid_cosmic_share_kms": 188.91415816725666,
+          "spherical_cosmic_share_kms": 212.34138609542066,
+          "enclosed_baryons": 0.9897753847030472,
+          "finite_sensitivity_kms": [
+            172.3556534885602,
+            240.54704579615867
+          ],
+          "upper_sensitivity_kms": 272.54002244583097
+        },
+        {
+          "r_kpc": 33.13,
+          "observed_kms": 237.7,
+          "quoted_error_kms": 1.9,
+          "inclination_deg": 72.9,
+          "cosmic_share": 216.51886147351135,
+          "lossless": 231.3824286828192,
+          "all_radial_injectors_speed_ceiling": 246.1375580237299,
+          "ordinary_speed": 141.86081418073388,
+          "hybrid_cosmic_share_kms": 188.41730881415296,
+          "spherical_cosmic_share_kms": 211.88945901527146,
+          "enclosed_baryons": 0.9903674334165482,
+          "finite_sensitivity_kms": [
+            171.9019551098307,
+            239.8927926757489
+          ],
+          "upper_sensitivity_kms": 271.9443791564035
+        },
+        {
+          "r_kpc": 33.51,
+          "observed_kms": 237.6,
+          "quoted_error_kms": 6.1,
+          "inclination_deg": 73.7,
+          "cosmic_share": 215.9234290214262,
+          "lossless": 230.98201799062645,
+          "all_radial_injectors_speed_ceiling": 245.60106487743963,
+          "ordinary_speed": 140.92791135565736,
+          "hybrid_cosmic_share_kms": 187.90998589320145,
+          "spherical_cosmic_share_kms": 211.44160424934728,
+          "enclosed_baryons": 0.9909093633878355,
+          "finite_sensitivity_kms": [
+            171.43566651841354,
+            239.23463529600204
+          ],
+          "upper_sensitivity_kms": 271.3488706057914
+        },
+        {
+          "r_kpc": 33.89,
+          "observed_kms": 244.9,
+          "quoted_error_kms": 3.6,
+          "inclination_deg": 74.5,
+          "cosmic_share": 215.3336280198047,
+          "lossless": 230.58718202453747,
+          "all_radial_injectors_speed_ceiling": 245.07273273950793,
+          "ordinary_speed": 140.00513370068256,
+          "hybrid_cosmic_share_kms": 187.4059972108588,
+          "spherical_cosmic_share_kms": 210.99839511286294,
+          "enclosed_baryons": 0.99141827910702,
+          "finite_sensitivity_kms": [
+            170.97192205035836,
+            238.5833091088024
+          ],
+          "upper_sensitivity_kms": 270.76288199023026
+        },
+        {
+          "r_kpc": 34.27,
+          "observed_kms": 247.9,
+          "quoted_error_kms": 3.2,
+          "inclination_deg": 75.2,
+          "cosmic_share": 214.75535509268093,
+          "lossless": 230.2034101776945,
+          "all_radial_injectors_speed_ceiling": 244.55765068225193,
+          "ordinary_speed": 139.1015371495156,
+          "hybrid_cosmic_share_kms": 186.9122123201745,
+          "spherical_cosmic_share_kms": 210.55990918222324,
+          "enclosed_baryons": 0.9918996844428172,
+          "finite_sensitivity_kms": [
+            170.5182522189852,
+            237.94410720696064
+          ],
+          "upper_sensitivity_kms": 270.19097731152874
+        },
+        {
+          "r_kpc": 34.66,
+          "observed_kms": 256.3,
+          "quoted_error_kms": 3.1,
+          "inclination_deg": 77.3,
+          "cosmic_share": 214.17796675816078,
+          "lossless": 229.8248427241593,
+          "all_radial_injectors_speed_ceiling": 244.04629742226777,
+          "ordinary_speed": 138.20053695863012,
+          "hybrid_cosmic_share_kms": 186.4208645779945,
+          "spherical_cosmic_share_kms": 210.1148838411301,
+          "enclosed_baryons": 0.9923709703020515,
+          "finite_sensitivity_kms": [
+            170.06840656072174,
+            237.30437574887142
+          ],
+          "upper_sensitivity_kms": 269.6217966304106
+        },
+        {
+          "r_kpc": 35.04,
+          "observed_kms": 253.5,
+          "quoted_error_kms": 4.1,
+          "inclination_deg": 77.6,
+          "cosmic_share": 213.6329875194848,
+          "lossless": 229.47264140158978,
+          "all_radial_injectors_speed_ceiling": 243.56647989120904,
+          "ordinary_speed": 137.35145888096875,
+          "hybrid_cosmic_share_kms": 185.9594389799466,
+          "spherical_cosmic_share_kms": 209.68621040978852,
+          "enclosed_baryons": 0.9928135685541444,
+          "finite_sensitivity_kms": [
+            169.64796783130487,
+            236.6986184361821
+          ],
+          "upper_sensitivity_kms": 269.08591981390583
+        },
+        {
+          "r_kpc": 35.42,
+          "observed_kms": 244.3,
+          "quoted_error_kms": 4.7,
+          "inclination_deg": 77.3,
+          "cosmic_share": 213.09778255550137,
+          "lossless": 229.1297680008766,
+          "all_radial_injectors_speed_ceiling": 243.09808363833483,
+          "ordinary_speed": 136.5191246630542,
+          "hybrid_cosmic_share_kms": 185.50646191935587,
+          "spherical_cosmic_share_kms": 209.26198314602865,
+          "enclosed_baryons": 0.9932329795942487,
+          "finite_sensitivity_kms": [
+            169.23569418117526,
+            236.10331318851635
+          ],
+          "upper_sensitivity_kms": 268.5623459375616
+        },
+        {
+          "r_kpc": 35.8,
+          "observed_kms": 249.3,
+          "quoted_error_kms": 5.8,
+          "inclination_deg": 77.7,
+          "cosmic_share": 212.5675472261066,
+          "lossless": 228.79172532937696,
+          "all_radial_injectors_speed_ceiling": 242.63680522823378,
+          "ordinary_speed": 135.69602935052876,
+          "hybrid_cosmic_share_kms": 185.056493207384,
+          "spherical_cosmic_share_kms": 208.8419578883761,
+          "enclosed_baryons": 0.9936263187976294,
+          "finite_sensitivity_kms": [
+            168.82562849500474,
+            235.51409545485842
+          ],
+          "upper_sensitivity_kms": 268.0471385654521
+        },
+        {
+          "r_kpc": 36.18,
+          "observed_kms": 255.7,
+          "quoted_error_kms": 4.5,
+          "inclination_deg": 78.2,
+          "cosmic_share": 212.04474916235307,
+          "lossless": 228.46081289629913,
+          "all_radial_injectors_speed_ceiling": 242.1847467922856,
+          "ordinary_speed": 134.8860434180616,
+          "hybrid_cosmic_share_kms": 184.61244705912685,
+          "spherical_cosmic_share_kms": 208.42619636707445,
+          "enclosed_baryons": 0.9939988167855801,
+          "finite_sensitivity_kms": [
+            168.42097797761915,
+            234.93315895258127
+          ],
+          "upper_sensitivity_kms": 267.5421597993058
+        },
+        {
+          "r_kpc": 36.56,
+          "observed_kms": 255.0,
+          "quoted_error_kms": 5.8,
+          "inclination_deg": 78.7,
+          "cosmic_share": 211.53092479893175,
+          "lossless": 228.13841906082385,
+          "all_radial_injectors_speed_ceiling": 241.74315792398014,
+          "ordinary_speed": 134.0915639896638,
+          "hybrid_cosmic_share_kms": 184.17616023465868,
+          "spherical_cosmic_share_kms": 208.01464125702745,
+          "enclosed_baryons": 0.9943517431615639,
+          "finite_sensitivity_kms": [
+            168.02376291684465,
+            234.36186406879514
+          ],
+          "upper_sensitivity_kms": 267.0485006050085
+        },
+        {
+          "r_kpc": 36.94,
+          "observed_kms": 271.1,
+          "quoted_error_kms": 7.8,
+          "inclination_deg": 79.4,
+          "cosmic_share": 211.0299777709411,
+          "lossless": 227.82814766114177,
+          "all_radial_injectors_speed_ceiling": 241.31538312522812,
+          "ordinary_speed": 133.3188181128656,
+          "hybrid_cosmic_share_kms": 183.7521880826641,
+          "spherical_cosmic_share_kms": 207.60737175773747,
+          "enclosed_baryons": 0.9946904897363906,
+          "finite_sensitivity_kms": [
+            167.63898981340432,
+            233.8037026452034
+          ],
+          "upper_sensitivity_kms": 266.5691489821393
+        },
+        {
+          "r_kpc": 37.32,
+          "observed_kms": 269.8,
+          "quoted_error_kms": 4.7,
+          "inclination_deg": 79.5,
+          "cosmic_share": 210.5422371635242,
+          "lossless": 227.53027065679558,
+          "all_radial_injectors_speed_ceiling": 240.90162797006735,
+          "ordinary_speed": 132.5684256856226,
+          "hybrid_cosmic_share_kms": 183.3409760625224,
+          "spherical_cosmic_share_kms": 207.20430641792942,
+          "enclosed_baryons": 0.9950161410964962,
+          "finite_sensitivity_kms": [
+            167.26715918075655,
+            233.25894221828332
+          ],
+          "upper_sensitivity_kms": 266.1042521511018
+        },
+        {
+          "r_kpc": 37.71,
+          "observed_kms": 258.2,
+          "quoted_error_kms": 10.7,
+          "inclination_deg": 79.4,
+          "cosmic_share": 210.0509402765228,
+          "lossless": 227.2332856120807,
+          "all_radial_injectors_speed_ceiling": 240.48758318008987,
+          "ordinary_speed": 131.81453180107403,
+          "hybrid_cosmic_share_kms": 182.9271646187396,
+          "spherical_cosmic_share_kms": 206.79474970668292,
+          "enclosed_baryons": 0.9953332460788427,
+          "finite_sensitivity_kms": [
+            166.89348276939322,
+            232.70973129347416
+          ],
+          "upper_sensitivity_kms": 265.63850895272634
+        },
+        {
+          "r_kpc": 38.09,
+          "observed_kms": 275.1,
+          "quoted_error_kms": 4.8,
+          "inclination_deg": 79.4,
+          "cosmic_share": 209.5750212087746,
+          "lossless": 226.94662459654273,
+          "all_radial_injectors_speed_ceiling": 240.08894823975066,
+          "ordinary_speed": 131.08583522640947,
+          "hybrid_cosmic_share_kms": 182.5248518447094,
+          "spherical_cosmic_share_kms": 206.399444477141,
+          "enclosed_baryons": 0.9956219116495643,
+          "finite_sensitivity_kms": [
+            166.52933155107345,
+            232.17855251783618
+          ],
+          "upper_sensitivity_kms": 265.19075503368924
+        }
+      ],
+      "central_residual_rms_kms": {
+        "cosmic_share": 34.512126069140194,
+        "lossless": 21.426261850922327,
+        "all_radial_injectors_speed_ceiling": 15.473976399777703,
+        "ordinary_speed": 106.71439262331603
+      },
+      "central_mean_observed_minus_predicted_kms": {
+        "cosmic_share": 30.66353152363372,
+        "lossless": 15.806055296206287,
+        "all_radial_injectors_speed_ceiling": 0.9726022727578402,
+        "ordinary_speed": 105.14264582367575
+      },
+      "inside_one_quoted_error": {
+        "cosmic_share": 0,
+        "lossless": 1,
+        "all_radial_injectors_speed_ceiling": 6,
+        "ordinary_speed": 0
+      },
+      "above_entire_finite_envelope_plus_one_error": 17,
+      "below_entire_finite_envelope_minus_one_error": 0,
+      "above_all_injector_ceiling_plus_one_error_favorable_corner": 1
+    },
+    "Corbelli": {
+      "rows": [
+        {
+          "r_kpc": 28.5,
+          "observed_kms": 218.8,
+          "quoted_error_kms": 9.9,
+          "inclination_deg": 79.3,
+          "cosmic_share": 224.32675759197267,
+          "lossless": 236.8083483332569,
+          "all_radial_injectors_speed_ceiling": 253.45676624670975,
+          "ordinary_speed": 154.2113014223503,
+          "hybrid_cosmic_share_kms": 194.9397264392492,
+          "spherical_cosmic_share_kms": 217.74065583935544,
+          "enclosed_baryons": 0.9800843387681847,
+          "finite_sensitivity_kms": [
+            177.87181735900108,
+            248.56154633372026
+          ],
+          "upper_sensitivity_kms": 280.095752066986
+        },
+        {
+          "r_kpc": 29.5,
+          "observed_kms": 223.5,
+          "quoted_error_kms": 10.6,
+          "inclination_deg": 80.2,
+          "cosmic_share": 222.53174744379385,
+          "lossless": 235.52927513569335,
+          "all_radial_injectors_speed_ceiling": 251.72903579416004,
+          "ordinary_speed": 151.3548829473077,
+          "hybrid_cosmic_share_kms": 193.45781523497138,
+          "spherical_cosmic_share_kms": 216.41164081490138,
+          "enclosed_baryons": 0.9829912759894733,
+          "finite_sensitivity_kms": [
+            176.51467434155907,
+            246.5665983152315
+          ],
+          "upper_sensitivity_kms": 278.17107786855246
+        },
+        {
+          "r_kpc": 30.5,
+          "observed_kms": 225.8,
+          "quoted_error_kms": 10.1,
+          "inclination_deg": 81.6,
+          "cosmic_share": 220.73680478703753,
+          "lossless": 234.25321842235877,
+          "all_radial_injectors_speed_ceiling": 250.03138765813532,
+          "ordinary_speed": 148.51426848753778,
+          "hybrid_cosmic_share_kms": 191.94526839059662,
+          "spherical_cosmic_share_kms": 215.11651870439223,
+          "enclosed_baryons": 0.9854041399505611,
+          "finite_sensitivity_kms": [
+            175.11754493535418,
+            244.585603755515
+          ],
+          "upper_sensitivity_kms": 276.2914505183728
+        },
+        {
+          "r_kpc": 31.5,
+          "observed_kms": 223.2,
+          "quoted_error_kms": 11.6,
+          "inclination_deg": 83.5,
+          "cosmic_share": 219.08272172651468,
+          "lossless": 233.11259123161275,
+          "all_radial_injectors_speed_ceiling": 248.48589664207597,
+          "ordinary_speed": 145.89734048347893,
+          "hybrid_cosmic_share_kms": 190.56663439168753,
+          "spherical_cosmic_share_kms": 213.86127050706003,
+          "enclosed_baryons": 0.9875349829085855,
+          "finite_sensitivity_kms": [
+            173.8601774520356,
+            242.74526748199509
+          ],
+          "upper_sensitivity_kms": 274.56661210994275
+        },
+        {
+          "r_kpc": 32.5,
+          "observed_kms": 224.7,
+          "quoted_error_kms": 32.1,
+          "inclination_deg": 85.3,
+          "cosmic_share": 217.49339627455677,
+          "lossless": 232.03509773213426,
+          "all_radial_injectors_speed_ceiling": 247.0231781100193,
+          "ordinary_speed": 143.39192325131154,
+          "hybrid_cosmic_share_kms": 189.23669963161063,
+          "spherical_cosmic_share_kms": 212.6409738914051,
+          "enclosed_baryons": 0.9893581850079998,
+          "finite_sensitivity_kms": [
+            172.64878780549887,
+            240.97648056839088
+          ],
+          "upper_sensitivity_kms": 272.9330188937292
+        },
+        {
+          "r_kpc": 33.5,
+          "observed_kms": 237.4,
+          "quoted_error_kms": 7.8,
+          "inclination_deg": 85.6,
+          "cosmic_share": 215.93907442932124,
+          "lossless": 230.9925245668139,
+          "all_radial_injectors_speed_ceiling": 245.6151168844854,
+          "ordinary_speed": 140.9523989590639,
+          "hybrid_cosmic_share_kms": 187.92334921979662,
+          "spherical_cosmic_share_kms": 211.4533383423131,
+          "enclosed_baryons": 0.9908956259318656,
+          "finite_sensitivity_kms": [
+            171.44796469716957,
+            239.25191191107942
+          ],
+          "upper_sensitivity_kms": 271.3644544177808
+        },
+        {
+          "r_kpc": 34.5,
+          "observed_kms": 231.5,
+          "quoted_error_kms": 22.1,
+          "inclination_deg": 85.9,
+          "cosmic_share": 214.41255387273708,
+          "lossless": 229.97797896330843,
+          "all_radial_injectors_speed_ceiling": 244.25368919424648,
+          "ordinary_speed": 138.5664382710881,
+          "hybrid_cosmic_share_kms": 186.62018149867842,
+          "spherical_cosmic_share_kms": 210.29680877715745,
+          "enclosed_baryons": 0.9921791467143217,
+          "finite_sensitivity_kms": [
+            170.25061947975672,
+            237.56455020727148
+          ],
+          "upper_sensitivity_kms": 269.8528813964919
+        },
+        {
+          "r_kpc": 35.5,
+          "observed_kms": 238.0,
+          "quoted_error_kms": 32.0,
+          "inclination_deg": 86.0,
+          "cosmic_share": 212.98565690427412,
+          "lossless": 229.05811649738686,
+          "all_radial_injectors_speed_ceiling": 243.00030494502982,
+          "ordinary_speed": 136.34493512233297,
+          "hybrid_cosmic_share_kms": 185.41138173435482,
+          "spherical_cosmic_share_kms": 209.1732032702947,
+          "enclosed_baryons": 0.9933176065481703,
+          "finite_sensitivity_kms": [
+            169.14907028659783,
+            235.97868745956848
+          ],
+          "upper_sensitivity_kms": 268.4531185860991
+        },
+        {
+          "r_kpc": 36.5,
+          "observed_kms": 240.1,
+          "quoted_error_kms": 38.2,
+          "inclination_deg": 86.0,
+          "cosmic_share": 211.61133924146947,
+          "lossless": 228.1886428722733,
+          "all_radial_injectors_speed_ceiling": 241.81208125814524,
+          "ordinary_speed": 134.21578063898278,
+          "hybrid_cosmic_share_kms": 184.24439149860726,
+          "spherical_cosmic_share_kms": 208.07935341751835,
+          "enclosed_baryons": 0.9942973065440467,
+          "finite_sensitivity_kms": [
+            168.0858316990647,
+            234.4513220658739
+          ],
+          "upper_sensitivity_kms": 267.12560065211176
+        }
+      ],
+      "central_residual_rms_kms": {
+        "cosmic_share": 16.041193221488413,
+        "lossless": 10.31575975553266,
+        "all_radial_injectors_speed_ceiling": 21.031484101429808,
+        "ordinary_speed": 86.55147054015067
+      },
+      "central_mean_observed_minus_predicted_kms": {
+        "cosmic_share": 11.542216414258068,
+        "lossless": -2.99508819498206,
+        "all_radial_injectors_speed_ceiling": -18.045272970334146,
+        "ordinary_speed": 85.50563671294957
+      },
+      "inside_one_quoted_error": {
+        "cosmic_share": 8,
+        "lossless": 7,
+        "all_radial_injectors_speed_ceiling": 4,
+        "ordinary_speed": 0
+      },
+      "above_entire_finite_envelope_plus_one_error": 0,
+      "below_entire_finite_envelope_minus_one_error": 0,
+      "above_all_injector_ceiling_plus_one_error_favorable_corner": 0
+    }
+  }
+}

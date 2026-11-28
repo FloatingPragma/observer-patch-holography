@@ -1,0 +1,1827 @@
+{
+  "blank_full_source_clock_diagnostics": {
+    "electric_mean": "0",
+    "hopping_variance_by_bond": [
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15",
+      "15"
+    ],
+    "magnetic_variance": "1/735",
+    "mean": "-720",
+    "surviving_magnetic_character_labels_by_face": [
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ],
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ],
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ],
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ],
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ],
+      [
+        "4",
+        "-4",
+        "3",
+        "-3",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "-6",
+        "6"
+      ]
+    ],
+    "variance": "132301/735"
+  },
+  "clocked_rows": [
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "125424107/842956800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "19/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-1365/2",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "63/4",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "41/8",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "4/3675",
+        "mean": "-2793/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "2502691/14700",
+          "624754/3675"
+        ],
+        "variance": "5001707/29400"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-739223055/144115188075855872",
+          "739223055/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "105165025/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "1374706161/144115188075855872",
+          "2853152271/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "63448068321/288230376151711744",
+          "75303592225/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "matched_blank_expectation": "-720",
+      "matched_transfer_centroid": "87/4",
+      "matched_transfer_variance": "3431249/9800",
+      "native_moving_and_holder_hypercharge": [
+        6,
+        -6
+      ],
+      "onsite_beta_coefficient": "3",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "6",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "282813888265535519/689613692941107200",
+        "276739927701/657666867200"
+      ]
+    },
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "20801729/140492800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "19/4",
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-1365/2",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "189/4",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "9/2",
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "61/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1225",
+        "mean": "-2667/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "366277/2450",
+          "182526/1225"
+        ],
+        "variance": "731329/4900"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-739223055/144115188075855872",
+          "739223055/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "105165025/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "-63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-2853152271/144115188075855872",
+          "-1374706161/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "63448068321/288230376151711744",
+          "75303592225/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "-63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "matched_blank_expectation": "-720",
+      "matched_transfer_centroid": "213/4",
+      "matched_transfer_variance": "4840007/14700",
+      "native_moving_and_holder_hypercharge": [
+        6,
+        -6
+      ],
+      "onsite_beta_coefficient": "3",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "6",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "605997125975007479/2068841078823321600",
+        "597851002261/1973000601600"
+      ]
+    },
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "125424107/842956800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "19/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-1365/2",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "63/4",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "41/8",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "4/3675",
+        "mean": "-2793/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "2502691/14700",
+          "624754/3675"
+        ],
+        "variance": "5001707/29400"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-739223055/144115188075855872",
+          "739223055/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "105165025/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "1374706161/144115188075855872",
+          "2853152271/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "63448068321/288230376151711744",
+          "75303592225/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "matched_blank_expectation": "-720",
+      "matched_transfer_centroid": "87/4",
+      "matched_transfer_variance": "3431249/9800",
+      "native_moving_and_holder_hypercharge": [
+        -6,
+        6
+      ],
+      "onsite_beta_coefficient": "3",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "6",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "282813888265535519/689613692941107200",
+        "276739927701/657666867200"
+      ]
+    },
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "20801729/140492800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "19/4",
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-1365/2",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "189/4",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "9/2",
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "61/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1225",
+        "mean": "-2667/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "366277/2450",
+          "182526/1225"
+        ],
+        "variance": "731329/4900"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-739223055/144115188075855872",
+          "739223055/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "105165025/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "-63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-2853152271/144115188075855872",
+          "-1374706161/144115188075855872"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "63448068321/288230376151711744",
+          "75303592225/288230376151711744"
+        ],
+        "sender_to_receiver_diagonal_detuning": "-63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "20510"
+      },
+      "matched_blank_expectation": "-720",
+      "matched_transfer_centroid": "213/4",
+      "matched_transfer_variance": "4840007/14700",
+      "native_moving_and_holder_hypercharge": [
+        -6,
+        6
+      ],
+      "onsite_beta_coefficient": "3",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "6",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "605997125975007479/2068841078823321600",
+        "597851002261/1973000601600"
+      ]
+    }
+  ],
+  "clocked_stock_requires_two_independent_acceptances": true,
+  "counterfactual_onsite_tuned_to_match_detour_centroid": [
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "125424107/842956800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "19/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-4431",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "63/4",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "41/8",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "4/3675",
+        "mean": "-17787/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "2502691/14700",
+          "624754/3675"
+        ],
+        "variance": "5001707/29400"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-1545883683/288230376151711744",
+          "1545883683/288230376151711744"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "463928521/1152921504606846976"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "21539"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "2681974749/288230376151711744",
+          "5773742115/288230376151711744"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "252756557001/1152921504606846976",
+          "302344919881/1152921504606846976"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "21539"
+      },
+      "matched_blank_expectation": "-4500",
+      "matched_transfer_centroid": "213/4",
+      "matched_transfer_variance": "3431249/9800",
+      "native_moving_and_holder_hypercharge": [
+        6,
+        -6
+      ],
+      "onsite_beta_coefficient": "75/4",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "75/2",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "201779378394712829/689613692941107200",
+        "199493154951/657666867200"
+      ]
+    },
+    {
+      "absolute_Ramsey_center_calibration": {
+        "derived_energy_error_upper": "125424107/842956800",
+        "required_Y_plus_probability_resolution": "1/262144",
+        "wait": "1/16384"
+      },
+      "absolute_receiver_clock_diagnostics": {
+        "electric_mean": "63/2",
+        "hopping_variance_by_bond": [
+          "19/4",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "19/4",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "1/1050",
+        "mean": "-4431",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "83738/525",
+          "83738/525"
+        ],
+        "variance": "83738/525"
+      },
+      "absolute_source_clock_diagnostics": {
+        "electric_mean": "63/4",
+        "hopping_variance_by_bond": [
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "15",
+          "41/8",
+          "15",
+          "15"
+        ],
+        "magnetic_variance": "4/3675",
+        "mean": "-17787/4",
+        "surviving_magnetic_character_labels_by_face": [
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "4",
+            "-4",
+            "3",
+            "-3",
+            "-1",
+            "1",
+            "-2",
+            "2",
+            "-6",
+            "6"
+          ],
+          [
+            "-4",
+            "-3",
+            "-2",
+            "-6"
+          ]
+        ],
+        "unrecombined_sharp_spin_variances": [
+          "2502691/14700",
+          "624754/3675"
+        ],
+        "variance": "5001707/29400"
+      },
+      "cut_bond_sham": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "-1545883683/288230376151711744",
+          "1545883683/288230376151711744"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "0",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "0",
+          "463928521/1152921504606846976"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "21539"
+      },
+      "fresh_receiver": {
+        "allowed_center_calibration_error": "1/4",
+        "arrival_wait": "1/1024",
+        "centered_reference_transition_real": [
+          "2681974749/288230376151711744",
+          "5773742115/288230376151711744"
+        ],
+        "held_phase_wait": "1/16384",
+        "leading_joint_receiver_probability_coefficient": "1/4",
+        "same_address_charge_gauge_and_Bell_probability": [
+          "252756557001/1152921504606846976",
+          "302344919881/1152921504606846976"
+        ],
+        "sender_to_receiver_diagonal_detuning": "63/4",
+        "third_order_amplitude_remainder_coefficient_upper": "21539"
+      },
+      "matched_blank_expectation": "-4500",
+      "matched_transfer_centroid": "213/4",
+      "matched_transfer_variance": "3431249/9800",
+      "native_moving_and_holder_hypercharge": [
+        -6,
+        6
+      ],
+      "onsite_beta_coefficient": "75/4",
+      "path": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "relative_centroid_with_electric_mean_subtracted": "75/2",
+      "unshuttered_two_copy_Ramsey_Y_plus_band": [
+        "201779378394712829/689613692941107200",
+        "199493154951/657666867200"
+      ]
+    }
+  ],
+  "idle_original_references_kept": true,
+  "native_terms_removed": [],
+  "oriented_bonds": [
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ]
+  ],
+  "oriented_faces": [
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ]
+  ],
+  "original_source": {
+    "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+    "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+    "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+    "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+    "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+  },
+  "path_clock_wait": "1/128",
+  "physical_refinement_and_endpoint_mass_identified": false,
+  "signed_sites": {
+    "conjugate_holder": [
+      1,
+      0,
+      1
+    ],
+    "receiving": [
+      0,
+      0,
+      0
+    ],
+    "sending": [
+      1,
+      0,
+      0
+    ]
+  },
+  "site_charge_units_not_calibrated_to_SI": true,
+  "source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "source_sha256": {
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/particle_common_contract/contract.json": "7617133bb473e37250f31491d5fadf3c4275d7b97a4e8342321d9e108988ed31",
+    "model/particle_primary_spectral_scale/results.json": "a5675b8119c8346a271b01ae408e1ecda55fa13490c3204061beee759f268c34"
+  },
+  "starting_stock_original_admission_lower": {
+    "base": 2,
+    "negative_exponent": 1073742520
+  }
+}

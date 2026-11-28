@@ -1,0 +1,634 @@
+{
+  "schema": "oph.row26.spherical_radius_release.v1",
+  "duration": "1/8",
+  "circumference_over_2pi_tick": "1/17592186044416",
+  "radii": [
+    2,
+    4,
+    6,
+    8,
+    16
+  ],
+  "source_stock": {
+    "blank": "0",
+    "ordinary": "1/3",
+    "held": "19/33"
+  },
+  "experiments": {
+    "blank": {
+      "radii": [
+        {
+          "start_radius_ticks": 35184372088832,
+          "end_radius_ticks_masses_1_3": [
+            35184372088832,
+            35184372088832
+          ],
+          "enclosed_GM_from_spherical_constraint": "0",
+          "GM_each_from_tickets": [
+            [
+              0.0,
+              2.910383045673453e-11
+            ],
+            [
+              0.0,
+              2.910383045673453e-11
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.0,
+            2.910383045673453e-11
+          ]
+        },
+        {
+          "start_radius_ticks": 70368744177664,
+          "end_radius_ticks_masses_1_3": [
+            70368744177664,
+            70368744177664
+          ],
+          "enclosed_GM_from_spherical_constraint": "0",
+          "GM_each_from_tickets": [
+            [
+              0.0,
+              1.1641532182693647e-10
+            ],
+            [
+              0.0,
+              1.1641532182693647e-10
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.0,
+            1.1641532182693647e-10
+          ]
+        },
+        {
+          "start_radius_ticks": 105553116266496,
+          "end_radius_ticks_masses_1_3": [
+            105553116266496,
+            105553116266496
+          ],
+          "enclosed_GM_from_spherical_constraint": "0",
+          "GM_each_from_tickets": [
+            [
+              0.0,
+              2.619344741106058e-10
+            ],
+            [
+              0.0,
+              2.619344741106058e-10
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.0,
+            2.619344741106058e-10
+          ]
+        },
+        {
+          "start_radius_ticks": 140737488355328,
+          "end_radius_ticks_masses_1_3": [
+            140737488355328,
+            140737488355328
+          ],
+          "enclosed_GM_from_spherical_constraint": "0",
+          "GM_each_from_tickets": [
+            [
+              0.0,
+              4.656612873077426e-10
+            ],
+            [
+              0.0,
+              4.656612873077426e-10
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.0,
+            4.656612873077426e-10
+          ]
+        },
+        {
+          "start_radius_ticks": 281474976710656,
+          "end_radius_ticks_masses_1_3": [
+            281474976710656,
+            281474976710656
+          ],
+          "enclosed_GM_from_spherical_constraint": "0",
+          "GM_each_from_tickets": [
+            [
+              0.0,
+              1.8626451492309636e-09
+            ],
+            [
+              0.0,
+              1.8626451492309636e-09
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.0,
+            1.8626451492309636e-09
+          ]
+        }
+      ],
+      "largest_lower_smallest_upper": [
+        0.0,
+        2.910383045673453e-11
+      ],
+      "largest_certified_lower_smallest_certified_upper": [
+        0.0,
+        2.910383045673453e-11
+      ],
+      "one_GM_admitted_by_tickets": true
+    },
+    "ordinary": {
+      "radii": [
+        {
+          "start_radius_ticks": 35184372088832,
+          "end_radius_ticks_masses_1_3": [
+            35181508699624,
+            35181508699624
+          ],
+          "enclosed_GM_from_spherical_constraint": "1/12",
+          "GM_each_from_tickets": [
+            [
+              0.08332203046013824,
+              0.0833355940703792
+            ],
+            [
+              0.08332203046013824,
+              0.0833355940703792
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.08326508043229455,
+            0.08338804121013037
+          ]
+        },
+        {
+          "start_radius_ticks": 70368744177664,
+          "end_radius_ticks_masses_1_3": [
+            70368028347354,
+            70368028347354
+          ],
+          "enclosed_GM_from_spherical_constraint": "1/12",
+          "GM_each_from_tickets": [
+            [
+              0.0833319203718287,
+              0.08333361602854102
+            ],
+            [
+              0.0833319203718287,
+              0.08333361602854102
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.08332482805693166,
+            0.08334014343563585
+          ]
+        },
+        {
+          "start_radius_ticks": 105553116266496,
+          "end_radius_ticks_masses_1_3": [
+            105552798120451,
+            105552798120451
+          ],
+          "enclosed_GM_from_spherical_constraint": "1/12",
+          "GM_each_from_tickets": [
+            [
+              0.08333291437829314,
+              0.08333341724937861
+            ],
+            [
+              0.08333291437829314,
+              0.08333341724937861
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.08333081578458784,
+            0.08333534849225623
+          ]
+        },
+        {
+          "start_radius_ticks": 140737488355328,
+          "end_radius_ticks_masses_1_3": [
+            140737309398281,
+            140737309398281
+          ],
+          "enclosed_GM_from_spherical_constraint": "1/12",
+          "GM_each_from_tickets": [
+            [
+              0.08333315648547898,
+              0.08333336934447348
+            ],
+            [
+              0.08333315648547898,
+              0.08333336934447348
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.08333227126787425,
+            0.0833341833204037
+          ]
+        },
+        {
+          "start_radius_ticks": 281474976710656,
+          "end_radius_ticks_masses_1_3": [
+            281474931971411,
+            281474931971411
+          ],
+          "enclosed_GM_from_spherical_constraint": "1/12",
+          "GM_each_from_tickets": [
+            [
+              0.0833333093259066,
+              0.08333333954215079
+            ],
+            [
+              0.0833333093259066,
+              0.08333333954215079
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.08333319942991267,
+            0.083333441987634
+          ]
+        }
+      ],
+      "largest_lower_smallest_upper": [
+        0.0833333093259066,
+        0.08333333954215079
+      ],
+      "largest_certified_lower_smallest_certified_upper": [
+        0.08333319942991267,
+        0.083333441987634
+      ],
+      "one_GM_admitted_by_tickets": true
+    },
+    "held": {
+      "radii": [
+        {
+          "start_radius_ticks": 35184372088832,
+          "end_radius_ticks_masses_1_3": [
+            35179426137158,
+            35179426137158
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14390567207382143,
+              0.14394613899640216
+            ],
+            [
+              0.14390567207382143,
+              0.14394613899640216
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14373580324391422,
+            0.14410261326702722
+          ]
+        },
+        {
+          "start_radius_ticks": 70368744177664,
+          "end_radius_ticks_masses_1_3": [
+            70367507740443,
+            70367507740443
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14393517863075575,
+              0.1439402371179333
+            ],
+            [
+              0.14393517863075575,
+              0.1439402371179333
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14391401953764482,
+            0.1439597115386298
+          ]
+        },
+        {
+          "start_radius_ticks": 105553116266496,
+          "end_radius_ticks_masses_1_3": [
+            105552566741107,
+            105552566741107
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14393814477726571,
+              0.14393964404007556
+            ],
+            [
+              0.14393814477726571,
+              0.14393964404007556
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.1439318833640529,
+            0.14394540581270257
+          ]
+        },
+        {
+          "start_radius_ticks": 140737488355328,
+          "end_radius_ticks_masses_1_3": [
+            140737179247607,
+            140737179247607
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14393886653178853,
+              0.14393949974328382
+            ],
+            [
+              0.14393886653178853,
+              0.14393949974328382
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14393622672114245,
+            0.14394192863255842
+          ]
+        },
+        {
+          "start_radius_ticks": 281474976710656,
+          "end_radius_ticks_masses_1_3": [
+            281474899433775,
+            281474899433775
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.1439393266447065,
+              0.14393940940499356
+            ],
+            [
+              0.1439393266447065,
+              0.14393940940499356
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14393899695687712,
+            0.14393971301615288
+          ]
+        }
+      ],
+      "largest_lower_smallest_upper": [
+        0.1439393266447065,
+        0.14393940940499356
+      ],
+      "largest_certified_lower_smallest_certified_upper": [
+        0.14393899695687712,
+        0.14393971301615288
+      ],
+      "one_GM_admitted_by_tickets": true
+    },
+    "changed_outer_profile": {
+      "radii": [
+        {
+          "start_radius_ticks": 35184372088832,
+          "end_radius_ticks_masses_1_3": [
+            35179426137158,
+            35179426137158
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14390567207382143,
+              0.14394613899640216
+            ],
+            [
+              0.14390567207382143,
+              0.14394613899640216
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14373580324391422,
+            0.14410261326702722
+          ]
+        },
+        {
+          "start_radius_ticks": 70368744177664,
+          "end_radius_ticks_masses_1_3": [
+            70367507740443,
+            70367507740443
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/132",
+          "GM_each_from_tickets": [
+            [
+              0.14393517863075575,
+              0.1439402371179333
+            ],
+            [
+              0.14393517863075575,
+              0.1439402371179333
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.14391401953764482,
+            0.1439597115386298
+          ]
+        },
+        {
+          "start_radius_ticks": 105553116266496,
+          "end_radius_ticks_masses_1_3": [
+            105552621015283,
+            105552621015283
+          ],
+          "enclosed_GM_from_spherical_constraint": "1577/10692",
+          "GM_each_from_tickets": [
+            [
+              0.12972214845650196,
+              0.1297233662917291
+            ],
+            [
+              0.12972214845650196,
+              0.1297233662917291
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.12946945610150015,
+            0.12997564638499293
+          ]
+        },
+        {
+          "start_radius_ticks": 140737488355328,
+          "end_radius_ticks_masses_1_3": [
+            140737198566879,
+            140737198566879
+          ],
+          "enclosed_GM_from_spherical_constraint": "323/2112",
+          "GM_each_from_tickets": [
+            [
+              0.13494270602771039,
+              0.1349432626739154
+            ],
+            [
+              0.13494270602771039,
+              0.1349432626739154
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.13483618176298814,
+            0.1350496266968558
+          ]
+        },
+        {
+          "start_radius_ticks": 281474976710656,
+          "end_radius_ticks_masses_1_3": [
+            281474891283479,
+            281474891283479
+          ],
+          "enclosed_GM_from_spherical_constraint": "5377/33792",
+          "GM_each_from_tickets": [
+            [
+              0.15912041840330166,
+              0.15912051871419008
+            ],
+            [
+              0.15912041840330166,
+              0.15912051871419008
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.15910711168250916,
+            0.1591337956488138
+          ]
+        }
+      ],
+      "largest_lower_smallest_upper": [
+        0.15912041840330166,
+        0.1297233662917291
+      ],
+      "largest_certified_lower_smallest_certified_upper": [
+        0.15910711168250916,
+        0.12997564638499293
+      ],
+      "one_GM_admitted_by_tickets": false
+    },
+    "doubled_coupling": {
+      "radii": [
+        {
+          "start_radius_ticks": 35184372088832,
+          "end_radius_ticks_masses_1_3": [
+            35174479721875,
+            35174479721875
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/66",
+          "GM_each_from_tickets": [
+            [
+              0.28774389945270734,
+              0.2879057707614347
+            ],
+            [
+              0.28774389945270734,
+              0.2879057707614347
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.28706480291527864,
+            0.28853166510817485
+          ]
+        },
+        {
+          "start_radius_ticks": 70368744177664,
+          "end_radius_ticks_masses_1_3": [
+            70366271288738,
+            70366271288738
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/66",
+          "GM_each_from_tickets": [
+            [
+              0.2878619269694992,
+              0.2878821602789726
+            ],
+            [
+              0.2878619269694992,
+              0.2878821602789726
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.28777729666092033,
+            0.2879600578453433
+          ]
+        },
+        {
+          "start_radius_ticks": 105553116266496,
+          "end_radius_ticks_masses_1_3": [
+            105552017213811,
+            105552017213811
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/66",
+          "GM_each_from_tickets": [
+            [
+              0.2878737918424276,
+              0.2878797873272588
+            ],
+            [
+              0.2878737918424276,
+              0.2878797873272588
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.2878487472349618,
+            0.2879028346797013
+          ]
+        },
+        {
+          "start_radius_ticks": 140737488355328,
+          "end_radius_ticks_masses_1_3": [
+            140736870139433,
+            140736870139433
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/66",
+          "GM_each_from_tickets": [
+            [
+              0.287876679912527,
+              0.2878792099654695
+            ],
+            [
+              0.287876679912527,
+              0.2878792099654695
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.28786612076270746,
+            0.2878889259882292
+          ]
+        },
+        {
+          "start_radius_ticks": 281474976710656,
+          "end_radius_ticks_masses_1_3": [
+            281474822156880,
+            281474822156880
+          ],
+          "enclosed_GM_from_spherical_constraint": "19/66",
+          "GM_each_from_tickets": [
+            [
+              0.28787852315908274,
+              0.28787884302437405
+            ],
+            [
+              0.28787852315908274,
+              0.28787884302437405
+            ]
+          ],
+          "GM_enclosure_over_all_admissible_tickets": [
+            0.2878772044092135,
+            0.2878800556063662
+          ]
+        }
+      ],
+      "largest_lower_smallest_upper": [
+        0.28787852315908274,
+        0.28787884302437405
+      ],
+      "largest_certified_lower_smallest_certified_upper": [
+        0.2878772044092135,
+        0.2878800556063662
+      ],
+      "one_GM_admitted_by_tickets": true
+    }
+  }
+}

@@ -42,10 +42,16 @@ To acquire fresh observer counts, follow the commands in the [orbital experiment
 
 The station experiment tests whether ranges inferred from simulated observer records predict held clock and pulse measurements. Its three-dimensional fit uses the recorded times and station labels. [Source-free chart and held flights](model/experiments/interval_echo_space/README.md#can-a-source-free-chart-predict-clocks-and-pulses-at-other-stations)
 
-For the electron candidate, replay the signed-field measurements, the exchange of two charges with distinct field endpoints, and the energy and spin tests of the stationary charged states. The two-cell transport test resolves charge arrival and recovery of the same complete excited state independently. It uses the recorded board layouts, sources and probes. The reported energies are in model units. The laboratory calculation has its own measured inputs. [Experiments, units and controls](model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+For the written-field candidate, replay the signed-field measurements, the exchange of two charges with distinct field endpoints, and the energy and spin tests of the stationary charged states. The two-cell transport test resolves charge arrival and recovery of the same complete excited state independently. It uses the recorded board layouts, sources and probes. The reported energies are in model units. The laboratory calculation has its own measured inputs. [Experiments, units and controls](model/candidate_laws/interval_echo/openwave/electron_field/README.md)
 
 ```sh
 python -B model/candidate_laws/interval_echo/openwave/electron_field/replay.py
+```
+
+For the interacting contact ring, replay the four-site source and the independent eight-site receiver. Each comparison uses one material sign and one nominated receiver and counts refusals from the original alternating-spin preparation. The signed material read, conditional spin witness and matched controls belong to that ring. The pinned source reconstruction uses the Git history identified in the protocol. [Contact-ring protocol](model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/PROTOCOL.md) · [Eight-site measurement](model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/interacting_chain/independent/README.md)
+
+```sh
+python -B -W error -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.theorem_interfaces.interacting_chain
 ```
 
 The programmed scalar experiment reconstructs three directions from eight anonymous stations, then uses the chart to predict independent clock-stopped detector records. Run its published protocol from the repository root. [Scalar result and continuum limit](model/experiments/seam_program/CLOCKED_FIELD.md)
@@ -53,6 +59,22 @@ The programmed scalar experiment reconstructs three directions from eight anonym
 ```sh
 python -m model.experiments.seam_program.blind_chart --output /tmp/echo-blind-chart.json
 ```
+
+### Gravity, rotation curves and expansion distances
+
+Run these checks from the RER root using the research Python environment. The orbit calculation checks all 2,176 feasibility or exclusion certificates against the catalogue. The expansion calculations read the released DESI measurements and covariance. The final two commands implement the same noisy radial-anchor experiment by independent methods.
+
+```sh
+python model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/flight_counts.py
+python code/cosmology/rar_deep_regime/finite_halo/tracer_shapes.py
+python code/cosmology/paid_trail_bao/astronomical_budget.py
+python model/candidate_laws/interval_echo/openwave/row_26_newton/cubic_strength/strength.py
+python -m model.candidate_laws.interval_echo.openwave.row_27_metric.parked_signals.two_frequency.replay
+python model/candidate_laws/interval_echo/openwave/row_28_acceleration/anchor_calibration/replay.py
+python model/candidate_laws/interval_echo/openwave/row_28_acceleration/anchor_calibration/verify.py
+```
+
+The finite proofs identify which hypotheses connect the measurements to bounds on attraction, source abundance and elapsed time. Build them from `Lean/` with `lake build +ObserverPatchHolography.EinsteinBranch.GravityCalibration +ObserverPatchHolography.EinsteinBranch.TwoFrequencyClock`. The pressureless spherical construction and native ring have distinct source and clock preparations. [Einstein theorem index](Lean/docs/EINSTEIN_BRANCH_INDEX.md) · [Spherical clock and release measurements](model/candidate_laws/interval_echo/openwave/row_26_newton/README.md)
 
 ## Theory certificates
 

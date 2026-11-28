@@ -1,0 +1,94 @@
+{
+  "readings": "threshold.json Pauli Y at the first extended clock setting of each length",
+  "confidence_tail": 9.765625e-06,
+  "original_starts_per_setting": 2251799813685248,
+  "charts": [
+    {
+      "physical_steps": 19,
+      "clock_center": 16.013289183085593,
+      "fixed_arm_signatures": [
+        {
+          "arm": 0,
+          "individually_fixed_edges": 21
+        },
+        {
+          "arm": 1,
+          "individually_fixed_edges": 21
+        },
+        {
+          "arm": 2,
+          "individually_fixed_edges": 21
+        }
+      ],
+      "exact_single_arm_probability_difference": 0,
+      "joint_y_same_different_refused": [
+        603,
+        7772,
+        2251799813676873
+      ],
+      "conditional_different_fraction": 0.928,
+      "conditional_different_interval": [
+        0.915234888471705,
+        0.9394806303157093
+      ]
+    },
+    {
+      "physical_steps": 20,
+      "clock_center": 16.012011426006097,
+      "fixed_arm_signatures": [
+        {
+          "arm": 0,
+          "individually_fixed_edges": 22
+        },
+        {
+          "arm": 1,
+          "individually_fixed_edges": 22
+        },
+        {
+          "arm": 2,
+          "individually_fixed_edges": 22
+        }
+      ],
+      "exact_single_arm_probability_difference": 0,
+      "joint_y_same_different_refused": [
+        429,
+        5774,
+        2251799813679045
+      ],
+      "conditional_different_fraction": 0.9308399161695954,
+      "conditional_different_interval": [
+        0.9161254661743177,
+        0.9438069664457145
+      ]
+    },
+    {
+      "physical_steps": 21,
+      "clock_center": 16.010909385084783,
+      "fixed_arm_signatures": [
+        {
+          "arm": 0,
+          "individually_fixed_edges": 23
+        },
+        {
+          "arm": 1,
+          "individually_fixed_edges": 23
+        },
+        {
+          "arm": 2,
+          "individually_fixed_edges": 23
+        }
+      ],
+      "exact_single_arm_probability_difference": 0,
+      "joint_y_same_different_refused": [
+        344,
+        4377,
+        2251799813680527
+      ],
+      "conditional_different_fraction": 0.9271340817623385,
+      "conditional_different_interval": [
+        0.9097319767631424,
+        0.9422586158384998
+      ]
+    }
+  ]
+}

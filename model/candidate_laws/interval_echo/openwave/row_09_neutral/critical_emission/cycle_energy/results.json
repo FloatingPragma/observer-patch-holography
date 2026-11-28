@@ -1,0 +1,8502 @@
+{
+ "protocol_sha256": "445958dcbd587504023b40862bc6d7818f8803577c9cb95dcb55793d774c9dd2",
+ "source_emission_sha256": "57f3b0e8ce9cdbbd1c3fdbcd6b3d1787c5f37b3a4665308c122c50c409d56db9",
+ "seed": 90131,
+ "guard_control_seed": 90132,
+ "shots_per_contact_and_branch": 4398046511104,
+ "count_bin_order": [
+  "parent refused",
+  "lowest one-mode refused",
+  0,
+  8,
+  9,
+  32,
+  33
+ ],
+ "clock_calibration": {
+  "(0, 0)": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "(0, 1)": [
+   0.0,
+   0.5,
+   0.5,
+   0.0,
+   0.0
+  ],
+  "(1, 2)": [
+   0.0,
+   0.5,
+   0.5,
+   0.0,
+   0.0
+  ],
+  "(0, 2)": [
+   0.0,
+   0.0,
+   0.0,
+   0.5,
+   0.5
+  ],
+  "balanced +1": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "balanced -1": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ]
+ },
+ "panels": [
+  {
+   "dimers": 23,
+   "schedule": "native",
+   "relative_link_duty": 0.03076923076923077,
+   "calibrated_period": 0.12884615384615383,
+   "lowest_relative_quasifrequency": 0.06680802562871707,
+   "slope_of_lowest_relative_phase_per_original_period": 0.06648586791259992,
+   "light_cutoff_from_separate_clock": [
+    0.09701233190850897,
+    0.09701646721436415
+   ],
+   "parent_refused_mode_refused_admitted": [
+    0.09395175822106616,
+    0.9011787071009281,
+    0.00486953467800581
+   ],
+   "source_link_substitution_full_refusal": [
+    4398046511104,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "daughter_minus_cold_contact_records": [
+    {
+     "physical_ports": [
+      1,
+      38
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204041566,
+       3963426107319,
+       0,
+       0,
+       0,
+       20907275154,
+       509087065
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4300183026154,
+       97863484950
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.001519058674834206,
+     "simulated_mean_energy_difference": 0.0015193599067799823,
+     "sum_of_inverse_net_admissions": 4.692064444543553e-11
+    },
+    {
+     "physical_ports": [
+      38,
+      39
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204664782,
+       3963425554563,
+       13787742904,
+       0,
+       0,
+       3814365661,
+       3814183194
+      ],
+      [
+       0,
+       0,
+       2818128263634,
+       0,
+       0,
+       789959948462,
+       789958299008
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.09846221348705983,
+     "simulated_mean_energy_difference": -0.09843843602893543,
+     "sum_of_inverse_net_admissions": 4.6920798067168713e-11
+    },
+    {
+     "physical_ports": [
+      39,
+      42
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204738338,
+       3963425197844,
+       0,
+       0,
+       0,
+       19252535199,
+       2164039723
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3986848730988,
+       411197780116
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.007548151011202819,
+     "simulated_mean_energy_difference": 0.0075495385844917,
+     "sum_of_inverse_net_admissions": 4.692018070187201e-11
+    },
+    {
+     "physical_ports": [
+      42,
+      44
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204617712,
+       3963425742198,
+       16474648323,
+       0,
+       0,
+       2470730073,
+       2470772798
+      ],
+      [
+       0,
+       0,
+       3350143314319,
+       0,
+       0,
+       523950943903,
+       523952252882
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.24462105300761552,
+     "simulated_mean_energy_difference": -0.24467202906984475,
+     "sum_of_inverse_net_admissions": 4.69211045396595e-11
+    },
+    {
+     "physical_ports": [
+      44,
+      22
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413205488014,
+       3963424724967,
+       0,
+       0,
+       0,
+       18102131618,
+       3314166505
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3776760833567,
+       621285677537
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.013485324386049158,
+     "simulated_mean_energy_difference": 0.013485729136021973,
+     "sum_of_inverse_net_admissions": 4.6920784191897124e-11
+    },
+    {
+     "physical_ports": [
+      22,
+      12
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204636841,
+       3963425039962,
+       17091068301,
+       0,
+       0,
+       2162875499,
+       2162890501
+      ],
+      [
+       0,
+       0,
+       3450943734829,
+       0,
+       0,
+       473551584999,
+       473551191276
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.434323865546309,
+     "simulated_mean_energy_difference": -0.4344117776074743,
+     "sum_of_inverse_net_admissions": 4.691961520589705e-11
+    },
+    {
+     "physical_ports": [
+      12,
+      17
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204027145,
+       3963426087235,
+       0,
+       0,
+       0,
+       17687026290,
+       3729370434
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3716615967266,
+       681430543838
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.019194345510204602,
+     "simulated_mean_energy_difference": 0.019196855604832308,
+     "sum_of_inverse_net_admissions": 4.6920569215632463e-11
+    },
+    {
+     "physical_ports": [
+      17,
+      13
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204895008,
+       3963425183494,
+       17404811584,
+       0,
+       0,
+       2005881555,
+       2005739463
+      ],
+      [
+       0,
+       0,
+       3491022150518,
+       0,
+       0,
+       453511820982,
+       453512539604
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6148229509478589,
+     "simulated_mean_energy_difference": -0.6148504811781548,
+     "sum_of_inverse_net_admissions": 4.69204909925922e-11
+    },
+    {
+     "physical_ports": [
+      13,
+      146
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413205593504,
+       3963424362636,
+       0,
+       0,
+       0,
+       17433050792,
+       3983504172
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3688044729015,
+       710001782089
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02456648563688779,
+     "simulated_mean_energy_difference": 0.024565450160913826,
+     "sum_of_inverse_net_admissions": 4.6920224214707954e-11
+    },
+    {
+     "physical_ports": [
+      146,
+      147
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413205049650,
+       3963424993156,
+       17619156683,
+       0,
+       0,
+       1898616767,
+       1898694848
+      ],
+      [
+       0,
+       0,
+       3512334473926,
+       0,
+       0,
+       442854677668,
+       442857359510
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7826806902364319,
+     "simulated_mean_energy_difference": -0.7825848345050073,
+     "sum_of_inverse_net_admissions": 4.6920413166617696e-11
+    },
+    {
+     "physical_ports": [
+      147,
+      150
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203087351,
+       3963427288687,
+       0,
+       0,
+       0,
+       17247073142,
+       4169061924
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3671629950539,
+       726416560565
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.029499431943856402,
+     "simulated_mean_energy_difference": 0.02950119875781354,
+     "sum_of_inverse_net_admissions": 4.6921139703637e-11
+    },
+    {
+     "physical_ports": [
+      150,
+      152
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203352991,
+       3963426600144,
+       17782486323,
+       0,
+       0,
+       1817008537,
+       1817063109
+      ],
+      [
+       0,
+       0,
+       3525277193841,
+       0,
+       0,
+       436383994334,
+       436385322929
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.9347002198461101,
+     "simulated_mean_energy_difference": -0.9346867568675101,
+     "sum_of_inverse_net_admissions": 4.692021766314089e-11
+    },
+    {
+     "physical_ports": [
+      152,
+      82
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203574395,
+       3963425999961,
+       0,
+       0,
+       0,
+       17102984111,
+       4313952637
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3661251770012,
+       736794741092
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03389923608896872,
+     "simulated_mean_energy_difference": 0.033899426625630724,
+     "sum_of_inverse_net_admissions": 4.6919391855558745e-11
+    },
+    {
+     "physical_ports": [
+      82,
+      72
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204543353,
+       3963425620611,
+       17911184049,
+       0,
+       0,
+       1752558557,
+       1752604534
+      ],
+      [
+       0,
+       0,
+       3533699011139,
+       0,
+       0,
+       432174872673,
+       432172627292
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.0679863161333492,
+     "simulated_mean_energy_difference": -1.0680209314881886,
+     "sum_of_inverse_net_admissions": 4.6920677321622363e-11
+    },
+    {
+     "physical_ports": [
+      72,
+      77
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204225220,
+       3963425801530,
+       0,
+       0,
+       0,
+       16988012453,
+       4428471901
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3654361499346,
+       743685011758
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03768210346359213,
+     "simulated_mean_energy_difference": 0.03768426384081636,
+     "sum_of_inverse_net_admissions": 4.6920378160711515e-11
+    },
+    {
+     "physical_ports": [
+      77,
+      73
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204256163,
+       3963425776959,
+       18012611000,
+       0,
+       0,
+       1701932434,
+       1701934548
+      ],
+      [
+       0,
+       0,
+       3539356495596,
+       0,
+       0,
+       429344528192,
+       429345487316
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.180000535134425,
+     "simulated_mean_energy_difference": -1.1799672034481272,
+     "sum_of_inverse_net_admissions": 4.69203920531837e-11
+    },
+    {
+     "physical_ports": [
+      73,
+      86
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204188650,
+       3963425899768,
+       0,
+       0,
+       0,
+       16898954368,
+       4517468318
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3649717616343,
+       748328894761
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.040775989067384,
+     "simulated_mean_energy_difference": 0.04078448457138961,
+     "sum_of_inverse_net_admissions": 4.69205126119335e-11
+    },
+    {
+     "physical_ports": [
+      86,
+      87
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204636225,
+       3963425399935,
+       18089533776,
+       0,
+       0,
+       1663445159,
+       1663496009
+      ],
+      [
+       0,
+       0,
+       3543148430411,
+       0,
+       0,
+       427449360585,
+       427448720108
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.2686095574258367,
+     "simulated_mean_energy_difference": -1.2686808170563193,
+     "sum_of_inverse_net_admissions": 4.692039867674758e-11
+    },
+    {
+     "physical_ports": [
+      87,
+      90
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204187395,
+       3963425955065,
+       0,
+       0,
+       0,
+       16834007855,
+       4582360789
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3646659836090,
+       751386675014
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04312196961087089,
+     "simulated_mean_energy_difference": 0.04311979891905082,
+     "sum_of_inverse_net_admissions": 4.692063043725936e-11
+    },
+    {
+     "physical_ports": [
+      90,
+      92
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203611823,
+       3963426394791,
+       18143062336,
+       0,
+       0,
+       1636720005,
+       1636722149
+      ],
+      [
+       0,
+       0,
+       3545565249100,
+       0,
+       0,
+       426240333535,
+       426240928469
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3321258173572499,
+     "simulated_mean_energy_difference": -1.332015517896771,
+     "sum_of_inverse_net_admissions": 4.692033425950725e-11
+    },
+    {
+     "physical_ports": [
+      92,
+      58
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204716580,
+       3963425480617,
+       0,
+       0,
+       0,
+       16791725618,
+       4624588289
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3644816710265,
+       753229800839
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04467536571400599,
+     "simulated_mean_energy_difference": 0.04467301202978291,
+     "sum_of_inverse_net_admissions": 4.692074977846843e-11
+    },
+    {
+     "physical_ports": [
+      58,
+      48
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204049048,
+       3963426181659,
+       18173894473,
+       0,
+       0,
+       1621177662,
+       1621208262
+      ],
+      [
+       0,
+       0,
+       3546881060079,
+       0,
+       0,
+       425582426638,
+       425583024387
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3693396428689362,
+     "simulated_mean_energy_difference": -1.3693684812112652,
+     "sum_of_inverse_net_admissions": 4.692082283947642e-11
+    },
+    {
+     "physical_ports": [
+      48,
+      53
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204875094,
+       3963425116474,
+       0,
+       0,
+       0,
+       16772138344,
+       4644381192
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3643992800258,
+       754053710846
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.045406592828425296,
+     "simulated_mean_energy_difference": 0.045407791865613945,
+     "sum_of_inverse_net_admissions": 4.692030145575107e-11
+    },
+    {
+     "physical_ports": [
+      53,
+      49
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203999023,
+       3963426361120,
+       18182229772,
+       0,
+       0,
+       1616967528,
+       1616953661
+      ],
+      [
+       0,
+       0,
+       3547231643996,
+       0,
+       0,
+       425406986668,
+       425407880440
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3795422937893531,
+     "simulated_mean_energy_difference": -1.3795947511451665,
+     "sum_of_inverse_net_admissions": 4.692110504767046e-11
+    },
+    {
+     "physical_ports": [
+      49,
+      1202
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203749500,
+       3963426041198,
+       0,
+       0,
+       0,
+       16775130310,
+       4641590096
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3644107425735,
+       753939085369
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.045301724677450306,
+     "simulated_mean_energy_difference": 0.04530149750622314,
+     "sum_of_inverse_net_admissions": 4.691986351715798e-11
+    },
+    {
+     "physical_ports": [
+      1202,
+      1204
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204266952,
+       3963425952181,
+       18168247073,
+       0,
+       0,
+       1624029961,
+       1624014937
+      ],
+      [
+       0,
+       0,
+       3546650362695,
+       0,
+       0,
+       425698120766,
+       425698027643
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3625394598464324,
+     "simulated_mean_energy_difference": -1.3624892002954745,
+     "sum_of_inverse_net_admissions": 4.692079760495023e-11
+    },
+    {
+     "physical_ports": [
+      1204,
+      1205
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203842460,
+       3963426210007,
+       0,
+       0,
+       0,
+       16800231523,
+       4616227114
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3645170094719,
+       752876416385
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.044362758483094344,
+     "simulated_mean_energy_difference": 0.04436149421925961,
+     "sum_of_inverse_net_admissions": 4.692043422992523e-11
+    },
+    {
+     "physical_ports": [
+      1205,
+      1200
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204612365,
+       3963425243179,
+       18132011772,
+       0,
+       0,
+       1642268221,
+       1642375567
+      ],
+      [
+       0,
+       0,
+       3545082145130,
+       0,
+       0,
+       426482921725,
+       426481444249
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3186549613213723,
+     "simulated_mean_energy_difference": -1.3186192355632613,
+     "sum_of_inverse_net_admissions": 4.6920004894096494e-11
+    },
+    {
+     "physical_ports": [
+      1200,
+      1238
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204627317,
+       3963425447645,
+       0,
+       0,
+       0,
+       16848224868,
+       4568211274
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3647284835273,
+       750761675831
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04260757692879724,
+     "simulated_mean_energy_difference": 0.04260054807299696,
+     "sum_of_inverse_net_admissions": 4.6920483274518374e-11
+    },
+    {
+     "physical_ports": [
+      1238,
+      1239
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204477931,
+       3963425215947,
+       18072876048,
+       0,
+       0,
+       1672007548,
+       1671933630
+      ],
+      [
+       0,
+       0,
+       3542360707563,
+       0,
+       0,
+       427842300231,
+       427843503310
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.248724581866731,
+     "simulated_mean_energy_difference": -1.2487881202246234,
+     "sum_of_inverse_net_admissions": 4.691965243225126e-11
+    },
+    {
+     "physical_ports": [
+      1239,
+      1244
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204398079,
+       3963425457969,
+       0,
+       0,
+       0,
+       16919119430,
+       4497535626
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3650687342582,
+       747359168522
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04006960758238032,
+     "simulated_mean_energy_difference": 0.04007197629651671,
+     "sum_of_inverse_net_admissions": 4.692000599291824e-11
+    },
+    {
+     "physical_ports": [
+      1244,
+      1237
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203428964,
+       3963426601339,
+       17989735582,
+       0,
+       0,
+       1713370020,
+       1713375199
+      ],
+      [
+       0,
+       0,
+       3538175062958,
+       0,
+       0,
+       429935279134,
+       429936169012
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.1540801509422562,
+     "simulated_mean_energy_difference": -1.153979922570211,
+     "sum_of_inverse_net_admissions": 4.692038590709368e-11
+    },
+    {
+     "physical_ports": [
+      1237,
+      1222
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204214436,
+       3963425976529,
+       0,
+       0,
+       0,
+       17013813433,
+       4402506706
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3655795463616,
+       742251047488
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03679718626540751,
+     "simulated_mean_energy_difference": 0.03679949283158379,
+     "sum_of_inverse_net_admissions": 4.6920736191021196e-11
+    },
+    {
+     "physical_ports": [
+      1222,
+      1212
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204212864,
+       3963425659161,
+       17882118212,
+       0,
+       0,
+       1767239007,
+       1767281860
+      ],
+      [
+       0,
+       0,
+       3531959221107,
+       0,
+       0,
+       433043826109,
+       433043463888
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.0365241790203912,
+     "simulated_mean_energy_difference": -1.0363993884134741,
+     "sum_of_inverse_net_admissions": 4.692004082603018e-11
+    },
+    {
+     "physical_ports": [
+      1212,
+      1217
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203877667,
+       3963426124756,
+       0,
+       0,
+       0,
+       17135222952,
+       4281285729
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3663372114961,
+       734674396143
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.032852636493760246,
+     "simulated_mean_energy_difference": 0.03286024896862472,
+     "sum_of_inverse_net_admissions": 4.692032512215434e-11
+    },
+    {
+     "physical_ports": [
+      1217,
+      1213
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203509580,
+       3963426390954,
+       17745804948,
+       0,
+       0,
+       1835373567,
+       1835432055
+      ],
+      [
+       0,
+       0,
+       3522674108944,
+       0,
+       0,
+       437685717446,
+       437686684714
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.8982955286354857,
+     "simulated_mean_energy_difference": -0.8981917290422032,
+     "sum_of_inverse_net_admissions": 4.692010298158198e-11
+    },
+    {
+     "physical_ports": [
+      1213,
+      1310
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204956110,
+       3963424836759,
+       0,
+       0,
+       0,
+       17288888161,
+       4127830074
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3674856015584,
+       723190495520
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02831108252148562,
+     "simulated_mean_energy_difference": 0.028304202324378025,
+     "sum_of_inverse_net_admissions": 4.691986825034793e-11
+    },
+    {
+     "physical_ports": [
+      1310,
+      1311
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203987865,
+       3963426085822,
+       17572624513,
+       0,
+       0,
+       1921932336,
+       1921880568
+      ],
+      [
+       0,
+       0,
+       3508269776971,
+       0,
+       0,
+       444888965444,
+       444887768689
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7420267750746158,
+     "simulated_mean_energy_difference": -0.7420488674781023,
+     "sum_of_inverse_net_admissions": 4.6920480494704274e-11
+    },
+    {
+     "physical_ports": [
+      1311,
+      1314
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204251970,
+       3963425919371,
+       0,
+       0,
+       0,
+       17486298610,
+       3930041153
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3693267070993,
+       704779440111
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02325901859357482,
+     "simulated_mean_energy_difference": 0.0232583764342138,
+     "sum_of_inverse_net_admissions": 4.69206934054399e-11
+    },
+    {
+     "physical_ports": [
+      1314,
+      1316
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413203726593,
+       3963426266358,
+       17342244969,
+       0,
+       0,
+       2037110668,
+       2037162516
+      ],
+      [
+       0,
+       0,
+       3484128803456,
+       0,
+       0,
+       456958476890,
+       456959230758
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5706940687785056,
+     "simulated_mean_energy_difference": -0.5707337288170962,
+     "sum_of_inverse_net_admissions": 4.692030447100867e-11
+    },
+    {
+     "physical_ports": [
+      1316,
+      1282
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413204855166,
+       3963425293727,
+       0,
+       0,
+       0,
+       17763093651,
+       3653268560
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3726052057585,
+       671994453519
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.017792661656439,
+     "simulated_mean_energy_difference": 0.017789209357218283,
+     "sum_of_inverse_net_admissions": 4.692064446287762e-11
+    },
+    {
+     "physical_ports": [
+      1282,
+      1272
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204488305,
+       3963425669742,
+       16993708750,
+       0,
+       0,
+       2211362526,
+       2211281781
+      ],
+      [
+       0,
+       0,
+       3437361143597,
+       0,
+       0,
+       480343688946,
+       480341678561
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3875604543272455,
+     "simulated_mean_energy_difference": -0.3876209166396851,
+     "sum_of_inverse_net_admissions": 4.6920664421000255e-11
+    },
+    {
+     "physical_ports": [
+      1272,
+      1277
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203364000,
+       3963426691299,
+       0,
+       0,
+       0,
+       18236114028,
+       3180341777
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3797775725380,
+       600270785724
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.012016118898721284,
+     "simulated_mean_energy_difference": 0.012014136002996167,
+     "sum_of_inverse_net_admissions": 4.692044040437112e-11
+    },
+    {
+     "physical_ports": [
+      1277,
+      1273
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       413204514970,
+       3963425646910,
+       16265240234,
+       0,
+       0,
+       2575565935,
+       2575543055
+      ],
+      [
+       0,
+       0,
+       3313681383301,
+       0,
+       0,
+       542182709547,
+       542182418256
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.19611372550527847,
+     "simulated_mean_energy_difference": -0.19609938622425105,
+     "sum_of_inverse_net_admissions": 4.692067277795137e-11
+    },
+    {
+     "physical_ports": [
+      1273,
+      1287
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       413203420980,
+       3963426774828,
+       0,
+       0,
+       0,
+       19666411964,
+       1749903332
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4065259689052,
+       332786822052
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.006039405021909361,
+     "simulated_mean_energy_difference": 0.006041926256571628,
+     "sum_of_inverse_net_admissions": 4.692074675007169e-11
+    }
+   ],
+   "observed_energy_and_switch_work": {
+    "intradimer": {
+     "calculated": 0.6707838310593021,
+     "sampled": 0.6707900182737205,
+     "simultaneous_99pct_interval": [
+      0.6707214865622942,
+      0.6708585499851468
+     ]
+    },
+    "link_layer_including_first": {
+     "calculated": -19.62242904109885,
+     "sampled": -19.622262512771147,
+     "simultaneous_99pct_interval": [
+      -19.624473708829587,
+      -19.620051316712708
+     ]
+    },
+    "link_layer_after_first_shutters": {
+     "calculated": -19.52396682761179,
+     "sampled": -19.523824076742212,
+     "simultaneous_99pct_interval": [
+      -19.52598379365794,
+      -19.521664359826485
+     ]
+    },
+    "daughter_relative_initial_switch_work": {
+     "calculated": -20.29321287215815,
+     "sampled": -20.293052531044868,
+     "simultaneous_99pct_interval": [
+      -20.295265676983096,
+      -20.29083938510664
+     ]
+    },
+    "cycle_average": {
+     "calculated": 0.0664858679125969,
+     "sampled": 0.06649648654146977,
+     "simultaneous_99pct_interval": [
+      0.06640309988611222,
+      0.06658987319682731
+     ]
+    }
+   },
+   "conservative_covariance_allowance": 3.923545062343645e-08,
+   "inherited_same_mode_emission": {
+    "original_starts": 67108864,
+    "joint_parent_ground_absorption_vacuum_counts": 28871,
+    "lower_99pct_from_original_joint_banks": 0.0004218032760564196,
+    "bright_only_probability_upper": 1.4143895407788075e-05,
+    "lowest_mode_mass_lower_from_coherent_amplitude_triangle": 0.00028146815775419783,
+    "first_bright_relative_frequency": 0.2000511346064556,
+    "registered_source_duty_and_joint_lower": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.25,
+      0.00022905431847050482
+     ],
+     [
+      0.5,
+      0.0004218032760564196
+     ],
+     [
+      1.0,
+      0.0015602618981252602
+     ]
+    ]
+   },
+   "guard_only_terminal_charge_control": {
+    "count_bin_order": [
+     "parent refused",
+     "lowest one-mode refused",
+     "minus_two",
+     "zero",
+     "plus_two"
+    ],
+    "guarded_and_open_guard_counts": [
+     [
+      413204256165,
+      3963425748308,
+      0,
+      21416506631,
+      0
+     ],
+     [
+      413204216837,
+      3963426023534,
+      9419,
+      21416251838,
+      9476
+     ]
+    ],
+    "motion_per_admitted_exposed_dimer": 8.895025084959214e-07,
+    "motion_lower_over_calibrated_covariance": 8.895023633945817e-07,
+    "motion_per_original_launch": 4.3314633112940475e-09,
+    "dwell": 0.0038461538461538464,
+    "unlike_terminal_link_probability_at_layer_opening": 0.24052177479835268
+   }
+  },
+  {
+   "dimers": 23,
+   "schedule": "half",
+   "relative_link_duty": 0.015384615384615385,
+   "calibrated_period": 0.12692307692307692,
+   "lowest_relative_quasifrequency": 0.5006466746107731,
+   "slope_of_lowest_relative_phase_per_original_period": 0.5006097711516989,
+   "light_cutoff_from_separate_clock": [
+    0.09848221572530455,
+    0.09848641368730905
+   ],
+   "parent_refused_mode_refused_admitted": [
+    0.2959190106376096,
+    0.7039163527897095,
+    0.00016463657268088407
+   ],
+   "source_link_substitution_full_refusal": [
+    4398046511104,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "daughter_minus_cold_contact_records": [
+    {
+     "physical_ports": [
+      1,
+      38
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466598253,
+       3095855805451,
+       0,
+       0,
+       0,
+       720792823,
+       3314577
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4379537683449,
+       18508827655
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0003683784157623715,
+     "simulated_mean_energy_difference": 0.00036904582262309304,
+     "sum_of_inverse_net_admissions": 1.3812379806655112e-09
+    },
+    {
+     "physical_ports": [
+      38,
+      39
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301467002877,
+       3095855454937,
+       408963810,
+       0,
+       0,
+       157535878,
+       157553602
+      ],
+      [
+       0,
+       0,
+       2479329356157,
+       0,
+       0,
+       959358085005,
+       959359069942
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.035553861461362635,
+     "simulated_mean_energy_difference": -0.035456376069053164,
+     "sum_of_inverse_net_admissions": 1.3813411864446663e-09
+    },
+    {
+     "physical_ports": [
+      39,
+      42
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301467012761,
+       3095855400183,
+       0,
+       0,
+       0,
+       706884946,
+       17213214
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4308989924283,
+       89056586821
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0035207202955604977,
+     "simulated_mean_energy_difference": 0.0035228109891392023,
+     "sum_of_inverse_net_admissions": 1.3812556033287267e-09
+    },
+    {
+     "physical_ports": [
+      42,
+      44
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301463426801,
+       3095859031423,
+       456537972,
+       0,
+       0,
+       133758801,
+       133756107
+      ],
+      [
+       0,
+       0,
+       2750718255654,
+       0,
+       0,
+       823663695420,
+       823664560030
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.16494455138156644,
+     "simulated_mean_energy_difference": -0.1654378893332975,
+     "sum_of_inverse_net_admissions": 1.3813419685100085e-09
+    },
+    {
+     "physical_ports": [
+      44,
+      22
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464996381,
+       3095857402259,
+       0,
+       0,
+       0,
+       694208524,
+       29903940
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4257225743498,
+       140820767606
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.009273811080546368,
+     "simulated_mean_energy_difference": 0.009278434010902004,
+     "sum_of_inverse_net_admissions": 1.3812283227213915e-09
+    },
+    {
+     "physical_ports": [
+      22,
+      12
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301466268019,
+       3095856206570,
+       463595946,
+       0,
+       0,
+       130221522,
+       130219047
+      ],
+      [
+       0,
+       0,
+       2763515161429,
+       0,
+       0,
+       817265785383,
+       817265564292
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3885801803039804,
+     "simulated_mean_energy_difference": -0.388149171268628,
+     "sum_of_inverse_net_admissions": 1.3813731850852449e-09
+    },
+    {
+     "physical_ports": [
+      12,
+      17
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465030782,
+       3095857427348,
+       0,
+       0,
+       0,
+       687790211,
+       36262763
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4253256257005,
+       144790254099
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.017166752964722587,
+     "simulated_mean_energy_difference": 0.017161532483463304,
+     "sum_of_inverse_net_admissions": 1.3813417892071443e-09
+    },
+    {
+     "physical_ports": [
+      17,
+      13
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465142419,
+       3095857282895,
+       470207083,
+       0,
+       0,
+       126928606,
+       126950101
+      ],
+      [
+       0,
+       0,
+       2764895535163,
+       0,
+       0,
+       816575444944,
+       816575530997
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.67365544592191,
+     "simulated_mean_energy_difference": -0.6732515571898823,
+     "sum_of_inverse_net_admissions": 1.381279196277845e-09
+    },
+    {
+     "physical_ports": [
+      13,
+      146
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466790817,
+       3095855621256,
+       0,
+       0,
+       0,
+       680861259,
+       43237772
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252740955043,
+       145305556061
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.026668831751164745,
+     "simulated_mean_energy_difference": 0.02667385354867946,
+     "sum_of_inverse_net_admissions": 1.3812539421255811e-09
+    },
+    {
+     "physical_ports": [
+      146,
+      147
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465531251,
+       3095856917355,
+       477520023,
+       0,
+       0,
+       123272721,
+       123269754
+      ],
+      [
+       0,
+       0,
+       2765097985973,
+       0,
+       0,
+       816474645412,
+       816473879719
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.001002147977863,
+     "simulated_mean_energy_difference": -1.0006971292584197,
+     "sum_of_inverse_net_admissions": 1.3813236226348804e-09
+    },
+    {
+     "physical_ports": [
+      147,
+      150
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465036446,
+       3095857412139,
+       0,
+       0,
+       0,
+       673220972,
+       50841547
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252659395805,
+       145387115299
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03714113634863758,
+     "simulated_mean_energy_difference": 0.037159865048863594,
+     "sum_of_inverse_net_admissions": 1.3813235825789177e-09
+    },
+    {
+     "physical_ports": [
+      150,
+      152
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301466487970,
+       3095855978992,
+       485254331,
+       0,
+       0,
+       119391987,
+       119397824
+      ],
+      [
+       0,
+       0,
+       2765131925544,
+       0,
+       0,
+       816457894354,
+       816456691206
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3486097934708805,
+     "simulated_mean_energy_difference": -1.3481516624244154,
+     "sum_of_inverse_net_admissions": 1.3813586362497629e-09
+    },
+    {
+     "physical_ports": [
+      152,
+      82
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465613898,
+       3095856796037,
+       0,
+       0,
+       0,
+       665492397,
+       58608772
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252645947004,
+       145400564100
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0478795185692924,
+     "simulated_mean_energy_difference": 0.047879771618944744,
+     "sum_of_inverse_net_admissions": 1.3812498644705106e-09
+    },
+    {
+     "physical_ports": [
+      82,
+      72
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301467200140,
+       3095855246255,
+       492960855,
+       0,
+       0,
+       115544264,
+       115559590
+      ],
+      [
+       0,
+       0,
+       2765136824980,
+       0,
+       0,
+       816455117874,
+       816454568250
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.6931055620849056,
+     "simulated_mean_energy_difference": -1.6934013913256454,
+     "sum_of_inverse_net_admissions": 1.3813194053269955e-09
+    },
+    {
+     "physical_ports": [
+      72,
+      77
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466087666,
+       3095856329983,
+       0,
+       0,
+       0,
+       658046197,
+       66047258
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642587103,
+       145403924001
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.05816193940916592,
+     "simulated_mean_energy_difference": 0.058152695848058045,
+     "sum_of_inverse_net_admissions": 1.3812645769463939e-09
+    },
+    {
+     "physical_ports": [
+      77,
+      73
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464711453,
+       3095857731822,
+       500059114,
+       0,
+       0,
+       112005262,
+       112003453
+      ],
+      [
+       0,
+       0,
+       2765137668792,
+       0,
+       0,
+       816455568371,
+       816453273941
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.0113258732604637,
+     "simulated_mean_energy_difference": -2.011918913690586,
+     "sum_of_inverse_net_admissions": 1.3813134542172153e-09
+    },
+    {
+     "physical_ports": [
+      73,
+      86
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466075947,
+       3095856331841,
+       0,
+       0,
+       0,
+       651433710,
+       72669606
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641848868,
+       145404662236
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.06729701829068446,
+     "simulated_mean_energy_difference": 0.06729687023683084,
+     "sum_of_inverse_net_admissions": 1.3812457696746131e-09
+    },
+    {
+     "physical_ports": [
+      86,
+      87
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465378973,
+       3095857011351,
+       506109391,
+       0,
+       0,
+       109002269,
+       109009120
+      ],
+      [
+       0,
+       0,
+       2765138662503,
+       0,
+       0,
+       816454130037,
+       816453718564
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.281873884176487,
+     "simulated_mean_energy_difference": -2.2818131278950826,
+     "sum_of_inverse_net_admissions": 1.3812124629308573e-09
+    },
+    {
+     "physical_ports": [
+      87,
+      90
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465413725,
+       3095857027347,
+       0,
+       0,
+       0,
+       646063586,
+       78006446
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641548014,
+       145404963090
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.07467052086073123,
+     "simulated_mean_energy_difference": 0.07467202809562679,
+     "sum_of_inverse_net_admissions": 1.3813092522305275e-09
+    },
+    {
+     "physical_ports": [
+      90,
+      92
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465329536,
+       3095857128580,
+       510629773,
+       0,
+       0,
+       106708851,
+       106714364
+      ],
+      [
+       0,
+       0,
+       2765138950609,
+       0,
+       0,
+       816453941109,
+       816453619386
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.4865581939014536,
+     "simulated_mean_energy_difference": -2.48684157401593,
+     "sum_of_inverse_net_admissions": 1.3813417625024665e-09
+    },
+    {
+     "physical_ports": [
+      92,
+      58
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464208462,
+       3095858228360,
+       0,
+       0,
+       0,
+       642347891,
+       81726391
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641772581,
+       145404738523
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0797866595469996,
+     "simulated_mean_energy_difference": 0.07980896528241743,
+     "sum_of_inverse_net_admissions": 1.3813011458826987e-09
+    },
+    {
+     "physical_ports": [
+      58,
+      48
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464658713,
+       3095857736564,
+       513442370,
+       0,
+       0,
+       105338122,
+       105335335
+      ],
+      [
+       0,
+       0,
+       2765140868951,
+       0,
+       0,
+       816452329530,
+       816453312623
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.611616016562423,
+     "simulated_mean_energy_difference": -2.611080137690072,
+     "sum_of_inverse_net_admissions": 1.3812219089599206e-09
+    },
+    {
+     "physical_ports": [
+      48,
+      53
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464714967,
+       3095857686949,
+       0,
+       0,
+       0,
+       640575677,
+       83533511
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641626659,
+       145404884445
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.08230142986118194,
+     "simulated_mean_energy_difference": 0.08229913687319623,
+     "sum_of_inverse_net_admissions": 1.381234570617681e-09
+    },
+    {
+     "physical_ports": [
+      53,
+      49
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465984215,
+       3095856464115,
+       514265665,
+       0,
+       0,
+       104910198,
+       104886911
+      ],
+      [
+       0,
+       0,
+       2765136643082,
+       0,
+       0,
+       816456451844,
+       816453416178
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.6486385784858166,
+     "simulated_mean_energy_difference": -2.649767662730632,
+     "sum_of_inverse_net_admissions": 1.3813230961852708e-09
+    },
+    {
+     "physical_ports": [
+      49,
+      1202
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464785435,
+       3095857641838,
+       0,
+       0,
+       0,
+       640727172,
+       83356659
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641972856,
+       145404538248
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.08204574094623052,
+     "simulated_mean_energy_difference": 0.08205901300581786,
+     "sum_of_inverse_net_admissions": 1.3812829326967577e-09
+    },
+    {
+     "physical_ports": [
+      1202,
+      1204
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465662581,
+       3095856736753,
+       513076732,
+       0,
+       0,
+       105524195,
+       105510843
+      ],
+      [
+       0,
+       0,
+       2765138247424,
+       0,
+       0,
+       816454051710,
+       816454211970
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.595136516452223,
+     "simulated_mean_energy_difference": -2.594825048857306,
+     "sum_of_inverse_net_admissions": 1.3812296462942132e-09
+    },
+    {
+     "physical_ports": [
+      1204,
+      1205
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301467174605,
+       3095855278783,
+       0,
+       0,
+       0,
+       642882189,
+       81175527
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641279377,
+       145405231727
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.07903678509104406,
+     "simulated_mean_energy_difference": 0.0790506343130204,
+     "sum_of_inverse_net_admissions": 1.381332744010313e-09
+    },
+    {
+     "physical_ports": [
+      1205,
+      1200
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301466266740,
+       3095856147979,
+       509944641,
+       0,
+       0,
+       107072904,
+       107078840
+      ],
+      [
+       0,
+       0,
+       2765139107797,
+       0,
+       0,
+       816453864507,
+       816453538800
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.4547072602036355,
+     "simulated_mean_energy_difference": -2.454715308996885,
+     "sum_of_inverse_net_admissions": 1.381258988686199e-09
+    },
+    {
+     "physical_ports": [
+      1200,
+      1238
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464372085,
+       3095858088192,
+       0,
+       0,
+       0,
+       646917109,
+       77133718
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641825550,
+       145404685554
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.07347688173667644,
+     "simulated_mean_energy_difference": 0.07346960796303392,
+     "sum_of_inverse_net_admissions": 1.381345884572469e-09
+    },
+    {
+     "physical_ports": [
+      1238,
+      1239
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464744378,
+       3095857701178,
+       505036744,
+       0,
+       0,
+       109513938,
+       109514866
+      ],
+      [
+       0,
+       0,
+       2765138750451,
+       0,
+       0,
+       816454677743,
+       816453082910
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -2.23679314455625,
+     "simulated_mean_energy_difference": -2.2354029266532702,
+     "sum_of_inverse_net_admissions": 1.3813178050074971e-09
+    },
+    {
+     "physical_ports": [
+      1239,
+      1244
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465229249,
+       3095857180656,
+       0,
+       0,
+       0,
+       652554546,
+       71546653
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641906412,
+       145404604692
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.06573987370208112,
+     "simulated_mean_energy_difference": 0.06574635344525603,
+     "sum_of_inverse_net_admissions": 1.3812498072538192e-09
+    },
+    {
+     "physical_ports": [
+      1244,
+      1237
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464214921,
+       3095858159930,
+       498871485,
+       0,
+       0,
+       112649297,
+       112615471
+      ],
+      [
+       0,
+       0,
+       2765137938540,
+       0,
+       0,
+       816455507707,
+       816453064857
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.956046515439188,
+     "simulated_mean_energy_difference": -1.9565160983449168,
+     "sum_of_inverse_net_admissions": 1.3811829546964642e-09
+    },
+    {
+     "physical_ports": [
+      1237,
+      1222
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466707883,
+       3095855757496,
+       0,
+       0,
+       0,
+       659307311,
+       64738414
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642348410,
+       145404162694
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0563459903346728,
+     "simulated_mean_energy_difference": 0.056350973084079214,
+     "sum_of_inverse_net_admissions": 1.3813556166465622e-09
+    },
+    {
+     "physical_ports": [
+      1222,
+      1212
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464814936,
+       3095857678703,
+       491547511,
+       0,
+       0,
+       116221089,
+       116248865
+      ],
+      [
+       0,
+       0,
+       2765137652743,
+       0,
+       0,
+       816454694475,
+       816454163886
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.6313445195486593,
+     "simulated_mean_energy_difference": -1.6313877290052154,
+     "sum_of_inverse_net_admissions": 1.3814095251308643e-09
+    },
+    {
+     "physical_ports": [
+      1212,
+      1217
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465470059,
+       3095856987678,
+       0,
+       0,
+       0,
+       666868017,
+       57185350
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252646545008,
+       145399966096
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.045926867764632284,
+     "simulated_mean_energy_difference": 0.04591934367334716,
+     "sum_of_inverse_net_admissions": 1.381341039569079e-09
+    },
+    {
+     "physical_ports": [
+      1217,
+      1213
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465202935,
+       3095857264660,
+       483836792,
+       0,
+       0,
+       120105497,
+       120101220
+      ],
+      [
+       0,
+       0,
+       2765129865412,
+       0,
+       0,
+       816459055958,
+       816457589734
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.2845198222608043,
+     "simulated_mean_energy_difference": -1.2845640861016356,
+     "sum_of_inverse_net_admissions": 1.3813598437132348e-09
+    },
+    {
+     "physical_ports": [
+      1213,
+      1310
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465373809,
+       3095857043616,
+       0,
+       0,
+       0,
+       674686995,
+       49406684
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252664424188,
+       145382086916
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03518307826888334,
+     "simulated_mean_energy_difference": 0.03517638814069102,
+     "sum_of_inverse_net_admissions": 1.3812641497194447e-09
+    },
+    {
+     "physical_ports": [
+      1310,
+      1311
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301464802736,
+       3095857680628,
+       476109576,
+       0,
+       0,
+       123959343,
+       123958821
+      ],
+      [
+       0,
+       0,
+       2765085494780,
+       0,
+       0,
+       816481033606,
+       816479982718
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.9388925991700225,
+     "simulated_mean_energy_difference": -0.9385048351619378,
+     "sum_of_inverse_net_admissions": 1.381389924160042e-09
+    },
+    {
+     "physical_ports": [
+      1311,
+      1314
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465617996,
+       3095856822223,
+       0,
+       0,
+       0,
+       682157831,
+       41913054
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252767301639,
+       145279209465
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.024837024431639154,
+     "simulated_mean_energy_difference": 0.024852623340244406,
+     "sum_of_inverse_net_admissions": 1.3813076252312008e-09
+    },
+    {
+     "physical_ports": [
+      1314,
+      1316
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301465721287,
+       3095856671600,
+       468945838,
+       0,
+       0,
+       127585018,
+       127587361
+      ],
+      [
+       0,
+       0,
+       2764831783215,
+       0,
+       0,
+       816607463945,
+       816607263944
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6177025088003172,
+     "simulated_mean_energy_difference": -0.6161833316131808,
+     "sum_of_inverse_net_admissions": 1.3812173508962482e-09
+    },
+    {
+     "physical_ports": [
+      1316,
+      1282
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301464469887,
+       3095857949706,
+       0,
+       0,
+       0,
+       688988965,
+       35102546
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4253425540265,
+       144620970839
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.015584365455029281,
+     "simulated_mean_energy_difference": 0.0155950504204867,
+     "sum_of_inverse_net_admissions": 1.3812682846770915e-09
+    },
+    {
+     "physical_ports": [
+      1282,
+      1272
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301466314402,
+       3095856146125,
+       462522927,
+       0,
+       0,
+       130769482,
+       130758168
+      ],
+      [
+       0,
+       0,
+       2763058537736,
+       0,
+       0,
+       817493956124,
+       817494017244
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.34254607921100344,
+     "simulated_mean_energy_difference": -0.34296152091444654,
+     "sum_of_inverse_net_admissions": 1.3813463614447188e-09
+    },
+    {
+     "physical_ports": [
+      1272,
+      1277
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301466476423,
+       3095855960932,
+       0,
+       0,
+       0,
+       695290886,
+       28782863
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4258551414355,
+       139495096749
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.008047241670287253,
+     "simulated_mean_energy_difference": 0.008033773585616188,
+     "sum_of_inverse_net_admissions": 1.3813021625088664e-09
+    },
+    {
+     "physical_ports": [
+      1277,
+      1273
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       1301466339214,
+       3095856127831,
+       455071879,
+       0,
+       0,
+       134476442,
+       134495738
+      ],
+      [
+       0,
+       0,
+       2746398764981,
+       0,
+       0,
+       825823649456,
+       825824096667
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.13192457719249887,
+     "simulated_mean_energy_difference": -0.13178363209185306,
+     "sum_of_inverse_net_admissions": 1.3813587945742369e-09
+    },
+    {
+     "physical_ports": [
+      1273,
+      1287
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       1301465158436,
+       3095857311198,
+       0,
+       0,
+       0,
+       710307511,
+       13733959
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4326631268783,
+       71415242321
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0027324423906118223,
+     "simulated_mean_energy_difference": 0.0027305240055355284,
+     "sum_of_inverse_net_admissions": 1.3813637331715368e-09
+    }
+   ],
+   "observed_energy_and_switch_work": {
+    "intradimer": {
+     "calculated": 0.9931930091862378,
+     "sampled": 0.9932592948358732,
+     "simultaneous_99pct_interval": [
+      0.9928872421957013,
+      0.993631347476045
+     ]
+    },
+    "link_layer_including_first": {
+     "calculated": -31.535077631823714,
+     "sampled": -31.53281111063229,
+     "simultaneous_99pct_interval": [
+      -31.54481543588964,
+      -31.520806785374944
+     ]
+    },
+    "link_layer_after_first_shutters": {
+     "calculated": -31.49952377036235,
+     "sampled": -31.49735473456324,
+     "simultaneous_99pct_interval": [
+      -31.50907943083556,
+      -31.485630038290918
+     ]
+    },
+    "daughter_relative_initial_switch_work": {
+     "calculated": -32.528270641009954,
+     "sampled": -32.52607040546816,
+     "simultaneous_99pct_interval": [
+      -32.538085525598675,
+      -32.51405528533765
+     ]
+    },
+    "cycle_average": {
+     "calculated": 0.5006097711517032,
+     "sampled": 0.5007086551777877,
+     "simultaneous_99pct_interval": [
+      0.5002991160802804,
+      0.501118194275295
+     ]
+    }
+   },
+   "conservative_covariance_allowance": 2.222440630072285e-07,
+   "inherited_same_mode_emission": null,
+   "guard_only_terminal_charge_control": null
+  },
+  {
+   "dimers": 45,
+   "schedule": "native",
+   "relative_link_duty": 0.03076923076923077,
+   "calibrated_period": 0.12884615384615383,
+   "lowest_relative_quasifrequency": 0.03396662692419109,
+   "slope_of_lowest_relative_phase_per_original_period": 0.033796243306436796,
+   "light_cutoff_from_separate_clock": [
+    0.09701233190850897,
+    0.09701646721436415
+   ],
+   "parent_refused_mode_refused_admitted": [
+    0.02708705043519799,
+    0.9699201954384619,
+    0.002992754126340093
+   ],
+   "source_link_substitution_full_refusal": [
+    4398046511104,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "daughter_minus_cold_contact_records": [
+    {
+     "physical_ports": [
+      1,
+      38
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130558382,
+       4265753722534,
+       0,
+       0,
+       0,
+       12863603019,
+       298627169
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4299979608676,
+       98066902428
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.000390642702770283,
+     "simulated_mean_energy_difference": 0.0003903571708647746,
+     "sum_of_inverse_net_admissions": 7.620234035789038e-11
+    },
+    {
+     "physical_ports": [
+      38,
+      39
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130147579,
+       4265754109995,
+       8445521047,
+       0,
+       0,
+       2358424413,
+       2358308070
+      ],
+      [
+       0,
+       0,
+       2818537161136,
+       0,
+       0,
+       789755975915,
+       789753374053
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.02541022253680747,
+     "simulated_mean_energy_difference": -0.02554550194380667,
+     "sum_of_inverse_net_admissions": 7.62022056235405e-11
+    },
+    {
+     "physical_ports": [
+      39,
+      42
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130075695,
+       4265754155296,
+       0,
+       0,
+       0,
+       11902896775,
+       1259383338
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3985819309715,
+       412227201389
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.001953475224329204,
+     "simulated_mean_energy_difference": 0.0019516303237239185,
+     "sum_of_inverse_net_admissions": 7.620205218211998e-11
+    },
+    {
+     "physical_ports": [
+      42,
+      44
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129924299,
+       4265754228966,
+       10055048522,
+       0,
+       0,
+       1553577252,
+       1553732065
+      ],
+      [
+       0,
+       0,
+       3351181304024,
+       0,
+       0,
+       523432317302,
+       523432889778
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.06358903703519672,
+     "simulated_mean_energy_difference": -0.06350430365013704,
+     "sum_of_inverse_net_admissions": 7.620160353850052e-11
+    },
+    {
+     "physical_ports": [
+      44,
+      22
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130142891,
+       4265754193082,
+       0,
+       0,
+       0,
+       11250973971,
+       1911201160
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3774888784345,
+       623157726759
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.003513551629058087,
+     "simulated_mean_energy_difference": 0.0035143891222446655,
+     "sum_of_inverse_net_admissions": 7.62026581589908e-11
+    },
+    {
+     "physical_ports": [
+      22,
+      12
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129419493,
+       4265754807572,
+       10379750104,
+       0,
+       0,
+       1391315756,
+       1391218179
+      ],
+      [
+       0,
+       0,
+       3452835518644,
+       0,
+       0,
+       472606521370,
+       472604471090
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.11407245580941652,
+     "simulated_mean_energy_difference": -0.11420975201043859,
+     "sum_of_inverse_net_admissions": 7.620202952065888e-11
+    },
+    {
+     "physical_ports": [
+      12,
+      17
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130430330,
+       4265753942048,
+       0,
+       0,
+       0,
+       11048016834,
+       2114121892
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3713874260625,
+       684172250479
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.005058233088805375,
+     "simulated_mean_energy_difference": 0.005058697209626928,
+     "sum_of_inverse_net_admissions": 7.620286829810946e-11
+    },
+    {
+     "physical_ports": [
+      17,
+      13
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130549126,
+       4265753751794,
+       10522402385,
+       0,
+       0,
+       1319870811,
+       1319936988
+      ],
+      [
+       0,
+       0,
+       3493806501831,
+       0,
+       0,
+       452120241121,
+       452119768152
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.16393147155549861,
+     "simulated_mean_energy_difference": -0.1638221324251461,
+     "sum_of_inverse_net_admissions": 7.62024558250659e-11
+    },
+    {
+     "physical_ports": [
+      13,
+      146
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130150178,
+       4265754169608,
+       0,
+       0,
+       0,
+       10939769348,
+       2222421970
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3684389653266,
+       713656857838
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.006579908365815568,
+     "simulated_mean_energy_difference": 0.006582150988911906,
+     "sum_of_inverse_net_admissions": 7.620256472379447e-11
+    },
+    {
+     "physical_ports": [
+      146,
+      147
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130012832,
+       4265754143498,
+       10609015445,
+       0,
+       0,
+       1276648563,
+       1276690766
+      ],
+      [
+       0,
+       0,
+       3516059182911,
+       0,
+       0,
+       440994137966,
+       440993190227
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.21292040978792726,
+     "simulated_mean_energy_difference": -0.21295994167328924,
+     "sum_of_inverse_net_admissions": 7.620162122994089e-11
+    },
+    {
+     "physical_ports": [
+      147,
+      150
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129833822,
+       4265754383053,
+       0,
+       0,
+       0,
+       10868206746,
+       2294087483
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3666995942464,
+       731050568640
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.00807107958261255,
+     "simulated_mean_energy_difference": 0.00807071733922271,
+     "sum_of_inverse_net_admissions": 7.620197070251293e-11
+    },
+    {
+     "physical_ports": [
+      150,
+      152
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129708685,
+       4265754496174,
+       10670186443,
+       0,
+       0,
+       1246037916,
+       1246081886
+      ],
+      [
+       0,
+       0,
+       3530019173052,
+       0,
+       0,
+       434014062921,
+       434013275131
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.26079788322650066,
+     "simulated_mean_energy_difference": -0.26093883519379446,
+     "sum_of_inverse_net_admissions": 7.620190134454929e-11
+    },
+    {
+     "physical_ports": [
+      152,
+      82
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130208934,
+       4265754216708,
+       0,
+       0,
+       0,
+       10814674314,
+       2347411148
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3655556017948,
+       742490493156
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.009524399166931319,
+     "simulated_mean_energy_difference": 0.009523652366553392,
+     "sum_of_inverse_net_admissions": 7.620317575385098e-11
+    },
+    {
+     "physical_ports": [
+      82,
+      72
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129940620,
+       4265754334317,
+       10717463800,
+       0,
+       0,
+       1222358605,
+       1222413762
+      ],
+      [
+       0,
+       0,
+       3539553042030,
+       0,
+       0,
+       429246514490,
+       429246954584
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.30732798120420135,
+     "simulated_mean_energy_difference": -0.3073634759552082,
+     "sum_of_inverse_net_admissions": 7.620230584594878e-11
+    },
+    {
+     "physical_ports": [
+      72,
+      77
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129912172,
+       4265754555606,
+       0,
+       0,
+       0,
+       10771937821,
+       2390105505
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3647496978100,
+       750549533004
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01093270605599822,
+     "simulated_mean_energy_difference": 0.010935558202561424,
+     "sum_of_inverse_net_admissions": 7.620341897721054e-11
+    },
+    {
+     "physical_ports": [
+      77,
+      73
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130372204,
+       4265753616045,
+       10756459821,
+       0,
+       0,
+       1202994040,
+       1203068994
+      ],
+      [
+       0,
+       0,
+       3546443482673,
+       0,
+       0,
+       425800720422,
+       425802308009
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.35228143208959883,
+     "simulated_mean_energy_difference": -0.35215486285080644,
+     "sum_of_inverse_net_admissions": 7.620065106429378e-11
+    },
+    {
+     "physical_ports": [
+      73,
+      86
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130392578,
+       4265753802383,
+       0,
+       0,
+       0,
+       10736614505,
+       2425701638
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3641548356718,
+       756498154386
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01228906098185284,
+     "simulated_mean_energy_difference": 0.012283631798091221,
+     "sum_of_inverse_net_admissions": 7.620184421206085e-11
+    },
+    {
+     "physical_ports": [
+      86,
+      87
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129906585,
+       4265754366409,
+       10789278374,
+       0,
+       0,
+       1186487697,
+       1186472039
+      ],
+      [
+       0,
+       0,
+       3551624271986,
+       0,
+       0,
+       423211684030,
+       423210555088
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.39543673299579,
+     "simulated_mean_energy_difference": -0.39548344762835086,
+     "sum_of_inverse_net_admissions": 7.620229463058465e-11
+    },
+    {
+     "physical_ports": [
+      87,
+      90
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130233275,
+       4265753955263,
+       0,
+       0,
+       0,
+       10705857731,
+       2456464835
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3637002267367,
+       761044243737
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.013586780663775666,
+     "simulated_mean_energy_difference": 0.013587097285807204,
+     "sum_of_inverse_net_admissions": 7.620180713775107e-11
+    },
+    {
+     "physical_ports": [
+      90,
+      92
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129974181,
+       4265754208106,
+       10817943832,
+       0,
+       0,
+       1172209082,
+       1172175903
+      ],
+      [
+       0,
+       0,
+       3555637760815,
+       0,
+       0,
+       421204185710,
+       421204564579
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.43658124121032205,
+     "simulated_mean_energy_difference": -0.43642226617718194,
+     "sum_of_inverse_net_admissions": 7.620177105628022e-11
+    },
+    {
+     "physical_ports": [
+      92,
+      58
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129630950,
+       4265754709916,
+       0,
+       0,
+       0,
+       10678893770,
+       2483276468
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3633442566671,
+       764603944433
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.014819470739369012,
+     "simulated_mean_energy_difference": 0.014816897140143226,
+     "sum_of_inverse_net_admissions": 7.620268640259048e-11
+    },
+    {
+     "physical_ports": [
+      58,
+      48
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130474302,
+       4265753740082,
+       10843223650,
+       0,
+       0,
+       1159534541,
+       1159538529
+      ],
+      [
+       0,
+       0,
+       3558811918534,
+       0,
+       0,
+       419616511795,
+       419618080775
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.47551222196710197,
+     "simulated_mean_energy_difference": -0.47545049739735923,
+     "sum_of_inverse_net_admissions": 7.620195632411641e-11
+    },
+    {
+     "physical_ports": [
+      48,
+      53
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129554013,
+       4265754774602,
+       0,
+       0,
+       0,
+       10655095896,
+       2507086593
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3630605616219,
+       767440894885
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.015981057272043242,
+     "simulated_mean_energy_difference": 0.01598065369127255,
+     "sum_of_inverse_net_admissions": 7.620261568684427e-11
+    },
+    {
+     "physical_ports": [
+      53,
+      49
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129950672,
+       4265754416386,
+       10865520921,
+       0,
+       0,
+       1148328244,
+       1148294881
+      ],
+      [
+       0,
+       0,
+       3561357527294,
+       0,
+       0,
+       418344449213,
+       418344534597
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5120378473985558,
+     "simulated_mean_energy_difference": -0.5120076451419715,
+     "sum_of_inverse_net_admissions": 7.620283758961471e-11
+    },
+    {
+     "physical_ports": [
+      49,
+      1202
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130167026,
+       4265754174366,
+       0,
+       0,
+       0,
+       10633923556,
+       2528246156
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3628313222043,
+       769733289061
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.017065816679618928,
+     "simulated_mean_energy_difference": 0.017067212984770208,
+     "sum_of_inverse_net_admissions": 7.620268943879312e-11
+    },
+    {
+     "physical_ports": [
+      1202,
+      1204
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129473237,
+       4265754519855,
+       10885788818,
+       0,
+       0,
+       1138342300,
+       1138386894
+      ],
+      [
+       0,
+       0,
+       3563426424085,
+       0,
+       0,
+       417310315446,
+       417309771573
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.545978141744957,
+     "simulated_mean_energy_difference": -0.5459980669575231,
+     "sum_of_inverse_net_admissions": 7.620067901780405e-11
+    },
+    {
+     "physical_ports": [
+      1204,
+      1205
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130326241,
+       4265753758873,
+       0,
+       0,
+       0,
+       10615365682,
+       2547060308
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3626442670328,
+       771603840776
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01806840393662157,
+     "simulated_mean_energy_difference": 0.018067542111452894,
+     "sum_of_inverse_net_admissions": 7.620121016726764e-11
+    },
+    {
+     "physical_ports": [
+      1205,
+      1200
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129839428,
+       4265754346877,
+       10903284406,
+       0,
+       0,
+       1129537956,
+       1129502437
+      ],
+      [
+       0,
+       0,
+       3565115382183,
+       0,
+       0,
+       416466043769,
+       416465085152
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5771658681639509,
+     "simulated_mean_energy_difference": -0.5771143763743112,
+     "sum_of_inverse_net_admissions": 7.62017942486215e-11
+    },
+    {
+     "physical_ports": [
+      1200,
+      1238
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130063969,
+       4265754164943,
+       0,
+       0,
+       0,
+       10598659527,
+       2563622665
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3624913651801,
+       773132859303
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01898387891125264,
+     "simulated_mean_energy_difference": 0.0189803171958971,
+     "sum_of_inverse_net_admissions": 7.620204018181834e-11
+    },
+    {
+     "physical_ports": [
+      1238,
+      1239
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130437578,
+       4265753677813,
+       10918921820,
+       0,
+       0,
+       1121732695,
+       1121741198
+      ],
+      [
+       0,
+       0,
+       3566500683054,
+       0,
+       0,
+       415773152062,
+       415772675988
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6054473527706355,
+     "simulated_mean_energy_difference": -0.6053420369563973,
+     "sum_of_inverse_net_admissions": 7.620138492723517e-11
+    },
+    {
+     "physical_ports": [
+      1239,
+      1244
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129886626,
+       4265754213216,
+       0,
+       0,
+       0,
+       10584150738,
+       2578260524
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3623661006391,
+       774385504713
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01980773070734032,
+     "simulated_mean_energy_difference": 0.019805684246264832,
+     "sum_of_inverse_net_admissions": 7.620129517772974e-11
+    },
+    {
+     "physical_ports": [
+      1244,
+      1237
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129957033,
+       4265754310675,
+       10932479465,
+       0,
+       0,
+       1114836633,
+       1114927298
+      ],
+      [
+       0,
+       0,
+       3567635747371,
+       0,
+       0,
+       415205321847,
+       415205441886
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6306832418477631,
+     "simulated_mean_energy_difference": -0.6307395754374641,
+     "sum_of_inverse_net_admissions": 7.62022641188079e-11
+    },
+    {
+     "physical_ports": [
+      1237,
+      1222
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130132732,
+       4265754254469,
+       0,
+       0,
+       0,
+       10571258761,
+       2590865142
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3622637725616,
+       775408785488
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02053589989124216,
+     "simulated_mean_energy_difference": 0.020534936817696803,
+     "sum_of_inverse_net_admissions": 7.620295386064976e-11
+    },
+    {
+     "physical_ports": [
+      1222,
+      1212
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130030825,
+       4265754063283,
+       10944320955,
+       0,
+       0,
+       1109103387,
+       1108992654
+      ],
+      [
+       0,
+       0,
+       3568554163749,
+       0,
+       0,
+       414746132487,
+       414746214868
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6527491884949345,
+     "simulated_mean_energy_difference": -0.65284285283016,
+     "sum_of_inverse_net_admissions": 7.620126208088545e-11
+    },
+    {
+     "physical_ports": [
+      1212,
+      1217
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130857229,
+       4265753447878,
+       0,
+       0,
+       0,
+       10560589944,
+       2601616053
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3621811516060,
+       776234995044
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.021164798494218817,
+     "simulated_mean_energy_difference": 0.02116265239418169,
+     "sum_of_inverse_net_admissions": 7.620247999332986e-11
+    },
+    {
+     "physical_ports": [
+      1217,
+      1213
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129955731,
+       4265754444252,
+       10953823082,
+       0,
+       0,
+       1104118729,
+       1104169310
+      ],
+      [
+       0,
+       0,
+       3569292589350,
+       0,
+       0,
+       414377646181,
+       414376275573
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6715364653332832,
+     "simulated_mean_energy_difference": -0.6714705855328713,
+     "sum_of_inverse_net_admissions": 7.620302764211666e-11
+    },
+    {
+     "physical_ports": [
+      1213,
+      1310
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130725475,
+       4265753566938,
+       0,
+       0,
+       0,
+       10551774709,
+       2610443982
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3621158741722,
+       776887769382
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.021691327691741202,
+     "simulated_mean_energy_difference": 0.021684740264433344,
+     "sum_of_inverse_net_admissions": 7.620240672088073e-11
+    },
+    {
+     "physical_ports": [
+      1310,
+      1311
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130326157,
+       4265753714110,
+       10962208601,
+       0,
+       0,
+       1100120634,
+       1100141602
+      ],
+      [
+       0,
+       0,
+       3569866297224,
+       0,
+       0,
+       414089461604,
+       414090752276
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6869525002471477,
+     "simulated_mean_energy_difference": -0.6871983742855186,
+     "sum_of_inverse_net_admissions": 7.620095131019686e-11
+    },
+    {
+     "physical_ports": [
+      1311,
+      1314
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130334965,
+       4265754036056,
+       0,
+       0,
+       0,
+       10544608415,
+       2617531668
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620656381136,
+       777390129968
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02211289307259834,
+     "simulated_mean_energy_difference": 0.022110191559612247,
+     "sum_of_inverse_net_admissions": 7.620286046513204e-11
+    },
+    {
+     "physical_ports": [
+      1314,
+      1316
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130069958,
+       4265754029095,
+       10968224917,
+       0,
+       0,
+       1097115263,
+       1097071871
+      ],
+      [
+       0,
+       0,
+       3570296554805,
+       0,
+       0,
+       413875253201,
+       413874703098
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6989213325222993,
+     "simulated_mean_energy_difference": -0.6989972475856963,
+     "sum_of_inverse_net_admissions": 7.620129062359302e-11
+    },
+    {
+     "physical_ports": [
+      1316,
+      1282
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129578012,
+       4265754461131,
+       0,
+       0,
+       0,
+       10539733260,
+       2622738701
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620296157930,
+       777750353174
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022427417422532958,
+     "simulated_mean_energy_difference": 0.02241886892208811,
+     "sum_of_inverse_net_admissions": 7.620094482248684e-11
+    },
+    {
+     "physical_ports": [
+      1282,
+      1272
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130320574,
+       4265753811016,
+       10972446519,
+       0,
+       0,
+       1095005234,
+       1094927761
+      ],
+      [
+       0,
+       0,
+       3570590335865,
+       0,
+       0,
+       413728831600,
+       413727343639
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7073839871334655,
+     "simulated_mean_energy_difference": -0.7073182484978906,
+     "sum_of_inverse_net_admissions": 7.620147842879445e-11
+    },
+    {
+     "physical_ports": [
+      1272,
+      1277
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130281063,
+       4265754030886,
+       0,
+       0,
+       0,
+       10535984137,
+       2626215018
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620065549477,
+       777980961627
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022633350959488152,
+     "simulated_mean_energy_difference": 0.022634678254682683,
+     "sum_of_inverse_net_admissions": 7.62025194868576e-11
+    },
+    {
+     "physical_ports": [
+      1277,
+      1273
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130621668,
+       4265753742447,
+       10974804113,
+       0,
+       0,
+       1093703603,
+       1093639273
+      ],
+      [
+       0,
+       0,
+       3570758391891,
+       0,
+       0,
+       413643888774,
+       413644230439
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7122987653369505,
+     "simulated_mean_energy_difference": -0.712376083838933,
+     "sum_of_inverse_net_admissions": 7.620282060182462e-11
+    },
+    {
+     "physical_ports": [
+      1273,
+      1287
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130057972,
+       4265753987638,
+       0,
+       0,
+       0,
+       10534584840,
+       2627880654
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3619959647375,
+       778086863729
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02272967896998801,
+     "simulated_mean_energy_difference": 0.022733105904492845,
+     "sum_of_inverse_net_admissions": 7.620098214992255e-11
+    },
+    {
+     "physical_ports": [
+      1287,
+      1288
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130424517,
+       4265753932905,
+       10975507635,
+       0,
+       0,
+       1093291046,
+       1093355001
+      ],
+      [
+       0,
+       0,
+       3570803267445,
+       0,
+       0,
+       413621613676,
+       413621629983
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7136414501363132,
+     "simulated_mean_energy_difference": -0.7137629163330779,
+     "sum_of_inverse_net_admissions": 7.620278196805095e-11
+    },
+    {
+     "physical_ports": [
+      1288,
+      1289
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129999310,
+       4265754162514,
+       0,
+       0,
+       0,
+       10534792129,
+       2627557151
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3619975017341,
+       778071493763
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022715926808980935,
+     "simulated_mean_energy_difference": 0.02271378548387304,
+     "sum_of_inverse_net_admissions": 7.620165294179621e-11
+    },
+    {
+     "physical_ports": [
+      1289,
+      1285
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129802243,
+       4265754344804,
+       10974512200,
+       0,
+       0,
+       1093913123,
+       1093938734
+      ],
+      [
+       0,
+       0,
+       3570728736867,
+       0,
+       0,
+       413658693429,
+       413659080808
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7114054256087832,
+     "simulated_mean_energy_difference": -0.7114241271010062,
+     "sum_of_inverse_net_admissions": 7.620156764770162e-11
+    },
+    {
+     "physical_ports": [
+      1285,
+      1250
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129521414,
+       4265754730086,
+       0,
+       0,
+       0,
+       10536730538,
+       2625529066
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620112310498,
+       777934200606
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022592162238642244,
+     "simulated_mean_energy_difference": 0.02259227906790784,
+     "sum_of_inverse_net_admissions": 7.620217056336518e-11
+    },
+    {
+     "physical_ports": [
+      1250,
+      1252
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130419786,
+       4265753988551,
+       10971319129,
+       0,
+       0,
+       1095356570,
+       1095427068
+      ],
+      [
+       0,
+       0,
+       3570528868753,
+       0,
+       0,
+       413758521770,
+       413759120581
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7056017095044793,
+     "simulated_mean_energy_difference": -0.7055529743580244,
+     "sum_of_inverse_net_admissions": 7.620307586394143e-11
+    },
+    {
+     "physical_ports": [
+      1252,
+      1253
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130313096,
+       4265754041030,
+       0,
+       0,
+       0,
+       10540482198,
+       2621674780
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620373994007,
+       777672517097
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022358995094457157,
+     "simulated_mean_energy_difference": 0.022360503439060153,
+     "sum_of_inverse_net_admissions": 7.620276294267796e-11
+    },
+    {
+     "physical_ports": [
+      1253,
+      1248
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129671561,
+       4265754630141,
+       10966723198,
+       0,
+       0,
+       1097741737,
+       1097744467
+      ],
+      [
+       0,
+       0,
+       3570201538255,
+       0,
+       0,
+       413923673432,
+       413921299417
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6962588989576678,
+     "simulated_mean_energy_difference": -0.6964063619851935,
+     "sum_of_inverse_net_admissions": 7.620246033893681e-11
+    },
+    {
+     "physical_ports": [
+      1248,
+      2882
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130419755,
+       4265753997361,
+       0,
+       0,
+       0,
+       10546096402,
+       2615997586
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3620769030233,
+       777277480871
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022017574280339125,
+     "simulated_mean_energy_difference": 0.02201994842086208,
+     "sum_of_inverse_net_admissions": 7.620312653906121e-11
+    },
+    {
+     "physical_ports": [
+      2882,
+      2883
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130208441,
+       4265753963192,
+       10960169620,
+       0,
+       0,
+       1101083808,
+       1101086043
+      ],
+      [
+       0,
+       0,
+       3569737157893,
+       0,
+       0,
+       414155435194,
+       414153918017
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6834230295777575,
+     "simulated_mean_energy_difference": -0.6833886211339522,
+     "sum_of_inverse_net_admissions": 7.62017095602801e-11
+    },
+    {
+     "physical_ports": [
+      2883,
+      2886
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130405309,
+       4265753788814,
+       0,
+       0,
+       0,
+       10553746754,
+       2608570227
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3621307291435,
+       776739219669
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.021569582107533236,
+     "simulated_mean_energy_difference": 0.02157467799911217,
+     "sum_of_inverse_net_admissions": 7.620183937502446e-11
+    },
+    {
+     "physical_ports": [
+      2886,
+      2888
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129840138,
+       4265754496534,
+       10951625001,
+       0,
+       0,
+       1105281363,
+       1105268068
+      ],
+      [
+       0,
+       0,
+       3569126205199,
+       0,
+       0,
+       414459167682,
+       414461138223
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6671573486142411,
+     "simulated_mean_energy_difference": -0.6671453175331576,
+     "sum_of_inverse_net_admissions": 7.620266219378947e-11
+    },
+    {
+     "physical_ports": [
+      2888,
+      2016
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130010594,
+       4265754264069,
+       0,
+       0,
+       0,
+       10563071505,
+       2599164936
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3622000481033,
+       776046030071
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.021017226005228817,
+     "simulated_mean_energy_difference": 0.021018937431392715,
+     "sum_of_inverse_net_admissions": 7.620230426436867e-11
+    },
+    {
+     "physical_ports": [
+      2016,
+      2017
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129900499,
+       4265754183174,
+       10941502723,
+       0,
+       0,
+       1110405980,
+       1110518728
+      ],
+      [
+       0,
+       0,
+       3568344190998,
+       0,
+       0,
+       414851039264,
+       414851280842
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6475420033132093,
+     "simulated_mean_energy_difference": -0.647405946023274,
+     "sum_of_inverse_net_admissions": 7.62012018497822e-11
+    },
+    {
+     "physical_ports": [
+      2017,
+      2024
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129868854,
+       4265754236269,
+       0,
+       0,
+       0,
+       10574439026,
+       2587966955
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3622871107969,
+       775175403135
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.020363227643701798,
+     "simulated_mean_energy_difference": 0.020363596652458682,
+     "sum_of_inverse_net_admissions": 7.620132565986805e-11
+    },
+    {
+     "physical_ports": [
+      2024,
+      2019
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129918347,
+       4265754239894,
+       10929267535,
+       0,
+       0,
+       1116518536,
+       1116566792
+      ],
+      [
+       0,
+       0,
+       3567375812709,
+       0,
+       0,
+       415335247107,
+       415335451288
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6246736460010733,
+     "simulated_mean_energy_difference": -0.6245067379288116,
+     "sum_of_inverse_net_admissions": 7.62016322603994e-11
+    },
+    {
+     "physical_ports": [
+      2019,
+      2052
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129799631,
+       4265754418322,
+       0,
+       0,
+       0,
+       10587514793,
+       2574778358
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3623946793155,
+       774099717949
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01961080952360672,
+     "simulated_mean_energy_difference": 0.0196078661746526,
+     "sum_of_inverse_net_admissions": 7.62019769248797e-11
+    },
+    {
+     "physical_ports": [
+      2052,
+      2057
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130405473,
+       4265753684775,
+       10915313328,
+       0,
+       0,
+       1123527425,
+       1123580103
+      ],
+      [
+       0,
+       0,
+       3566183346381,
+       0,
+       0,
+       415931505704,
+       415931659019
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.598664957841626,
+     "simulated_mean_energy_difference": -0.5987240249896217,
+     "sum_of_inverse_net_admissions": 7.620123980084954e-11
+    },
+    {
+     "physical_ports": [
+      2057,
+      2056
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129947343,
+       4265754136313,
+       0,
+       0,
+       0,
+       10602725998,
+       2559701450
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3625264391824,
+       772782119280
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.018763679097493213,
+     "simulated_mean_energy_difference": 0.018760007111232824,
+     "sum_of_inverse_net_admissions": 7.620120175165783e-11
+    },
+    {
+     "physical_ports": [
+      2056,
+      2054
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130796537,
+       4265753558044,
+       10899024940,
+       0,
+       0,
+       1131571927,
+       1131559656
+      ],
+      [
+       0,
+       0,
+       3564727733343,
+       0,
+       0,
+       416659270829,
+       416659506932
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5696440936127218,
+     "simulated_mean_energy_difference": -0.569804935668456,
+     "sum_of_inverse_net_admissions": 7.620276556905626e-11
+    },
+    {
+     "physical_ports": [
+      2054,
+      2029
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130110811,
+       4265754177258,
+       0,
+       0,
+       0,
+       10619634363,
+       2542588672
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3626873361947,
+       771173149157
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.017826010501743594,
+     "simulated_mean_energy_difference": 0.017828721295174432,
+     "sum_of_inverse_net_admissions": 7.620238164642767e-11
+    },
+    {
+     "physical_ports": [
+      2029,
+      2033
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130189545,
+       4265753922268,
+       10880951738,
+       0,
+       0,
+       1140716687,
+       1140730866
+      ],
+      [
+       0,
+       0,
+       3562950801074,
+       0,
+       0,
+       417548004426,
+       417547705604
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5377540502384814,
+     "simulated_mean_energy_difference": -0.5378128721420623,
+     "sum_of_inverse_net_admissions": 7.62013642748445e-11
+    },
+    {
+     "physical_ports": [
+      2033,
+      2032
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130178166,
+       4265753971552,
+       0,
+       0,
+       0,
+       10639114242,
+       2523247144
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3628835512203,
+       769210998901
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.016802423989009996,
+     "simulated_mean_energy_difference": 0.016803374848187502,
+     "sum_of_inverse_net_admissions": 7.620158306492549e-11
+    },
+    {
+     "physical_ports": [
+      2032,
+      2031
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129968601,
+       4265754173874,
+       10860413999,
+       0,
+       0,
+       1150974679,
+       1150979951
+      ],
+      [
+       0,
+       0,
+       3560776467981,
+       0,
+       0,
+       418634858034,
+       418635185089
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5031519621886339,
+     "simulated_mean_energy_difference": -0.5032324439618296,
+     "sum_of_inverse_net_admissions": 7.62015412577695e-11
+    },
+    {
+     "physical_ports": [
+      2031,
+      2088
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130550414,
+       4265753754848,
+       0,
+       0,
+       0,
+       10660754162,
+       2501451680
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3631249632563,
+       766796878541
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.015697963162468076,
+     "simulated_mean_energy_difference": 0.015698634982825865,
+     "sum_of_inverse_net_admissions": 7.620248088802347e-11
+    },
+    {
+     "physical_ports": [
+      2088,
+      2093
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130164034,
+       4265754149972,
+       10837090825,
+       0,
+       0,
+       1162552223,
+       1162554050
+      ],
+      [
+       0,
+       0,
+       3558090994067,
+       0,
+       0,
+       419977830625,
+       419977686412
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.4660083272168272,
+     "simulated_mean_energy_difference": -0.46583727944963016,
+     "sum_of_inverse_net_admissions": 7.620253136032172e-11
+    },
+    {
+     "physical_ports": [
+      2093,
+      2092
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129752890,
+       4265754322249,
+       0,
+       0,
+       0,
+       10685429913,
+       2477006052
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3634245129495,
+       763801381609
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01451807012403733,
+     "simulated_mean_energy_difference": 0.014519182723013557,
+     "sum_of_inverse_net_admissions": 7.620115259137356e-11
+    },
+    {
+     "physical_ports": [
+      2092,
+      2090
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130340235,
+       4265753811554,
+       10811289958,
+       0,
+       0,
+       1175535120,
+       1175534237
+      ],
+      [
+       0,
+       0,
+       3554738566505,
+       0,
+       0,
+       421654134921,
+       421653809678
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.4265061662527192,
+     "simulated_mean_energy_difference": -0.42657429963731275,
+     "sum_of_inverse_net_admissions": 7.620159501890608e-11
+    },
+    {
+     "physical_ports": [
+      2090,
+      1945
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130167325,
+       4265754145020,
+       0,
+       0,
+       0,
+       10712992025,
+       2449206734
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3638015857029,
+       760030654075
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.013268558659066398,
+     "simulated_mean_energy_difference": 0.013267881069786824,
+     "sum_of_inverse_net_admissions": 7.620252177265789e-11
+    },
+    {
+     "physical_ports": [
+      1945,
+      1949
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129665584,
+       4265754581525,
+       10781519023,
+       0,
+       0,
+       1190364568,
+       1190380404
+      ],
+      [
+       0,
+       0,
+       3550477245097,
+       0,
+       0,
+       423783846698,
+       423785419309
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3848401215878369,
+     "simulated_mean_energy_difference": -0.38474705255240416,
+     "sum_of_inverse_net_admissions": 7.620214521777622e-11
+    },
+    {
+     "physical_ports": [
+      1949,
+      1948
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129235978,
+       4265754798981,
+       0,
+       0,
+       0,
+       10744922342,
+       2417553803
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3642856873644,
+       755189637460
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01195558558958787,
+     "simulated_mean_energy_difference": 0.011959893944251121,
+     "sum_of_inverse_net_admissions": 7.620092067251549e-11
+    },
+    {
+     "physical_ports": [
+      1948,
+      1947
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130011115,
+       4265754396674,
+       10747152149,
+       0,
+       0,
+       1207518009,
+       1207433157
+      ],
+      [
+       0,
+       0,
+       3544939952039,
+       0,
+       0,
+       426552549483,
+       426554009582
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3412154977982007,
+     "simulated_mean_energy_difference": -0.3411354445831378,
+     "sum_of_inverse_net_admissions": 7.620307270071714e-11
+    },
+    {
+     "physical_ports": [
+      1947,
+      1956
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130761422,
+       4265753565415,
+       0,
+       0,
+       0,
+       10781911453,
+       2380272814
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3649235500104,
+       748811011000
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.010585620437281396,
+     "simulated_mean_energy_difference": 0.010581866884550095,
+     "sum_of_inverse_net_admissions": 7.620260542380757e-11
+    },
+    {
+     "physical_ports": [
+      1956,
+      1961
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129631115,
+       4265754361234,
+       10707004060,
+       0,
+       0,
+       1227737502,
+       1227777193
+      ],
+      [
+       0,
+       0,
+       3537525471385,
+       0,
+       0,
+       430260643958,
+       430260395761
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.29584725013010305,
+     "simulated_mean_energy_difference": -0.295952383090496,
+     "sum_of_inverse_net_admissions": 7.620067472925054e-11
+    },
+    {
+     "physical_ports": [
+      1961,
+      1960
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130315770,
+       4265753946437,
+       0,
+       0,
+       0,
+       10826704458,
+       2335544439
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3657949783113,
+       740096727991
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.009165413545674628,
+     "simulated_mean_energy_difference": 0.00916414549180189,
+     "sum_of_inverse_net_admissions": 7.62022323660371e-11
+    },
+    {
+     "physical_ports": [
+      1960,
+      1958
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129871631,
+       4265754318662,
+       10656650256,
+       0,
+       0,
+       1252803954,
+       1252866601
+      ],
+      [
+       0,
+       0,
+       3527157543042,
+       0,
+       0,
+       435444397779,
+       435444570283
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.2489589253331595,
+     "simulated_mean_energy_difference": -0.24863236802852562,
+     "sum_of_inverse_net_admissions": 7.620181726781344e-11
+    },
+    {
+     "physical_ports": [
+      1958,
+      1921
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130002434,
+       4265754019313,
+       0,
+       0,
+       0,
+       10883639585,
+       2278849772
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3670473493150,
+       727573017954
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.007701962818598251,
+     "simulated_mean_energy_difference": 0.007701175223246537,
+     "sum_of_inverse_net_admissions": 7.620084441319435e-11
+    },
+    {
+     "physical_ports": [
+      1921,
+      1925
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129998401,
+       4265754238923,
+       10591139536,
+       0,
+       0,
+       1285523570,
+       1285610674
+      ],
+      [
+       0,
+       0,
+       3511755178421,
+       0,
+       0,
+       443144986179,
+       443146346504
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.20078156015976928,
+     "simulated_mean_energy_difference": -0.20078594899849733,
+     "sum_of_inverse_net_admissions": 7.620208873717476e-11
+    },
+    {
+     "physical_ports": [
+      1925,
+      1924
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130075025,
+       4265754112504,
+       0,
+       0,
+       0,
+       10961142179,
+       2201181396
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3689843384166,
+       708203126938
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.006202479238849534,
+     "simulated_mean_energy_difference": 0.006206748756767411,
+     "sum_of_inverse_net_admissions": 7.620180131368795e-11
+    },
+    {
+     "physical_ports": [
+      1924,
+      1923
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130276254,
+       4265753929173,
+       10496143648,
+       0,
+       0,
+       1333073363,
+       1333088666
+      ],
+      [
+       0,
+       0,
+       3486684764556,
+       0,
+       0,
+       455681331987,
+       455680414561
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.15155254295849463,
+     "simulated_mean_energy_difference": -0.1514252769657638,
+     "sum_of_inverse_net_admissions": 7.620190462311863e-11
+    },
+    {
+     "physical_ports": [
+      1923,
+      2688
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130245252,
+       4265753912486,
+       0,
+       0,
+       0,
+       11082236340,
+       2080117026
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3723533517560,
+       674512993544
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.004674351336900084,
+     "simulated_mean_energy_difference": 0.0046688443046463135,
+     "sum_of_inverse_net_admissions": 7.620162935703925e-11
+    },
+    {
+     "physical_ports": [
+      2688,
+      2693
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119129028582,
+       4265755028562,
+       10333436557,
+       0,
+       0,
+       1414528865,
+       1414488538
+      ],
+      [
+       0,
+       0,
+       3439038889313,
+       0,
+       0,
+       479504902846,
+       479502718945
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.10151444397048057,
+     "simulated_mean_energy_difference": -0.10147404663473125,
+     "sum_of_inverse_net_admissions": 7.620104872410414e-11
+    },
+    {
+     "physical_ports": [
+      2693,
+      2692
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119129942343,
+       4265754337423,
+       0,
+       0,
+       0,
+       11319713458,
+       1842517880
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       3796116227298,
+       601930283806
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0031251087847756764,
+     "simulated_mean_energy_difference": 0.003122121324572902,
+     "sum_of_inverse_net_admissions": 7.620233371986605e-11
+    },
+    {
+     "physical_ports": [
+      2692,
+      2690
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       119130211216,
+       4265754059699,
+       9940085110,
+       0,
+       0,
+       1611050018,
+       1611105061
+      ],
+      [
+       0,
+       0,
+       3314511815753,
+       0,
+       0,
+       541768104919,
+       541766590432
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.05091382009329112,
+     "simulated_mean_energy_difference": -0.05083837695897664,
+     "sum_of_inverse_net_admissions": 7.620228263020642e-11
+    },
+    {
+     "physical_ports": [
+      2690,
+      2497
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       119130120767,
+       4265753888443,
+       0,
+       0,
+       0,
+       12143514306,
+       1018987588
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4064435881923,
+       333610629181
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0015623852944869343,
+     "simulated_mean_energy_difference": 0.0015616750381397537,
+     "sum_of_inverse_net_admissions": 7.620077205009725e-11
+    }
+   ],
+   "observed_energy_and_switch_work": {
+    "intradimer": {
+     "calculated": 0.6540166784924675,
+     "sampled": 0.653991230962113,
+     "simultaneous_99pct_interval": [
+      0.6538638472600423,
+      0.6541186146641836
+     ]
+    },
+    "link_layer_including_first": {
+     "calculated": -20.136073011508174,
+     "sampled": -20.135829866402197,
+     "simultaneous_99pct_interval": [
+      -20.139984063661757,
+      -20.131675669142638
+     ]
+    },
+    "link_layer_after_first_shutters": {
+     "calculated": -20.110662788971368,
+     "sampled": -20.11028436445839,
+     "simultaneous_99pct_interval": [
+      -20.11438859341102,
+      -20.10618013550576
+     ]
+    },
+    "daughter_relative_initial_switch_work": {
+     "calculated": -20.79008969000064,
+     "sampled": -20.78982109736431,
+     "simultaneous_99pct_interval": [
+      -20.793983971641655,
+      -20.785658223086966
+     ]
+    },
+    "cycle_average": {
+     "calculated": 0.03379624330643046,
+     "sampled": 0.033780832562339574,
+     "simultaneous_99pct_interval": [
+      0.03360267940172725,
+      0.0339589857229519
+     ]
+    }
+   },
+   "conservative_covariance_allowance": 1.517831468928526e-07,
+   "inherited_same_mode_emission": {
+    "original_starts": 67108864,
+    "joint_parent_ground_absorption_vacuum_counts": 8608,
+    "lower_99pct_from_original_joint_banks": 0.00012370024714647703,
+    "bright_only_probability_upper": 5.081344155122454e-08,
+    "lowest_mode_mass_lower_from_coherent_amplitude_triangle": 0.00011873682673697998,
+    "first_bright_relative_frequency": 0.10185479502462387,
+    "registered_source_duty_and_joint_lower": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.25,
+      7.27962167575736e-05
+     ],
+     [
+      0.5,
+      0.00012370024714647703
+     ],
+     [
+      1.0,
+      0.00039936434220496817
+     ]
+    ]
+   },
+   "guard_only_terminal_charge_control": {
+    "count_bin_order": [
+     "parent refused",
+     "lowest one-mode refused",
+     "minus_two",
+     "zero",
+     "plus_two"
+    ],
+    "guarded_and_open_guard_counts": [
+     [
+      119130240456,
+      4265753983841,
+      0,
+      13162286807,
+      0
+     ],
+     [
+      119130203700,
+      4265753759792,
+      5993,
+      13162535736,
+      5883
+     ]
+    ],
+    "motion_per_admitted_exposed_dimer": 9.053272419137593e-07,
+    "motion_lower_over_calibrated_covariance": 9.053266805862454e-07,
+    "motion_per_original_launch": 2.709421838925499e-09,
+    "dwell": 0.0038461538461538464,
+    "unlike_terminal_link_probability_at_layer_opening": 0.2448007879894511
+   }
+  },
+  {
+   "dimers": 45,
+   "schedule": "half",
+   "relative_link_duty": 0.015384615384615385,
+   "calibrated_period": 0.12692307692307692,
+   "lowest_relative_quasifrequency": 0.49469179072578795,
+   "slope_of_lowest_relative_phase_per_original_period": 0.4946808079598718,
+   "light_cutoff_from_separate_clock": [
+    0.09848221572530455,
+    0.09848641368730905
+   ],
+   "parent_refused_mode_refused_admitted": [
+    0.1031650681283609,
+    0.8968023923254848,
+    3.253954615426009e-05
+   ],
+   "source_link_substitution_full_refusal": [
+    4398046511104,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "daughter_minus_cold_contact_records": [
+    {
+     "physical_ports": [
+      1,
+      38
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724580835,
+       3944178823182,
+       0,
+       0,
+       0,
+       142498012,
+       609075
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4379537647702,
+       18508863402
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 5.277585920948624e-05,
+     "simulated_mean_energy_difference": 4.765022671904262e-05,
+     "sum_of_inverse_net_admissions": 6.988001501172008e-09
+    },
+    {
+     "physical_ports": [
+      38,
+      39
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724877616,
+       3944178519467,
+       80694983,
+       0,
+       0,
+       31213371,
+       31205667
+      ],
+      [
+       0,
+       0,
+       2479330037272,
+       0,
+       0,
+       959358609316,
+       959357864516
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.005135650390019619,
+     "simulated_mean_energy_difference": -0.003816682425206608,
+     "sum_of_inverse_net_admissions": 6.987662937378877e-09
+    },
+    {
+     "physical_ports": [
+      39,
+      42
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724743859,
+       3944178651754,
+       0,
+       0,
+       0,
+       140145156,
+       2970335
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4308990420197,
+       89056090907
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0005124284763136089,
+     "simulated_mean_energy_difference": 0.0005058005213101069,
+     "sum_of_inverse_net_admissions": 6.9875911664601115e-09
+    },
+    {
+     "physical_ports": [
+      42,
+      44
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724757295,
+       3944178641158,
+       89616323,
+       0,
+       0,
+       26746372,
+       26749956
+      ],
+      [
+       0,
+       0,
+       2750717445741,
+       0,
+       0,
+       823664978828,
+       823664086535
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.024234121571555522,
+     "simulated_mean_energy_difference": -0.02447746266601314,
+     "sum_of_inverse_net_admissions": 6.987729827249586e-09
+    },
+    {
+     "physical_ports": [
+      44,
+      22
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724750498,
+       3944178646531,
+       0,
+       0,
+       0,
+       138335718,
+       4778357
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4257225481403,
+       140821029701
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0013725503564275265,
+     "simulated_mean_energy_difference": 0.0013694539368742653,
+     "sum_of_inverse_net_admissions": 6.98766030087006e-09
+    },
+    {
+     "physical_ports": [
+      22,
+      12
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723478835,
+       3944179915237,
+       90182207,
+       0,
+       0,
+       26464122,
+       26470703
+      ],
+      [
+       0,
+       0,
+       2763516169676,
+       0,
+       0,
+       817264753244,
+       817265588184
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.05834764485656757,
+     "simulated_mean_energy_difference": -0.05777102016534208,
+     "sum_of_inverse_net_admissions": 6.987515930637692e-09
+    },
+    {
+     "physical_ports": [
+      12,
+      17
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725141288,
+       3944178241417,
+       0,
+       0,
+       0,
+       138045135,
+       5083264
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4253255782798,
+       144790728306
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0026068649789682263,
+     "simulated_mean_energy_difference": 0.0025938115200503375,
+     "sum_of_inverse_net_admissions": 6.986961012748706e-09
+    },
+    {
+     "physical_ports": [
+      17,
+      13
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725906299,
+       3944177489810,
+       90434773,
+       0,
+       0,
+       26335991,
+       26344231
+      ],
+      [
+       0,
+       0,
+       2764894231435,
+       0,
+       0,
+       816574903353,
+       816577376316
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.10427893894361398,
+     "simulated_mean_energy_difference": -0.10522875111766261,
+     "sum_of_inverse_net_admissions": 6.987615382877414e-09
+    },
+    {
+     "physical_ports": [
+      13,
+      146
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724529455,
+       3944178884497,
+       0,
+       0,
+       0,
+       137769888,
+       5327264
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252740815907,
+       145305695197
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0041925516253087936,
+     "simulated_mean_energy_difference": 0.004189612090137018,
+     "sum_of_inverse_net_admissions": 6.988486650841211e-09
+    },
+    {
+     "physical_ports": [
+      146,
+      147
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724979333,
+       3944178404659,
+       90685740,
+       0,
+       0,
+       26223716,
+       26217656
+      ],
+      [
+       0,
+       0,
+       2765098503023,
+       0,
+       0,
+       816474419276,
+       816473588805
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.16117879965168072,
+     "simulated_mean_energy_difference": -0.15901750918264668,
+     "sum_of_inverse_net_admissions": 6.987023837506838e-09
+    },
+    {
+     "physical_ports": [
+      147,
+      150
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725625925,
+       3944177766620,
+       0,
+       0,
+       0,
+       137514958,
+       5603601
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252660501623,
+       145386009481
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.006100293208791796,
+     "simulated_mean_energy_difference": 0.006096608058953734,
+     "sum_of_inverse_net_admissions": 6.987441379931613e-09
+    },
+    {
+     "physical_ports": [
+      150,
+      152
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725612599,
+       3944177781219,
+       90982382,
+       0,
+       0,
+       26066654,
+       26068250
+      ],
+      [
+       0,
+       0,
+       2765130353202,
+       0,
+       0,
+       816458359615,
+       816457798287
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.22799522963194582,
+     "simulated_mean_energy_difference": -0.22753260928592312,
+     "sum_of_inverse_net_admissions": 6.987503529820551e-09
+    },
+    {
+     "physical_ports": [
+      152,
+      82
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724717608,
+       3944178675652,
+       0,
+       0,
+       0,
+       137199166,
+       5918678
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252645461839,
+       145401049265
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.008294818305832563,
+     "simulated_mean_energy_difference": 0.008294905440521916,
+     "sum_of_inverse_net_admissions": 6.987476287235097e-09
+    },
+    {
+     "physical_ports": [
+      82,
+      72
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725516253,
+       3944177904586,
+       91301233,
+       0,
+       0,
+       25892334,
+       25896698
+      ],
+      [
+       0,
+       0,
+       2765137906894,
+       0,
+       0,
+       816454239309,
+       816454364901
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3034928882996066,
+     "simulated_mean_energy_difference": -0.30378919235871393,
+     "sum_of_inverse_net_admissions": 6.988822998961342e-09
+    },
+    {
+     "physical_ports": [
+      72,
+      77
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725347889,
+       3944178061056,
+       0,
+       0,
+       0,
+       136834056,
+       6268103
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642700347,
+       145403810757
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01073555327433895,
+     "simulated_mean_energy_difference": 0.01074059743746858,
+     "sum_of_inverse_net_admissions": 6.988242138707744e-09
+    },
+    {
+     "physical_ports": [
+      77,
+      73
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725620252,
+       3944177781389,
+       91675099,
+       0,
+       0,
+       25710484,
+       25723880
+      ],
+      [
+       0,
+       0,
+       2765138084109,
+       0,
+       0,
+       816453536054,
+       816454890941
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3862759315211975,
+     "simulated_mean_energy_difference": -0.3858791468256513,
+     "sum_of_inverse_net_admissions": 6.98788548542449e-09
+    },
+    {
+     "physical_ports": [
+      73,
+      86
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724740049,
+       3944178654681,
+       0,
+       0,
+       0,
+       136471007,
+       6645367
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642447416,
+       145404063688
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0133773724024977,
+     "simulated_mean_energy_difference": 0.013372253894246455,
+     "sum_of_inverse_net_admissions": 6.987548055793899e-09
+    },
+    {
+     "physical_ports": [
+      86,
+      87
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724640017,
+       3944178762725,
+       92073786,
+       0,
+       0,
+       25514787,
+       25519789
+      ],
+      [
+       0,
+       0,
+       2765139532299,
+       0,
+       0,
+       816453276162,
+       816453702643
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.47481381878370976,
+     "simulated_mean_energy_difference": -0.47659991070170804,
+     "sum_of_inverse_net_admissions": 6.987939244767924e-09
+    },
+    {
+     "physical_ports": [
+      87,
+      90
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725784887,
+       3944177608835,
+       0,
+       0,
+       0,
+       136068123,
+       7049259
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641264126,
+       145405246978
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.016171432218912374,
+     "simulated_mean_energy_difference": 0.01619376085582047,
+     "sum_of_inverse_net_admissions": 6.9874988429089985e-09
+    },
+    {
+     "physical_ports": [
+      90,
+      92
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723686788,
+       3944179718738,
+       92467310,
+       0,
+       0,
+       25319195,
+       25319073
+      ],
+      [
+       0,
+       0,
+       2765137280281,
+       0,
+       0,
+       816453771030,
+       816455459793
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.56746961070772,
+     "simulated_mean_energy_difference": -0.5664126745197109,
+     "sum_of_inverse_net_admissions": 6.988075184890741e-09
+    },
+    {
+     "physical_ports": [
+      92,
+      58
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724604188,
+       3944178798890,
+       0,
+       0,
+       0,
+       135647242,
+       7460784
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641306611,
+       145405204493
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.019066074538782063,
+     "simulated_mean_energy_difference": 0.01907261555406592,
+     "sum_of_inverse_net_admissions": 6.98795565105382e-09
+    },
+    {
+     "physical_ports": [
+      58,
+      48
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725559874,
+       3944177844479,
+       92892283,
+       0,
+       0,
+       25104929,
+       25109539
+      ],
+      [
+       0,
+       0,
+       2765140840087,
+       0,
+       0,
+       816453310063,
+       816452360954
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.6625302337241523,
+     "simulated_mean_energy_difference": -0.6627101322266018,
+     "sum_of_inverse_net_admissions": 6.9880179077502474e-09
+    },
+    {
+     "physical_ports": [
+      48,
+      53
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724886622,
+       3944178506164,
+       0,
+       0,
+       0,
+       135233004,
+       7885314
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642010190,
+       145404500914
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.022007781550138716,
+     "simulated_mean_energy_difference": 0.022035313403691248,
+     "sum_of_inverse_net_admissions": 6.987453145850882e-09
+    },
+    {
+     "physical_ports": [
+      53,
+      49
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725129122,
+       3944178252070,
+       93320311,
+       0,
+       0,
+       24896822,
+       24912779
+      ],
+      [
+       0,
+       0,
+       2765138923343,
+       0,
+       0,
+       816452733902,
+       816454853859
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.7582381523636882,
+     "simulated_mean_energy_difference": -0.7564620696491815,
+     "sum_of_inverse_net_admissions": 6.986887157271202e-09
+    },
+    {
+     "physical_ports": [
+      49,
+      1202
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725526831,
+       3944177864698,
+       0,
+       0,
+       0,
+       134813942,
+       8305633
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641012796,
+       145405498308
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.024942165281933715,
+     "simulated_mean_energy_difference": 0.024971440672914014,
+     "sum_of_inverse_net_admissions": 6.987391777985615e-09
+    },
+    {
+     "physical_ports": [
+      1202,
+      1204
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724870318,
+       3944178518278,
+       93740713,
+       0,
+       0,
+       24694995,
+       24686800
+      ],
+      [
+       0,
+       0,
+       2765138983830,
+       0,
+       0,
+       816454300773,
+       816453226501
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.8528238635832376,
+     "simulated_mean_energy_difference": -0.853105951424828,
+     "sum_of_inverse_net_admissions": 6.9872485904920186e-09
+    },
+    {
+     "physical_ports": [
+      1204,
+      1205
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724958075,
+       3944178437083,
+       0,
+       0,
+       0,
+       134406070,
+       8709876
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641666125,
+       145404844979
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.027814973160110945,
+     "simulated_mean_energy_difference": 0.027797644686295087,
+     "sum_of_inverse_net_admissions": 6.987568951950725e-09
+    },
+    {
+     "physical_ports": [
+      1205,
+      1200
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724694460,
+       3944178685774,
+       94156645,
+       0,
+       0,
+       24488799,
+       24485426
+      ],
+      [
+       0,
+       0,
+       2765138977291,
+       0,
+       0,
+       816454452893,
+       816453080920
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.9445386123557954,
+     "simulated_mean_energy_difference": -0.9462890876608405,
+     "sum_of_inverse_net_admissions": 6.986840394332692e-09
+    },
+    {
+     "physical_ports": [
+      1200,
+      1238
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724568507,
+       3944178857696,
+       0,
+       0,
+       0,
+       133979843,
+       9105058
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642026734,
+       145404484370
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.030573091060421387,
+     "simulated_mean_energy_difference": 0.030572801904654057,
+     "sum_of_inverse_net_admissions": 6.989084989057236e-09
+    },
+    {
+     "physical_ports": [
+      1238,
+      1239
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724817027,
+       3944178586667,
+       94517426,
+       0,
+       0,
+       24292359,
+       24297625
+      ],
+      [
+       0,
+       0,
+       2765138586400,
+       0,
+       0,
+       816454548569,
+       816453376135
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.0316867236593974,
+     "simulated_mean_energy_difference": -1.03170078636502,
+     "sum_of_inverse_net_admissions": 6.987985729444722e-09
+    },
+    {
+     "physical_ports": [
+      1239,
+      1244
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725208208,
+       3944178190833,
+       0,
+       0,
+       0,
+       133634430,
+       9477633
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641525346,
+       145404985758
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03316552531288397,
+     "simulated_mean_energy_difference": 0.03316398989850455,
+     "sum_of_inverse_net_admissions": 6.98775853657958e-09
+    },
+    {
+     "physical_ports": [
+      1244,
+      1237
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723824293,
+       3944179581227,
+       94869626,
+       0,
+       0,
+       24112639,
+       24123319
+      ],
+      [
+       0,
+       0,
+       2765139205162,
+       0,
+       0,
+       816453966501,
+       816453339441
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.1126569530918153,
+     "simulated_mean_energy_difference": -1.1119376469353668,
+     "sum_of_inverse_net_admissions": 6.98807489191065e-09
+    },
+    {
+     "physical_ports": [
+      1237,
+      1222
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724469506,
+       3944178909688,
+       0,
+       0,
+       0,
+       133310911,
+       9820999
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641399380,
+       145405111724
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03554434550207741,
+     "simulated_mean_energy_difference": 0.035553726246277506,
+     "sum_of_inverse_net_admissions": 6.986789629429593e-09
+    },
+    {
+     "physical_ports": [
+      1222,
+      1212
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724770896,
+       3944178638115,
+       95199178,
+       0,
+       0,
+       23948449,
+       23954466
+      ],
+      [
+       0,
+       0,
+       2765138150808,
+       0,
+       0,
+       816455413341,
+       816452946955
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.1859522764839907,
+     "simulated_mean_energy_difference": -1.187331871158218,
+     "sum_of_inverse_net_admissions": 6.9882453616443546e-09
+    },
+    {
+     "physical_ports": [
+      1212,
+      1217
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725504614,
+       3944177889897,
+       0,
+       0,
+       0,
+       132992408,
+       10124185
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641471919,
+       145405039185
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03766557063225662,
+     "simulated_mean_energy_difference": 0.037679540803388534,
+     "sum_of_inverse_net_admissions": 6.987537363649841e-09
+    },
+    {
+     "physical_ports": [
+      1217,
+      1213
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724536351,
+       3944178850830,
+       95487809,
+       0,
+       0,
+       23821340,
+       23814774
+      ],
+      [
+       0,
+       0,
+       2765139256114,
+       0,
+       0,
+       816453170509,
+       816454084481
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.2502175677435718,
+     "simulated_mean_energy_difference": -1.249611499115348,
+     "sum_of_inverse_net_admissions": 6.987179513046302e-09
+    },
+    {
+     "physical_ports": [
+      1213,
+      1310
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724502403,
+       3944178889599,
+       0,
+       0,
+       0,
+       132738933,
+       10380169
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641737922,
+       145404773182
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03948998227324951,
+     "simulated_mean_energy_difference": 0.03946696934263372,
+     "sum_of_inverse_net_admissions": 6.987414870142547e-09
+    },
+    {
+     "physical_ports": [
+      1310,
+      1311
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724136719,
+       3944179238412,
+       95734621,
+       0,
+       0,
+       23698788,
+       23702564
+      ],
+      [
+       0,
+       0,
+       2765138024313,
+       0,
+       0,
+       816454648859,
+       816453837932
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3042646532057118,
+     "simulated_mean_energy_difference": -1.3037992300921886,
+     "sum_of_inverse_net_admissions": 6.986591311691221e-09
+    },
+    {
+     "physical_ports": [
+      1311,
+      1314
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724214769,
+       3944179194788,
+       0,
+       0,
+       0,
+       132506328,
+       10595219
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641727003,
+       145404784101
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04098384965339741,
+     "simulated_mean_energy_difference": 0.040978643266370796,
+     "sum_of_inverse_net_admissions": 6.9882720242339726e-09
+    },
+    {
+     "physical_ports": [
+      1314,
+      1316
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724976925,
+       3944178431786,
+       95899743,
+       0,
+       0,
+       23602834,
+       23599816
+      ],
+      [
+       0,
+       0,
+       2765137827158,
+       0,
+       0,
+       816454834670,
+       816453849276
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3470942792709006,
+     "simulated_mean_energy_difference": -1.346426066949265,
+     "sum_of_inverse_net_admissions": 6.988230711956446e-09
+    },
+    {
+     "physical_ports": [
+      1316,
+      1282
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453723112687,
+       3944180271961,
+       0,
+       0,
+       0,
+       132368080,
+       10758376
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641662845,
+       145404848259
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04211955329340866,
+     "simulated_mean_energy_difference": 0.04210569313292467,
+     "sum_of_inverse_net_admissions": 6.987055860506697e-09
+    },
+    {
+     "physical_ports": [
+      1282,
+      1272
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725002025,
+       3944178397553,
+       96045992,
+       0,
+       0,
+       23524996,
+       23540538
+      ],
+      [
+       0,
+       0,
+       2765139345976,
+       0,
+       0,
+       816454143856,
+       816453021272
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3779145871803777,
+     "simulated_mean_energy_difference": -1.3781725597716665,
+     "sum_of_inverse_net_admissions": 6.987784756020734e-09
+    },
+    {
+     "physical_ports": [
+      1272,
+      1277
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725250885,
+       3944178143749,
+       0,
+       0,
+       0,
+       132248267,
+       10868203
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641876544,
+       145404634560
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.042876095651240176,
+     "simulated_mean_energy_difference": 0.0428783824740222,
+     "sum_of_inverse_net_admissions": 6.9875433688226126e-09
+    },
+    {
+     "physical_ports": [
+      1277,
+      1273
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724402462,
+       3944179011318,
+       96114562,
+       0,
+       0,
+       23487905,
+       23494857
+      ],
+      [
+       0,
+       0,
+       2765139980685,
+       0,
+       0,
+       816452729864,
+       816453800555
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3961557533562339,
+     "simulated_mean_energy_difference": -1.3959363610191353,
+     "sum_of_inverse_net_admissions": 6.988478251099259e-09
+    },
+    {
+     "physical_ports": [
+      1273,
+      1287
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724120618,
+       3944179278733,
+       0,
+       0,
+       0,
+       132196371,
+       10915382
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641516517,
+       145404994587
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04323948933667365,
+     "simulated_mean_energy_difference": 0.04321046904780701,
+     "sum_of_inverse_net_admissions": 6.987773672545809e-09
+    },
+    {
+     "physical_ports": [
+      1287,
+      1288
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724731310,
+       3944178654344,
+       96158136,
+       0,
+       0,
+       23484513,
+       23482801
+      ],
+      [
+       0,
+       0,
+       2765140004943,
+       0,
+       0,
+       816453913507,
+       816452592654
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.4014805246273772,
+     "simulated_mean_energy_difference": -1.4015709318208351,
+     "sum_of_inverse_net_admissions": 6.98710496951881e-09
+    },
+    {
+     "physical_ports": [
+      1288,
+      1289
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453723904933,
+       3944179481587,
+       0,
+       0,
+       0,
+       132208802,
+       10915782
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642329933,
+       145404181171
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.04320301571826057,
+     "simulated_mean_energy_difference": 0.04320661106729773,
+     "sum_of_inverse_net_admissions": 6.987147244827697e-09
+    },
+    {
+     "physical_ports": [
+      1289,
+      1285
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723985355,
+       3944179426329,
+       96110729,
+       0,
+       0,
+       23487953,
+       23500738
+      ],
+      [
+       0,
+       0,
+       2765139284418,
+       0,
+       0,
+       816452787624,
+       816454439062
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.39379045356032,
+     "simulated_mean_energy_difference": -1.3947309223568816,
+     "sum_of_inverse_net_admissions": 6.988375893075452e-09
+    },
+    {
+     "physical_ports": [
+      1285,
+      1250
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453723762202,
+       3944179652201,
+       0,
+       0,
+       0,
+       132241424,
+       10855277
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641170749,
+       145405340355
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.042767349141235256,
+     "simulated_mean_energy_difference": 0.04279838262334579,
+     "sum_of_inverse_net_admissions": 6.988508675841871e-09
+    },
+    {
+     "physical_ports": [
+      1250,
+      1252
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724327462,
+       3944179054335,
+       96045389,
+       0,
+       0,
+       23548275,
+       23535643
+      ],
+      [
+       0,
+       0,
+       2765138143578,
+       0,
+       0,
+       816454071046,
+       816454296480
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3732277186115254,
+     "simulated_mean_energy_difference": -1.3754334398707737,
+     "sum_of_inverse_net_admissions": 6.986916689512066e-09
+    },
+    {
+     "physical_ports": [
+      1252,
+      1253
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725116975,
+       3944178280740,
+       0,
+       0,
+       0,
+       132382001,
+       10731388
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641594983,
+       145404916121
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.041940544459831974,
+     "simulated_mean_energy_difference": 0.04192396309230162,
+     "sum_of_inverse_net_admissions": 6.987693794444782e-09
+    },
+    {
+     "physical_ports": [
+      1253,
+      1248
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723916854,
+       3944179483604,
+       95879752,
+       0,
+       0,
+       23614754,
+       23616140
+      ],
+      [
+       0,
+       0,
+       2765139118825,
+       0,
+       0,
+       816453767461,
+       816453624818
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.3401724954507062,
+     "simulated_mean_energy_difference": -1.340605322076275,
+     "sum_of_inverse_net_admissions": 6.987827723128132e-09
+    },
+    {
+     "physical_ports": [
+      1248,
+      2882
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725439603,
+       3944177943031,
+       0,
+       0,
+       0,
+       132568861,
+       10559609
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641464976,
+       145405046128
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.040737888114508625,
+     "simulated_mean_energy_difference": 0.04071585905190034,
+     "sum_of_inverse_net_admissions": 6.986957546924693e-09
+    },
+    {
+     "physical_ports": [
+      2882,
+      2883
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724884031,
+       3944178502648,
+       95692713,
+       0,
+       0,
+       23716960,
+       23714752
+      ],
+      [
+       0,
+       0,
+       2765137872026,
+       0,
+       0,
+       816453101721,
+       816455537357
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.2952359280543229,
+     "simulated_mean_energy_difference": -1.2960592298556932,
+     "sum_of_inverse_net_admissions": 6.9871550067471565e-09
+    },
+    {
+     "physical_ports": [
+      2883,
+      2886
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724643073,
+       3944178766942,
+       0,
+       0,
+       0,
+       132760572,
+       10340517
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641799543,
+       145404711561
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.039181615507449585,
+     "simulated_mean_energy_difference": 0.03919902208209436,
+     "sum_of_inverse_net_admissions": 6.988294389713316e-09
+    },
+    {
+     "physical_ports": [
+      2886,
+      2888
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724665887,
+       3944178753321,
+       95418793,
+       0,
+       0,
+       23836821,
+       23836282
+      ],
+      [
+       0,
+       0,
+       2765139828282,
+       0,
+       0,
+       816453054635,
+       816453628187
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.2392488295241448,
+     "simulated_mean_energy_difference": -1.2387639080636443,
+     "sum_of_inverse_net_admissions": 6.98874334106468e-09
+    },
+    {
+     "physical_ports": [
+      2888,
+      2016
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724760640,
+       3944178653791,
+       0,
+       0,
+       0,
+       133031042,
+       10065631
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642276349,
+       145404234755
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.03730049990164841,
+     "simulated_mean_energy_difference": 0.037280379394402985,
+     "sum_of_inverse_net_admissions": 6.988510043252254e-09
+    },
+    {
+     "physical_ports": [
+      2016,
+      2017
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724744456,
+       3944178646209,
+       95154178,
+       0,
+       0,
+       23989413,
+       23976848
+      ],
+      [
+       0,
+       0,
+       2765140201412,
+       0,
+       0,
+       816452936977,
+       816453372715
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.173246321537044,
+     "simulated_mean_energy_difference": -1.174391830878518,
+     "sum_of_inverse_net_admissions": 6.987349597357275e-09
+    },
+    {
+     "physical_ports": [
+      2017,
+      2024
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724545641,
+       3944178847611,
+       0,
+       0,
+       0,
+       133356246,
+       9761606
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641815313,
+       145404695791
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.035129320444296175,
+     "simulated_mean_energy_difference": 0.03514556699676774,
+     "sum_of_inverse_net_admissions": 6.987475896661939e-09
+    },
+    {
+     "physical_ports": [
+      2024,
+      2019
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724219189,
+       3944179184529,
+       94814172,
+       0,
+       0,
+       24147127,
+       24146087
+      ],
+      [
+       0,
+       0,
+       2765139236542,
+       0,
+       0,
+       816454119876,
+       816453154686
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.0984486964198321,
+     "simulated_mean_energy_difference": -1.0991133027289557,
+     "sum_of_inverse_net_admissions": 6.987986901335322e-09
+    },
+    {
+     "physical_ports": [
+      2019,
+      2052
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724332086,
+       3944179076831,
+       0,
+       0,
+       0,
+       133694404,
+       9407783
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642615925,
+       145403895179
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.032708219149875095,
+     "simulated_mean_energy_difference": 0.03268069557629616,
+     "sum_of_inverse_net_admissions": 6.988240771402202e-09
+    },
+    {
+     "physical_ports": [
+      2052,
+      2057
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724174638,
+       3944179211751,
+       94463965,
+       0,
+       0,
+       24336017,
+       24324733
+      ],
+      [
+       0,
+       0,
+       2765138395952,
+       0,
+       0,
+       816453690295,
+       816454424857
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -1.0162388556830728,
+     "simulated_mean_energy_difference": -1.0170252744462491,
+     "sum_of_inverse_net_admissions": 6.987140849800095e-09
+    },
+    {
+     "physical_ports": [
+      2057,
+      2056
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724362609,
+       3944179033916,
+       0,
+       0,
+       0,
+       134077974,
+       9036605
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641259986,
+       145405251118
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.030081958731535074,
+     "simulated_mean_energy_difference": 0.030081122584974196,
+     "sum_of_inverse_net_admissions": 6.9876356935503875e-09
+    },
+    {
+     "physical_ports": [
+      2056,
+      2054
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725522955,
+       3944177874434,
+       94063232,
+       0,
+       0,
+       24523734,
+       24526749
+      ],
+      [
+       0,
+       0,
+       2765139245786,
+       0,
+       0,
+       816452935623,
+       816454329695
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.9281367421426302,
+     "simulated_mean_energy_difference": -0.9276145184128382,
+     "sum_of_inverse_net_admissions": 6.987677877633083e-09
+    },
+    {
+     "physical_ports": [
+      2054,
+      2029
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725150979,
+       3944178249727,
+       0,
+       0,
+       0,
+       134472663,
+       8637735
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641887758,
+       145404623346
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.027299095002301543,
+     "simulated_mean_energy_difference": 0.027295961062257845,
+     "sum_of_inverse_net_admissions": 6.9878398321356596e-09
+    },
+    {
+     "physical_ports": [
+      2029,
+      2033
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725641855,
+       3944177754632,
+       93652911,
+       0,
+       0,
+       24731472,
+       24730234
+      ],
+      [
+       0,
+       0,
+       2765138697786,
+       0,
+       0,
+       816454486135,
+       816453327183
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.835771238342755,
+     "simulated_mean_energy_difference": -0.8343184183832086,
+     "sum_of_inverse_net_admissions": 6.9876338382436296e-09
+    },
+    {
+     "physical_ports": [
+      2033,
+      2032
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724809971,
+       3944178608680,
+       0,
+       0,
+       0,
+       134865300,
+       8227153
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641232481,
+       145405278623
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.02441107914727092,
+     "simulated_mean_energy_difference": 0.024434033670637234,
+     "sum_of_inverse_net_admissions": 6.988716137649599e-09
+    },
+    {
+     "physical_ports": [
+      2032,
+      2031
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724930887,
+       3944178487027,
+       93230279,
+       0,
+       0,
+       24930890,
+       24932021
+      ],
+      [
+       0,
+       0,
+       2765140726467,
+       0,
+       0,
+       816451831748,
+       816453952889
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.740850050838659,
+     "simulated_mean_energy_difference": -0.7414900101779729,
+     "sum_of_inverse_net_admissions": 6.988680143510262e-09
+    },
+    {
+     "physical_ports": [
+      2031,
+      2088
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724824878,
+       3944178577360,
+       0,
+       0,
+       0,
+       135304102,
+       7804764
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642581350,
+       145403929754
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.021471306464531215,
+     "simulated_mean_energy_difference": 0.021476224052165094,
+     "sum_of_inverse_net_admissions": 6.987914635483527e-09
+    },
+    {
+     "physical_ports": [
+      2088,
+      2093
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725084678,
+       3944178306982,
+       92820058,
+       0,
+       0,
+       25151943,
+       25147443
+      ],
+      [
+       0,
+       0,
+       2765137900968,
+       0,
+       0,
+       816455394083,
+       816453216053
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.645128137135802,
+     "simulated_mean_energy_difference": -0.6444914889053805,
+     "sum_of_inverse_net_admissions": 6.9873981734725696e-09
+    },
+    {
+     "physical_ports": [
+      2093,
+      2092
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724695963,
+       3944178713345,
+       0,
+       0,
+       0,
+       135718247,
+       7383549
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641398230,
+       145405112874
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01853412916213859,
+     "simulated_mean_energy_difference": 0.018535185370119223,
+     "sum_of_inverse_net_admissions": 6.988259864895889e-09
+    },
+    {
+     "physical_ports": [
+      2092,
+      2090
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723972559,
+       3944179435532,
+       92391463,
+       0,
+       0,
+       25353289,
+       25358261
+      ],
+      [
+       0,
+       0,
+       2765140379446,
+       0,
+       0,
+       816452988841,
+       816453142817
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.5503752590259937,
+     "simulated_mean_energy_difference": -0.5495226576454311,
+     "sum_of_inverse_net_admissions": 6.988200436129412e-09
+    },
+    {
+     "physical_ports": [
+      2090,
+      1945
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724540250,
+       3944178888550,
+       0,
+       0,
+       0,
+       136113660,
+       6968644
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641941004,
+       145404570100
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01565385146328868,
+     "simulated_mean_energy_difference": 0.015642573134449833,
+     "sum_of_inverse_net_admissions": 6.9892118395671865e-09
+    },
+    {
+     "physical_ports": [
+      1945,
+      1949
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453723926136,
+       3944179464016,
+       92008530,
+       0,
+       0,
+       25555918,
+       25556504
+      ],
+      [
+       0,
+       0,
+       2765140274449,
+       0,
+       0,
+       816453025575,
+       816453211080
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.4583432622137787,
+     "simulated_mean_energy_difference": -0.4599520497966658,
+     "sum_of_inverse_net_admissions": 6.98732455285016e-09
+    },
+    {
+     "physical_ports": [
+      1949,
+      1948
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724658869,
+       3944178752220,
+       0,
+       0,
+       0,
+       136528869,
+       6571146
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252641833157,
+       145404677947
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.012883725598574092,
+     "simulated_mean_energy_difference": 0.012858757206416271,
+     "sum_of_inverse_net_admissions": 6.988346836835527e-09
+    },
+    {
+     "physical_ports": [
+      1948,
+      1947
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725687079,
+       3944177721079,
+       91596029,
+       0,
+       0,
+       25758718,
+       25748199
+      ],
+      [
+       0,
+       0,
+       2765136744077,
+       0,
+       0,
+       816455409070,
+       816454357957
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.3707336871854122,
+     "simulated_mean_energy_difference": -0.3689629302462336,
+     "sum_of_inverse_net_admissions": 6.988203707859367e-09
+    },
+    {
+     "physical_ports": [
+      1947,
+      1956
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724230762,
+       3944179168494,
+       0,
+       0,
+       0,
+       136914486,
+       6197362
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252642692268,
+       145403818836
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.01027496724813387,
+     "simulated_mean_energy_difference": 0.010243324447493762,
+     "sum_of_inverse_net_admissions": 6.987769034097577e-09
+    },
+    {
+     "physical_ports": [
+      1956,
+      1961
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725705717,
+       3944177696606,
+       91246861,
+       0,
+       0,
+       25924256,
+       25937664
+      ],
+      [
+       0,
+       0,
+       2765138182867,
+       0,
+       0,
+       816454234220,
+       816454094017
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.28916631014981387,
+     "simulated_mean_energy_difference": -0.2887245842154229,
+     "sum_of_inverse_net_admissions": 6.98791878584672e-09
+    },
+    {
+     "physical_ports": [
+      1961,
+      1960
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724775303,
+       3944178620845,
+       0,
+       0,
+       0,
+       137259034,
+       5855922
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252645844354,
+       145400666750
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.007875808636683634,
+     "simulated_mean_energy_difference": 0.007857326305156676,
+     "sum_of_inverse_net_admissions": 6.9876172869979895e-09
+    },
+    {
+     "physical_ports": [
+      1960,
+      1958
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724088030,
+       3944179317635,
+       90915284,
+       0,
+       0,
+       26094609,
+       26095546
+      ],
+      [
+       0,
+       0,
+       2765129147189,
+       0,
+       0,
+       816458222011,
+       816459141904
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.2151491956844588,
+     "simulated_mean_energy_difference": -0.21401609435557845,
+     "sum_of_inverse_net_admissions": 6.9880819722697005e-09
+    },
+    {
+     "physical_ports": [
+      1958,
+      1921
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725306522,
+       3944178081667,
+       0,
+       0,
+       0,
+       137570715,
+       5552200
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252663333110,
+       145383177994
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.005730606788442949,
+     "simulated_mean_energy_difference": 0.005736921354909441,
+     "sum_of_inverse_net_admissions": 6.987228721433068e-09
+    },
+    {
+     "physical_ports": [
+      1921,
+      1925
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724624713,
+       3944178781817,
+       90632615,
+       0,
+       0,
+       26240520,
+       26231439
+      ],
+      [
+       0,
+       0,
+       2765085288989,
+       0,
+       0,
+       816480125876,
+       816481096239
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.15005081477009158,
+     "simulated_mean_energy_difference": -0.15030399358098379,
+     "sum_of_inverse_net_admissions": 6.988124210571796e-09
+    },
+    {
+     "physical_ports": [
+      1925,
+      1924
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453725540637,
+       3944177856411,
+       0,
+       0,
+       0,
+       137828158,
+       5285898
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4252767205033,
+       145279306071
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.003879023428916606,
+     "simulated_mean_energy_difference": 0.003902172851304897,
+     "sum_of_inverse_net_admissions": 6.987661228530343e-09
+    },
+    {
+     "physical_ports": [
+      1924,
+      1923
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725472419,
+       3944177929239,
+       90370176,
+       0,
+       0,
+       26376638,
+       26362632
+      ],
+      [
+       0,
+       0,
+       2764832066869,
+       0,
+       0,
+       816606927748,
+       816607516487
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.09507474371226426,
+     "simulated_mean_energy_difference": -0.09189203111127142,
+     "sum_of_inverse_net_admissions": 6.9878863154898086e-09
+    },
+    {
+     "physical_ports": [
+      1923,
+      2688
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724852746,
+       3944178549363,
+       0,
+       0,
+       0,
+       138062639,
+       5046356
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4253425356368,
+       144621154736
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.0023552916961319115,
+     "simulated_mean_energy_difference": 0.0023792822547079595,
+     "sum_of_inverse_net_admissions": 6.987908336706453e-09
+    },
+    {
+     "physical_ports": [
+      2688,
+      2693
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453725442442,
+       3944177971500,
+       90131083,
+       0,
+       0,
+       26481566,
+       26484513
+      ],
+      [
+       0,
+       0,
+       2763056995785,
+       0,
+       0,
+       817494672694,
+       817494842625
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.05123741173041291,
+     "simulated_mean_energy_difference": -0.05240924280475312,
+     "sum_of_inverse_net_admissions": 6.988486162483568e-09
+    },
+    {
+     "physical_ports": [
+      2693,
+      2692
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724798341,
+       3944178597741,
+       0,
+       0,
+       0,
+       138409166,
+       4705856
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4258551890420,
+       139494620684
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.001187583218693944,
+     "simulated_mean_energy_difference": 0.001164230974517011,
+     "sum_of_inverse_net_admissions": 6.9876140646407e-09
+    },
+    {
+     "physical_ports": [
+      2692,
+      2690
+     ],
+     "layer": "link",
+     "daughter_and_cold_bins": [
+      [
+       453724217070,
+       3944179196003,
+       89440065,
+       0,
+       0,
+       26830611,
+       26827355
+      ],
+      [
+       0,
+       0,
+       2746399810167,
+       0,
+       0,
+       825823289825,
+       825823411112
+      ]
+     ],
+     "nominal_ordinary_energy_difference": -0.019349308629809936,
+     "simulated_mean_energy_difference": -0.01845532177363296,
+     "sum_of_inverse_net_admissions": 6.988443724465064e-09
+    },
+    {
+     "physical_ports": [
+      2690,
+      2497
+     ],
+     "layer": "intradimer",
+     "daughter_and_cold_bins": [
+      [
+       453724380216,
+       3944179005183,
+       0,
+       0,
+       0,
+       140742356,
+       2383349
+      ],
+      [
+       0,
+       0,
+       0,
+       0,
+       0,
+       4326631330634,
+       71415180470
+      ]
+     ],
+     "nominal_ordinary_energy_difference": 0.00039748726249927424,
+     "simulated_mean_energy_difference": 0.0004142059969254319,
+     "sum_of_inverse_net_admissions": 6.987092521344061e-09
+    }
+   ],
+   "observed_energy_and_switch_work": {
+    "intradimer": {
+     "calculated": 0.9979095042394233,
+     "sampled": 0.9978634855660928,
+     "simultaneous_99pct_interval": [
+      0.9966391190672487,
+      0.999087852064937
+     ]
+    },
+    "link_layer_including_first": {
+     "calculated": -32.21775227540672,
+     "sampled": -32.21385572512344,
+     "simultaneous_99pct_interval": [
+      -32.25378283933936,
+      -32.17392861090752
+     ]
+    },
+    "link_layer_after_first_shutters": {
+     "calculated": -32.2126166250167,
+     "sampled": -32.21003904269823,
+     "simultaneous_99pct_interval": [
+      -32.24948434119058,
+      -32.170593744205874
+     ]
+    },
+    "daughter_relative_initial_switch_work": {
+     "calculated": -33.21566177964614,
+     "sampled": -33.21171921068953,
+     "simultaneous_99pct_interval": [
+      -33.251733950763224,
+      -33.171704470615836
+     ]
+    },
+    "cycle_average": {
+     "calculated": 0.4946808079598606,
+     "sampled": 0.49468453299826054,
+     "simultaneous_99pct_interval": [
+      0.49331187173415497,
+      0.4960571942623661
+     ]
+    }
+   },
+   "conservative_covariance_allowance": 1.5542456816624345e-06,
+   "inherited_same_mode_emission": null,
+   "guard_only_terminal_charge_control": null
+  }
+ ]
+}

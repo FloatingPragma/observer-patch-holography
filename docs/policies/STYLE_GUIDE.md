@@ -20,7 +20,7 @@ states of the research.
 - Scientific provenance may identify dataset editions, publication dates,
   frozen-protocol timestamps, artifact versions and hashes. Maintained guides
   and research prose omit editorial dates, update stamps and audit chronology.
-  Papers give the theorem, premises, evidence and nonclaims directly.
+  Papers give the theorem, premises, evidence and nonclaims directly. Replace a superseded estimate wherever it supports an active claim. Keep a competing calculation in a paper only when it is a valid control with a stated scientific purpose.
 - Keep `/docs` small: update the owning page, consolidate overlapping material,
   and place implementation-specific mathematics beside its code. Do not add
   individual run reports, duplicate status summaries or migration-only pages.

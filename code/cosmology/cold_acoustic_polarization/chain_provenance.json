@@ -1,0 +1,97 @@
+{
+  "archive": "https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/COM_CosmoParams_base-plikHM_R3.01.zip",
+  "channels": {
+    "TE": {
+      "chain_lengths": [
+        7530,
+        7530,
+        7513,
+        7311
+      ],
+      "sampled_density_prior_ranges": {
+        "omegabh2": [
+          0.005,
+          0.1
+        ],
+        "omegach2": [
+          0.001,
+          0.99
+        ]
+      },
+      "H0_prior_range": [
+        20,
+        100
+      ],
+      "sha256": {
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE.properties.ini": "7c77e31548960c720d6e384b89688314f826576d0849d945442362422d037892",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE.paramnames": "47622fc6adecaf1f8c5091475dbaf694b4469b7a9c924ba5cc6bbb24fb514766",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE_1.txt": "fec8909ea8ccd75db899ce5189ebeb91bdf8aae1d51b265c0aa2fa01f876d4e2",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE_2.txt": "38a6872d637d97dec7d152dbfe3ea08c18e4ce638bf673dff6b5c5dec5df90d1",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE_3.txt": "4ebb44975af01742279ce58d70138a0dff0e8b04708fa6da832a5e5823ec0342",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE_4.txt": "b5d50a1f52c2e3538adc30d8710312d7dd882378ec41073f7d19934c44496f6a",
+        "base/plikHM_TE_lowE/dist/base_plikHM_TE_lowE.margestats": "d4682e6c53cd08761249b7a1b4e84863b8792e8c35ba578a66867c730c69c320",
+        "base/plikHM_TE_lowE/dist/base_plikHM_TE_lowE.converge": "aca36c6d21e20d46f22bd0759a1f79a4bf3cc0f00db8c0d343dbb8e44d2b6c9d",
+        "base/plikHM_TE_lowE/base_plikHM_TE_lowE.inputparams": "4ca6b24d70d134a3488889fa08f7fba84156678f90458a85cc8eba2865346861"
+      },
+      "burn_removed": true,
+      "source_marginals": {
+        "omegabh2": {
+          "mean": 0.022485954,
+          "sd": 0.00025272938,
+          "reported_effective_sample_size": 2910
+        },
+        "omegach2": {
+          "mean": 0.11765971,
+          "sd": 0.0020140082,
+          "reported_effective_sample_size": 3016
+        }
+      }
+    },
+    "EE": {
+      "chain_lengths": [
+        7209,
+        7091,
+        7154,
+        7133
+      ],
+      "sampled_density_prior_ranges": {
+        "omegabh2": [
+          0.005,
+          0.1
+        ],
+        "omegach2": [
+          0.001,
+          0.99
+        ]
+      },
+      "H0_prior_range": [
+        20,
+        100
+      ],
+      "sha256": {
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE.properties.ini": "7c77e31548960c720d6e384b89688314f826576d0849d945442362422d037892",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE.paramnames": "f3a160f9801bd1d8164b230ba2ad6376e49ea44bce475ecbb4a96336f58a85b2",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE_1.txt": "ffe3c7cfda502b4bad9658a6a092c516a785391d2c375d3b171a56b0553349a9",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE_2.txt": "000a98a252983bf101a972aa7918b1f2dd62b5091fde1b4015a3effad541693c",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE_3.txt": "be7bbb4b8915ace8d791d1b4b72b60a9d794677702813ef97fe388d25de75e9c",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE_4.txt": "b75fccb428a54e16ea075f5b4face133245bc986fd3db3736a756722e2b836ce",
+        "base/plikHM_EE_lowE/dist/base_plikHM_EE_lowE.margestats": "0d48bba846d630f72ba90ef4e2aa868abad3b2fd7d5ea34c860826a076a343ab",
+        "base/plikHM_EE_lowE/dist/base_plikHM_EE_lowE.converge": "d28aa9ecfcf3a0ab065445a8231a7726b6eeda8a725ec86be4d0198fbc15c152",
+        "base/plikHM_EE_lowE/base_plikHM_EE_lowE.inputparams": "734586294e37ff0df7aaf1acffec883ba1ad66cab4b94c01e36f71a203b7d99c"
+      },
+      "burn_removed": true,
+      "source_marginals": {
+        "omegabh2": {
+          "mean": 0.023979193,
+          "sd": 0.0012050128,
+          "reported_effective_sample_size": 2600
+        },
+        "omegach2": {
+          "mean": 0.11579703,
+          "sd": 0.0046327599,
+          "reported_effective_sample_size": 2531
+        }
+      }
+    }
+  }
+}

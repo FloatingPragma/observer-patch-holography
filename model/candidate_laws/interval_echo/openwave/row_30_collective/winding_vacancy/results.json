@@ -1,0 +1,544 @@
+{
+  "contact_terms_in_eighths": {
+    "blank": [
+      68,
+      -4
+    ],
+    "even": [
+      -32,
+      -32
+    ],
+    "odd": [
+      -36,
+      -36
+    ]
+  },
+  "counts_sha256": "a32c5a60821c15ff7cf5685a0963ac3b84838dd87fe95b39b9cc372f18378eb7",
+  "impulse": {
+    "calibration_holds": 16,
+    "fitted_hopping": [
+      3.504594417441692,
+      0.4991792667925167
+    ],
+    "held_holds": 96,
+    "shots_per_hold": 262144,
+    "stocks": {
+      "alternating": {
+        "fitted_hopping": {
+          "max_even_error": 0.01462110854667066,
+          "max_port_error": 0.041982684807403955,
+          "passed": false
+        },
+        "lattice": {
+          "max_even_error": 0.0022943141538815555,
+          "max_port_error": 0.0019220381133338016,
+          "passed": true
+        }
+      },
+      "triple_blank_16": {
+        "fitted_hopping": {
+          "max_even_error": 0.42034551981808765,
+          "max_port_error": 0.6912183421177376,
+          "passed": false
+        },
+        "lattice": {
+          "max_even_error": 0.42041336410651275,
+          "max_port_error": 0.6919035244573815,
+          "passed": false
+        }
+      }
+    },
+    "tolerance": 0.015
+  },
+  "maximum_formation": 9.000000000000002,
+  "minimum_formation": 0.0004115232158250891,
+  "packets": [
+    {
+      "branch": -1,
+      "continuum_point_velocity": 0.11391435436223481,
+      "measured_velocity": 0.11341126759847005,
+      "passed": true,
+      "point_velocity": 0.11315766477852807,
+      "predicted_velocity": 0.111619684664161,
+      "q": 0.2,
+      "source_fringe_q": [
+        0.20026289729905156,
+        0.20368773918615946
+      ],
+      "spectral_weight": 0.9967743896098623
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": -0.11391435436223481,
+      "measured_velocity": -0.11393674214680989,
+      "passed": true,
+      "point_velocity": -0.11315766477852807,
+      "predicted_velocity": -0.111619684664161,
+      "q": 0.2,
+      "source_fringe_q": [
+        0.21771779339863928,
+        0.20668321848424942
+      ],
+      "spectral_weight": 0.9967743896098623
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": -0.11391435436223481,
+      "measured_velocity": -0.11283079783121745,
+      "passed": true,
+      "point_velocity": -0.11315766477852807,
+      "predicted_velocity": -0.11161968466416093,
+      "q": -0.2,
+      "source_fringe_q": [
+        -0.19940042921835543,
+        -0.19810814880290162
+      ],
+      "spectral_weight": 0.9967743896098619
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": 0.11391435436223481,
+      "measured_velocity": 0.1140896479288737,
+      "passed": true,
+      "point_velocity": 0.11315766477852807,
+      "predicted_velocity": 0.11161968466416093,
+      "q": -0.2,
+      "source_fringe_q": [
+        -0.18730768381325336,
+        -0.20814910652856133
+      ],
+      "spectral_weight": 0.9967743896098619
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": 0.2256432509306073,
+      "measured_velocity": 0.21950912475585938,
+      "passed": true,
+      "point_velocity": 0.2197111452053303,
+      "predicted_velocity": 0.21680043408834532,
+      "q": 0.4,
+      "source_fringe_q": [
+        0.40311038829204254,
+        0.4037448549943897
+      ],
+      "spectral_weight": 0.9968408518778746
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": -0.2256432509306073,
+      "measured_velocity": -0.2186396916707357,
+      "passed": true,
+      "point_velocity": -0.2197111452053303,
+      "predicted_velocity": -0.21680043408834532,
+      "q": 0.4,
+      "source_fringe_q": [
+        0.39808809720322824,
+        0.40356289215529867
+      ],
+      "spectral_weight": 0.9968408518778746
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": -0.2256432509306073,
+      "measured_velocity": -0.21911303202311197,
+      "passed": true,
+      "point_velocity": -0.2197111452053303,
+      "predicted_velocity": -0.21680043408834523,
+      "q": -0.4,
+      "source_fringe_q": [
+        -0.39314511683044373,
+        -0.41433889577753885
+      ],
+      "spectral_weight": 0.9968408518778747
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": 0.2256432509306073,
+      "measured_velocity": 0.21969095865885416,
+      "passed": true,
+      "point_velocity": 0.2197111452053303,
+      "predicted_velocity": 0.21680043408834523,
+      "q": -0.4,
+      "source_fringe_q": [
+        -0.3977552693689833,
+        -0.3880150243731212
+      ],
+      "spectral_weight": 0.9968408518778747
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": 0.3332048068842394,
+      "measured_velocity": 0.3090006510416667,
+      "passed": true,
+      "point_velocity": 0.31382762242271367,
+      "predicted_velocity": 0.3098338111001553,
+      "q": 0.6,
+      "source_fringe_q": [
+        0.6057370651170706,
+        0.5982164984737112
+      ],
+      "spectral_weight": 0.9969423270044396
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": -0.3332048068842394,
+      "measured_velocity": -0.3101342519124349,
+      "passed": true,
+      "point_velocity": -0.31382762242271367,
+      "predicted_velocity": -0.3098338111001553,
+      "q": 0.6,
+      "source_fringe_q": [
+        0.6063148533062056,
+        0.6051906634174716
+      ],
+      "spectral_weight": 0.9969423270044396
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": -0.3332048068842394,
+      "measured_velocity": -0.31073633829752606,
+      "passed": true,
+      "point_velocity": -0.31382762242271367,
+      "predicted_velocity": -0.3098338111001551,
+      "q": -0.6,
+      "source_fringe_q": [
+        -0.5897569877125589,
+        -0.5856406689003021
+      ],
+      "spectral_weight": 0.9969423270044395
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": 0.3332048068842394,
+      "measured_velocity": 0.30866463979085285,
+      "passed": true,
+      "point_velocity": 0.31382762242271367,
+      "predicted_velocity": 0.3098338111001551,
+      "q": -0.6,
+      "source_fringe_q": [
+        -0.5955526825454133,
+        -0.604505179361528
+      ],
+      "spectral_weight": 0.9969423270044395
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": 0.5298129428260175,
+      "measured_velocity": 0.4461161295572917,
+      "passed": true,
+      "point_velocity": 0.44836559633188305,
+      "predicted_velocity": 0.4432566737162583,
+      "q": 1,
+      "source_fringe_q": [
+        0.9962068473564495,
+        1.0011710290181617
+      ],
+      "spectral_weight": 0.997204649338143
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": -0.5298129428260175,
+      "measured_velocity": -0.4456237157185872,
+      "passed": true,
+      "point_velocity": -0.44836559633188305,
+      "predicted_velocity": -0.4432566737162583,
+      "q": 1,
+      "source_fringe_q": [
+        1.0058746809953492,
+        1.002366575902098
+      ],
+      "spectral_weight": 0.997204649338143
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": -0.5298129428260175,
+      "measured_velocity": -0.4461660385131836,
+      "passed": true,
+      "point_velocity": -0.44836559633188305,
+      "predicted_velocity": -0.44325667371625815,
+      "q": -1,
+      "source_fringe_q": [
+        -0.9984415900346685,
+        -1.0073595570263787
+      ],
+      "spectral_weight": 0.9972046493381429
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": 0.5298129428260175,
+      "measured_velocity": 0.44431273142496747,
+      "passed": true,
+      "point_velocity": 0.44836559633188305,
+      "predicted_velocity": 0.44325667371625815,
+      "q": -1,
+      "source_fringe_q": [
+        -0.9971100416482434,
+        -0.9934445895235618
+      ],
+      "spectral_weight": 0.9972046493381429
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": 0.7678034674652742,
+      "measured_velocity": 0.48873424530029297,
+      "passed": true,
+      "point_velocity": 0.49415467904604415,
+      "predicted_velocity": 0.48948200029477645,
+      "q": 1.6,
+      "source_fringe_q": [
+        1.6050539066964409,
+        1.5969137414587462
+      ],
+      "spectral_weight": 0.9975973882161916
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": -0.7678034674652742,
+      "measured_velocity": -0.4917532602945964,
+      "passed": true,
+      "point_velocity": -0.49415467904604415,
+      "predicted_velocity": -0.48948200029477645,
+      "q": 1.6,
+      "source_fringe_q": [
+        1.6014748741078573,
+        1.5888862119317133
+      ],
+      "spectral_weight": 0.9975973882161916
+    },
+    {
+      "branch": -1,
+      "continuum_point_velocity": -0.7678034674652742,
+      "measured_velocity": -0.49361292521158856,
+      "passed": true,
+      "point_velocity": -0.49415467904604415,
+      "predicted_velocity": -0.4894820002947765,
+      "q": -1.6,
+      "source_fringe_q": [
+        -1.602233526646019,
+        -1.6006830198075686
+      ],
+      "spectral_weight": 0.9975973882161917
+    },
+    {
+      "branch": 1,
+      "continuum_point_velocity": 0.7678034674652742,
+      "measured_velocity": 0.4915974934895833,
+      "passed": true,
+      "point_velocity": 0.49415467904604415,
+      "predicted_velocity": 0.4894820002947765,
+      "q": -1.6,
+      "source_fringe_q": [
+        -1.6160700128173562,
+        -1.6003779453532594
+      ],
+      "spectral_weight": 0.9975973882161917
+    }
+  ],
+  "physical_ports": [
+    1776,
+    1786,
+    1778,
+    1813,
+    1820,
+    1815,
+    1800,
+    1810,
+    1802,
+    1873,
+    1872,
+    1882,
+    1916,
+    1909,
+    1908,
+    1887,
+    1886,
+    1894,
+    1856,
+    1851,
+    1850,
+    1861,
+    1860,
+    1870,
+    1832,
+    1827,
+    1826,
+    3457,
+    3461,
+    3456,
+    2595,
+    2594,
+    2602,
+    2636,
+    2629,
+    2628,
+    2607,
+    2606,
+    2614,
+    2672,
+    2665,
+    2664,
+    2523,
+    2522,
+    2530,
+    2540,
+    2533,
+    2532,
+    2499,
+    2498,
+    2506,
+    2312,
+    2305,
+    2304,
+    2114,
+    2122,
+    2112,
+    2151,
+    2156,
+    2149,
+    2126,
+    2127,
+    2132,
+    1954,
+    1944,
+    1945,
+    2090,
+    2091,
+    2096,
+    2110,
+    2100,
+    2101,
+    2078,
+    2086,
+    2076,
+    2043,
+    2048,
+    2041,
+    2894,
+    2895,
+    2900,
+    3034,
+    3026,
+    3027,
+    2952,
+    2953,
+    2960,
+    2964,
+    2974,
+    2966,
+    2928,
+    2938,
+    2930,
+    1969,
+    1968,
+    1978,
+    2012,
+    2007,
+    2006,
+    1993,
+    2000,
+    1995,
+    2796,
+    2806,
+    2798,
+    2857,
+    2864,
+    2859,
+    2868,
+    2869,
+    2876,
+    2854,
+    2844,
+    2845,
+    2810,
+    2811,
+    2816,
+    3670,
+    3660,
+    3661,
+    3686,
+    3687,
+    3692,
+    3682,
+    3674,
+    3675,
+    3816,
+    3826,
+    3818,
+    3829,
+    3836,
+    3831,
+    3804,
+    3805,
+    3812,
+    3778,
+    3768,
+    3769,
+    3782,
+    3783,
+    3788,
+    3754,
+    3746,
+    3747
+  ],
+  "protocol_sha256": "1f45da04de263ebe1d3d165d09f934cb2db1d40cb539139888d64a1596b1096f",
+  "source_receipt": "5301ed528344e89a6115cda2bdcb99b3feccba28",
+  "stock": {
+    "all_motif_blank_bypasses_biconnected": true,
+    "compensator": 893,
+    "erased_private": 48,
+    "owners": 48,
+    "ports": 144,
+    "private_reference": 0
+  },
+  "transfer_traces": [
+    {
+      "denominator": "128",
+      "leading_numerator": "64",
+      "primitive_period": 2,
+      "trace_degree": 2
+    },
+    {
+      "denominator": "549755813888",
+      "leading_numerator": "68719476736",
+      "primitive_period": 12,
+      "trace_degree": 12
+    },
+    {
+      "denominator": "9007199254740992",
+      "leading_numerator": "281474976710656",
+      "primitive_period": 16,
+      "trace_degree": 16
+    },
+    {
+      "denominator": "1152921504606846976",
+      "leading_numerator": "18014398509481984",
+      "primitive_period": 18,
+      "trace_degree": 18
+    },
+    {
+      "denominator": "2417851639229258349412352",
+      "leading_numerator": "4722366482869645213696",
+      "primitive_period": 24,
+      "trace_degree": 24
+    },
+    {
+      "denominator": "10633823966279326983230456482242756608",
+      "leading_numerator": "324518553658426726783156020576256",
+      "primitive_period": 36,
+      "trace_degree": 36
+    },
+    {
+      "denominator": "46768052394588893382517914646921056628989841375232",
+      "leading_numerator": "22300745198530623141535718272648361505980416",
+      "primitive_period": 48,
+      "trace_degree": 48
+    },
+    {
+      "denominator": "904625697166532776746648320380374280103671755200316906558262375061821325312",
+      "leading_numerator": "105312291668557186697918027683670432318895095400549111254310977536",
+      "primitive_period": 72,
+      "trace_degree": 72
+    }
+  ],
+  "winding_states": 146
+}

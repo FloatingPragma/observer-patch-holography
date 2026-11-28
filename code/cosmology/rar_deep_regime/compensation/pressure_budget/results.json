@@ -1,0 +1,464 @@
+{
+  "radius_kpc": 291.07,
+  "mass_allowance": "twice each catalog bin ceiling",
+  "potential_gradient_bound": 0.001,
+  "compactness_bound": 0.001,
+  "caps": [
+    "3/7",
+    "17/80",
+    "17/82"
+  ],
+  "cases": {
+    "two_systematic_double_baryons": {
+      "supported_lens_factor": 1.002002002002002,
+      "additional_mass_over_baryons": [
+        6.344165816865295,
+        6.1045595869137435,
+        8.042715006553532,
+        5.398656320285845
+      ],
+      "closed_stock_layer_equivalents": {
+        "arbitrary_matching": [
+          7,
+          7,
+          9,
+          6
+        ],
+        "native_external_coherent": [
+          15,
+          15,
+          19,
+          13
+        ],
+        "native_external_sharp_quantum": [
+          30,
+          29,
+          38,
+          26
+        ],
+        "sharp_classical": [
+          31,
+          30,
+          39,
+          27
+        ]
+      },
+      "minimum_additional_mass_msun": [
+        374135039614.38245,
+        716261283137.739,
+        1917127767874.2053,
+        3143357684441.7754
+      ],
+      "missing_mass_equivalent_pa_at_R_equal_r": [
+        1.4702766794039852e-08,
+        2.8147651234239265e-08,
+        7.533932805247213e-08,
+        1.2352773755763429e-07
+      ],
+      "extra_25_percent_downward_optical_mass_dark_ratio": [
+        4.508124362648971,
+        4.328419690185307,
+        5.78203625491515,
+        3.7989922402143836
+      ]
+    },
+    "bonferroni_four_normal_95_double_baryons": {
+      "supported_lens_factor": 1.002002002002002,
+      "additional_mass_over_baryons": [
+        5.031815733759124,
+        5.286886739000166,
+        7.689268396714688,
+        5.263612229574653
+      ],
+      "closed_stock_layer_equivalents": {
+        "arbitrary_matching": [
+          6,
+          6,
+          8,
+          6
+        ],
+        "native_external_coherent": [
+          12,
+          13,
+          18,
+          13
+        ],
+        "native_external_sharp_quantum": [
+          24,
+          25,
+          37,
+          25
+        ],
+        "sharp_classical": [
+          25,
+          26,
+          38,
+          26
+        ]
+      },
+      "minimum_additional_mass_msun": [
+        291134732611.84717,
+        613077945383.1173,
+        1828135184106.4812,
+        3057948302203.0244
+      ],
+      "missing_mass_equivalent_pa_at_R_equal_r": [
+        1.1441018953073725e-08,
+        2.4092750218818487e-08,
+        7.184209559094031e-08,
+        1.2017131782647608e-07
+      ],
+      "extra_25_percent_downward_optical_mass_dark_ratio": [
+        3.5238618003193434,
+        3.715165054250124,
+        5.516951297536015,
+        3.697709172180989
+      ]
+    }
+  },
+  "commissioned_trails": [
+    {
+      "live_seams": 14,
+      "net_work": "425/4",
+      "incident": "101/2",
+      "conserved_ratio": "425/202",
+      "cases": {
+        "nominal": {
+          "maximum_equivalent_speed_kms": [
+            38.12187050437232,
+            53.84857335867271,
+            76.06313159349772,
+            120.55193945980844
+          ],
+          "compared_speed_kms": [
+            132.43,
+            169.03,
+            218.50000000000003,
+            267.81
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "two_systematic_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            53.91246629031419,
+            76.15338275827747,
+            107.56951229609392,
+            170.48618775444137
+          ],
+          "compared_speed_kms": [
+            82.92822137246164,
+            115.21252492676308,
+            183.60332241002612,
+            244.7797608055045
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "bonferroni_four_normal_95_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            53.91246629031419,
+            76.15338275827747,
+            107.56951229609392,
+            170.48618775444137
+          ],
+          "compared_speed_kms": [
+            75.1545271688562,
+            108.3799464566634,
+            179.97936695745048,
+            242.1829391984486
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      }
+    },
+    {
+      "live_seams": 32,
+      "net_work": "1037/4",
+      "incident": "101/2",
+      "conserved_ratio": "1037/202",
+      "cases": {
+        "nominal": {
+          "maximum_equivalent_speed_kms": [
+            53.58905325626249,
+            75.6965497052591,
+            106.92421845708083,
+            169.46346594185243
+          ],
+          "compared_speed_kms": [
+            132.43,
+            169.03,
+            218.50000000000003,
+            267.81
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "two_systematic_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            75.78636590974048,
+            107.05108721802654,
+            151.2136798881473,
+            239.6575318617188
+          ],
+          "compared_speed_kms": [
+            82.92822137246164,
+            115.21252492676308,
+            183.60332241002612,
+            244.7797608055045
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "bonferroni_four_normal_95_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            75.78636590974048,
+            107.05108721802654,
+            151.2136798881473,
+            239.6575318617188
+          ],
+          "compared_speed_kms": [
+            75.1545271688562,
+            108.3799464566634,
+            179.97936695745048,
+            242.1829391984486
+          ],
+          "can_supply_optical_lower_mass": [
+            true,
+            false,
+            false,
+            false
+          ]
+        }
+      }
+    },
+    {
+      "live_seams": 64,
+      "net_work": "2125/4",
+      "incident": "101/2",
+      "conserved_ratio": "2125/202",
+      "cases": {
+        "nominal": {
+          "maximum_equivalent_speed_kms": [
+            73.44100697576505,
+            103.73817966816982,
+            146.53407359211056,
+            232.24085569973195
+          ],
+          "compared_speed_kms": [
+            132.43,
+            169.03,
+            218.50000000000003,
+            267.81
+          ],
+          "can_supply_optical_lower_mass": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "two_systematic_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            103.86126809946401,
+            146.7079406226226,
+            207.23047422373995,
+            328.43816786769383
+          ],
+          "compared_speed_kms": [
+            82.92822137246164,
+            115.21252492676308,
+            183.60332241002612,
+            244.7797608055045
+          ],
+          "can_supply_optical_lower_mass": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "bonferroni_four_normal_95_double_baryons": {
+          "maximum_equivalent_speed_kms": [
+            103.86126809946401,
+            146.7079406226226,
+            207.23047422373995,
+            328.43816786769383
+          ],
+          "compared_speed_kms": [
+            75.1545271688562,
+            108.3799464566634,
+            179.97936695745048,
+            242.1829391984486
+          ],
+          "can_supply_optical_lower_mass": [
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      }
+    }
+  ],
+  "smooth_stress_checks": [
+    {
+      "r": 0.5,
+      "w": 0.0,
+      "mass_inside": 0.04051932635383402,
+      "lens_inside": 0.04051932635383402,
+      "traction_mass": 0.0,
+      "exterior_mass": 0.959480673646166
+    },
+    {
+      "r": 0.5,
+      "w": 0.5,
+      "mass_inside": 0.04051932635383402,
+      "lens_inside": 0.06598411724853728,
+      "traction_mass": 0.025464790894703257,
+      "exterior_mass": 0.959480673646166
+    },
+    {
+      "r": 0.5,
+      "w": 1.0,
+      "mass_inside": 0.04051932635383402,
+      "lens_inside": 0.09144890814324053,
+      "traction_mass": 0.050929581789406514,
+      "exterior_mass": 0.959480673646166
+    },
+    {
+      "r": 1.0,
+      "w": 0.0,
+      "mass_inside": 0.1816901138162093,
+      "lens_inside": 0.1816901138162093,
+      "traction_mass": 0.0,
+      "exterior_mass": 0.8183098861837907
+    },
+    {
+      "r": 1.0,
+      "w": 0.5,
+      "mass_inside": 0.1816901138162093,
+      "lens_inside": 0.261267585362157,
+      "traction_mass": 0.07957747154594767,
+      "exterior_mass": 0.8183098861837907
+    },
+    {
+      "r": 1.0,
+      "w": 1.0,
+      "mass_inside": 0.1816901138162093,
+      "lens_inside": 0.3408450569081047,
+      "traction_mass": 0.15915494309189535,
+      "exterior_mass": 0.8183098861837907
+    },
+    {
+      "r": 2.0,
+      "w": 0.0,
+      "mass_inside": 0.450184855752101,
+      "lens_inside": 0.450184855752101,
+      "traction_mass": 0.0,
+      "exterior_mass": 0.549815144247899
+    },
+    {
+      "r": 2.0,
+      "w": 0.5,
+      "mass_inside": 0.450184855752101,
+      "lens_inside": 0.5520440193309141,
+      "traction_mass": 0.10185916357881303,
+      "exterior_mass": 0.549815144247899
+    },
+    {
+      "r": 2.0,
+      "w": 1.0,
+      "mass_inside": 0.450184855752101,
+      "lens_inside": 0.653903182909727,
+      "traction_mass": 0.20371832715762606,
+      "exterior_mass": 0.549815144247899
+    },
+    {
+      "r": 4.0,
+      "w": 0.0,
+      "mass_inside": 0.6942488516293599,
+      "lens_inside": 0.6942488516293599,
+      "traction_mass": 0.0,
+      "exterior_mass": 0.3057511483706401
+    },
+    {
+      "r": 4.0,
+      "w": 0.5,
+      "mass_inside": 0.6942488516293599,
+      "lens_inside": 0.7647396222721371,
+      "traction_mass": 0.07049077064277719,
+      "exterior_mass": 0.3057511483706401
+    },
+    {
+      "r": 4.0,
+      "w": 1.0,
+      "mass_inside": 0.6942488516293599,
+      "lens_inside": 0.8352303929149143,
+      "traction_mass": 0.14098154128555437,
+      "exterior_mass": 0.3057511483706401
+    },
+    {
+      "r": 10.0,
+      "w": 0.0,
+      "mass_inside": 0.8735173045084391,
+      "lens_inside": 0.8735173045084391,
+      "traction_mass": 0.0,
+      "exterior_mass": 0.12648269549156088
+    },
+    {
+      "r": 10.0,
+      "w": 0.5,
+      "mass_inside": 0.8735173045084391,
+      "lens_inside": 0.9047210968997527,
+      "traction_mass": 0.031203792391313663,
+      "exterior_mass": 0.12648269549156088
+    },
+    {
+      "r": 10.0,
+      "w": 1.0,
+      "mass_inside": 0.8735173045084391,
+      "lens_inside": 0.9359248892910664,
+      "traction_mass": 0.062407584782627326,
+      "exterior_mass": 0.12648269549156088
+    }
+  ],
+  "externally_confined_checks": [
+    {
+      "pressure_fraction": 0.0,
+      "lens_over_mass": 1.0,
+      "boundary_over_mass": 0.0
+    },
+    {
+      "pressure_fraction": 0.5,
+      "lens_over_mass": 1.75,
+      "boundary_over_mass": 0.75
+    },
+    {
+      "pressure_fraction": 1.0,
+      "lens_over_mass": 2.5,
+      "boundary_over_mass": 1.5
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "protocol_sha256": "9053ed5088178c9c26b964c2c213d153d6ecbeb207224992587231cf52a671c4",
+  "chart_side": 25,
+  "survival": 0.875,
+  "uniform_injection_per_site_per_active_cell": 0.0009765625,
+  "galaxy_injection_at_one_site": 0.25,
+  "reference_pairing": 0.5,
+  "native_return_contrast": -0.014370365536930434,
+  "chart_radii": [
+    1,
+    2,
+    4
+  ],
+  "panels": [
+    {
+      "board_cells": 80,
+      "subdivision_length": 2,
+      "switched_region_cells": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11
+      ],
+      "galaxy_cell": 7,
+      "outside_boundary_edges": 12,
+      "interior_edges": 6,
+      "policies": {
+        "whole_face": {
+          "cut_counts_for_two_words": [
+            6,
+            6
+          ],
+          "active_cells_each_word": 4,
+          "mean_background_charge": 4.201403924338754e-09,
+          "mean_total_charge": 4.605434601331514e-09,
+          "inward_peculiar_acceleration": [
+            6.765536301857623e-06,
+            2.2191433813453732e-06,
+            4.449459957202034e-07
+          ],
+          "surface_density_contrast": [
+            1.0086954083369953e-06,
+            4.708157089595164e-07,
+            1.2875624951155128e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 0.0
+        },
+        "staggered": {
+          "cut_counts_for_two_words": [
+            12,
+            12
+          ],
+          "active_cells_each_word": 4,
+          "mean_background_charge": 8.402807848677509e-09,
+          "mean_total_charge": 8.806838525670269e-09,
+          "inward_peculiar_acceleration": [
+            6.765536301857619e-06,
+            2.2191433813453732e-06,
+            4.449459957202032e-07
+          ],
+          "surface_density_contrast": [
+            1.0086954083369946e-06,
+            4.7081570895951625e-07,
+            1.2875624951155117e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 6.0
+        }
+      },
+      "background_ratio": 2.0,
+      "full_mean_ratio": 1.9122708903789563,
+      "maximum_peculiar_acceleration_difference": 3.3881317890172014e-21,
+      "maximum_enrolled_shear_difference": 6.352747104407253e-22
+    },
+    {
+      "board_cells": 320,
+      "subdivision_length": 4,
+      "switched_region_cells": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "galaxy_cell": 19,
+      "outside_boundary_edges": 24,
+      "interior_edges": 36,
+      "policies": {
+        "whole_face": {
+          "cut_counts_for_two_words": [
+            12,
+            12
+          ],
+          "active_cells_each_word": 16,
+          "mean_background_charge": 8.402807848677509e-09,
+          "mean_total_charge": 8.806838525670269e-09,
+          "inward_peculiar_acceleration": [
+            6.765536301857619e-06,
+            2.2191433813453732e-06,
+            4.449459957202032e-07
+          ],
+          "surface_density_contrast": [
+            1.0086954083369946e-06,
+            4.7081570895951625e-07,
+            1.2875624951155117e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 0.0
+        },
+        "staggered": {
+          "cut_counts_for_two_words": [
+            48,
+            48
+          ],
+          "active_cells_each_word": 16,
+          "mean_background_charge": 3.3611231394710034e-08,
+          "mean_total_charge": 3.4015262071702796e-08,
+          "inward_peculiar_acceleration": [
+            6.765536301857623e-06,
+            2.219143381345374e-06,
+            4.449459957202034e-07
+          ],
+          "surface_density_contrast": [
+            1.0086954083369955e-06,
+            4.708157089595165e-07,
+            1.287562495115512e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 36.0
+        }
+      },
+      "background_ratio": 4.0,
+      "full_mean_ratio": 3.862369222798254,
+      "maximum_peculiar_acceleration_difference": 3.3881317890172014e-21,
+      "maximum_enrolled_shear_difference": 8.470329472543003e-22
+    },
+    {
+      "board_cells": 1280,
+      "subdivision_length": 8,
+      "switched_region_cells": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191
+      ],
+      "galaxy_cell": 67,
+      "outside_boundary_edges": 48,
+      "interior_edges": 168,
+      "policies": {
+        "whole_face": {
+          "cut_counts_for_two_words": [
+            24,
+            24
+          ],
+          "active_cells_each_word": 64,
+          "mean_background_charge": 1.6805615697355017e-08,
+          "mean_total_charge": 1.7209646374347776e-08,
+          "inward_peculiar_acceleration": [
+            6.765536301857619e-06,
+            2.2191433813453732e-06,
+            4.449459957202032e-07
+          ],
+          "surface_density_contrast": [
+            1.008695408336995e-06,
+            4.7081570895951646e-07,
+            1.2875624951155114e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 0.0
+        },
+        "staggered": {
+          "cut_counts_for_two_words": [
+            192,
+            192
+          ],
+          "active_cells_each_word": 64,
+          "mean_background_charge": 1.3444492557884014e-07,
+          "mean_total_charge": 1.3484895625583287e-07,
+          "inward_peculiar_acceleration": [
+            6.765536301857621e-06,
+            2.2191433813453732e-06,
+            4.449459957202027e-07
+          ],
+          "surface_density_contrast": [
+            1.008695408336995e-06,
+            4.7081570895951683e-07,
+            1.2875624951155151e-07
+          ],
+          "mean_number_of_disagreeing_internal_neighbours": 168.0
+        }
+      },
+      "background_ratio": 8.0,
+      "full_mean_ratio": 7.835661077663688,
+      "maximum_peculiar_acceleration_difference": 1.6940658945086007e-21,
+      "maximum_enrolled_shear_difference": 3.705769144237564e-22
+    }
+  ]
+}

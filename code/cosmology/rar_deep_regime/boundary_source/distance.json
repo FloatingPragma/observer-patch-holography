@@ -1,0 +1,144 @@
+{
+  "1": {
+    "galaxies": {
+      "NGC3521": {
+        "distance_mpc": 11.3,
+        "distance_range": [
+          10.200000000000001,
+          12.4
+        ],
+        "orbit_kpc": 26.034025974025976,
+        "edge_kpc": 16.421962616822434,
+        "mass_msun": 78046605119.98068,
+        "S": 34828410024.77625,
+        "F": 0.8629150395663789,
+        "Y": 23210.443876222726,
+        "S_envelope": [
+          29906458531.039616,
+          41924577450.699
+        ],
+        "Y_box": [
+          15596.428384042378,
+          32263.3288136262
+        ],
+        "required_gain": 6.664227238542118e-07,
+        "gain_envelope": [
+          3.7201158204594717e-07,
+          1.0788080701745549e-06
+        ],
+        "catalogue_minus_profile_atomic_He_msun": 5148411642.334527,
+        "all_catalogue_stars_at_0p7_plus_gas_minus_measured_stars_atomic_msun": 66073136031.58766
+      },
+      "NGC3198": {
+        "distance_mpc": 13.8,
+        "distance_range": [
+          12.702204090193765,
+          14.992673605915504
+        ],
+        "orbit_kpc": 44.08,
+        "edge_kpc": 15.45,
+        "mass_msun": 19657977246.69804,
+        "S": 6053164176.899424,
+        "F": 0.8859669517034536,
+        "Y": 17973.992352813042,
+        "S_envelope": [
+          5352850157.022604,
+          6905875427.381849
+        ],
+        "Y_box": [
+          16113.379568441276,
+          20037.350377304192
+        ],
+        "required_gain": 2.969354841127034e-06,
+        "gain_envelope": [
+          2.333285582382735e-06,
+          3.7433049290603517e-06
+        ],
+        "catalogue_minus_profile_atomic_He_msun": 10380741225.483398,
+        "all_catalogue_stars_at_0p7_plus_gas_minus_measured_stars_atomic_msun": 22321061989.086723
+      }
+    },
+    "S_ratio": 5.753752749296187,
+    "sqrt_mass_ratio": 1.992542504208528,
+    "SF_ratio": 5.6040462590256315,
+    "Y_ratio": 1.2913349143931367,
+    "required_gain_ratio_envelope": [
+      0.09938051777666157,
+      0.46235577775819603
+    ],
+    "central_missing_S_required_for_NGC3198_if_no_added_NGC3521": 20917693372.587555,
+    "central_minimum_monotone_tail_mass_msun": 323178362606.4777,
+    "central_minimum_arbitrary_annuli_mass_at_0p8kpc_msun": 8367077349.035023
+  },
+  "2": {
+    "galaxies": {
+      "NGC3521": {
+        "distance_mpc": 11.3,
+        "distance_range": [
+          9.100000000000001,
+          13.5
+        ],
+        "orbit_kpc": 26.034025974025976,
+        "edge_kpc": 16.421962616822434,
+        "mass_msun": 78046605119.98068,
+        "S": 34828410024.77625,
+        "F": 0.8629150395663789,
+        "Y": 23210.443876222726,
+        "S_envelope": [
+          26051229744.549778,
+          45643693192.29326
+        ],
+        "Y_box": [
+          9069.201354486053,
+          43255.18834559676
+        ],
+        "required_gain": 6.664227238542118e-07,
+        "gain_envelope": [
+          1.9869560765554677e-07,
+          1.6603895006010705e-06
+        ],
+        "catalogue_minus_profile_atomic_He_msun": 5148411642.334527,
+        "all_catalogue_stars_at_0p7_plus_gas_minus_measured_stars_atomic_msun": 66073136031.58766
+      },
+      "NGC3198": {
+        "distance_mpc": 13.8,
+        "distance_range": [
+          11.691738315140231,
+          16.28842477199387
+        ],
+        "orbit_kpc": 44.08,
+        "edge_kpc": 15.45,
+        "mass_msun": 19657977246.69804,
+        "S": 6053164176.899424,
+        "F": 0.8859669517034536,
+        "Y": 17973.992352813042,
+        "S_envelope": [
+          4880667539.576209,
+          7502720017.815094
+        ],
+        "Y_box": [
+          14418.363165173323,
+          22348.843573129954
+        ],
+        "required_gain": 2.969354841127034e-06,
+        "gain_envelope": [
+          1.9217514622613053e-06,
+          4.579054687070637e-06
+        ],
+        "catalogue_minus_profile_atomic_He_msun": 10380741225.483398,
+        "all_catalogue_stars_at_0p7_plus_gas_minus_measured_stars_atomic_msun": 22321061989.086723
+      }
+    },
+    "S_ratio": 5.753752749296187,
+    "sqrt_mass_ratio": 1.992542504208528,
+    "SF_ratio": 5.6040462590256315,
+    "Y_ratio": 1.2913349143931367,
+    "required_gain_ratio_envelope": [
+      0.043392276623509494,
+      0.863998041998265
+    ],
+    "central_missing_S_required_for_NGC3198_if_no_added_NGC3521": 20917693372.587555,
+    "central_minimum_monotone_tail_mass_msun": 323178362606.4777,
+    "central_minimum_arbitrary_annuli_mass_at_0p8kpc_msun": 8367077349.035023
+  }
+}

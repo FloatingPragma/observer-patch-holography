@@ -1,0 +1,219 @@
+{
+  "protocol_sha256": "f670f9e1f424d97a301108f705b77684e8eb97f0d2e348a1222858c02fd606bc",
+  "seed": 437111,
+  "trials": 67108864,
+  "clock_yes": [
+    51679820,
+    19585464
+  ],
+  "yes_counts": [
+    [
+      [
+        55843265,
+        28677782
+      ],
+      [
+        51673906,
+        25670830
+      ]
+    ],
+    [
+      [
+        40171913,
+        45436160
+      ],
+      [
+        17260614,
+        36759804
+      ]
+    ],
+    [
+      [
+        13881119,
+        20842743
+      ],
+      [
+        2599860,
+        5476896
+      ]
+    ]
+  ],
+  "probabilities": [
+    [
+      [
+        0.8321139140523524,
+        0.4273121785732478
+      ],
+      [
+        0.7700123016760574,
+        0.38258567189169845
+      ]
+    ],
+    [
+      [
+        0.5986195887350061,
+        0.6770653868846308
+      ],
+      [
+        0.2572323584656816,
+        0.5477555495016845
+      ]
+    ],
+    [
+      [
+        0.2068186773413218,
+        0.31058415073875956
+      ],
+      [
+        0.038728371191437086,
+        0.0815780310128469
+      ]
+    ]
+  ],
+  "source_free_kinetic_interval": [
+    0.4938562775182904,
+    0.506187089244433
+  ],
+  "joint_probability_half_width": 0.00024700301274443017,
+  "direct_amplitude_residual": 1.2878591871095e-13,
+  "rows": [
+    {
+      "shell": 1,
+      "appointment": 1,
+      "forecast": [
+        0.9991153918785305,
+        0.5297292043274099
+      ],
+      "measured": [
+        0.832129493355751,
+        0.4273322522640228
+      ],
+      "comparison_half_width": 0.0006312452343028475,
+      "excluded_components": [
+        true,
+        true
+      ],
+      "signed_fringe_length": 0.6799723580198462,
+      "length_interval": [
+        0.6793842849596788,
+        0.6805606401047439
+      ],
+      "pure_phase_excluded": true
+    },
+    {
+      "shell": 1,
+      "appointment": 2,
+      "forecast": [
+        0.9964651370410071,
+        0.5593495383541774
+      ],
+      "measured": [
+        0.7700012028217316,
+        0.38252517580986023
+      ],
+      "comparison_half_width": 0.0009966859581429306,
+      "excluded_components": [
+        true,
+        true
+      ],
+      "signed_fringe_length": 0.5889006158722746,
+      "length_interval": [
+        0.5882505941266403,
+        0.5895507488138372
+      ],
+      "pure_phase_excluded": true
+    },
+    {
+      "shell": 2,
+      "appointment": 1,
+      "forecast": [
+        0.5937210605716211,
+        0.9911378246534577
+      ],
+      "measured": [
+        0.5986081510782242,
+        0.6770515441894531
+      ],
+      "comparison_half_width": 0.009174273152143631,
+      "excluded_components": [
+        false,
+        true
+      ],
+      "signed_fringe_length": 0.40531872277967007,
+      "length_interval": [
+        0.4046468150348682,
+        0.40599072073316667
+      ],
+      "pure_phase_excluded": true
+    },
+    {
+      "shell": 2,
+      "appointment": 2,
+      "forecast": [
+        0.035166225372235405,
+        0.6841997881793151
+      ],
+      "measured": [
+        0.25720319151878357,
+        0.5477637648582458
+      ],
+      "comparison_half_width": 0.017664719747071,
+      "excluded_components": [
+        true,
+        true
+      ],
+      "signed_fringe_length": 0.49490066656693155,
+      "length_interval": [
+        0.4943207492674193,
+        0.4954808901948655
+      ],
+      "pure_phase_excluded": true
+    },
+    {
+      "shell": 3,
+      "appointment": 1,
+      "forecast": [
+        0.5022913503006192,
+        0.999994749686234
+      ],
+      "measured": [
+        0.20684479176998138,
+        0.3105810731649399
+      ],
+      "comparison_half_width": 0.01036248475482331,
+      "excluded_components": [
+        true,
+        true
+      ],
+      "signed_fringe_length": 0.6980530236471479,
+      "length_interval": [
+        0.6973700121061726,
+        0.6987360660712321
+      ],
+      "pure_phase_excluded": true
+    },
+    {
+      "shell": 3,
+      "appointment": 2,
+      "forecast": [
+        2.1903799170164273e-05,
+        0.5046800982247956
+      ],
+      "measured": [
+        0.03874093294143677,
+        0.08161211013793945
+      ],
+      "comparison_half_width": 0.01998300213269948,
+      "excluded_components": [
+        true,
+        true
+      ],
+      "signed_fringe_length": 1.245485211998864,
+      "length_interval": [
+        1.2447874106865295,
+        1.2461830142398223
+      ],
+      "pure_phase_excluded": true
+    }
+  ]
+}

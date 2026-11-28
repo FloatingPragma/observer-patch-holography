@@ -1,0 +1,737 @@
+{
+  "sha256": {
+    "clock_release.json": "e9e1b09c44b2147acd307d989bd2969e85444317e89e5075c0dca69d49d8c02a",
+    "renewal_clock.json": "48f9c437e1b4a784f11b711b37aa1525ee6976f917c5a660de62793983a8fcb3"
+  },
+  "clean_ports": 232,
+  "edges": 587,
+  "nonzero_weight_local_restrictions_checked": 4026,
+  "readers": {
+    "1": {
+      "classification": {
+        "both_silent": 543,
+        "clock_only": 8,
+        "release_only": 0,
+        "opposite": 36,
+        "same": 0
+      },
+      "nonzero_edges": [
+        {
+          "ports": [
+            0,
+            1
+          ],
+          "extra_log_period_contrast": -0.012147302274263447,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            0,
+            7
+          ],
+          "extra_log_period_contrast": -0.02304645672071703,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            1,
+            5
+          ],
+          "extra_log_period_contrast": 0.012147302274263447,
+          "extra_inward_release_acceleration": "-9/616"
+        },
+        {
+          "ports": [
+            1,
+            7
+          ],
+          "extra_log_period_contrast": -0.010899154446453584,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            9
+          ],
+          "extra_log_period_contrast": -0.01089915444645351,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "extra_log_period_contrast": 0.012147302274263447,
+          "extra_inward_release_acceleration": "-9/616"
+        },
+        {
+          "ports": [
+            2,
+            3
+          ],
+          "extra_log_period_contrast": -0.012147302274263447,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            2,
+            6
+          ],
+          "extra_log_period_contrast": -0.02304645672071703,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            3,
+            4
+          ],
+          "extra_log_period_contrast": 0.012147302274263447,
+          "extra_inward_release_acceleration": "-9/616"
+        },
+        {
+          "ports": [
+            3,
+            6
+          ],
+          "extra_log_period_contrast": -0.010899154446453584,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            9
+          ],
+          "extra_log_period_contrast": -0.01089915444645351,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "extra_log_period_contrast": 0.012147302274263447,
+          "extra_inward_release_acceleration": "-9/616"
+        },
+        {
+          "ports": [
+            4,
+            9
+          ],
+          "extra_log_period_contrast": -0.023046456720716958,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            5,
+            9
+          ],
+          "extra_log_period_contrast": -0.023046456720716958,
+          "extra_inward_release_acceleration": "9/616"
+        },
+        {
+          "ports": [
+            12,
+            13
+          ],
+          "extra_log_period_contrast": -0.12213308124200523,
+          "extra_inward_release_acceleration": "3/56"
+        },
+        {
+          "ports": [
+            12,
+            19
+          ],
+          "extra_log_period_contrast": -0.12213308124200523,
+          "extra_inward_release_acceleration": "3/56"
+        },
+        {
+          "ports": [
+            13,
+            17
+          ],
+          "extra_log_period_contrast": 0.12213308124200523,
+          "extra_inward_release_acceleration": "-3/56"
+        },
+        {
+          "ports": [
+            15,
+            16
+          ],
+          "extra_log_period_contrast": 0.12213308124200523,
+          "extra_inward_release_acceleration": "-3/56"
+        },
+        {
+          "ports": [
+            16,
+            21
+          ],
+          "extra_log_period_contrast": -0.1221330812420051,
+          "extra_inward_release_acceleration": "3/56"
+        },
+        {
+          "ports": [
+            17,
+            21
+          ],
+          "extra_log_period_contrast": -0.1221330812420051,
+          "extra_inward_release_acceleration": "3/56"
+        },
+        {
+          "ports": [
+            18,
+            22
+          ],
+          "extra_log_period_contrast": 0.12213308124200523,
+          "extra_inward_release_acceleration": "-3/56"
+        },
+        {
+          "ports": [
+            19,
+            22
+          ],
+          "extra_log_period_contrast": 0.12213308124200523,
+          "extra_inward_release_acceleration": "-3/56"
+        },
+        {
+          "ports": [
+            25,
+            29
+          ],
+          "extra_log_period_contrast": -0.06880705215283338,
+          "extra_inward_release_acceleration": "43/1078"
+        },
+        {
+          "ports": [
+            26,
+            27
+          ],
+          "extra_log_period_contrast": 0.06880705215283338,
+          "extra_inward_release_acceleration": "-43/1078"
+        },
+        {
+          "ports": [
+            26,
+            30
+          ],
+          "extra_log_period_contrast": 0.06880705215283338,
+          "extra_inward_release_acceleration": "-43/1078"
+        },
+        {
+          "ports": [
+            27,
+            28
+          ],
+          "extra_log_period_contrast": -0.06880705215283338,
+          "extra_inward_release_acceleration": "43/1078"
+        },
+        {
+          "ports": [
+            28,
+            33
+          ],
+          "extra_log_period_contrast": 0.06880705215283336,
+          "extra_inward_release_acceleration": "-43/1078"
+        },
+        {
+          "ports": [
+            29,
+            33
+          ],
+          "extra_log_period_contrast": 0.06880705215283336,
+          "extra_inward_release_acceleration": "-43/1078"
+        },
+        {
+          "ports": [
+            30,
+            34
+          ],
+          "extra_log_period_contrast": -0.06880705215283338,
+          "extra_inward_release_acceleration": "43/1078"
+        },
+        {
+          "ports": [
+            31,
+            34
+          ],
+          "extra_log_period_contrast": -0.06880705215283338,
+          "extra_inward_release_acceleration": "43/1078"
+        },
+        {
+          "ports": [
+            36,
+            37
+          ],
+          "extra_log_period_contrast": 0.04145148929179228,
+          "extra_inward_release_acceleration": "-107/2156"
+        },
+        {
+          "ports": [
+            36,
+            43
+          ],
+          "extra_log_period_contrast": 0.07898656603874095,
+          "extra_inward_release_acceleration": "-107/2156"
+        },
+        {
+          "ports": [
+            37,
+            41
+          ],
+          "extra_log_period_contrast": -0.04145148929179228,
+          "extra_inward_release_acceleration": "107/2156"
+        },
+        {
+          "ports": [
+            37,
+            43
+          ],
+          "extra_log_period_contrast": 0.03753507674694867,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            45
+          ],
+          "extra_log_period_contrast": 0.037535076746948656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            50
+          ],
+          "extra_log_period_contrast": -0.04145148929179228,
+          "extra_inward_release_acceleration": "107/2156"
+        },
+        {
+          "ports": [
+            38,
+            39
+          ],
+          "extra_log_period_contrast": 0.04145148929179228,
+          "extra_inward_release_acceleration": "-107/2156"
+        },
+        {
+          "ports": [
+            38,
+            42
+          ],
+          "extra_log_period_contrast": 0.07898656603874095,
+          "extra_inward_release_acceleration": "-107/2156"
+        },
+        {
+          "ports": [
+            39,
+            40
+          ],
+          "extra_log_period_contrast": -0.04145148929179228,
+          "extra_inward_release_acceleration": "107/2156"
+        },
+        {
+          "ports": [
+            39,
+            42
+          ],
+          "extra_log_period_contrast": 0.03753507674694867,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            45
+          ],
+          "extra_log_period_contrast": 0.037535076746948656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            104
+          ],
+          "extra_log_period_contrast": -0.04145148929179228,
+          "extra_inward_release_acceleration": "107/2156"
+        },
+        {
+          "ports": [
+            40,
+            45
+          ],
+          "extra_log_period_contrast": 0.07898656603874094,
+          "extra_inward_release_acceleration": "-107/2156"
+        },
+        {
+          "ports": [
+            41,
+            45
+          ],
+          "extra_log_period_contrast": 0.07898656603874094,
+          "extra_inward_release_acceleration": "-107/2156"
+        }
+      ]
+    },
+    "2": {
+      "classification": {
+        "both_silent": 543,
+        "clock_only": 44,
+        "release_only": 0,
+        "opposite": 0,
+        "same": 0
+      },
+      "nonzero_edges": [
+        {
+          "ports": [
+            0,
+            1
+          ],
+          "extra_log_period_contrast": -0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            0,
+            7
+          ],
+          "extra_log_period_contrast": -0.0033306600403640078,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            5
+          ],
+          "extra_log_period_contrast": 0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            7
+          ],
+          "extra_log_period_contrast": -0.0012472145248877422,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            9
+          ],
+          "extra_log_period_contrast": -0.0012472145248877422,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "extra_log_period_contrast": 0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            2,
+            3
+          ],
+          "extra_log_period_contrast": -0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            2,
+            6
+          ],
+          "extra_log_period_contrast": -0.0033306600403640078,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            4
+          ],
+          "extra_log_period_contrast": 0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            6
+          ],
+          "extra_log_period_contrast": -0.0012472145248877422,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            9
+          ],
+          "extra_log_period_contrast": -0.0012472145248877422,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "extra_log_period_contrast": 0.0020834455154762656,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            4,
+            9
+          ],
+          "extra_log_period_contrast": -0.0033306600403640078,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            5,
+            9
+          ],
+          "extra_log_period_contrast": -0.0033306600403640078,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            12,
+            13
+          ],
+          "extra_log_period_contrast": -0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            12,
+            19
+          ],
+          "extra_log_period_contrast": -0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            13,
+            17
+          ],
+          "extra_log_period_contrast": 0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            15,
+            16
+          ],
+          "extra_log_period_contrast": 0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            16,
+            21
+          ],
+          "extra_log_period_contrast": -0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            17,
+            21
+          ],
+          "extra_log_period_contrast": -0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            18,
+            22
+          ],
+          "extra_log_period_contrast": 0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            19,
+            22
+          ],
+          "extra_log_period_contrast": 0.012780124558263481,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            25,
+            29
+          ],
+          "extra_log_period_contrast": -0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            26,
+            27
+          ],
+          "extra_log_period_contrast": 0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            26,
+            30
+          ],
+          "extra_log_period_contrast": 0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            27,
+            28
+          ],
+          "extra_log_period_contrast": -0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            28,
+            33
+          ],
+          "extra_log_period_contrast": 0.009206695815895439,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            29,
+            33
+          ],
+          "extra_log_period_contrast": 0.009206695815895439,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            30,
+            34
+          ],
+          "extra_log_period_contrast": -0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            31,
+            34
+          ],
+          "extra_log_period_contrast": -0.009206695815895444,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            36,
+            37
+          ],
+          "extra_log_period_contrast": 0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            36,
+            43
+          ],
+          "extra_log_period_contrast": 0.011327554916008023,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            41
+          ],
+          "extra_log_period_contrast": -0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            43
+          ],
+          "extra_log_period_contrast": 0.004245040131238708,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            45
+          ],
+          "extra_log_period_contrast": 0.004245040131238708,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            37,
+            50
+          ],
+          "extra_log_period_contrast": -0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            38,
+            39
+          ],
+          "extra_log_period_contrast": 0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            38,
+            42
+          ],
+          "extra_log_period_contrast": 0.011327554916008023,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            40
+          ],
+          "extra_log_period_contrast": -0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            42
+          ],
+          "extra_log_period_contrast": 0.004245040131238708,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            45
+          ],
+          "extra_log_period_contrast": 0.004245040131238708,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            39,
+            104
+          ],
+          "extra_log_period_contrast": -0.007082514784769315,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            40,
+            45
+          ],
+          "extra_log_period_contrast": 0.011327554916008023,
+          "extra_inward_release_acceleration": "0"
+        },
+        {
+          "ports": [
+            41,
+            45
+          ],
+          "extra_log_period_contrast": 0.011327554916008023,
+          "extra_inward_release_acceleration": "0"
+        }
+      ]
+    }
+  }
+}

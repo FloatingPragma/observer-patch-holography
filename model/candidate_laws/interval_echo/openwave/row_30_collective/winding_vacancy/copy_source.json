@@ -1,0 +1,931 @@
+{
+  "filters": [
+    {
+      "records": [
+        {
+          "accepted": 0.9999999999999736,
+          "conditional_target_weight": 0.005952380952380976,
+          "ideal_diagnostic_counts": [
+            24841,
+            4169463,
+            0
+          ],
+          "pass_both": false,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  4194304,
+                  0,
+                  0
+                ],
+                [
+                  2097962,
+                  2096342,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 1.0,
+              "exact_phase": 0.0,
+              "phase": 0.00038623807893821676,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  2854239,
+                  1340065,
+                  0
+                ],
+                [
+                  2146614,
+                  2047690,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.36278191723016073,
+              "exact_phase": 0.06522017863146412,
+              "phase": 0.06523927540927557,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  2097242,
+                  2097062,
+                  0
+                ],
+                [
+                  2095204,
+                  2099100,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.001901310590609545,
+              "exact_phase": -1.365046943787504,
+              "phase": -1.5246279257303774,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  2112645,
+                  2081659,
+                  0
+                ],
+                [
+                  2081431,
+                  2112873,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.010405704205421973,
+              "exact_phase": -0.7565050148307054,
+              "phase": -0.7927024481795906,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  2086951,
+                  2107353,
+                  0
+                ],
+                [
+                  2111650,
+                  2082654,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.008455254404751726,
+              "exact_phase": 2.297721205042809,
+              "phase": 2.1839438736994294,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 2.1839438736994294,
+          "stages": 0
+        },
+        {
+          "accepted": 0.006054141694906542,
+          "conditional_target_weight": 0.9831915492477925,
+          "ideal_diagnostic_counts": [
+            24714,
+            448,
+            4169142
+          ],
+          "pass_both": false,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  25612,
+                  0,
+                  4168692
+                ],
+                [
+                  12644,
+                  12664,
+                  4168996
+                ]
+              ],
+              "exact_conditional_contrast": 1.0000000000000002,
+              "exact_phase": 0.0,
+              "phase": -0.0007902637836476282,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  25483,
+                  0,
+                  4168821
+                ],
+                [
+                  12717,
+                  12754,
+                  4168833
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999193692593172,
+              "exact_phase": -7.666225008729958e-05,
+              "phase": -0.0014526313837290167,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  25154,
+                  61,
+                  4169089
+                ],
+                [
+                  12807,
+                  12608,
+                  4168889
+                ]
+              ],
+              "exact_conditional_contrast": 0.9958965449227924,
+              "exact_phase": -0.0005641783405209298,
+              "phase": 0.007867928173236094,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  25219,
+                  234,
+                  4168851
+                ],
+                [
+                  12647,
+                  12741,
+                  4168916
+                ]
+              ],
+              "exact_conditional_contrast": 0.9829403478691764,
+              "exact_phase": -0.0004932452962435899,
+              "phase": -0.0037718718414823257,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  25520,
+                  234,
+                  4168550
+                ],
+                [
+                  12780,
+                  12730,
+                  4168794
+                ]
+              ],
+              "exact_conditional_contrast": 0.9838241663009758,
+              "exact_phase": 0.0010028592977210625,
+              "phase": 0.0019962895187498014,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.007867928173236094,
+          "stages": 13
+        },
+        {
+          "accepted": 0.005952405138075976,
+          "conditional_target_weight": 0.9999959368197232,
+          "ideal_diagnostic_counts": [
+            25221,
+            1,
+            4169082
+          ],
+          "pass_both": true,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  25034,
+                  0,
+                  4169270
+                ],
+                [
+                  12540,
+                  12545,
+                  4169219
+                ]
+              ],
+              "exact_conditional_contrast": 1.0,
+              "exact_phase": 0.0,
+              "phase": -0.00019932230152618565,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  25127,
+                  0,
+                  4169177
+                ],
+                [
+                  12557,
+                  12552,
+                  4169195
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999804004885,
+              "exact_phase": -9.737219288375705e-09,
+              "phase": 0.00019913178278349947,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  24714,
+                  0,
+                  4169590
+                ],
+                [
+                  12482,
+                  12262,
+                  4169560
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999989433666739,
+              "exact_phase": -7.254623825892824e-08,
+              "phase": 0.008890810023678789,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  24774,
+                  0,
+                  4169530
+                ],
+                [
+                  12490,
+                  12563,
+                  4169251
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999960670736846,
+              "exact_phase": 3.4840375458758844e-08,
+              "phase": -0.00291381444945622,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  24881,
+                  0,
+                  4169423
+                ],
+                [
+                  12349,
+                  12549,
+                  4169406
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999959352009195,
+              "exact_phase": 1.6748446893373338e-07,
+              "phase": -0.008032600950663831,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.008890810023678789,
+          "stages": 19
+        },
+        {
+          "accepted": 0.005952381064111575,
+          "conditional_target_weight": 0.9999999812292334,
+          "ideal_diagnostic_counts": [
+            25019,
+            0,
+            4169285
+          ],
+          "pass_both": true,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  25140,
+                  0,
+                  4169164
+                ],
+                [
+                  12632,
+                  12487,
+                  4169185
+                ]
+              ],
+              "exact_conditional_contrast": 1.0,
+              "exact_phase": 0.0,
+              "phase": 0.005772458675422176,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  24980,
+                  0,
+                  4169324
+                ],
+                [
+                  12439,
+                  12482,
+                  4169383
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999999219374,
+              "exact_phase": -3.1291503717913515e-11,
+              "phase": -0.0017254507173498513,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  24997,
+                  0,
+                  4169307
+                ],
+                [
+                  12406,
+                  12595,
+                  4169303
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999957376103,
+              "exact_phase": -2.4118971446532327e-10,
+              "phase": -0.0075595536072431925,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  25008,
+                  0,
+                  4169296
+                ],
+                [
+                  12680,
+                  12514,
+                  4169110
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999814984125,
+              "exact_phase": -6.496206684513745e-10,
+              "phase": 0.006588775020433475,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  24730,
+                  0,
+                  4169574
+                ],
+                [
+                  12467,
+                  12567,
+                  4169270
+                ]
+              ],
+              "exact_conditional_contrast": 0.999999981130173,
+              "exact_phase": 1.7022838165487989e-09,
+              "phase": -0.003994546142025705,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.0075595536072431925,
+          "stages": 23
+        }
+      ],
+      "sharp_source": "first_interior"
+    },
+    {
+      "records": [
+        {
+          "accepted": 0.9999999999999999,
+          "conditional_target_weight": 0.011614457186057052,
+          "ideal_diagnostic_counts": [
+            48526,
+            4145778,
+            0
+          ],
+          "pass_both": false,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  4194304,
+                  0,
+                  0
+                ],
+                [
+                  2097640,
+                  2096664,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 1.0000000000000002,
+              "exact_phase": 0.0,
+              "phase": 0.00023269652900313292,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  2856786,
+                  1337518,
+                  0
+                ],
+                [
+                  2099700,
+                  2094604,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.36239794746985565,
+              "exact_phase": 0.004309127539077692,
+              "phase": 0.0033542343342170718,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  2097373,
+                  2096931,
+                  0
+                ],
+                [
+                  2094674,
+                  2099630,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.0013384961500547937,
+              "exact_phase": -0.7803200559202099,
+              "phase": -1.4818468349567158,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  2117600,
+                  2076704,
+                  0
+                ],
+                [
+                  2091770,
+                  2102534,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.009137018067790145,
+              "exact_phase": -0.2573468627959524,
+              "phase": -0.25736704440474584,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  2100114,
+                  2094190,
+                  0
+                ],
+                [
+                  2098566,
+                  2095738,
+                  0
+                ]
+              ],
+              "exact_conditional_contrast": 0.00179094721069035,
+              "exact_phase": 0.9476690000819791,
+              "phase": 0.4453885318578667,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 1.4818468349567158,
+          "stages": 0
+        },
+        {
+          "accepted": 0.012487630103963872,
+          "conditional_target_weight": 0.9300769713198298,
+          "ideal_diagnostic_counts": [
+            49132,
+            3670,
+            4141502
+          ],
+          "pass_both": false,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  53038,
+                  0,
+                  4141266
+                ],
+                [
+                  26446,
+                  26053,
+                  4141805
+                ]
+              ],
+              "exact_conditional_contrast": 1.0,
+              "exact_phase": 0.0,
+              "phase": 0.007485717047217181,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  52277,
+                  3,
+                  4142024
+                ],
+                [
+                  26151,
+                  26104,
+                  4142049
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999629514759677,
+              "exact_phase": -2.330383674143772e-07,
+              "phase": 0.0008995384551299808,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  52658,
+                  72,
+                  4141574
+                ],
+                [
+                  26294,
+                  26311,
+                  4141699
+                ]
+              ],
+              "exact_conditional_contrast": 0.9974110345471809,
+              "exact_phase": 8.510658752991873e-06,
+              "phase": -0.0003240481269391504,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  51166,
+                  843,
+                  4142295
+                ],
+                [
+                  26264,
+                  26037,
+                  4142003
+                ]
+              ],
+              "exact_conditional_contrast": 0.9679723905548343,
+              "exact_phase": -0.00018451525785722237,
+              "phase": 0.00448564532606117,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  50771,
+                  1704,
+                  4141829
+                ],
+                [
+                  27049,
+                  25561,
+                  4141694
+                ]
+              ],
+              "exact_conditional_contrast": 0.9369510514532169,
+              "exact_phase": 0.024480879431763747,
+              "phase": 0.030238843101401,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.030238843101401,
+          "stages": 13
+        },
+        {
+          "accepted": 0.01161462849204992,
+          "conditional_target_weight": 0.9999852508418167,
+          "ideal_diagnostic_counts": [
+            48905,
+            1,
+            4145398
+          ],
+          "pass_both": true,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  48630,
+                  0,
+                  4145674
+                ],
+                [
+                  24287,
+                  24342,
+                  4145675
+                ]
+              ],
+              "exact_conditional_contrast": 1.0000000000000002,
+              "exact_phase": 0.0,
+              "phase": -0.0011310118766213674,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  48646,
+                  0,
+                  4145658
+                ],
+                [
+                  24286,
+                  24369,
+                  4145649
+                ]
+              ],
+              "exact_conditional_contrast": 0.999999990016598,
+              "exact_phase": 9.524343994065502e-09,
+              "phase": -0.001705886743163347,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  48301,
+                  0,
+                  4146003
+                ],
+                [
+                  24401,
+                  24057,
+                  4145846
+                ]
+              ],
+              "exact_conditional_contrast": 0.999999224348935,
+              "exact_phase": 1.666349169357854e-07,
+              "phase": 0.007098811786877014,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  48819,
+                  0,
+                  4145485
+                ],
+                [
+                  24267,
+                  24469,
+                  4145568
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999910147960044,
+              "exact_phase": 2.9730697204243345e-06,
+              "phase": -0.004144756304969978,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  48533,
+                  0,
+                  4145771
+                ],
+                [
+                  24409,
+                  24737,
+                  4145158
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999912978815398,
+              "exact_phase": 4.148791468104314e-06,
+              "phase": -0.006673892690893133,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.007098811786877014,
+          "stages": 19
+        },
+        {
+          "accepted": 0.01161445866430627,
+          "conditional_target_weight": 0.9999998727233645,
+          "ideal_diagnostic_counts": [
+            48610,
+            0,
+            4145694
+          ],
+          "pass_both": true,
+          "phase_reads": [
+            {
+              "counts": [
+                [
+                  48405,
+                  0,
+                  4145899
+                ],
+                [
+                  24488,
+                  24573,
+                  4145243
+                ]
+              ],
+              "exact_conditional_contrast": 1.0,
+              "exact_phase": 0.0,
+              "phase": -0.0017325353122117858,
+              "time": 0
+            },
+            {
+              "counts": [
+                [
+                  48647,
+                  0,
+                  4145657
+                ],
+                [
+                  24313,
+                  24410,
+                  4145581
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999999604485,
+              "exact_phase": -1.7245356437914524e-11,
+              "phase": -0.0019908435820485608,
+              "time": 1
+            },
+            {
+              "counts": [
+                [
+                  48757,
+                  0,
+                  4145547
+                ],
+                [
+                  24151,
+                  24042,
+                  4146111
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999969304659,
+              "exact_phase": -2.946571950973795e-10,
+              "phase": 0.002261735400134768,
+              "time": 17
+            },
+            {
+              "counts": [
+                [
+                  48672,
+                  0,
+                  4145632
+                ],
+                [
+                  24457,
+                  24157,
+                  4145690
+                ]
+              ],
+              "exact_conditional_contrast": 0.9999999580698613,
+              "exact_phase": -4.180802179235516e-09,
+              "phase": 0.006170983500361954,
+              "time": 257
+            },
+            {
+              "counts": [
+                [
+                  48825,
+                  0,
+                  4145479
+                ],
+                [
+                  24408,
+                  24518,
+                  4145378
+                ]
+              ],
+              "exact_conditional_contrast": 0.999999866986601,
+              "exact_phase": 5.5194619816273144e-08,
+              "phase": -0.0022482895527338037,
+              "time": 8192
+            }
+          ],
+          "sampled_max_phase": 0.006170983500361954,
+          "stages": 23
+        }
+      ],
+      "sharp_source": "uniform_interior"
+    }
+  ],
+  "fixed_law": {
+    "bandwidth_over_rest": 0.2857142857142857,
+    "bulk_compton_length_cells": 0.4040610178208843,
+    "continuum_energy": 4.943260441274623,
+    "continuum_squared_error": -5.058498242241187,
+    "cross_regime_index": 33,
+    "gap": 3.5,
+    "measured_lattice_energy": 4.401960686376221,
+    "measured_q": 2.4683942278205517,
+    "pair_energy": 4.401968371993305,
+    "upper_bandwidth": 1.0
+  },
+  "paired_sharp": [
+    {
+      "diagonals": [
+        4.5,
+        4.5
+      ],
+      "max_input_weight": 0.011904761904762542,
+      "mean_input_weight": 0.01161445718605705,
+      "min_input_weight": 9.300595238094366e-05,
+      "nearest_distinct_gap": 0.0012429284607193836,
+      "rank": 82,
+      "selected": 9.0,
+      "sharp_placements": 6724
+    },
+    {
+      "diagonals": [
+        4.5,
+        8.5
+      ],
+      "max_input_weight": 0.00014172335600915926,
+      "mean_input_weight": 0.00014172335600907464,
+      "min_input_weight": 0.00014172335600900096,
+      "nearest_distinct_gap": 0.0015974656255508535,
+      "rank": 1,
+      "selected": 16.0,
+      "sharp_placements": 164
+    },
+    {
+      "diagonals": [
+        8.5,
+        4.5
+      ],
+      "max_input_weight": 0.00014172335600915926,
+      "mean_input_weight": 0.00014172335600907464,
+      "min_input_weight": 0.00014172335600900096,
+      "nearest_distinct_gap": 0.0015974656255508535,
+      "rank": 1,
+      "selected": 16.0,
+      "sharp_placements": 164
+    },
+    {
+      "diagonals": [
+        8.5,
+        8.5
+      ],
+      "max_input_weight": 0.00028344671201823134,
+      "mean_input_weight": 0.00028344671201814987,
+      "min_input_weight": 0.00028344671201806833,
+      "nearest_distinct_gap": 0.00010928103575480463,
+      "rank": 2,
+      "selected": 17.0,
+      "sharp_placements": 4
+    }
+  ],
+  "protocol_sha256": "5c2d78cfc8d6292736bda80935b310af90468919cc3121fea46bbc91175b6636",
+  "single_sharp": [
+    {
+      "diagonal": 4.5,
+      "max_input_weight": 0.011904761904765715,
+      "min_input_weight": 0.011904761904759002,
+      "positions": 82,
+      "rank": 1,
+      "selected": 8.0
+    },
+    {
+      "diagonal": 8.5,
+      "max_input_weight": 0.02371638930036388,
+      "min_input_weight": 0.023716389300363454,
+      "positions": 2,
+      "rank": 1,
+      "selected": 8.493880271822668
+    }
+  ]
+}

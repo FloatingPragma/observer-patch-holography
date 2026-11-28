@@ -1,0 +1,54 @@
+{
+  "cut_seams": [
+    52,
+    75,
+    85,
+    176,
+    434,
+    539,
+    546,
+    672,
+    682,
+    714,
+    813,
+    908,
+    972,
+    1031,
+    1158,
+    1212,
+    1222,
+    1312,
+    1345,
+    1436,
+    1495,
+    2033,
+    2073,
+    2242,
+    2489
+  ],
+  "affine_reference_seams": [
+    52,
+    75,
+    85,
+    434,
+    682,
+    1222
+  ],
+  "fully_checked_triples": 2300,
+  "pad_words_per_message": 64,
+  "pad_words_per_three_sign_outcome": 8,
+  "first_revealing_parity_seams": [
+    52,
+    75,
+    85,
+    176
+  ],
+  "addressable_messages": 524288,
+  "sender_decoupled_messages": 1,
+  "parity_channel": {
+    "messages": 2,
+    "proper_subcut_messages": 1,
+    "sign_words_per_message": 16777216
+  },
+  "scope": "externally prepared messages at the write, common joint sign read and independent coins"
+}

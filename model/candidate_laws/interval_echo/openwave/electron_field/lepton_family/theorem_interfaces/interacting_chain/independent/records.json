@@ -1,0 +1,4276 @@
+{
+  "protocol_sha256": "5dd6e15e934daad526c55e535765b1b2cf6c108d94af618c9072c6cff6fbba39",
+  "archived_source_sha256": {
+    "model/mass_generation_audit/chain.py": "49c1d92d2dde9993069eb0779d30188f71a98691a77f32d13b2e00e67251125a",
+    "model/mass_generation_audit/results.json": "712f46a8e2bac224e93577313aa9dc452c2df4d4f5a5d69d1b6bd88da84c397e",
+    "model/periodic_momentum/momentum.py": "f94e72cd4a49dc6d621adfa6ac6f4cdd2afa1999183ea766a2fbd2688db019b9"
+  },
+  "length": 8,
+  "ground": {
+    "original_energy": [
+      -0.08697882491166038,
+      -0.08697882479243797
+    ],
+    "ground_gap": [
+      0.00802722862325446,
+      0.008027246072778535
+    ],
+    "preparation_weight": [
+      0.1454573414958137,
+      0.14545735826510267
+    ],
+    "half_filled_full_dimension": 4900,
+    "sector_ground_counts": {
+      "twice_spin_z_0": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "twice_spin_z_2": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "signed_branches": [
+    {
+      "sign": 1,
+      "upper_window_cut": 0.830078125,
+      "next_distinct_energy": [
+        0.8306090962259878,
+        0.830609107423991
+      ],
+      "counts_under_upper_cut": {
+        "1": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "3": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "5": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "7": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "complete_dark_and_bright_lines": [
+        {
+          "momenta": [
+            2,
+            6
+          ],
+          "energy": [
+            0.8084954640061061,
+            0.8084954641100118
+          ],
+          "total_spin": "1/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": 1,
+          "exact_spin_selection_excludes_source": false,
+          "reservoir_corrected_energy": [
+            0.39547428879854407,
+            0.39547428902167225
+          ]
+        },
+        {
+          "momenta": [
+            3,
+            5
+          ],
+          "energy": [
+            0.8214173043994658,
+            0.8214173045033976
+          ],
+          "total_spin": "3/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": -1,
+          "exact_spin_selection_excludes_source": true,
+          "reservoir_corrected_energy": [
+            0.4083961291919038,
+            0.408396129415058
+          ]
+        },
+        {
+          "momenta": [
+            4
+          ],
+          "energy": [
+            0.8288379620666229,
+            0.8288379621705628
+          ],
+          "total_spin": "3/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": 1,
+          "exact_spin_selection_excludes_source": true,
+          "reservoir_corrected_energy": [
+            0.41581678685906087,
+            0.41581678708222325
+          ]
+        },
+        {
+          "momenta": [
+            1,
+            7
+          ],
+          "energy": [
+            0.8295818198066109,
+            0.8295818199105547
+          ],
+          "total_spin": "1/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": -1,
+          "exact_spin_selection_excludes_source": false,
+          "reservoir_corrected_energy": [
+            0.41656064459904896,
+            0.4165606448222151
+          ]
+        }
+      ],
+      "whole_gate_two_Bright_momentum_weights": [
+        [
+          [
+            0.0314485169601665,
+            0.03144852474086464
+          ],
+          [
+            0.0314485169601665,
+            0.03144852474086464
+          ]
+        ],
+        [
+          [
+            0.015291737127626433,
+            0.01529183930252109
+          ],
+          [
+            0.015291737127626433,
+            0.01529183930252109
+          ]
+        ]
+      ],
+      "local_unscaled_weights_total": [
+        0.09348035209083175,
+        0.09348088417152561
+      ],
+      "relative_energy_gap": [
+        0.021086355696599113,
+        0.021086355904448628
+      ],
+      "half_beat_native_time": [
+        148.9869879758126,
+        148.98698944438658
+      ],
+      "two_spin_source_and_receiver_intertwiner_checked": true,
+      "fixed_wait_direct_propagation_checked": true,
+      "both_bright_translation_parities": [
+        1,
+        -1
+      ],
+      "half_beat_T4_on_reachable_support_exact_by_line_count_and_translation": true,
+      "joint_window_acceptance_per_Neel_start": [
+        0.006798584276778497,
+        0.006798858701769865
+      ],
+      "ground_refusal_per_Neel_start": [
+        0.8545426417348972,
+        0.8545426585041863
+      ],
+      "pump_refusal_per_Neel_start": [
+        0.10909300402569917,
+        0.1090930207949881
+      ],
+      "window_refusal_per_Neel_start": [
+        0.029565478768344682,
+        0.029565753193336052
+      ],
+      "complete_drain_refusal_by_wait_and_receiver_per_Neel_start": {
+        "parked": [
+          [
+            0.006480806927398289,
+            0.0064810873638309965
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.006654723562532499,
+            0.006655002024827144
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.006760613053286754,
+            0.006760889549285958
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.006654723562532499,
+            0.006655002024827144
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ]
+        ],
+        "half_beat": [
+          [
+            0.006760613053286754,
+            0.006760889549285958
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.0066547235625325,
+            0.006655002024827145
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.006480806927398288,
+            0.006481087363830996
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ],
+          [
+            0.0066547235625325,
+            0.006655002024827145
+          ],
+          [
+            0.0067815767988020845,
+            0.006781852609516954
+          ]
+        ],
+        "fixed_wait_149": [
+          [
+            0.006760612975238084,
+            0.006760889616803668
+          ],
+          [
+            0.006781576750091495,
+            0.006781852658227543
+          ],
+          [
+            0.006654723420863657,
+            0.006655002166495986
+          ],
+          [
+            0.006781576750091495,
+            0.006781852658227543
+          ],
+          [
+            0.006480806722109224,
+            0.006481087579651019
+          ],
+          [
+            0.006781576750091495,
+            0.006781852658227543
+          ],
+          [
+            0.006654723420863657,
+            0.006655002166495986
+          ],
+          [
+            0.006781576750091495,
+            0.006781852658227543
+          ]
+        ]
+      },
+      "free_readouts": {
+        "parked": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.003911328572940864,
+                -0.0038977406122662124
+              ],
+              "Bell_overlap_interval": [
+                0.24706650357029436,
+                0.24707669454080033
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.011024475272958578,
+                0.011062907829500748
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852764030720986,
+                0.585297136549664
+              ],
+              "Bell_overlap_interval": [
+                0.6889573023040739,
+                0.688972852412248
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554116539230082,
+                1.6554702970533444
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837762416802762,
+                -0.03836385331762923
+              ],
+              "Bell_overlap_interval": [
+                0.22121678187397928,
+                0.22122711001177808
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10850936333336664,
+                0.10854831318016427
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615126437870906,
+                0.106165915106403
+              ],
+              "Bell_overlap_interval": [
+                0.32961344828403183,
+                0.32962443632980226
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.3002411154948448,
+                0.30028255401045156
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.1539837298049549,
+                -0.15396842996209092
+              ],
+              "Bell_overlap_interval": [
+                0.13451220264628383,
+                0.1345236775284318
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.435488483659362,
+                0.43553175814992284
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615126437909181,
+                0.10616591510678575
+              ],
+              "Bell_overlap_interval": [
+                0.3296134482843188,
+                0.3296244363300893
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30024111549592736,
+                0.30028255401153414
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.038377624168229194,
+                -0.038363853317830814
+              ],
+              "Bell_overlap_interval": [
+                0.2212167818738281,
+                0.2212271100116269
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.1085093633339368,
+                0.10854831318073441
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852764030728912,
+                0.5852971365504566
+              ],
+              "Bell_overlap_interval": [
+                0.6889573023046685,
+                0.6889728524128425
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.65541165392525,
+                1.6554702970555861
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.12569856865438173,
+                0.12570995245176664
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0008545895106157111,
+                0.0008546670044153015
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9991453329955846,
+                0.9991454104893844
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  -0.09291775542052577,
+                  -0.09281878510001111
+                ],
+                "Bell_overlap_interval": [
+                  0.18031168343460569,
+                  0.18038591117499167
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": true,
+                "has_nonseparable_local_reference_record": false,
+                "unfiltered_optimal_CHSH_interval": [
+                  0.262531169462859,
+                  0.26281109980194745
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": -0.09272873660532081,
+                "simultaneous_99_percent_eta": [
+                  -0.09519988401559178,
+                  -0.09025758919504985
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.17860008698830615,
+                  0.1823068081037126
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917548894,
+                      117143582,
+                      31747882,
+                      6383592,
+                      207781,
+                      251401,
+                      250244,
+                      208448
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917566400,
+                      117130070,
+                      31742873,
+                      6384653,
+                      250822,
+                      208335,
+                      208025,
+                      250646
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917558922,
+                      117143310,
+                      31741996,
+                      6380811,
+                      207896,
+                      250349,
+                      250399,
+                      208141
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.12569856865438403,
+                0.12570995245176894
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0008545895106157266,
+                0.000854667004415317
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9991453329955846,
+                0.9991454104893844
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  -0.09291775542038508,
+                  -0.09281878509987043
+                ],
+                "Bell_overlap_interval": [
+                  0.18031168343471118,
+                  0.18038591117509717
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": true,
+                "has_nonseparable_local_reference_record": false,
+                "unfiltered_optimal_CHSH_interval": [
+                  0.2625311694624611,
+                  0.2628110998015495
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": -0.0928160719647797,
+                "simultaneous_99_percent_eta": [
+                  -0.09528626049053845,
+                  -0.09034588343902095
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.17853530463209616,
+                  0.1822405874207343
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917561004,
+                      117141346,
+                      31744198,
+                      6377366,
+                      207768,
+                      250267,
+                      251170,
+                      208705
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917552935,
+                      117142396,
+                      31746712,
+                      6381934,
+                      250419,
+                      208125,
+                      208325,
+                      250978
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917550550,
+                      117141801,
+                      31749521,
+                      6381041,
+                      208950,
+                      251228,
+                      251111,
+                      207622
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              0.0003177713379388689,
+              0.0003177773493802083
+            ],
+            [
+              1.7006092252911032e-05,
+              1.7007477976412236e-05
+            ],
+            [
+              0.0001438566769427201,
+              0.0001438607142459975
+            ],
+            [
+              1.7006092252910975e-05,
+              1.7007477976412178e-05
+            ],
+            [
+              3.796915248390707e-05,
+              3.797122349174283e-05
+            ],
+            [
+              1.7006092252911015e-05,
+              1.700747797641222e-05
+            ],
+            [
+              0.0001438566769427201,
+              0.0001438607142459975
+            ],
+            [
+              1.7006092252911015e-05,
+              1.700747797641222e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.003289626969051721,
+              -0.003278243171666851
+            ],
+            [
+              0.5094325564968167,
+              0.5094439402942019
+            ],
+            [
+              -0.03294230955917225,
+              -0.03293092576178737
+            ],
+            [
+              0.09123750586434327,
+              0.09124888966172816
+            ],
+            [
+              -0.1322114138253716,
+              -0.1322000300279867
+            ],
+            [
+              0.09123750586468046,
+              0.09124888966206535
+            ],
+            [
+              -0.032942309559349514,
+              -0.03293092576196463
+            ],
+            [
+              0.5094325564975649,
+              0.5094439402949501
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              0.14669843059863405,
+              0.14670981439601896
+            ],
+            [
+              0.115442567863993,
+              0.11545395166137788
+            ],
+            [
+              0.1271034048881097,
+              0.1271147886854946
+            ],
+            [
+              0.12218590588047178,
+              0.12219728967785666
+            ],
+            [
+              0.12379227694695737,
+              0.12380366074434225
+            ],
+            [
+              0.12218590588039531,
+              0.1221972896777802
+            ],
+            [
+              0.12710340488799945,
+              0.12711478868538437
+            ],
+            [
+              0.11544256786389996,
+              0.11545395166128485
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8410510412778498,
+              0.841062425075235
+            ],
+            [
+              0.8704022426922878,
+              0.870413626489673
+            ],
+            [
+              0.8583728220106045,
+              0.8583842058079897
+            ],
+            [
+              0.8594932711715947,
+              0.8595046549689799
+            ],
+            [
+              0.8586063864853679,
+              0.8586177702827531
+            ],
+            [
+              0.8594932711716721,
+              0.8595046549690573
+            ],
+            [
+              0.8583728220107147,
+              0.8583842058080999
+            ],
+            [
+              0.8704022426923874,
+              0.8704136264897726
+            ]
+          ]
+        },
+        "half_beat": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.153983729804955,
+                -0.15396842996209104
+              ],
+              "Bell_overlap_interval": [
+                0.13451220264628375,
+                0.13452367752843172
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.4354884836593623,
+                0.4355317581499231
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615126437909184,
+                0.10616591510678576
+              ],
+              "Bell_overlap_interval": [
+                0.3296134482843189,
+                0.3296244363300893
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.3002411154959274,
+                0.3002825540115342
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837762416822928,
+                -0.03836385331783089
+              ],
+              "Bell_overlap_interval": [
+                0.22121678187382804,
+                0.22122711001162684
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10850936333393701,
+                0.10854831318073464
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852764030728912,
+                0.5852971365504567
+              ],
+              "Bell_overlap_interval": [
+                0.6889573023046685,
+                0.6889728524128425
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.65541165392525,
+                1.6554702970555866
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.003911328572940876,
+                -0.0038977406122662236
+              ],
+              "Bell_overlap_interval": [
+                0.24706650357029433,
+                0.24707669454080033
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.01102447527295861,
+                0.01106290782950078
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852764030720986,
+                0.585297136549664
+              ],
+              "Bell_overlap_interval": [
+                0.6889573023040739,
+                0.688972852412248
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554116539230082,
+                1.6554702970533444
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.038377624168027646,
+                -0.038363853317629266
+              ],
+              "Bell_overlap_interval": [
+                0.22121678187397925,
+                0.22122711001177806
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10850936333336673,
+                0.10854831318016434
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615126437870902,
+                0.10616591510640296
+              ],
+              "Bell_overlap_interval": [
+                0.3296134482840318,
+                0.3296244363298022
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.3002411154948446,
+                0.30028255401045145
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.14689199185518578,
+                0.1469033756525707
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986776840565782,
+                0.000998755194467611
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012448055323,
+                0.9990013223159435
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465007111436613,
+                  0.6466283112275933
+                ],
+                "Bell_overlap_interval": [
+                  0.7348755333577459,
+                  0.734971233420695
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.8285801475664332,
+                  1.8289410551049465
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6462206147025568,
+                "simultaneous_99_percent_eta": [
+                  0.6439155166937928,
+                  0.6485257127113208
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7329366375203445,
+                  0.7363942845334905
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917550154,
+                      117139615,
+                      31750088,
+                      6229356,
+                      441884,
+                      95167,
+                      95026,
+                      440534
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917575324,
+                      117128832,
+                      31742808,
+                      6223166,
+                      94862,
+                      440491,
+                      441522,
+                      94819
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917543865,
+                      117152176,
+                      31753221,
+                      6223547,
+                      439950,
+                      94221,
+                      94310,
+                      440534
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.14689199185518245,
+                0.14690337565256736
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986776840565557,
+                0.0009987551944675883
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012448055323,
+                0.9990013223159435
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465007111432742,
+                  0.6466283112272063
+                ],
+                "Bell_overlap_interval": [
+                  0.7348755333574557,
+                  0.7349712334204047
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.8285801475653385,
+                  1.8289410551038519
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6468018647630149,
+                "simultaneous_99_percent_eta": [
+                  0.6444977200347775,
+                  0.6491060094912524
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7333732900260831,
+                  0.7368295071184393
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917541166,
+                      117155187,
+                      31743618,
+                      6228061,
+                      442077,
+                      95116,
+                      94416,
+                      442183
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917570308,
+                      117130806,
+                      31740556,
+                      6231211,
+                      94916,
+                      440055,
+                      439746,
+                      94226
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917550944,
+                      117145500,
+                      31743492,
+                      6228561,
+                      441812,
+                      94532,
+                      94746,
+                      442237
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              3.796915248390707e-05,
+              3.797122349174283e-05
+            ],
+            [
+              1.7006092252910995e-05,
+              1.70074779764122e-05
+            ],
+            [
+              0.00014385667694272,
+              0.00014386071424599738
+            ],
+            [
+              1.7006092252911e-05,
+              1.7007477976412205e-05
+            ],
+            [
+              0.0003177713379388693,
+              0.0003177773493802087
+            ],
+            [
+              1.7006092252910995e-05,
+              1.70074779764122e-05
+            ],
+            [
+              0.00014385667694272005,
+              0.00014386071424599744
+            ],
+            [
+              1.7006092252910985e-05,
+              1.7007477976412188e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.13221141382537172,
+              -0.1322000300279868
+            ],
+            [
+              0.09123750586468048,
+              0.09124888966206536
+            ],
+            [
+              -0.032942309559349583,
+              -0.0329309257619647
+            ],
+            [
+              0.5094325564975649,
+              0.5094439402949501
+            ],
+            [
+              -0.00328962696905173,
+              -0.0032782431716668597
+            ],
+            [
+              0.5094325564968167,
+              0.5094439402942019
+            ],
+            [
+              -0.03294230955917229,
+              -0.032930925761787404
+            ],
+            [
+              0.09123750586434325,
+              0.09124888966172813
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              0.12379227694695728,
+              0.12380366074434217
+            ],
+            [
+              0.12218590588039527,
+              0.12219728967778015
+            ],
+            [
+              0.12710340488799954,
+              0.12711478868538445
+            ],
+            [
+              0.11544256786389992,
+              0.1154539516612848
+            ],
+            [
+              0.14669843059863402,
+              0.14670981439601893
+            ],
+            [
+              0.11544256786399301,
+              0.1154539516613779
+            ],
+            [
+              0.12710340488810964,
+              0.12711478868549456
+            ],
+            [
+              0.1221859058804718,
+              0.12219728967785669
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8586063864853679,
+              0.8586177702827531
+            ],
+            [
+              0.8594932711716721,
+              0.8595046549690573
+            ],
+            [
+              0.8583728220107147,
+              0.8583842058080999
+            ],
+            [
+              0.8704022426923873,
+              0.8704136264897725
+            ],
+            [
+              0.8410510412778496,
+              0.8410624250752348
+            ],
+            [
+              0.8704022426922878,
+              0.870413626489673
+            ],
+            [
+              0.8583728220106047,
+              0.8583842058079899
+            ],
+            [
+              0.8594932711715948,
+              0.85950465496898
+            ]
+          ]
+        },
+        "fixed_wait_149": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.15398427159571684,
+                -0.15396788265354044
+              ],
+              "Bell_overlap_interval": [
+                0.13451179630321236,
+                0.13452408800984467
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.43548693563701224,
+                0.43553329056560985
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.1061507520706036,
+                0.10616644569135252
+              ],
+              "Bell_overlap_interval": [
+                0.3296130640529527,
+                0.3296248342685144
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30023966646870304,
+                0.30028405473131475
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837811430496675,
+                -0.03836336319455609
+              ],
+              "Bell_overlap_interval": [
+                0.22121641427127495,
+                0.22122747760408293
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10850797705597211,
+                0.10854969949677774
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852756562367324,
+                0.585297865599718
+              ],
+              "Bell_overlap_interval": [
+                0.6889567421775493,
+                0.6889733991997885
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554095415536008,
+                1.6554723591182925
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.003911815083421814,
+                -0.0038972598814650708
+              ],
+              "Bell_overlap_interval": [
+                0.24706613868743363,
+                0.2470770550889012
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.011023115560920928,
+                0.01106428388894154
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852756562359398,
+                0.5852978655989254
+              ],
+              "Bell_overlap_interval": [
+                0.6889567421769549,
+                0.688973399199194
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.655409541551359,
+                1.6554723591160507
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837811430476519,
+                -0.03836336319435452
+              ],
+              "Bell_overlap_interval": [
+                0.2212164142714261,
+                0.2212274776042341
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10850797705540198,
+                0.10854969949620764
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615075207022077,
+                0.1061664456909697
+              ],
+              "Bell_overlap_interval": [
+                0.32961306405266555,
+                0.3296248342682273
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30023966646762024,
+                0.300284054730232
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.14689158628597895,
+                0.14690378042412286
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.000998674926704338,
+                0.0009987579463968197
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012420536031,
+                0.9990013250732958
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6464961580782924,
+                  0.6466328412070715
+                ],
+                "Bell_overlap_interval": [
+                  0.7348721185587193,
+                  0.7349746309053037
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.8285672695528432,
+                  1.8289538678217772
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6462003900208034,
+                "simultaneous_99_percent_eta": [
+                  0.6438916784913172,
+                  0.6485091015502896
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7329187588684879,
+                  0.7363818261627172
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917556625,
+                      117138873,
+                      31748871,
+                      6224641,
+                      441361,
+                      94783,
+                      95265,
+                      441405
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917553520,
+                      117137724,
+                      31750846,
+                      6228108,
+                      94446,
+                      441261,
+                      441065,
+                      94854
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917562136,
+                      117126309,
+                      31753345,
+                      6228497,
+                      441390,
+                      95011,
+                      94547,
+                      440589
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": 1,
+              "conditioned_joint_gate_weight": [
+                0.14689158628597565,
+                0.14690378042411956
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986749267043152,
+                0.000998757946396797
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012420536031,
+                0.9990013250732958
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6464961580779053,
+                  0.6466328412066844
+                ],
+                "Bell_overlap_interval": [
+                  0.7348721185584289,
+                  0.7349746309050134
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.828567269551748,
+                  1.8289538678206823
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6473266215668869,
+                "simultaneous_99_percent_eta": [
+                  0.6450181900179253,
+                  0.6496350531158486
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.733763642513444,
+                  0.7372262898368864
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917540336,
+                      117141403,
+                      31763445,
+                      6223300,
+                      441510,
+                      94395,
+                      95151,
+                      442284
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917543120,
+                      117144593,
+                      31753120,
+                      6227739,
+                      94357,
+                      443174,
+                      441247,
+                      94474
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917559083,
+                      117141359,
+                      31745994,
+                      6225194,
+                      441438,
+                      94378,
+                      94482,
+                      439896
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              3.796908496619612e-05,
+              3.7971301540412966e-05
+            ],
+            [
+              1.7006043542321065e-05,
+              1.7007526687002142e-05
+            ],
+            [
+              0.00014385653527387816,
+              0.0001438608559148396
+            ],
+            [
+              1.7006043542321065e-05,
+              1.7007526687002142e-05
+            ],
+            [
+              0.0003177711221188462,
+              0.00031777755466927285
+            ],
+            [
+              1.7006043542321037e-05,
+              1.7007526687002115e-05
+            ],
+            [
+              0.00014385653527387816,
+              0.0001438608559148396
+            ],
+            [
+              1.7006043542321024e-05,
+              1.70075266870021e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.13221181656964331,
+              -0.1321996224314994
+            ],
+            [
+              0.09123710856408224,
+              0.09124930270222609
+            ],
+            [
+              -0.03294271472972898,
+              -0.03293052059158514
+            ],
+            [
+              0.5094321434574042,
+              0.5094443375955483
+            ],
+            [
+              -0.0032900345655390386,
+              -0.003277840427395215
+            ],
+            [
+              0.509432143456656,
+              0.5094443375948001
+            ],
+            [
+              -0.03294271472955172,
+              -0.032930520591407886
+            ],
+            [
+              0.091237108563745,
+              0.09124930270188886
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              0.12379187220763609,
+              0.12380406634577994
+            ],
+            [
+              0.12218550058311665,
+              0.1221976947212605
+            ],
+            [
+              0.12710299971762004,
+              0.12711519385576395
+            ],
+            [
+              0.11544216282041957,
+              0.11545435695856342
+            ],
+            [
+              0.1466980249971963,
+              0.14671021913534021
+            ],
+            [
+              0.1154421628205127,
+              0.11545435695865655
+            ],
+            [
+              0.12710299971773015,
+              0.12711519385587405
+            ],
+            [
+              0.12218550058319316,
+              0.12219769472133701
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8586059809846243,
+              0.8586181751227684
+            ],
+            [
+              0.8594928662065826,
+              0.8595050603447267
+            ],
+            [
+              0.8583724168403355,
+              0.8583846109784796
+            ],
+            [
+              0.8704018373167182,
+              0.8704140314548623
+            ],
+            [
+              0.8410506364378346,
+              0.8410628305759787
+            ],
+            [
+              0.8704018373166186,
+              0.8704140314547627
+            ],
+            [
+              0.8583724168402251,
+              0.8583846109783693
+            ],
+            [
+              0.8594928662065053,
+              0.8595050603446495
+            ]
+          ]
+        }
+      },
+      "resolved_energy_then_forgotten_receiver_local": {
+        "local_spin_channel_at_each_single_occupation_port": [
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.079722559723547,
+              -0.0797080965993836
+            ],
+            "Bell_overlap_interval": [
+              0.19020808020733976,
+              0.1902189275504623
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.22544854248358615,
+              0.22548945037627846
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.34722453008299936,
+              0.3472422612476385
+            ],
+            "Bell_overlap_interval": [
+              0.5104183975622495,
+              0.5104316959357289
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.982099279264005,
+              0.9821494305710237
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.0383776241681284,
+              -0.03836385331773002
+            ],
+            "Bell_overlap_interval": [
+              0.2212167818739037,
+              0.22122711001170248
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.10850936333365171,
+              0.10854831318044932
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.3472245300832324,
+              0.3472422612478715
+            ],
+            "Bell_overlap_interval": [
+              0.5104183975624244,
+              0.5104316959359037
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9820992792646641,
+              0.9821494305716826
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.0797225597235469,
+              -0.07970809659938352
+            ],
+            "Bell_overlap_interval": [
+              0.1902080802073398,
+              0.19021892755046235
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.22544854248358592,
+              0.2254894503762782
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.34722453008299936,
+              0.34724226124763846
+            ],
+            "Bell_overlap_interval": [
+              0.5104183975622495,
+              0.5104316959357289
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.982099279264005,
+              0.9821494305710236
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.03837762416812843,
+              -0.03836385331773005
+            ],
+            "Bell_overlap_interval": [
+              0.22121678187390367,
+              0.22122711001170248
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.10850936333365178,
+              0.10854831318044939
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.3472245300832325,
+              0.3472422612478716
+            ],
+            "Bell_overlap_interval": [
+              0.5104183975624244,
+              0.5104316959359037
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9820992792646643,
+              0.9821494305716829
+            ]
+          }
+        ],
+        "simultaneous_signed_charge_and_neighbor_spin": [
+          {
+            "charge_site": 4,
+            "spin_site": 3,
+            "joint_native_excess_on_the_two_receiving_sites": 1,
+            "conditioned_joint_gate_weight": [
+              0.13629528025478374,
+              0.13630666405216865
+            ],
+            "joint_gate_probability_per_original_Neel_start": [
+              0.0009266335973361447,
+              0.0009267110994414562
+            ],
+            "joint_gate_refusal_per_original_Neel_start": [
+              0.9990732889005584,
+              0.999073366402664
+            ],
+            "reference_channel_without_global_terminal_drain": {
+              "single_qubit_depolarizing_eta": [
+                0.3055371817256653,
+                0.30564622417179693
+              ],
+              "Bell_overlap_interval": [
+                0.47915288629424896,
+                0.4792346681288477
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.8641896524113777,
+                0.8644980710237651
+              ]
+            },
+            "simulated_local_Pauli_comparison": {
+              "simulated_eta_estimate": 0.30640074739883616,
+              "simultaneous_99_percent_eta": [
+                0.30402148904777143,
+                0.3087800057499009
+              ],
+              "simultaneous_99_percent_Bell_overlap": [
+                0.47801611678582856,
+                0.4815850043124257
+              ],
+              "banks": [
+                {
+                  "axis_pair": "XX",
+                  "counts": [
+                    917559194,
+                    117135508,
+                    31748108,
+                    6304345,
+                    325626,
+                    172874,
+                    171957,
+                    324212
+                  ]
+                },
+                {
+                  "axis_pair": "YY",
+                  "counts": [
+                    917570479,
+                    117134653,
+                    31735814,
+                    6306118,
+                    172422,
+                    324343,
+                    325676,
+                    172319
+                  ]
+                },
+                {
+                  "axis_pair": "ZZ",
+                  "counts": [
+                    917557893,
+                    117133491,
+                    31749041,
+                    6304034,
+                    324968,
+                    173352,
+                    172896,
+                    326149
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "charge_site": 4,
+            "spin_site": 5,
+            "joint_native_excess_on_the_two_receiving_sites": 1,
+            "conditioned_joint_gate_weight": [
+              0.13629528025478324,
+              0.13630666405216815
+            ],
+            "joint_gate_probability_per_original_Neel_start": [
+              0.0009266335973361411,
+              0.0009267110994414527
+            ],
+            "joint_gate_refusal_per_original_Neel_start": [
+              0.9990732889005584,
+              0.999073366402664
+            ],
+            "reference_channel_without_global_terminal_drain": {
+              "single_qubit_depolarizing_eta": [
+                0.30553718172551414,
+                0.3056462241716458
+              ],
+              "Bell_overlap_interval": [
+                0.4791528862941356,
+                0.47923466812873433
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.8641896524109502,
+                0.8644980710233375
+              ]
+            },
+            "simulated_local_Pauli_comparison": {
+              "simulated_eta_estimate": 0.3054339940386954,
+              "simultaneous_99_percent_eta": [
+                0.30305454261094406,
+                0.3078134454664468
+              ],
+              "simultaneous_99_percent_Bell_overlap": [
+                0.477290906958208,
+                0.4808600840998351
+              ],
+              "banks": [
+                {
+                  "axis_pair": "XX",
+                  "counts": [
+                    917569811,
+                    117123398,
+                    31746270,
+                    6306894,
+                    325035,
+                    172677,
+                    172740,
+                    324999
+                  ]
+                },
+                {
+                  "axis_pair": "YY",
+                  "counts": [
+                    917557690,
+                    117141259,
+                    31740781,
+                    6307290,
+                    173325,
+                    325230,
+                    323840,
+                    172409
+                  ]
+                },
+                {
+                  "axis_pair": "ZZ",
+                  "counts": [
+                    917562112,
+                    117133439,
+                    31739432,
+                    6310802,
+                    325400,
+                    173015,
+                    172923,
+                    324701
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "resolved_line_dephased_receipt_by_site_per_Neel_start": [
+        [
+          0.00017699374890903894,
+          0.00017875078273832441
+        ],
+        [
+          1.6128268200018867e-05,
+          1.7885302029304306e-05
+        ],
+        [
+          0.00014298017867971606,
+          0.00014473721250900153
+        ],
+        [
+          1.6128268200018884e-05,
+          1.7885302029304323e-05
+        ],
+        [
+          0.00017699374890903924,
+          0.0001787507827383247
+        ],
+        [
+          1.6128268200018897e-05,
+          1.7885302029304337e-05
+        ],
+        [
+          0.00014298017867971606,
+          0.00014473721250900153
+        ],
+        [
+          1.6128268200018877e-05,
+          1.7885302029304316e-05
+        ]
+      ]
+    },
+    {
+      "sign": -1,
+      "upper_window_cut": -0.169921875,
+      "next_distinct_energy": [
+        -0.16939090242547475,
+        -0.16939089392454756
+      ],
+      "counts_under_upper_cut": {
+        "1": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "3": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "5": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "7": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "complete_dark_and_bright_lines": [
+        {
+          "momenta": [
+            2,
+            6
+          ],
+          "energy": [
+            -0.19150453597509925,
+            -0.1915045359087849
+          ],
+          "total_spin": "1/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": 1,
+          "exact_spin_selection_excludes_source": false,
+          "reservoir_corrected_energy": [
+            0.3954742888173387,
+            0.39547428900287546
+          ]
+        },
+        {
+          "momenta": [
+            1,
+            7
+          ],
+          "energy": [
+            -0.17858269558171383,
+            -0.17858269551542463
+          ],
+          "total_spin": "3/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "3": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": -1,
+          "exact_spin_selection_excludes_source": true,
+          "reservoir_corrected_energy": [
+            0.40839612921072416,
+            0.4083961293962357
+          ]
+        },
+        {
+          "momenta": [
+            0
+          ],
+          "energy": [
+            -0.17116203791454374,
+            -0.17116203784826897
+          ],
+          "total_spin": "3/2",
+          "spin_z_sector_counts": {
+            "1": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "3": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": 1,
+          "exact_spin_selection_excludes_source": true,
+          "reservoir_corrected_energy": [
+            0.41581678687789425,
+            0.4158167870633914
+          ]
+        },
+        {
+          "momenta": [
+            3,
+            5
+          ],
+          "energy": [
+            -0.17041818017455415,
+            -0.17041818010827833
+          ],
+          "total_spin": "1/2",
+          "spin_z_sector_counts": {
+            "1": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "5": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "7": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "translations_by_four": -1,
+          "exact_spin_selection_excludes_source": false,
+          "reservoir_corrected_energy": [
+            0.41656064461788384,
+            0.41656064480338206
+          ]
+        }
+      ],
+      "whole_gate_two_Bright_momentum_weights": [
+        [
+          [
+            0.03144851782911254,
+            0.03144852387191903
+          ],
+          [
+            0.03144851782911254,
+            0.03144852387191903
+          ]
+        ],
+        [
+          [
+            0.015291755264961925,
+            0.015291821165197641
+          ],
+          [
+            0.015291755264961925,
+            0.015291821165197641
+          ]
+        ]
+      ],
+      "local_unscaled_weights_total": [
+        0.09348044477525048,
+        0.09348079148713186
+      ],
+      "relative_energy_gap": [
+        0.02108635573423076,
+        0.02108635586682092
+      ],
+      "half_beat_native_time": [
+        148.98698824167357,
+        148.9869891784978
+      ],
+      "two_spin_source_and_receiver_intertwiner_checked": true,
+      "fixed_wait_direct_propagation_checked": true,
+      "both_bright_translation_parities": [
+        1,
+        -1
+      ],
+      "half_beat_T4_on_reachable_support_exact_by_line_count_and_translation": true,
+      "joint_window_acceptance_per_Neel_start": [
+        0.006798630618982531,
+        0.006798812359567647
+      ],
+      "ground_refusal_per_Neel_start": [
+        0.8545426417348972,
+        0.8545426585041863
+      ],
+      "pump_refusal_per_Neel_start": [
+        0.10909300402569917,
+        0.1090930207949881
+      ],
+      "window_refusal_per_Neel_start": [
+        0.029565525110546897,
+        0.02956570685113202
+      ],
+      "complete_drain_refusal_by_wait_and_receiver_per_Neel_start": {
+        "parked": [
+          [
+            0.006480854300093568,
+            0.0064810399911373615
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006654770598088587,
+            0.006654954989272869
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006760659751703596,
+            0.006760842850870986
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006654770598088587,
+            0.006654954989272869
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ]
+        ],
+        "half_beat": [
+          [
+            0.006760659751703596,
+            0.006760842850870986
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006654770598088587,
+            0.006654954989272869
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006480854300093569,
+            0.006481039991137362
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ],
+          [
+            0.006654770598088587,
+            0.006654954989272869
+          ],
+          [
+            0.00678162337940358,
+            0.006781806028917248
+          ]
+        ],
+        "fixed_wait_149": [
+          [
+            0.006760659700008909,
+            0.006760842892034715
+          ],
+          [
+            0.006781623348330628,
+            0.006781806059990201
+          ],
+          [
+            0.006654770507716245,
+            0.006654955079645211
+          ],
+          [
+            0.006781623348330628,
+            0.006781806059990201
+          ],
+          [
+            0.006480854171043537,
+            0.006481040130718352
+          ],
+          [
+            0.006781623348330628,
+            0.006781806059990201
+          ],
+          [
+            0.006654770507716245,
+            0.006654955079645211
+          ],
+          [
+            0.006781623348330628,
+            0.006781806059990201
+          ]
+        ]
+      },
+      "free_readouts": {
+        "parked": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.003908961622696997,
+                -0.0039001075094160127
+              ],
+              "Bell_overlap_interval": [
+                0.24706827878297724,
+                0.247074919367938
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.011031169869058558,
+                0.01105621308322807
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852800146539608,
+                0.5852935248902257
+              ],
+              "Bell_overlap_interval": [
+                0.6889600109904707,
+                0.6889701436676693
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554218690191107,
+                1.6554600817378238
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.038375225360057164,
+                -0.03836625207316575
+              ],
+              "Bell_overlap_interval": [
+                0.2212185809799571,
+                0.22122531094512568
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10851614803859176,
+                0.10854152832663357
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615381640086843,
+                0.1061633630286338
+              ],
+              "Bell_overlap_interval": [
+                0.32961536230065136,
+                0.32962252227147537
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30024833370354326,
+                0.3002753356444647
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.15398106465468095,
+                -0.15397109505400702
+              ],
+              "Bell_overlap_interval": [
+                0.1345142015089893,
+                0.13452167870949472
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.43549602167762747,
+                0.43552421996659646
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615381640101564,
+                0.106163363028781
+              ],
+              "Bell_overlap_interval": [
+                0.3296153623007617,
+                0.3296225222715857
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30024833370395965,
+                0.30027533564488107
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837522536013443,
+                -0.03836625207324301
+              ],
+              "Bell_overlap_interval": [
+                0.2212185809798992,
+                0.22122531094506775
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.1085161480388103,
+                0.1085415283268521
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852800146542447,
+                0.5852935248905096
+              ],
+              "Bell_overlap_interval": [
+                0.6889600109906835,
+                0.6889701436678821
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554218690199136,
+                1.6554600817386267
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.12570055162888624,
+                0.1257079694772323
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0008546029923079789,
+                0.0008546535227230592
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9991453464772768,
+                0.9991453970076922
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  -0.09290051422282197,
+                  -0.09283602371911331
+                ],
+                "Bell_overlap_interval": [
+                  0.18032461433288352,
+                  0.180372982210665
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": true,
+                "has_nonseparable_local_reference_record": false,
+                "unfiltered_optimal_CHSH_interval": [
+                  0.2625799276407208,
+                  0.2627623343306989
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": -0.09197408991084484,
+                "simultaneous_99_percent_eta": [
+                  -0.09442860860243703,
+                  -0.08951957121925265
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.17917854354817223,
+                  0.1828603215855605
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917554109,
+                      117145687,
+                      31743678,
+                      6381072,
+                      208330,
+                      250456,
+                      250200,
+                      208292
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917558012,
+                      117141631,
+                      31746290,
+                      6379493,
+                      250787,
+                      207825,
+                      207432,
+                      250354
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917553813,
+                      117154481,
+                      31738711,
+                      6377397,
+                      208431,
+                      249681,
+                      250585,
+                      208725
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.125700551628887,
+                0.12570796947723306
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.000854602992307984,
+                0.0008546535227230643
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9991453464772768,
+                0.9991453970076922
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  -0.09290051422276242,
+                  -0.09283602371905378
+                ],
+                "Bell_overlap_interval": [
+                  0.18032461433292818,
+                  0.18037298221070966
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": true,
+                "has_nonseparable_local_reference_record": false,
+                "unfiltered_optimal_CHSH_interval": [
+                  0.2625799276405524,
+                  0.2627623343305305
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": -0.0924466760836421,
+                "simultaneous_99_percent_eta": [
+                  -0.09490094495074129,
+                  -0.0899924072165429
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.17882429128694405,
+                  0.1825056945875928
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917570004,
+                      117124740,
+                      31748222,
+                      6381608,
+                      207722,
+                      250739,
+                      250404,
+                      208385
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917548055,
+                      117147838,
+                      31748988,
+                      6380717,
+                      250715,
+                      207658,
+                      207819,
+                      250034
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917548210,
+                      117151065,
+                      31742170,
+                      6382188,
+                      208210,
+                      251196,
+                      249936,
+                      208849
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              0.0003177723684302852,
+              0.0003177763188889624
+            ],
+            [
+              1.7006330650398852e-05,
+              1.7007239578951114e-05
+            ],
+            [
+              0.00014385737029477824,
+              0.0001438600208939439
+            ],
+            [
+              1.7006330650398835e-05,
+              1.7007239578951097e-05
+            ],
+            [
+              3.796950869666046e-05,
+              3.797086727893493e-05
+            ],
+            [
+              1.7006330650398825e-05,
+              1.7007239578951087e-05
+            ],
+            [
+              0.000143857370294778,
+              0.00014386002089394366
+            ],
+            [
+              1.7006330650398838e-05,
+              1.70072395789511e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.003287643994455689,
+              -0.003280226146109681
+            ],
+            [
+              0.5094345394715392,
+              0.5094419573198854
+            ],
+            [
+              -0.03294032658470066,
+              -0.032932908736354634
+            ],
+            [
+              0.09123948883895942,
+              0.09124690668730547
+            ],
+            [
+              -0.13220943085085557,
+              -0.1322020130025095
+            ],
+            [
+              0.09123948883908897,
+              0.09124690668743501
+            ],
+            [
+              -0.03294032658476855,
+              -0.032932908736422524
+            ],
+            [
+              0.5094345394718085,
+              0.5094419573201547
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              -0.14670783142151836,
+              -0.1467004135731723
+            ],
+            [
+              -0.11545196868683993,
+              -0.11544455083849389
+            ],
+            [
+              -0.1271128057109386,
+              -0.12710538786259254
+            ],
+            [
+              -0.12219530670330332,
+              -0.12218788885495728
+            ],
+            [
+              -0.12380167776980662,
+              -0.12379425992146058
+            ],
+            [
+              -0.122195306703275,
+              -0.12218788885492896
+            ],
+            [
+              -0.12711280571089778,
+              -0.1271053878625517
+            ],
+            [
+              -0.11545196868680428,
+              -0.11544455083845824
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8410530242523513,
+              0.8410604421006975
+            ],
+            [
+              0.870404225666828,
+              0.8704116435151742
+            ],
+            [
+              0.8583748049851604,
+              0.8583822228335066
+            ],
+            [
+              0.8594952541461486,
+              0.8595026719944948
+            ],
+            [
+              0.8586083694599032,
+              0.8586157873082494
+            ],
+            [
+              0.8594952541461771,
+              0.8595026719945233
+            ],
+            [
+              0.8583748049852012,
+              0.8583822228335475
+            ],
+            [
+              0.870404225666866,
+              0.8704116435152123
+            ]
+          ]
+        },
+        "half_beat": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.15398106465468087,
+                -0.15397109505400694
+              ],
+              "Bell_overlap_interval": [
+                0.13451420150898935,
+                0.1345216787094948
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.4354960216776272,
+                0.43552421996659624
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615381640101566,
+                0.10616336302878103
+              ],
+              "Bell_overlap_interval": [
+                0.3296153623007617,
+                0.3296225222715858
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.3002483337039597,
+                0.3002753356448811
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837522536013445,
+                -0.038366252073243026
+              ],
+              "Bell_overlap_interval": [
+                0.22121858097989916,
+                0.22122531094506773
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10851614803881034,
+                0.10854152832685217
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852800146542447,
+                0.5852935248905096
+              ],
+              "Bell_overlap_interval": [
+                0.6889600109906835,
+                0.6889701436678821
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554218690199136,
+                1.6554600817386267
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.003908961622697107,
+                -0.0039001075094161224
+              ],
+              "Bell_overlap_interval": [
+                0.24706827878297716,
+                0.2470749193679379
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.011031169869058869,
+                0.011056213083228381
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852800146539608,
+                0.5852935248902257
+              ],
+              "Bell_overlap_interval": [
+                0.6889600109904707,
+                0.6889701436676693
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554218690191107,
+                1.6554600817378238
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.038375225360057275,
+                -0.03836625207316586
+              ],
+              "Bell_overlap_interval": [
+                0.22121858097995706,
+                0.2212253109451256
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10851614803859207,
+                0.10854152832663388
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615381640086839,
+                0.10616336302863374
+              ],
+              "Bell_overlap_interval": [
+                0.3296153623006513,
+                0.3296225222714753
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30024833370354315,
+                0.30027533564446457
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.14689397482972258,
+                0.14690139267806865
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986911657490847,
+                0.0009987417127756075
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012582872243,
+                0.9990013088342511
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465229367256038,
+                  0.6466060828005672
+                ],
+                "Bell_overlap_interval": [
+                  0.7348922025442028,
+                  0.7349545621004254
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.8286430110052627,
+                  1.8288781836190053
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6471405195568426,
+                "simultaneous_99_percent_eta": [
+                  0.6448592668437809,
+                  0.6494217722699043
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7336444501328356,
+                  0.7370663292024282
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917569183,
+                      117133360,
+                      31743510,
+                      6223389,
+                      441979,
+                      94747,
+                      94286,
+                      441370
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917546893,
+                      117139200,
+                      31751892,
+                      6230763,
+                      94746,
+                      441551,
+                      441622,
+                      95157
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917534933,
+                      117153923,
+                      31751895,
+                      6228572,
+                      441471,
+                      94855,
+                      93953,
+                      442222
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.14689397482972136,
+                0.14690139267806743
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986911657490763,
+                0.000998741712775599
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012582872243,
+                0.9990013088342511
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465229367254539,
+                  0.6466060828004173
+                ],
+                "Bell_overlap_interval": [
+                  0.7348922025440905,
+                  0.734954562100313
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.8286430110048386,
+                  1.8288781836185815
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6471904010535395,
+                "simultaneous_99_percent_eta": [
+                  0.644908906503736,
+                  0.6494718956033431
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.733681679877802,
+                  0.7371039217025073
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917555476,
+                      117143231,
+                      31743171,
+                      6227304,
+                      441943,
+                      94446,
+                      95043,
+                      441210
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917556546,
+                      117143461,
+                      31740102,
+                      6228131,
+                      94949,
+                      442700,
+                      441390,
+                      94545
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917561204,
+                      117132761,
+                      31747317,
+                      6229501,
+                      442112,
+                      94162,
+                      94397,
+                      440370
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              3.796950869666046e-05,
+              3.797086727893493e-05
+            ],
+            [
+              1.7006330650398855e-05,
+              1.7007239578951118e-05
+            ],
+            [
+              0.000143857370294778,
+              0.00014386002089394366
+            ],
+            [
+              1.7006330650398862e-05,
+              1.7007239578951125e-05
+            ],
+            [
+              0.0003177723684302849,
+              0.0003177763188889621
+            ],
+            [
+              1.7006330650398845e-05,
+              1.7007239578951108e-05
+            ],
+            [
+              0.00014385737029477813,
+              0.0001438600208939438
+            ],
+            [
+              1.7006330650398845e-05,
+              1.7007239578951108e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.1322094308508555,
+              -0.13220201300250944
+            ],
+            [
+              0.09123948883908899,
+              0.09124690668743503
+            ],
+            [
+              -0.032940326584768566,
+              -0.03293290873642254
+            ],
+            [
+              0.5094345394718086,
+              0.5094419573201548
+            ],
+            [
+              -0.0032876439944557806,
+              -0.0032802261461097725
+            ],
+            [
+              0.5094345394715392,
+              0.5094419573198854
+            ],
+            [
+              -0.03294032658470075,
+              -0.032932908736354724
+            ],
+            [
+              0.09123948883895937,
+              0.09124690668730541
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              -0.12380167776980663,
+              -0.12379425992146059
+            ],
+            [
+              -0.12219530670327497,
+              -0.12218788885492893
+            ],
+            [
+              -0.12711280571089775,
+              -0.12710538786255168
+            ],
+            [
+              -0.1154519686868043,
+              -0.11544455083845825
+            ],
+            [
+              -0.1467078314215184,
+              -0.14670041357317232
+            ],
+            [
+              -0.1154519686868399,
+              -0.11544455083849386
+            ],
+            [
+              -0.12711280571093864,
+              -0.12710538786259257
+            ],
+            [
+              -0.12219530670330332,
+              -0.12218788885495728
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8586083694599033,
+              0.8586157873082495
+            ],
+            [
+              0.859495254146177,
+              0.8595026719945232
+            ],
+            [
+              0.8583748049852012,
+              0.8583822228335475
+            ],
+            [
+              0.8704042256668663,
+              0.8704116435152125
+            ],
+            [
+              0.8410530242523511,
+              0.8410604421006973
+            ],
+            [
+              0.870404225666828,
+              0.8704116435151742
+            ],
+            [
+              0.8583748049851603,
+              0.8583822228335065
+            ],
+            [
+              0.8594952541461485,
+              0.8595026719944947
+            ]
+          ]
+        },
+        "fixed_wait_149": {
+          "local_spin_channel_at_each_single_occupation_port": [
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.15398140926649068,
+                -0.1539707449156668
+              ],
+              "Bell_overlap_interval": [
+                0.13451394305013198,
+                0.1345219413132499
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.4354950313368486,
+                0.4355251946759866
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615349289757396,
+                0.10616370479993852
+              ],
+              "Bell_overlap_interval": [
+                0.32961511967318047,
+                0.32962277859995387
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.3002474186980503,
+                0.30027630231969343
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.03837553802302639,
+                -0.03836593941594313
+              ],
+              "Bell_overlap_interval": [
+                0.2212183464827302,
+                0.22122554543804265
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10851526371042255,
+                0.10854241267105662
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852795350120166,
+                0.5852939867341536
+              ],
+              "Bell_overlap_interval": [
+                0.6889596512590124,
+                0.6889704900506152
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554205123868253,
+                1.6554613880297169
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.00390927301626412,
+                -0.0038998018876025783
+              ],
+              "Bell_overlap_interval": [
+                0.2470680452378019,
+                0.24707514858429808
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.011030305440031526,
+                0.011057093837239792
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.5852795350117329,
+                0.5852939867338699
+              ],
+              "Bell_overlap_interval": [
+                0.6889596512587997,
+                0.6889704900504025
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": false,
+              "has_nonseparable_local_reference_record": true,
+              "unfiltered_optimal_CHSH_interval": [
+                1.6554205123860228,
+                1.6554613880289144
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                -0.038375538022949206,
+                -0.03836593941586595
+              ],
+              "Bell_overlap_interval": [
+                0.2212183464827881,
+                0.22122554543810052
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.10851526371020426,
+                0.10854241267083832
+              ]
+            },
+            {
+              "single_qubit_depolarizing_eta": [
+                0.10615349289742668,
+                0.10616370479979123
+              ],
+              "Bell_overlap_interval": [
+                0.32961511967307,
+                0.32962277859984346
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.30024741869763366,
+                0.3002763023192768
+              ]
+            }
+          ],
+          "simultaneous_signed_charge_and_neighbor_spin": [
+            {
+              "charge_site": 4,
+              "spin_site": 3,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.14689371596761383,
+                0.1469016507425228
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.0009986894058176023,
+                0.0009987434672840585
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012565327159,
+                0.9990013105941825
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465200278753122,
+                  0.646608968138809
+                ],
+                "Bell_overlap_interval": [
+                  0.7348900209064841,
+                  0.7349567261041068
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.828634783534196,
+                  1.8288863445879524
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6462827383392954,
+                "simultaneous_99_percent_eta": [
+                  0.6439986612647447,
+                  0.6485668154138461
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7329989959485586,
+                  0.7364251115603846
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917545376,
+                      117143480,
+                      31753476,
+                      6226906,
+                      441750,
+                      95008,
+                      94819,
+                      441009
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917572308,
+                      117128143,
+                      31743111,
+                      6224156,
+                      95354,
+                      442106,
+                      441811,
+                      94835
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917561124,
+                      117141031,
+                      31740137,
+                      6228053,
+                      441044,
+                      94567,
+                      94579,
+                      441289
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "charge_site": 4,
+              "spin_site": 5,
+              "joint_native_excess_on_the_two_receiving_sites": -1,
+              "conditioned_joint_gate_weight": [
+                0.14689371596761258,
+                0.14690165074252154
+              ],
+              "joint_gate_probability_per_original_Neel_start": [
+                0.000998689405817594,
+                0.0009987434672840503
+              ],
+              "joint_gate_refusal_per_original_Neel_start": [
+                0.9990012565327159,
+                0.9990013105941825
+              ],
+              "reference_channel_without_global_terminal_drain": {
+                "single_qubit_depolarizing_eta": [
+                  0.6465200278751626,
+                  0.6466089681386594
+                ],
+                "Bell_overlap_interval": [
+                  0.734890020906372,
+                  0.7349567261039945
+                ],
+                "exactly_entanglement_breaking_at_this_resolution": false,
+                "has_nonseparable_local_reference_record": true,
+                "unfiltered_optimal_CHSH_interval": [
+                  1.828634783533773,
+                  1.8288863445875294
+                ]
+              },
+              "simulated_local_Pauli_comparison": {
+                "simulated_eta_estimate": 0.6469208026655362,
+                "simultaneous_99_percent_eta": [
+                  0.6446353048244041,
+                  0.6492063005066683
+                ],
+                "simultaneous_99_percent_Bell_overlap": [
+                  0.7334764786183031,
+                  0.7369047253800012
+                ],
+                "banks": [
+                  {
+                    "axis_pair": "XX",
+                    "counts": [
+                      917549230,
+                      117147766,
+                      31748773,
+                      6225190,
+                      441398,
+                      94693,
+                      94241,
+                      440533
+                    ]
+                  },
+                  {
+                    "axis_pair": "YY",
+                    "counts": [
+                      917563230,
+                      117134575,
+                      31744675,
+                      6227490,
+                      94410,
+                      441175,
+                      441536,
+                      94733
+                    ]
+                  },
+                  {
+                    "axis_pair": "ZZ",
+                    "counts": [
+                      917575200,
+                      117115426,
+                      31750561,
+                      6229267,
+                      440472,
+                      94664,
+                      94673,
+                      441561
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "receipt_probability_per_Neel_start": [
+            [
+              3.796946753293247e-05,
+              3.7970918973622084e-05
+            ],
+            [
+              1.7006299577446816e-05,
+              1.700727065190319e-05
+            ],
+            [
+              0.00014385727992243525,
+              0.0001438601112662864
+            ],
+            [
+              1.7006299577446816e-05,
+              1.700727065190319e-05
+            ],
+            [
+              0.00031777222884929495,
+              0.00031777644793899354
+            ],
+            [
+              1.7006299577446806e-05,
+              1.700727065190318e-05
+            ],
+            [
+              0.0001438572799224353,
+              0.00014386011126628646
+            ],
+            [
+              1.70062995774468e-05,
+              1.7007270651903174e-05
+            ]
+          ],
+          "spin_twice_z_given_window": [
+            [
+              -0.1322096868880293,
+              -0.13220175211312035
+            ],
+            [
+              0.09123923824558879,
+              0.09124717302049772
+            ],
+            [
+              -0.032940585048049975,
+              -0.03293265027314106
+            ],
+            [
+              0.5094342731387457,
+              0.5094422079136548
+            ],
+            [
+              -0.003287904883845002,
+              -0.003279970108936106
+            ],
+            [
+              0.5094342731384766,
+              0.5094422079133857
+            ],
+            [
+              -0.032940585047982154,
+              -0.03293265027307324
+            ],
+            [
+              0.09123923824545918,
+              0.09124717302036811
+            ]
+          ],
+          "signed_excess_given_window": [
+            [
+              -0.12380193666414634,
+              -0.1237940018892374
+            ],
+            [
+              -0.12219556503965728,
+              -0.12218763026474835
+            ],
+            [
+              -0.12711306417417922,
+              -0.12710512939927027
+            ],
+            [
+              -0.1154522272769849,
+              -0.11544429250207597
+            ],
+            [
+              -0.14670808945374159,
+              -0.14670015467883263
+            ],
+            [
+              -0.11545222727702054,
+              -0.1154442925021116
+            ],
+            [
+              -0.12711306417422008,
+              -0.12710512939931112
+            ],
+            [
+              -0.12219556503968562,
+              -0.12218763026477669
+            ]
+          ],
+          "single_occupation_given_window": [
+            [
+              0.8586081106662572,
+              0.8586160454411663
+            ],
+            [
+              0.8594949958881855,
+              0.8595029306630946
+            ],
+            [
+              0.8583745465219197,
+              0.8583824812968288
+            ],
+            [
+              0.8704039669982948,
+              0.8704119017732039
+            ],
+            [
+              0.841052766119434,
+              0.8410607008943431
+            ],
+            [
+              0.870403966998257,
+              0.8704119017731661
+            ],
+            [
+              0.8583745465218788,
+              0.858382481296788
+            ],
+            [
+              0.859494995888157,
+              0.8595029306630662
+            ]
+          ]
+        }
+      },
+      "resolved_energy_then_forgotten_receiver_local": {
+        "local_spin_channel_at_each_single_occupation_port": [
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.07972004032483797,
+              -0.07971061594226828
+            ],
+            "Bell_overlap_interval": [
+              0.19020996975637153,
+              0.1902170380432988
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.2254556682613377,
+              0.2254823244406318
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.3472276186891068,
+              0.3472391725744968
+            ],
+            "Bell_overlap_interval": [
+              0.5104207140168301,
+              0.5104293794308726
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9821080151612969,
+              0.9821406944841302
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.03837522536009589,
+              -0.038366252073204474
+            ],
+            "Bell_overlap_interval": [
+              0.22121858097992808,
+              0.22122531094509665
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.10851614803870129,
+              0.1085415283267431
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.34722761868918567,
+              0.34723917257457565
+            ],
+            "Bell_overlap_interval": [
+              0.5104207140168893,
+              0.5104293794309318
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9821080151615199,
+              0.9821406944843531
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.07972004032483809,
+              -0.07971061594226839
+            ],
+            "Bell_overlap_interval": [
+              0.19020996975637144,
+              0.1902170380432987
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.225455668261338,
+              0.22548232444063215
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.34722761868910673,
+              0.3472391725744967
+            ],
+            "Bell_overlap_interval": [
+              0.51042071401683,
+              0.5104293794308725
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9821080151612966,
+              0.9821406944841299
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              -0.03837522536009583,
+              -0.038366252073204404
+            ],
+            "Bell_overlap_interval": [
+              0.22121858097992814,
+              0.2212253109450967
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": true,
+            "has_nonseparable_local_reference_record": false,
+            "unfiltered_optimal_CHSH_interval": [
+              0.10851614803870109,
+              0.10854152832674292
+            ]
+          },
+          {
+            "single_qubit_depolarizing_eta": [
+              0.34722761868918556,
+              0.3472391725745756
+            ],
+            "Bell_overlap_interval": [
+              0.5104207140168892,
+              0.5104293794309317
+            ],
+            "exactly_entanglement_breaking_at_this_resolution": false,
+            "has_nonseparable_local_reference_record": true,
+            "unfiltered_optimal_CHSH_interval": [
+              0.9821080151615197,
+              0.982140694484353
+            ]
+          }
+        ],
+        "simultaneous_signed_charge_and_neighbor_spin": [
+          {
+            "charge_site": 4,
+            "spin_site": 3,
+            "joint_native_excess_on_the_two_receiving_sites": -1,
+            "conditioned_joint_gate_weight": [
+              0.13629726322930438,
+              0.13630468107765045
+            ],
+            "joint_gate_probability_per_original_Neel_start": [
+              0.0009266470790285318,
+              0.0009266976177493332
+            ],
+            "joint_gate_refusal_per_original_Neel_start": [
+              0.9990733023822506,
+              0.9990733529209715
+            ],
+            "reference_channel_without_global_terminal_drain": {
+              "single_qubit_depolarizing_eta": [
+                0.3055561748148508,
+                0.3056272284624629
+              ],
+              "Bell_overlap_interval": [
+                0.4791671311111381,
+                0.47922042134684717
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.8642433729800127,
+                0.8644443430442309
+              ]
+            },
+            "simulated_local_Pauli_comparison": {
+              "simulated_eta_estimate": 0.3042019049379639,
+              "simultaneous_99_percent_eta": [
+                0.3018415386755994,
+                0.3065622712003284
+              ],
+              "simultaneous_99_percent_Bell_overlap": [
+                0.47638115400669956,
+                0.4799217034002463
+              ],
+              "banks": [
+                {
+                  "axis_pair": "XX",
+                  "counts": [
+                    917551147,
+                    117139343,
+                    31749319,
+                    6306492,
+                    324804,
+                    172974,
+                    172889,
+                    324856
+                  ]
+                },
+                {
+                  "axis_pair": "YY",
+                  "counts": [
+                    917543319,
+                    117153023,
+                    31741763,
+                    6306705,
+                    173466,
+                    325035,
+                    324972,
+                    173541
+                  ]
+                },
+                {
+                  "axis_pair": "ZZ",
+                  "counts": [
+                    917549083,
+                    117150492,
+                    31745257,
+                    6302998,
+                    324479,
+                    173992,
+                    172149,
+                    323374
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "charge_site": 4,
+            "spin_site": 5,
+            "joint_native_excess_on_the_two_receiving_sites": -1,
+            "conditioned_joint_gate_weight": [
+              0.13629726322930416,
+              0.13630468107765023
+            ],
+            "joint_gate_probability_per_original_Neel_start": [
+              0.0009266470790285302,
+              0.0009266976177493316
+            ],
+            "joint_gate_refusal_per_original_Neel_start": [
+              0.9990733023822506,
+              0.9990733529209715
+            ],
+            "reference_channel_without_global_terminal_drain": {
+              "single_qubit_depolarizing_eta": [
+                0.3055561748147949,
+                0.3056272284624069
+              ],
+              "Bell_overlap_interval": [
+                0.4791671311110962,
+                0.4792204213468052
+              ],
+              "exactly_entanglement_breaking_at_this_resolution": true,
+              "has_nonseparable_local_reference_record": false,
+              "unfiltered_optimal_CHSH_interval": [
+                0.8642433729798547,
+                0.8644443430440726
+              ]
+            },
+            "simulated_local_Pauli_comparison": {
+              "simulated_eta_estimate": 0.30550854838587727,
+              "simultaneous_99_percent_eta": [
+                0.3031478014518038,
+                0.3078692953199507
+              ],
+              "simultaneous_99_percent_Bell_overlap": [
+                0.47736085108885284,
+                0.48090197148996305
+              ],
+              "banks": [
+                {
+                  "axis_pair": "XX",
+                  "counts": [
+                    917551827,
+                    117143303,
+                    31745225,
+                    6305954,
+                    325037,
+                    172711,
+                    173309,
+                    324458
+                  ]
+                },
+                {
+                  "axis_pair": "YY",
+                  "counts": [
+                    917569269,
+                    117131041,
+                    31744861,
+                    6302898,
+                    172726,
+                    323946,
+                    324765,
+                    172318
+                  ]
+                },
+                {
+                  "axis_pair": "ZZ",
+                  "counts": [
+                    917570260,
+                    117129255,
+                    31745205,
+                    6300822,
+                    325189,
+                    172610,
+                    173046,
+                    325437
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "resolved_line_dephased_receipt_by_site_per_Neel_start": [
+        [
+          0.00017729689039428295,
+          0.00017844764125313824
+        ],
+        [
+          1.6431409685247382e-05,
+          1.7582160544102625e-05
+        ],
+        [
+          0.00014328332016493324,
+          0.00014443407102378853
+        ],
+        [
+          1.6431409685247375e-05,
+          1.7582160544102618e-05
+        ],
+        [
+          0.00017729689039428325,
+          0.00017844764125313854
+        ],
+        [
+          1.6431409685247375e-05,
+          1.7582160544102618e-05
+        ],
+        [
+          0.00014328332016493313,
+          0.00014443407102378842
+        ],
+        [
+          1.6431409685247372e-05,
+          1.7582160544102615e-05
+        ]
+      ]
+    }
+  ],
+  "simulated_original_Starts_per_Pauli_bank": 1073741824,
+  "simultaneous_local_cohort_count": 16,
+  "simulated_count_bin_order": [
+    "ground_refused",
+    "pump_refused",
+    "energy_window_refused",
+    "two_site_charge_and_single_gate_refused",
+    "++",
+    "+-",
+    "-+",
+    "--"
+  ]
+}

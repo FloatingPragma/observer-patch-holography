@@ -1,0 +1,131 @@
+{
+  "protocol_sha256": "cb1b8942fcf829035eff3cc3ba14454cc6140a94fcdfdf668f60ad85a434a602",
+  "panels": {
+    "native": {
+      "rows": [
+        {
+          "port": 2,
+          "time_mean": -0.13560765868982416,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-1445/2304",
+            "1060235/172032",
+            "-3654092681/61931520",
+            "670958924465/1401421824"
+          ]
+        },
+        {
+          "port": 13,
+          "time_mean": -0.1356076586898437,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-1445/2304",
+            "1060235/172032",
+            "-3654092681/61931520",
+            "670958924465/1401421824"
+          ]
+        }
+      ],
+      "spectral_groups": [
+        {
+          "groups": 21,
+          "smallest_separation": 0.005192159997541523,
+          "largest_within_group": 1.0658141036401503e-13
+        },
+        {
+          "groups": 251,
+          "smallest_separation": 2.0052634667422353e-05,
+          "largest_within_group": 3.979039320256561e-13
+        }
+      ]
+    },
+    "no_contrast": {
+      "rows": [
+        {
+          "port": 2,
+          "time_mean": -0.02027872034928868,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-5/2304",
+            "1553/516096",
+            "-344507/185794560",
+            "34946783/49049763840"
+          ]
+        },
+        {
+          "port": 13,
+          "time_mean": -0.02027872034928968,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-5/2304",
+            "1553/516096",
+            "-344507/185794560",
+            "34946783/49049763840"
+          ]
+        }
+      ],
+      "spectral_groups": [
+        {
+          "groups": 12,
+          "smallest_separation": 0.03514853104392612,
+          "largest_within_group": 1.7985612998927536e-14
+        },
+        {
+          "groups": 95,
+          "smallest_separation": 3.444773462568662e-05,
+          "largest_within_group": 2.3092638912203256e-14
+        }
+      ]
+    },
+    "ordinary": {
+      "rows": [
+        {
+          "port": 2,
+          "time_mean": 0.14700690821525253,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-85/576",
+            "10351/3584",
+            "-17753131/829440",
+            "71229557191/766402560"
+          ]
+        },
+        {
+          "port": 13,
+          "time_mean": 0.147006908215227,
+          "taylor_even_coefficients": [
+            "0",
+            "0",
+            "0",
+            "-85/576",
+            "10351/3584",
+            "-17753131/829440",
+            "71229557191/766402560"
+          ]
+        }
+      ],
+      "spectral_groups": [
+        {
+          "groups": 8,
+          "smallest_separation": 0.059481754443325485,
+          "largest_within_group": 9.237055564881302e-14
+        },
+        {
+          "groups": 90,
+          "smallest_separation": 4.667635337796128e-05,
+          "largest_within_group": 1.8474111129762605e-13
+        }
+      ]
+    }
+  }
+}

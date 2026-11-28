@@ -1,0 +1,114 @@
+{
+  "sha256": {
+    "OUTER_DISK.md": "424b569491777556bcbffabc7dba44936a2a3317ef34277bb58c863918cccb96",
+    "source_profile.json": "aab942562b24db4ddd5f9bf7002a30d2ec167a4dba78be9d4185521c52ad443c",
+    "gas_image_inputs.json": "3f64eb02edba90060370cbc50763b7b0250b38ba81c87d4569a0d35ff2e3d105",
+    "table1.dat": "86771a7f9f7af768ba7932dc57c6a9d81de16a287d98f4cd49bd2b4fb2a42c5c"
+  },
+  "optical_source": "https://arxiv.org/abs/1802.02583",
+  "adopted_distance_mpc": 14.1,
+  "outer_stars_upper_msun": 180000000.0,
+  "all_atomic_He_msun": 11654562644.355625,
+  "all_molecular_He_msun": 697848702.4054676,
+  "ring_intervals_msun": [
+    [
+      30.7,
+      428466750559,
+      498439823171
+    ],
+    [
+      32.79,
+      461439073122,
+      535917180340
+    ],
+    [
+      34.88,
+      482260896839,
+      560660896864
+    ],
+    [
+      36.96,
+      518074601907,
+      573134284514
+    ],
+    [
+      38.9,
+      508469703282,
+      564781268710
+    ],
+    [
+      40.99,
+      524574540319,
+      583264272518
+    ],
+    [
+      43.08,
+      551268628201,
+      612724062338
+    ],
+    [
+      45.16,
+      586051442474,
+      683640072795
+    ],
+    [
+      47.1,
+      637390856582,
+      740286124600
+    ],
+    [
+      49.19,
+      699581612358,
+      808594506324
+    ],
+    [
+      51.27,
+      769175623853,
+      884819882701
+    ],
+    [
+      53.36,
+      777610532940,
+      896285646449
+    ],
+    [
+      55.3,
+      813941174337,
+      937367071688
+    ],
+    [
+      57.38,
+      860232145572,
+      1034211747496
+    ],
+    [
+      59.47,
+      883587374083,
+      1063277882043
+    ],
+    [
+      61.56,
+      909571681494,
+      1143533364965
+    ],
+    [
+      63.64,
+      984534559081,
+      1230585927742
+    ]
+  ],
+  "strongest": {
+    "inner_kpc": 30.7,
+    "outer_kpc": 63.64,
+    "required_extra_mass_floor_msun": 486094735911,
+    "minimum_extra_per_outer_stellar_mass": 2700.52,
+    "minimum_extra_per_stars_and_all_measured_gas": 38.78
+  },
+  "first_to_last": {
+    "inner_kpc": 30.7,
+    "outer_kpc": 63.64,
+    "required_extra_mass_floor_msun": 486094735911,
+    "minimum_extra_per_outer_stellar_mass": 2700.52,
+    "minimum_extra_per_stars_and_all_measured_gas": 38.78
+  }
+}

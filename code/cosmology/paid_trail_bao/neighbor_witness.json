@@ -1,0 +1,1398 @@
+{
+  "dilute_limit": {
+    "local": "3041616/51527255",
+    "neighbor": "13664/146523",
+    "threshold": "570303/900970",
+    "apertures": {
+      "atomic": {
+        "DDO154": {
+          "neighbor_to_self_product": 0.9565765169113618,
+          "leading_source_sign": -1
+        },
+        "IC2574": {
+          "neighbor_to_self_product": 0.9364695338099768,
+          "leading_source_sign": -1
+        },
+        "NGC7793": {
+          "neighbor_to_self_product": 0.9472700968028497,
+          "leading_source_sign": -1
+        },
+        "NGC2403": {
+          "neighbor_to_self_product": 0.9524084133055397,
+          "leading_source_sign": -1
+        },
+        "NGC3198": {
+          "neighbor_to_self_product": 0.9871515030487724,
+          "leading_source_sign": -1
+        },
+        "NGC6946": {
+          "neighbor_to_self_product": 0.9341292305839914,
+          "leading_source_sign": -1
+        },
+        "NGC3521": {
+          "neighbor_to_self_product": 0.98477914343718,
+          "leading_source_sign": -1
+        },
+        "NGC2841": {
+          "neighbor_to_self_product": 0.986050890764731,
+          "leading_source_sign": -1
+        },
+        "NGC5055": {
+          "neighbor_to_self_product": 0.965378308745153,
+          "leading_source_sign": -1
+        },
+        "NGC7331": {
+          "neighbor_to_self_product": 0.9684380559662836,
+          "leading_source_sign": -1
+        }
+      },
+      "mapped_baryons": {
+        "DDO154": {
+          "neighbor_to_self_product": 0.9529443377765535,
+          "leading_source_sign": -1
+        },
+        "IC2574": {
+          "neighbor_to_self_product": 0.9642129618147819,
+          "leading_source_sign": -1
+        },
+        "NGC7793": {
+          "neighbor_to_self_product": 0.9323643302590063,
+          "leading_source_sign": -1
+        },
+        "NGC2403": {
+          "neighbor_to_self_product": 0.947588731315557,
+          "leading_source_sign": -1
+        },
+        "NGC3198": {
+          "neighbor_to_self_product": 0.9427256791748937,
+          "leading_source_sign": -1
+        },
+        "NGC6946": {
+          "neighbor_to_self_product": 0.9008732649142601,
+          "leading_source_sign": -1
+        },
+        "NGC3521": {
+          "neighbor_to_self_product": 0.8671350211008882,
+          "leading_source_sign": -1
+        },
+        "NGC2841": {
+          "neighbor_to_self_product": 0.8866401805171582,
+          "leading_source_sign": -1
+        },
+        "NGC5055": {
+          "neighbor_to_self_product": 0.9064885899838337,
+          "leading_source_sign": -1
+        },
+        "NGC7331": {
+          "neighbor_to_self_product": 0.9107434177810818,
+          "leading_source_sign": -1
+        }
+      }
+    }
+  },
+  "sha256": {
+    "NEIGHBOR_WITNESS.md": "adb92159dc1093f0e40c315e2ef393d9ea1cbfe7975538f98421de0e0aac2f56",
+    "neighbor_witness_maps.json": "eb4b5b2f3aa13a81af531417334cb6de4ab39b137798b739e9b700104a0b6a3c",
+    "record_profile_maps.json": "59e4afaf85305135c0254f8b76d7ef861ae6fd84d9f5d47fb8fc3a5727e71247",
+    "witness_access.json": "5d82f382360e78bb06f16076c6d9101a9e1aef75ab059dd822b5de72fa493705",
+    "record_density.json": "ab8803e00af9d45d102af19a55c84bad0baef42a55b7097db60a0f185dfcfb89"
+  },
+  "tests": {
+    "atomic": {
+      "1": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 14776.755908384148,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 15769.464993087033,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 15067.267281789527,
+            "within_two": 14,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": true
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 14546.061831726216,
+            "within_two": 25,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 14374.979805269182,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 14816.150110434844,
+            "within_two": 36,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 14555.75207826398,
+            "within_two": 28,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 14438.664201395315,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 14491.295148991385,
+            "within_two": 2,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 14933.652803701329,
+            "within_two": 8,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 113,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 1,
+        "median_abs_kms": 15.52457944080291,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "21627356277517502398813130415256490225/401498312951872423951272641737",
+          "upper": "-17597680698360003202637589164057622625/587555379005563393233412680554",
+          "lower_constraint": [
+            30.7,
+            49.19,
+            "maximum shell"
+          ],
+          "upper_constraint": [
+            32.79,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "2": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 91233.59614164471,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 102464.45415630992,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 95970.65653696774,
+            "within_two": 4,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": true
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 89306.93848822516,
+            "within_two": 14,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 90625.09053717545,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 93975.01118714089,
+            "within_two": 35,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 88606.26479646597,
+            "within_two": 26,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 92350.12355484047,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 86892.50070123415,
+            "within_two": 3,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 78906.14595170411,
+            "within_two": 14,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 96,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 1,
+        "median_abs_kms": 19.880852616799558,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-14742413528650027540081773578535799375/295263851030686118224753485811",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            24.59,
+            30.7,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "4": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 1452264.813511561,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 8,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 1730384.5284197254,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 1512400.8308859358,
+            "within_two": 20,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": true
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 1393826.7714830046,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 1612289.7945251572,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 1366408.8743302575,
+            "within_two": 15,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 1277453.9922532758,
+            "within_two": 21,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 1839156.4800743698,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 1344130.5552228373,
+            "within_two": 7,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 852726.3996476078,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 66,
+        "undefined": 8,
+        "held_full_curves": 0,
+        "possible_full_curves": 1,
+        "median_abs_kms": 27.34747484113433,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-18678358060485010056166274175486811850/128703454632741441861450002377",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "8": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-93391790302425050280831370877434059250/161250923790348048079466648069",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "16": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-466958951512125251404156854387170296250/200417297120263080107098762203",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "64": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-4669589515121252514041568543871702962500/124343082251212308045750385223",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "256": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-93391790302425050280831370877434059250000/155078112886371793470514580013",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      }
+    },
+    "mapped_baryons": {
+      "1": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 116270.66455291983,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 116271.76404103072,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 116319.5142851578,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 116336.76251215019,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 116364.66416110423,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 118029.13023933863,
+            "within_two": 2,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 138216.73917002627,
+            "within_two": 22,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 64174.47656083711,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 126355.65609652988,
+            "within_two": 0,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 156373.63770179474,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 27,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 41.0858570582501,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-9339179030242505028083137087743405925/44487488449328907080066946",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "2": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 286405.6305119714,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 286407.26810223365,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 286497.26556389057,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 286549.35157248436,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 286682.46187455265,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 282823.9574442913,
+            "within_two": 7,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 327884.152460453,
+            "within_two": 24,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 119147.82074210333,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 367819.91742768616,
+            "within_two": 1,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 400755.41507911094,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 35,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 41.106496233488926,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-46695895151212525140415685438717029625/55572822513914784202949951",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "4": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 1718685.6538541215,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 1718734.7631830666,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 1721455.3376564158,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 1723147.6479253646,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 1727523.121007371,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 1755966.7217797276,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 1499612.0215482481,
+            "within_two": 21,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 704214.6601655106,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 1891692.438977011,
+            "within_two": 2,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 5420190.24170916,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 32,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.54978039611605,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-466958951512125251404156854387170296250/138885697598248876921923039",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "8": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-9339179030242505028083137087743405925000/694311733453399389373984329",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "16": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-9339179030242505028083137087743405925000/173563285427655360022933663",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "64": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-466958951512125251404156854387170296250000/542350862547127650029944171",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      },
+      "256": {
+        "galaxies": {
+          "DDO154": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 11,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "IC2574": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 22,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7793": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 26,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2403": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 72,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3198": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 37,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC6946": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 6,
+            "points": 54,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC3521": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 13,
+            "points": 34,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC2841": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 0,
+            "points": 50,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC5055": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 4,
+            "points": 27,
+            "undefined": 0,
+            "any_gain": false
+          },
+          "NGC7331": {
+            "gain_msun_per_nat_pc2": 0.0,
+            "within_two": 3,
+            "points": 36,
+            "undefined": 0,
+            "any_gain": false
+          }
+        },
+        "rings": 369,
+        "within_two": 26,
+        "undefined": 0,
+        "held_full_curves": 0,
+        "possible_full_curves": 0,
+        "median_abs_kms": 40.2738011602455,
+        "ngc2841_with_free_interior": {
+          "possible": false,
+          "lower": "0",
+          "upper": "-9339179030242505028083137087743405925000000/677927814526742300012137449",
+          "lower_constraint": "nonnegative gain",
+          "upper_constraint": [
+            43.08,
+            49.19,
+            "maximum shell"
+          ],
+          "contradiction": null
+        }
+      }
+    }
+  }
+}

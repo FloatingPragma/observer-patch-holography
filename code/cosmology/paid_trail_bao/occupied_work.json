@@ -1,0 +1,72 @@
+{
+  "sha256": {
+    "OCCUPIED_WORK.md": "44259d7aaaabc12be67248751d30e3de30bd1a0aef1eddf338e95a34a272911d",
+    "thermal_work.json": "3dcb202c1e9d3cad113c0f520b3bd94641d2eacf0cff0f1006feb35558d9444f",
+    "occupied_equilibrium.json": "743f02060396046ea95fe651a1784939498f9b0edeed849ba800e9cf1a715910",
+    "pair_contact.json": "1779e00f6438fdedd7c9b023c48ac4a44edf07812a238f8d2efa6bc81938489a"
+  },
+  "galaxy": "NGC2841",
+  "radii_kpc": [
+    20.57,
+    30.7,
+    40.99,
+    51.27,
+    61.56
+  ],
+  "required_work_km2_s2": [
+    [
+      23046.669979478873,
+      27786.337479973783
+    ],
+    [
+      17036.501907548038,
+      19394.22169435135
+    ],
+    [
+      12942.606376007128,
+      14814.275158356975
+    ],
+    [
+      11647.279097240335,
+      13764.813444678908
+    ]
+  ],
+  "source_displacement": [
+    0.07136734198729715,
+    0.0714896205018303
+  ],
+  "observational_work_ratio": [
+    0.5211868172734345,
+    0.7129946872364566
+  ],
+  "positive_sum_ratio_upper": 1.3354588904105389e-08,
+  "minimum_ratio_discrepancy": 39026796.03362514,
+  "unresolved_tracer_test": {
+    "enclosed_fraction": "1",
+    "excluded_every_mixture": true,
+    "disjoint_dyadic_cells": [
+      [
+        0,
+        1,
+        "4_5 vs 5_6",
+        [
+          2.439003090382656e-15,
+          98.96624845874564
+        ]
+      ],
+      [
+        1,
+        1,
+        "4_5 vs 5_6",
+        [
+          4.044626683127362e-13,
+          82.9861742067814
+        ]
+      ]
+    ],
+    "unresolved": [],
+    "comparisons": {
+      "4_5 vs 5_6": 2
+    }
+  }
+}

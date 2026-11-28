@@ -1,0 +1,213 @@
+{
+  "tested_faithful_contacts": [
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "excluded_singular": [
+    16,
+    32,
+    64
+  ],
+  "maximum_gain_ratio_with_local_ordinary_calibration": 1.1238763553922249,
+  "maximum_gain_ratio_with_one_overall_calibration": 1.0087515837660694,
+  "surveys": {
+    "Chemin": {
+      "endpoint_radii_kpc": [
+        28.17,
+        38.09
+      ],
+      "cases": {
+        "disk_7.1_bulge_6.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.9047339934528096,
+            3.1746735819598926,
+            2.5456079011805777
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.496987517734432
+        },
+        "disk_7.1_bulge_6.4_spherical": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.4556229476245206,
+            2.8205093730191977,
+            2.2661260600883173
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.496987517734432
+        },
+        "disk_5.325_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.7963760718398496,
+            2.316080360546487,
+            1.88770849417033
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.5231434926893008
+        },
+        "disk_5.325_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.242575390585566,
+            2.6688920656321113,
+            2.163036479403341
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.4988064599622175
+        },
+        "disk_5.325_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.924381423826512,
+            3.195872067764576,
+            2.565798799104885
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.4797002137552202
+        },
+        "disk_7.1_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.0264783277153677,
+            2.4940646522895475,
+            2.023918443349701
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.5296916947222567
+        },
+        "disk_7.1_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.5268456900634333,
+            2.884712426241392,
+            2.3253543297614585
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.5074999197567043
+        },
+        "disk_7.1_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            4.33632557167381,
+            3.5007528828091745,
+            2.789897910617691
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.488675364854845
+        },
+        "disk_8.875_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.3162794858029523,
+            2.716225302207924,
+            2.1926115858294426
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.5342784285233044
+        },
+        "disk_8.875_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.894490263408033,
+            3.1608034873171995,
+            2.5310904213383
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.5140526143780937
+        },
+        "disk_8.875_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            4.882991574780331,
+            3.8984769064271205,
+            3.0780961727765237
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.4958732695573456
+        }
+      },
+      "least_two_error_gain_over_tested_sources": 1.88770849417033
+    },
+    "Corbelli": {
+      "endpoint_radii_kpc": [
+        28.5,
+        36.5
+      ],
+      "cases": {
+        "disk_7.1_bulge_6.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.1495684951170855,
+            0.06115989637139434,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.3949719188050196
+        },
+        "disk_7.1_bulge_6.4_spherical": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.7032388908470644,
+            0.0,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.3949719188050196
+        },
+        "disk_5.325_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.1542168697910906,
+            0.034800720103166885,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.415424910785174
+        },
+        "disk_5.325_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.532856952816634,
+            0.04034052267199436,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.3963971777084478
+        },
+        "disk_5.325_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.143091782060239,
+            0.0488296783197953,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.38143957747663
+        },
+        "disk_7.1_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.365438513910613,
+            0.04740860869256833,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.4205368344799236
+        },
+        "disk_7.1_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.8042865611762395,
+            0.05523656522719932,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.403194982146303
+        },
+        "disk_7.1_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.558999452533228,
+            0.06793511486198454,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.3884662607219633
+        },
+        "disk_8.875_bulge_2.4_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            2.63685181993307,
+            0.06256764164229517,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.424116270047567
+        },
+        "disk_8.875_bulge_4.8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            3.1645238730028806,
+            0.07347511084160696,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.4083164343082015
+        },
+        "disk_8.875_bulge_8_disk": {
+          "bounds_on_mean_outer_to_inner_gain": [
+            4.135621935749301,
+            0.09217434820120605,
+            0.0
+          ],
+          "maximum_aperture_mass_ratio_with_reference_variation": 1.394098760587943
+        }
+      },
+      "least_two_error_gain_over_tested_sources": 0.0
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "source_revision": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "source_sha256": {
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/particle_common_contract/contract.json": "7617133bb473e37250f31491d5fadf3c4275d7b97a4e8342321d9e108988ed31",
+    "model/particle_primary_charged_string/results.json": "d2b43d798437761904974f1ca622f55ec22e4c1cb0769b2dd0ddcac8a1205a41",
+    "model/particle_primary_channel_labels/results.json": "3941b4a76c59a72c720bc1d70db43a8bf5a2ca7b03929d398c6469a35806d88d"
+  },
+  "source_identity": {
+    "member_id": "112d315bc4d7181fc36c93ab06acd4bfa8c1b36eed0b3047afd7e34e350c7e00",
+    "clock_id": "642db923a91dfa03f063797f3f24f645186602ac5cb967b6eb142a12e4e8ace2",
+    "reference_id": "f150192f59366d08f619a67947adab5f8f89ae6613d5ffcfc80aacd224af0eed",
+    "source_id": "3538402120a7dd58c91cf70364a5e824b6df0d17ebd11bad58ea1a4977041ad8",
+    "state_id": "e41e09d434143ce9dc70a94feb9fbac915de08d868f6eae3df07385b9849086a"
+  },
+  "representation": {
+    "charged_doublet_neutral_partner_and_conjugate_singlet": [
+      [
+        23,
+        -3,
+        -3,
+        -6
+      ],
+      [
+        15,
+        -3,
+        3,
+        0
+      ],
+      [
+        24,
+        6,
+        0,
+        6
+      ]
+    ],
+    "native_charge_blocks": [
+      [
+        -4,
+        3
+      ],
+      [
+        -3,
+        2
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "all_twelve_generators_preserve_each_block": true,
+    "weak_raising_coefficient_in_normalized_internal_basis": 1,
+    "weak_raising_annihilates_the_singlet": true,
+    "native_color_singlet_composite_weak_doublet": {
+      "antitriplet_masks": [
+        6,
+        5,
+        3
+      ],
+      "weak_triplet_color_masks_in_two_weak_slots": [
+        [
+          9,
+          17
+        ],
+        [
+          10,
+          18
+        ],
+        [
+          12,
+          20
+        ]
+      ],
+      "weak_representation": "dimension two, hypercharge times six is -3",
+      "one_creator_one_annihilator_cannot_supply_either_higgs_charge": true,
+      "contains_two_native_fermion_defects": true
+    },
+    "global_central_phase_exponent_of_bare_negative_charge_conversion": 3,
+    "global_central_phase_exponent_of_every_gauge_only_link_operator": 0,
+    "converted_finite_code_charge_includes_auxiliary_composite": true
+  },
+  "occupation_block_order": [
+    -4,
+    -3,
+    1,
+    2,
+    6
+  ],
+  "unchanged_Wilson_mixed_propagator_element_for_every_wait": 0,
+  "bare_free_flight_coherent_five_counter_change_for_every_input": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gamma5_at_fixed_dirac_beta_projected_matrix": "zero on either beta sign",
+  "separate_native_doublet_positive_control": {
+    "normalized_probe_accept_probability_given_beta_stock": 1,
+    "matter_weak_casimir": "3/4",
+    "formula_for_probability_of_weak_slots_after_link_and_compensator_are_unread": [
+      "1/2",
+      "1/2"
+    ],
+    "bare_onsite_plus_electric_transfer_reference_energy": "237/8",
+    "separate_singlet_reference_energy": "87/4",
+    "the_two_ends_compensate_their_own_distinct_link_representation": [
+      {
+        "endpoint_and_its_own_compensator_hypercharge": [
+          -3,
+          3
+        ],
+        "physical_link_matter_columns": 4
+      },
+      {
+        "endpoint_and_its_own_compensator_hypercharge": [
+          3,
+          -3
+        ],
+        "physical_link_matter_columns": 4
+      }
+    ]
+  },
+  "local_projected_control": {
+    "physical_pair_addresses": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "reference_character_word": "fixed charge-six link and constant spectator links",
+    "new_interaction": "supply a local gauge-invariant four-CAR term and its conjugate",
+    "added_modes": 0,
+    "native_pair_reference_energy": "87/4",
+    "native_detuning_due_to_extra_defects": 6,
+    "g_calibration_example": 1,
+    "native_and_controlled_H_after_subtracting_pair_reference": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          6
+        ]
+      ]
+    ],
+    "conditional_control_split": "2*sqrt(10)",
+    "conditional_weak_weight_of_lower_line": "(1-3/sqrt(10))/2",
+    "conditional_weak_weight_of_upper_line": "(1+3/sqrt(10))/2",
+    "maximum_conversion_at_natural_detuning": [
+      1,
+      10
+    ],
+    "relative_ladder_half_pulse_success_given_herald_at_natural_detuning": [
+      1,
+      40
+    ],
+    "relative_ladder_half_pulse_success_with_supplied_resonant_offsets": [
+      1,
+      8
+    ],
+    "charge_sign_banks": [
+      {
+        "physical_endpoint_sign": -1,
+        "inputs": [
+          {
+            "spin_input": 0,
+            "right_endpoint_configurations": 1,
+            "normalized_weak_composite_configurations": 12,
+            "created_block_count_changes": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "matter_plus_composite_hypercharge_times_six": -6,
+            "relative_ladder_target": 15,
+            "relative_ladder_start": 23,
+            "weak_countercharge_times_six": -6,
+            "relative_wrong_ladder_or_singlet_success": 0,
+            "relative_neutral_composite_and_charged_matter_weight_in_doublet": [
+              1,
+              2
+            ],
+            "relative_full_weak_transfer_weight_after_that_acceptance": 1
+          },
+          {
+            "spin_input": 1,
+            "right_endpoint_configurations": 1,
+            "normalized_weak_composite_configurations": 12,
+            "created_block_count_changes": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "matter_plus_composite_hypercharge_times_six": -6,
+            "relative_ladder_target": 15,
+            "relative_ladder_start": 23,
+            "weak_countercharge_times_six": -6,
+            "relative_wrong_ladder_or_singlet_success": 0,
+            "relative_neutral_composite_and_charged_matter_weight_in_doublet": [
+              1,
+              2
+            ],
+            "relative_full_weak_transfer_weight_after_that_acceptance": 1
+          }
+        ]
+      },
+      {
+        "physical_endpoint_sign": 1,
+        "inputs": [
+          {
+            "spin_input": 0,
+            "right_endpoint_configurations": 1,
+            "normalized_weak_composite_configurations": 12,
+            "created_block_count_changes": [
+              -1,
+              -1,
+              -1,
+              0,
+              -1
+            ],
+            "matter_plus_composite_hypercharge_times_six": 6,
+            "relative_ladder_target": 15,
+            "relative_ladder_start": 23,
+            "weak_countercharge_times_six": 6,
+            "relative_wrong_ladder_or_singlet_success": 0,
+            "relative_neutral_composite_and_charged_matter_weight_in_doublet": [
+              1,
+              2
+            ],
+            "relative_full_weak_transfer_weight_after_that_acceptance": 1
+          },
+          {
+            "spin_input": 1,
+            "right_endpoint_configurations": 1,
+            "normalized_weak_composite_configurations": 12,
+            "created_block_count_changes": [
+              -1,
+              -1,
+              -1,
+              0,
+              -1
+            ],
+            "matter_plus_composite_hypercharge_times_six": 6,
+            "relative_ladder_target": 15,
+            "relative_ladder_start": 23,
+            "weak_countercharge_times_six": 6,
+            "relative_wrong_ladder_or_singlet_success": 0,
+            "relative_neutral_composite_and_charged_matter_weight_in_doublet": [
+              1,
+              2
+            ],
+            "relative_full_weak_transfer_weight_after_that_acceptance": 1
+          }
+        ]
+      }
+    ],
+    "relative_weak_complete_bank_outcomes": [
+      "native_singlet_retained",
+      "converted_but_relative_neutral_composite_flag_refused",
+      "relative_neutral_composite_flag_and_weak_transfer_refused",
+      "relative_neutral_composite_flag_and_signed_weak_transfer"
+    ],
+    "relative_weak_complete_banks_conditioned_on_stock": [
+      {
+        "mode": "bare",
+        "probabilities": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "mode": "natural_detuning_control",
+        "probabilities": [
+          "9/10",
+          "1/20",
+          "1/40",
+          "1/40"
+        ]
+      },
+      {
+        "mode": "supplied_offset_compensates_detuning",
+        "probabilities": [
+          "1/2",
+          "1/4",
+          "1/8",
+          "1/8"
+        ]
+      }
+    ],
+    "finite_model_stock_is_postselected": true,
+    "absolute_chirality_or_physical_rest_mass_established": false
+  }
+}
