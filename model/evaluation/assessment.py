@@ -111,6 +111,10 @@ def species_group(candidate):
                     if any(previous.get(field) != revised.get(field) for field in ('source', 'law')):
                         raise ValueError(f"{key}: comparison revision must identify the original law and source")
                     record['comparison'] = revised
+                if "additional_comparisons" in observed:
+                    record["additional_comparisons"] = (
+                        record.get("additional_comparisons", []) + observed["additional_comparisons"]
+                    )
             rows.append({"id": "SM-" + key, "title": name, "domain": family["name"],
                          "requires": family["criterion"] + " " + distinction, "sources": catalogue["sources"],
                          "results": {candidate.NAME: record}})

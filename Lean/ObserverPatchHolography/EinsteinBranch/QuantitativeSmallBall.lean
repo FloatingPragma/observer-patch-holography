@@ -253,7 +253,7 @@ theorem lambda_constant {P : Type*} (step : Fin 4 → P → P) (base : P)
   linarith
 
 /-- Two preparations compared at the same proper volume and calibration.
-The separation is already forced at finite resolution if the measured
+Separation follows at finite resolution if the measured
 entropy contrast exceeds the two allowed stationarity errors. -/
 theorem two_stock_area_interval (s₀ s₁ a₀ a₁ η e₀ e₁ : ℝ)
     (h₀ : |s₀ + η * a₀| ≤ e₀) (h₁ : |s₁ + η * a₁| ≤ e₁) :

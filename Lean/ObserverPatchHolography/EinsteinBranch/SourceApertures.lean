@@ -635,7 +635,7 @@ theorem positive_clock_routes {ι : Type*} (A B : Finset ι) (hA : A.Nonempty)
   intro j hj
   exact mul_pos (mul_pos (hl i hi) (hm i hi j hj)) (hr j hj)
 
-/-- The weak-rail work is strictly positive already at finite exchange
+/-- The weak-rail work is strictly positive at finite exchange
 when the measured leading work dominates the bounded level correction. -/
 theorem finite_rail_work {w response error : ℝ} (visible : error < response)
     (level : |w-response| ≤ error) : 0 < w := by
@@ -708,7 +708,7 @@ theorem middle_energy_and_echo (z o t : ℝ) (mass : z+o+t = 0) :
     (o+t = ((o+2*t)-(z+t))/2) := by constructor <;> linarith
 
 /-- Comparing the complete spectator fuel histograms sees at least twice
-the joint displacement in total variation, already on their three bins. -/
+the joint displacement in total variation across the three bins. -/
 theorem spectator_fuel_variation (d : ℝ) :
     (|d|+|-(2*d)|+|d|)/2 = 2*|d| := by
   rw [abs_neg, abs_mul, abs_of_nonneg (by norm_num : (0:ℝ) ≤ 2)]
@@ -1399,7 +1399,7 @@ theorem harmonic_launch_acceleration {ι : Type*} (s : Finset ι)
   simpa using release
 
 /-- On a route visiting both homes, re-pairing at fixed marginals moves
-equal weight into the earliest and latest receipt. For every time readout
+equal weight to the first and last receipts. For every time readout
 the connected response is its second difference at those three times. -/
 theorem front_time_readout (x y joint f₀ f₂ f₄ : ℝ) :
     ((1-x-y+joint)*f₀+(x+y-2*joint)*f₂+joint*f₄) -
