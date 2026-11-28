@@ -40,7 +40,7 @@ The first extended line fixes the table. The same full joint comparison at the t
 
 ## Replay
 
-Use the repository environment from the OPH root. The first command reconstructs the outcome law and performs the seeded draws. Use `--output` with a fresh path to retain a replay. The second command checks the local echo calibration, archived detector marginals, rejection event and the replay against the deposited probability laws.
+Use the repository environment from the OPH root. The first command reconstructs the outcome law and performs the seeded draws. Use `--output` with a fresh path to retain a replay. The second command checks the local echo calibration, archived detector marginals and rejection event. It compares both the reference and reconstructed joint probabilities to simultaneous 99% binomial intervals from the deposited counts conditional on clock admission.
 
 ```sh
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1

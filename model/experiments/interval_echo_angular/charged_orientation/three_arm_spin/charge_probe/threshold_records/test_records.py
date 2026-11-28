@@ -59,6 +59,9 @@ def test_deposited_joint_records_and_independent_marginals():
 def test_replay_agrees_with_the_archive():
     reference = json.loads((measure.HERE / "results.json").read_text())
     current = measure.run()
+    # Each joint bank has one idle outcome and up to two on each of three arms.
+    comparisons = 7 * sum(len(row["middle"]) for row in reference["lengths"])
+    tail = 0.01 / (2 * comparisons)
     for a, b in zip(current["lengths"], reference["lengths"], strict=True):
         assert a["length"] == b["length"] and a["cuts"] == b["cuts"]
         for sign in ("-1", "1"):
@@ -70,10 +73,16 @@ def test_replay_agrees_with_the_archive():
                 atol=0,
             )
         for now, old in zip(a["middle"], b["middle"], strict=True):
-            assert now["time"] == old["time"] and now["kappa"] == old["kappa"]
-            np.testing.assert_allclose(
-                now["local_conditional_probabilities"],
-                old["local_conditional_probabilities"],
-                atol=2e-10,
-                rtol=3e-6,
-            )
+            for key in ("preparation", "time", "kappa"):
+                assert now[key] == old[key]
+            counts = old["native"]["synthetic_counts"]
+            outcomes = {key: n for key, n in counts.items() if key.count("/") == 2}
+            admitted = sum(outcomes.values())
+            assert admitted > 0
+            for event in (now, old):
+                law = event["native"]["computed_probabilities"]
+                assert law.keys() == counts.keys()
+                for outcome, n in outcomes.items():
+                    lo, hi = measure.bin_interval(n, admitted, tail=tail)
+                    probability = law[outcome] / event["admission"]
+                    assert lo <= probability <= hi, (a["length"], now["time"], outcome)

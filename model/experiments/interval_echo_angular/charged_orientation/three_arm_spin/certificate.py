@@ -3,10 +3,10 @@
 import numpy as np
 
 
-def isolate(h, groups, q, vec, energies, index):
+def isolate(h, groups, q, vec, energies, index, *, dyadic_bits=43):
     # Quantize to a dyadic basis *in the exact standard representation*. All
     # additions and integer permutations in 6 times the projector are exact.
-    scale = 2**43
+    scale = 2**dyadic_bits
     rotate = groups[1, 2, 0]
     mirror = groups[0, 2, 1]
     source = np.asarray(q @ vec)

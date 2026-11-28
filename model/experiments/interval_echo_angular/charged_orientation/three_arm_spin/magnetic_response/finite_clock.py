@@ -157,7 +157,9 @@ def run():
         line = int(energies.searchsorted(16.0))
         center = threshold_case["lowest_and_next_harmonic"][0]["energy"]
         assert abs(float(energies[line]) - center) < 1e-11
-        enclosure = isolate(h, actions, lift, vectors, energies, line)
+        # A finer dyadic grid stabilizes the strict ceiling across solvers.
+        # The enclosure still checks that all sparse dot products fit exactly.
+        enclosure = isolate(h, actions, lift, vectors, energies, line, dyadic_bits=45)
         beta = BASE[:, 0] @ (lift[ONE] @ vectors[:, line])
         certificate = certify(
             h,

@@ -97,12 +97,12 @@ def bank(probabilities, starts, rng):
     )
 
 
-def bin_interval(success, total):
+def bin_interval(success, total, *, tail=TAIL):
     if not total:
         return [0.0, 1.0]
-    low = beta_distribution.ppf(TAIL, success, total - success + 1) if success else 0.0
+    low = beta_distribution.ppf(tail, success, total - success + 1) if success else 0.0
     high = (
-        beta_distribution.isf(TAIL, success + 1, total - success)
+        beta_distribution.isf(tail, success + 1, total - success)
         if success < total
         else 1.0
     )
